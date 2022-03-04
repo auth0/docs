@@ -62,7 +62,7 @@ To make sure that an Access Token contains the correct scope, use the [Policy-Ba
 
 Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.
 
-In your Startup's `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
+In your Startup's `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton.
 
 ## Protect API Endpoints {{{ data-action=code data-code="ApiController.cs" }}}
 
@@ -112,7 +112,7 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
       },
       {
         "name": "audience",
-        "value": "YOUR_API_IDENTIFIER"
+        "value": "${apiIdentifier}"
       }
     ]
   }
