@@ -20,7 +20,7 @@ public class AccountController : Controller
       .Build();
 
     await HttpContext.ChallengeAsync(
-      Constants.AuthenticationScheme,
+      Auth0Constants.AuthenticationScheme,
       authenticationProperties
     );
   }
