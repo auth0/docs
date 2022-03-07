@@ -1544,11 +1544,6 @@ const redirects = [
     to: '/get-started/applications/application-grant-types',
   },
   {
-    from: [`/get-started/applications/how-to-rotate-application-secret`],
-    to: `/get-started/applications/rotate-client-secret`,
-
-  },
-  {
     from: [
       '/api-auth/config/using-the-auth0-dashboard',
       '/api-auth/config/using-the-management-api',
@@ -1576,6 +1571,7 @@ const redirects = [
       '/get-started/dashboard/rotate-client-secret',
       '/applications/rotate-client-secret',
       '/configure/applications/rotate-client-secret',
+      '/applications/how-to-rotate-application-secret'
     ],
     to: '/get-started/applications/rotate-client-secret',
   },
