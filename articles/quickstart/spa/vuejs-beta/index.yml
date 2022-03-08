@@ -2,7 +2,6 @@ title: Vue
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/vue.png
 logo: vuejs
-beta: true
 language:
   - Javascript
 author:
@@ -37,7 +36,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-vue-samples
-  branch: beta
+  branch: master
 requirements:
   - Vue 3+
 next_steps:
