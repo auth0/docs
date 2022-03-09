@@ -929,7 +929,16 @@ const redirects = [
   /* ARCHITECTURE SCENARIOS */
 
   {
-    from: ['/architecture-scenarios/application/mobile-api', '/architecture-scenarios/mobile-api'],
+    from: [
+      '/architecture-scenarios',
+    ],
+    to: '/get-started/architecture-scenarios',
+  },
+  {
+    from: [
+      '/architecture-scenarios/application/mobile-api', 
+      '/architecture-scenarios/mobile-api'
+    ],
     to: '/get-started/architecture-scenarios/mobile-api',
   },
   {
