@@ -134,7 +134,7 @@ You can also configure the SDK programmatically. Check the [README](https://gith
 :::
 
 ::: panel Checkpoint
-Now that you have configured Auth0.swift with the Client ID and Domain run your application to verify that it is not producing any errors related to the SDK.
+Now that you have configured Auth0.swift with the Client ID and Domain, run your application to verify that it is not producing any errors related to the SDK.
 :::
 
 ## Login
@@ -203,7 +203,7 @@ The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swif
 import JWTDecode
 ```
 
-Then, use the `decode(jwt:)` method to decode the ID Token and access its claims.
+Then, use the `decode(jwt:)` method to decode the ID Token and access the claims it contains.
 
 ```swift
 guard let jwt = try? decode(jwt: credentials.idToken),
