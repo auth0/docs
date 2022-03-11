@@ -204,7 +204,8 @@ const redirects = [
       '/quickstart/native/ios-swift/04-calling-apis',
       '/quickstart/native/ios-swift/05-authorization',
       '/quickstart/native/ios-swift/07-linking-accounts',
-      '/quickstart/native/ios-swift/08-touch-id-authentication'
+      '/quickstart/native/ios-swift/08-touch-id-authentication',
+      '/quickstart/native/swift-beta',
     ],
     to: '/quickstart/native/ios-swift',
   },
