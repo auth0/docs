@@ -15,7 +15,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD002 MD041 -->
 
 ## Configure Auth0
 
@@ -55,7 +55,7 @@ Back in Xcode, go to the **Info** tab of your application target settings. In th
 
 ## Install the SDK
 
-Add the [Auth0.swift](https://github.com/auth0/Auth0.swift/tree/beta) SDK into your project. The library will make requests to the Auth0 Authentication and Management APIs.
+Add the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK into your project. The library will make requests to the Auth0 Authentication and Management APIs.
 
 ### Swift Package Manager
 
@@ -69,7 +69,7 @@ In the **Search or Enter Package URL** search box enter this URL:
 https://github.com/auth0/Auth0.swift
 ```
 
-Then, select the **Exact Version** dependency rule and input `2.0.0-beta.0` as the version number. Press **Add Package**.
+Then, select the dependency rule and press **Add Package**..
 
 ::: note
 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
@@ -80,7 +80,7 @@ For further reference on SPM, check its [official documentation](https://develop
 Add the following line to your `Podfile`:
 
 ```ruby
-pod 'Auth0', '2.0.0-beta.0'
+pod 'Auth0', '~> 2.0'
 ```
 
 Then, run `pod install`.
@@ -94,7 +94,7 @@ For further reference on Cocoapods, check their [official documentation](https:/
 Add the following line to your `Cartfile`:
 
 ```text
-github "auth0/Auth0.swift" "2.0.0-beta.0"
+github "auth0/Auth0.swift" ~> 2.0
 ```
 
 Then, run `carthage bootstrap --use-xcframeworks`.
@@ -130,7 +130,7 @@ Create a `plist` file named `Auth0.plist` in your application bundle with the fo
 <% if(typeof hideDownloadSample === 'undefined' || hideDownloadSample !== true) { %>
 If you download the sample from the top of this page, these details are filled out for you.
 <% } %>
-You can also configure the SDK programmatically. Check the [README](https://github.com/auth0/Auth0.swift/tree/beta#configure-client-id-and-domain-programmatically) to learn more.
+You can also configure the SDK programmatically. Check the [README](https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically) to learn more.
 :::
 
 ::: panel Checkpoint
@@ -163,11 +163,11 @@ Auth0
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
 ::: note
-You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift/tree/beta#web-auth-login-ios--macos) to learn more.
+You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos) to learn more.
 :::
 
 ::: panel Checkpoint
-Verify that pressing the **Login** button shows an [alert box](https://github.com/auth0/Auth0.swift/tree/beta#sso-alert-box-ios--macos) asking for consent and that choosing **Continue** opens the Universal Login page in a Safari modal. Verify that you can log in or sign up using a username and password or a social provider.
+Verify that pressing the **Login** button shows an [alert box](https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos) asking for consent and that choosing **Continue** opens the Universal Login page in a Safari modal. Verify that you can log in or sign up using a username and password or a social provider.
 
 Once that's complete, verify that the Safari modal closes automatically.
 :::
@@ -214,7 +214,7 @@ print("Picture URL: \(picture)")
 ```
 
 ::: note
-You can get the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift/tree/beta#retrieve-user-information-ios--macos--tvos--watchos) to learn more.
+You can get the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
 :::
 
 ::: panel Checkpoint
@@ -225,6 +225,6 @@ Verify that you can access the `name`, `picture`, or any other [claim](https://a
 
 Check the SDK documentation to learn how to perform some common tasks, explore more advanced use cases, and discover all the available features:
 
-- [Common tasks](https://github.com/auth0/Auth0.swift/tree/beta#common-tasks)
+- [Common tasks](https://github.com/auth0/Auth0.swift#common-tasks)
 - [API documentation](https://auth0.github.io/Auth0.swift/)
-- [FAQ](https://github.com/auth0/Auth0.swift/blob/beta/FAQ.md)
+- [FAQ](https://github.com/auth0/Auth0.swift/blob/master/FAQ.md)

@@ -190,7 +190,23 @@ const redirects = [
     to: '/quickstart/native/ionic-angular',
   },
   {
-    from: ['/ios-tutorial', '/quickstart/native/ios', '/quickstart/native/ios-objc', '/native-platforms/ios-objc'],
+    from: [
+      '/ios-tutorial',
+      '/quickstart/native/ios',
+      '/quickstart/native/ios-objc',
+      '/native-platforms/ios-objc',
+      '/quickstart/native/ios-swift-facebook-login',
+      '/quickstart/native/ios-swift-siwa',
+      '/quickstart/native/ios-swift/00-login',
+      '/quickstart/native/ios-swift/01-embedded-login',
+      '/quickstart/native/ios-swift/02-custom-login-form',
+      '/quickstart/native/ios-swift/03-user-sessions',
+      '/quickstart/native/ios-swift/04-calling-apis',
+      '/quickstart/native/ios-swift/05-authorization',
+      '/quickstart/native/ios-swift/07-linking-accounts',
+      '/quickstart/native/ios-swift/08-touch-id-authentication',
+      '/quickstart/native/swift-beta',
+    ],
     to: '/quickstart/native/ios-swift',
   },
   {
@@ -936,7 +952,7 @@ const redirects = [
   },
   {
     from: [
-      '/architecture-scenarios/application/mobile-api', 
+      '/architecture-scenarios/application/mobile-api',
       '/architecture-scenarios/mobile-api'
     ],
     to: '/get-started/architecture-scenarios/mobile-api',
