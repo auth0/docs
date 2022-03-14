@@ -214,7 +214,7 @@ print("Picture URL: \(picture)")
 ```
 
 ::: note
-You can get the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information-ios--macos--tvos--watchos) to learn more.
+You can get the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
 :::
 
 ::: panel Checkpoint
