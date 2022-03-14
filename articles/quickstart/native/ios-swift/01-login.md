@@ -160,11 +160,11 @@ Auth0
     }
 ```
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
-
 ::: note
 You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos) to learn more.
 :::
+
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
 ::: panel Checkpoint
 Verify that pressing the **Login** button shows an [alert box](https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos) asking for consent and that choosing **Continue** opens the Universal Login page in a Safari modal. Verify that you can log in or sign up using a username and password or a social provider.
@@ -214,7 +214,7 @@ print("Picture URL: \(picture)")
 ```
 
 ::: note
-You can get the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
 :::
 
 ::: panel Checkpoint
