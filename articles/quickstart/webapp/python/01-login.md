@@ -55,7 +55,7 @@ APP_SECRET_KEY=
 
 ## Setup your application
 
-Now you're ready to writing your application. Create a `server.py` file in your project directory - this file will hold all of your application logic.
+Now you're ready to start writing your application. Create a `server.py` file in your project directory - this file will hold all of your application logic.
 
 Begin by importing all the libraries your application will be making use of:
 
