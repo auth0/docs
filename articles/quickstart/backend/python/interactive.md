@@ -7,6 +7,7 @@ files:
   - files/server
 github:
   - path: 00-Starter-Seed
+  - branch: pyvnext-rewrite
 ---
 
 <!-- markdownlint-disable MD041 MD002 MD025 -->
