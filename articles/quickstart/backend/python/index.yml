@@ -36,9 +36,8 @@ hidden_articles:
   - interactive
 requirements:
   - Python 3.6 and up
-  - Authlib 1.0.0
   - Flask 2.0.3
-  - Flask-Cors 3.0.10
+  - Authlib 1.0.0
 next_steps:
   - path: 01-authorization
     list:
