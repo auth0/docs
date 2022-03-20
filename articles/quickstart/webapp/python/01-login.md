@@ -90,18 +90,6 @@ app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 ```
 
-Although it isn't required, let's use a custom error handler to render more easily read exceptions for your users (and ourselves):
-
-```python
-# 👆 We're continuing from the steps above. Append this to your server.py file.
-
-@app.errorhandler(Exception)
-def handle_auth_error(ex):
-    response = jsonify(message=str(ex))
-    response.status_code = ex.code if isinstance(ex, HTTPException) else 500
-    return response
-```
-
 Finally, you can now configure Authlib to handle your application's authentication with Auth0:
 
 ```python
