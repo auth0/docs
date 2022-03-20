@@ -44,10 +44,9 @@ Next, create an `.env` file in your project directory. This file will hold your 
 
 AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_DOMAIN=${account.namespace}
-AUTH0_CLIENT_SECRET=${account.clientSecret}
-AUTH0_CALLBACK_URL=http://localhost:3000/callback
 AUTH0_AUDIENCE=
 APP_SECRET_KEY=
+
 ```
 
 - If you've created an API for your application, set it's identifier as the `AUTH0_AUDIENCE` value.
@@ -87,9 +86,8 @@ Now you can configure Flask for your application's needs:
 ```python
 # 👆 We're continuing from the steps above. Append this to your server.py file.
 
-app = Flask(__name__, static_url_path="/public", static_folder="./public")
+app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
-app.debug = True
 ```
 
 Although it isn't required, let's use a custom error handler to render more easily read exceptions for your users (and ourselves):
@@ -115,19 +113,13 @@ def fetch_token(name, request):
 
 oauth = OAuth(app)
 
-auth0 = oauth.register(
+oauth.register(
     "auth0",
     client_id=env.get("AUTH0_CLIENT_ID"),
-    client_secret=env.get("AUTH0_CLIENT_SECRET"),
-    api_base_url="https://" + env.get("AUTH0_DOMAIN"),
-    access_token_url="https://" + env.get("AUTH0_DOMAIN") + "/oauth/token",
-    authorize_url="https://" + env.get("AUTH0_DOMAIN") + "/authorize",
     client_kwargs={
         "scope": "openid profile email",
     },
-    server_metadata_url="https://"
-        + env.get("AUTH0_DOMAIN")
-        + "/.well-known/openid-configuration",
+    server_metadata_url="https://" + env.get("AUTH0_DOMAIN") + "/.well-known/openid-configuration",
     fetch_token=fetch_token,
 )
 ```
@@ -146,8 +138,8 @@ When visitors to your app visit the `/login` route, they'll be redirected to Aut
 
 @app.route("/login")
 def login():
-    return auth0.authorize_redirect(
-        redirect_uri=env.get("AUTH0_CALLBACK_URL"), audience=env.get("AUTH0_AUDIENCE")
+    return oauth.auth0.authorize_redirect(
+        redirect_uri=url_for("callback", _external=True), audience=env.get("AUTH0_AUDIENCE")
     )
 ```
 
@@ -157,18 +149,10 @@ After your users finish logging in with Auth0, they'll be returned to your appli
 ```python
 # 👆 We're continuing from the steps above. Append this to your server.py file.
 
-@app.route("/callback")
-def callback_handling():
-    auth0.authorize_access_token()
-    resp = auth0.get("userinfo")
-    userinfo = resp.json()
-
-    session["jwt_payload"] = userinfo
-    session["profile"] = {
-        "user_id": userinfo["sub"],
-        "name": userinfo["name"],
-        "picture": userinfo["picture"],
-    }
+@app.route("/callback", methods=["GET","POST"])
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
     return redirect("/")
 ```
 
@@ -182,7 +166,7 @@ As you might expect, this route handles signing a user out from your application
 def logout():
     session.clear()
     return redirect(
-        auth0.api_base_url
+        "https://" + env.get("AUTH0_DOMAIN")
         + "/v2/logout?"
         + urlencode(
             {
@@ -202,107 +186,44 @@ Last but not least, your home route will serve as a place to either render an au
 
 @app.route("/")
 def home():
-    if "profile" in session:
-        return render_template(
-            "dashboard.html",
-            userinfo=session["profile"],
-            userinfo_pretty=json.dumps(session["jwt_payload"], indent=4),
-        )
-
-    return render_template("home.html")
+    return render_template("home.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
 ```
 
-## Style your application
+### Server instantiation
+Finally, you'll need to add some small boilerplate code for Flask to actually run your app and listen for connections.
 
-### Creating the template files
+```python
+# 👆 We're continuing from the steps above. Append this to your server.py file.
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+```
+
+## Add templates
 
 Now we just need to create the simple template files used in the routes about (during `render_template()` calls).
 
 Create a new sub-directory in your project folder named `templates`, and create two files within: `dashboard.html` and `home.html`. You can paste the content from the two fields below into those files, respectfully:
 
 ```html
-# 📁 templates/dashboard.html -----
-
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- font awesome from BootstrapCDN -->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/public/app.css" rel="stylesheet">
-    </head>
-    <body class="home">
-        <div class="container">
-            <div class="login-page clearfix">
-                <div class="logged-in-box auth0-box logged-in">
-                    <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
-                    <img class="avatar" src="{{userinfo['picture']}}"/>
-                    <h2>Welcome {{userinfo['name']}}</h2>
-                    <pre>{{userinfo_pretty}}</pre>
-                    <a id="qsLogoutBtn" class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
-```
-
-```html
 # 📁 templates/home.html -----
 
 <html>
-    <head>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- font awesome from BootstrapCDN -->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-        <link href="/public/app.css" rel="stylesheet">
-    </head>
-    <body class="home">
-        <div class="container">
-            <div class="login-page clearfix">
-              <div class="login-box auth0-box before">
-                <img src="https://i.cloudup.com/StzWWrY34s.png" />
-                <h3>Auth0 Example</h3>
-                <p>Zero friction identity infrastructure, built for developers</p>
-                <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/login">Log In</a>
-              </div>
-            </div>
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Auth0 Example</title>
+  </head>
+  <body>
+    {% if session %}
+        <h1>Welcome {{session.userinfo.name}}!</h1>
+        <p><a href="/logout">Logout</a></p>
+        <div><pre>{{pretty}}</pre></div>
+    {% else %}
+        <h1>Welcome Guest</h1>
+        <p><a href="/login">Login</a></p>
+    {% endif %}
+  </body>
 </html>
-```
-
-Finally, create another folder from your project directory named `public`, and a file within it called `app.css`. Simply paste the following content into that:
-
-```css
-/* 📁 public/app.css ----- */
-
-body{font-family:"proxima-nova",sans-serif;text-align:center;font-size:300%;font-weight:100}
-pre{text-align:left}
-input[type=checkbox],input[type=radio]{position:absolute;opacity:0}
-input[type=checkbox] + label,input[type=radio] + label{display:inline-block}
-input[type=checkbox] + label:before,input[type=radio] + label:before{content:"";display:inline-block;vertical-align:-.2em;width:1em;height:1em;border:.15em solid #0074d9;border-radius:.2em;margin-right:.3em;background-color:#fff}
-input[type=radio] + label:before{border-radius:50%}
-input[type=radio]:checked + label:before,input[type=checkbox]:checked + label:before{background-color:#0074d9;box-shadow:inset 0 0 0 .15em #fff}
-input[type=radio]:focus + label:before,input[type=checkbox]:focus + label:before{outline:0}
-.btn{font-size:140%;text-transform:uppercase;letter-spacing:1px;border:0;background-color:#16214D;color:#fff}
-.btn:hover{background-color:#44C7F4}
-.btn:focus{outline:none!important}
-.btn.btn-lg{padding:20px 30px}
-.btn:disabled{background-color:#333;color:#666}
-h1,h2,h3{font-weight:100}
-#logo img{width:300px;margin-bottom:60px}
-.home-description{font-weight:100;margin:100px 0}
-h2{margin-top:30px;margin-bottom:40px;font-size:200%}
-label{font-size:100%;font-weight:300}
-.btn-next{margin-top:30px}
-.answer{width:70%;margin:auto;text-align:left;padding-left:10%;margin-bottom:20px}
-.login-page .login-box{padding:100px 0}
 ```
 
 ## Run your application
