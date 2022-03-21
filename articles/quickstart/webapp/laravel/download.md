@@ -18,12 +18,3 @@ php artisan migrate
 php artisan key:generate
 php artisan serve --port=3000
 ```
-
-You can also run it from a [Docker](https://www.docker.com) image with the following commands:
-
-```bash
-# In Linux / macOS
-sh exec.sh
-# In Windows' Powershell
-./exec.ps1
-```
