@@ -137,7 +137,7 @@ After your users finish logging in with Auth0, they'll be returned to your appli
 ```python
 # 👆 We're continuing from the steps above. Append this to your server.py file.
 
-@app.route("/callback", methods=["GET","POST"])
+@app.route("/callback", methods=["GET", "POST"])
 def callback():
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
