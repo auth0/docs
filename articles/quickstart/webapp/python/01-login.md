@@ -67,8 +67,7 @@ from urllib.parse import quote_plus, urlencode
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, jsonify, redirect, render_template, session, url_for
-from werkzeug.exceptions import HTTPException
+from flask import Flask, redirect, render_template, session, url_for
 ```
 
 Next, your application will need to load the configuration `.env` file you made in the previous step:
@@ -95,10 +94,6 @@ Finally, you can now configure Authlib to handle your application's authenticati
 ```python
 # 👆 We're continuing from the steps above. Append this to your server.py file.
 
-def fetch_token(name, request):
-    token = OAuth2Token.find(name=name, user=request.user)
-    return token.to_token()
-
 oauth = OAuth(app)
 
 oauth.register(
@@ -107,8 +102,7 @@ oauth.register(
     client_kwargs={
         "scope": "openid profile email",
     },
-    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration',
-    fetch_token=fetch_token,
+    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
 ```
 
