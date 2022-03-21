@@ -13,8 +13,8 @@ http://localhost:3000
 
 3) Make sure [Python](https://www.python.org/downloads/) is installed and execute the following commands in the sample's directory:
 ```bash
-pip install -r requirements.txt 
-python server.py
+pip install -r requirements.txt
+python3 server.py
 ```
 
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
