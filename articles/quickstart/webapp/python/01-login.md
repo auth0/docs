@@ -44,7 +44,6 @@ Next, create an `.env` file in your project directory. This file will hold your 
 
 AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_DOMAIN=${account.namespace}
-AUTH0_AUDIENCE=
 APP_SECRET_KEY=
 
 ```
