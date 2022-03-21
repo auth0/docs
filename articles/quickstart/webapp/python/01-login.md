@@ -48,7 +48,6 @@ APP_SECRET_KEY=
 
 ```
 
-- If you've created an API for your application, set it's identifier as the `AUTH0_AUDIENCE` value.
 - Generate a suitable string for `APP_SECRET_KEY` using `openssl rand -hex 32` from your shell.
 
 ## Setup your application
@@ -120,7 +119,7 @@ When visitors to your app visit the `/login` route, they'll be redirected to Aut
 @app.route("/login")
 def login():
     return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for("callback", _external=True), audience=env.get("AUTH0_AUDIENCE")
+        redirect_uri=url_for("callback", _external=True)
     )
 ```
 
