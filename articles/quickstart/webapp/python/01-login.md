@@ -43,6 +43,7 @@ Next, create an `.env` file in your project directory. This file will hold your 
 # 📁 .env -----
 
 AUTH0_CLIENT_ID=${account.clientId}
+AUTH0_CLIENT_SECRET=${account.clientSecret}
 AUTH0_DOMAIN=${account.namespace}
 APP_SECRET_KEY=
 
@@ -97,6 +98,7 @@ oauth = OAuth(app)
 oauth.register(
     "auth0",
     client_id=env.get("AUTH0_CLIENT_ID"),
+    client_id=env.get("AUTH0_CLIENT_SECRET"),
     client_kwargs={
         "scope": "openid profile email",
     },
