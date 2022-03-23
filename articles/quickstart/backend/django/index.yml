@@ -23,6 +23,8 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+hidden_articles:
+  - interactive
 seo_alias: django
 default_article: 01-authorization
 show_steps: true
