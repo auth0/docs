@@ -37,7 +37,7 @@ Let's install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) 
 From a shell opened to our project's root directory, let's use Composer to install the SDK in our application:
 
 ```sh
-composer require auth0/login:dev-main
+composer require auth0/login
 ```
 
 ## Configure the SDK
