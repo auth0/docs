@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to a Python web Application built with the Django framework and Authlib OAuth library.
+description: This tutorial demonstrates how to add user login to a Python web application built with the Django framework and Authlib OAuth library.
 budicon: 448
 contentType: tutorial
 useCase: quickstart
@@ -20,7 +20,7 @@ github:
 
 ## Create application
 
-For this guide demonstrate how to integrate Auth0 with a Python application using the [Django framework](https://www.djangoproject.com/) and [Authlib](https://authlib.org/). Let's start by ensuring Django is installed on your system. From your shell, run the following command:
+For this guide we demonstrate how to integrate Auth0 with a Python application using the [Django framework](https://www.djangoproject.com/) and [Authlib](https://authlib.org/). Let's start by ensuring Django is installed on your system. From your shell, run the following command:
 
 ```sh
 pip install django~=4.0
@@ -251,11 +251,11 @@ Create a new sub-directory within the `webappexample` folder named `templates`, 
   <body>
     {% if session %}
     <h1>Welcome {{session.userinfo.name}}!</h1>
-    <p><a href="{% url 'logout' %}" id="qsLogoutBtn">Logout</a></p>
+    <p><a href="{% url 'logout' %}">Logout</a></p>
     <div><pre>{{pretty}}</pre></div>
     {% else %}
-    <h1 id="profileDropDown">Welcome Guest</h1>
-    <p><a href="{% url 'login' %}" id="qsLoginBtn">Login</a></p>
+    <h1>Welcome Guest</h1>
+    <p><a href="{% url 'login' %}">Login</a></p>
     {% endif %}
   </body>
 </html>
