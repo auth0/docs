@@ -53,7 +53,7 @@ Make sure that the [application type](https://auth0.com/docs/configure/applicati
 
 Back in Xcode, go to the **Info** tab of your application target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
 
-This registers your Bundle Identifer as a custom scheme, so the callback and logout URLs can reach your application.
+This registers your Bundle Identifer as a custom URL scheme, so the callback and logout URLs can reach your application.
 
 ## Install the SDK
 
