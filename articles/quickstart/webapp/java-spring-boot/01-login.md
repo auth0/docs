@@ -36,7 +36,7 @@ If you're using Gradle, you can include these dependencies as shown below.
 ```groovy
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'org.springframework.boot' version '2.5.12'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
@@ -52,7 +52,7 @@ If you are using Maven:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.0.RELEASE</version>
+    <version>2.5.12</version>
     <relativePath/>
 </parent>
 

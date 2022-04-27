@@ -20,7 +20,7 @@ files:
 
 # Add Login to your ASP.NET MVC application
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET MVC application using the Auth0.AspNetCore.Authentication SDK. 
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET MVC application using the **Auth0.AspNetCore.Authentication** SDK. 
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/callback',
@@ -77,7 +77,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Display User Profile {{{ data-action=code data-code="AccountController.cs#23:33" }}}
 
-After the middleware has succesfuly retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available as `ClaimsIdentity`, which u can access by using the `User` property on the controller.
+After the middleware has successfully retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available as the `User.Claims` property on the controller.
 
 You can create a custom user profile page for displaying a user's name, email address, and profile image, by retrieving the corresponding information from the `User` and pass it to the view from inside your controller.
 
@@ -132,4 +132,4 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 :::
 
-:::_:
+::::
