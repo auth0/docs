@@ -4163,7 +4163,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
       '/customize/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/install-configure-ad-ldap-connector',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/install-configure-ad-ldap-connector',
   },
   {
     from: [
@@ -4172,7 +4172,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
       '/customize/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/configure-ad-ldap-connector-client-certificates',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
   },
   {
     from: [
@@ -4181,28 +4181,28 @@ const redirects = [
       '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
       '/customize/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/configure-ad-ldap-connector-with-kerberos',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
   },
   {
     from: [
       '/extensions/ad-ldap-connector/ad-ldap-connector-config-file-schema',
       '/customize/extensions/ad-ldap-connector/ad-ldap-connector-config-file-schema',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector-config-file-schema',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/ad-ldap-connector-config-file-schema',
   },
   {
     from: [
       '/extensions/ad-ldap-connector/import-export-ad-ldap-connector-configs',
       '/customize/extensions/ad-ldap-connector/import-export-ad-ldap-connector-configs',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/import-export-ad-ldap-connector-configs',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/import-export-ad-ldap-connector-configs',
   },
   {
     from: [
       '/extensions/ad-ldap-connector/map-ad-ldap-profile-attributes-to-auth0',
       '/customize/extensions/ad-ldap-connector/map-ad-ldap-profile-attributes-to-auth0',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/map-ad-ldap-profile-attributes-to-auth0',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/map-ad-ldap-profile-attributes-to-auth0',
   },
   {
     from: [
@@ -4211,7 +4211,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/ad-ldap-high-availability',
       '/customize/extensions/ad-ldap-connector/ad-ldap-high-availability',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-high-availability',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/ad-ldap-high-availability',
   },
   {
     from: [
@@ -4219,7 +4219,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/disable-credential-caching',
       '/customize/extensions/ad-ldap-connector/disable-credential-caching',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/disable-credential-caching',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/disable-credential-caching',
   },
   {
     from: [
@@ -4228,7 +4228,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/ad-ldap-connector-scom',
       '/customize/extensions/ad-ldap-connector/ad-ldap-connector-scom',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector-scom',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/ad-ldap-connector-scom',
   },
   {
     from: [
@@ -4237,7 +4237,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0',
       '/customize/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector-to-auth0',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/ad-ldap-connector-to-auth0',
   },
   {
     from: [
@@ -4246,7 +4246,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment',
       '/customize/extensions/ad-ldap-connector/ad-ldap-connector-test-environment',
     ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector-test-environment',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/ad-ldap-connector-test-environment',
   },
   {
     from: [
@@ -4255,7 +4255,7 @@ const redirects = [
       '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
       '/customize/extensions/ad-ldap-connector/update-ad-ldap-connectors',
     ],
-    to: '/customize/extensions/ad-ldap-connector/update-ad-ldap-connectors',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/active-directory-ldap/ad-ldap-connector/update-ad-ldap-connectors',
   },
   {
     from: ['/extensions/account-link', '/extensions/account-link-extension'],
