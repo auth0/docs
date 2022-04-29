@@ -11,11 +11,11 @@ github:
 
 # Add endpoint authorization to your PHP application
 
-Auth0 allows you to add token-based endpoint authorization to almost any application type quickly. This guide demonstrates how to integrate Auth0, add token-based authorization, and protect application routes using the Auth0 PHP SDK.
+Auth0 allows you to add token-based endpoint authorization to almost any application type. This guide demonstrates how to integrate Auth0, add token-based authorization, and protect application routes using the Auth0 PHP SDK.
 
 To use this quickstart, you’ll need to:
 - Sign up for a free Auth0 account or log in to Auth0.
-- Have a working PHP project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+- Have a working PHP project that you want to integrate with Auth0. Alternatively, you can view or download a sample application after logging in.
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
@@ -37,7 +37,7 @@ Similarly, you'll need to create a new Auth0 API or us an existing API that repr
 
 Auth0 provides a [PHP SDK](https://github.com/auth0/auth0-PHP) (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
 
-The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't already have libraries available, you can install reliable choices by running the following commands in your terminal:
+The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
@@ -82,28 +82,28 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Listen for bearer tokens {{{ data-action=code data-code="index.php#20:23" }}}
 
-Next we will expand your application to retrieve and process bearer tokens. Bearer tokens are access tokens provided to your API with requests from clients on a users behalf. You will use access tokens to approve or deny access to routes in your application. This is referred to as endpoint authorization.
+Next, expand your application to retrieve and process bearer tokens. Bearer tokens are access tokens provided to your API with requests from clients on a users behalf. Access tokens approve or deny access to routes in your application. This is referred to as endpoint authorization.
 
-The easiest way to retrieve access tokens from a request is using the PHP SDK's `getBearerToken()` method. This can be configured to fetch tokens from get parameters, post bodies, request headers, and other sources. In this case, we will process tokens passed from GET requests in the `token` parameter, or from the HTTP `Authorization` header.
+The easiest way to retrieve access tokens from a request is using the PHP SDK's `getBearerToken()` method. This can be configured to fetch tokens from GET parameters, POST bodies, request headers, and other sources. In this case, the PHP SDK processes tokens passed from GET requests in the `token` parameter, or from the HTTP `Authorization` header.
 
 ## Setup routing {{{ data-action=code data-code="router.php" }}}
 
-Now install a routing library, to help direct incoming requests to your application. This isn't a required step, but simplifies our application structure for the purposes of this quickstart.
+Now, install a routing library to help direct incoming requests to your application. This isn't a required step, but simplifies our application structure for the purposes of this quickstart.
 
 ```bash
 composer require steampixel/simple-php-router
 ```
 
-Create a new file in your application called `router.php` to define our routes, and copy in the code from the interactive panel to the right.
+Create a new file in your application called `router.php` to define our routes, and copy in the code from the interactive panel to the right under the <b>router.php</b> tab.
 
 ## Authorizing routes {{{ data-action=code data-code="router.php#21:31" }}}
 
-Now that you have configured your Auth0 Application and the Auth0 PHP SDK and are retrieving bearer tokens from requests, you need to set up endpoint authorization for your project. The `getBearerToken()` method you implemented above returns a `Token` class that includes all the details on the request's access, or lack thereof.
+Now that you have configured your Auth0 application, the Auth0 PHP SDK, and are retrieving bearer tokens from requests, you need to set up endpoint authorization for your project. The `getBearerToken()` method you implemented above returns a `Token` class that includes details on the request's access.
 
-Since the `getBearerToken()` method automatically validates and verifies the incoming request, you can determine the details of the access token by evaluating the method's response. When it's null, no valid token was provided. Otherwise inspect the contents of the response to learn more about the request.
+Since the `getBearerToken()` method automatically validates and verifies the incoming request, you can determine the details of the access token by evaluating the method's response. When the response is null, no valid token has been provided. Otherwise, inspect the contents of the response to learn more about the request.
 
-In the interactive panel to the right, you can see a check if the response was null or not to filter access to your `/api/private` route.
+In the interactive panel to the right, you can see a check if the response is null or not to filter access to your `/api/private` route.
 
 ## Authorizing with scopes {{{ data-action=code data-code="router.php#33:48" }}}
 
-In some cases you may want to filter access to a specific route based on the scopes an access token has. You can check the scopes the token was granted by evaluating the contents of the 'scope' property from the `getBearerToken()` method's response, as shown in the interactive panel to the right.
+In some cases, you may want to filter access to a specific route based on the scopes an access token has. You can check the scopes the token was granted by evaluating the contents of the 'scope' property from the `getBearerToken()` method's response as shown in the interactive panel to the right.
