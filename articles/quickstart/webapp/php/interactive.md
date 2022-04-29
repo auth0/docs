@@ -15,7 +15,7 @@ github:
 
 # Add Login to your PHP application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
+Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
 
 To use this quickstart, you’ll need to:
 - Sign up for a free Auth0 account or log in to Auth0.
@@ -61,7 +61,7 @@ If you are following along with our sample project, set this to http://localhost
 
 Auth0 provides a [PHP SDK](https://github.com/auth0/auth0-PHP) (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
 
-The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't already have libraries available, you can install reliable choices by running the following commands in your terminal:
+The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
@@ -76,7 +76,7 @@ composer require auth0/auth0-php
 
 ### Configure the Auth0 SDK
 
-Create a new file in your application called `index.php`, and copy in the code from the interactive panel to the right.
+Create a new file in your application called `index.php`, and copy in the code from the interactive panel to the right under the <b>index.php</b> tab.
 
 For the SDK to function properly, you must set the following properties in the Auth0 SDK during initialization:
 
