@@ -5,8 +5,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-    - name: Wait for Tests Results
-      - uses: convictional/trigger-workflow-and-wait@v1.6.1
+      - name: Wait for Tests Results
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
           owner: ${{ secrets.NOTIFY_ORG }},
           repo: ${{ secrets.NOTIFY_REPO }},
