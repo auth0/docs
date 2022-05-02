@@ -15,8 +15,8 @@ jobs:
       - name: Wait for Tests Results
         uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
-          owner: ${{ secrets.NOTIFY_ORG }},
-          repo: ${{ secrets.NOTIFY_REPO }},
+          owner: ${{ secrets.NOTIFY_ORG }}
+          repo: ${{ secrets.NOTIFY_REPO }}
           github_token: ${{ secrets.NOTIFY_PAT_TOKEN }}
           workflow_file_name: integration-tests.yml
           ref: master
