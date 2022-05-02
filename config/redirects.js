@@ -761,7 +761,7 @@ const redirects = [
       '/connections/passwordless/guides/sms-otp',
       '/connections/passwordless/sms-otp',
     ],
-    to: '/authenticate/passwordless/authentication-methods/sms-otp',
+    to: '/sarasu/sarasol',
   },
   {
     from: [
