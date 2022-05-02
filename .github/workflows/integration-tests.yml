@@ -20,7 +20,7 @@ jobs:
           github_token: ${{ secrets.NOTIFY_PAT_TOKEN }}
           workflow_file_name: integration-tests.yml
           ref: master
-          client_payload: '{ "inputs": { "docsBranch": "${{ steps.branch-name.outputs.current_branch }}" } }'
+          client_payload: '{ "docsBranch": "${{ steps.branch-name.outputs.current_branch }}" }'
           propagate_failure: true
           trigger_workflow: true
           wait_workflow: true
