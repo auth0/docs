@@ -18,7 +18,7 @@ jobs:
           owner: ${{ secrets.NOTIFY_ORG }},
           repo: ${{ secrets.NOTIFY_REPO }},
           github_token: ${{ secrets.NOTIFY_PAT_TOKEN }}
-          workflow_file_name: integration-tests.yml
+          workflow_file_name: integration-tests
           ref: master
           client_payload: '{ "docsBranch": "${{ steps.branch-name.outputs.current_branch }}" }'
           propagate_failure: true
