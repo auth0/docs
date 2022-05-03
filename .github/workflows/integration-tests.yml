@@ -8,6 +8,7 @@ concurrency:
 
 jobs:
   tests:
+    name: Trigger Tests
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Tests Results
