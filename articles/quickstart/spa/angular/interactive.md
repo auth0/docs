@@ -89,7 +89,7 @@ The `LoginButton` and `LogoutButton` can be rendered conditionally based on the 
 
 Run your application and click the logout button, verify that:
 
-- your React application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings
+- your Angular application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings
 - you are no longer logged in to your application
 
 :::
