@@ -21,7 +21,7 @@ files:
 ---
 
 # Add Authorization to an ASP.NET Core Web API application.
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
+Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
 
@@ -38,8 +38,7 @@ Every API in Auth0 is configured using an API Identifier that your application c
 
 ## Install dependencies
 
-The seed project already contains a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer`, which is needed in order to validate Access Tokens.
-However, if you are not using the seed project, add the package to your application by installing it using Nuget:
+Add a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer` Nuget package, which is needed in order to validate Access Tokens.
 
 ```text
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
@@ -47,10 +46,10 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configure the middleware {{{ data-action=code data-code="Startup.cs" }}}
 
-In your application's `Startup` file, register the authentication services:
+The middleware can be configured from your application's `Startup.cs` file. In the `ConfigureServices` method, register the authentication services:
 
 1. Make a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default schemes.  
-2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience. In some cases the access token will not have a `sub` claim which will lead to `User.Identity.Name` being `null`. If you want to map a different claim to `User.Identity.Name` then add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
+2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience. In some cases, the access token will not have a `sub` claim which leads to `User.Identity.Name` being `null`. If you want to map a different claim to `User.Identity.Name`, add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
 
 To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's `Configure` method.
 
@@ -68,7 +67,7 @@ In your Startup's `ConfigureServices` method, add a call to the `AddAuthorizatio
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
 
-To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
+To secure an endpoint, add the `[Authorize]` attribute to your controller action (or the entire controller if you want to protect all of its actions).
 
 To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter. 
 
