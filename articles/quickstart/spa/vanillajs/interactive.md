@@ -1,5 +1,5 @@
 ---
-title: Add Login to your JavaScript App
+title: Add login to your JavaScript App
 description: 'Auth0 allows you to add authentication to your JavaScript application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing JavaScript application using the Auth0 SPA SDK.'
 interactive: true
 github:
@@ -8,9 +8,9 @@ files:
   - files/app
 ---
 
-# Add Login to your JavaScript App
+# Add login to your JavaScript App
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single Page Application that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
+Auth0 allows you to quickly add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single Page Application that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
 To use this quickstart, you’ll need to:
 
@@ -38,21 +38,21 @@ Include this script tag on your HTML page:
 <script src="${auth0spajs_url}"></script>
 ```
 
-## Create the Auth0 Client {{{ data-action=code data-code="app.js#1:5" }}}
+## Create the Auth0 client {{{ data-action=code data-code="app.js#1:5" }}}
 
-To access the functions of the SDK so that the user can log in and log out of your application, create a new instance of the Auth0 client provided by the Auth0 SPA SDK, providing your Auth0 application details from when your Auth0 app was created earlier in this quickstart.
+Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and provide your Auth0 application details created earlier in this quickstart.
 
-The client will also take care of refreshing the authentication state on page load, so if a user has previously logged in, they should still be logged in once the page is refreshed.
+If a user has previously logged in, the client will take care of refreshing the authentication state on page load so they will still be logged in once the page is refreshed.
 
-## Add Login to Your Application {{{ data-action=code data-code="app.js#6:12" }}}
+## Add login to your application {{{ data-action=code data-code="app.js#6:12" }}}
 
 The Auth0 SPA SDK gives you tools to quickly implement user authentication in your JavaScript application. Executing `loginWithRedirect()` redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
 
-Create a button in your application that calls `loginWithRedirect()` when clicked.
+Create a button in your application to call `loginWithRedirect()` when selected.
 
 ::::checkpoint
 ::: checkpoint-default
-Once you have added a login button that calls `loginWithRedirect()`, verify that you can click the button and are redirected to Auth0 for authentication, and that you do not receive any errors in the console relating to Auth0.
+Once you have added a login button that calls `loginWithRedirect()`, select the button and verify that you are redirected to Auth0 for authentication, and that you do not receive any errors in the console relating to Auth0.
 :::
 
 :::checkpoint-failure
@@ -69,7 +69,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Handle the Callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
 
-To process the result from Auth0 when the browser is redirected back to your application, call the `handleRedirectCallback()` function on the Auth0 client.
+When the browser is redirected back to your application process the result by calling the `handleRedirectCallback()` function on the Auth0 client.
 
 This should be called somewhere on page load when a callback from Auth0 is detected. One way to do this is to only call `handleRedirectCallback()` when there are `code` and `state` query parameters detected.
 
@@ -77,7 +77,7 @@ If handling the callback was successful, the parameters should be removed from t
 
 ::::checkpoint
 ::: checkpoint-default
-Add the logic to handle the callback from Auth0 and click the login button again. Verify that Auth0 successfully redirects back to your application after authentication, and that the query parameters are removed from the URL.
+Add the logic to handle the callback from Auth0 and select the login button again. Verify that Auth0 successfully redirects back to your application after authentication, and that the query parameters are removed from the URL.
 :::
 
 ::: checkpoint-failure
@@ -90,13 +90,13 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to Your Application {{{ data-action=code data-code="app.js#21:27" }}}
+## Add logout to your application {{{ data-action=code data-code="app.js#21:27" }}}
 
 Now that you can log in to your application, you need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. Executing `logout()` redirects your users to your [Auth0 logout endpoint](/api/authentication?javascript#logout) and then immediately redirects them back to your application.
 
 ::::checkpoint
 ::: checkpoint-default
-Add a logout button to your app and call the `logout()` function when it is clicked. Verify that the application redirects to Auth0's logout endpoint, and then immediately back to your application.
+Add a logout button to your app and call the `logout()` function when it is selected. Verify that the application redirects to Auth0's logout endpoint, and then immediately back to your application.
 :::
 
 ::: checkpoint-failure
@@ -109,9 +109,9 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="app.js#29:43" }}}
+## Show user profile information {{{ data-action=code data-code="app.js#29:43" }}}
 
-The Auth0 SPA SDK helps you retrieve the [profile information](/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `getUser()` function exposed by the Auth0 client.
+The Auth0 SPA SDK helps you retrieve the [profile information](/users/concepts/overview-user-profile) (such as their name or profile picture) associated with logged-in users in whatever component you need in order to personalize the user interface. The profile information is available through the `getUser()` function exposed by the Auth0 client.
 
 The client also exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not. This can be used to show or hide UI elements, for example.
 
