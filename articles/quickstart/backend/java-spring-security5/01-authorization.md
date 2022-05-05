@@ -55,7 +55,7 @@ If you are using Gradle, you can add the required dependencies using the [Spring
 // build.gradle
 
 plugins {
-    id 'org.springframework.boot' version '2.5.5'
+    id 'org.springframework.boot' version '2.5.12'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
@@ -73,7 +73,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.5</version>
+    <version>2.5.12</version>
     <relativePath/>
 </parent>
 
@@ -83,7 +83,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-        <groupId>org.springframework.security</groupId>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
 </dependencies>

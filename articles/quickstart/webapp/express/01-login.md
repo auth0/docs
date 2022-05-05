@@ -53,7 +53,7 @@ The Express OpenID Connect library provides the `auth` router in order to attach
 - `authRequired` - Controls whether authentication is required for all routes
 - `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
-- `secret` - A long, random string
+- `secret` - A long, random string used to encrypt the session cookie
 - `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 - `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 

@@ -50,7 +50,9 @@ The SDK will read these values from the Node.js process environment and automati
 
 ### Add the dynamic API route
 
-Inside the `pages/api` directory, create the file `auth/[...auth0].js`. Import in that file the `handleAuth` method from the SDK, and export the result of calling it.
+Create an `auth` directory under the `pages/api` directory. Then, create a `[...auth0].js` file under the newly created `auth` directory. The path to your dynamic API route file should then be `pages/api/auth/[...auth0].js`.
+
+Import in that file the `handleAuth` method from the SDK, and export the result of calling it.
 
 ```javascript
 // pages/api/auth/[...auth0].js
@@ -59,13 +61,12 @@ import { handleAuth } from '@auth0/nextjs-auth0';
 export default handleAuth();
 ```
 
-This creates the following routes:
+Under the hood, `handleAuth()` creates the following routes:
 
 - `/api/auth/login`: The route used to perform login with Auth0.
 - `/api/auth/logout`: The route used to log the user out.
 - `/api/auth/callback`: The route Auth0 will redirect the user to after a successful login.
 - `/api/auth/me`: The route to fetch the user profile from.
-
 
 ### Add the `UserProvider` component
 
