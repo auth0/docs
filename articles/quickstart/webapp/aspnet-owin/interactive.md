@@ -27,7 +27,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Setup the Project {{{ data-action=code data-code="Web.config#1:7" }}}
+## Configure the Project {{{ data-action=code data-code="Web.config#1:7" }}}
 
 ### Install from Nuget
 
