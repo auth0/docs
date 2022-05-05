@@ -1,5 +1,5 @@
 ---
-title: Add Login to your Ruby on Rails App
+title: Add login to your Ruby on Rails app
 description: "Auth0 allows you to add authentication to your Ruby on Rails application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing Ruby on Rails application using the OmniAuth."
 interactive: true
 files:
@@ -10,7 +10,7 @@ files:
   - files/concern
 ---
 
-# Add Login to your Ruby on Rails App
+# Add login to your Ruby on Rails app
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/auth/auth0/callback',
@@ -19,7 +19,7 @@ files:
   showWebOriginInfo: true
 }) %>
 
-## Add Dependencies
+## Add dependencies
 
 This quickstart uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.
 
@@ -34,15 +34,15 @@ Once your gems are added, install the gems with `bundle install`.
 
 ## Configure the SDK {{{ data-action=code data-code="auth0.yml" }}}
 
-Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret. These values are presented to you when the Auth0 application in the first step of this quickstart was created.
+Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret. These values were presented to you when you created the Auth0 application in the first step of this quickstart.
 
-## Configure OmniAuth Middleware {{{ data-action=code data-code="auth0.rb" }}}
+## Configure OmniAuth middleware {{{ data-action=code data-code="auth0.rb" }}}
 
 Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware using the configuration file created in the previous step.
 
-Ensure that `callback_path` matches value given in the "Allowed Callback URLs" setting in your Auth0 client application.
+Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 client application.
 
-## Add an Auth0 Controller {{{ data-action=code data-code="auth0_controller.rb" }}}
+## Add an Auth0 controller {{{ data-action=code data-code="auth0_controller.rb" }}}
 
 Create an Auth0 controller for handling the authentication callback, as well as a `logout` action, and methods for constructing the logout URL.
 
@@ -50,9 +50,9 @@ Run the command: `rails generate controller auth0 callback failure logout --skip
 
 Inside the callback method, assign the hash of user information - returned as `request.env['omniauth.auth']` - to the active session.
 
-Logout is achieved by clearing out all the objects stored within the session, by calling the `reset_session` method within the `logout` action, and then redirecting to the Auth0 logout endpoint. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+Logout is achieved by clearing out all the objects stored within the session, by calling the `reset_session` method within the `logout` action, then redirecting to the Auth0 logout endpoint. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
-## Configure Routes {{{ data-action=code data-code="routes.rb" }}}
+## Configure routes {{{ data-action=code data-code="routes.rb" }}}
 
 Add these routes to your `./config/routes.rb` file.
 
@@ -70,7 +70,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to Your Application
+## Add login to your application
 
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
@@ -85,7 +85,7 @@ ${"<%= button_to 'Login', '/auth/auth0', method: :post %>"}
 
 ::::checkpoint
 ::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/auth0` endpoint when clicked. Observe that you are redirected to Auth0 to log in, and then back to your app after successfull authentication.
+Add a button to your application that redirects the user to the `/auth/auth0` endpoint when selected. Observe that you are redirected to Auth0 to log in, and then back to your app after successfull authentication.
 :::
 
 ::: checkpoint-failure
@@ -100,7 +100,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to Your Application
+## Add logout to your application
 
 Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). A user can be logged out by redirecting them to the `auth/logout` action, which in turn redirects them to the Auth0 logout endpoint.
 
@@ -115,7 +115,7 @@ ${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
 
 ::::checkpoint
 ::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/logout` endpoint when clicked. Verify that you are redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.
+Add a button to your application that redirects the user to the `/auth/logout` endpoint when selected. Verify that you are redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.
 :::
 
 ::: checkpoint-failure
@@ -129,7 +129,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="secured.rb" }}}
+## Show user profile information {{{ data-action=code data-code="secured.rb" }}}
 
 To display the user's profile, your application should provide a protected route. You can use a [Concern](https://guides.rubyonrails.org/getting_started.html#using-concerns) to control access to routes in a way that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
