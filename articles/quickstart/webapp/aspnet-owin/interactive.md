@@ -13,9 +13,9 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
+  - files/web.config
   - files/startup
   - files/account.controller
-  - files/web.config
 ---
 
 # Add Login to your ASP.NET Owin application
@@ -27,7 +27,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Install and Configure the Middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Setup the Project {{{ data-action=code data-code="Web.config#1:7" }}}
 
 ### Install from Nuget
 
@@ -42,7 +42,12 @@ Install-Package Microsoft.Owin.Security.Cookies
 There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to learn about how to mitigate these problems
 :::
 
-### Configure the middleware
+### Configure the credentials
+For the SDK to function properly, you must set the following properties in `Web.config`:
+- `auth0:Domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
+- `auth0:ClientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+
+## Configure the Middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
 
 To enable authentication in your ASP.NET Owin application, go to the `Configuration` method of your `Startup` class and configure the cookie and OIDC middleware.
 
