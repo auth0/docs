@@ -63,7 +63,7 @@ Create a new authorization requirement called `HasScopeRequirement`. This requir
 
 In your Startup's `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton.
 
-## Protect API Endpoints {{{ data-action=code data-code="ApiController.cs" }}}
+## Protect API endpoints {{{ data-action=code data-code="ApiController.cs" }}}
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
 
@@ -72,7 +72,7 @@ To secure an endpoint, add the `[Authorize]` attribute to your controller action
 To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter. 
 
 
-## Calling Your API 
+## Calling your API 
 
 ### Obtaining an Access Token
 
