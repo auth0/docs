@@ -1,14 +1,13 @@
 ---
-title: Add Login to your ASP.NET MVC application
-description: This tutorial demonstrates how to add user login to an ASP.NET Core application.
+title: Add Authorization to an ASP.NET Owin Web API application
+description: This tutorial demonstrates how to add authorization to an ASP.NET OWIN API using the standard JWT middleware.
 budicon: 448
 topics:
-  - quickstarts
-  - webapp
-  - aspnet-core
-  - login
+  - quickstart
+  - backend
+  - webapi-owin
 github:
-  path: Quickstart/Sample
+  path: Quickstart/01-Authorization
 contentType: tutorial
 useCase: quickstart
 interactive: true
