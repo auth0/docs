@@ -59,3 +59,19 @@ Pass the `checkJwt` and `requiredScopes` middlewares to the route you want to pr
 In this configuration, only Access Tokens with the `read:messages` scope can access the endpoint.
 
 <%= include('../_includes/_call_api') %>
+
+::::checkpoint
+:::checkpoint-default
+Now that you have configured your application, run your application to verify that:
+* `GET /api/public` is available for non-authenticated requests.
+* `GET /api/private` is available for authenticated requests.
+* `GET /api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope.
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* make sure the token is added as the `Authorization` header
+* does the token have the correct scopes? You can use [jwt.io](https://jwt.io/) to verify.
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
