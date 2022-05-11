@@ -12,9 +12,9 @@ useCase: quickstart
 interactive: true
 files:
   - files/json_web_token
+  - files/secured
   - files/public
   - files/private
-  - files/secured
 ---
 <!-- markdownlint-disable MD041 MD025 -->
 
@@ -60,13 +60,13 @@ In this example we define a `SCOPES` array for all protected routes, specifying 
 
 For the `/private-scoped` route, the scopes defined will be intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
 
-## Create the public endpoint {{{ data-action=code data-code="app/controllers/concerns/public_controller.rb" }}}
+## Create the public endpoint {{{ data-action=code data-code="app/controllers/public_controller.rb" }}}
 
 Create a controller to handle the public endpoint `/api/public`.
 
 The `/public` endpoint does not require to use the `Secured` concern as it is accessible to non-authenticated requests.
 
-## Create the private endpoints {{{ data-action=code data-code="app/controllers/concerns/private_controller.rb" }}}
+## Create the private endpoints {{{ data-action=code data-code="app/controllers/private_controller.rb" }}}
 
 Create a controller to handle the private endpoints: `/api/private` and `/api/private-scoped`.
 

@@ -1,5 +1,5 @@
 ---
-name: app/controllers/concerns/private_controller.rb
+name: app/controllers/private_controller.rb
 language: ruby
 ---
 
