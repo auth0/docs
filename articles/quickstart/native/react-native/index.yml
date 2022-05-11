@@ -22,6 +22,8 @@ contentType: tutorial
 useCase: quickstart
 seo_alias: react-native
 default_article: 00-login
+hidden_articles:
+  - interactive
 articles:
   - 00-login
 show_steps: true
