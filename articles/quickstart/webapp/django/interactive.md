@@ -120,3 +120,18 @@ python3 manage.py runserver 3000
 ```
 
 Your application should now be ready to open from your browser at [http://localhost:3000](http://localhost:3000).
+
+::::checkpoint
+:::checkpoint-default
+Your application should be running, when you visit [http://localhost:3000](http://localhost:3000) you should see a login button that takes you to Auth0 to login, then back to your application to see your profile information.
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* Make sure there are no errors in the console.
+* Make sure the domain and client ID imported correctly.
+* Make sure your tenant is correctly configured.
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
