@@ -54,7 +54,7 @@ The first step in adding authentication to your application is to provide a way 
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
-## Integrate Auth0 in Your Application
+## Integrate Auth0 in your application
 
 ### Configure Android
 
