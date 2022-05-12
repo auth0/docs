@@ -1,14 +1,14 @@
 ---
-title: Add Login to your ASP.NET MVC application
-description: This tutorial demonstrates how to add user login to an ASP.NET Core application.
+title: Add Login to your Go web application
+description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
 budicon: 448
 topics:
   - quickstarts
   - webapp
-  - aspnet-core
   - login
+  - golang
 github:
-  path: Quickstart/Sample
+  path: 01-Login
 contentType: tutorial
 useCase: quickstart
 interactive: true
