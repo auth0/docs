@@ -65,7 +65,7 @@ E.g. if your iOS bundle identifier was `com.company.myapp` and your Auth0 tenant
 com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
 ```
 
-## Configure Your App
+## Configure your app
 
 You need to register your bundle identifer as a custom URL scheme so the callback and logout URLs can reach your app.
 
