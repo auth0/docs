@@ -43,7 +43,7 @@ Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/doc
 The `Auth0Provider` component takes the following props:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
-- `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `clientId`: The Client ID value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
@@ -57,7 +57,7 @@ Add the `Auth0Provider` component in a way that wraps your `App` component, then
 Sorry about that. Here's a couple things to double check:
 * ensure the correct application is selected
 * did you save after entering your URLs?
-* make sure the domain and client ID imported correctly
+* make sure the domain and Client ID imported correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -76,7 +76,7 @@ Provide a way for your user to log in to your app by utilising the `buildAuthori
 Sorry about that. Here's a couple things to double check:
 
 * ensure that there are no errors in the browser's console window at the point of login
-* ensure the domain and client ID are correct according to your Auth0 application in the dashboard
+* ensure the domain and Client ID are correct according to your Auth0 application in the dashboard
 * if you are redirected to Auth0 and receive an error page, check the "technical details" section at the bottom for the reason for the failure
 :::
 ::::
