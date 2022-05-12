@@ -66,7 +66,7 @@ Such a custom resolver was previously published as part of the `Auth0.OpenIdConn
 
 The JWT middleware verifies that the access token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
+Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
 ## Protect API endpoints {{{ data-action=code data-code="ApiController.cs" }}}
 
