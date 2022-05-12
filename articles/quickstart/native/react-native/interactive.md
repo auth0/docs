@@ -26,7 +26,7 @@ Any settings you configure using this quickstart will automatically update for y
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
-## Install Dependencies 
+## Install dependencies 
 
 How to install the React Native Auth0 module.
 
