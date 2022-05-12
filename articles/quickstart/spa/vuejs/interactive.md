@@ -1,14 +1,23 @@
 ---
 title: Add Login to your Vue App
 description: "Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK."
+topics:
+  - quickstarts
+  - spa
+  - vuejs
+  - login
+github:
+  path: 01-Login
+sample_download_required_data:
+  - client
+contentType: tutorial
+useCase: quickstart
 interactive: true
 files:
   - files/index
   - files/login
   - files/logout
   - files/profile
-github:
-  path: Sample-01
 ---
 
 # Add Login to your Vue App
