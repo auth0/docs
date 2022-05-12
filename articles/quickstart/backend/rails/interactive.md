@@ -19,7 +19,7 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add authorization to a Ruby on Rails API
-This tutorial performs Access Token validation using the  [jwt](https://github.com/jwt/ruby-jwt) Gem. A Concern called `Secured` is used to mark endpoints which require authentication through an incoming Access Token.
+This tutorial performs access token validation using the  [jwt](https://github.com/jwt/ruby-jwt) Gem. A Concern called `Secured` is used to mark endpoints which require authentication through an incoming access token.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
@@ -42,19 +42,19 @@ bundle install
 
 ## Create a JsonWebToken class {{{ data-action=code data-code="lib/json_web_token.rb" }}}
 
-Create a class called `JsonWebToken` which decodes and verifies the incoming Access Token taken from the `Authorization` header of the request.
+Create a class called `JsonWebToken` which decodes and verifies the incoming access token taken from the `Authorization` header of the request.
 
-This will fetch the public key for your Auth0 tenant then use it to verify the signature of the Access Token.
+This will fetch the public key for your Auth0 tenant then use it to verify the signature of the access token.
 
 ## Define a Secured concern {{{ data-action=code data-code="app/controllers/concerns/secured.rb" }}}
 
-Create a Concern called `Secured` which looks for the Access Token in the `Authorization` header of an incoming request.
+Create a Concern called `Secured` which looks for the access token in the `Authorization` header of an incoming request.
 
 If the token is present, it will be passed to `JsonWebToken.verify` which will use the `jwt` Gem to verify the token's signature and validate the token's claims.
 
-In addition to verifiying that the Access Token included in the request is valid, the Concern also includes a mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+In addition to verifiying that the access token included in the request is valid, the Concern also includes a mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-To look for a particular `scope` in an Access Token, provide an array of required scopes and check if they are present in the payload of the token.
+To look for a particular `scope` in an access token, provide an array of required scopes and check if they are present in the payload of the token.
 
 In this example we define a `SCOPES` array for all protected routes, specifying the required scopes for each one.
 
@@ -72,7 +72,7 @@ Create a controller to handle the private endpoints: `/api/private` and `/api/pr
 
 `/api/private` is available for authenticated requests containing an Access Token with no additional scopes.
 
-`/api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope granted 
+`/api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope granted 
 
 The protected endpoints need to include the `Secured` concern. The scopes required for each one are defined in the code of the `Secured` concern.
 
