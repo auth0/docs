@@ -59,7 +59,7 @@ You do not need to declare a specific `intent-filter` for your activity, because
 We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
 :::
 
-## Configure your Application {{{ data-action=code data-code="strings.xml#2:3" }}}
+## Configure your application {{{ data-action=code data-code="strings.xml#2:3" }}}
 
 For the SDK to function properly, you must set the following properties in strings.xml:
 
