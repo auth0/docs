@@ -190,7 +190,7 @@ To learn how to embed functionality using a custom login form in your applicatio
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
 ::: note
-For more information on the `accessToken`, refer to [Access Token](/tokens/concepts/access-tokens).
+For more information on the `accessToken`, refer to our [access token documentation](/tokens/concepts/access-tokens).
 :::
 
 ## Log the user out {{{ data-action=code data-code="app.js#24:34" }}}
