@@ -2,6 +2,11 @@
 title: Spring Boot API
 description: Secure your API using Spring Security 5 and Auth0
 interactive: true
+alias:
+  - spring security
+  - spring
+topics:
+  - quickstart
 files:
   - files/index
 github:
