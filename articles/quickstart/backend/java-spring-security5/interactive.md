@@ -7,48 +7,43 @@ alias:
   - spring
 topics:
   - quickstart
+  - backend
+  - spring
 files:
-  - files/index
+  - files/application
+  - files/audience-validator
+  - files/security-config
+  - files/message
+  - files/api-controller
 github:
   path: Sample-01
 ---
 
 # Secure your API using Spring Security 5 and Auth0
 
-<%= include('../_includes/_api_auth_preamble') %>
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application using the [auth0-spring-security-api](https://github.com/auth0/auth0-spring-security-api) package.
+
+If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
+
+Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+
+Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-::: note
-This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to secure an API are similar, but some of the implementation details are different. Refer to the [Spring Security WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-WebFlux) to see how to integrate Auth0 with your Spring WebFlux API.
-:::
+## Define permissions
+<%= include('../_includes/_api_scopes_access_resources') %>
 
-
-<%= include('../_includes/_api_create_new') %>
-
-## Configure the Sample Project
+## Configure the Sample Project {{{ data-action=code data-code="application.yml#13:22" }}}
 
 The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
-
-```yaml
-auth0:
-  audience: ${apiIdentifier}
-spring:
-  security:
-    oauth2:
-        resourceserver:
-            jwt:
-                issuer-uri: https://${account.namespace}/
-```
 
 | Attribute | Description|
 | --- | --- |
 | `auth0.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
 | `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
 
-## Validate Access Tokens
-
-### Install dependencies
+## Install dependencies
 
 If you are using Gradle, you can add the required dependencies using the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/) and the [Dependency Management Plugin](https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/) to resolve dependency versions:
 
@@ -90,127 +85,21 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 </dependencies>
 ```
 
-### Configure the resource server
-
-To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method:
-
-```java
-// src/main/java/com/auth0/example/security/SecurityConfig.java
-
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.oauth2ResourceServer().jwt();
-    }
-}
-```
-
-### Validate the audience
+## Validate the audience {{{ data-action=code data-code="AudienceValidator.java#7:14" }}}
 
 In addition to validating the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface:
 
-```java
-// src/main/java/com/auth0/example/security/AudienceValidator.java
+## Configure the resource server {{{ data-action=code data-code="SecurityConfig.java#7:14" }}}
 
-import org.springframework.security.oauth2.core.OAuth2Error;
-import org.springframework.security.oauth2.core.OAuth2TokenValidator;
-import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
-import org.springframework.security.oauth2.jwt.Jwt;
+To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method
 
-class AudienceValidator implements OAuth2TokenValidator<Jwt> {
-    private final String audience;
+Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`
 
-    AudienceValidator(String audience) {
-        this.audience = audience;
-    }
-
-    public OAuth2TokenValidatorResult validate(Jwt jwt) {
-        OAuth2Error error = new OAuth2Error("invalid_token", "The required audience is missing", null);
-        
-        if (jwt.getAudience().contains(audience)) {
-            return OAuth2TokenValidatorResult.success();
-        }
-        return OAuth2TokenValidatorResult.failure(error);
-    }
-}
-```
-
-Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`:
-
-```java
-// src/main/java/com/auth0/example/security/SecurityConfig.java
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
-import org.springframework.security.oauth2.core.OAuth2TokenValidator;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtDecoders;
-import org.springframework.security.oauth2.jwt.JwtValidators;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
-
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Value("<%= "${auth0.audience}" %>")
-    private String audience;
-
-    @Value("<%= "${spring.security.oauth2.resourceserver.jwt.issuer-uri}" %>")
-    private String issuer;
-
-    @Bean
-    JwtDecoder jwtDecoder() {
-        NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder)
-                JwtDecoders.fromOidcIssuerLocation(issuer);
-
-        OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
-        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuer);
-        OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
-
-        jwtDecoder.setJwtValidator(withAudience);
-
-        return jwtDecoder;
-    }
-}
-```
-
-## Protect API Endpoints
+### Protect API Endpoints
 
 <%= include('../_includes/_api_endpoints') %>
 
 The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
-
-```java
-// src/main/java/com/auth0/example/security/SecurityConfig.java
-
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .mvcMatchers("/api/public").permitAll()
-                .mvcMatchers("/api/private").authenticated()
-                .mvcMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
-                .and().cors()
-                .and().oauth2ResourceServer().jwt();
-    }
-}
-```
 
 ::: note
 By default, Spring Security will create a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This is what enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
@@ -218,60 +107,13 @@ By default, Spring Security will create a `GrantedAuthority` for each scope in t
 If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) to learn how to customize the extracted authorities.
 :::
 
-### Create the API controller
+## Create the Domain Object {{{ data-action=code data-code="Message.java#13:22" }}}
 
 Create a new class named `Message`, which is the domain object the API will return:
 
-```java
-// src/main/java/com/auth0/example/model/Message.java
+## Create the API controller {{{ data-action=code data-code="APIController.java#13:22" }}}
 
-public class Message {
-    private final String message;
-
-    public Message(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-}
-```
-
-Create a new class named `APIController` to handle requests to the endpoints:
-
-```java
-// src/main/java/com/auth0/example/web/APIController.java
-
-import com.auth0.example.model.Message;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-@RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
-// For simplicity of this sample, allow all origins. Real applications should configure CORS for their use case.
-@CrossOrigin(origins = "*")
-public class APIController {
-
-    @GetMapping(value = "/public")
-    public Message publicEndpoint() {
-        return new Message("All good. You DO NOT need to be authenticated to call /api/public.");
-    }
-
-    @GetMapping(value = "/private")
-    public Message privateEndpoint() {
-        return new Message("All good. You can see this because you are Authenticated.");
-    }
-
-    @GetMapping(value = "/private-scoped")
-    public Message privateScopedEndpoint() {
-        return new Message("All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope");
-    }
-}
-```
+Create a new class named `APIController` to handle requests to the endpoints
 
 ## Run the Application
 
@@ -304,3 +146,5 @@ mvn.cmd spring-boot:run
 ```
 
 The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article.
+
+#TODO Add sections on Running and troubleshooting seen in previous 
