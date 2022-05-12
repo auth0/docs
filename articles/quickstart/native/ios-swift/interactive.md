@@ -200,7 +200,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 
 ## Access user profile information {{{ data-action=code data-code="User.swift#15:18" }}}
 
-The `Credentials` instance you obtained after logging in includes an [ID Token](/secure/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your app.
+The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your app.
 
 The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID Token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID Token and access the claims it contains.
 
