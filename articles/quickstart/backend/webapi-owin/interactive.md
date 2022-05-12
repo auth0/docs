@@ -18,7 +18,7 @@ files:
   - files/api-controller
 ---
 
-# Add Authorization to an ASP.NET Owin Web API application.
+# Add authorization to an ASP.NET Owin Web API application.
 Auth0 allows you to quickly add authorization to any kind of application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin Web API application using the `Microsoft.Owin.Security.Jwt` package.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
@@ -37,7 +37,7 @@ Every API in Auth0 is configured using an API Identifier that your application c
 
 ## Install dependencies
 
-To use Auth0 Access Tokens with ASP.NET Owin Web API you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
+To use Auth0 access tokens with ASP.NET Owin Web API you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
 
 ```bash
 Install-Package Microsoft.Owin.Security.Jwt
@@ -64,7 +64,7 @@ Such a custom resolver was previously published as part of the `Auth0.OpenIdConn
 
 ## Validate scopes {{{ data-action=code data-code="ScopeAuthorizeAttribute.cs" }}}
 
-The JWT middleware verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The JWT middleware verifies that the access token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
 Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
@@ -72,7 +72,7 @@ Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.
 
 <%= include('../_includes/_api_endpoints') %>
 
-The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint.
+The JWT middleware integrates with the standard ASP.NET authentication and authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint.
 
 To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter.
 
@@ -83,7 +83,7 @@ To ensure that a scope is present in order to call a particular API endpoint, yo
 Now that you have configured your application, run your application to verify that:
 * `GET /api/public` is available for non-authenticated requests.
 * `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope.
+* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
 
 :::
 
