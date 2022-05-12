@@ -33,7 +33,7 @@ To use this quickstart, you’ll need to:
 
 To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the app you are developing.
 
-### Configure an Auth0 Application
+### Configure an Auth0 application
 
 Use the interactive selector to create a new Auth0 application or select an existing application that represents the iOS or macOS app you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique Client ID that your app will use to call Auth0 APIs through the SDK.
 
