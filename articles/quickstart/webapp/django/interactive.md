@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to add user login to a Django applic
 topics:
   - quickstarts
   - webapp
-  - aspnet-core
+  - django
   - login
 github:
   path: Quickstart/Sample
