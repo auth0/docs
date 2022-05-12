@@ -115,7 +115,7 @@ Use `WebAuthProvider` to remove the cookie set by the browser at authentication 
 
 Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
-The logout is achieved by using the `WebAuthProvider` class. This call will open the Browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
+The logout is achieved by using the `WebAuthProvider` class. This call will open the browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
 
 ::::checkpoint
 
