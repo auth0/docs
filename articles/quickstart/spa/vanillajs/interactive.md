@@ -67,7 +67,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Handle the Callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
+## Handle the callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
 
 When the browser is redirected back to your application process the result by calling the `handleRedirectCallback()` function on the Auth0 client.
 
