@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// web/app/logout/logout.go
+
 package logout
 
 import (

@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// web/app/user/user.go
+
 package user
 
 import (

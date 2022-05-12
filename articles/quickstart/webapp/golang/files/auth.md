@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// platform/authenticator/auth.go
+
 package authenticator
 
 import (

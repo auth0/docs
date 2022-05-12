@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// main.go
+
 package main
 
 import (

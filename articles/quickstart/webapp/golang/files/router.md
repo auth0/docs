@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// platform/router/router.go
+
 package router
 
 import (

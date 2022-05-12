@@ -4,6 +4,8 @@ language: go
 ---
 
 ```go
+// platform/middleware/isAuthenticated.go
+
 package middleware
 
 import (
