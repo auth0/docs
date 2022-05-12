@@ -78,7 +78,7 @@ Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradl
 For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
 :::
 
-## Add Login to your App {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
+## Add login to your app {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
