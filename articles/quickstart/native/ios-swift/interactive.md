@@ -177,7 +177,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add Logout to Your App {{{ data-action=code data-code="ContentView.swift#35:46" }}}
+## Add logout to your app {{{ data-action=code data-code="ContentView.swift#35:46" }}}
 
 Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
