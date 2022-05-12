@@ -198,7 +198,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Access User Profile Information {{{ data-action=code data-code="User.swift#15:18" }}}
+## Access user profile information {{{ data-action=code data-code="User.swift#15:18" }}}
 
 The `Credentials` instance you obtained after logging in includes an [ID Token](/secure/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your app.
 
