@@ -11,7 +11,7 @@ github:
   path: 00-Login-Kt
 ---
 
-# Add Login to your Android App
+# Add login to your Android app
 
 <!-- markdownlint-disable MD002 MD041 -->
 
