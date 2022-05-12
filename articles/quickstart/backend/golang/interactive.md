@@ -17,7 +17,7 @@ files:
 
 <!-- markdownlint-disable MD041 MD025 -->
 
-# Add Authorization to a Go application.
+# Add authorization to a Go application.
 This guide demonstrates how to integrate Auth0 with any new or existing Go API application using the [go-jwt-middleware](https://github.com/auth0/go-jwt-middleware) package.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
@@ -68,29 +68,29 @@ AUTH0_DOMAIN='${account.namespace}'
 AUTH0_AUDIENCE='${apiIdentifier}'
 ```
 
-## Create a middleware to validate Access Tokens {{{ data-action=code data-code="middleware/jwt.go" }}}
+## Create a middleware to validate access tokens {{{ data-action=code data-code="middleware/jwt.go" }}}
 
-Access Token validation will be done in the `EnsureValidToken` middleware function which can be applied to any
+Access token validation will be done in the `EnsureValidToken` middleware function which can be applied to any
 endpoints you wish to protect.
 
 If the token is valid, the resources which are served by the endpoint can be released,
 otherwise a `401 Authorization` error will be returned.
 
-Setup the **go-jwt-middleware** middleware to verify Access Tokens from incoming requests.
+Setup the **go-jwt-middleware** middleware to verify access tokens from incoming requests.
 
 <%= include('../_includes/_api_jwks_description_no_link') %>
 
 In addition to this, include a mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Create a function `HasScope` to check and ensure the Access Token has the correct scope before returning a successful response.
+Create a function `HasScope` to check and ensure the access token has the correct scope before returning a successful response.
 
-## Protect API Endpoints {{{ data-action=code data-code="main.go" }}}
+## Protect API endpoints {{{ data-action=code data-code="main.go" }}}
 
 In this example, create an `/api/public` endpoint that does not use the `EnsureToken` middleware as it is accessible to non-authenticated requests.
 
-Create an `/api/private` endpoint that requires the `EnsureToken` middleware as it is only available to authenticated requests containing an Access Token with no additional scope.
+Create an `/api/private` endpoint that requires the `EnsureToken` middleware as it is only available to authenticated requests containing an access token with no additional scope.
 
-Create an `/api/private-scoped` endpoint that requires the `EnsureToken` middleware and `HasScope` as it is only available for authenticated requests containing an Access Token with the `read:messages` scope granted.
+Create an `/api/private-scoped` endpoint that requires the `EnsureToken` middleware and `HasScope` as it is only available for authenticated requests containing an access token with the `read:messages` scope granted.
 
 ::: note
 Only the `read:messages` scope is checked. You may want to extend the `HasScope` function or make it a standalone middleware that accepts multiple scopes to fit your use case.
@@ -103,7 +103,7 @@ Only the `read:messages` scope is checked. You may want to extend the `HasScope`
 Now that you have configured your application, run your application to verify that:
 * `GET /api/public` is available for non-authenticated requests.
 * `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope.
+* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
   :::
 
 :::checkpoint-failure
