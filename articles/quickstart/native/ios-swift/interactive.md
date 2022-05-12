@@ -41,7 +41,7 @@ Any settings you configure using this quickstart will automatically update for y
 
 If you would rather explore a complete configuration, you can view a sample app instead.
 
-### Configure Callback and Logour URLs
+### Configure callback and logout URLs
 
 The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your app. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie. If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
 
