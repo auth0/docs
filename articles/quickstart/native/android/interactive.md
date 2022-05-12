@@ -135,7 +135,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="MainActivity.kt#54:70" }}}
+## Show user profile information {{{ data-action=code data-code="MainActivity.kt#54:70" }}}
 
 Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
