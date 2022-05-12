@@ -109,7 +109,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 ## Configure the SDK
 
-The Auth0.swift SDK needs the **Client ID** and **Domain** of the Auth0 application to communicate with Auth0. You can find these details in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the value from the settings page.
+The Auth0.swift SDK needs the **Client ID** and **Domain** of the Auth0 application to communicate with Auth0. You can find these details in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the value from the settings page.
 
 <% if(typeof hideDashboardScreenshot === 'undefined' || hideDashboardScreenshot !== true) { %>
 ![App Dashboard](/media/articles/dashboard/client_settings.png)
