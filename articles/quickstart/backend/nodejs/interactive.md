@@ -44,7 +44,7 @@ npm install --save express-oauth2-jwt-bearer
 
 Configure `express-oauth2-jwt-bearer` with your Domain and API Identifier.
 
-The `checkJwt` middleware shown to the right checks if the user's Access Token included in the request is valid. If the token is not valid, the user gets a 401 Authorization error when they try to access the endpoints.
+The `checkJwt` middleware shown to the right checks if the user's access token included in the request is valid. If the token is not valid, the user gets a 401 Authorization error when they try to access the endpoints.
 
 The middleware doesn't check if the token has the sufficient scope to access the requested resources.
 
@@ -56,7 +56,7 @@ You can configure individual routes to look for a particular scope. To achieve t
 
 Pass the `checkJwt` and `requiredScopes` middlewares to the route you want to protect.
 
-In this configuration, only Access Tokens with the `read:messages` scope can access the endpoint.
+In this configuration, only access tokens with the `read:messages` scope can access the endpoint.
 
 <%= include('../_includes/_call_api') %>
 
@@ -65,7 +65,7 @@ In this configuration, only Access Tokens with the `read:messages` scope can acc
 Now that you have configured your application, run your application to verify that:
 * `GET /api/public` is available for non-authenticated requests.
 * `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope.
+* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
 :::
 
 :::checkpoint-failure
