@@ -49,7 +49,7 @@ implementation 'com.auth0.android:auth0:2.+'
 
 Ensure you target Java 8+ byte code for Android and Kotlin plugins respectively.
 
-## Add Manifest Placeholders {{{ data-action=code data-code="build.gradle#10:12" }}}
+## Add manifest placeholders {{{ data-action=code data-code="build.gradle#10:12" }}}
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
 
