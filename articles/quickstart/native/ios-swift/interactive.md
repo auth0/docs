@@ -149,7 +149,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add Login to Your App {{{ data-action=code data-code="ContentView.swift#21:33" }}}
+## Add login to your app {{{ data-action=code data-code="ContentView.swift#21:33" }}}
 
 Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
