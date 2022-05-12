@@ -20,7 +20,7 @@ files:
   - files/profile
 ---
 
-# Add Login to your Vue App
+# Add login to your Vue app
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.
 
@@ -81,9 +81,9 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to Your Application {{{ data-action=code data-code="login.js" }}}
+## Add login to your application {{{ data-action=code data-code="login.js" }}}
 
-Now that you have configured your Auth0 Application and the Auth0 Vue SDK, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect` function that is exposed on the return value of `useAuth0`, which you can access in your component's setup function. It will redirect users to the Auth0 Universal Login page. and, after a user successfully authenticates, redirect then back to the callback URL you set up earlier in this quickstart.
+Now that you have configured your Auth0 application and the Auth0 Vue SDK, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect` function that is exposed on the return value of `useAuth0`, which you can access in your component's setup function. It will redirect users to the Auth0 Universal Login page. and, after a user successfully authenticates, redirect then back to the callback URL you set up earlier in this quickstart.
 
 ### Using the Options API
 If you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through the `this` accessor.
@@ -93,10 +93,10 @@ If you are using the Options API, you can use the same `loginWithRedirect` metho
 
 :::checkpoint-default
 
-You should now be able to log in using a username and password.
+You should now be able to log in using Auth0 Universal Login.
 
 Click the login button and verify that:
-* your Vue Application redirects you to the Auth0 Universal Login page
+* your Vue application redirects you to the Auth0 Universal Login page
 * you can log in or sign up
 * Auth0 redirects you to your application using the value of the `redirectUri` you used to configure the plugin.
 
@@ -105,14 +105,14 @@ Click the login button and verify that:
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 * you configured the correct `redirectUri`
-* make sure the domain and client ID are set correctly
+* make sure the domain and Client ID are set correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
 :::
 ::::
 
-## Add Logout to your Application {{{ data-action=code data-code="logout.js" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.js" }}}
 
 Users who log in to your project will also need a way to log out. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then immediately redirect them to specified `returnTo` parameter.
 
@@ -146,7 +146,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="profile.js" }}}
+## Show user profile information {{{ data-action=code data-code="profile.js" }}}
 
 Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
