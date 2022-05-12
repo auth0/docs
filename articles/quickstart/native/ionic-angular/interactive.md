@@ -38,12 +38,12 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 ## Register and configure the authentication module {{{ data-action=code data-code="app.module.ts" }}}
 
-The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. This module should be registered with your application and be configured with your Auth0 domain and client ID.
+The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. This module should be registered with your application and be configured with your Auth0 domain and Client ID.
 
 The `AuthModule.forRoot` function takes the following configuration:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
-- `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `clientId`: The Client ID value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
@@ -56,7 +56,7 @@ Now that you have configured your app with the Auth0 Angular SDK, run your appli
 Sorry about that. Here's a couple things to double check:
 * ensure the correct application is selected
 * did you save after entering your URLs?
-* make sure the domain and client ID imported correctly
+* make sure the domain and Client ID imported correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -75,7 +75,7 @@ Provide a way for your user to log in to your app by utilising the `buildAuthori
 Sorry about that. Here's a couple things to double check:
 
 * ensure that there are no errors in the browser's console window at the point of login
-* ensure the domain and client ID are correct according to your Auth0 application in the dashboard
+* ensure the domain and Client ID are correct according to your Auth0 application in the dashboard
 * if you are redirected to Auth0 and receive an error page, check the "technical details" section at the bottom for the reason for the failure
 :::
 ::::
