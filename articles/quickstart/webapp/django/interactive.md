@@ -56,7 +56,7 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 AUTH0_DOMAIN=${account.namespace}
 ```
 
-## Create application
+## Create an application
 
 If you already have a Django application setup, you can skip to the next step. Otherwise, create your new application project. From your shell, run the following command, and switch to the new project folder:
 
