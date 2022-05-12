@@ -23,6 +23,8 @@ articles:
   - 02-using
   - 03-troubleshooting
 default_article: 01-authorization
+hidden_articles:
+  - "interactive"
 show_steps: true
 github:
   org: auth0-samples
