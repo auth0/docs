@@ -17,25 +17,33 @@ github:
 
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+## Configure Auth0 {{{ data-action=configure }}}
+
+To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
+
 ### Configure an application
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique Client ID that your application code will use to call Auth0 APIs through the SDK.
+Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart will automatically update for your application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
+Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
-<%= include('../../../_includes/_callback_url') %>
+### Configure Callback URLs
+
+A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
+If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
 :::
 
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+### Configure Logout URLs
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
 
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+::: note
+If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
+:::
 
 ## Install the Auth0 Android SDK {{{ data-action=code data-code="build.gradle#18" }}}
 
