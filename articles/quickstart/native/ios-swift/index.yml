@@ -26,6 +26,8 @@ requirements:
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 sdk:
   name: Auth0.swift
   url: https://github.com/auth0/Auth0.swift
