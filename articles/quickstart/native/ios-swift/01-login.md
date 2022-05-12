@@ -25,7 +25,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [Custom Domain](https://auth0.com/docs/brand-and-customize/custom-domains), use the value of your Custom Domain instead of the Auth0 Domain from the settings page.
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the Auth0 Domain from the settings page.
 
 #### iOS
 
@@ -46,18 +46,20 @@ com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
 ```
 
 ::: warning
-Make sure that the [application type](https://auth0.com/docs/configure/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application, [create one](https://auth0.com/docs/get-started/create-apps/native-apps) before continuing.
+Make sure that the [application type](/configure/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
 :::
 
-### Configure Custom URL Scheme
+### Configure a Custom URL Scheme
 
 Back in Xcode, go to the **Info** tab of your application target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
 
-This registers your Bundle Identifer as a custom URL scheme, so the callback and logout URLs can reach your application.
+<p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
+
+This registers your bundle identifer as a custom URL scheme, so the callback and logout URLs can reach your application.
 
 ## Install the SDK
 
-Add the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK into your project. The library will make requests to the Auth0 Authentication and Management APIs.
+Add the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK to your project. The library will make requests to the Auth0 Authentication and Management APIs.
 
 ### Swift Package Manager
 
@@ -107,7 +109,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 ## Configure the SDK
 
-The Auth0.swift SDK needs the **Client ID** and **Domain** of the Auth0 application to communicate with Auth0. You can find these details on the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings). If you are using a [Custom Domain](https://auth0.com/docs/brand-and-customize/custom-domains), use the value of your Custom Domain instead of the value from the settings page.
+The Auth0.swift SDK needs the **Client ID** and **Domain** of the Auth0 application to communicate with Auth0. You can find these details in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the value from the settings page.
 
 <% if(typeof hideDashboardScreenshot === 'undefined' || hideDashboardScreenshot !== true) { %>
 ![App Dashboard](/media/articles/dashboard/client_settings.png)
@@ -147,7 +149,7 @@ Import the `Auth0` module in the file where you want to present the login page.
 import Auth0
 ```
 
-Then, present the [Universal Login](https://auth0.com/docs/login/universal-login) page in the action of your **Login** button.
+Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
 ```swift
 Auth0
@@ -176,7 +178,7 @@ Once that's complete, verify that the Safari modal closes automatically.
 
 ## Logout
 
-Now that you can log in to your application, you need a way to [log out](https://auth0.com/docs/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
+Now that you can log in to your application, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
 ```swift
 Auth0
@@ -197,7 +199,7 @@ Verify that pressing the **Logout** button shows an alert box asking for consent
 
 ## Access User Profile Information
 
-The `Credentials` instance you obtained after logging in includes an [ID Token](https://auth0.com/docs/security/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your application.
+The `Credentials` instance you obtained after logging in includes an [ID Token](/secure/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your application.
 
 The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID Token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information.
 
@@ -220,7 +222,7 @@ You can retrieve the latest user information with the `userInfo(withAccessToken:
 :::
 
 ::: panel Checkpoint
-Verify that you can access the `name`, `picture`, or any other [claim](https://auth0.com/docs/security/tokens/id-tokens/id-token-structure) after you have logged in.
+Verify that you can access the `name`, `picture`, or any other [claim](/secure/tokens/id-tokens/id-token-structure) after you have logged in.
 :::
 
 ## What's Next?
