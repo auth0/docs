@@ -195,5 +195,5 @@ For more information on the `accessToken`, refer to [Access Token](/tokens/conce
 
 ## Log the user out {{{ data-action=code data-code="app.js#24:34" }}}
 
-To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the Access Token from the state. 
+To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the access token from the state. 
 
