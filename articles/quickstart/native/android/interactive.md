@@ -111,7 +111,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add Logout to your App {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
 
-Use `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
+Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 
 Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
