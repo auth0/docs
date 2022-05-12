@@ -109,7 +109,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your App {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
+## Add logout to your app {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
 
 Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 
