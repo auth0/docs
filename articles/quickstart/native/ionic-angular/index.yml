@@ -25,6 +25,8 @@ contentType: tutorial
 useCase: quickstart
 seo_alias: ionic-angular
 default_article: 01-login
+hidden_articles:
+  - interactive
 articles:
   - 01-login
 show_steps: true
