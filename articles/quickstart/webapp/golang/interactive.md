@@ -25,7 +25,7 @@ files:
   - files/user
 ---
 
-# Add Login to your Go application
+# Add login to your Go application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
 
@@ -108,9 +108,9 @@ Create a file called `callback.go` in the `web/app/callback` folder, and add a `
 
 This handler will take the `code` querystring, provided by Auth0, and exchange it for an Id Token and an Access Token.
 
-If the Id Token is valid, it will store the profile information (which gets build based on the claims in the Id Token) in the session along with the Access Token, this is done in order to be able to retrieve and use that information when needed.
+If the Id token is valid, it will store the profile information (which gets build based on the claims in the Id token) in the session along with the access token, this is done in order to be able to retrieve and use that information when needed.
 
-## Display User Information {{{ data-action=code data-code="user.go" }}}
+## Display user profile information {{{ data-action=code data-code="user.go" }}}
 
 Now that your users can log in, you will likely want to be able to retrieve and use the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. 
 
@@ -129,7 +129,7 @@ An example of such an HTML file could look like the example below, but you can r
 </div>
 ```
 
-## Add Logout to your application {{{ data-action=code data-code="logout.go" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.go" }}}
 
 To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
 
