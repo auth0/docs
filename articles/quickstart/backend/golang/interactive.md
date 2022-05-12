@@ -18,7 +18,7 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add Authorization to a Go application.
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin Web API application using the [go-jwt-middleware](https://github.com/auth0/go-jwt-middleware) package.
+This guide demonstrates how to integrate Auth0 with any new or existing Go API application using the [go-jwt-middleware](https://github.com/auth0/go-jwt-middleware) package.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
