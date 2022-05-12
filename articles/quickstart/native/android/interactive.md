@@ -61,7 +61,7 @@ We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme
 
 ## Configure your application {{{ data-action=code data-code="strings.xml#2:3" }}}
 
-For the SDK to function properly, you must set the following properties in strings.xml:
+For the SDK to function properly, you must set the following properties in `strings.xml`:
 
 - `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
 - `com_auth0_client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
