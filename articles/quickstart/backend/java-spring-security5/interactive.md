@@ -16,7 +16,7 @@ files:
   - files/message
   - files/api-controller
 github:
-  path: Sample-01
+  path: 01-Authorization-MVC
 ---
 
 # Secure your API using Spring Security 5 and Auth0
