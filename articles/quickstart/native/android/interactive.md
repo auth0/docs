@@ -29,7 +29,7 @@ Any settings you configure using this quickstart will automatically update for y
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
-### Configure Callback URLs
+### Configure callback URLs
 
 A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
 
