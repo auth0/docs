@@ -37,7 +37,7 @@ A callback URL is a URL in your application that you would like Auth0 to redirec
 If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
 :::
 
-### Configure Logout URLs
+### Configure logout URLs
 
 A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
 
