@@ -28,8 +28,6 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 <%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
-
 <%= include('../_includes/ionic/_configure_urls') %>
 
 <%= include('../../_includes/_auth0-angular-install.md') %>
