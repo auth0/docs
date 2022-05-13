@@ -3,8 +3,6 @@ name: APIController.java
 language: java
 ---
 ```java
-// src/main/java/com/auth0/example/web/APIController.java
-
 import com.auth0.example.model.Message;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;

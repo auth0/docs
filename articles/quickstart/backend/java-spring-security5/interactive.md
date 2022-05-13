@@ -34,16 +34,16 @@ Every API in Auth0 is configured using an API Identifier that your application c
 ## Define permissions
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-## Configure the Sample Project {{{ data-action=code data-code="application.yml#13:22" }}}
+## Configure the Sample Project {{{ data-action=code data-code="application.yml#1:8" }}}
 
-The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
+The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
 | Attribute | Description|
 | --- | --- |
 | `auth0.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
 | `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
 
-## Install dependencies
+## Install dependencies {{{ data-action=code data-code="application.yml#1:8" }}}
 
 If you are using Gradle, you can add the required dependencies using the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/) and the [Dependency Management Plugin](https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/) to resolve dependency versions:
 
@@ -85,15 +85,13 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 </dependencies>
 ```
 
-## Validate the audience {{{ data-action=code data-code="AudienceValidator.java#7:14" }}}
+## Validate the audience {{{ data-action=code data-code="AudienceValidator.java#13:20" }}}
 
-In addition to validating the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface:
+To validate the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface and override the `validate` method to verify whether the required `audience` is present.
 
-## Configure the resource server {{{ data-action=code data-code="SecurityConfig.java#7:14" }}}
+## Configure the resource server {{{ data-action=code data-code="SecurityConfig.java" }}}
 
 To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method
-
-Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`
 
 ### Protect API Endpoints
 
@@ -107,15 +105,19 @@ By default, Spring Security will create a `GrantedAuthority` for each scope in t
 If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) to learn how to customize the extracted authorities.
 :::
 
-## Create the Domain Object {{{ data-action=code data-code="Message.java#13:22" }}}
+### Configure JWT Validator
 
-Create a new class named `Message`, which is the domain object the API will return:
+Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`. The `auth0.audience` value from `application.yml` will be used to validate the `aud` claim. The `issuer` is verified using the `issuer-uri` value from the `application.yml`
 
-## Create the API controller {{{ data-action=code data-code="APIController.java#13:22" }}}
+## Create the Domain Object {{{ data-action=code data-code="Message.java#1:11" }}}
 
-Create a new class named `APIController` to handle requests to the endpoints
+Create a new class named `Message`. This will act as a simple domain object to return during the API calls.
 
-## Run the Application
+## Create the API controller {{{ data-action=code data-code="APIController.java" }}}
+
+Create a new class named `APIController` to handle requests to the endpoints. The `APIController` will have three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For the simplicity of this sample we will allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
+
+## Run the Application {{{ data-action=code data-code="APIController.java" }}}
 
 To build and run the sample project, execute the `bootRun` Gradle task.
 
@@ -145,6 +147,4 @@ Windows:
 mvn.cmd spring-boot:run
 ```
 
-The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article.
-
-#TODO Add sections on Running and troubleshooting seen in previous 
+The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article. Incase of unexpected responses from your API, use the [Troubleshooting](/quickstart/backend/java-spring-security5/03-troubleshooting) section to check your configuration.

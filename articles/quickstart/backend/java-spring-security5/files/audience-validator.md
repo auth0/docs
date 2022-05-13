@@ -3,8 +3,6 @@ name: AudienceValidator.java
 language: java
 ---
 ```java
-// src/main/java/com/auth0/example/security/AudienceValidator.java
-
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
