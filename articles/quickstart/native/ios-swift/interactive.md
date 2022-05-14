@@ -45,7 +45,7 @@ If you would rather explore a complete configuration, you can view a sample app 
 
 The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your app. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie. If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
 
-Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of your Auth0 tenant's domain.
+Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant's domain.
 
 #### iOS
 
@@ -59,7 +59,7 @@ YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callbac
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
-E.g. if your iOS bundle identifier was `com.company.myapp` and your Auth0 tenant's domain was `company.us.auth0.com`, then this value would be:
+For example, if your iOS bundle identifier was `com.company.myapp` and your Auth0 tenant's domain was `company.us.auth0.com`, then this value would be:
 
 ```text
 com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
@@ -125,8 +125,8 @@ For further reference on Carthage, check their [official documentation](https://
 
 The Auth0.swift SDK needs to be configured with your Auth0 **Domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
 
-- **Domain**: The domain of your Auth0 tenant. If you are using a [Custom Domain](/customize/custom-domains), you should set this to the value of your Custom Domain instead.
-- **Client ID**: The alphanumeric, unique ID of the Auth0 Application you set up earlier in this quickstart.
+- **Domain**: The domain of your Auth0 tenant. If you are using a [custom domain](/customize/custom-domains), you should set this to the value of your custom domain instead.
+- **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
 
 Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 Domain and Client ID values. 
 
