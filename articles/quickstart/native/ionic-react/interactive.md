@@ -28,7 +28,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 <%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../_includes/ionic/_configure_urls') %>
+<%= include('../_includes/ionic/_configure_urls_interactive') %>
 
 <%= include('../../_includes/_auth0-react-install.md') %>
 
