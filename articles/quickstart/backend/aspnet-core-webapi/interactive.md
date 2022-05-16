@@ -74,7 +74,7 @@ To secure endpoints that require specific scopes, we need to make sure that the 
 
 ## Calling your API 
 
-### Obtaining an Access Token
+### Obtaining an access token
 
 If you are calling the API from a Single-Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
 
@@ -140,7 +140,7 @@ In order to call the `/api/private-scoped` endpoint, ensure the permissions are 
 
 Now that you have configured your application, run your application to verify that:
 * `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an Access Token with the `read:messages` scope.
+* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
 
 :::
 
