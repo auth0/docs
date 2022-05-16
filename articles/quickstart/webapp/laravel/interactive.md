@@ -17,7 +17,7 @@ files:
   - files/web
 ---
 
-# Add Login to your Laravel application
+# Add login to your Laravel application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK. 
 
