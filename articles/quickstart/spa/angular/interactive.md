@@ -38,7 +38,7 @@ npm install @auth0/auth0-angular
 
 The SDK exposes several types that help integrate Auth0 in an Angular application idiomatically, including a module and an authentication service.
 
-## Register and Configure AuthModule {{{ data-action="code" data-code="app.module.ts#10:13" }}}
+## Register and configure AuthModule {{{ data-action="code" data-code="app.module.ts#10:13" }}}
 
 The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. To register this with your application:
 
@@ -51,9 +51,9 @@ We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
-## Add Login to Your Application {{{ data-action=code data-code="login-button.ts#11:13" }}}
+## Add login to your application {{{ data-action=code data-code="login-button.ts#11:13" }}}
 
-The Auth0 Angular SDK provides tools to quickly implement user authentication in an Angular application, such as creating a login button using the `loginWithRedirect()` method from the `AuthService` service class. Executing `loginWithRedirect()` redirects the users to the Auth0 Universal Login Page. Upon successful authentication, Auth0 will redirect the users back to the original application.
+The Auth0 Angular SDK provides tools to quickly implement user authentication in an Angular application, such as creating a login button using the `loginWithRedirect()` method from the `AuthService` service class. Executing `loginWithRedirect()` redirects the users to the Auth0 Universal Login page. Upon successful authentication, Auth0 will redirect the users back to the original application.
 
 ::::checkpoint
 
@@ -105,7 +105,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="user-profile.ts" }}}
+## Show user profile information {{{ data-action=code data-code="user-profile.ts" }}}
 
 Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. 
 
