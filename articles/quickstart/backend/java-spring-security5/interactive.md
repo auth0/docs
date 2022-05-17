@@ -34,7 +34,7 @@ Every API in Auth0 is configured using an API Identifier that your application c
 ## Define permissions
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-## Configure the Sample Project {{{ data-action=code data-code="application.yml#1:8" }}}
+## Configure the sample project {{{ data-action=code data-code="application.yml#1:8" }}}
 
 The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
@@ -93,7 +93,7 @@ To validate the JWT, you also need to validate that the JWT is intended for your
 
 To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method
 
-### Protect API Endpoints
+### Protect API endpoints
 
 <%= include('../_includes/_api_endpoints') %>
 
@@ -117,7 +117,7 @@ Create a new class named `Message`. This will act as a simple domain object to r
 
 Create a new class named `APIController` to handle requests to the endpoints. The `APIController` will have three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For the simplicity of this sample we will allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
 
-## Run the Application {{{ data-action=code data-code="APIController.java" }}}
+## Run the application {{{ data-action=code data-code="APIController.java" }}}
 
 To build and run the sample project, execute the `bootRun` Gradle task.
 
