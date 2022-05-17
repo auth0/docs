@@ -19,7 +19,7 @@ files:
 ---
 
 # Add authorization to a Laravel application.
-This guide demonstrates how to integrate Auth0 with any new or existing Laravel API application using the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0) package.
+This guide demonstrates how to integrate Auth0 with any new or existing Laravel API application using the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0).
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
@@ -50,7 +50,7 @@ Alternatively, you can download a sample project using the **Download Sample** b
 
 ## Install the SDK
 
-Let's install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) to protect our new Laravel application's routes. The SDK offers a range of middleware types we can use which will check for and verify any bearer tokens in the 'Authorization' header of an incoming HTTP request.
+Let's install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) to protect our new Laravel application's routes. The SDK offers a range of middleware types, which will check for and verify any bearer tokens in the 'Authorization' header of an incoming HTTP request.
 
 From a shell opened to our project's root directory, let's use Composer to install the SDK in our application:
 
@@ -60,7 +60,7 @@ composer require auth0/login
 
 ## Configure the SDK {{{ data-action=code data-code=".env" }}}
 
-Create the SDK's configuration file by opening a shell to the projects root directory,  and use Laravel's the `vendor:publish` command to import the configuration file into the application:
+Create the SDK's configuration file by opening a shell to the project's root directory,  and use Laravel's the `vendor:publish` command to import the configuration file into the application:
 
 ```sh
 php artisan vendor:publish --tag=auth0-config
@@ -78,11 +78,11 @@ Now let's connect our Laravel application with the SDK so we can begin working w
 
 ## Protecting routes {{{ data-action=code data-code="routes/web.php" }}}
 
-We'll use the SDK's middleware to automatically protect routes using bearer tokens. For this type of application there are different types of middleware available for us to use. 
+We'll use the SDK's middleware to automatically protect routes using bearer tokens. For this type of application there are different types of middleware available: 
 
-- `auth0.authenticate.optional`: This middleware will resolve an available bearer token when provided (allowing you to access the token's properties through the `Auth::user()` command) but won't block requests without a token either, allowing you to treat tokenless requests as "guest" requests.
-- `auth0.authenticate`: This middleware will reject requests from end users that do not contain a valid access token.
-- `auth0.authenticate:{scope}`: This middleware will reject requests from end users that aren't passing a valid access token, or to those that pass an access token that does not contain the configured scope, `read:messages` in our example.
+- `auth0.authenticate.optional`: This middleware will resolve an available bearer token when provided (allowing you to access the token's properties through the `Auth::user()` command) but won't block requests without a token, allowing you to treat tokenless requests as "guest" requests.
+- `auth0.authenticate`: This middleware will reject requests that do not contain a valid access token.
+- `auth0.authenticate:{scope}`: This middleware will reject requests that don't contain a valid access token, or those that contain an access token that does not contain the configured scope, `read:messages` in our example.
 
 Edit the `routes/web.php` file, and add the corresponding routes to that file.
 
@@ -93,10 +93,6 @@ We've installed Laravel and the SDK, configured our application, and set up some
 ```sh
 php artisan serve --port=3010
 ```
-
-We're all set our new application is live and waiting for us. Give it a try by loading [http://localhost:3010/api/public](http://localhost:3010/api/public) in your web browser.
-
-Move on to the next section, "using your API", to learn more about how to interface with these routes.
 
 ::::checkpoint
 :::checkpoint-default
