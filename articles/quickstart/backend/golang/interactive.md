@@ -104,7 +104,7 @@ Now that you have configured your application, run your application to verify th
 * `GET /api/public` is available for non-authenticated requests.
 * `GET /api/private` is available for authenticated requests.
 * `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
-  :::
+:::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
@@ -113,3 +113,4 @@ Sorry about that. Here's a couple things to double check:
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
+::::
