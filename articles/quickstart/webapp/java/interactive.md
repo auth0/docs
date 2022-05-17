@@ -18,7 +18,7 @@ github:
   path: 01-Login
 ---
 
-# Add Login to your Java Servlet Application
+# Add login to your Java Servlet application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Java Servlet application.
 
@@ -27,9 +27,9 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000/login'
 }) %>
 
-## Integrate Auth0 in your Application
+## Integrate Auth0 in your application
 
-### Setup Dependencies
+### Setup dependencies
 
 To integrate your Java application with Auth0, add the following dependencies:
 
@@ -62,7 +62,7 @@ If you are using Maven, add them to your `pom.xml`:
 </dependency>
 ```
 
-## Configure your Java App {{{ data-action=code data-code="web.xml#6:14" }}}
+## Configure your Java application {{{ data-action=code data-code="web.xml#6:14" }}}
 
 Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
 
@@ -73,9 +73,9 @@ This information will be used to configure the **auth0-java-mvc-commons** librar
 If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
 :::
 
-### Project Structure
+### Project structure
 
-The Login project sample has the following structure:
+The example project, which can be downloaded using the **Download Sample** button, has the following structure:
 
 ```text
 - src
@@ -116,7 +116,7 @@ To enable users to authenticate, create an instance of the `AuthenticationContro
 
 ## Login Redirection {{{ data-action=code data-code="LoginServlet.java#21:23" }}}
 
-To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
+To enable users to log in, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 application.
 
 ## Handling the tokens {{{ data-action=code data-code="CallbackServlet.java#16:37" }}}
 
@@ -128,17 +128,17 @@ The request holds the call context that the library previously set by generating
 It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
-## Display the Home Page {{{ data-action=code data-code="HomeServlet.java#4:14" }}}
+## Display the home page {{{ data-action=code data-code="HomeServlet.java#4:14" }}}
 
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeServlet` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code.
 
-## Handle Logout {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+## Handle logout {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
 
 To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
 
 First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
 
-## Run the Sample {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+## Run the sample {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
 
 To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
 
@@ -154,4 +154,4 @@ After a successful authentication, you'll be able to see the home page contents.
 
 ![Display Token](/media/articles/java/display-token.png)
 
-Log out by clicking the **Logout** button at the top right of the home page.
+Log out by clicking the **logout** button at the top right of the home page.
