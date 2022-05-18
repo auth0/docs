@@ -60,7 +60,7 @@
     "short": "Authorization grant (or workflow) specified in the OAuth 2.0 framework.",
   },
   "bad-actors": {
-    "title": "Bad Actors" ,
+    "title": "Bad Actors",
     "definition": "Also known as threat actors. An entity (a person or group) that poses a threat to the business or environment with the intention to cause harm. Harm can constitute physical or cyber damages, from breaking into a data center to hacking into systems with stolen credentials.",
     "short": "An entity (a person or group) that poses a threat to the business or environment with the intention to cause harm.",
   },
