@@ -105,7 +105,7 @@
     "short": "An attribute packaged in a security token which represents a claim that the provider of the token is making about an entity."
   },
   "client-id": {
-    "title": "Client ID" ,
+    "title": "Client ID",
     "definition": "Identification value assigned to your application after registration. This value is used in conjunction with other third-party services and can be found in Auth0 Dashboard > Application Settings.",
     "short": "Identification value given to your registered resource from Auth0.",
   },
@@ -130,7 +130,7 @@
     "short": "The relationship between Auth0 and the sources of users for your applications."
   },
   "custom-domain": {
-    "title": "Custom Domain" ,
+    "title": "Custom Domain",
     "definition": "A third-party domain with a specialized, or vanity, name. Also known as a CNAME.",
     "short": "A third-party domain with a specialized, or vanity, name.",
   },
@@ -175,7 +175,6 @@
     "definition": "Auth0’s SaaS product gives individual users access to specific objects or resources within your application.",
     "short": "A product allowing individual users access to specific objects or resources.",
   },
-
   "flow": {
     "title": "Flow",
     "definition": "Processes that can be extended using Actions. Each Flow is made up of one or more Triggers and represents the logical pipeline through which information moves during a single point in the Auth0 journey.",
@@ -207,7 +206,7 @@
     "short": "The standard ID Token format and often Access Token format used to represent claims securely between two parties."
   },
   "localization": {
-    "title": "Localization" ,
+    "title": "Localization",
     "definition": "Ability to render the New Universal Login experience into a supported languages.",
     "short": "Ability to render NUL into a supported language.",
   },
@@ -218,12 +217,12 @@
     "short": "Auth0's UI widget for authenticating users."
   },
   "management-api": {
-    "title": "Management API" ,
+    "title": "Management API",
     "definition": "A product to allow customers to manage Auth0 services and perform administrative tasks programatically.",
     "short": "A product to allow customers to perform administrative tasks. ",
   },
   "metadata": {
-    "title": "Metadata" ,
+    "title": "Metadata",
     "definition": "Information users can update, such as preferences or profile settings. Metadata is added to ID tokens and can be stored in user profiles.",
     "short": "User information stored in user profiles.",
   },
@@ -243,7 +242,7 @@
     "short": "An arbitrary number issued once in an authentication protocol to detect and prevent replay attacks."
   },
   "oath2": {
-    "title": "OAuth 2.0" ,
+    "title": "OAuth 2.0",
     "definition": "An authorization framework that defines authorization protocols and workflows. OAuth 2.0 defines roles, authorization grants (or workflows), authorization requests and responses, and token handling.",
     "short": "An authorization framework that defines authorization protocols and workflows.",
   },
@@ -253,7 +252,7 @@
     "short": "An open standard for authentication that allows applications to verify users' identities without collecting and storing login information." 
   },
   "organizations": {
-    "title": "Organizations" ,
+    "title": "Organizations",
     "definition": "A product for B2B customers to categorize end-users and define specific roles, login experience, and access to resources.",
     "short": "A product to categorize end-users and define specific roles.",
 },  
@@ -338,7 +337,7 @@
     "short": "A difficult to sustain practice of manually provisioning a user from a local directory separately in a remote directory."
   },
   "signing-algorithm": {
-    "title": "Signing Algorithm" ,
+    "title": "Signing Algorithm",
     "definition": "A hashing algorithm used to digitally sign tokens to ensure the token has not been tampered with by bad actors.",
     "short": "An algorithm used to digitally sign tokens to ensure the token has not been tampered with.",
   },
@@ -383,7 +382,7 @@
    "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to verify a user's identity."
  },
  "ws-fed": {
-  "title": "Web Service Federation (WS-Fed)" ,
+  "title": "Web Service Federation (WS-Fed)",
   "definition": "A protocol for managing user identities between systems, domains, and identity providers with established trust using WS-Trust. This protocol is mainly used for Microsoft products and defines policies on how to share federation metadata. ",
   "short": "A protocol for managing user identities across domains.",
  }
