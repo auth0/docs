@@ -35,8 +35,8 @@
     "short": "A unique identifier, <b>aud</b> in a token, for an application (ID Token) or an API (Access Token)."
   },
   "auth0-dashboard": {
-    "title": "Auth0 Dashboard" ,
-    "definition": "Auth0’s main product in which you can register your application or API, connect to a user store or another identity provider, and configure your Auth0 services.",
+    "title": "Auth0 Dashboard",
+    "definition": "Auth0’s primary administrator interface in which you can register your application or API, connect to a user store or another identity provider, and configure your Auth0 services.",
     "short": "Auth0's main product to configure your services.",
 }, 
   "authentication-server": {
@@ -70,8 +70,8 @@
     "short": "Product release stage during which the referemced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public)."
   },
   "block-unblock": {
-    "title": "Block/Unblock Users" ,
-    "definition": "Refers to features from Auth0's Attack Protection suite, Breached Password Detection, Brute-Force Protection, and Suspicious IP Throttling. Each service assesses login/sign-up trends and blocks IP addresses associated with suspicious activity.",
+    "title": "Block/Unblock Users",
+    "definition": "Refers to the features from Auth0's Attack Protection suite, Breached Password Detection, Brute-Force Protection, and Suspicious IP Throttling. Each service assesses login/sign-up trends and blocks IP addresses associated with suspicious activity.",
     "short": "Removing or restoring a requestors access to a resource.",
   },
   "bot-detection": {
