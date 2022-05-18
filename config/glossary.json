@@ -386,5 +386,5 @@
   "title": "Web Service Federation (WS-Fed)" ,
   "definition": "A protocol for managing user identities between systems, domains, and identity providers with established trust using WS-Trust. This protocol is mainly used for Microsoft products and defines policies on how to share federation metadata. ",
   "short": "A protocol for managing user identities across domains.",
-}
+ }
 }
