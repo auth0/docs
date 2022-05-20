@@ -21,7 +21,7 @@ github:
 
 # Add login to your Python Flask app
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Flask](https://flask.palletsprojects.com) application using the [Authlib](https://authlib.org/) SDK.
+Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Flask](https://flask.palletsprojects.com) application using the [Authlib](https://authlib.org/) SDK.
 
 <%= include('../../_includes/_configure_auth0_interactive', {
 callback: 'http://localhost:3000/callback',
@@ -30,7 +30,7 @@ returnTo: 'http://localhost:3000'
 
 ## Install dependencies
 
-Begin by creating a `requirements.txt` file in your project directory:
+Create a `requirements.txt` file in your project directory:
 
 ```python
 # 📁 requirements.txt -----
@@ -56,39 +56,39 @@ AUTH0_DOMAIN=${account.namespace}
 APP_SECRET_KEY=
 ```
 
-- Generate a suitable string for `APP_SECRET_KEY` using `openssl rand -hex 32` from your shell.
+- Generate a string for `APP_SECRET_KEY` using `openssl rand -hex 32` from your shell.
 
 ## Setup your application {{{ data-action=code data-code="server.py#1:27" }}}
 
-Now you're ready to start writing your application. Create a `server.py` file in your project directory - this file will hold all of your application logic.
+Next, set up your application. Create a `server.py` file in your project directory - this file will contain your application logic.
 
-Begin by importing all the libraries your application will be making use of.
+Import all the libraries your application needs.
 
-Then load the configuration `.env` file you made in the previous step.
+Load the configuration `.env` file you made in the previous step.
 
-Then configure Authlib to handle your application's authentication with Auth0. You can learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
+Configure Authlib to handle your application's authentication with Auth0. To learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
 
 ## Setup your routes {{{ data-action=code data-code="server.py#30:59" }}}
 
-For this demonstration, we'll be adding 4 routes for your application: your login, callback, logout and home routes.
+In this example, you will add four routes to the application: login, callback, logout, and home.
 
-When visitors to your app visit the `/login` route, they'll be redirected to Auth0 to begin the authentication flow.
+When visitors to your app visit the `/login` route, your application will route them to the Auth0 login page.
 
-After your users finish logging in with Auth0, they'll be returned to your application at the `/callback` route. This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
+After your users log in with Auth0, your application will route them to the `/callback` route. This route saves the session for the user and bypasses the need for them to login again when they return.
 
-As you might expect, the `/logout` route handles signing a user out from your application. It will clear the user's session in your app, and briefly redirect to Auth0's logout endpoint to ensure their session is completely clear, before they are returned to your home route.
+The `/logout` route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.
 
-Last but not least, your `/` home route will serve as a place to either render an authenticated user's details, or offer to allow visitors to sign in.
+Your `/ ` home route either renders an authenticated user's details or  allows visitors to sign in.
 
 ## Add templates {{{ data-action=code data-code="templates/home.html" }}}
 
-Now we just need to create the simple template file used in the home route (during `render_template()` calls).
+Next, create the template file used in the home route (during `render_template()` calls).
 
-Create a new sub-directory in your project folder named `templates`, and create `home.html`. You can paste the content from the right into that file.
+Create a new sub-directory in your project folder named `templates`, and create `home.html`  in the directory. Paste the content from the right into that file.
 
 ## Run your application
 
-You're ready to run your application! From your project directory, open a shell and use:
+To run your application, navigate to the root of your project directory and open a terminal. Run the following command:
 
 ```sh
 python3 server.py
@@ -96,14 +96,14 @@ python3 server.py
 
 ::::checkpoint
 :::checkpoint-default
-Your application should be running, when you visit [http://localhost:3000](http://localhost:3000) you should see a login button that takes you to Auth0 to login, then back to your application to see your profile information.
+Visit [http://localhost:3000](http://localhost:3000) to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* Make sure there are no errors in the console.
-* Make sure the domain and Client ID imported correctly.
-* Make sure your tenant is correctly configured.
+If your application did not start successfully:
+* Verify any errors in the console.
+* Verify the domain and Client ID imported correctly.
+* Verify your tenant configuration.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
