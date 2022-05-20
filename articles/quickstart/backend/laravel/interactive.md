@@ -18,27 +18,27 @@ files:
 
 ---
 
-# Add authorization to a Laravel application.
+# Add authorization to a Laravel application
 This guide demonstrates how to integrate Auth0 with any new or existing Laravel API application using the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0).
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
 Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
+Every API in Auth0 is configured using an API identifier that your application code will use as the audience to validate the access token.
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
 ## Define permissions
 <%= include('../_includes/_api_scopes_access_resources') %>
 
-## Create a Laravel Application
+## Create a Laravel application
 
 ::: note
 If you already have a Laravel 9 application prepared, you can skip this step.
 :::
 
-Let's begin by setting up a new Laravel application. Let's open a shell and run the following command — replacing `DIRECTORY_NAME` with a directory name of preference to create and install Laravel within. The directory cannot already exist.
+Let's begin by setting up a new Laravel application. Open a shell and run the following command — replacing `DIRECTORY_NAME` with a directory name of preference to create and install Laravel within. The directory cannot already exist.
 
 ```sh
 composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME dev-master
@@ -127,10 +127,10 @@ You can call the API from your application by passing an access token in the `Au
 
 ### Obtain an access token
 
-If you are calling the API from a Single-Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an access token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+If you are calling the API from a single-page application or a mobile/native application, after the authorization flow is completed, you will get an access token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application quickstarts which contain detailed instructions:
 
-* [Single-Page Applications](/quickstart/spa)
-* [Mobile / Native Application](/quickstart/native)
+* [Single-page applications](/quickstart/spa)
+* [Mobile / native application](/quickstart/native)
 
 If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
 
@@ -170,7 +170,7 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
 ```
 
 :::note
-Auth0 customers are billed based on the number of Machine to Machine access tokens issued by Auth0. Once your application gets an access token it should keep using it until it expires, to minimize the number of tokens requested.
+Auth0 customers are billed based on the number of machine-to-machine access tokens issued by Auth0. Once your application gets an access token it should keep using it until it expires, to minimize the number of tokens requested.
 :::
 
 For testing purposes, you can also get an access token from the **Test** tab in your [API settings](${manage_url}/#/apis).
