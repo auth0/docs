@@ -15,7 +15,7 @@ github:
 
 # Add Login to your PHP application
 
-Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
 
 To use this quickstart, you’ll need to:
 - Sign up for a free Auth0 account or log in to Auth0.
