@@ -42,7 +42,11 @@ python-dotenv ~= 0.19
 requests ~= 2.27
 ```
 
-You should now run `pip install -r requirements.txt` from your shell to make these dependencies available to your project.
+Run the following command from your shell to make these dependencies available:
+
+```sh
+pip install -r requirements.txt
+```
 
 ## Configure your `.env` file
 
@@ -62,6 +66,11 @@ If you already have a Django application setup, skip to the next step. For a new
 
 ```sh
 django-admin startproject webappexample
+```
+
+Change to the new project folder:
+
+```sh
 cd webappexample
 ```
 
