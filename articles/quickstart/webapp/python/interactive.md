@@ -41,7 +41,11 @@ authlib>=1.0
 requests>=2.27.1
 ```
 
-You should now run `pip install -r requirements.txt` from your shell to make these dependencies available to your project.
+Run the following command from your shell to enable these dependencies in your project:
+
+```sh
+pip install -r requirements.txt
+```
 
 ## Configure your `.env` file
 
