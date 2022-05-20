@@ -27,7 +27,7 @@ files:
 
 # Add login to your Go application
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
+Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/callback',
@@ -36,31 +36,33 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 ## Install dependencies {{{ data-action=code data-code="go.mod" }}}
 
-To integrate Auth0 in a Go application, you want to use the `coreos/go-oidc/v3` and `x/oauth2` packages.
+Create a `go.mod` file to list all the dependencies in your application. 
 
-Add a `go.mod` file to list all the dependencies to be used in your application. Apart from the OIDC and OAuth2 packages, we will also be adding `joho/godotenv`, `gin-gonic/gin` and `in-contrib/sessions`.
+To integrate Auth0 in a Go application, add the`coreos/go-oidc/v3` and `x/oauth2` packages. 
+
+In addition to the OIDC and OAuth2 packages, add`joho/godotenv`, `gin-gonic/gin` and `in-contrib/sessions`.
 
 ::: note
 This example uses `gin` for routing, but you can use whichever router you want.
 :::
 
-Once the dependencies are listed in the `go.mod` file, install them by using the following shell command:
+Save the `go.mod` file with the necessary dependencies and install them using the following command in your terminal:
 
 ```shell
 go mod download
 ```
 
 ## Configure the environment variables {{{ data-action=code data-code=".env" }}}
-For the SDK to function properly, you must set the following environment variables in `.env` within the root of your project directory:
+You must set the following environment variables in `.env` within the root of your project directory:
 
-- **AUTH0_DOMAIN**: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
-- **AUTH0_CLIENT_ID**: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- **AUTH0_CLIENT_SECRET**: The Secret of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
-- **AUTH0_CALLBACK_URL**: The URL used by Auth0 to redirect the user after succesfull authentication.
+- **AUTH0_DOMAIN**: The domain of your Auth0 tenant. Find your Auth0 Domain in the Auth0 Dashboard under your Application's Settings in the Domain field. For [custom domains](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
+- **AUTH0_CLIENT_ID**: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+- **AUTH0_CLIENT_SECRET**: The Secret of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
+- **AUTH0_CALLBACK_URL**: The URL used by Auth0 to redirect the user after successful authentication.
 
 ## Configure OAuth2 and OpenID Connect packages {{{ data-action=code data-code="auth.go" }}}
 
-In order to be able to use Auth0, the OAuth2 and OpenID Connect packages need to be configured. 
+Next, configure the OAuth2 and OpenID Connect packages.
 
 Create a file called `auth.go` in the `platform/authenticator` folder. In this package, create a method to 
 configure and return [OAuth2](https://godoc.org/golang.org/x/oauth2) and 
@@ -70,10 +72,10 @@ configure and return [OAuth2](https://godoc.org/golang.org/x/oauth2) and
 
 Create a file called `router.go` in the `platform/router` folder. In this package, create a method to configure
 and return our routes using [github.com/gin-gonic/gin](https://github.com/gin-gonic/gin). You will be passing an
-instance of `Authenticator` to the method, so it can be used within the `login` and `callback` handlers.
+instance of `Authenticator` to the method, for use with the `login` and `callback` handlers.
 
 ::: note
-The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-contrib/sessions) middleware to manage our cookie based sessions.
+The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-contrib/sessions) middleware to manage our cookie-based sessions.
 :::
 
 ## Serve your application {{{ data-action=code data-code="main.go" }}}
@@ -81,15 +83,15 @@ The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-con
 With both the authenticator and router configured, we can wire things up using our
 application's entry point. Inside `main.go`, create an instance of the authenticator and the router, which gets passed the authenticator instance.
 
-If you are using a `.env` file, like we are in this example, be sure to call `godotenv.Load()` at the very beginning of the `main()` function.
+If you are using a `.env` file, you must call `godotenv.Load()` at the very beginning of the `main()` function.
 
 ## Add login to your application {{{ data-action=code data-code="login.go" }}}
 
-In order for user to be able to authenticate themselves, we need to create a handler function to handle the `/login` route.
+For the user to authenticate themselves, we need to create a handler function to handle the `/login` route.
 
-Create a file called `login.go` in the `web/app/login` folder, and add a `Handler` function. Upon executing the handler, the user will be redirect to Auth0 where they can enter their credentials.
+Create a file called `login.go` in the `web/app/login` folder, and add a `Handler` function. Upon executing the handler, the user will be redirected to Auth0 where they can enter their credentials.
 
-In order to be able to call the `/login` route, add a link to `/login` in the `home.html` template located in the `web/template` directory.
+To call the `/login` route, add a link to `/login` in the `home.html` template located in the `web/template` directory.
 
 ```html
 <!-- web/template/home.html -->
@@ -102,13 +104,13 @@ In order to be able to call the `/login` route, add a link to `/login` in the `h
 
 ## Handle authentication callback {{{ data-action=code data-code="callback.go" }}}
 
-Once users have authenticated using Auth0's Universal Login Page, they'll return to the app at the `/callback` route.
+Once users have authenticated using Auth0's Universal Login Page, they will return to the app at the `/callback` route.
 
 Create a file called `callback.go` in the `web/app/callback` folder, and add a `Handler` function.
 
-This handler will take the `code` querystring, provided by Auth0, and exchange it for an Id Token and an Access Token.
+This handler will take the `code` query string, provided by Auth0, and exchange it for an ID token and an access token.
 
-If the Id token is valid, it will store the profile information (which gets build based on the claims in the Id token) in the session along with the access token, this is done in order to be able to retrieve and use that information when needed.
+If the ID token is valid, it will store the profile information and access token in the session. The profile information is based on the claims contained in the ID token. Session storage allows the application to access that information as needed.
 
 ## Display user profile information {{{ data-action=code data-code="user.go" }}}
 
@@ -157,11 +159,11 @@ You need to add the `js.cookie.js` file to the `web/static/js` folder to use it.
 
 ## Protect routes {{{ data-action=code data-code="isAuthenticated.go" }}}
 
-When implementing authentication, it makes sense to have certain routes only be accessible by authenticated users. When unauthenticated users try accessing said routes, they should be redirected accordingly.
+Recommended practice dictates certain routes are accessible only to authenticated users. When unauthenticated users try accessing protected routes, your application should redirect them.
 
-This is where middleware comes into play. We can use it to hook into the HTTP request and decide whether or not the request should be blocked from reaching the actual endpoint handler.
+In this case, you will implement middleware to hook into the HTTP request. The middleware function determines if the request should route to the endpoint handler or block the request.
 
-Create a file calles `isAuthenticated.go` in `platform/middleware` and add a function that will check if the user is authenticated or not based on the `profile` session key. If the user is not authenticated, the middleware will redirect the user to the root of the application.
+Create a file called `isAuthenticated.go` in `platform/middleware` and add a function that checks if the user is authenticated or not based on the `profile` session key. If the user is not authenticated, the middleware will redirect the user to the root of the application.
 
 With the middleware created, we can set it up for any route that needs authentication by adding it to the router.
 
