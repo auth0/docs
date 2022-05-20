@@ -26,13 +26,13 @@ files:
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (React) & Capacitor application using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
-<%= include('../_includes/ionic/_article_intro') %>
+<%= include('../\_includes/ionic/\_article_intro') %>
 
-<%= include('../_includes/ionic/_configure_urls_interactive') %>
+<%= include('../\_includes/ionic/\_configure_urls_interactive') %>
 
-<%= include('../../_includes/_auth0-react-install.md') %>
+<%= include('../../\_includes/\_auth0-react-install.md') %>
 
-<%= include('../_includes/ionic/_install_plugins') %>
+<%= include('../\_includes/ionic/\_install_plugins') %>
 
 ## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" }}}
 
@@ -44,7 +44,7 @@ The `Auth0Provider` component takes the following props:
 - `clientId`: The Client ID value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
-<%= include('../_includes/ionic/_note_storage') %>
+<%= include('../\_includes/ionic/\_note_storage') %>
 
 :::: checkpoint
 :::checkpoint-default
@@ -53,9 +53,10 @@ Add the `Auth0Provider` component in a way that wraps your `App` component, then
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* ensure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and Client ID imported correctly
+
+- ensure the correct application is selected
+- did you save after entering your URLs?
+- make sure the domain and Client ID imported correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -63,7 +64,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add login to your application {{{ data-action=code data-code="login-button.tsx" }}}
 
-<%= include('../_includes/ionic/_add_login_intro') %>
+<%= include('../\_includes/ionic/\_add_login_intro') %>
 
 ::::checkpoint
 ::: checkpoint-default
@@ -73,17 +74,17 @@ Provide a way for your user to log in to your app by utilising the `buildAuthori
 ::: checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 
-* ensure that there are no errors in the browser's console window at the point of login
-* ensure the domain and Client ID are correct according to your Auth0 application in the dashboard
-* if you are redirected to Auth0 and receive an error page, check the "technical details" section at the bottom for the reason for the failure
-:::
-::::
+- ensure that there are no errors in the browser's console window at the point of login
+- ensure the domain and Client ID are correct according to your Auth0 application in the dashboard
+- if you are redirected to Auth0 and receive an error page, check the "technical details" section at the bottom for the reason for the failure
+  :::
+  ::::
 
 ## Handle the login callback {{{ data-action=code data-code="app.tsx" }}}
 
-<%= include('../_includes/ionic/_handle_callback_intro') %>
+<%= include('../\_includes/ionic/\_handle_callback_intro') %>
 
-<%= include('../_includes/ionic/_note_custom_schemes') %>
+<%= include('../\_includes/ionic/\_note_custom_schemes') %>
 
 ::::checkpoint
 :::checkpoint-default
@@ -93,14 +94,14 @@ Add the `appUrlOpen` to your application's `App` component, and log in. Observe 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 
-* check that the custom URL scheme has been registered for your chosen platform. On iOS, this means [defining a custom URL scheme on iOS](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app), or adding an [intent filter with your custom scheme on Android](https://developer.android.com/training/app-links/deep-linking)
-* if the event fires but you're receiving an error, check the [logs in your Auth0 dashboard](https://manage.auth0.com/#/logs) for the reason for the error
-:::
-::::
+- check that the custom URL scheme has been registered for your chosen platform. On iOS, this means [defining a custom URL scheme on iOS](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app), or adding an [intent filter with your custom scheme on Android](https://developer.android.com/training/app-links/deep-linking)
+- if the event fires but you're receiving an error, check the [logs in your Auth0 dashboard](https://manage.auth0.com/#/logs) for the reason for the error
+  :::
+  ::::
 
 ## Add logout to your application {{{ data-action=code data-code="logout-button.tsx" }}}
 
-<%= include('../_includes/ionic/_add_logout_intro.md') %>
+<%= include('../\_includes/ionic/\_add_logout_intro.md') %>
 
 ::::checkpoint
 :::checkpoint-default
@@ -110,9 +111,9 @@ Provide a way for your users to log out of your application. Verify that you are
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 
-* check that the URL you provided to in the `returnTo` parameter is registered as an allowed callback URL in your Auth0 dashboard
-:::
-::::
+- check that the URL you provided to in the `returnTo` parameter is registered as an allowed callback URL in your Auth0 dashboard
+  :::
+  ::::
 
 ## Show the user profile {{{ data-action=code data-code="user-profile.tsx" }}}
 
@@ -128,7 +129,7 @@ Provide a way for your users to see their user profile details within the app, a
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 
-* check that you are only reading the user's profile when `isLoading` is `false`
-* check that `user` resolves to an object and is not `undefined`
-:::
-::::
+- check that you are only reading the user's profile when `isLoading` is `false`
+- check that `user` resolves to an object and is not `undefined`
+  :::
+  ::::
