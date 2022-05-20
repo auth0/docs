@@ -71,7 +71,7 @@
   },
   "block-unblock": {
     "title": "Block/Unblock Users",
-    "definition": "Refers to the features from Auth0's Attack Protection suite, Breached Password Detection, Brute-Force Protection, and Suspicious IP Throttling. Each service assesses login/sign-up trends and blocks IP addresses associated with suspicious activity.",
+    "definition": "Refers to the features from Auth0's Attack Protection suite: Breached Password Detection, Brute-Force Protection, and Suspicious IP Throttling. Each service assesses login/sign-up trends and blocks IP addresses associated with suspicious activity.",
     "short": "Removing or restoring a requestors access to a resource."
   },
   "bot-detection": {
