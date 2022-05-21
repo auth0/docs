@@ -87,7 +87,7 @@ In the **Search or Enter Package URL** search box enter this URL:
 https://github.com/auth0/Auth0.swift
 ```
 
-Then, select the dependency rule and press **Add Package**..
+Then, select the dependency rule and press **Add Package**.
 
 ::: note
 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
