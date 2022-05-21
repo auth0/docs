@@ -4,7 +4,7 @@ description: This guide demonstrates how to add authentication and gain access t
 interactive: true
 files:
   - files/Auth0
-  - files/ContentView
+  - files/MainView
   - files/ProfileView
   - files/User
 seo_alias: swift
