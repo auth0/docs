@@ -52,7 +52,7 @@ Alternatively, you can download a sample project using the **Download Sample** b
 
 Install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) to protect your new Laravel application's routes. The SDK offers a range of middleware types, which check for and verify any bearer tokens in the 'Authorization' header of an incoming HTTP request.
 
-In your project's root directory, use Composer to install the SDK in our application:
+In your project's root directory, use Composer to install the SDK in your application:
 
 ```sh
 composer require auth0/login
