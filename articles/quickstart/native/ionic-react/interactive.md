@@ -26,13 +26,13 @@ files:
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (React) & Capacitor application using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
-<%= include('../\_includes/ionic/\_article_intro') %>
+<%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../\_includes/ionic/\_configure_urls_interactive') %>
+<%= include('../_includes/ionic/_configure_urls_interactive') %>
 
-<%= include('../../\_includes/\_auth0-react-install.md') %>
+<%= include('../../_includes/_auth0-react-install.md') %>
 
-<%= include('../\_includes/ionic/\_install_plugins') %>
+<%= include('../_includes/ionic/_install_plugins') %>
 
 ## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" }}}
 
@@ -44,7 +44,7 @@ The `Auth0Provider` component takes the following props:
 - `clientId`: The Client ID value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
-<%= include('../\_includes/ionic/\_note_storage') %>
+<%= include('../_includes/ionic/_note_storage') %>
 
 :::: checkpoint
 :::checkpoint-default
@@ -64,7 +64,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add login to your application {{{ data-action=code data-code="login-button.tsx" }}}
 
-<%= include('../\_includes/ionic/\_add_login_intro') %>
+<%= include('../_includes/ionic/_add_login_intro') %>
 
 ::::checkpoint
 ::: checkpoint-default
@@ -82,9 +82,9 @@ Sorry about that. Here's a couple things to double check:
 
 ## Handle the login callback {{{ data-action=code data-code="app.tsx" }}}
 
-<%= include('../\_includes/ionic/\_handle_callback_intro') %>
+<%= include('../_includes/ionic/_handle_callback_intro') %>
 
-<%= include('../\_includes/ionic/\_note_custom_schemes') %>
+<%= include('../_includes/ionic/_note_custom_schemes') %>
 
 ::::checkpoint
 :::checkpoint-default
@@ -101,7 +101,7 @@ Sorry about that. Here's a couple things to double check:
 
 ## Add logout to your application {{{ data-action=code data-code="logout-button.tsx" }}}
 
-<%= include('../\_includes/ionic/\_add_logout_intro.md') %>
+<%= include('../_includes/ionic/_add_logout_intro.md') %>
 
 ::::checkpoint
 :::checkpoint-default
