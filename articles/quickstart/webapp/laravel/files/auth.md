@@ -4,8 +4,6 @@ language: php
 ---
 
 ```php
-// 📂 config/auth.php
-
 'defaults' => [
     'guard' => 'auth0',
     // 📝 Leave any other settings in this section alone.

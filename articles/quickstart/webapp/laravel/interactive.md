@@ -19,9 +19,9 @@ files:
 
 # Add login to your Laravel application
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK. 
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
+<%= include('../../_includes/_configure_auth0_interactive', {
   callback: 'http://localhost:3000/auth0/callback',
   returnTo: 'http://localhost:3000/'
 }) %>
@@ -72,7 +72,7 @@ Now let's connect our Laravel application with the SDK so we can begin working w
 
 ## Authentication routes {{{ data-action=code data-code="routes/web.php#1:3" }}}
 
-To make setting up authentication a cinch, the SDK includes some plug-and-play router controllers we can setup some routes with. 
+To make setting up authentication a cinch, the SDK includes some plug-and-play router controllers we can setup some routes with.
 
 Inside `routes/web.php`:
 
@@ -80,7 +80,7 @@ Inside `routes/web.php`:
 - The `/logout` route will redirect them to Auth0's logout endpoint and sign them out of our application.
 - The `/auth0/callback` route handles some important final authentication matters for us after the user logs in, and sets up the user's local session with our application.
 
-## Protecting routes {{{ data-action=code data-code="routes/web.php#5:16" }}}
+## Protecting routes {{{ data-action=code data-code="routes/web.php#5:12" }}}
 
 We can setup our routes using the SDK's middleware to automatically protect parts of our application. For this type of application there are two types of middleware available.
 
@@ -89,38 +89,9 @@ We can setup our routes using the SDK's middleware to automatically protect part
 
 Edit the `routes/web.php` file, and add the corresponding routes to that file.
 
-## Adding views
+## Adding view {{{ data-action=code data-code="resources/views/auth0/user.blade.php#1:16" }}}
 
-Last but not least, let's create a couple small Blade views that we defined in those routes; nothing fancy here, just for demonstration purposes.
-
-Let's create our `resources/views/auth0/guest.blade.php` file:
-
-```php
-// 📂 resources/views/auth0/guest.blade.php
-
-<!DOCTYPE html>
-<html>
-    <body>
-        <p>You're a guest. <a href="{{ route('login') }}">Log in</a></p>
-    </body>
-</html>
-```
-
-And finally, let's create our `resources/views/auth0/user.blade.php` file:
-
-```php
-// 📂 resources/views/auth0/user.blade.php
-
-<!DOCTYPE html>
-<html>
-    <body>
-        <p>Welcome! You are authenticated. <a href="{{ route('logout') }}">Log out</a></p>
-        <div>
-            <pre><?php print_r(Auth::user()) ?></pre>
-        </div>
-    </body>
-</html>
-```
+Last but not least, let's create the small Blade view that we defined in those routes; nothing fancy here, just for demonstration purposes.
 
 In a real world application you'll probably want to do something a bit more elaborate, but this will serve our needs here!
 
@@ -140,7 +111,7 @@ We're all set our new application is live and waiting for us. Give it a try by l
 
 Now that you have configured your Laravel application to use Auth0, run your application to verify that:
 * Navigating to the `/login` route will redirect the user to Auth0
-* After entering their credentials, the user is redirected back to the application, indicating they are authenticated. 
+* After entering their credentials, the user is redirected back to the application, indicating they are authenticated.
 * Accessing the `/required` route is prohibited for users that are not authenticated.
 * Navigating to the `/logout` route will redirect them to Auth0's logout endpoint and sign them out of our application.
 
