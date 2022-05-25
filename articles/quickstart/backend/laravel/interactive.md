@@ -76,7 +76,7 @@ Now, connect your Laravel application with the SDK so you can work with your Aut
 - In the `guards` section, add a guard for `auth0`.
 - In the `providers` section, add a provider for `auth0`.
 
-## Protecting routes {{{ data-action=code data-code="routes/web.php" }}}
+## Configure routes {{{ data-action=code data-code="routes/web.php" }}}
 
 Use the SDK's middleware to automatically protect routes that use bearer tokens. For this type of application, there are different types of middleware available: 
 
