@@ -106,7 +106,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Setup routing {{{ data-action=code data-code="router.php" }}}
+## Create routes {{{ data-action=code data-code="router.php" }}}
 
 Now install a routing library, to help direct incoming requests to your application. This isn't a required step, but simplifies our application structure for the purposes of this quickstart.
 
