@@ -19,9 +19,9 @@ files:
 
 # Add login to your Laravel application
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK. 
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
+<%= include('../../_includes/_configure_auth0_interactive', {
   callback: 'http://localhost:3000/auth0/callback',
   returnTo: 'http://localhost:3000/'
 }) %>
