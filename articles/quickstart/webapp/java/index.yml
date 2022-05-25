@@ -21,6 +21,8 @@ github:
   org: auth0-samples
   repo: auth0-servlet-sample
   branch: master
+hidden_articles:
+  - "interactive"
 sdk:
   name: auth0-java-mvc-common
   url: https://github.com/auth0/auth0-java-mvc-common

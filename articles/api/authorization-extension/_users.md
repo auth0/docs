@@ -219,7 +219,7 @@ include('../../_includes/_http-method', {
   "link": "#add-user-to-groups"
 }) %>
 
-Use this endpoint to add one or more users in a group.
+Use this endpoint to add a user to one or more groups.
 
 ### Scopes
 

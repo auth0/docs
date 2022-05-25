@@ -1,6 +1,7 @@
 name: Integration Tests
 on:
-  pull_request: {}
+  pull_request:
+    branches: master
 
 concurrency: 
   group: pr-integration-tests-${{ github.event.pull_request.id }}
