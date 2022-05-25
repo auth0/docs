@@ -96,7 +96,7 @@ composer require steampixel/simple-php-router
 
 Create a new file in your application called `router.php` to define the routes. Copy in the code from the interactive panel to the right under the <b>router.php</b> tab.
 
-## Authorize routes {{{ data-action=code data-code="router.php#21:31" }}}
+## Configue endpoint authorization {{{ data-action=code data-code="router.php#21:31" }}}
 
 Now that you have configured your Auth0 application, the Auth0 PHP SDK, and you application retrieves bearer tokens from requests, the next step is to set up endpoint authorization for your project. The `getBearerToken()` method you implemented above returns a `Token` class that includes details on the request's access.
 
