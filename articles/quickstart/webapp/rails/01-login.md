@@ -69,7 +69,7 @@ Inside of the callback method assign the hash of user information, returned as `
 # ./app/controllers/auth0_controller.rb
 class Auth0Controller < ApplicationController
   def callback
-    # OmniAuth stores the informatin returned from Auth0 and the IdP in request.env['omniauth.auth'].
+    # OmniAuth stores the information returned from Auth0 and the IdP in request.env['omniauth.auth'].
     # In this code, you will pull the raw_info supplied from the id_token and assign it to the session.
     # Refer to https://github.com/auth0/omniauth-auth0#authentication-hash for complete information on 'omniauth.auth' contents.
     auth_info = request.env['omniauth.auth']
@@ -132,7 +132,6 @@ class Auth0Controller < ApplicationController
   end
 
   private
-  AUTH0_CONFIG = Rails.application.config_for(:auth0)
 
   def logout_url
     request_params = {
@@ -140,11 +139,7 @@ class Auth0Controller < ApplicationController
       client_id: AUTH0_CONFIG['auth0_client_id']
     }
 
-    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: to_query(request_params)).to_s
-  end
-
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: request_params.to_query).to_s
   end
 end
 ```
