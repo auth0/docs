@@ -19,13 +19,13 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add authorization to a Ruby on Rails API
-This tutorial performs access token validation using the  [jwt](https://github.com/jwt/ruby-jwt) Gem. A Concern called `Secured` is used to mark endpoints which require authentication through an incoming access token.
+This tutorial performs access token validation using the [jwt](https://github.com/jwt/ruby-jwt) Gem. A Concern called `Secured` marks endpoints that require authentication through an incoming access token.
 
-If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
+If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+To set up your first API through the Auth0 dashboard, review [our getting started guide](get-started/auth0-overview/set-up-apis).
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
+Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -42,18 +42,17 @@ bundle install
 
 ## Create a JsonWebToken class {{{ data-action=code data-code="lib/json_web_token.rb" }}}
 
-Create a class called `JsonWebToken` which decodes and verifies the incoming access token taken from the `Authorization` header of the request.
+Create a class called `JsonWebToken`. This class decodes and verifies the incoming access token taken from the `Authorization` header of the request.
 
-This will fetch the public key for your Auth0 tenant then use it to verify the signature of the access token.
+The `JsonWebToken` class retrieves the public key for your Auth0 tenant and then uses it to verify the signature of the access token.
 
 ## Define a Secured concern {{{ data-action=code data-code="app/controllers/concerns/secured.rb" }}}
 
 Create a Concern called `Secured` which looks for the access token in the `Authorization` header of an incoming request.
 
-If the token is present, it will be passed to `JsonWebToken.verify` which will use the `jwt` Gem to verify the token's signature and validate the token's claims.
+If the token is present, the `JsonWebToken.verify` will use the `jwt` Gem to verify the token's signature and validate the token's claims.
 
-In addition to verifiying that the access token included in the request is valid, the Concern also includes a mechanism for checking that the token has the sufficient **scope** to access the requested resources.
-
+In addition to verifying that the access token, the Concern also includes a mechanism for confirming the token has the sufficient **scope** to access the requested resources.
 To look for a particular `scope` in an access token, provide an array of required scopes and check if they are present in the payload of the token.
 
 In this example we define a `SCOPES` array for all protected routes, specifying the required scopes for each one.
@@ -64,7 +63,7 @@ For the `/private-scoped` route, the scopes defined will be intersected with the
 
 Create a controller to handle the public endpoint `/api/public`.
 
-The `/public` endpoint does not require to use the `Secured` concern as it is accessible to non-authenticated requests.
+The `/public` endpoint does not require the `Secured` concern as it is accessible to non-authenticated requests.
 
 ## Create the private endpoints {{{ data-action=code data-code="app/controllers/private_controller.rb" }}}
 
@@ -74,7 +73,7 @@ Create a controller to handle the private endpoints: `/api/private` and `/api/pr
 
 `/api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope granted 
 
-The protected endpoints need to include the `Secured` concern. The scopes required for each one are defined in the code of the `Secured` concern.
+The protected endpoints need to include the `Secured` concern. The `Secured` concern contains the required scopes for each endpoint.
 
 <%= include('../_includes/_call_api') %>
 
@@ -87,9 +86,9 @@ Now that you have configured your application, run your application to verify th
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the token is added as the `Authorization` header
-* does the token have the correct scopes? You can use [jwt.io](https://jwt.io/) to verify.
+If your application did not start successfully:
+* Verify you added the token as the `Authorization` header
+* Ensure the token has the correct scopes. Verify with [jwt.io](https://jwt.io/).
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
