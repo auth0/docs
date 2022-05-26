@@ -19,13 +19,13 @@ files:
 ---
 
 # Add authorization to an ASP.NET Owin Web API application.
-Auth0 allows you to quickly add authorization to any kind of application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin Web API application using the `Microsoft.Owin.Security.Jwt` package.
+Auth0 allows you to add authorization to any kind of application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin Web API application using the `Microsoft.Owin.Security.Jwt` package.
 
-If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
+If you have not created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API for your project. 
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+To set up your first API through the Auth0 dashboard, review [our getting started guide](get-started/auth0-overview/set-up-apis).
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
+Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
 <!-- markdownlint-disable MD041 MD002 -->
 
@@ -37,8 +37,7 @@ Every API in Auth0 is configured using an API Identifier that your application c
 
 ## Install dependencies
 
-To use Auth0 access tokens with ASP.NET Owin Web API you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
-
+Install the `Microsoft.Owin.Security.Jwt` NuGetPackage. This package contains the OWIN JWT Middleware necessary to use Auth0 access tokens in the ASP.NET Owin Web API.
 ```bash
 Install-Package Microsoft.Owin.Security.Jwt
 ```
@@ -50,16 +49,15 @@ Go to the `Configuration` method of your `Startup` class and add a call to `UseJ
 The `JwtBearerAuthenticationOptions` needs to specify your Auth0 API Identifier in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will need to configure the `IssuerSigningKeyResolver` to use the instance of `OpenIdConnectSigningKeyResolver` to resolve the signing key:
 
 ::: panel-warning Do not forget the trailing backslash
-Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
+Ensure the URL specified for `ValidIssuer` contains a trailing backslash. This must match exactly with the JWT issuer claim. API calls will not authenticate correctly if you misconfigured this value.
 :::
 
 ## Verifying the token signature {{{ data-action=code data-code="OpenIdConnectSigningKeyResolver.cs" }}}
-As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. To do this, create the `OpenIdConnectSigningKeyResolver` class and ensure to return the correct `SecurityKey` by implementing `GetSigningKey`.
-
+The OWIN JWT middleware does not use Open ID Connect Discovery by default, so you must provide a custom `IssuerSigningKeyResolver`. Create the `OpenIdConnectSigningKeyResolver` class and ensure to return the correct `SecurityKey` by implementing `GetSigningKey`.
 This class is then used as `TokenValidationParameters.IssuerSigningKeyResolver` while configuring the middleware in `Startup.cs`.
 
 :::note
-Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As [this package is not available anymore](https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md), you will need to provide this yourself.
+This custom resolver is deprecated and [no longer available](https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md). You must provider this customer resolver yourself.
 :::
 
 ## Validate scopes {{{ data-action=code data-code="ScopeAuthorizeAttribute.cs" }}}
@@ -74,7 +72,7 @@ Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.
 
 The JWT middleware integrates with the standard ASP.NET authentication and authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint.
 
-To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter.
+Update the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter. This ensures the correct scope is available to call a specific API endpoing.
 
 ::::checkpoint
 
@@ -88,10 +86,10 @@ Now that you have configured your application, run your application to verify th
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure `ValidIssuer` and `ValidAudience` are configured correctly
-* make sure the token is added as the `Authorization` header
-* does the token have the correct scopes? You can use [jwt.io](https://jwt.io/) to verify.
+If your application did not start successfully:
+* Ensure your configured the  `ValidIssuer` and `ValidAudience` values correctly
+* Verify you added the token as the `Authorization` header
+* Ensure the token has the correct scopes. Verify with [jwt.io](https://jwt.io/).
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
