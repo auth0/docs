@@ -19,8 +19,7 @@ github:
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
-To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
-
+To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
 ### Configure an application
 
 Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
@@ -31,7 +30,7 @@ If you would rather explore a complete configuration, you can view a sample appl
 
 ### Configure callback URLs
 
-A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
+A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.
 
 ::: note
 If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
@@ -39,7 +38,7 @@ If you are following along with our sample project, set this to `demo://${accoun
 
 ### Configure logout URLs
 
-A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
+A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.
 
 ::: note
 If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
@@ -59,7 +58,7 @@ Ensure you target Java 8+ byte code for Android and Kotlin plugins respectively.
 
 ## Add manifest placeholders {{{ data-action=code data-code="build.gradle#10:12" }}}
 
-Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
+The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.
 
 You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
 
@@ -74,7 +73,7 @@ For the SDK to function properly, you must set the following properties in `stri
 - `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
 - `com_auth0_client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 
-Ensure that the `android.permissions.INTERNET` permission is specified in the `AndroidManifest.xml` file:
+Ensure that the `AndroidManifest.xml` file specifies the `android.permissions.INTERNET` permission:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -107,10 +106,11 @@ Once that's complete, verify that Auth0 redirects back to your app.
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the Allowed Callback URLs is set properly
-* did you save after entering your URLs?
-* make sure the domain and client ID imported correctly
+
+If your application did not launch successfully:
+* Ensure you set the Allowed Callback URLs are correct
+* Verify you saved your changes after entering your URLs
+* Make sure the domain and cliend ID values imported correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
@@ -123,8 +123,7 @@ Use `WebAuthProvider` to remove the cookie set by the browser at authentication 
 
 Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
-The logout is achieved by using the `WebAuthProvider` class. This call will open the browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
-
+Use the `WebAuthProvider` class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.
 ::::checkpoint
 
 :::checkpoint-default
@@ -134,9 +133,9 @@ Add a button to your app that calls `logout` and logs the user out of your appli
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the Allowed Logout URLs is set properly
-* did you save after entering your URLs?
+If your application did not logout successfully:
+* Ensure the Allowed Logout URLs are set properly
+* Verify you saved your changes after entering your URLs
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
@@ -147,10 +146,10 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
-- The access token as received during the login phase
-- The `profile` scope to be included when `WebAuthProvider.login` is called
+- The access token returned from the login phase
+- The `WebAuthProvider.login` must contain the `profile` scope
 
-The `email` scope must also be specified if the user's email address is to be retrieved.
+You must specify the `email` scope if you need to retreive the user's email address.
 
 :::note
 This quickstart sets the `openid profile email` scopes by default during the login step above.
@@ -161,13 +160,13 @@ The following demonstrates a function that can be used to retrieve the user's pr
 ::::checkpoint
 
 :::checkpoint-default
-Call the `showUserProfile` function after login and verify that the user's profile information has been returned in the `onSuccess` callback.
+Call the `showUserProfile` function after login. Verify the `onSuccess` callback returns the user's profile information. 
 
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* Ensure a valid `accessToken` is used
+If your application did not return user profile information:
+* Verify the `accessToken` is valid
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
