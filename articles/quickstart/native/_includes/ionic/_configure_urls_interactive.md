@@ -2,7 +2,7 @@
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
-To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
+To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for your project.
 
 :::note
 Throughout this article, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
@@ -10,9 +10,9 @@ Throughout this article, `YOUR_PACKAGE_ID` is your application's package ID. Thi
 
 ### Configure an application
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+Use the interactive selector to create a new Auth0 application or select an existing application that represents the project with which you want to integrate. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+Any settings you configure using this quickstart will automatically update for your application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
