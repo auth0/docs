@@ -111,7 +111,7 @@ Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the
 
 ## Create the Domain Object {{{ data-action=code data-code="Message.java#1:11" }}}
 
-Create a new class named `Message`. This will act as a simple domain object to return during the API calls.
+To make your endpoint return a JSON, you can use a [POJO](https://en.wikipedia.org/wiki/Plain_old_Java_object) (Plain Old Java Object). The member variables of this object is serialized into the key value for your JSON. Create a new class named `Message`. This will act as a simple domain object to return during the API calls.
 
 ## Create the API controller {{{ data-action=code data-code="APIController.java" }}}
 
@@ -147,4 +147,17 @@ Windows:
 mvn.cmd spring-boot:run
 ```
 
-The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article. Incase of unexpected responses from your API, use the [Troubleshooting](/quickstart/backend/java-spring-security5/03-troubleshooting) section to check your configuration.
+::::checkpoint
+
+:::checkpoint-default
+
+The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article.
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* Use the [Troubleshooting](/quickstart/backend/java-spring-security5/03-troubleshooting) section to check your configuration.
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+
+:::
