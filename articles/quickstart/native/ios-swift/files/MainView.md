@@ -1,5 +1,5 @@
 ---
-name: ContentView.swift
+name: MainView.swift
 language: swift
 ---
 
@@ -7,7 +7,7 @@ language: swift
 import SwiftUI
 import Auth0
 
-struct ContentView: View {
+struct MainView: View {
     @State var user = User.empty
     @State var loggedIn = false
 
@@ -23,7 +23,7 @@ struct ContentView: View {
     }
 }
 
-extension ContentView {
+extension MainView {
     func login() {
         Auth0
             .webAuth()
