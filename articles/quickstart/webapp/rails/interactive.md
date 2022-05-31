@@ -1,6 +1,6 @@
 ---
-title: Add login to your Ruby on Rails app
-description: "Auth0 allows you to add authentication to your Ruby on Rails application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing Ruby on Rails application using the OmniAuth."
+title: Add Login to Your Ruby on Rails Application
+description: This tutorial demonstrates how to add user login to a Ruby on Rails application using OmniAuth.
 interactive: true
 files:
   - files/config
@@ -10,7 +10,7 @@ files:
   - files/concern
 ---
 
-# Add login to your Ruby on Rails app
+## Add login to your Ruby on Rails app
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/auth/auth0/callback',
@@ -21,7 +21,7 @@ files:
 
 ## Add dependencies
 
-This quickstart uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.
+Use `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.
 
 Add the following dependencies to your `Gemfile`:
 
@@ -34,33 +34,33 @@ Once your gems are added, install the gems with `bundle install`.
 
 ## Configure the SDK {{{ data-action=code data-code="auth0.yml" }}}
 
-Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret. These values were presented to you when you created the Auth0 application in the first step of this quickstart.
+Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret values located in your Auth0 Dashboard under application **Settings**.
 
 ## Configure OmniAuth middleware {{{ data-action=code data-code="auth0.rb" }}}
 
-Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware using the configuration file created in the previous step.
+Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware with the configuration file you created in the previous step.
 
-Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 client application.
+Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 application.
 
 ## Add an Auth0 controller {{{ data-action=code data-code="auth0_controller.rb" }}}
 
-Create an Auth0 controller for handling the authentication callback, as well as a `logout` action, and methods for constructing the logout URL.
+Create an Auth0 controller to handle the authentication callback, `logout` action, and methods for constructing the logout URL.
 
 Run the command: `rails generate controller auth0 callback failure logout --skip-assets --skip-helper --skip-routes --skip-template-engine`. 
 
 Inside the callback method, assign the hash of user information - returned as `request.env['omniauth.auth']` - to the active session.
 
-Logout is achieved by clearing out all the objects stored within the session, by calling the `reset_session` method within the `logout` action, then redirecting to the Auth0 logout endpoint. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+To configure logout, clear all the objects stored within the session by calling the `reset_session` method within the `logout` action. Then, redirect to the Auth0 logout endpoint. To learn more about `reset_session`, read[Ruby on Rails ActionController documentation](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
 ## Configure routes {{{ data-action=code data-code="routes.rb" }}}
 
 Add these routes to your `./config/routes.rb` file.
 
-These must be in place so that Rails knows how to route the various Auth0 callback URLs to the Auth0 controller that you created in the previous step.
+Routes must be in place so Rails knows how to route the various Auth0 callback URLs to the Auth0 controller you created in the previous step.
 
 ::::checkpoint
 ::: checkpoint-default
-Run your application to verify that it continues to work as intended and that you don't receive any errors relating to Auth0.
+Run your application to verify it continues to work as intended and you aren't receive any errors relating to Auth0.
 :::
 
 ::: checkpoint-failure
@@ -85,13 +85,13 @@ ${"<%= button_to 'Login', '/auth/auth0', method: :post %>"}
 
 ::::checkpoint
 ::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/auth0` endpoint when selected. Observe that you are redirected to Auth0 to log in, and then back to your app after successfull authentication.
+Add a button to your application that redirects the user to the `/auth/auth0` endpoint when selected. Observe that you redirect to Auth0 to log in, and then back to your app after successful authentication.
 :::
 
 ::: checkpoint-failure
 Sorry about that. Here are a couple of things you can check:
 
-- Ensure that the correct URLs have been set in your Auth0 client as per the first step in this quickstart
+- Ensure that the correct URLs have been set in your Auth0 application as per the first step in this quickstart
 - Check that all the required gems installed correctly
 - Check that the routes have been set up and the Auth0 configuration has been set up in your app
 - [Check the logs](https://manage.auth0.com/#/logs) for any other errors or messages that may have prevented login from working
@@ -102,10 +102,10 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add logout to your application
 
-Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). A user can be logged out by redirecting them to the `auth/logout` action, which in turn redirects them to the Auth0 logout endpoint.
+Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Log out a user by redirecting to the `auth/logout` action, which redirects them to the Auth0 logout endpoint.
 
 :::note
-To test this after the previous login step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.
+To test this after the previous step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.
 :::
 
 ```erb
@@ -115,7 +115,7 @@ ${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
 
 ::::checkpoint
 ::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/logout` endpoint when selected. Verify that you are redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.
+Add a button to your application that redirects the user to the `/auth/logout` endpoint when selected. Verify that you redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.
 :::
 
 ::: checkpoint-failure
@@ -131,9 +131,9 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show user profile information {{{ data-action=code data-code="secured.rb" }}}
 
-To display the user's profile, your application should provide a protected route. You can use a [Concern](https://guides.rubyonrails.org/getting_started.html#using-concerns) to control access to routes in a way that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
+To display the user's profile, your application should provide a protected route. You can use a [Concern](https://guides.rubyonrails.org/getting_started.html#using-concerns) to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
-Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]`, as in the following example:
+Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]` as in the following example:
 
 ```ruby
 class DashboardController < ApplicationController
@@ -145,7 +145,7 @@ class DashboardController < ApplicationController
 end
 ```
 
-Now that you have loaded the user from the session, you can use it to display information in your frontend:
+Once the user loads from the session, use it to display information in your frontend:
 
 ```erb
 <div>
@@ -156,6 +156,6 @@ Now that you have loaded the user from the session, you can use it to display in
 
 ::::checkpoint
 ::: checkpoint-default
-Add the `Secured` concern to your app and then include it in controller that requires an authenticated user to be able to access it. Verify that an authenticated user has access to actions within that controller, and that unauthenticated users are redirected to Auth0 for authentication.
+Add the `Secured` concern to your app and then include it in the controller that requires an authenticated user to access it. Verify that an authenticated user has access to actions within that controller and that unauthenticated users are redirected to Auth0 for authentication.
 :::
 ::::
