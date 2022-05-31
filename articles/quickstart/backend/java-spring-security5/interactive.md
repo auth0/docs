@@ -21,7 +21,7 @@ github:
 
 # Secure your API using Spring Security 5 and Auth0
 
-Auth0 allows you to quickly add authentication, authorization and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
+Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
