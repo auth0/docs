@@ -940,216 +940,6 @@ const redirects = [
     to: '/authenticate/database-connections/custom-db/error-handling',
   },
 
-{
-       from: [
-       '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
-       '/private-saas-deployment/private-cloud',
-       '/private-cloud/standard-private-cloud',
-       '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure',
-       '/private-cloud/onboarding/managed-private-cloud/infrastructure',
-       '/private-saas-deployment/managed-private-cloud',
-       '/private-cloud/onboarding/managed-private-cloud',
-       '/private-saas-deployment/onboarding/managed-private-cloud',
-       '/private-cloud/onboarding/managed-private-cloud',
-       '/appliance/infrastructure',
-       '/appliance/infrastructure/security',
-       '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
-},
-{
-       from: [
-       '/private-cloud/private-cloud-operations',
-       '/services/private-saas-management',
-       '/services/private-cloud-management',
-       '/deploy/private-cloud/private-cloud-operations',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-operations',
-},
-{
-       from: [
-       '/private-cloud/private-cloud-migrations',
-       '/deploy/private-cloud/private-cloud-migrations',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations',
-},
-{
-       from: [
-       '/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
-       '/deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
-},
-{
-       from: [
-       '/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
-       '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
-},
-{
-       from: [
-       '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
-       '/appliance/custom-domains',
-       '/private-saas-deployment/custom-domain-migration',
-       '/private-cloud/custom-domain-migration',
-       '/private-cloud/migrate-private-cloud-custom-domains',
-       '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-private-cloud-custom-domains',
-},
-{
-       from: [
-       '/pre-deployment',
-       '/deploy/pre-deployment',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks',
-},
-{
-       from: [
-       '/pre-deployment/how-to-run-production-checks',
-       '/pre-deployment/how-to-run-test',
-       '/deploy/pre-deployment/how-to-run-production-checks',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/how-to-run-production-checks',
-},
-{
-       from: [
-       '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
-       '/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
-       '/pre-deployment/tests/required',
-       '/deploy/pre-deployment/production-check-required-fixes',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/production-check-required-fixes',
-},
-{
-       from: [
-       '/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes',
-       '/pre-deployment/tests/recommended',
-       '/deploy/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes',
-       '/deploy/pre-deployment/production-check-recommended-fixes',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/production-check-recommended-fixes',
-},
-{
-       from: [
-       '/pre-deployment/how-to-run-production-checks/production-checks-best-practices',
-       '/pre-deployment/tests/best-practice',
-       '/deploy/pre-deployment/how-to-run-production-checks/production-checks-best-practices',
-       '/deploy/pre-deployment/production-checks-best-practices',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/production-checks-best-practices',
-},
-{
-       from: [
-       '/support/predeployment-tests',
-       '/support/testing',
-       '/deploy/pre-deployment/predeployment-tests',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/predeployment-tests',
-},
-{
-       from: [
-       '/pre-deployment/pre-launch-tips',
-       '/pre-deployment/prelaunch-tips',
-       '/deploy/pre-deployment/pre-launch-tips',
-       ],
-       to: '/deploy-monitor/pre-deployment-checks/pre-launch-tips',
-},
-{
-       from: [
-       '/extensions/using-provided-extensions',
-       '/topics/extensibility',
-       '/extend-integrate',
-       '/extensions/visual-studio-team-services-deploy',
-       '/extensions/visual-studio-team-services-deployments',
-       '/extensions',
-       ],
-       to: '/customize/extensions',
-},
-{
-       from: [
-       '/extensions/authorization-extension/v2',
-       '/extensions/authorization-extension/v1',
-       '/api/authorization-dashboard-extension',
-       '/extensions/authorization-dashboard-extension',
-       '/extensions/authorization-extension',
-       ],
-       to: '/customize/extensions/authorization-extension',
-},
-{
-       from: [
-       '/extensions/authorization-extension/install-authorization-extension',
-       ],
-       to: '/customize/extensions/authorization-extension/install-authorization-extension',
-},
-{
-       from: [
-       '/extensions/authorization-extension/configure-authorization-extension',
-       ],
-       to: '/customize/extensions/authorization-extension/configure-authorization-extension',
-},
-{
-       from: [
-       '/extensions/authorization-extension/enable-api-access-to-authorization-extension',
-       ],
-       to: '/customize/extensions/authorization-extension/enable-api-access-to-authorization-extension',
-},
-{
-       from: [
-       '/extensions/authorization-extension/import-and-export-authorization-extension-data',
-       ],
-       to: '/customize/extensions/authorization-extension/import-and-export-authorization-extension-data',
-},
-{
-       from: [
-       '/extensions/authorization-extension/use-rules-with-the-authorization-extension',
-       ],
-       to: '/customize/extensions/authorization-extension/use-rules-with-the-authorization-extension',
-},
-{
-       from: [
-       '/extensions/authorization-extension/v2/implementation/setup',
-       '/extensions/authorization-extension/set-up-authorization-extension-users',
-       ],
-       to: '/customize/extensions/authorization-extension/set-up-authorization-extension-users',
-},
-{
-       from: [
-       '/get-started/dashboard/create-sso-dashboard-application',
-       '/dashboard/guides/extensions/sso-dashboard-create-app',
-       '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
-       ],
-       to: '/customize/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
-},
-{
-       from: [
-       '/dashboard/guides/extensions/sso-dashboard-install-extension',
-       '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
-       ],
-       to: '/customize/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
-},
-{
-       from: [
-       '/dashboard/guides/extensions/sso-dashboard-add-apps',
-       '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
-       ],
-       to: '/customize/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
-},
-{
-       from: [
-       '/dashboard/guides/extensions/sso-dashboard-update-apps',
-       '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
-       ],
-       to: '/customize/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
-},
-{
-       from: [
-       '/deploy/private-cloud-on-azure',
-       ],
-       to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-azure',
-},
-
 /* Extensions */
 
   {
@@ -1626,82 +1416,7 @@ const redirects = [
 
   /* CONTENTFUL REDIRECTS */
 
-{
-       from: [
-       '/extensions/deploy-cli-tool',
-       '/extensions/deploy-cli',
-       '/extensions/deploy-cli/references/whats-new',
-       '/extensions/deploy-cli/references/whats-new-v2',
-       '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool',
-       '/deploy/deploy-cli-tool',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool',
-},
-{
-       from: [
-       '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-       '/extensions/deploy-cli/guides/call-deploy-cli-programmatically',
-       '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-},
-{
-       from: [
-       '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
-       '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
-       '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-       '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-},
-{
-       from: [
-       '/extensions/deploy-cli/guides/import-export-directory-structure',
-       '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-       '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-},
-{
-       from: [
-       '/extensions/deploy-cli/guides/import-export-yaml-file',
-       '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-       '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-},
-{
-       from: [
-       '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
-       '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-       '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-},
-{
-       from: [
-       '/extensions/deploy-cli/guides/install-deploy-cli',
-       '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-       '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-},
-{
-       from: [
-       '/extensions/deploy-cli/references/deploy-cli-options',
-       '/extensions/deploy-cli-tool/deploy-cli-tool-options',
-       '/deploy/deploy-cli-tool/deploy-cli-tool-options',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
-},
-{
-       from: [
-       '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
-       '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings',
-       '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings',
-       ],
-       to: '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings',
-},
+  /* Tenants */
 
   {
     from: [
@@ -3971,181 +3686,7 @@ const redirects = [
     to: '/api',
   },
 
-{
-       from: [
-       '/logs',
-       '/logs/concepts/logs-admins-devs',
-       '/monitor-auth0/logs',
-       ],
-       to: '/deploy-monitor/logs',
-},
-{
-       from: [
-       '/logs/pii-in-logs',
-       '/logs/personally-identifiable-information-pii-in-auth0-logs',
-       '/monitor-auth0/logs/pii-in-logs',
-       ],
-       to: '/deploy-monitor/logs/pii-in-logs',
-},
-{
-       from: [
-       '/logs/log-data-retention',
-       '/logs/references/log-data-retention',
-       '/monitor-auth0/logs/log-data-retention',
-       ],
-       to: '/deploy-monitor/logs/log-data-retention',
-},
-{
-       from: [
-       '/logs/view-log-events',
-       '/logs/guides/view-log-data-dashboard',
-       '/logs/view-log-events-in-the-dashboard',
-       '/monitor-auth0/logs/view-log-events',
-       ],
-       to: '/deploy-monitor/logs/view-log-events',
-},
-{
-       from: [
-       '/logs/log-event-filters',
-       '/logs/references/log-event-filters',
-       '/monitor-auth0/logs/log-event-filters',
-       ],
-       to: '/deploy-monitor/logs/log-event-filters',
-},
-{
-       from: [
-       '/logs/retrieve-log-events-using-mgmt-api',
-       '/logs/guides/retrieve-logs-mgmt-api',
-       '/monitor-auth0/logs/retrieve-log-events-using-mgmt-api',
-       ],
-       to: '/deploy-monitor/logs/retrieve-log-events-using-mgmt-api',
-},
-{
-       from: [
-       '/logs/log-event-type-codes',
-       '/logs/references/log-event-data',
-       '/logs/references/log-events-data',
-       '/logs/references/log-event-type-codes',
-       '/monitor-auth0/logs/log-event-type-codes',
-       ],
-       to: '/deploy-monitor/logs/log-event-type-codes',
-},
-{
-       from: [
-       '/logs/log-search-query-syntax',
-       '/logs/references/query-syntax',
-       '/logs/query-syntax',
-       '/monitor-auth0/logs/log-search-query-syntax',
-       ],
-       to: '/deploy-monitor/logs/log-search-query-syntax',
-},
-{
-       from: [
-       '/monitoring/guides/send-events-to-splunk',
-       '/monitoring/guides/send-events-to-keenio',
-       '/monitoring/guides/send-events-to-segmentio',
-       '/logs/export-log-events-with-rules',
-       '/monitor-auth0/logs/export-log-events-with-rules',
-       ],
-       to: '/deploy-monitor/logs/export-log-events-with-rules',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming',
-       '/logs/streams',
-       '/monitor-auth0/streams',
-       ],
-       to: '/customize/log-streams',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
-       '/logs/streams/http-event',
-       '/logs/streams/stream-http-event-logs',
-       '/monitor-auth0/streams/custom-log-streams',
-       ],
-       to: '/customize/log-streams/custom-log-streams',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack',
-       '/logs/streams/http-event-to-slack',
-       '/monitor-auth0/streams/stream-log-events-to-slack',
-       ],
-       to: 'https://marketplace.auth0.com/integrations/slack-log-streaming',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-logs-to-splunk',
-       '/logs/streams/splunk',
-       '/logs/streams/stream-logs-to-splunk',
-       '/monitor-auth0/streams/stream-logs-to-splunk',
-       ],
-       to: 'https://marketplace.auth0.com/integrations/splunk-log-streaming',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge',
-       '/logs/streams/aws-eventbridge',
-       '/integrations/aws-eventbridge',
-       '/logs/streams/amazon-eventbridge',
-       '/logs/streams/stream-logs-to-amazon-eventbridge',
-       '/monitor-auth0/streams/stream-logs-to-amazon-eventbridge',
-       ],
-       to: 'https://marketplace.auth0.com/integrations/amazon-log-streaming',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid',
-       '/logs/streams/azure-event-grid',
-       '/logs/streams/stream-logs-to-azure-event-grid',
-       '/monitor-auth0/streams/stream-logs-to-azure-event-grid',
-       ],
-       to: 'https://marketplace.auth0.com/integrations/azure-log-streaming',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog',
-       '/logs/streams/datadog',
-       '/logs/streams/stream-logs-to-datadog',
-       '/monitor-auth0/streams/stream-logs-to-datadog',
-       ],
-       to: 'https://marketplace.auth0.com/integrations/datadog-log-streaming',
-},
-{
-       from: ['/monitor-auth0/streams/stream-logs-to-sumo-logic', '/logs/streams/stream-logs-to-sumo-logic'],
-       to: 'https://marketplace.auth0.com/integrations/sumo-logic-log-streaming',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/datadog-dashboard-templates',
-       '/logs/streams/datadog-dashboard-templates',
-       '/monitor-auth0/streams/datadog-dashboard-templates',
-       ],
-       to: '/customize/log-streams/datadog-dashboard-templates',
-},
-{
-       from: [
-       '/logs/export-log-events-with-log-streaming/splunk-dashboard',
-       '/logs/streams/splunk-dashboard',
-       '/monitor-auth0/streams/splunk-dashboard',
-       ],
-       to: '/customize/log-streams/splunk-dashboard',
-},
-{
-       from: [
-       '/logs/streams/sumo-logic-dashboard',
-       '/monitor-auth0/streams/sumo-logic-dashboard',
-       ],
-       to: '/customize/log-streams/sumo-logic-dashboard',
-},
-{
-       from: [
-       '/logs/streams/event-filters',
-       '/monitor-auth0/streams/event-filters',
-       ],
-       to: '/customize/log-streams/event-filters',
-},
+  /* Authorization */
 
   {
     from: ['/authorization/concepts/policies', '/authorization/authorization-policies'],
@@ -4453,69 +3994,6 @@ const redirects = [
       '/rbac/rbac-users',
     ],
     to: '/manage-users/access-control/configure-core-rbac/rbac-users',
-  },
-  {
-    from: [
-      '/users/assign-roles-to-users',
-      '/dashboard/guides/users/assign-roles-users',
-      '/api/management/guides/users/assign-roles-users',
-      '/authorization/rbac/rbac-users/assign-roles-to-users',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-roles-to-users',
-  },
-  {
-    from: [
-      '/dashboard/guides/users/view-user-roles',
-      '/api/management/guides/users/view-user-roles',
-      '/users/view-user-roles',
-      '/authorization/rbac/rbac-users/view-user-roles',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-roles',
-  },
-  {
-    from: [
-      '/dashboard/guides/users/remove-user-roles',
-      '/dashboard/guides/roles/remove-role-users',
-      '/api/management/guides/users/remove-user-roles',
-      '/users/remove-roles-from-users',
-      '/authorization/rbac/rbac-users/remove-roles-from-users',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-roles-from-users',
-  },
-  {
-    from: [
-      '/dashboard/guides/users/assign-permissions-users',
-      '/api/management/guides/users/assign-permissions-users',
-      '/users/assign-permissions-to-users',
-      '/authorization/rbac/rbac-users/assign-permissions-to-users',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-permissions-to-users',
-  },
-  {
-    from: [
-      '/dashboard/guides/users/view-user-permissions',
-      '/api/management/guides/users/view-user-permissions',
-      '/users/view-user-permissions',
-      '/authorization/rbac/rbac-users/view-user-permissions',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-permissions',
-  },
-  {
-    from: [
-      '/dashboard/guides/users/remove-user-permissions',
-      '/api/management/guides/users/remove-user-permissions',
-      '/users/remove-permissions-from-users',
-      '/authorization/rbac/rbac-users/remove-permissions-from-users',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-permissions-from-users',
-  },
-  {
-    from: [
-      '/authorization/manage-permissions',
-      '/authorization/guides/manage-permissions',
-      '/authorization/rbac/manage-permissions',
-    ],
-    to: '/manage-users/access-control/configure-core-rbac/manage-permissions',
   },
 
 {
@@ -4952,32 +4430,41 @@ const redirects = [
 },
 
   {
-    from: ['/protocols', '/authorization/protocols'],
-    to: '/authenticate/protocols',
-  },
-  {
-    from: ['/protocols/protocol-oauth2', '/protocols/oauth2', '/authorization/protocols/protocol-oauth2'],
-    to: '/authenticate/protocols/oauth',
+    from: [
+      '/users/assign-roles-to-users',
+      '/dashboard/guides/users/assign-roles-users',
+      '/api/management/guides/users/assign-roles-users',
+      '/authorization/rbac/rbac-users/assign-roles-to-users',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-roles-to-users',
   },
   {
     from: [
-      '/protocols/openid-connect-protocol',
-      '/protocols/oidc',
-      '/api-auth/intro',
-      '/api-auth/tutorials/adoption',
-      '/authorization/protocols/openid-connect-protocol',
+      '/dashboard/guides/users/view-user-roles',
+      '/api/management/guides/users/view-user-roles',
+      '/users/view-user-roles',
+      '/authorization/rbac/rbac-users/view-user-roles',
     ],
-    to: '/authenticate/protocols/openid-connect-protocol',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-roles',
   },
   {
     from: [
-      '/protocols/ws-fed',
-      '/tutorials/wsfed-web-app',
-      '/wsfedwebapp-tutorial',
-      '/protocols/ws-fed-protocol',
-      '/authorization/protocols/ws-fed-protocol',
+      '/dashboard/guides/users/remove-user-roles',
+      '/dashboard/guides/roles/remove-role-users',
+      '/api/management/guides/users/remove-user-roles',
+      '/users/remove-roles-from-users',
+      '/authorization/rbac/rbac-users/remove-roles-from-users',
     ],
-    to: '/authenticate/protocols/ws-fed-protocol',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-roles-from-users',
+  },
+  {
+    from: [
+      '/dashboard/guides/users/assign-permissions-users',
+      '/api/management/guides/users/assign-permissions-users',
+      '/users/assign-permissions-to-users',
+      '/authorization/rbac/rbac-users/assign-permissions-to-users',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-permissions-to-users',
   },
 
 {
@@ -5018,6 +4505,63 @@ const redirects = [
        to: '/deploy-monitor/monitor/monitor-using-scom',
 },
 
+  {
+    from: [
+      '/dashboard/guides/users/view-user-permissions',
+      '/api/management/guides/users/view-user-permissions',
+      '/users/view-user-permissions',
+      '/authorization/rbac/rbac-users/view-user-permissions',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-permissions',
+  },
+  {
+    from: [
+      '/dashboard/guides/users/remove-user-permissions',
+      '/api/management/guides/users/remove-user-permissions',
+      '/users/remove-permissions-from-users',
+      '/authorization/rbac/rbac-users/remove-permissions-from-users',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-permissions-from-users',
+  },
+  {
+    from: [
+      '/authorization/manage-permissions',
+      '/authorization/guides/manage-permissions',
+      '/authorization/rbac/manage-permissions',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/manage-permissions',
+  },
+
+  /* Protocols */
+
+  {
+    from: ['/protocols', '/authorization/protocols'],
+    to: '/authenticate/protocols',
+  },
+  {
+    from: ['/protocols/protocol-oauth2', '/protocols/oauth2', '/authorization/protocols/protocol-oauth2'],
+    to: '/authenticate/protocols/oauth',
+  },
+  {
+    from: [
+      '/protocols/openid-connect-protocol',
+      '/protocols/oidc',
+      '/api-auth/intro',
+      '/api-auth/tutorials/adoption',
+      '/authorization/protocols/openid-connect-protocol',
+    ],
+    to: '/authenticate/protocols/openid-connect-protocol',
+  },
+  {
+    from: [
+      '/protocols/ws-fed',
+      '/tutorials/wsfed-web-app',
+      '/wsfedwebapp-tutorial',
+      '/protocols/ws-fed-protocol',
+      '/authorization/protocols/ws-fed-protocol',
+    ],
+    to: '/authenticate/protocols/ws-fed-protocol',
+  },
   {
     from: [
       '/best-practices/custom-db-connections',
