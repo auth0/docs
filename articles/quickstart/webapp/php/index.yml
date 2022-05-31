@@ -18,16 +18,18 @@ contentType: tutorial
 useCase: quickstart
 snippets:
   install: server-platforms/php/install
+default_article: 01-login
 articles:
   - 01-login
-default_article: 01-login
+hidden_articles:
+  - 'interactive'
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-php-web-app
   branch: main
 sdk:
-  name: auth0-php
+  name: Auth0-PHP
   url: https://github.com/auth0/auth0-php
   logo: php
 requirements:
@@ -39,13 +41,13 @@ next_steps:
     list:
       - text: Configure other identity providers
         icon: 345
-        href: "/identityproviders"
+        href: '/identityproviders'
       - text: Enable multifactor authentication
         icon: 345
-        href: "/multifactor-authentication"
+        href: '/multifactor-authentication'
       - text: Learn about attack protection
         icon: 345
-        href: "/attack-protection"
+        href: '/attack-protection'
       - text: Learn about rules
         icon: 345
-        href: "/rules"
+        href: '/rules'
