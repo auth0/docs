@@ -50,11 +50,14 @@ Create a login button in your application that calls `loginWithRedirect()` when 
 
 ::::checkpoint
 ::: checkpoint-default
-You should now be able to log in or sign up using a username and password.
+You should now be able to log in to your application.
 
 Run your application, and select the login button. Verify that:
 
+- you can log in or sign up using a username and password
+- your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page
 - you are redirected to Auth0 for authentication
+- Auth0 successfully redirects back to your application after authentication
 - you do not receive any errors in the console related to Auth0
 :::
 
@@ -78,10 +81,12 @@ If handling the callback was successful, the parameters should be removed from t
 
 ::::checkpoint
 ::: checkpoint-default
+Your callback from Auth0 should now be properly handled.
+
 Run your application, and select the login button again. Verify that:
 
-- Auth0 successfully redirects back to your application after authentication
-- the query parameters are removed from the URL
+- Auth0 successfully redirects back to your application after authentication.
+- the query parameters are removed from the URL.
 :::
 
 ::: checkpoint-failure
@@ -98,20 +103,29 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 
 Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
-Create a logot button in your application that calls `logout()` when selected.
+Create a logout button in your application that calls `logout()` when selected.
+
+:::note
+The SDK exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not. You can render the login and logout buttons conditionally based on the value of the `isAuthenticated()` function. Alternatively, you can use a single button to combine both login and logout buttons as well as their conditional rendering.
+:::
 
 ::::checkpoint
 ::: checkpoint-default
+You should now be able to log out of your application.
+
 Run your application, log in, and select the logout button. Verify that:
 
-- the application redirects to Auth0's logout endpoint
-- the application then redirects immediately back to your application
+- you are redirected to Auth0's logout endpoint.
+- Auth0 successfully redirects back to your application and the correct logout URL.
+- you are no longer logged in to your application.
+- you do not receive any errors in the console related to Auth0.
+
 :::
 
 ::: checkpoint-failure
 Sorry about that. Here are a few things to double check:
 
-- verify that the correct logout URL has been added to the **Allowed Logout URLs** configuration box for your Auth0 app
+- make sure that you configured the logout URL as one of the **Allowed Logout URLS** in your application's **Settings**
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
 
 Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
@@ -130,8 +144,8 @@ You should now be able to view user profile information.
 
 Run your application, and verify that:
 
-- user information displays correctly after you have logged in
-- user information does not display after you have logged out
+- user information displays correctly after you have logged in.
+- user information does not display after you have logged out.
 :::
 
 ::: checkpoint-failure
