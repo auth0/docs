@@ -8,9 +8,9 @@ files:
   - files/app
 ---
 
-# Add login to your JavaScript App
+# Add Login to Your JavaScript App
 
-Auth0 allows you to quickly add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single Page Application that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
 To use this quickstart, you’ll need to:
 
@@ -30,9 +30,7 @@ showWebOriginInfo: true
 
 ## Add the Auth0 SPA SDK
 
-The Auth0 SPA SDK can be installed as an NPM package, or from the CDN. For the purposes of this quickstart, we will use the CDN.
-
-Include this script tag on your HTML page:
+Auth0 provides a SPA SDK (auth0-spa-js) to simplify the process of implementing Auth0 authentication and authorization in JavaScript applications. You can install the Auth0 SPA SDK as an NPM package or from the CDN. For the purpos of this quickstart, we will use the CDN. Include this script tag on your HTML page:
 
 ```html
 <script src="${auth0spajs_url}"></script>
@@ -40,95 +38,109 @@ Include this script tag on your HTML page:
 
 ## Create the Auth0 client {{{ data-action=code data-code="app.js#1:5" }}}
 
-Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and provide your Auth0 application details created earlier in this quickstart.
+Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and provide the Auth0 application details you created earlier in this quickstart.
 
-If a user has previously logged in, the client will take care of refreshing the authentication state on page load so they will still be logged in once the page is refreshed.
+If a user has previously logged in, the client will refresh the authentication state on page load; the user will still be logged in once the page is refreshed.
 
 ## Add login to your application {{{ data-action=code data-code="app.js#6:12" }}}
 
-The Auth0 SPA SDK gives you tools to quickly implement user authentication in your JavaScript application. Executing `loginWithRedirect()` redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
+Now that you have configured your Auth0 Application, added the Auth0 SPA SDK, and created the Auth0 client, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
-Create a button in your application to call `loginWithRedirect()` when selected.
+Create a login button in your application that calls `loginWithRedirect()` when selected.
 
 ::::checkpoint
 ::: checkpoint-default
-Once you have added a login button that calls `loginWithRedirect()`, select the button and verify that you are redirected to Auth0 for authentication, and that you do not receive any errors in the console relating to Auth0.
+You should now be able to log in or sign up using a username and password.
+
+Run your application, and select the login button. Verify that:
+
+- you are redirected to Auth0 for authentication
+- you do not receive any errors in the console related to Auth0
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+Sorry about that. Here are a few things to double check:
 
-- make sure the correct application is selected
-- did you save after entering your URLs?
+- make sure that the correct application is selected
+- make sure you saved after entering your URLs
 - make sure the Auth0 client has been correctly configured with your Auth0 domain and client ID
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
 
 :::
 ::::
 
 ## Handle the callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
 
-When the browser is redirected back to your application process the result by calling the `handleRedirectCallback()` function on the Auth0 client.
+When the browser is redirected back to your application process, your application should call the `handleRedirectCallback()` function on the Auth0 client only when it detects a callback from Auth0. One way to do this is to only call `handleRedirectCallback()` when `code` and `state` query parameters are detected.
 
-This should be called somewhere on page load when a callback from Auth0 is detected. One way to do this is to only call `handleRedirectCallback()` when there are `code` and `state` query parameters detected.
-
-If handling the callback was successful, the parameters should be removed from the URL so as to not trigger the callback handler the next time the page loads.
+If handling the callback was successful, the parameters should be removed from the URL so the callback handler will not be triggered the next time the page loads.
 
 ::::checkpoint
 ::: checkpoint-default
-Add the logic to handle the callback from Auth0 and select the login button again. Verify that Auth0 successfully redirects back to your application after authentication, and that the query parameters are removed from the URL.
+Run your application, and select the login button again. Verify that:
+
+- Auth0 successfully redirects back to your application after authentication
+- the query parameters are removed from the URL
 :::
 
 ::: checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+Sorry about that. Here are a few things to double check:
 
 - check that the `redirect_uri` option has been configured to your application's URL
 - if you have an `error` query parameter, inspect it to learn the cause of the error
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="app.js#21:27" }}}
 
-Now that you can log in to your application, you need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. Executing `logout()` redirects your users to your [Auth0 logout endpoint](/api/authentication?javascript#logout) and then immediately redirects them back to your application.
+Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
+
+Create a logot button in your application that calls `logout()` when selected.
 
 ::::checkpoint
 ::: checkpoint-default
-Add a logout button to your app and call the `logout()` function when it is selected. Verify that the application redirects to Auth0's logout endpoint, and then immediately back to your application.
+Run your application, log in, and select the logout button. Verify that:
+
+- the application redirects to Auth0's logout endpoint
+- the application then redirects immediately back to your application
 :::
 
 ::: checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+Sorry about that. Here are a few things to double check:
 
-- verify that the correct logout URL has been added to the "Allowed Logout URLs" configuration box for your Auth0 app
+- verify that the correct logout URL has been added to the **Allowed Logout URLs** configuration box for your Auth0 app
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
 :::
 ::::
 
 ## Show user profile information {{{ data-action=code data-code="app.js#29:43" }}}
 
-The Auth0 SPA SDK helps you retrieve the [profile information](/users/concepts/overview-user-profile) (such as their name or profile picture) associated with logged-in users in whatever component you need in order to personalize the user interface. The profile information is available through the `getUser()` function exposed by the Auth0 client.
+Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
 
-The client also exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not. This can be used to show or hide UI elements, for example.
-
-Review the code in the sidebar for an example of how to retrieve and use it.
+The Auth0 SPA SDK provides user information through the `getUser()` function exposed by the Auth0 client. The Auth0 client also exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not, which you can use to determine whether to show or hide UI elements, for example. Review the code in the interactive panel to see examples of how to use these functions.
 
 ::::checkpoint
 ::: checkpoint-default
-Use the `isAuthenticated()` and `getUser()` functions to show some UI in your application when the user is logged in, and show a different interface when the user is logged out. Verify that your UI displays correctly depending on the user's authentication state.
+You should now be able to view user profile information.
+
+Run your application, and verify that:
+
+- user information displays correctly after you have logged in
+- user information does not display after you have logged out
 :::
 
 ::: checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+Sorry about that. Here are a few things to double check:
 
 - ensure that all the previous steps work without issue
-- double-check your code that manages the UI in response to the authentication state
+- check your code that manages the UI in response to the authentication state
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors relating to silent authentication
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
 :::
 ::::
