@@ -18,7 +18,7 @@ files:
   - files/web.config
 ---
 
-# Add Login to your ASP.NET Owin application
+# Add login to your ASP.NET Owin application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin application using the `Microsoft.Owin.Security.OpenIdConnect` Nuget package. 
 
@@ -27,7 +27,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Install and Configure the Middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Install and configure the middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
 
 ### Install from Nuget
 
@@ -54,16 +54,16 @@ In the code snippet, note that the `AuthenticationType` is set to **Auth0**. Thi
 
 To allow users to login to your ASP.NET Owin application, add a `Login` action to your controller.
 
-Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This will invoke the OIDC authentication handler that was registered earlier. Be sure to also specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
+Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This invokes the OIDC authentication handler that was registered earlier. Be sure to also specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
 
-After succesfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user will be redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
+After succesfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user redirects to Auth0 and signs in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This allows the users to be authenticated on subsequent requests.
 
 ::::checkpoint
 
 :::checkpoint-default
 
 Now that you have configured Login, run your application to verify that:
-* Navigating to your `Login` action will redirect to Auth0
+* Navigating to your `Login` action will redirects to Auth0
 * Entering your credentials will redirect you back to your application.
 
 :::
@@ -80,19 +80,19 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::
 
-## Add Logout to your Application {{{ data-action=code data-code="AccountController.cs#34:39" }}}
+## Add logout to your application {{{ data-action=code data-code="AccountController.cs#34:39" }}}
 
-Logging out the user from your own application can be done by calling `HttpContext.GetOwinContext().Authentication.SignOut` with the `CookieAuthenticationDefaults.AuthenticationType` authentication scheme from inside your controller's action.
+From your controller's action, call `HttpContext.GetOwinContext().Authentication.SignOut` with the `CookieAuthenticationDefaults.AuthenticationType` authentication scheme to log the user out of your application.
 
-Additionaly, If you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.GetOwinContext().Authentication.SignOut` with the `"Auth0"` authentication scheme.
+Additionaly, if you want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign-On), call `HttpContext.GetOwinContext().Authentication.SignOut` with the `"Auth0"` authentication scheme.
 
 ::::checkpoint
 
 :::checkpoint-default
 
 Now that you have configured Logout, run your application to verify that:
-* Navigating to your `Logout` action will ensure the user is logged out.
-* When also logging out from Auth0, you should be redirected to Auth0 and instantly redirected back to your own application.
+* Navigating to your `Logout` action ensures the user is logged out.
+* Duing logout, you redirect to Auth0 and instantly redirect back to your own application during log out.
 
 :::
 
@@ -108,11 +108,11 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="AccountController.cs#18:32" }}}
+## Show user profile information {{{ data-action=code data-code="AccountController.cs#18:32" }}}
 
-After the middleware has succesfuly retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available as `ClaimsIdentity`, which u can access by using the `User` property on the controller.
+After the middleware successfully retrieves the tokens from Auth0, it extracts the user's information and claims from the ID token and makes them available as `ClaimsIdentity`. Access the extracted information by using the `User` property on the controller.
 
-You can create a custom user profile page for displaying a user's name, email address, and profile image, by retrieving the corresponding information from the `User` and pass it to the view from inside your controller.
+To create a user profile, retrieve a user's name, email address, and profile image from the `User` and pass it to the view from inside your controller.
 
 ::::checkpoint
 
