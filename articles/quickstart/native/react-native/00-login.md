@@ -126,7 +126,7 @@ Take note of this value as you'll be using it to define the callback URLs below.
 - Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
 - Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
 
-For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking.html).
+For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
 
 
 <%= include('../../../_includes/_callback_url') %>

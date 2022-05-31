@@ -33,5 +33,6 @@ github:
 requirements:
   - .NET Core 3.1
   - .NET 5.0
+  - .NET 6.0
 sample_download_required_data:
   - client

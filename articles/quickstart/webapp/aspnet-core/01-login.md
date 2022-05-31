@@ -54,7 +54,7 @@ public void ConfigureServices(IServiceCollection services)
     // Cookie configuration for HTTPS
     // services.Configure<CookiePolicyOptions>(options =>
     // {
-    //    options.MinimumSameSitePolicy = SameSiteMode.None
+    //    options.MinimumSameSitePolicy = SameSiteMode.None;
     // });
 
     services
@@ -103,14 +103,14 @@ public class AccountController : Controller
             .WithRedirectUri(returnUrl)
             .Build();
 
-        await HttpContext.ChallengeAsync(Constants.AuthenticationScheme, authenticationProperties);
+        await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
     }
 }
 ```
 
 ## Display User Profile
 
-The SDK extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.
+The SDK extracts the user's information from the ID Token and makes them available as the `User.Claims` property on the controller.
 
 You can create a custom user profile page for displaying a user's name, email address, and profile image, by passing the corresponding information to the view from inside your controller.
 

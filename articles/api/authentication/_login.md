@@ -133,7 +133,7 @@ GET https://${account.namespace}/authorize?
   "link": "#database-ad-ldap-passive-"
 }) %>
 
-Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can login with email and password.
+Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can log in with email and password.
 
 ### Request Parameters
 
@@ -194,21 +194,17 @@ GET https://${account.namespace}/authorize?
     clientID:     '${account.clientId}'
   });
 
-  // Trigger login using redirect with credentials to enterprise connections
-  webAuth.redirect.loginWithCredentials({
-    connection: 'Username-Password-Authentication',
-    username: 'testuser',
-    password: 'testpass',
-    scope: 'openid'
+  // Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: 'YOUR_CLIENT_ID', // string
+    responseType: 'token', // code or token
+    redirectUri: 'https://YOUR_APP/callback',
+    scope: 'openid profile email'
+    state: 'YOUR_STATE'
   });
 
-  // Trigger login using popup mode with credentials to enterprise connections
-  webAuth.popup.loginWithCredentials({
-    connection: 'Username-Password-Authentication',
-    username: 'testuser',
-    password: 'testpass',
-    scope: 'openid'
-  });
+  // Redirect to url
+  // ...
 </script>
 ```
 
@@ -251,7 +247,6 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the <dfn data-key="access-token">Access Token</dfn> and ID Token in the address `location.hash`. This is used for Single-Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
-- In order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. See [Cross-Origin Authentication](/cross-origin-authentication#limitations) to understand the limitations of this approach.
 
 ### More Information
 
