@@ -13,25 +13,25 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
+  - files/web.config
   - files/startup
   - files/account.controller
-  - files/web.config
 ---
 
 # Add login to your ASP.NET Owin application
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin application using the `Microsoft.Owin.Security.OpenIdConnect` Nuget package. 
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET OWIN application using the `Microsoft.Owin.Security.OpenIdConnect` Nuget package. 
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/callback',
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Install and configure the middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Configure the project {{{ data-action=code data-code="Web.config#1:7" }}}
 
 ### Install from Nuget
 
-To integrate Auth0 with ASP.NET Owin you can use the `Microsoft.Owin.Security.OpenIdConnect` and `Microsoft.Owin.Security.Cookies` Nuget packages.
+To integrate Auth0 with ASP.NET OWIN, you can use the `Microsoft.Owin.Security.OpenIdConnect` and `Microsoft.Owin.Security.Cookies` Nuget packages.
 
 ```bash
 Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -39,24 +39,29 @@ Install-Package Microsoft.Owin.Security.Cookies
 ```
 
 :::note
-There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to learn about how to mitigate these problems
+Issues occur when configuring the OWIN cookie middleware and System.Web cookies at the same time. To learn more, read [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to mitigate these problems.
 :::
 
-### Configure the middleware
+### Configure the credentials
+For the SDK to function properly, set the following properties in `Web.config`:
+- `auth0:Domain`: The domain of your Auth0 tenant. You can find this in the Auth0 Dashboard under your application's **Settings** in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
+- `auth0:ClientId`: The ID of the Auth0 application you created in Auth0 Dashboard. You can find this in the Auth0 Dashboard under your application's **Settings** in the Client ID field.
 
-To enable authentication in your ASP.NET Owin application, go to the `Configuration` method of your `Startup` class and configure the cookie and OIDC middleware.
+## Configure the middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
 
-It is essential that you register both the cookie middleware and the OpenID Connect middleware, as they are required (in that order) for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
+To enable authentication in your ASP.NET OWIN application, go to the `Configuration` method of your `Startup` class and configure the cookie and OIDC middleware.
 
-In the code snippet, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note the code in the `RedirectToIdentityProvider` notification event which constructs the correct [logout URL](/logout).
+It is essential that you register both the cookie middleware and the OpenID Connect middleware as both are required (in that order) for authentication to work. The OpenID Connect middleware handles the authentication with Auth0. Once users have authenticated, their identity is stored in the cookie middleware.
 
-## Add Login to Your Application {{{ data-action=code data-code="AccountController.cs#7:16" }}}
+In the code snippet, `AuthenticationType` is set to **Auth0**. Use `AuthenticationType` in the next section to challenge the OpenID Connect middleware and start the authentication flow. `RedirectToIdentityProvider` notification event constructs the correct [logout URL](/logout).
 
-To allow users to login to your ASP.NET Owin application, add a `Login` action to your controller.
+## Add login to your application {{{ data-action=code data-code="AccountController.cs#7:16" }}}
 
-Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This invokes the OIDC authentication handler that was registered earlier. Be sure to also specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
+To allow users to login to your ASP.NET OWIN application, add a `Login` action to your controller.
 
-After succesfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user redirects to Auth0 and signs in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This allows the users to be authenticated on subsequent requests.
+Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This invokes the OIDC authentication handler that was registered earlier. Be sure to specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
+
+After succesfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user redirects to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
 
 ::::checkpoint
 
