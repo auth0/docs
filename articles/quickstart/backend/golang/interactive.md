@@ -92,7 +92,7 @@ Create an `/api/private` endpoint that requires the `EnsureToken` middleware as 
 Create an `/api/private-scoped` endpoint that requires the `EnsureToken` middleware and `HasScope` as it is only available for authenticated requests containing an access token with the `read:messages` scope granted.
 
 ::: note
-Only the `read:messages` scope is checked. You may want to extend the `HasScope` function or make it a standalone middleware that accepts multiple scopes to fit your use case.
+Only the `read:messages` scope is checked by the `HasScope` function, you may want to extend it or make it a standalone middleware that accepts multiple scopes to fit your use case.
 :::
 
 <%= include('../_includes/_call_api') %>
