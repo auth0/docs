@@ -22,20 +22,10 @@ files:
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET MVC application using the **Auth0.AspNetCore.Authentication** SDK. 
 
-## Configure Auth0 {{{ data-action=configure }}}
-
-### Create a new application
-Create a new application or select an existing application to integrate with. You can also create and manage your applications in the Dashboard at Dashboard > Applications > Applications. 
-
-If you are logged in configuring your settings in the quickstart will automatically update your settings in the dashboard.
-
-### Configure Callback URLs
-
-A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. If not set, users won't have a place to be redirected to after logging in.
-
-### Configure Logout URLs
-
-A logout URL is a URL in your application that Auth0 can return to after the user has been logged out of the authorization server. This is specified in the returnTo query parameter. If this field is not set, users will be unable to log out from the application and will get an error.
+<%= include('../../_includes/_configure_auth0_interactive', { 
+  callback: 'http://localhost:3000/callback',
+  returnTo: 'http://localhost:3000'
+}) %>
 
 ## Install and Configure the SDK {{{ data-action=code data-code="Startup.cs#9:13" }}}
 
@@ -142,4 +132,4 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 :::
 
-:::_:
+::::

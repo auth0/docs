@@ -106,7 +106,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/logout`](http://localhost:3000/logout).
 
 :::note
-For a deep dive into implementing user authentication in Vue, visit the [Complete Guide to Node.js User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-nodejs-express-user-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes, and making secure calls to an API. 
+For a deep dive into implementing user authentication in Express, visit the [Complete Guide to Node.js User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-nodejs-express-user-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes, and making secure calls to an API. 
 :::
 
 ## What's next?
