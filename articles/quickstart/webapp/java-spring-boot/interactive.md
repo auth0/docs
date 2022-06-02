@@ -8,6 +8,7 @@ files:
   - files/index
   - files/home-controller
   - files/logout-handler
+  - files/security-config-logout
 github:
     path: mvc-login
 ---
@@ -42,10 +43,12 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
-implementation 'org.springframework.boot:spring-boot-starter-web'
-implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+}
 ```
 
 If you are using Maven:
@@ -84,7 +87,7 @@ The Spring Security 5.4.0 release will include [a fix](https://github.com/spring
 
 ## Configure Spring Security {{{ data-action=code data-code="application.yml#1:16" }}}
 
-Spring Security makes it easy to configure your application for authentication with OIDC providers such as Auth0. In your application's configuration, configure the OAuth2 client and provider. The sample below uses an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
+Spring Security makes it easy to configure your application for authentication with OIDC providers such as Auth0. In your application's configuration, configure the OAuth2 client and provider. The sample to the right shows an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
 
 :::note
 Spring Security will use the `issuer-uri` property value to retrieve all the information necessary to enable login and validation of the ID token at runtime.
@@ -96,6 +99,7 @@ Spring Security will use the `issuer-uri` property value to retrieve all the inf
 
 To enable users to login with Auth0, you will need to extend the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and override the `configure(HttpSecurity http)` method.
 
+Later in this quickstart we will overwrite this file with `SecurityConfigWithLogout.java` to provide extra configurations to support the Logout feature.
 
 :::note
 You can further configure the [HttpSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html) instance to require authentication on all or certain paths. For example, to require authentication on all paths except the home page:
@@ -108,19 +112,34 @@ http.authorizeRequests()
 ```
 :::
 
-## Add Front Page //todo change title {{{ data-action=code data-code="index.html" }}}
+## Add Front Page {{{ data-action=code data-code="index.html" }}}
 
 Spring Security will use the client configuration you defined earlier to handle login when a user visits the `/oauth2/authorization/auth0` path of your application. You can use this to create a login link in your application.
 
+We show the user attributes in this page when the user is authenticated. The `/logout` link in the template will be later used while implementing the Logout feature. 
+
 ## Add Controller {{{ data-action=code data-code="HomeController.java" }}}
 
-Be sure to create or update a controller to render your view.
+We will create a controller to handle the incoming request. This controller will be used to render our `index.html` page. When the user is authenticated, we will setup the attributes user's profile information that will be used while rendering page.
 
-:::panel Checkpoint
-Add the login link to your application. When you click it, verify that your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+::::checkpoint
 
-Once that's complete, verify that Auth0 redirects you to your application and that you are logged in.
+:::checkpoint-default
+
+When you click the login link, verify that your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+
 :::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* you configured the correct Callback URL
+* you added the login link to redirect to `/oauth2/authorization/auth0`
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+
+:::
+
+::::
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
@@ -128,166 +147,29 @@ Once that's complete, verify that Auth0 redirects you to your application and th
 Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with [social identity providers](https://auth0.com/docs/connections/identity-providers-social). However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys) document.
 :::
 
-## Add Logout to Your Application
+## Add Logout to Your Application {{{ data-action=code data-code="LogoutHandler.java" }}}
 
 Now that users can log into your application, they need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can extend the `SecurityContextLogoutHandler` class to redirect users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
 
-```java
-package com.auth0.example;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.registration.ClientRegistration;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-/**
- * Needed to perform SSO logout with Auth0. By default, Spring will clear the SecurityContext and the session.
- * This controller will also log users out of Auth0 by calling the Auth0 logout endpoint.
- */
-@Controller
-public class LogoutHandler extends SecurityContextLogoutHandler {
-
-    private final ClientRegistrationRepository clientRegistrationRepository;
-
-    /**
-     * Create a new instance with a {@code ClientRegistrationRepository}, so that we can look up information about the
-     * configured provider to call the Auth0 logout endpoint. Called by the Spring framework.
-     *
-     * @param clientRegistrationRepository the {@code ClientRegistrationRepository} for this application.
-     */
-    @Autowired
-    public LogoutHandler(ClientRegistrationRepository clientRegistrationRepository) {
-        this.clientRegistrationRepository = clientRegistrationRepository;
-    }
-
-    /**
-     * Delegates to {@linkplain SecurityContextLogoutHandler} to log the user out of the application, and then logs
-     * the user out of Auth0.
-     *
-     * @param httpServletRequest the request.
-     * @param httpServletResponse the response.
-     * @param authentication the current authentication.
-     */
-    @Override
-    public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
-                       Authentication authentication) {
-
-        // Invalidate the session and clear the security context
-        super.logout(httpServletRequest, httpServletResponse, authentication);
-
-        // Build the URL to log the user out of Auth0 and redirect them to the home page.
-        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
-        String issuer = (String) getClientRegistration().getProviderDetails().getConfigurationMetadata().get("issuer");
-        String clientId = getClientRegistration().getClientId();
-        String returnTo = ServletUriComponentsBuilder.fromCurrentContextPath().build().toString();
-
-        String logoutUrl = UriComponentsBuilder
-                .fromHttpUrl(issuer + "v2/logout?client_id={clientId}&returnTo={returnTo}")
-                .encode()
-                .buildAndExpand(clientId, returnTo)
-                .toUriString();
-
-        try {
-            httpServletResponse.sendRedirect(logoutUrl);
-        } catch (IOException ioe) {
-            // Handle or log error redirecting to logout URL
-        }
-    }
-
-    /**
-     * Gets the Spring ClientRegistration, which we use to get the registered client ID and issuer for building the
-     * {@code returnTo} query parameter when calling the Auth0 logout API.
-     *
-     * @return the {@code ClientRegistration} for this application.
-     */
-    private ClientRegistration getClientRegistration() {
-        return this.clientRegistrationRepository.findByRegistrationId("auth0");
-    }
-}
-```
+## Update your Security Configuration {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
 
 Next, you need to update your implementation of `WebSecurityConfigurerAdapter` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
 
-```java
-package com.auth0.example;
+You can remove the `SecurityConfig.java` and replace it with `SecurityConfigWithLogout.java` or just update the contents from the one file to another.
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+::::checkpoint
 
-@Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final LogoutHandler logoutHandler;
-
-    public SecurityConfig(LogoutHandler logoutHandler) {
-        this.logoutHandler = logoutHandler;
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-       http
-          .oauth2Login()
-          .and().logout()
-          .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-          .addLogoutHandler(logoutHandler);
-    }
-}
-```
-
-You can then update your view to add a logout link for authenticated users.
-
-```html
-<div sec:authorize="isAuthenticated()">
-    <p>You are logged in!</p>
-    <a th:href="@{/logout}">Log Out</a>
-</div>
-```
-
-:::panel Checkpoint
-Add the logout link in the view of your application. When you click it, verify that your application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
+:::checkpoint-default
+When you click logout link, the application should redirect you to the address you specified as one of the "Allowed Logout URLs" in the "Settings" and you are no longer logged in to your application.
 :::
 
-## Show User Profile Information
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* you configured the correct Logout URL
+* you added the Logout link to redirect to `/logout`
 
-You can retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users through the [OidcUser](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/core/oidc/user/OidcUser.html) class, which can be used with the [AuthenticationPrincipal annotation](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/annotation/AuthenticationPrincipal.html).
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
-In your controller, add the user's profile information to the model:
-
-```java
-@Controller
-public class HomeController {
-
-    @GetMapping("/")
-    public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        if (principal != null) {
-            model.addAttribute("profile", principal.getClaims());
-        }
-        return "index";
-    }
-}
-```
-
-You can then use this profile information in your view, as shown below.
-
-```html
-<div sec:authorize="isAuthenticated()">
-    <img th:src="<%= "${profile.get('picture')}" %>" th:attr="<%= "alt=${profile.get('name')}" %>"/>
-    <h2 th:text="<%= "${profile.get('name')}" %>"></h2>
-    <p th:text="<%= "${profile.get('email')}" %>"></p>
-    <a th:href="@{/logout}">Log Out</a>
-</div>
-```
-
-:::panel Checkpoint
-Verify that you can display the user name or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) after you have logged in.
 :::
+
+::::
