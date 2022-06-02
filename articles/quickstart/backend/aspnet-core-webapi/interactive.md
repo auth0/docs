@@ -20,14 +20,15 @@ files:
   - files/api-controller
 ---
 
-# Add Authorization to an ASP.NET Core Web API application.
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
+# Add Authorization to an ASP.NET Core Web API Application
+
+Auth0 allows you to add authentication and access user profile information in almost any application type quickly. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+Alternatively, you can [read our getting started guide](/get-started/auth0-overview/set-up-apis), which will help you set up your first API through the Auth0 Dashboard.
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
+Note that every API in Auth0 is configured using an API Identifier; your application code will use the API Identifier as the Audience to validate the access token.
 
 <!-- markdownlint-disable MD041 MD002 -->
 
@@ -38,8 +39,7 @@ Every API in Auth0 is configured using an API Identifier that your application c
 
 ## Install dependencies
 
-The seed project already contains a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer`, which is needed in order to validate Access Tokens.
-However, if you are not using the seed project, add the package to your application by installing it using Nuget:
+To allow your application to validate access tokens, add a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer` Nuget package:
 
 ```text
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
@@ -47,45 +47,52 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configure the middleware {{{ data-action=code data-code="Startup.cs" }}}
 
-In your application's `Startup` file, register the authentication services:
+Set up the authentication middleware by configuring it in your application's `Startup.cs` file:
 
-1. Make a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default schemes.  
-2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience. In some cases the access token will not have a `sub` claim which will lead to `User.Identity.Name` being `null`. If you want to map a different claim to `User.Identity.Name` then add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
+1. Register the authentication services by making a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default scheme.
+ 
+2. Register the JWT Bearer authentication scheme by making a call to the `AddJwtBearer` method. Configure your Auth0 domain as the authority and your Auth0 API Identifier as the audience, and be sure that your Auth0 domain and API Identifier are set in your application's **appsettings.json** file. 
 
-To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's `Configure` method.
+:::note
+In some cases, the access token will not have a `sub` claim; in this case, the `User.Identity.Name` will be `null`. If you want to map a different claim to `User.Identity.Name`, add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
+:::
 
-The code expects the Auth0 Domain and Audience are set in the application's **appsettings.json** file. 
+3. Add the authentication and authorization middleware to the middleware pipeline by adding calls to the `UseAuthentication` and `UseAuthorization` methods in the `Configure` method.
 
 ## Validate scopes {{{ data-action=code data-code="HasScopeHandler.cs" }}}
 
-To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
+To ensure that an access token contains the correct scopes, use [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in the ASP.NET Core:
 
-Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.
+1. Create a new authorization requirement called `HasScopeRequirement`, which will check whether the `scope` claim issued by your Auth0 tenant is present, and if so, will check that the claim contains the requested scope.
+2. In your `Startup.cs` file's `ConfigureServices` method, add a call to the `AddAuthorization` method.
+3. Add policies for scopes by calling `AddPolicy` for each scope.
+4. Register a singleton for the `HasScopeHandler` class.
 
-In your Startup's `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton.
+## Protect API endpoints {{{ data-action=code data-code="ApiController.cs" }}}
 
-## Protect API Endpoints {{{ data-action=code data-code="ApiController.cs" }}}
+The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms.
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
+To secure an endpoint, add the `[Authorize]` attribute to your controller action (or the entire controller if you want to protect all of its actions).
 
-To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
+When securing endpoints that require specific scopes, make sure that the correct scope is present in the `access_token`. To do so, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter.
 
-To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter. 
+## Call your API
 
-
-## Calling Your API 
-
-### Obtaining an Access Token
-
-If you are calling the API from a Single-Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+The way in which you call your API depends on the type of application you are developing and the framework you are using. To learn more, read the relevant application Quickstart:
 
 * [Single-Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
 
-If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call, ensure this has the same value as the audience used to configure the middleware in your ASP.NET Core Web API.
+### Get an access token
+
+Regardless of the type of application you are developing or the framework you are using, to call your API, you need an access token.
+
+If you are calling your API from a Single-Page Application (SPA) or a Native application, after the authorization flow completes, you will get an access token.
+
+If you are calling the API from a command-line tool or another service where a user entering credentials does not exist, use the [OAuth Client Credentials Flow](/api/authentication#client-credentials). To do so, register a [Machine-to-Machine Application](${manage_url}/#/applications), and pass in the **Client ID** as the `client_id` parameter, the **Client Secret** as the `client_secret` parameter, and the API Identifier (the same value you used to configure the middleware earlier in this quickstart) as the `audience` parameter when making the following request:
 
 :::note
-Read [Application Settings](https://auth0.com/docs/get-started/dashboard/application-settings) for more information on getting the Client ID and Client Secret for your machine-to-machine app.
+To learn more about getting the Client ID and Client Secret for your machine-to-machine application, read [Application Settings](/get-started/dashboard/application-settings).
 :::
 
 ```har
@@ -119,9 +126,9 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
 }
 ```
 
-### Calling a secure endpoint
+### Call a secure endpoint
 
-You can make a request to the `/api/private` and `/api/private-scoped` endpoints, including the Access Token as a Bearer token in the **Authorization** header of the request:
+Now that you have an access token, you can use it to call secure API endpoints. When calling a secure endpoint, you must include the access token as a Bearer token in the **Authorization** header of the request. For example, you can make a request to the `/api/private` endpoint: 
 
 ```har
 {
@@ -133,4 +140,29 @@ You can make a request to the `/api/private` and `/api/private-scoped` endpoints
 }
 ```
 
-In order to call the `/api/private-scoped` endpoint, ensure the permissions are configured correctly and that the Access Token being used includes the `read:messages` scope.
+Call the `/api/private-scoped` endpoint in a similar way, but ensure that the API permissions are configured correctly and that the access token includes the `read:messages` scope.
+
+::::checkpoint
+
+:::checkpoint-default
+You should now be able to call the `/api/private` and `/api/private-scoped` endpooints. 
+
+Run your application, and verify that:
+
+- `GET /api/private` is available for authenticated requests.
+- `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
+
+:::
+
+:::checkpoint-failure
+Sorry about that. Here are a few things to double check:
+
+- make sure `ValidIssuer` and `ValidAudience` are configured correctly
+- make sure the token is added as the `Authorization` header
+- check that the token has the correct scopes (you can use [jwt.io](https://jwt.io/) to verify)
+
+Still having issues? To get more help, check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com).
+
+:::
+
+::::
