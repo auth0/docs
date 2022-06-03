@@ -1,4 +1,4 @@
-**---
+---
 title: Login
 description: This guide demonstrates how to integrate Auth0 with any new or existing iOS / macOS application using the Auth0.swift SDK.
 seo_alias: swift
