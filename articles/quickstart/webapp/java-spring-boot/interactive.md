@@ -151,7 +151,7 @@ Auth0 enables the Google social provider by default on new tenants and offers yo
 
 Now that users can log into your application, they need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can extend the `SecurityContextLogoutHandler` class to redirect users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
 
-## Update your Security Configuration {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
+## Update your security configuration {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
 
 Next, you need to update your implementation of `WebSecurityConfigurerAdapter` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
 
