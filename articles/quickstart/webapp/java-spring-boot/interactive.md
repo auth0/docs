@@ -24,7 +24,7 @@ This tutorial uses [Spring MVC](https://docs.spring.io/spring/docs/current/sprin
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Configure Spring Boot Application
+## Configure Spring Boot application
 
 ### Add Spring dependencies
 
