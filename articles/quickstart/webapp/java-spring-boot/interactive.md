@@ -118,7 +118,7 @@ Spring Security will use the client configuration you defined earlier to handle 
 
 We show the user attributes in this page when the user is authenticated. The `/logout` link in the template will be later used while implementing the Logout feature. 
 
-## Add Controller {{{ data-action=code data-code="HomeController.java" }}}
+## Add controller {{{ data-action=code data-code="HomeController.java" }}}
 
 We will create a controller to handle the incoming request. This controller will be used to render our `index.html` page. When the user is authenticated, we will setup the attributes user's profile information that will be used while rendering page.
 
