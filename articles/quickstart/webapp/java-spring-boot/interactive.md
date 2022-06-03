@@ -112,7 +112,7 @@ http.authorizeRequests()
 ```
 :::
 
-## Add Front Page {{{ data-action=code data-code="index.html" }}}
+## Add front page {{{ data-action=code data-code="index.html" }}}
 
 Spring Security will use the client configuration you defined earlier to handle login when a user visits the `/oauth2/authorization/auth0` path of your application. You can use this to create a login link in your application.
 
