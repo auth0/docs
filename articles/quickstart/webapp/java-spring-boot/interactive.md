@@ -95,7 +95,7 @@ Spring Security will use the `issuer-uri` property value to retrieve all the inf
 [Additional property mappings](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-boot-property-mappings) are available for further customization, if required.
 :::
 
-## Add Login to Your Application {{{ data-action=code data-code="SecurityConfig.java" }}}
+## Add login to your application {{{ data-action=code data-code="SecurityConfig.java" }}}
 
 To enable users to login with Auth0, you will need to extend the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and override the `configure(HttpSecurity http)` method.
 
