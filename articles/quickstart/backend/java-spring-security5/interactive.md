@@ -23,11 +23,11 @@ github:
 
 Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
 
-If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
+If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+Review [our getting started guide](get-started/auth0-overview/set-up-apis) to set up your first API through the Auth0 dashboard.
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
+Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -41,7 +41,7 @@ The sample project uses a `/src/main/resources/application.yml` file, which conf
 | Attribute | Description|
 | --- | --- |
 | `auth0.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
-| `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
+| `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The value of the `iss` claim and the issuer URI of the resource server in the JWT issued by Auth0. Spring Security uses this property to discover the authorization server's public keys and validate the JWT signature. The value is Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
 
 ## Install dependencies {{{ data-action=code data-code="application.yml#1:8" }}}
 
@@ -97,25 +97,25 @@ To configure the application as a Resource Server and validate the JWTs, create 
 
 <%= include('../_includes/_api_endpoints') %>
 
-The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
+The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers restrict access based on the level of authorization required:
 
 ::: note
-By default, Spring Security will create a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This is what enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
+By default, Spring Security creates a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This scope enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
 
 If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) to learn how to customize the extracted authorities.
 :::
 
 ### Configure JWT Validator
 
-Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`. The `auth0.audience` value from `application.yml` will be used to validate the `aud` claim. The `issuer` is verified using the `issuer-uri` value from the `application.yml`
+Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`. The `auth0.audience` value from `application.yml` validates the `aud` claim. The `issuer-uri` value from `application.yml` verifies the `issuer`.
 
 ## Create the Domain Object {{{ data-action=code data-code="Message.java#1:11" }}}
 
-To make your endpoint return a JSON, you can use a [POJO](https://en.wikipedia.org/wiki/Plain_old_Java_object) (Plain Old Java Object). The member variables of this object is serialized into the key value for your JSON. Create a new class named `Message`. This will act as a simple domain object to return during the API calls.
+To make your endpoint return a JSON, you can use a [POJO](https://en.wikipedia.org/wiki/Plain_old_Java_object) (Plain Old Java Object). The member variables of this object is serialized into the key value for your JSON. Create a new class named `Message` as an example domain object to return during the API calls.
 
 ## Create the API controller {{{ data-action=code data-code="APIController.java" }}}
 
-Create a new class named `APIController` to handle requests to the endpoints. The `APIController` will have three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For the simplicity of this sample we will allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
+Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
 
 ## Run the application {{{ data-action=code data-code="APIController.java" }}}
 
@@ -155,7 +155,7 @@ The sample application will be available at `http://localhost:3010/`. Read about
 :::
 
 :::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+If your application did not launch successfully:
 * Use the [Troubleshooting](/quickstart/backend/java-spring-security5/03-troubleshooting) section to check your configuration.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
