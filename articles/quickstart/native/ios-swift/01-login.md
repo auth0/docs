@@ -232,4 +232,3 @@ Check the SDK documentation to learn how to perform some common tasks, explore m
 - [Common tasks](https://github.com/auth0/Auth0.swift#common-tasks)
 - [API documentation](https://auth0.github.io/Auth0.swift/)
 - [FAQ](https://github.com/auth0/Auth0.swift/blob/master/FAQ.md)
-**
