@@ -19,6 +19,8 @@ default_article: 01-login
 articles:
   - 01-login
 show_steps: true
+hidden_articles:
+  - "interactive"
 github:
   org: auth0-samples
   repo: auth0-spring-boot-login-samples
