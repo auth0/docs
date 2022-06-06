@@ -50,7 +50,7 @@ Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to
 #### iOS
 
 ```text
-YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback`
+YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
 #### macOS
@@ -123,7 +123,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 ## Configure the SDK {{{ data-action=code data-code="Auth0.plist" }}}
 
-The Auth0.swift SDK needs your Auth0 **Domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
+The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
 
 - **domain**: The domain of your Auth0 tenant. If you are using a [custom domain](/customize/custom-domains), you should set this to the value of your custom domain instead.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
