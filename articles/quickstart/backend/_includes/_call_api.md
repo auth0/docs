@@ -1,6 +1,8 @@
-## Make a Call to Your API
+<!-- markdownlint-disable MD041 MD002 -->
 
-To make calls to your API, you need an Access Token. You can get an Access Token for testing purposes from the test lab in your [API settings](${manage_url}/#/apis).
+### Make a Call to Your API
+
+To make calls to your API, you need an Access Token. You can get an Access Token for testing purposes from the **Test** view in your [API settings](${manage_url}/#/apis).
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-access-token.png)
 

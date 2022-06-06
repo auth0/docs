@@ -4,7 +4,7 @@ description: This guide demonstrates how to add authentication and gain access t
 interactive: true
 files:
   - files/Auth0
-  - files/ContentView
+  - files/MainView
   - files/ProfileView
   - files/User
 seo_alias: swift
@@ -87,7 +87,7 @@ In the **Search or Enter Package URL** search box enter this URL:
 https://github.com/auth0/Auth0.swift
 ```
 
-Then, select the dependency rule and press **Add Package**..
+Then, select the dependency rule and press **Add Package**.
 
 ::: note
 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
@@ -149,7 +149,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add login to your app {{{ data-action=code data-code="ContentView.swift#21:33" }}}
+## Add login to your app {{{ data-action=code data-code="MainView.swift#21:33" }}}
 
 Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
@@ -177,7 +177,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="ContentView.swift#35:46" }}}
+## Add logout to your app {{{ data-action=code data-code="MainView.swift#35:46" }}}
 
 Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 

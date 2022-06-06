@@ -19,6 +19,8 @@ alias:
   - omniauth
 seo_alias: rails
 default_article: 01-login
+hidden_articles:
+  - interactive
 articles:
   - 01-login
   - 02-troubleshooting

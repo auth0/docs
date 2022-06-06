@@ -22,6 +22,8 @@ snippets:
   use: native-platforms/android/use
 seo_alias: android
 default_article: 00-login
+hidden_articles:
+  - interactive
 articles:
   - 00-login
   - 01-user-metadata
