@@ -1,3 +1,27 @@
+---
+title: Add Login to your iOS or macOS app
+description: This guide demonstrates how to add authentication and gain access to user profile information in any iOS / macOS app using the Auth0.swift SDK.
+interactive: true
+files:
+  - files/Auth0
+  - files/MainView
+  - files/ProfileView
+  - files/User
+seo_alias: swift
+budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - macos
+  - swift
+github:
+  path: Sample-01
+contentType: tutorial
+useCase: quickstart
+---
+
+
 # Add Login to your iOS or macOS app
 
 This guide demonstrates how to add authentication and access user profile information in any iOS / macOS app using the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK.
