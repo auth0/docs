@@ -4,6 +4,11 @@ Now that users can log in, you need to configure [a way to log out](https://auth
 
 To achieve this with Ionic and Capacitor in conjunction with the Auth0 SDK:
 
-* Use the SDK to build the URL to the logout endpoint by calling `buildLogoutUrl`.
-* Call the `logout` function on the SDK. Set `localOnly: true`. This clears the internal state of the SDK but does not redirect to Auth0.
+* Construct the URL for your app Auth0 should use to redirect to after logout. This is a URL that uses your registered custom scheme and Auth0 domain. Add it to your **Allowed Logout URLs** configuration in the Auth0 Dashboard
+* Use the SDK to build the URL to the logout endpoint by calling `buildLogoutUrl`, and pass your redirect URL back as the `returnTo` parameter.
+* Call the `logout` function on the SDK, setting `localOnly: true`. This clears the internal state of the SDK but not automatically perform the redirect to Auth0.
 * Redirect the user to the logout endpoint using `Browser.open`.
+
+:::note
+Similar to the login step, if you do not set `localOnly: true` when calling `logout`, the SDK redirects the user to the logout URL using the default browser application on the device, which provides a suboptimal user experience.
+:::
