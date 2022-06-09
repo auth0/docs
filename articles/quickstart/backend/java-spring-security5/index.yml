@@ -7,6 +7,10 @@ author:
   name: Jim Anderson
   email: jim.anderson@auth0.com
   community: false
+sdk:
+  name: auth0-spring-security-api
+  url: https://github.com/auth0/auth0-spring-security-api
+  logo: spring
 alias:
   - spring security
   - spring
@@ -23,6 +27,8 @@ articles:
   - 02-using
   - 03-troubleshooting
 default_article: 01-authorization
+hidden_articles:
+  - "interactive"
 show_steps: true
 github:
   org: auth0-samples
