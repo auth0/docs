@@ -140,7 +140,7 @@ You configured the Auth0.swift SDK. Run your app to verify that it is not produc
 :::
 
 :::checkpoint-failure
-If your application did not launch successfully:
+If your application produces errors related to the SDK:
 - Make sure you selected the correct Auth0 application
 - Verify you saved your URL updates
 - Ensure you set the Auth0 Domain and Client ID correctly
