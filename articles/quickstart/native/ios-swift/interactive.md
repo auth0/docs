@@ -190,7 +190,7 @@ Press the **Logout** button and verify that:
 :::
 
 :::checkpoint-failure
-If your application did not launch successfully:
+If login fails or returns errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 Domain and Client ID correctly
 
