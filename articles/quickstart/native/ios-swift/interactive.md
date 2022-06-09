@@ -190,7 +190,7 @@ Press the **Logout** button and verify that:
 :::
 
 :::checkpoint-failure
-If login fails or returns errors:
+If logout fails or returns errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 Domain and Client ID correctly
 
