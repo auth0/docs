@@ -214,7 +214,7 @@ Verify that you can access the `email`, `picture`, or any other [claim](/secure/
 :::
 
 :::checkpoint-failure
-If the you cannot access the user information:
+If you cannot access the user information:
 - Verify you imported the `JWTDecode` module when you invoke `decode(jwt:)` method
 - Make sure you spelled your claims correctly
 
