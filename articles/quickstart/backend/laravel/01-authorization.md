@@ -25,7 +25,7 @@ If you already have a Laravel 9 application prepared, you can skip this step.
 Let's begin by setting up a new Laravel application. Let's open a shell and run the following command — replacing `DIRECTORY_NAME` with a directory name of preference to create and install Laravel within. The directory cannot already exist.
 
 ```sh
-composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME dev-master
+composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME
 ```
 
 We'll refer to this new directory as our project's root directory. As we work through this tutorial, we'll run any instructed shell commands from within that directory.
