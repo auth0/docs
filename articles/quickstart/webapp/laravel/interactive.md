@@ -35,7 +35,7 @@ If you already have a Laravel 9 application prepared, you can skip this step.
 Begin by setting up a new Laravel application. Open a shell and run the command below. Replace `DIRECTORY_NAME` with your preferred directory name to create and install in Laravel. The directory cannot already exist.
 
 ```sh
-composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME dev-master
+composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME
 ```
 
 This new directory is your project's root directory. As you work through this tutorial, run any instructed shell commands from within that directory.
@@ -72,7 +72,7 @@ Now connect your Laravel application with the SDK so you can work with your Auth
 
 ## Authentication routes {{{ data-action=code data-code="routes/web.php#1:3" }}}
 
-Set-up authentication routes with the SDK plug-and-play router controllers. 
+Set-up authentication routes with the SDK plug-and-play router controllers.
 
 Inside `routes/web.php`:
 
@@ -140,8 +140,8 @@ You're all set. Your new application is live and waiting for use. Give it a try 
 
 Now that you have configured your Laravel application to use Auth0, run your application to verify that:
 * When users navigate to the `/login` route, they redirect to Auth0.
-* Users redirect back to your application after sucessfully entering their credentials, indicating they are authenticated. 
-* Users not authenticated are prohibited from accessing the `/required` route. 
+* Users redirect back to your application after sucessfully entering their credentials, indicating they are authenticated.
+* Users not authenticated are prohibited from accessing the `/required` route.
 * When users navigate to the `/logout` route, they redirect to Auth0's logout endpoint and sign them out of our application.
 
 :::

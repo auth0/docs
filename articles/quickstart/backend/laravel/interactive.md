@@ -41,7 +41,7 @@ If you already have a Laravel 9 application prepared, you can skip this step.
 Begin by setting up a new Laravel application. Open a shell and run the command below. Replace `DIRECTORY_NAME` with a preferred directory name to create and install in Laravel. The directory cannot already exist.
 
 ```sh
-composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME dev-master
+composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME
 ```
 
 This new directory is the project's root directory. As you work through this tutorial, run any instructed shell commands from within that directory.
@@ -78,7 +78,7 @@ Now, connect your Laravel application with the SDK so you can work with your Aut
 
 ## Configure routes {{{ data-action=code data-code="routes/web.php" }}}
 
-Use the SDK's middleware to automatically protect routes that use bearer tokens. For this type of application, there are different types of middleware available: 
+Use the SDK's middleware to automatically protect routes that use bearer tokens. For this type of application, there are different types of middleware available:
 
 - `auth0.authenticate.optional`: This middleware resolves an available bearer token when provided and allows you to access the token's properties through the `Auth::user()` command. Requests won't be blocked without a token, but treat tokenless requests as "guest" requests.
 - `auth0.authenticate`: This middleware rejects requests that do not contain a valid access token.
