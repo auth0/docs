@@ -20,7 +20,7 @@ files:
 
 # Add login to your Flutter app
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
+Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
 ## Getting started
 
@@ -42,7 +42,7 @@ flutter pub get auth0-flutter
 
 If you are not developing for the Android platform, you can skip this step.
 
-The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.
+The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
 
 You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
 
@@ -55,7 +55,7 @@ Run **Sync Project with Gradle Files** inside Android Studio to apply your chang
 
 ## Add login to your app {{{ data-action="code" data-code="main.dart#4:5" }}}
 
-[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
 Integrate with Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication.login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
 
@@ -78,16 +78,33 @@ Verify that you can get access to the tokens on the result of calling `login`.
 If your application did not launch successfully:
 * Ensure you set the Allowed Callback URLs are correct
 * Verify you saved your changes after entering your URLs
-* Make sure the domain and cliend ID values imported correctly
+* Make sure the domain and client ID values are imported correctly
 * If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="main.dart#9:10"}}}
+## Show user profile information {{{ data-action="code" data-code="main.dart#8:9" }}}
 
-In order to log out, users must be redirected to the Auth0 logout endpoint to clear their login session. This can be achieved using the Auth0 Flutter SDK by using `webAuthentication.logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
+The user profile is automatically retrieved for you when you call `webAuthentication.login()`. The object that is returned from the login step contains a `userProfile` property that has all the user profile properties, which have been populated by decoding the ID token.
+
+::::checkpoint
+:::checkpoint-default
+Log in and inspect the `userProfile` property on the result. Verify that you can access the current user's profile information.
+:::
+:::checkpoint-failure
+If your application did not return user profile information:
+
+- Verify the access token is valid
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Add logout to your app {{{ data-action=code data-code="main.dart#11:12"}}}
+
+To log out, users must be redirected to the Auth0 logout endpoint to clear their login session. This can be achieved using the Auth0 Flutter SDK using `webAuthentication.logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
 **Android**: if you are using a custom scheme, you must pass this scheme to the logout method so that the SDK can route back to your app correctly:
 
@@ -97,17 +114,14 @@ await auth0.webAuthentication.logout(scheme: 'YOUR CUSTOM SCHEME');
 
 ::::checkpoint
 :::checkpoint-default
-Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Flutter app redirects you logout page and back again, and that you are no longer logged in to your application.
+Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Flutter app redirects you to the logout endpoint and back again and that you are no longer logged in to your application.
 :::
 
 :::checkpoint-failure
-If your application did not logout successfully:
+If your application did not log out successfully:
 * Ensure the Allowed Logout URLs are set properly
 * Verify you saved your changes after entering your URLs
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
-
-## Show user profile information
-
