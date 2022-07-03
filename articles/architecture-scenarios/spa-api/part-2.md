@@ -26,35 +26,11 @@ You will be asked to supply the following details for your API:
 
 - __Name__: a friendly name for the API. Does not affect any functionality.
 - __Identifier__: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value cannot be modified afterwards.
-- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
+- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. To learn more about signing algorithms, see [Signing Algorithms](#signing-algorithms).
 
 ![Create API](/media/articles/architecture-scenarios/spa-api/create-api.png)
 
 Fill in the required information and click the **Create** button.
-
-## Signing Algorithms
-
-When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
-
-::: note
-The signature is part of a JWT. If you are not familiar with the JWT structure please refer to [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
-:::
-
-To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
-
-- __RS256__ is an [asymmetric algorithm](https://en.wikipedia.org/wiki/Public-key_cryptography) which means that there are two keys: one public and one private (secret). Auth0 has the secret key, which is used to generate the signature, and the consumer of the JWT has the public key, which is used to validate the signature.
-
-- __HS256__ is a [symmetric algorithm](https://en.wikipedia.org/wiki/Symmetric-key_algorithm) which means that there is only one secret key, shared between the two parties. The same key is used both to generate the signature and to validate it. Special care should be taken in order for the key to remain confidential.
-
-The most secure practice, and our recommendation, is to use __RS256__. Some of the reasons are:
-
-- With RS256 you are sure that only the holder of the private key (Auth0) can sign tokens, while anyone can check if the token is valid using the public key.
-- Under HS256, If the private key is compromised you would have to re-deploy the API with the new secret. With RS256 you can request a token that is valid for multiple audiences.
-- With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
-
-::: note
-For a more detailed overview of the JWT signing algorithms refer to [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
-:::
 
 ## Configure the Scopes
 
@@ -67,16 +43,16 @@ In the settings for your API, go to the **Scopes** tab. In this section you can 
 ## Create the Application
 
 There are four application types in Auth0:
-- __Native__ (used by mobile or desktop apps),
-- __Single Page Web Applications__,
-- __Regular Web Applications__ and
-- __Machine to Machine Applications__ (used by CLIs, Daemons, or services running on your backend).
+- __Native App__ (used by mobile or desktop apps),
+- __Single-Page Web App__,
+- __Regular Web App__ and
+- __Machine to Machine App__ (used by CLIs, Daemons, or services running on your backend).
 
-For this scenario we want to create a new Application for our SPA, hence we will use Single Page Application as the application type.
+For this scenario we want to create a new Application for our SPA, hence we will use Single-Page Application as the application type.
 
 To create a new Application, navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications}) menu option on the left. Click the __+ Create Application__ button.
 
-Set a name for your Application (we will use `Timesheets SPA`) and select `Single Page Web Applications` as the type.
+Set a name for your Application (we will use `Timesheets SPA`) and select `Single-Page Web App` as the type.
 
 Click __Create__.
 
@@ -106,11 +82,11 @@ Proceed to create the permissions for all the remaining scopes:
 
 ### Define Roles
 
-Next let's configure the two Roles: employee and manager.
+Next let's configure the two <dfn data-key="role">Roles</dfn>: employee and manager.
 
 Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application.
 
-Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
+Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissions. Click on **Save**.
 
 ![Create Employee Role](/media/articles/architecture-scenarios/spa-api/create-employee-role.png)
 
@@ -138,11 +114,11 @@ To do so, click on your user avatar in the top right of the Authorization Extens
 
 Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
-![Pulish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
+![Publish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule which will validate that the scopes contained in an Access Token is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
+The final step in this process is to create a Rule to check if the scopes contained in an Access Token are valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
 
 In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
@@ -152,23 +128,20 @@ Click on the **Create Rule** button and select the **Empty Rule** template. You 
 
 ```js
 function (user, context, callback) {
-  if (context.clientName !== 'Timesheets SPA') {
-    return callback(null, user, context);
-  }
-
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {
     return x.indexOf(':') < 0;
   });
-  Array.prototype.push.apply(filteredScopes, permissions);
-  context.accessToken.scope = filteredScopes.join(' ');
+
+  var allScopes = filteredScopes.concat(permissions);
+  context.accessToken.scope = allScopes.join(' ');
 
   callback(null, user, context);
 }
 ```
 
-The code above will ensure that all Access Tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
+The code above will ensure that all Access Tokens will only contain the properly-formatted scopes (e.g., `action:area` or `delete:timesheets`) which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
 
 Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 

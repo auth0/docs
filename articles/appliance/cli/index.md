@@ -9,6 +9,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance14
+sitemap: false
 ---
 
 # Private SaaS (PSaaS) Appliance Command Line Interface

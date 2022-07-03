@@ -1,12 +1,16 @@
 title: Cordova
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/phonegap.png
+logo: cordova
 author:
-  community: true
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 language:
   - Javascript
 framework:
   - Cordova
 hybrid: true
-image: /media/platforms/phonegap.png
 topics:
   - quickstart
 contentType: tutorial
@@ -24,11 +28,15 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-cordova-samples
+sdk:
+  name: auth0-cordova
+  url: https://github.com/auth0/auth0-cordova
+  logo: cordova
 requirements:
-  - NodeJS 5
-  - Cordova 5.4+
+  - NodeJS 10
+  - Cordova 9
 next_steps:
   - path: 01-login
     list:
@@ -38,9 +46,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

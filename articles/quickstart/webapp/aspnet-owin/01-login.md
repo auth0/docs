@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an ASP.NET OWin application.
+description: This tutorial demonstrates how to add user login to an ASP.NET OWIN application.
 budicon: 448
 topics:
   - quickstarts
@@ -11,8 +11,11 @@ github:
   path: Quickstart/01-Login
 contentType: tutorial
 useCase: quickstart
+sample_download_required_data:
+  - client
+  - api
 ---
-<%= include('../../../_includes/_new_app') %>
+<%= include('../../../_includes/_new_app', { showClientSecret: true, isPublicClient: false }) %>
 
 <%= include('_includes/_setup') %>
 

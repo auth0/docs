@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
 topics:
@@ -11,6 +10,8 @@ topics:
 contentType: tutorial
 useCase: quickstart
 ---
+
+<!-- markdownlint-disable MD002 MD041-->
 
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.
 
@@ -45,8 +46,8 @@ You can inspect a JWT with the [JWT.io](https://jwt.io/) website. Use the debugg
 
 The screenshot below shows the following information:
 * The token is signed with the RS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://rs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://rs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
@@ -65,8 +66,8 @@ If your token is signed with the HS256 algorithm, the debugger view is different
 
 The screenshot below shows the following information:
 * The token is signed with the HS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://hs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://hs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
@@ -107,9 +108,9 @@ Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authori
 
 To resolve this issue, make sure you are passing the JWT as the Bearer token in the `Authorization` header of the HTTP request.
 
-## 2. Did you configure the JWT middleware for the correct signing algorithm?
+### 2. Did you configure the JWT middleware for the correct signing algorithm?
 
-Make sure that the signing algorithm you used to sign your token matches the signing algorithm configured in your middleware. 
+Make sure that the [signing algorithm](/tokens/concepts/signing-algorithms) you used to sign your token matches the signing algorithm configured in your middleware. 
 
 The following screenshots show two messages:
 * A warning message: "Authorization failed..." 
@@ -139,7 +140,7 @@ Bearer was not authenticated. Failure message: IDX10501: Signature validation fa
 
 To resolve this issue, make sure that the algorithm for the JWT matches with the configuration of your middleware. 
 
-## 3. Has your token expired?
+### 3. Has your token expired?
 
 Each JSON Web Token is valid until the time defined in the `exp` claim runs out. If you send an expired token, the token will be rejected:
 
@@ -157,7 +158,7 @@ To resolve this issue, check if the token you are sending has not expired.
 The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the date/time for the value, visit [EpochConverter](http://www.epochconverter.com/).
 :::
 
-## 4. Did you configure the correct Issuer?
+### 4. Did you configure the correct issuer?
 
 The Issuer specified in your token must match exactly with your JWT middleware configuration. 
 
@@ -183,7 +184,7 @@ For RS256 tokens, the JWT middleware downloads the OIDC discovery document from 
 If you are using RS256 tokens, the system checks their signature before it checks the Issuer.
 :::
 
-## 5. Does the audience match your JWT middleware configuration?
+### 5. Does the audience match your JWT middleware configuration?
 
 Check if the audience specified in your token matches your JWT middleware configuration.
 

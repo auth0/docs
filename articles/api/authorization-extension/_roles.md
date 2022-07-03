@@ -1,6 +1,6 @@
 # Roles
 
-Roles are collections of permissions. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [Permissions](/extensions/authorization-extension#permissions) and then assigned to a certain role.
+<dfn data-key="role">Roles</dfn> are collections of permissions. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [Permissions](/extensions/authorization-extension#permissions) and then assigned to a certain role.
 
 For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension#roles).
 
@@ -54,7 +54,7 @@ Use this endpoint to retrieve all roles.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:roles</span>
 
@@ -96,7 +96,7 @@ Use this endpoint to get a single role based on its unique identifier.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:roles</span>
 
@@ -150,7 +150,7 @@ Use this endpoint to create a role.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">create:roles</span>
 
@@ -217,7 +217,7 @@ Use this endpoint to update the details of a role.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:roles</span>
 
@@ -268,7 +268,7 @@ Use this endpoint to remove a role.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">delete:roles</span>
 

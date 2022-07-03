@@ -17,7 +17,7 @@ useCase: quickstart
 
 The OpenID Connect middleware will automatically retrieve the user's information from Auth0 and add it as claims to the `ClaimsIdentity`. The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can go to `/Account/Claims` to see these claims.
 
-By default, the `email` claim is not included in the list of claims returned by Auth0. You will need to request it explicitly by requesting the **email** scope when your register the Auth0 middleware. 
+By default, the `email` claim is not included in the list of claims returned by Auth0. You will need to request it explicitly by requesting the **email** scope when your register the Auth0 middleware.
 
 Update the OpenID Connect middleware configuration and set the value of the `Scope` property to `openid profile email`:
 
@@ -31,35 +31,16 @@ public void Configuration(IAppBuilder app)
     // Configure Auth0 authentication
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
-        AuthenticationType = "Auth0",
-        
-        Authority = $"https://{auth0Domain}",
-
-        ClientId = auth0ClientId,
-        ClientSecret = auth0ClientSecret,
-
-        RedirectUri = auth0RedirectUri,
-        PostLogoutRedirectUri = auth0PostLogoutRedirectUri,
-
-        ResponseType = OpenIdConnectResponseType.CodeIdToken,
+        //...
         Scope = "openid profile email",
-
-        TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = "name"
-        },
-
-        Notifications = new OpenIdConnectAuthenticationNotifications
-        {
-            //...
-        }
+        //...
     });
 }
 ```
 
-You may also want to create a user profile page which will display a user's name, email address and profile image.
+You may also want to create a user profile page which will display a user's name, email address, and profile image.
 
-First, create a view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
+First, create a view model which will contain the basic user profile information, such as a `Name`, `EmailAddress`, and `ProfileImage`:
 
 ```csharp
 // ViewModels/UserProfileViewModel.cs
@@ -74,7 +55,7 @@ public class UserProfileViewModel
 }
 ```
 
-Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to decorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
+Add a new `UserProfile` action to the `AccountController`, extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to decorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
 
 ```csharp
 // Controllers/AccountController.cs
@@ -93,7 +74,7 @@ public ActionResult UserProfile()
 }
 ```
 
-Next, create a view. For the view, display a user profile card at the top with the user's name, email address and profile image.
+Next, create a view. For the view, display the user's name, email address and profile image.
 
 ```html
 <!-- Views/Account/UserProfile.cshtml -->
@@ -125,11 +106,11 @@ Next, create a view. For the view, display a user profile card at the top with t
 
 Now when you log in and then go to the URL `/Account/UserProfile` you will see the user's profile displayed.
 
-## Displaying the user's name in the navigation bar
+## Displaying the User's Name in the Navigation Bar
 
 You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that, you can navigate them to their Profile page.
 
-Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `Profile` action in the `AccountController`:
+Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `UserProfile` action in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -137,7 +118,7 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
 <ul class="nav navbar-nav navbar-right">
 @if (User.Identity.IsAuthenticated)
 {
-    <li>@Html.ActionLink("Hello " + User.Identity.Name, "Profile", "Account")</li>
+    <li>@Html.ActionLink("Hello " + User.Identity.Name, "UserProfile", "Account")</li>
     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
 }
 else

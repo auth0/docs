@@ -62,7 +62,7 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **express**: This module adds the [Express web application framework](https://expressjs.com/).
 
-- **jwks-rsa**: This library retrieves RSA signing keys from a [**JWKS** (JSON Web Key Set)](/jwks) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header. For more information refer to the [node-jwks-rsa GitHub repository](https://github.com/auth0/node-jwks-rsa).
+- **jwks-rsa**: This library retrieves RSA signing keys from a [**JWKS** (JSON Web Key Set)](/tokens/concepts/jwks) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header. For more information refer to the [node-jwks-rsa GitHub repository](https://github.com/auth0/node-jwks-rsa).
 
 - **express-jwt**: This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier. For more information refer to the [express-jwt GitHub repository](https://github.com/auth0/express-jwt).
 
@@ -134,7 +134,7 @@ This is also a good time for you to implement the logic to save the timesheet en
 
 // Create middleware for checking the JWT
 const checkJwt = jwt({
-  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
+  // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,

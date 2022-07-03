@@ -28,25 +28,13 @@
 ## Grant type: password
 
 <table class="table">
-    <thead>
-      <tr>
-        <th width="20%">Status</th>
-        <th width="80%">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing username parameter"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing password parameter"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing connection parameter"}</code></td>
-      </tr>
+  <thead>
+    <tr>
+      <th width="20%">Status</th>
+      <th width="80%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "scope parameter must be a string"}</code></br>Incorrect scope formatting; each scope must be separated by whitespace</td>
@@ -68,12 +56,16 @@
         <td><code>{ "error": "password_leaked", "error_description": "This login has been blocked because your password has been leaked in another website. We’ve sent you an email with instructions on how to unblock it."}</code></td>
       </tr>
       <tr>
-        <td><span class="badge badge-danger">429</span></td>
-        <td><code>{"error": "too_many_attempts", "error_description": "..."}</code></br>Some anomaly detections will return this error</td>
+        <td><span class="badge badge-danger">401</span></td>
+        <td><code>{ "error": "requires_verification", "error_description": "Suspicious request requires verification" }</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">429</span></td>
-        <td><code>{"error": "too_many_logins", "error_description": "..."}</code></br>Some anomaly detections will return this error</td>
+        <td><code>{"error": "too_many_attempts", "error_description": "..."}</code></br>Some attack protection features will return this error</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">429</span></td>
+        <td><code>{"error": "too_many_logins", "error_description": "..."}</code></br>Some attack protection features will return this error</td>
       </tr>
     </tbody>
   </table>
@@ -91,10 +83,6 @@
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "missing client_id parameter"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "the connection was not found"}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
@@ -121,4 +109,4 @@
         <td><code>{"error": "access_denied", "error_description": "..."}</code></br>Validation of specific points raised an access issue</td>
       </tr>
     </tbody>
-  </table>
+</table>

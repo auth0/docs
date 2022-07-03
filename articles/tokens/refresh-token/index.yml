@@ -1,9 +1,0 @@
-versioning:
-  baseUrl: tokens/refresh-token
-  current: current
-  versions:
-    - legacy
-    - current
-  defaultArticles:
-    legacy: index
-    current: index

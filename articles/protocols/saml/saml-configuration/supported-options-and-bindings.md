@@ -11,7 +11,7 @@ useCase:
 
 # Supported SAML Bindings and Options
 
-Auth0 supports the following SAML bindings:
+Auth0 supports the following <dfn data-key="security-assertion-markup-language">SAML</dfn> bindings:
 
 * HTTP Redirect
 * HTTP POST

@@ -1,6 +1,5 @@
 ---
-title: Changing a User's Password
-description: This document explains the ways you can reset the passwords for users of your Auth0 applications.
+description: Describes the different ways to reset the users' passwords for your Auth0 applications.
 toc: true
 topics:
     - connections
@@ -10,34 +9,39 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Change a User's Password
+# Change Users' Passwords
 
-:::panel-warning Notice
-This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock 8, check the notice panels like this one for information on differences between the two flows.
+This topic describes different ways to reset the password for a user in your database. You can change passwords for users in your [database connections](/connections/database) only. Users signing in with [social](/connections/social) or [enterprise](/connections/enterprise) connections must reset their passwords with the identity provider (such as Google or Facebook).
 
-To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
+There are two basic methods for changing a user's password:
 
-We strongly encourage you to enable **Change Password flow v2**. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow). To learn more about migrating to Lock 11, please take a look at the [Lock 11 Migration Guide](/libraries/lock/v11/migration-guide).
-:::
-
-You can change your users' passwords using one of the following methods.
-
-+ [**Authentication API**](#using-the-authentication-api): Send a `POST` call to the Authentication API to send a password reset email to the user.
-+ [**Management API**](#using-the-management-api): Send a `PATCH` call to the Management API to update the user's password manually.
-+ [**Lock**](#using-lock): Use the Lock login screen to trigger a password reset email to the user.
-+ [**Dashboard**](#manually-setting-a-user-s-password): Use the [Users](${manage_url}/#/users) section of the Dashboard to manually change the user's password.
+- [Trigger an interactive password reset flow](#trigger-an-interactive-password-reset-flow) that sends the user a link through email. The link opens the Auth0 password reset page where the user can enter a new password.
+- [Directly set the new password](#directly-set-the-new-password) using the Auth0 Management API or the Auth0 Dashboard.
 
 ::: note
-You can only change passwords for users signing in using Database connections. Users signing in using Social or Enterprise connections need to reset their passwords with the appropriate system.
+Resetting a user's password makes their session expire. 
 :::
 
-## Using the Authentication API
-
-To reset a user's password using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
-
-::: note
-If you're calling this from the browser, don't forget to add your URL to the the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
+:::panel Not what you're looking for?
+- To configure the custom Password Reset page, read [Customize Hosted Password Reset Page](/universal-login/password-reset). 
+- To implement custom behavior after a successful password change, read  [Post Change Password Hook](/hooks/extensibility-points/post-change-password).
+- To reset the password to your personal Auth0 user account, read [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
+
+
+## Trigger an interactive password reset flow
+
+There are two ways to trigger an interactive password reset flow, depending on your use case: through the Universal Login page or the Authentication API.
+
+### Universal Login Page
+If your application uses Universal Login, the user can use the Lock widget on the Login screen to trigger a password reset email. With the New Universal Login Experience, the user can click the **Don't remember your password?** link and then enter their email address. This fires off a POST request to Auth0 that triggers the password reset process. The user [receives a password reset email](#password-reset-emails).
+
+### Authentication API
+If your application uses an interactive password reset flow through the Authentication API, make a `POST` call. In the `email` field, provide the email address of the user who needs to change their password. If the call is successful, the user [receives a password reset email](#password-reset-emails).
+
+If you call the API from the browser, be sure the origin URL is allowed: Go to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the `Allowed Origins (CORS)` list.
+
+If your connection a custom database, check to see if the user exists in the database before you invoke the Authentication API for `changePassword`.
 
 ```har
 {
@@ -53,31 +57,41 @@ If you're calling this from the browser, don't forget to add your URL to the the
 }
 ```
 
-:::panel-warning Custom Database
-If you have a custom database set up for your Connection and the user exists in the database, invoke the Authentication API for `changePassword`.
+### Password reset email
+
+Regardless of how the password reset process was triggered, the user receives email containing a link to reset their password.
+
+![](/media/articles/connections/database/password-reset-email.png)
+
+Clicking the link sends the user to the [password reset page](/universal-login/password-reset).
+
+After submitting the new password, the user sees confirmation that they can now log in with their new credentials.
+
+Notes on password resets:
+- The reset password link in the email is valid for one use only. 
+- If the user receives multiple password reset emails, only the password link in the most recent email is valid. 
+- The `URL Lifetime` field determines how long the link is valid. From the Auth0 dashboard, you can [customize the Change Password email](/email/templates) and modify the link's [lifetime](/api/authentication/reference#change-password). 
+
+In the [Classic Universal Login Experience](/universal-login/classic) you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL receives a success indicator and a message. 
+
+The [New Experience](/universal-login/new) redirects the user to the [default login route](/universal-login/default-login-url) when it succeeds, and handles the error cases as part of the Universal Login flow. This experience ignores the Redirect URL in the email template.  
+
+::: panel Generate Password Reset Tickets
+
+The Management API v2 provides an additional endpoint, [Generate a password reset ticket]( /api/management/v2#!/Tickets/post_password_change), that generates a URL like the one in the password reset email. You can use the generated URL when the email delivery method is not appropriate. Keep in mind that in the default flow, the email delivery verifies the identity of the user. (An impostor wouldn't have access to the email inbox.) If you use the ticket URL, your application is responsible for verifying the identity of the user in some other way.
 :::
 
-If the `POST` call is successful, the user will receive an email containing a link to reset their password.
+## Directly set the new password
 
-![](/media/articles/connections/database/reset-password-email.png)
-
-Clicking the link will send the user to a password reset page.
-
-![](/media/articles/connections/database/reset-password.png)
+To set a new password directly for the user without sending a password reset email, use either the [**Management API**](#using-the-management-api) or the [**Auth0 Dashboard**](#manually-set-users-passwords-using-the-dashboard).
 
 ::: note
-The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. The `URL Lifetime` field can be modified in the Dashboard where you customize the Change Password email.
+Users do not receive notification when you change their password.
 :::
 
-Please see the [Change User Password for DB Connections](/api/authentication/reference#change-password) Authentication API endpoint for more information.
+### Use the Management API
 
-## Using the Management API
-
-To reset a user's password using the Management API, make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
-
-::: warning
-Users will not receive notification that their password has been manually changed.
-:::
+If you want to implement your own password reset flow, you can directly change a user's password from a server request to the Management API: make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 ```har
 {
@@ -94,66 +108,12 @@ Users will not receive notification that their password has been manually change
 }
 ```
 
-## Using Lock
+### Manually set users' passwords using the Auth0 Dashboard
 
-Users can change their passwords using the Lock screen.
+Anyone with administrative privileges to your Auth0 tenant can manually change a user's password at [Auth0 Dashboard > User Management > Users](${manage_url}/#/users).
 
-To begin the password change process, the user would click on the **Don't remember your password?** link on the Lock screen:
-
-![](/media/articles/connections/database/lock_v9/lock_login_page.png)
-
-They would then enter their email address:
-
-![](/media/articles/connections/database/lock_v9/lock_request_reset.png)
-
-:::panel-warning Notice
-If you are using Lock version 8, the user will be asked, immediately after clicking the **Don't remember your password?** link on the Lock screen, to provide their email address and their new password. The user would then confirm this action via email.
-
-However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later to utilize a more secure flow. To learn more about migrating Lock, see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow).
-:::
-
-The user will then receive an email containing a link to reset the password:
-
-![](/media/articles/connections/database/lock_v9/lock_reset_pass_email.png)
-
-Clicking the link will send the user to a password reset page where they can enter their new password:
-
-![](/media/articles/connections/database/lock_v9/lock_set_new_pass.png)
-
-After submitting the new password, the user will be able to login with their new credentials:
-
-![](/media/articles/connections/database/lock_v9/lock_pass_changed.png)
-
-## Manually Setting a User's Password
-
-::: warning
-Users will not receive notification that their password has been manually changed.
-:::
-
-You, or anyone with administrative privileges to your Auth0 tenant, can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
-
-Click on the name of the user for whom you want to change the password. Then, click on the **Actions** button on the right side of the page, and select **Change Password**.
-
-![](/media/articles/connections/database/manual-password-change.png)
-
-Enter the new password and click **Save**.
-
-
-## Customizing the Change Password Email
-
-You can change the content of the Change Password emails in the  [Emails > Templates](${manage_url}/#/emails) section of the Dashboard. Select the **Change Password** template to edit the email fields:
-
-![](/media/articles/connections/database/change-password-email.png)
-
-::: note
-Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
-:::
-
-## Automatic password expiration after X days
-
-Currently, there is no built-in functionality for automatic password expiration. However we have a pre-defined [rule](/rules) you can use to achieve the same result.
-
-1. Go to [Dashboard > Rules](${manage_url}/#/rules)
-2. Click **+ Create Rule**
-3. Click the template **Check Last Password Reset**
-4. Modify the script according to your requirements and click **Save**
+1. Select the name of the user whose password you want to change.
+2. Locate the **Danger Zone** at the bottom of the page.
+3. In the red **Change Password** box, click **CHANGE**. 
+  ![](/media/articles/connections/database/dashboard-users-edit_view-details_danger-zone.png)
+3. Enter the new password and click **Save**.

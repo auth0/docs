@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Add Auth0 Credentials
 
 You will need some details about this application to communicate with Auth0. You can get these details from the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) in the Auth0 dashboard.
@@ -7,10 +9,10 @@ You need the following information:
 * **Domain**
 
 ::: note
-If you download the sample from the top of this page, these details are filled out for you. If you have more than one application in your account, the sample comes with the values for your **Default App**.
+If you download the sample from the top of this page, these details are filled out for you.
 :::
 
-Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+Add your credentials in `Auth0.plist`. If the file does not exist in your project yet, create one with the information below ([Apple documentation on Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)):
 
 ```xml
 <!-- Auth0.plist -->

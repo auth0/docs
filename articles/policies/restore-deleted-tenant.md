@@ -12,8 +12,12 @@ useCase:
 
 # Tenant Restoration Policy
 
-::: note
-If you are considering deleting your tenant, please see our [Resetting/Deleting Tenant](/tutorials/delete-reset-tenant) page for alternative options.
+::: warning
+**Deleted tenants cannot be restored** and the **tenant name may not be used again** when creating new tenants.
 :::
 
-As explicitely noted during the tenant deletion process, **deleted tenants cannot be restored** at this time.
+**Before you delete your tenant, please check out the following resources for alternative options:**
+* [Updating a Tenant Admin](https://auth0.com/docs/dashboard/manage-dashboard-admins#update-admin) **for changing ownership of the tenant**
+* [Delete or Reset Tenants](/tutorials/delete-reset-tenant) for reseting tenant configuration.
+
+If you've deleted your tenant, and you require the use of a particular domain name, we recommend configuring a [custom domain name](/custom-domains) for your new tenant.

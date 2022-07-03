@@ -63,7 +63,7 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **express**: This module adds the [Express web application framework](https://expressjs.com/).
 
-- **cors**: This module adds support for enabling [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) which is required since the API will be called from a Single Page Application running on a different domain inside a web browser.
+- **cors**: This module adds support for enabling [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) which is required since the API will be called from a Single-Page Application running on a different domain inside a web browser.
 
 - **jwks-rsa**: This library retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header. For more information refer to the [node-jwks-rsa GitHub repository](https://github.com/auth0/node-jwks-rsa).
 
@@ -141,7 +141,7 @@ You can also write some code to actually save the timesheet to a database. This 
 
 // Create middleware for checking the JWT
 const checkJwt = jwt({
-  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
+  // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -188,7 +188,7 @@ npm install express-jwt-authz --save
 
 Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint.
 
-The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/jwt) and ensures it bears the correct permissions to call the desired endoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
+The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/tokens/concepts/jwts) and ensures it bears the correct permissions to call the desired endpoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
 
 This is our sample implementation (some code is omitted for brevity):
 
@@ -235,11 +235,7 @@ function (user, context, callback) {
 }
 ```
 
-The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. You can typically use the URL of your application or API as the namespace.
-
-::: note
-For more information on namespaced claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-:::
+The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. For more info on namespaced claims, refer to [Namespacing Claims](/tokens/guides/create-namespaced-custom-claims).
 
 Now, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 

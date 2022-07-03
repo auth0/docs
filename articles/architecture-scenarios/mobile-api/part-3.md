@@ -29,7 +29,7 @@ In this section we will see how we can implement a mobile application for our sc
 
 ### Authorize the User
 
-To authorize the user we will implement an [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
+To authorize the user we will implement the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/guides/auth-code-pkce/call-api-auth-code-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
 
 ```text
 https://${account.namespace}/authorize?
@@ -48,9 +48,9 @@ Parameter | Description
 ----------|------------
 __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Application at the [Auth0 Dashboard](${manage_url}/#/applications).
 __audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
-__scope__ | The [scopes](/scopes) which determine the claims to be returned in the ID Token and Access Token. For example, a scope of `openid` will return an ID Token in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a Refresh Token, and return the user's `name`, `picture`, and `email` claims in the ID Token.
+__scope__ | The [scopes](/scopes) which determine the claims to be returned in the ID Token and Access Token. For example, a scope of `openid` will return an ID Token in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a <dfn data-key="refresh-token">Refresh Token</dfn>, and return the user's `name`, `picture`, and `email` claims in the ID Token.
 __response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
-__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
+__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/flows/guides/auth-code-pkce/call-api-auth-code-pkce#authorize-the-user#create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
 __redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
@@ -74,11 +74,32 @@ Next you can exchange the `authorization_code` from the response for an Access T
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verified",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -104,7 +125,7 @@ The response from the Token URL will contain:
 ```
 
 - __access_token__: An Access Token for the API, specified by the `audience`.
-- __refresh_token__: A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
+- __refresh_token__: A [Refresh Token](/tokens/concepts/refresh-tokens) will only be present if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
 - __id_token__: An ID Token JWT containing user profile information.
 - __token_type__: A string containing the type of token, this will always be a Bearer token.
 - __expires_in__: The amount of seconds until the Access Token expires.
@@ -112,12 +133,12 @@ The response from the Token URL will contain:
 You will need to store the above credentials in local storage for use in calling your API and retrieving the user profile.
 
 ::: note
-[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
+[See the implementation in Android](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials).
 :::
 
 ### Get the User Profile
 
-To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/id-token#verify-the-signature) and [validating the claims](/tokens/id-token#validate-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
+To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/concepts/id-tokens) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/guides/validate-id-token#verify-the-signature) and [verifying the claims](/tokens/guides/validate-id-token#verify-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
 
 ```json
 {
@@ -140,7 +161,7 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 
 ### Display UI Elements Conditionally Based on Scope
 
-Based on the `scope` of the user, you may want to show or hide certain UI elements. To determine the scope issued to a user, you will need to inspect the the `scope` which was granted when the user was authenticated. This will be a string containing all the scopes, so you therefore need to inspect this string to see whether it contains the required `scope` and based on that make a decision whether to display a particular UI element.
+Based on the `scope` of the user, you may want to show or hide certain UI elements. To determine the scope issued to a user, you will need to inspect the `scope` which was granted when the user was authenticated. This will be a string containing all the scopes, so you therefore need to inspect this string to see whether it contains the required `scope` and based on that make a decision whether to display a particular UI element.
 
 ::: note
 [See the implementation in Android](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-display-ui-elements-conditionally-based-on-scope)
@@ -162,27 +183,34 @@ Refresh Tokens must be stored securely by an application since they do not expir
 
 To refresh your Access Token, perform a `POST` request to the `/oauth/token` endpoint using the Refresh Token from your authorization result.
 
-A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
+A [Refresh Token](/tokens/concepts/refresh-tokens) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
 
 Your request should include:
 
 ```har
 {
-    "method": "POST",
-    "url": "https://${account.namespace}/oauth/token",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Content-Type", "value": "application/json" }
-    ],
-    "queryString" : [],
-    "postData" : {
-      "mimeType": "application/json",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
-    },
-    "headersSize" : 150,
-    "bodySize" : 0,
-    "comment" : ""
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "httpVersion": "HTTP/1.1",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData" : {
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "refresh_token"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "refresh_token",
+        "value": "YOUR_REFRESH_TOKEN"
+      }
+    ]
+  }
 }
 ```
 

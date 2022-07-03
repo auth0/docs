@@ -11,6 +11,7 @@ contentType:
     - reference
 useCase: appliance
 applianceId: appliance34
+sitemap: false
 ---
 
 # Private SaaS (PSaaS) Appliance Infrastructure Requirements

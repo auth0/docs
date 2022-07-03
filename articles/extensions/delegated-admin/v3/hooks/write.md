@@ -12,13 +12,17 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Write Hook
 
-Whenever you're creating new users, and you want the newly-created user to be assigned to the same group, department, or vendor as the ones to which you've been assigned, you can configure this behavior using the **Write Hook**.
+The Write Hook, which runs anytime you create or update a user, allows you to do things like:
+
+* Changing the user's password
+* Changing the user's email address
+* Updating the user's profile
+
+You can also use the Write Hook to set default values for newly-created users automatically. For example, you might want to automatically assign a user to the same group, department, or vendor as the ones to which you've been assigned.
 
 ::: warning
 Auth0 only supports user creation with Database Connections.
 :::
-
-The Write Hook will run anytime a user is updated if you are using custom fields. The activities that trigger the Write Hook to run include changing the user's password, changing their email address, updating their profile, and so on.
 
 ## The Hook Contract
 
@@ -28,7 +32,9 @@ The Write Hook will run anytime a user is updated if you are using custom fields
      - **memberships**: An array of memberships that were selected in the UI when creating the user
      - **email**: The email address of the user
      - **password**: The password of the user
-     - **connection**: The name of the user
+     - **connection**: The name of the database connection
+     - **app_metadata**: The data that's included if a Custom Field being modified is saved in `app_metadata`.
+     - **user_metadata**: The data that's included if a Custom Field being modified is saved in `user_metadata`.
    - **userFields**: The user fields array (if specified in the [settings query](#the-settings-query-hook))
    - **method**: Either **create** or **update** depending on whether this is being called as a result of a create or an update call
  - **callback(error, user)**: The callback to which you can return an error and the user object that should be sent to the Management API

@@ -48,7 +48,7 @@ def main():
                             'client_secret': client_secret,
                             'audience': api_identifier,
                             'grant_type': grant_type})
-  req = urllib2.Request(base_url + "/oauth/token", data, headers={"Accept": "application/json"})
+  req = urllib2.Request(base_url + "/oauth/token", data, headers={"Accept": "application/x-www-form-urlencoded"})
   response = urllib2.urlopen(req)
   resp_body = response.read()
   oauth = json.loads(resp_body)

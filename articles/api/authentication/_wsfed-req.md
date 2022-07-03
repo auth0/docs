@@ -30,12 +30,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wtrealm`        | Can be used in place of `client-id`. |
 | `whr`            | The name of the connection (used to skip the login page). |
 | `wctx`           | Your application's state. |
-| `wreply`         | The callback URL. |
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
+| `wreply`         | The <dfn data-key="callback">callback URL</dfn>. |
 
 
 ### Test with Authentication API Debugger
@@ -82,11 +77,6 @@ include('../../_includes/_http-method', {
 }) %>
 
 This endpoint returns the WS-Federation metadata.
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

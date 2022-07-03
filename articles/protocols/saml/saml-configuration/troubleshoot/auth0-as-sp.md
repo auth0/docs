@@ -12,7 +12,7 @@ useCase:
 
 # Troubleshooting SAML when Auth0 is the Service Provider
 
-When troubleshooting a SAML login, there are four primary stages to check:
+When troubleshooting a <dfn data-key="security-assertion-markup-language">SAML</dfn> login, there are four primary stages to check:
 
 * Stage 1: The user is successfully redirected to an identity provider (IdP) and is able to login.
 * Stage 2: After login with the IdP, the user returns to Auth0 with a successful login event recorded.
@@ -39,7 +39,7 @@ Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise).
 
 Check and confirm the following with the IdP administrator:
 
-* That the Sign In URL is the correct Single sign-on (SSO) URL. This is the URL that Auth0 will redirect the user to for authentication.
+* That the Sign In URL is the correct <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL. This is the URL that Auth0 will redirect the user to for authentication.
 * If the IdP expects HTTP-POST binding or HTTP-Redirect binding. You can switch the default binding in the __Settings__ tab.
 * If your authentication requests should be signed. If so, which signing algorithm does the IdP expect you to use? (Note that authentication requests are not commonly signed.) If you're sending signed requests, enable the Connection Settings **Sign Request** toggle and make sure the **Signing Algorithm** value matches what the IdP expects.
 * Ask the IdP administrator to check for log entries that might provide information on the problem.
@@ -52,7 +52,7 @@ If Auth0's logs don't show a successful login event, there is probably an issue 
 
 ### Check the SAML Authentication Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -132,7 +132,7 @@ The two most common causes for this issue are:
 
 ### Check the SAML Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -163,7 +163,7 @@ Certificate | Compare the certificate sent to the one that you provided to the a
 
 ### Check the ID Token
 
-If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/har) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
+If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/troubleshoot/guides/generate-har-files) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
 1. Scan through the sequence of URLs in the trace, and look for the following:
 
@@ -185,12 +185,28 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 
   * The application to which the user should be sent;
 
-  * The protocol between the application and Auth0 (which is not necessarily **SAML** like the connection, and most likely is **Open ID Connect**);
+  * The protocol between the application and Auth0 (which is not necessarily **SAML** like the connection, and most likely is <dfn data-key="openid">**OpenID Connect**</dfn>);
 
-  * Any protocol-specific values to include in the query string, such as `scope`, `response_type`, `redirect_uri`, and `audience`. These values should match the ones expected by the application when using a SP-initiated flow.
+  * Any protocol-specific values to include in the query string, such as <dfn data-key="scope">`scope`</dfn>, `response_type`, `redirect_uri`, and `audience`. These values should match the ones expected by the application when using a SP-initiated flow.
 
 * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-* If you've enabled [multi-factor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+* If you've enabled multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * Check that the SAML Connection works in an SP-Initiated flow by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
+
+## Error: The request could not be performed due to an error on the part of the SAML responder or SAML authority
+
+The error may appear as follows:
+
+```text
+<samlp:Status>
+<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder" />
+</samlp:Status>
+```
+
+### How to Fix
+
+Make sure that the signature algorithm on your Auth0 connection is the same as the configuration on the ADFS side: either `rsa-sha256` or `rsa-sha1`. Alternatively you can contact your ADFS administrator to learn the expected signing method or to see if their logs contain further information about the reason for the error.
+
+![ADFS SAML Properties](/media/articles/protocols/saml-adfs/adfs-saml-properties.png)

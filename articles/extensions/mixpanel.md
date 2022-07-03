@@ -35,11 +35,13 @@ Set the following configuration variables:
 - **Schedule**: The frequency with which logs should be exported. The schedule can be customized even further after creation.
 - **MIXPANEL_TOKEN**: The Mixpanel Token for your mixpanel project to which the Auth0 logs will be exported.
 - **MIXPANEL_KEY**: The Mixpanel API Key for your mixpanel project to which the Auth0 logs will be exported.
-- **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 20.
+- **BATCH_SIZE**: The amount of logs to be read on each execution. Maximum is 20.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Mixpanel.
 - **LOG_TYPES**: The events for which logs should be exported.  If you want you can send only events with a specific type (for example, failed logins).
 
 Once you have provided this information, click the **Install** button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
 
 ## Use your extension
 

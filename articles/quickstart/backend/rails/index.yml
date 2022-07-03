@@ -1,4 +1,7 @@
 title: Ruby On Rails API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/rails.png
+logo: rails
 alias:
   - rails
   - ror
@@ -6,8 +9,11 @@ languages:
   - Ruby
 framework:
   - Ruby on Rails
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 thirdParty: false
-image: /media/platforms/rails.png
 topics:
   - quickstart
 contentType: tutorial
@@ -20,10 +26,17 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+hidden_articles:
+  - interactive
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-rubyonrails-api-samples
+sdk:
+  name: omniauth-auth0
+  url: https://github.com/auth0/omniauth-auth0
+  logo: rails
 requirements:
   - Ruby 2.1.8
   - Rails 4.2.5
@@ -36,9 +49,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

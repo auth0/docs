@@ -8,6 +8,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance21
+sitemap: false
 ---
 
 # Auth0 Appliance Dashboard: Nodes

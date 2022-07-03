@@ -19,231 +19,239 @@ useCase: quickstart
 
 ## Validate Access Tokens
 
-### Install dependencies
+### Download dependencies
 
-The [**dgrijalva/jwt-go**](https://github.com/dgrijalva/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
+Add a `go.mod` file to list all the dependencies to be used.
 
-```bash
-go get "github.com/auth0/go-jwt-middleware"
-go get "github.com/dgrijalva/jwt-go"
-go get "github.com/codegangsta/negroni"
-go get "github.com/gorilla/mux"
+```text
+// go.mod
+
+module 01-Authorization-RS256
+
+go 1.16
+
+require (
+	github.com/auth0/go-jwt-middleware/v2 v2.0.0
+	github.com/joho/godotenv v1.4.0
+)
+```
+
+Download dependencies by running the following shell command:
+
+```shell
+go mod download
+```
+
+### Configure your application
+
+Create a `.env` file within the root of your project directory to store the app configuration, and fill in the
+environment variables:
+
+```sh
+# The URL of our Auth0 Tenant Domain.
+# If you're using a Custom Domain, be sure to set this to that value instead.
+AUTH0_DOMAIN='${account.namespace}'
+
+# Our Auth0 API's Identifier.
+AUTH0_AUDIENCE='YOUR_API_IDENTIFIER'
 ```
 
 ### Create a middleware to validate Access Tokens
 
-The access token validation will be done in the  `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+Access Token validation will be done in the `EnsureValidToken` middleware function which can be applied to any 
+endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released,
+otherwise a `401 Authorization` error will be returned.
 
-Setup **go-jwt-middleware** middleware to verify Access Token from incoming requests.
+Setup **go-jwt-middleware** middleware to verify Access Tokens from incoming requests.
 
 ```go
-// main.go
-package main
+// middleware/jwt.go
+
+package middleware
 
 import (
-	"encoding/json"
-	"fmt"
-	"net/http"
-	"strings"
-	"errors"
+	"context"
 	"log"
+	"net/http"
+	"net/url"
 	"os"
+	"time"
 
-	"github.com/codegangsta/negroni"
-	"github.com/auth0/go-jwt-middleware"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
+	"github.com/auth0/go-jwt-middleware/v2"
+	"github.com/auth0/go-jwt-middleware/v2/jwks"
+	"github.com/auth0/go-jwt-middleware/v2/validator"
 )
 
-type Response struct {
-	Message string `json:"message"`
+// CustomClaims contains custom data we want from the token.
+type CustomClaims struct {
+	Scope string `json:"scope"`
 }
 
-type Jwks struct {
-	Keys []JSONWebKeys `json:"keys"`
+// Validate does nothing for this example, but we need
+// it to satisfy validator.CustomClaims interface.
+func (c CustomClaims) Validate(ctx context.Context) error {
+	return nil
 }
 
-type JSONWebKeys struct {
-	Kty string `json:"kty"`
-	Kid string `json:"kid"`
-	Use string `json:"use"`
-	N string `json:"n"`
-	E string `json:"e"`
-	X5c []string `json:"x5c"`
-}
+// EnsureValidToken is a middleware that will check the validity of our JWT.
+func EnsureValidToken() func(next http.Handler) http.Handler {
+	issuerURL, err := url.Parse("https://" + os.Getenv("AUTH0_DOMAIN") + "/")
+	if err != nil {
+		log.Fatalf("Failed to parse the issuer url: %v", err)
+	}
 
-func main() {
-	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
-        ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-            // Verify 'aud' claim
-            aud := "${apiIdentifier}"
-            checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
-            if !checkAud {
-                return token, errors.New("Invalid audience.")
-            }
-            // Verify 'iss' claim
-            iss := "https://${account.namespace}/"
-            checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
-            if !checkIss {
-                return token, errors.New("Invalid issuer.")
-            }
+	provider := jwks.NewCachingProvider(issuerURL, 5*time.Minute)
 
-            cert, err := getPemCert(token)
-            if err != nil {
-                panic(err.Error())
-            }
+	jwtValidator, err := validator.New(
+		provider.KeyFunc,
+		validator.RS256,
+		issuerURL.String(),
+		[]string{os.Getenv("AUTH0_AUDIENCE")},
+		validator.WithCustomClaims(
+			func() validator.CustomClaims {
+				return &CustomClaims{}
+			},
+		),
+		validator.WithAllowedClockSkew(time.Minute),
+	)
+	if err != nil {
+		log.Fatalf("Failed to set up the jwt validator")
+	}
 
-            result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
-            return result, nil
-        },
-        SigningMethod: jwt.SigningMethodRS256,
-    })
+	errorHandler := func(w http.ResponseWriter, r *http.Request, err error) {
+		log.Printf("Encountered error while validating JWT: %v", err)
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte(`{"message":"Failed to validate JWT."}`))
+	}
+
+	middleware := jwtmiddleware.New(
+		jwtValidator.ValidateToken,
+		jwtmiddleware.WithErrorHandler(errorHandler),
+	)
+
+	return func(next http.Handler) http.Handler {
+		return middleware.CheckJWT(next)
+	}
 }
 ```
 
 <%= include('../_includes/_api_jwks_description') %>
 
-Create the function to get the remote JWKS for your Auth0 account and return the certificate with the public key in PEM format.
-
-```go
-// main.go
-
-func getPemCert(token *jwt.Token) (string, error) {
-	cert := ""
-	resp, err := http.Get("https://${account.namespace}/.well-known/jwks.json")
-
-	if err != nil {
-		return cert, err
-	}
-	defer resp.Body.Close()
-
-	var jwks = Jwks{}
-	err = json.NewDecoder(resp.Body).Decode(&jwks)
-
-	if err != nil {
-		return cert, err
-	}
-
-	for k, _ := range jwks.Keys {
-		if token.Header["kid"] == jwks.Keys[k].Kid {
-			cert = "-----BEGIN CERTIFICATE-----\n" + jwks.Keys[k].X5c[0] + "\n-----END CERTIFICATE-----"
-		}
-	}
-
-	if cert == "" {
-		err := errors.New("Unable to find appropriate key.")
-		return cert, err
-	}
-
-	return cert, nil
-}
-```
 
 ## Protect API Endpoints
 
-To protect individual routes pass the instance of `go-jwt-middleware` defined above to the `negroni` handler.
+To protect individual routes, pass `middleware` (defined above) to the http route.
 
 ```go
 // main.go
 
+package main
+
+import (
+	"log"
+	"net/http"
+
+	"github.com/joho/godotenv"
+
+	"01-Authorization-RS256/middleware"
+)
+
 func main() {
-    // ...
-
-    r := mux.NewRouter()
-
-    // This route is always accessible
-    r.Handle("/api/public", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        message := "Hello from a public endpoint! You don't need to be authenticated to see this."
-        responseJSON(message, w, http.StatusOK)
-    }))
-
-    // This route is only accessible if the user has a valid Access Token
-    // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
-    // for a valid token.
-    r.Handle("/api/private", negroni.New(
-        negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-        negroni.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            message := "Hello from a private endpoint! You need to be authenticated to see this."
-            responseJSON(message, w, http.StatusOK)
-    }))))
-}
-
-func responseJSON(message string, w http.ResponseWriter, statusCode int) {
-	response := Response{message}
-
-	jsonResponse, err := json.Marshal(response)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Error loading the .env file: %v", err)
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(statusCode)
-	w.Write(jsonResponse)
+	router := http.NewServeMux()
+
+	// This route is always accessible.
+	router.Handle("/api/public", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message":"Hello from a public endpoint! You don't need to be authenticated to see this."}`))
+	}))
+
+	// This route is only accessible if the user has a valid access_token.
+	router.Handle("/api/private", middleware.EnsureValidToken()(
+		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// CORS Headers.
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+			w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+			w.Header().Set("Access-Control-Allow-Headers", "Authorization")
+
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"message":"Hello from a private endpoint! You need to be authenticated to see this."}`))
+		}),
+	))
+
+	log.Print("Server listening on http://localhost:3010")
+	if err := http.ListenAndServe("0.0.0.0:3010", router); err != nil {
+		log.Fatalf("There was an error with the http server: %v", err)
+	}
 }
 ```
 
 ### Validate scopes
 
-The `go-jwt-middleware` middleware above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `middleware` above verifies that the Access Token included in the request is valid; however, it doesn't yet include
+any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Let's create a function to check and ensure the Access Token has the correct scope before returning a successful response.
+Create a function to check and ensure the Access Token has the correct scope before returning a successful response.
 
 ```go
-// main.go
+// 👆 We're continuing from the steps above. Append this to your middleware/jwt.go file.
 
-type CustomClaims struct {
-	Scope string `json:"scope"`
-	jwt.StandardClaims
-}
+// HasScope checks whether our claims have a specific scope.
+func (c CustomClaims) HasScope(expectedScope string) bool {
+    result := strings.Split(c.Scope, " ")
+    for i := range result {
+        if result[i] == expectedScope {
+            return true
+        }
+    }
 
-func checkScope(scope string, tokenString string) bool {
-	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, nil)
-
-	claims, _ := token.Claims.(*CustomClaims)
-
-	hasScope := false
-	result := strings.Split(claims.Scope, " ")
-	for i := range result {
-		if result[i] == scope {
-			hasScope = true
-		}
-	}
-
-	return hasScope
+    return false
 }
 ```
 
-We will use this function in the endpoint that requires the scope `read:messages`.
+Use this function in the endpoint that requires the scope `read:messages`.
 
 ```go
-// main.go
+// 👆 We're continuing from the steps above. Append this to your main.go file.
 
 func main() {
-
     // ...
+    
+    // This route is only accessible if the user has a
+    // valid access_token with the read:messages scope.
+	router.Handle("/api/private-scoped", middleware.EnsureValidToken()(
+		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// CORS Headers.
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+			w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+			w.Header().Set("Access-Control-Allow-Headers", "Authorization")
 
-    // This route is only accessible if the user has a valid Access Token with the read:messages scope
-    // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
-    // for a valid token and and scope.
-    r.Handle("/api/private-scoped", negroni.New(
-        negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-        negroni.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            authHeaderParts := strings.Split(r.Header.Get("Authorization"), " ")
-            token := authHeaderParts[1]
+			w.Header().Set("Content-Type", "application/json")
 
-            hasScope := checkScope("read:messages", token)
+			token := r.Context().Value(jwtmiddleware.ContextKey{}).(*validator.ValidatedClaims)
 
-            if !hasScope {
-                message := "Insufficient scope."
-                responseJSON(message, w, http.StatusForbidden)
-                return
-            }
-            message := "Hello from a private endpoint! You need to be authenticated to see this."
-            responseJSON(message, w, http.StatusOK)
-    }))))
+			claims := token.CustomClaims.(*middleware.CustomClaims)
+			if !claims.HasScope("read:messages") {
+				w.WriteHeader(http.StatusForbidden)
+				w.Write([]byte(`{"message":"Insufficient scope."}`))
+				return
+			}
+
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"message":"Hello from a private endpoint! You need to be authenticated to see this."}`))
+		}),
+	))
+    
+    // ...
 }
 ```
 
-In our example we only checked for the `read:messages` scope. You may want to extend the `checkScope` function or make it a standalone middleware that accepts multiple roles to fit your use case.
+In this example, only the `read:messages` scope is checked. You may want to extend the `HasScope` function or make it
+a standalone middleware that accepts multiple scopes to fit your use case.

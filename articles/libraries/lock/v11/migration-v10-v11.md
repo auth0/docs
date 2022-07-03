@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating from Lock v10 to v11
 description: How to migrate from Lock v10 to v11
+public: false
 toc: true
 topics:
   - libraries
@@ -13,9 +14,9 @@ useCase:
   - add-login
   - migrate
 ---
-# Migrating from Lock v10 to v11
+# Migrate from Lock v10 to v11
 
-This guide includes all the information you need to update your Lock v10 application to [Lock v11](/libraries/lock).
+This guide includes all the information you need to update your <dfn data-key="lock">Lock</dfn> v10 application to [Lock v11](/libraries/lock).
 
 ## Migration demo
 

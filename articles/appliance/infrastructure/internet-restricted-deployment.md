@@ -4,8 +4,9 @@ description: Operating the PSaaS Appliance in an Internet-Restricted Environment
 contentType: reference
 useCase: appliance
 applianceId: appliance37
+sitemap: false
 ---
-# PSaaS Appliace Deployments with Limited Internet Connectivity
+# PSaaS Appliance Deployments with Limited Internet Connectivity
 
 The Auth0 PSaaS Appliance is delivered as a managed service that can run in:
 
@@ -37,25 +38,24 @@ Operating the PSaaS Appliance in an internet-restricted environment results in t
 
 ### Management Dashboard
 
-The browser that you are using to manage your PSaaS Appliance requires internet access to navigate to the Management Dashboard (located at **manage.your-domain**). 
+The browser that you are using to manage your PSaaS Appliance requires Internet access to navigate to the Management Dashboard (located at **manage.your-domain**). 
 
 You may, however, restrict server-side access to the Management Dashboard.
 
 To properly render the Dashboard, it accesses the following sites:
 
-* **cdn.auth0.com**: resources loaded from this CDN are well-known and include CSS, JavaScript, and images
-* **fonts.googleapis.com**: resources loaded include CSS and font files
-* **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service
+* **cdn.auth0.com**: resources loaded from this CDN are well-known and include CSS, JavaScript, and images.
+* **fonts.googleapis.com**: resources loaded include CSS and font files.
+* **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service.
 * **fast.fonts.net**: resources include CSS files for font support.
 
 ### Multi-factor Authentication (MFA)
 
-When using multi-factor authentication (MFA), you will need internet access for Guardian MFA (both SMS and push notifications require internet connectivity).
+When using multi-factor authentication (MFA), you will need Internet access for Push notifications, SMS, and Voice.
 
 For limited connectivity options, you may choose from:
 
-* Guardian MFA TOTP
-* Google Authenticator
+* One-time password with Google Authenticator, Authy or similar apps
 * A custom MFA implementation using redirect rules
 * Duo (on-premise versions only)
 

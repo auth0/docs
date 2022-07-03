@@ -15,13 +15,17 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF') %>
+<!-- markdownlint-disable MD002 MD034 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `https://${account.namespace}/mobile`.
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.namespace}/mobile`.
 :::
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'https://' + account.namespace + '/mobile' }) %>
 
 ## Integrate Auth0 in your Application
 
@@ -37,13 +41,17 @@ To integrate Auth0 login into your application, simply instantiate an instance o
 
 ${snippet(meta.snippets.setup)}
 
+::: note
+By default, the SDK uses WebView (non-chromium Edge) as a Browser. If you wish to use Chromium Edge, you can implement [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) as explained on [this Auth0 Community post](https://community.auth0.com/t/howto-use-the-auth0-oidcclient-winforms-sdk-with-edge-chromium-webview2/57746).
+:::
+
 You can then call the `LoginAsync` method to log the user in:
 
 ${snippet(meta.snippets.use)}
 
-![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
+![](/media/articles/native-platforms/wpf-winforms/universal-login.png)
 
-This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/hosted-pages/login#how-to-customize-your-login-page).
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
 
 ## Handle Authentication Tokens
 
@@ -60,7 +68,7 @@ var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
 {
-    Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
+    Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
 }
 ```
 
@@ -112,4 +120,13 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// Form1.cs
+await client.LogoutAsync();
 ```

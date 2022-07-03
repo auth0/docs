@@ -36,7 +36,7 @@ The validations that the API should perform are:
 
 Part of the validation process is to also check the Client permissions (scopes), but we will address this separately in the next paragraph of this document.
 
-For more information on validating Access Tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For more information on validating Access Tokens, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#2-secure-the-api-endpoints)

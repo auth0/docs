@@ -10,7 +10,7 @@ useCase: secure-an-api
 ---
 # How to Set Up AWS for Delegated Authentication
 
-This doc will walk you through setting up AWS for delegated authentication. You'll need to perform these steps any time you want to use Auth0 with AWS. Note that this tutorial does not walk you through a full integration. See the [Configure SSO with the AWS Console](/integrations/aws/sso) or [API Gateway](/integrations/aws-api-gateway) tutorials for complete examples.
+This doc will walk you through setting up AWS for delegated authentication. You'll need to perform these steps any time you want to use Auth0 with AWS. Note that this tutorial does not walk you through a full integration. See the [Configure Single Sign-on (SSO) with the AWS Console](/integrations/aws/sso) or [API Gateway](/integrations/aws-api-gateway) tutorials for complete examples.
 
 ## Step 1: Create a SAML Provider in AWS
 
@@ -22,7 +22,7 @@ Set the following parameters:
 
 | Parameter | Description and Sample Value |
 | - | - |
-| Provider Type | The type of provider. Set as `SAML` |
+| Provider Type | The type of provider. Set as <dfn data-key="security-assertion-markup-language">`SAML`</dfn> |
 | Provider Name | A descriptive name for the provider, such as `auth0SamlProvider` |
 | Metadata Document | Upload the file containing the Auth0 metadata, found in **Dashboard > Applications > Application Settings > Advanced Settings > Endpoints > SAML Metadata URL** |
 

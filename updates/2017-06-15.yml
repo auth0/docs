@@ -7,4 +7,4 @@ added:
       - p&p
       - implicit grant
     description: |
-      A new doc was added for the [SPA+API architecture scenario](https://auth0.com/docs/architecture-scenarios/application/spa-api). The scenario features a Single Page Application (with an accompanying sample in Angular 2) which talks with an API (sample in Node.js). The application uses OpenID Connect and the OAuth 2.0 Implicit Grant to authorize users with Auth0.
+      A new doc was added for the [SPA+API architecture scenario](https://auth0.com/docs/architecture-scenarios/application/spa-api). The scenario features a Single-Page Application (with an accompanying sample in Angular 2) which talks with an API (sample in Node.js). The application uses OpenID Connect and the OAuth 2.0 Implicit Grant to authorize users with Auth0.

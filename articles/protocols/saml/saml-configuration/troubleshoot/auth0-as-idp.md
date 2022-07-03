@@ -12,7 +12,7 @@ useCase:
 
 # Troubleshooting SAML when Auth0 is the Identity Provider
 
-When troubleshooting a SAML login, there are four primary stages to check:
+When troubleshooting a <dfn data-key="security-assertion-markup-language">SAML</dfn> login, there are four primary stages to check:
 
 * Stage 1: The user is successfully redirected to IDP and is able to login.
 * Stage 2: After login with the IDP, the user returns to Auth0 with a successful login event recorded.
@@ -31,7 +31,7 @@ In this case, the user successfully logs in with the idp, but a successful login
 
   * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-  * If you've enabled [multi-factor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+  * If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * If you're using an Auth0 Database Connection **or** a remote SAML connection:
 
@@ -75,7 +75,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
 * Check the application's log files to see if there are any error messages indicating why the user is unable to access the application. The two most common causes for this issue are missing user profile information or incorrect/missing authorization information.
 
-* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har). To analyze the HTTP trace:
+* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files). To analyze the HTTP trace:
 
   1. View the trace in a HAR file analyzer, such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
@@ -85,7 +85,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
 
-    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user information. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
 
       1. Click on the row for the POST call in the HAR analyzer.
 
@@ -93,7 +93,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
       3. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
 
-      4. Remve the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
+      4. Remove the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
 
       5. Click **Decode SAML message** and check the following fields:
 

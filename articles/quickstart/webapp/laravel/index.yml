@@ -1,30 +1,40 @@
-title: PHP (Laravel)
+title: Laravel
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/php.png
+logo: laravel
+alias:
+  - laravel
+languages:
+  - PHP
+framework:
+  - Laravel
+author:
+  name: Evan Sims
+  email: evan.sims@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
-  community: false
-snippets:
-  dependencies: server-platforms/laravel/dependencies
-  setup: server-platforms/laravel/setup
-  use: server-platforms/laravel/use
-seo_alias: laravel
-default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
+default_article: 01-login
+seo_alias: laravel
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-laravel-php-web-app
   branch: master
+sdk:
+  name: laravel-auth0
+  url: https://github.com/auth0/laravel-auth0
+  logo: laravel
 requirements:
-  - Composer 1.5
-  - PHP 7.0
-  - Laravel 5.5
+  - Composer 2.0+
+  - PHP 8.0+
+  - Laravel 9.0+
 next_steps:
   - path: 01-login
     list:
@@ -34,9 +44,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

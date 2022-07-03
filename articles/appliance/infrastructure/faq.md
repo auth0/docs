@@ -7,6 +7,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance33
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions
@@ -29,7 +30,9 @@ No, the PSaaS Appliance is a managed service that runs within your network. You 
 While this is currently not supported, preinstalled anti-virus software may be included in future updates.
 
 #### Will Auth0 provide me with a CSR file for my SSL Certificate?
-If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required certificate(s).
+No. The details of generating certificates, such as a CSR, vary among public certificate providers. Please work with your public certificate authority for these requirements.
+
+If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required `*.auth0.com` SSL certificates.
 
 #### Why do both the DEV (non-prod) node and PROD cluster require unique certificates signed by a public Certificate Authority?
 Webtasks and web extensions require this due to Node.js security requirements.
@@ -80,7 +83,6 @@ Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS A
 
 1. Jumphost + Firewall Whitelist
 2. Two Jumphosts
-3. VPN
 
 We do not support other methods, such as VDI or Screen Sharing mechanisms.
 

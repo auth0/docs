@@ -1,4 +1,7 @@
 title: React Native
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/react.png
+logo: react
 alias:
   - reactnative
   - react native
@@ -13,25 +16,27 @@ language:
 framework:
   - React Native
 hybrid: true
-image: /media/platforms/react.png
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-snippets:
-  setup: native-platforms/reactnative/setup
-  use: native-platforms/reactnative/use
 seo_alias: react-native
 default_article: 00-login
+hidden_articles:
+  - interactive
 articles:
   - 00-login
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-react-native-sample
+sdk:
+  name: react-native-auth0
+  url: https://github.com/auth0/react-native-auth0
+  logo: react
 requirements:
-  - React Native 0.26.0
-  - NodeJS 4.3
+  - React Native 0.62.2
+  - NodeJS 10.16
 next_steps:
   - path: 00-login
     list:
@@ -41,9 +46,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

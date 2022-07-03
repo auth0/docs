@@ -5,160 +5,113 @@
 ## ------------------------------------------------------------
 
 - id: "getting-started"
-  title: "Getting Started"
-  icon: "icon-budicon-499"
-  color: "orange"
-  description: "Learn the basics of using Auth0."
-  url: "/getting-started"
+  title: "Get Started"
+  icon: "IdenticonGettingStarted"
+  description: "Learn the basics"
+  url: "/get-started"
   articles:
 
-    - title: Auth0 Overview
-      url: /getting-started/overview
-
-    - title: The Basics
-      url: /getting-started/the-basics
-
-    - title: Dashboard Overview
-      url: /getting-started/dashboard-overview
-
-- id: "ui-components"
-  title: "UI Components"
-  icon: "icon-budicon-342"
-  color: "blue-light"
-  description: "Integrate Auth0 login and signup UI into your app."
-  url: "/libraries/when-to-use-lock"
-  articles:
-
-    - title: "Lock for Web"
-      url: "/libraries/lock/v11"
-
-    - title: "Lock for iOS"
-      url: "/libraries/lock-ios/v2"
-
-    - title: "Lock for Android"
-      url: "/libraries/lock-android/v2"
-
-- id: "authentication-flows"
-  title: "Authentication Flows"
-  icon: "icon-budicon-295"
-  color: "oil"
-  description: "Learn about our new authentication flows and how you can adopt them."
-  url: "/api-auth/intro"
-  articles:
-
-    - title: "Introduction"
-      url: "/api-auth/intro"
-
-    - title: "Adoption Guide"
-      url: "/api-auth/tutorials/adoption"
-
-    - title: "API Authorization"
-      url: "/api-auth"
-
-
-- id: "guides"
-  title: "Guides"
-  icon: "icon-budicon-399"
-  color: "green"
-  description: "Guidance and tutorials about common solutions."
-  url: "/topics/guides"
-  articles:
-
-    - title: "Architecture Scenarios"
-      url: /architecture-scenarios
+    - title: "Auth0 Overview"
+      url: "/get-started/auth0-overview"
       
-    - title: "Tokens used by Auth0"
-      url: "/tokens"
+    - title: "Tenant Settings"
+      url: "/get-started/tenant-settings"
+   
+    - title: "Authentication and Authorization Flows"
+      url: "/get-started/authentication-and-authorization-flow"
 
-    - title: "Migration Guides"
-      url: "/migrations"
+- id: "authenticate"
+  title: "Authenticate"
+  icon: "IdenticonAuthenticationA"
+  description: "Integrate Auth0 login"
+  url: "/authenticate"
+  articles:
+  
+    - title: "Universal Login"
+      url: "/authenticate/login/auth0-universal-login"
 
+    - title: "Identity Providers"
+      url: "/authenticate/identity-providers"
+      
+    - title: "User Store"
+      url: "/authenticate/database-connections"
 
-- id: "apis"
-  title: "APIs"
-  icon: "icon-budicon-546"
-  color: "blue"
-  description: "Working directly with Auth0 APIs"
-  url: "/api/info"
+- id: "manage-users"
+  title: "Manage Users"
+  icon: "IdenticonUserManagement"
+  description: "Users, profiles, and sessions"
+  url: "/manage-users"
   articles:
 
-    - title: "API Overview"
-      url: "/api/info"
+    - title: "User Accounts"
+      url: "/manage-users/user-accounts"
 
-    - title: "Authentication API"
-      url: "/api/authentication"
-      forceFullReload: true
+    - title: "Access Control"
+      url: "/manage-users/access-control"
 
-    - title: "Management API"
-      url: "/api/management/v2"
-      forceFullReload: true
+    - title: "Organizations"
+      url: "/manage-users/organizations"
 
-- id: "appliance"
-  title: "PSaaS Appliance"
-  icon: "icon-budicon-359"
-  color: "pink"
-  description: "Deploying and managing a private instance of Auth0."
-  url: "/appliance"
+- id: "customize"
+  title: "Customize"
+  icon: "IdenticonCustomize"
+  description: "Branding and extensibility"
+  url: "/customize"
   articles:
 
-    - title: "PSaaS Appliance Planning"
-      url: "/appliance/appliance-overview"
+    - title: "Universal Login Pages"
+      url: "/customize/universal-login-pages"
 
-    - title: Administrator's Manual
-      url: /appliance/admin
-
-    - title: Onboarding Process
-      url: /onboarding/appliance-sprint
-
-- id: "extensibility"
-  title: "Extensibility"
-  icon: "icon-budicon-173"
-  color: "red"
-  description: "Adding to and customizing Auth0's standard feature set."
-  url: "/topics/extensibility"
-  articles:
-
-    - title: "Rules"
-      url: "/rules/current"
+    - title: "Actions"
+      url: "/customize/actions"
 
     - title: "Extensions"
-      url: "/extensions"
+      url: "/customize/extensions"
 
-    - title: "Webtasks"
-      url: "https://webtask.io/docs/101"
-      external: true
-
-
-- id: "identity-providers"
-  title: "Identity Providers"
-  icon: "icon-budicon-297"
-  color: "yellow"
-  description: "Integrating Auth0 with identity providers."
-  url: "/identityproviders"
+- id: "secure"
+  title: "Secure"
+  icon: "IdenticonSecurity"
+  description: "Compliance, privacy, and threats"
+  url: "/secure"
   articles:
 
-    - title: "Database Connections"
-      url: "/connections/database"
+    - title: "Attack Protection"
+      url: "/secure/attack-protection"
+      
+    - title: "Multi-factor Authentication"
+      url: "/secure/multi-factor-authentication"
 
-    - title: "Social Connections"
-      url: "/identityproviders#social"
+    - title: "Data Privacy"
+      url: "/secure/data-privacy-and-compliance"
 
-    - title: "Passwordless"
-      url: "/connections/passwordless"
-
-- id: "enterprise-identity"
-  title: "Enterprise Identity"
-  icon: "icon-budicon-606"
-  color: "oil"
-  description: "Integrating and integrating enterprise identity solutions."
-  url: "/identityproviders#enterprise"
+- id: "deploy-and-monitor"
+  title: "Deploy and Monitor"
+  icon: "IdenticonMonitoring"
+  description: "Deployment models and logs"
+  url: "/deploy-monitor"
   articles:
 
-    - title: "Active Directory"
-      url: "/connections/enterprise/active-directory"
+    - title: "Deployment Options"
+      url: "/deploy-monitor/deployment-options"
+      
+    - title: "Check Auth0 Status"
+      url: "/deploy-monitor/monitor/check-auth0-status"
 
-    - title: "Active Directory Connector"
-      url: "/connections/passwordless"
+    - title: "Logs"
+      url: "/deploy-monitor/logs" 
+      
+- id: "troubleshoot"
+  title: "Troubleshoot"
+  icon: "IdenticonTroubleshoot"
+  description: "Get help and troubleshoot"
+  url: "/troubleshoot"
+  articles:
 
-    - title: "SAML"
-      url: "/saml-configuration"
+    - title: "Customer Support"
+      url: "/troubleshoot/customer-support"
+
+    - title: "Troubleshoot Basic Issues"
+      url: "/troubleshoot/basic-issues" 
+      
+    - title: "Deprecations and Migrations"
+      url: "/troubleshoot/product-lifecycle/deprecations-and-migrations"

@@ -14,7 +14,7 @@ https://${account.namespace}/authorize?
   &response_type=id_token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
+  &nonce=NONCE
   &state=OPAQUE_VALUE
         </code>
       </pre>
@@ -28,7 +28,7 @@ https://${account.namespace}/authorize?
   &response_type=token%20id_token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
+  &nonce=NONCE
   &state=OPAQUE_VALUE
         </code>
       </pre>
@@ -36,9 +36,9 @@ https://${account.namespace}/authorize?
   </div>
 </div>
 
-In order to get an Access Token that can access the Management API:
+To get an <dfn data-key="access-token">Access Token</dfn> that can access the Management API:
 - We set the `audience` to `https://${account.namespace}/api/v2/`
-- We asked for the scope `${scope}`
+- We asked for the <dfn data-key="scope">scope</dfn> `${scope}`
 - We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
 
 If we decode the Access Token and review its contents we can see the following:

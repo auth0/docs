@@ -11,12 +11,12 @@ useCase:
 
 # Child Tenant Request Process
 
-This request process is for self-service customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
+This request process is for Developer or Developer Pro customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
 
 Free tenants do not include a child tenant.
 
 ::: warning
-This policy does not apply if you have an Enterprise subscription. If you need to add child tenants to your subscription, contact your designated CSM or our [Support](${env.DOMAIN_URL_SUPPORT}).
+This policy does not apply if you have an Enterprise subscription. If you need to add child tenants to your subscription, contact your designated Technical Account Manager or our [Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
 ## Child Tenant Policy

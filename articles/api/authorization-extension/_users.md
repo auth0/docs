@@ -1,6 +1,6 @@
 # Users
 
-These endpoints enable you to manage all the current users of your applications. You can retrieve their profile and edit or view their groups and their roles.
+These endpoints enable you to manage all the current users of your applications. You can retrieve their profile and edit or view their groups and their <dfn data-key="role">roles</dfn>.
 
 For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension/v2#users).
 
@@ -32,7 +32,7 @@ GET https://{extension_url}/users
          ],
          "user_id":"auth0|59091da1b3c34a15589c780d",
          "last_login":"2017-06-25T07:28:54.719Z",
-         "name":"dummy.user@example.com",
+         "name":"placeholder.user@example.com",
          "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
          "email":"richard.dowinton@auth0.com"
       }
@@ -53,7 +53,7 @@ Use this endpoint to retrieve all users.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -63,6 +63,8 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{page}` | The page number. One-based. |
+| `{per_page}` | The amount of entries per page. Default: `100`. Max value: `200`. |
 
 ## Get a single User
 
@@ -76,11 +78,11 @@ GET https://{extension_url}/users/{user_id}
 
 ```text
 {
-   "email":"dummy.user@example.com",
+   "email":"placeholder.user@example.com",
    "email_verified":true,
    "user_id":"auth0|59091da1b3c34a15589c780d",
    "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
-   "nickname":"dummy.user",
+   "nickname":"placeholder.user",
    "identities":[
       {
          "user_id":"59091da1b3c34a15589c780d",
@@ -91,7 +93,7 @@ GET https://{extension_url}/users/{user_id}
    ],
    "updated_at":"2017-06-25T07:28:54.719Z",
    "created_at":"2017-06-08T15:30:41.237Z",
-   "name":"dummy.user@example.com",
+   "name":"placeholder.user@example.com",
    "app_metadata":{
       "authorization":{
          "roles":[
@@ -121,7 +123,7 @@ Use this endpoint to get a single user based on its unique identifier.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -171,7 +173,7 @@ Use this endpoint to get the groups of a single user, based on its unique identi
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -217,11 +219,11 @@ include('../../_includes/_http-method', {
   "link": "#add-user-to-groups"
 }) %>
 
-Use this endpoint to add one or more users in a group.
+Use this endpoint to add a user to one or more groups.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -272,7 +274,7 @@ Use this endpoint to calculate the group memberships for a user (including neste
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -324,7 +326,7 @@ Use this endpoint to get the roles of a single user, based on its unique identif
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -374,7 +376,7 @@ Use this endpoint to assign a role to a user.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:users</span>
 
@@ -412,7 +414,7 @@ curl --request DELETE \
 (empty response body)
 ```
 
-<% var path = '/users/{role_id}/roles'; %>
+<% var path = '/users/{user_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_badge": "badge-danger",
@@ -425,7 +427,7 @@ Use this endpoint to remove one or more user from a role.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:roles</span>
 
@@ -436,7 +438,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user you want to remove from roles |
-| `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from |
+| `body` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from (i.e. `[ "{role_id}" ]`) |
 
 ## Calculate Roles
 
@@ -478,7 +480,7 @@ Use this endpoint to calculate the roles assigned to the user (including through
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:roles</span>
 
@@ -537,7 +539,7 @@ Use this endpoint to execute the authorization policy for a user in the context 
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -546,8 +548,8 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
-| `connectionName` | The connection name the user logged in with |
+| `connectionName` <br/><span class="label label-danger">Required</span> | The name of the connection with which the user logged in |
 | `groups` | List of group names received from the IdP (AD, ADFS, and so on) |

@@ -73,7 +73,7 @@ Internet connectivity is required for an update to work.
 
 ## Configuration file
 
-The `config.json` file is the AD/LDAP Connector's main configuration file. You can this to make advanced changes that are not available via the AD/LDAP **Connector Admin Console**. The file is located in the install directory for the AD/LDAP Connector. The following settings are supported in this file:
+The `config.json` file is the AD/LDAP Connector's main configuration file. You can this to make advanced changes that are not available via the AD/LDAP **Connector Admin Console**. The file is located in the install directory for the AD/LDAP Connector, which (for Windows) is usually found at `C:\Program Files (x86)\Auth0\AD LDAP Connector`. The following settings are supported in this file:
 
 | Setting       | Description | Default  |
 |---------------|-------------|----------|
@@ -99,7 +99,7 @@ The `config.json` file is the AD/LDAP Connector's main configuration file. You c
 | `LDAP_SEARCH_ALL_QUERY` | The LDAP query used to list all users in the LDAP store. | `(objectCategory=person)` |
 | `LDAP_SEARCH_GROUPS` | The LDAP query used to find groups in the LDAP store. For example: `(&(objectCategory=group)(member={0}))` | `(member:1.2.840.113556.1.4.1941:={0})` |
 | `LDAP_SEARCH_QUERY` | The LDAP query used to find users in the LDAP store. | `(&(objectCategory=person)(anr={0}))` |
-| `LDAP_USER_BY_NAME` | The LDAP query used to find the user during authentication. This setting lets you specify which attribute is considered the user's username. For example, like the common name: the sAMAccountName, UPN, et cetera. This setting also supports multiple values for an OR search, for example: `(|(sAMAccountName={0})(userPrincipleName={0}))` | `(sAMAccountName={0})` |
+| `LDAP_USER_BY_NAME` | The LDAP query used to find the user during authentication. This setting lets you specify which attribute is considered the user's username. For example, like the common name: the sAMAccountName, UPN, et cetera. This setting also supports multiple values for an OR search, for example: `(|(sAMAccountName={0})(userPrincipalName={0}))` | `(sAMAccountName={0})` |
 | `LDAP_URL` | The LDAP connection string. For example: `ldap://fabrikam-dc.fabrikam.local`. | |
 | `PORT` | The port the server runs on when Kerberos or Client Certificate Authentication is enabled. | |
 | `PROVISIONING_TICKET` | The Auth0 provisioning ticket used to communicate with Auth0. | |
@@ -107,12 +107,15 @@ The `config.json` file is the AD/LDAP Connector's main configuration file. You c
 | `SERVER_URL` | The default connector URL will be `server-name:port`, but this setting allows you to overwrite this. For example: `connector.mycompany.com`. | |
 | `SESSION_SECRET` | The session secret used to encrypt the session cookie. | |
 | `SITE_NAME` | When Client Certificate Authentication is enabled, but not possible the AD Connector will show a fallback login page. This setting allows you to specify the title that will show on top of the page. | Name of the AD connection. |
+| `SSL_CA_PATH` | Absolute path to the base directory where the CA certificate file(s) are located. | |
 | `SSL_KEY_PASSWORD` | The password for the SSL certificate. | |
 | `SSL_PFX` | Base64 encoded certificate to use for SSL. | |
 | `TENANT_SIGNING_KEY` | Your Auth0 tenant used to verify JWTs.
 | `WSFED_ISSUER` | The issuer being set in the WS-Federation responses. If a connection is configured with email domains, the first email domain configured in Auth0 will be used as issuer. | `urn:auth0` |
 
-Check out [Active Directory: LDAP Syntax Filters](https://social.technet.microsoft.com/wiki/contents/articles/5392.active-directory-ldap-syntax-filters.aspx) for more information on LDAP queries.
+This file can be used to determine which tenants are using a particular connector.
+
+For more information on LDAP queries, check out [Active Directory: LDAP Syntax Filters](https://social.technet.microsoft.com/wiki/contents/articles/5392.active-directory-ldap-syntax-filters.aspx).
 
 ## Point an AD/LDAP Connector to a new connection
 

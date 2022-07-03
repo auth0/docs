@@ -1,198 +1,201 @@
-<%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login'}) %>
+<!-- markdownlint-disable MD041 MD002 -->
 
-### Create an Authentication Service
+## Install the SDK
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `AuthService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
+Install the [Auth0 Vue SDK](https://github.com/auth0/auth0-vue) using npm:
 
-Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
+```bash
+npm install @auth0/auth0-vue
+```
+
+### Register the plugin
+
+To use the SDK in your Vue application, register the plugin with your Vue application by passing the return value of `createAuth0` to `app.use()`.
 
 ```js
-// src/Auth/AuthService.js
+import { createAuth0 } from '@auth0/auth0-vue';
 
-import auth0 from 'auth0-js'
-import { AUTH_CONFIG } from './auth0-variables'
-import EventEmitter from 'eventemitter3'
-import router from './../router'
+const app = createApp(App);
 
-export default class AuthService {
-
-  constructor () {
-    this.login = this.login.bind(this)
-    this.setSession = this.setSession.bind(this)
-    this.logout = this.logout.bind(this)
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-  }
-
-  auth0 = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    redirectUri: 'http://localhost:3000/callback',
-    responseType: 'token id_token',
-    scope: 'openid'
+app.use(
+  createAuth0({
+    domain: "${account.namespace}",
+    client_id: "${account.clientId}",
+    redirect_uri: window.location.origin
   })
+);
 
-  login () {
-    this.auth0.authorize()
-  }
-}
+app.mount('#app');
 ```
 
-::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
-:::
+The plugin will register the SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) and [Options API](https://vuejs.org/guide/introduction.html#options-api).
 
-![hosted login](/media/articles/web/hosted-login.png)
+## Add Login to Your Application
 
-## Handle Authentication Tokens
+To add login to your application, use the `loginWithRedirect` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function.
 
-Add some additional methods to the `Auth` service to fully handle authentication in the app.
-
-Install the EventEmitter required by the service.
-
-`npm install --save EventEmitter`
-
-```js
-// src/Auth/AuthService.js
-
-import auth0 from 'auth0-js'
-import EventEmitter from 'EventEmitter'
-import router from './../router'
-
-export default class AuthService {
-
-  authenticated = this.isAuthenticated()
-  authNotifier = new EventEmitter()
-
-  constructor () {
-    this.login = this.login.bind(this)
-    this.setSession = this.setSession.bind(this)
-    this.logout = this.logout.bind(this)
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-  }
-
-  // ...
-  handleAuthentication () {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult)
-        router.replace('home')
-      } else if (err) {
-        router.replace('home')
-        console.log(err)
-      }
-    })
-  }
-
-  setSession (authResult) {
-    // Set the time that the Access Token will expire at
-    let expiresAt = JSON.stringify(
-      authResult.expiresIn * 1000 + new Date().getTime()
-    )
-    localStorage.setItem('access_token', authResult.accessToken)
-    localStorage.setItem('id_token', authResult.idToken)
-    localStorage.setItem('expires_at', expiresAt)
-    this.authNotifier.emit('authChange', { authenticated: true })
-  }
-
-  logout () {
-    // Clear Access Token and ID Token from local storage
-    localStorage.removeItem('access_token')
-    localStorage.removeItem('id_token')
-    localStorage.removeItem('expires_at')
-    this.userProfile = null
-    this.authNotifier.emit('authChange', false)
-    // navigate to the home route
-    router.replace('home')
-  }
-
-  isAuthenticated () {
-    // Check whether the current time is past the
-    // Access Token's expiry time
-    let expiresAt = JSON.parse(localStorage.getItem('expires_at'))
-    return new Date().getTime() < expiresAt
-  }
-}
-```
-
-The service now includes several other methods for handling authentication.
-
-* `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
-* `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
-
-### About the Authentication Service
-
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
-
-### Provide a Login Control
-
-Provide a component with controls for the user to log in and log out.
-
-${snippet(meta.snippets.use)}
-
-::: note
-This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
-:::
-
-The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
-
-When the **Log In** button is clicked, the user will be redirected to login page.
-
-<%= include('../../_includes/_hosted_login_customization' }) %>
-
-### Add a Callback Component
-
-Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
-
-<%= include('../../_includes/_callback_component') %>
-
-When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
-
-Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
-
-```js
-// src/components/Callback.vue
-
+```html
 <template>
-  <div class="spinner">
-    <img src="../assets/loading.svg" alt="loading"/>
+  <div>
+    <button @click="login">Log in</button>
+  </div>
+</template>
+<script>
+  import { useAuth0 } from '@auth0/auth0-vue';
+
+  export default {
+    setup() {
+      const { loginWithRedirect } = useAuth0();
+
+      return {
+        login: () => {
+          loginWithRedirect();
+        }
+      };
+    }
+  };
+</script>
+```
+
+The `loginWithRedirect` function will redirect the user to Auth0, and redirect them back to the `redirect_uri` (provided when calling `createAuth0()`) after entering their credentials.
+
+#### Using the Options API
+If you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through the `this` accessor.
+
+```html
+<template>
+  <div>
+    <button @click="login">Log in</button>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'callback',
-    props: ['auth'],
-    data () {
-      this.auth.handleAuthentication()
-      return {}
+    methods: {
+      login() {
+        this.$auth0.loginWithRedirect();
+      }
     }
-  }
+  };
 </script>
-
-<style>
-  .spinner {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-</style>
 ```
 
-::: note
-This example assumes some kind of loading spinner is available in the `assets` directory. See the downloadable sample for a demonstration.
+## Add Logout to Your Application
+Use the `logout` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function, to log the user out of your application.
+
+```html
+<template>
+  <div>
+    <button @click="logout">Log out</button>
+  </div>
+</template>
+<script>
+  import { useAuth0 } from '@auth0/auth0-vue';
+
+  export default {
+    setup() {
+      const { logout } = useAuth0();
+
+      return {
+        logout: () => {
+          logout({ returnTo: window.location.origin });
+        }
+      };
+    }
+  };
+</script>
+```
+
+The `logout()` function will redirect the user to Auth0 to ensure their session is ended with Auth0 as well. Once the user is logged out successfully, they will be redirected back to the specified `returnTo` parameter.
+
+:::note
+To log the user out of your application but not from Auth0, use `logout({ localOnly: true })`.
 :::
 
-After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
+#### Using the Options API
+If you're using the Options API, you can use the same `logout` method from the global `$auth0` property through the `this` accessor.
 
-::: note
-This example assumes you are using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
+```html
+<template>
+  <div>
+    <button @click="logout">Log out</button>
+  </div>
+</template>
+
+<script>
+  export default {
+    methods: {
+      logout() {
+        this.$auth0.logout({ returnTo: window.location.origin });
+      }
+    }
+  };
+</script>
+```
+
+## Show User Profile Information
+
+Once the user authenticates, the SDK extracts the user's profile information and stores it in memory. It can be accessed by using the reactive `user` property exposed by the return value of `useAuth0`, which you can access in your component's `setup` function.
+
+```html
+<template>
+  <div>
+    <h2>User Profile</h2>
+    <button @click="login">Log in</button>
+    <pre v-if="isAuthenticated">
+        <code>{{ user }}</code>
+      </pre>
+  </div>
+</template>
+<script>
+  import { useAuth0 } from '@auth0/auth0-vue';
+
+  export default {
+    setup() {
+      const { loginWithRedirect, user, isAuthenticated } = useAuth0();
+
+      return {
+        login: () => {
+          loginWithRedirect();
+        },
+        user,
+        isAuthenticated
+      };
+    }
+  };
+</script>
+```
+
+:::note
+Ensure the user is authenticated by implementing login in your application before accessing the user's profile.
 :::
+
+#### Using the Options API
+If you're using the Options API, you can use the same reactive `user` property from the global `$auth0` property through the `this` accessor.
+
+```html
+<template>
+  <div>
+    <h2>User Profile</h2>
+    <button @click="login">Log in</button>
+    <pre>
+      <code>{{ user }}</code>
+    </pre>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: function () {
+      return {
+        user: this.$auth0.user
+      };
+    },
+    methods: {
+      login() {
+        this.$auth0.loginWithRedirect();
+      }
+    }
+  };
+</script>
+```

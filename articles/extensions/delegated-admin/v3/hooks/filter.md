@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Filter Hook
 
-By default, users with the **Delegated Admin - User** role see *all* users associated with the Auth0 account. However, you can filter the data users see using the **Filter Hook**.
+By default, users with the **Delegated Admin - User** <dfn data-key="role">role</dfn> see *all* users associated with the Auth0 account. However, you can filter the data users see using the **Filter Hook**.
 
 ## The Hook Contract
 

@@ -12,4 +12,4 @@ changed:
     description: |
       Updated [Java overview page](/java-overview) with info on new samples:
       - [Auth0 Spring Boot Application with Social and Database Connection, and Account Linking](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link)
-      - [Auth0 (AngularJS) Single Page Application + API Server Sample](https://github.com/auth0-samples/auth0-spring-security-api-client-samples/tree/master/auth0-spring-security-api-angular-client)
+      - [Auth0 (AngularJS) Single-Page Application + API Server Sample](https://github.com/auth0-samples/auth0-spring-security-api-client-samples/tree/master/auth0-spring-security-api-angular-client)

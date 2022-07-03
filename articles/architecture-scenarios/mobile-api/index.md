@@ -2,7 +2,7 @@
 order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
-extract: Mobile application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
+extract: Mobile application which talks to an API. The application will use OpenID Connect (OIDC) with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
 description: Explains the architecture scenario with a mobile application communicating with an API.
 toc: true
 topics:
@@ -30,10 +30,10 @@ We will also be building a mobile application which will be used to view and log
 
 ::: panel TL;DR
 * Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/mobile-api/part-1#api-authentication-and-authorization))
-* For authorizing a mobile app user and granting access to the API, Auth0 supports the Authorization Code Grant Flow with PKCE (see [Proof Key for Code Exchange](/architecture-scenarios/mobile-api/part-1#proof-key-for-code-exchange-pkce-))
+* For authorizing a mobile app user and granting access to the API, Auth0 supports the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) (see [Proof Key for Code Exchange](/architecture-scenarios/mobile-api/part-1#proof-key-for-code-exchange-pkce-))
 * Both the mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/mobile-api/part-2))
 * User Permissions can be enforced using the Authorization Extension (see [Configure the Authorization Extension](/architecture-scenarios/mobile-api/part-2#configure-the-authorization-extension))
-* The API is secured by ensuring that a valid [Access Token](/tokens/access-token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/mobile-api/part-3#secure-the-endpoints))
+* The API is secured by ensuring that a valid <dfn data-key="Access Token">[Access Token](/tokens/concepts/access-tokens)</dfn> is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/mobile-api/part-3#secure-the-endpoints))
 * The Auth0.Android SDK can be used to authorize the user of the mobile app and obtain a valid Access Token which can be used to call the API (see [Authorize the User](/architecture-scenarios/mobile-api/part-3#authorize-the-user))
 * The mobile app can retrieve the user's profile information by decoding the ID Token (see [Get the User Profile](/architecture-scenarios/mobile-api/part-3#get-the-user-profile))
 * UI Elements can be displayed conditionally based on the scope that was granted to the user (see [Display UI Elements Conditionally Based on Scope](/architecture-scenarios/mobile-api/part-3#display-ui-elements-conditionally-based-on-scope))

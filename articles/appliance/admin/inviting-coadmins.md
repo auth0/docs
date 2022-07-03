@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance5
+sitemap: false
 ---
 
 # PSaaS Appliance Administration: Inviting Co-Administrators

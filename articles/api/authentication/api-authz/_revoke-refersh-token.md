@@ -50,16 +50,19 @@ HTTP/1.1 200 OK
   "link": "#revoke-refresh-token"
 }) %>
 
-Use this endpoint to invalidate a Refresh Token if it has been compromised.
+Use this endpoint to invalidate a <dfn data-key="refresh-token">Refresh Token</dfn> if it has been compromised.
 
-Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
+The behaviour of this endpoint depends on the state of the [Refresh Token Revocation Deletes Grant](https://auth0.com/docs/tokens/refresh-tokens/revoke-refresh-tokens#refresh-tokens-and-grants) toggle.
+If this toggle is enabled, then each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and <dfn data-key="audience">audience</dfn> will be revoked**.
+If this toggle is disabled, then only the refresh token is revoked, while the grant is left intact.
+
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The application should match the one the Refresh Token was issued for. |
-| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/application-types#confidential-applications). |
+| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications). |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
 ### Remarks
@@ -72,4 +75,4 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Refresh Token](/tokens/refresh-token)
+- [Refresh Tokens](/tokens/concepts/refresh-tokens)

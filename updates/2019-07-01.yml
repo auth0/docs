@@ -1,0 +1,26 @@
+changed:
+  -
+    title: "Gradle include file for reusage"
+    tags:
+      - quickstart
+      - android
+    description: |
+      The _auth0.md and the _api_authz.md files were both using redundant and inconsistent gradle instructions. A _gradle file was created on the includes for reusage and consistency.
+fixed:
+  -
+    title: "Android SDK doc used deprecated compile"
+    tags:
+      - android
+      - library
+      - save-and-refresh-tokens
+    description: |
+      The save-and-refresh-tokens.md file used deprecated `compile` instead of `implementation`. To keep consistency the file points to the docs.
+added:
+  -
+    title: "Penetration Testing Policy"
+    tags:
+      - security
+      - policy
+      - penetration testing
+    description: |
+      Update Restrictions for Auth0 Penetration Testing Policy to include Management Dashboard

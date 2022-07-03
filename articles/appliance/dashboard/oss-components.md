@@ -8,6 +8,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance22
+sitemap: false
 ---
 
 # OSS Components

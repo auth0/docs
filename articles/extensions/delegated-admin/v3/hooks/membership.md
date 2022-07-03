@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Memberships Query Hook
 
-When creating a new user, the User Interface shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query**.
+When creating a new user, the User Interface shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query Hook**.
 
 ## The Hook Contract
 
@@ -25,7 +25,7 @@ Users of the IT department should be able to create users in other departments. 
 
 ```js
 function(ctx, callback) {
-  var currentDepartment = ctx.payload.user.app_metadata.department;
+  var currentDepartment = ctx.payload.user.app_metadata && ctx.payload.user.app_metadata.department;
   if (!currentDepartment || !currentDepartment.length) {
     return callback(null, [ ]);
   }

@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authorization
 description: This tutorial demonstrates how to add authorization to a Ruby on Rails API.
 topics:
     - quickstart
@@ -26,7 +26,7 @@ This tutorial performs Access Token validation using the  **jwt** Gem within a c
 Install the **jwt** Gem.
 
 ```bash
-gem `jwt`
+gem 'jwt'
 bundle install
 ```
 
@@ -45,7 +45,7 @@ class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
                true, # Verify the signature of this token
-               algorithm: 'RS256',
+               algorithms: 'RS256',
                iss: 'https://${account.namespace}/',
                verify_iss: true,
                aud: Rails.application.secrets.auth0_api_audience,
@@ -157,7 +157,7 @@ The `/public` endpoint does not require to use the `Secured` concern.
 class PublicController < ActionController::API
   # This route doesn't need authentication
   def public
-    render json: { message: 'Hello from a public endpoint! You don't need to be authenticated to see this.' }
+    render json: { message: "Hello from a public endpoint! You don't need to be authenticated to see this." }
   end
 end
 ```

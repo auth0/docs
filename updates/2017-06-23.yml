@@ -1,9 +1,0 @@
-added:
-  -
-    title: "Analytics Integrations"
-    tags:
-      - analytics
-      - facebook
-      - google
-    description: |
-      New docs have was added on how to setup and configure [Google](https://auth0.com/docs/analytics/integrations/google-analytics) and [Facebook](https://auth0.com/docs/analytics/integrations/facebook-analytics) analytics integrations with Auth0.

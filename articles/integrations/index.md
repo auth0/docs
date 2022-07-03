@@ -15,28 +15,168 @@ useCase:
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Auth0 Integrations</h1>
-  <p>
-    Take a look below to find tutorials on integrating Auth0 with other applications and services!
+  <p>Tailor your identity flows with custom code and integrate with third-party systems.
   </p>
 </div>
 
 <ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-292"></i><a href="/analytics/integrations">Analytics Integrations</a>
+<li>
+    <i class="icon icon-budicon-546"></i><a href="https://marketplace.auth0.com/">Auth0 Marketplace</a>
     <p>
-        Learn how to set up and configure analytics integrations with Auth0.
+      Discover and enable third-party identity solutions that integrate with our products. Reduce implementation time with Auth0-reviewed integrations that you can trust. Examples include:
+    </p>
+     <ul>
+       <li>
+            <i class="icon icon-budicon-334"></i><a href="/integrations/sso">SSO Integrations</a>
+            <ul>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/ad-rms">Active Directory RMS</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/adobe-sign">Adobe Sign</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/box">Box</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cisco-webex">Cisco WebEx</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cloudbees">CloudBees</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/concur">Concur</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/datadog">Datadog</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dropbox">Dropbox</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dynamics-crm">Dynamics CRM</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egencia">Egencia</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egnyte">Egnyte</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/eloqua">Eloqua</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/freshdesk">Freshdesk</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/g-suite">G Suite</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/github-enterprise-cloud">GitHub Enterprise Cloud</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/github-enterprise-server">GitHub Enterprise Server</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/heroku">Heroku</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/hosted-graphite">Hosted Graphite</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/litmos">Litmos</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/new-relic">New Relic</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/pluralsight">Pluralsight</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">Salesforce</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sentry">Sentry</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/slack">Slack</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/springcm">SpringCM</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sprout-video">Sprout Video</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/tableau-online">Tableau Online</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/tableau-server">Tableau Server</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/workday">Workday</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/workpath">Workpath</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zendesk">Zendesk</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zoom">Zoom</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <i class="icon icon-budicon-334"></i><a href="/log-streams">Log Streaming</a>
+            <ul>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/logs/streams/amazon-eventbridge">Amazon Eventbridge</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/logs/streams/azure-event-grid">Azure Event Grid</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/logs/streams/datadog">Datadog</a>
+                </li>
+                <li>
+                    <i class="icon icon-budicon-715"></i><a href="/logs/streams/splunk">Splunk</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li>
+    <i class="icon icon-budicon-546"></i>API Management Integrations
+    <p>
+      Learn how to use Auth0 with API Management Systems and other services.
     </p>
     <ul>
       <li>
-        <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/integrations/facebook-analytics">Facebook Analytics Integration</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/google-cloud-platform">Secure Google Cloud Endpoints</a>
       </li>
       <li>
-        <img class="icon-logo" src="/img/icons/google.svg" /><a href="/analytics/integrations/google-analytics">Google Analytics Integration</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/azure-api-management">
+        Integrate with Azure API Management Service
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws">
+        Integrate with Amazon Web Services
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws-api-gateway">
+        Secure AWS API Gateway Endpoints Using Custom Authorizers
+        </a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-705"></i><a href="/analytics/integrations">Marketing Integrations</a>
+    <i class="icon icon-budicon-705"></i><a href="/integrations/marketing">Marketing Integrations</a>
     <p>
         Learn how to import your Auth0 user data into marketing tools.
     </p>
@@ -73,60 +213,5 @@ useCase:
       </li>
     </ul>
   </li>
-  <li>
-    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign On Integrations</a>
-    <p>
-        Learn how to set up Single Sign On between Auth0 and various services.
-    </p>
-    <ul>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/ad-rms">Active Directory RMS</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/box">Box</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cloudbees">CloudBees</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/disqus">Disqus</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dropbox">Dropbox</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dynamics-crm">Microsoft Dynamics CRM</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/echosign">Adobe EchoSign</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egnyte">Egnyte</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/new-relic">New Relic</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">SalesForce</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sharepoint">SharePoint</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/slack">Slack</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/springcm">SpringCM</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zendesk">Zendesk</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zoom">Zoom</a>
-      </li>
-    </ul>
   </li>
 </ul>

@@ -20,7 +20,7 @@ When using Lock versions below 11 and Auth0.js version below 9, you could use le
 
 ## Renewing Tokens
 
-Legacy applications used [Refresh Tokens](/tokens/refresh-token) and the `refreshToken()` function as a way to get new tokens upon expiration (an example of this is below).
+Legacy applications used <dfn data-key="refresh-token">Refresh Tokens</dfn> and the `refreshToken()` function as a way to get new tokens upon expiration (an example of this is below).
 
 ```js
 function renewToken() {
@@ -62,7 +62,7 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis), and we recommend that you start using [Access Tokens](/tokens/access-token).
+Legacy applications used an [ID Token](/tokens/concepts/id-tokens) to invoke APIs. This is a bad practice, and we recommend that you only use [Access Tokens](/tokens/concepts/access-tokens).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 
@@ -126,7 +126,7 @@ The new user profile conforms to the OIDC specification, which allows for certai
 }
 ```
 
-The contents will vary depending on which [scopes](/scopes) are requested. You will need to adjust the scopes you request when configuring Auth0.js or Lock so all the claims you need are available in your application. Note that you can add custom claims to return whatever data you want (for example, user metadata), as described in [this example](/scopes/current#example-add-custom-claims).
+The contents will vary depending on which [scopes](/scopes) are requested. You will need to adjust the scopes you request when configuring Auth0.js or Lock so all the claims you need are available in your application. Note that you can add custom claims to return whatever data you want (for example, user metadata), as described in [this example](/scopes/current/sample-use-cases#add-custom-claims-to-a-token).
 
 Another approach to get the full user profile is to use the [Management API](/api/management/v2) (instead of getting the profile through the authentication flow) as described in the next section.
 

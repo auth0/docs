@@ -1,13 +1,17 @@
 title: Windows Universal App C#
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/windows-8.png
+logo: windows
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 hybrid: false
 alias:
   - windows app
   - windows
 language:
   - C#
-image: /media/platforms/windows-8.png
 topics:
   - quickstart
 contentType: tutorial
@@ -22,12 +26,16 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-uwp-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: windows
 requirements:
   - Microsoft Visual Studio 2017
   - Windows 10 SDK (10.0.10586.0)
-  - Auth0.OidcClient.UWP 1.0.0
+  - Auth0.OidcClient.UWP 2.3.1
 next_steps:
   - path: 01-login
     list:
@@ -37,9 +45,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

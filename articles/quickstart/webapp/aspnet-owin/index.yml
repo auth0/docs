@@ -1,5 +1,11 @@
 title: ASP.NET (OWIN)
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/asp.png
+logo: dotnet
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
@@ -18,6 +24,8 @@ articles:
   - 02-user-profile
   - 03-authorization
   - 04-migrating
+hidden_articles:
+  - interactive
 show_steps: true
 github:
   org: auth0-samples
@@ -25,7 +33,7 @@ github:
   branch: master
 requirements:
   - Microsoft Visual Studio 2017
-  - Microsoft.Owin.Security.OpenIdConnect v4.0.0 and up
+  - Microsoft.Owin.Security.OpenIdConnect v4.1.0 and up
 next_steps:
   - path: 03-authorization
     list:
@@ -35,9 +43,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

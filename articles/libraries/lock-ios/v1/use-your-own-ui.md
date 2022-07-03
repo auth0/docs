@@ -2,6 +2,7 @@
 section: libraries
 title: Build your own UI
 description: Customize the UI of Lock in your App
+public: false
 topics:
   - libraries
   - lock
@@ -96,15 +97,15 @@ After that, you may want to save the user's token to be able to use them later, 
 
 2. Also add the following lines to your `AppDelegate` too
   ```objc
-  - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    A0Lock *lock = ... //Get your Lock instance
-    return [lock handleURL:url sourceApplication:sourceApplication];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    A0Lock *lock = ... // Get your Lock instance
+    return [lock handleURL:url sourceApplication:app];
   }
   ```
   ```swift
-  func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
     let lock = ... // Get your Lock instance
-    return lock.handle(url, sourceApplication: sourceApplication)
+    return lock.handle(url, sourceApplication: app)
   }
   ```
 

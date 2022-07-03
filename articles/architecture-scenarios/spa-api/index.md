@@ -2,8 +2,8 @@
 order: 03
 title: SPA + API
 image: /media/articles/architecture-scenarios/spa-api.png
-extract: Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.
-description: Explains the architecture scenario where a Single Page Web Application (SPA) talks to an API using OpenID Connect, and the OAuth 2.0 Implicit Grant Flow, to authenticate users with Auth0.
+extract: Single-Page Web Application which talks to an API. The application will use OpenID Connect (OIDC) with the Implicit Grant Flow to authenticate users with Auth0.
+description: Explains the architecture scenario where a Single-Page Web Application (SPA) talks to an API using OpenID Connect (OIDC), and the OAuth 2.0 Implicit Grant Flow, to authenticate users with Auth0.
 toc: true
 topics:
     - architecture
@@ -24,7 +24,7 @@ useCase:
 
 In this scenario, we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow adding timesheet entries for an employee or a contractor.
 
-We will also be building a Single Page Application (SPA) which will be used to log timesheet entries and send them to the centralized timesheet database using the API.
+We will also be building a Single-Page Application (SPA) which will be used to log timesheet entries and send them to the centralized timesheet database using the API.
 
 ::: panel TL;DR
 * Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/spa-api/part-1#api-authentication-and-authorization))

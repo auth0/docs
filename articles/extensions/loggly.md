@@ -35,6 +35,8 @@ You can find the __Global Client ID__ and __Global Client Secret__ information a
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ## Retrieve the required information from Loggly
 
 Let's see how we can retrieve the __Loggly_Customer_Token__ information.

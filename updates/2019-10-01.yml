@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Import Users Worker - Filter Duplicate Users"
+    tags:
+      - import
+      - users
+    description: |
+      User import behavior is being updated to allow for upserting users by user_id and username in addition to email.

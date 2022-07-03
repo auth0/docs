@@ -1,42 +1,49 @@
 ---
-order: 04
-title: Business to Consumer Identity Scenarios
-image: /media/articles/architecture-scenarios/b2c.png
-extract: Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
-description: Explains the architecture scenario B2C with an eCommerce or SAAS application.
-beta: true
+url: /architecture-scenarios/b2c
+classes: topic-page
+title: Business to Consumer Identity and Access Management
+description: Explains the architecture scenario B2C IAM with an eCommerce or SAAS application.
 topics:
     - b2c
-    - architecture
-    - db-connections
-    - passwordless
-    - saml
+    - CIAM
+    - SDLC
 contentType: concept
 useCase:
-  - invoke-api
-  - secure-an-api
-  - build-an-app
+  - implementation
 ---
+<!-- markdownlint-disable MD041 MD002 -->
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Business to Consumer Identity and Access Management</h1>
+  <p>
+  This guidance is relevant to <b>all</b> project stakeholders. We recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. We provide a Project Planning Guide in PDF format, details about how to get started with each phase of the implementation process, and checklists to help you manage the tasks in each phase.
+  </p>
+</div>
 
-# Business to Consumer Identity Scenarios
+<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2c' }) %>
 
-::: note
-This architecture scenario is under construction and will be updated soon.
-:::
+## Project Planning Guide
 
-![](/media/articles/architecture-scenarios/b2c.png)
+<%= include('./_includes/_planning.md', { platform: 'b2c' }) %>
 
-Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
+## Get started
 
-Users are created and stored with a Database connection (username/password) which they can then later use to log in, or alternatively users can use a social connection such as Facebook, Twitter, Google, and so on to log in. Passwordless connections are also common with B2C.
+<%= include('./_includes/_base-intro.md', { platform: 'b2c' }) %>
 
-## Read More
+<%= include('../_includes/_topic-links', { links: [
+  'architecture-scenarios/implementation/b2c/b2c-architecture',
+  'architecture-scenarios/implementation/b2c/b2c-provisioning',
+  'architecture-scenarios/implementation/b2c/b2c-authentication',
+  'architecture-scenarios/implementation/b2c/b2c-branding',
+  'architecture-scenarios/implementation/b2c/b2c-deployment',
+  'architecture-scenarios/implementation/b2c/b2c-qa',
+  'architecture-scenarios/implementation/b2c/b2c-profile-mgmt',
+  'architecture-scenarios/implementation/b2c/b2c-authorization',
+  'architecture-scenarios/implementation/b2c/b2c-logout',
+  'architecture-scenarios/implementation/b2c/b2c-operations',
+  'architecture-scenarios/implementation/b2c/b2c-launch'
+] }) %>
 
-The following is a list of articles on this website which will help you to implement this scenario:
+## Implementation planning checklists
 
-* [Lock](https://auth0.com/lock)
-* [Protocols supported by Auth0](/protocols)
-* [Database Identity Providers](/connections/database)
-* [Import users to Auth0](/connections/database/migrating)
-* [Social Login](https://auth0.com/learn/social-login/)
-* [Passwordless](/connections/passwordless)
+<%= include('./_includes/_implementation-checklists.md') %>

@@ -29,7 +29,7 @@ The query string is parsed into a series of *terms* and *operators*. A term can 
 
 You can search for users using the following fields:
 
-* All the [normalized user profile](/user-profile/normalized) fields
+* All the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields
 
 * __Only__ the profile information under the `user_metadata` object:
   - `name`
@@ -38,12 +38,10 @@ You can search for users using the following fields:
   - `family_name`
 
 ::: warning
-New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (that is, tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
+New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (that is, tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)) that were created up to August 31st 2017, can search using the `app_metadata` fields.
+Note that [Search v3](/users/search/v3/query-syntax) does not have this restriction.
 :::
-
-::: note
-For more information on user related metadata refer to [User Metadata](/metadata).
-:::
+For more information, see the [Metadata Overview](/users/concepts/overview-user-metadata).
 
 ### Field name examples
 

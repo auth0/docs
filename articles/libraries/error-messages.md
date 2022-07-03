@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: Common errors that you might get when you authenticate users using Auth0 libraries
+description: Describes common sign up and login errors that you might see when you authenticate users using Auth0 libraries.
 topics:
   - libraries
   - lock
@@ -12,9 +12,9 @@ useCase:
   - add-login
   - enable-mobile-auth
 ---
-# Common Authentication Errors
+# Common Auth0 Library Authentication Errors
 
-The actions or input data of your users, during the sign up or the log in processes, might trigger errors. This article lists the most common errors that you might get, if you use any of the Auth0 libraries for authentication.
+The actions or input data of your users, during the sign up or the log in processes, might trigger errors. Here is a list of the most common errors that you might get if you use any of the Auth0 libraries for authentication.
 
 ## Sign up
 
@@ -23,6 +23,7 @@ In the case of a failed signup, the most common errors are:
 | **Error** | **Description** |
 |-|-|
 | **invalid_password** | If the password used doesn't comply with the password policy for the connection |
+| **invalid_signup** | The user your are attempting to sign up is invalid |
 | **password_dictionary_error** | The chosen password is too common |
 | **password_no_user_info_error** | The chosen password is based on user information |
 | **password_strength_error** | The chosen [password is too weak](/connections/database/password-strength) |
@@ -38,9 +39,9 @@ In the case of a failed login, the most common errors are:
 |-|-|
 | **access_denied** | When using web-based authentication, the resource server denies access per OAuth2 specifications |
 | **invalid_user_password** | The username and/or password used for authentication are invalid |
-| **mfa_invalid_code** | The [multi-factor authentication](/multifactor-authentication) code provided by the user is invalid/expired |
-| **mfa_registration_required** | The administrator has required [multi-factor authentication](/multifactor-authentication), but the user has not enrolled |
-| **mfa_required** | The user must provide the [multi-factor authentication](/multifactor-authentication) code to authenticate |
+| **mfa_invalid_code** | The <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> code provided by the user is invalid/expired |
+| **mfa_registration_required** | The administrator has required [multi-factor authentication](/mfa), but the user has not enrolled |
+| **mfa_required** | The user must provide the [multi-factor authentication](/mfa) code to authenticate |
 | **password_leaked** | If the password has been leaked and a different one needs to be used |
 | **PasswordHistoryError** | The password provided for sign up/update has already been used (reported when [password history](/connections/database/password-options#password-history) feature is enabled) |
 | **PasswordStrengthError** | The password provided does not match the connection's [strength requirements](/connections/database/password-strength) |

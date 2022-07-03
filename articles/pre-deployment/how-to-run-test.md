@@ -57,7 +57,7 @@ Under each set of check results, Auth0 tells you how many checks your Applicatio
 
 ![](/media/articles/support/pre-deployment-tests/reading-results.png)
 
-If your Application **failed** one or more checkss, Auth0 provides:
+If your Application **failed** one or more checks, Auth0 provides:
 
 * The name of the check
 * Information on what the check is looking for

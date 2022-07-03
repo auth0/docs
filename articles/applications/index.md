@@ -1,78 +1,52 @@
 ---
-description: Explains the basics of creating and using Auth0 Applications.
-toc: true
+description: Understand the basics of creating and using Auth0 Applications.
 topics:
   - applications
 contentType: 
-    - index
-    - reference
-    - how-to
     - concept
 useCase:
   - build-an-app
 ---
-# Applications
+# Applications in Auth0
 
-An Auth0 **Application** represents your application in Auth0. You first need to define the Application in Auth0 to then be able to add authentication to it.
+The term *application* or *app* in Auth0 does not imply any particular implementation characteristics. For example, it could be a native app that executes on a mobile device, a single-page app that executes on a browser, or a regular web app that executes on a server.
 
-The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
+Auth0 categorizes apps based on these characteristics:
 
-## Application Types
+* **What type of app is it?**: To add authentication to your app, you must register it in the Auth0 Dashboard and select from one of the following app types: 
+  - [Regular web app](/dashboard/guides/applications/register-app-regular-web): Traditional web apps that perform most of their application logic on the server (such as Express.js or ASP.NET).
+  - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa): JavaScript apps that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (such as AngularJS + Node.js or React).
+  - [Native app](/dashboard/guides/applications/register-app-native): Mobile or Desktop apps that run natively in a device (such as iOS or Android).
+  - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m): Non-interactive apps, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API.
 
-There are four application types in Auth0:
+* **Can the app securely hold credentials?**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*; confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
 
-- [Native](/applications/native): Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, iOS, Ionic, Windows, OS/X.
+* **Who owns the app?**: Whether an app is classified as first- or third-party depends on the app ownership and control. First-party apps are controlled by the same organization or person that owns the Auth0 domain. Third-party apps enable external parties or partners to securely access protected resources behind your API. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details.
 
-- [Single Page Web Applications](/applications/spa): Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. 
+## Manage app settings
 
-- [Regular Web Applications](/applications/webapps): Used for traditional web applications that run on a server, like ASP .NET, Java, Ruby on Rails or Node.js. 
+You register apps on the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) page. See [Application Settings](/dashboard/reference/settings-application) for details.
 
-- [Machine to Machine Applications](/applications/machine-to-machine): Used for server to server applications like command-line tools, daemons, IoT devices, or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
+In addition to setting up apps in the Dashboard, you can also set up apps programmatically as described in the [OpenID Connect (OIDC) Dynamic Client Registration 1.0 ](https://openid.net/specs/openid-connect-registration-1_0.html) specification. See [Dynamic Client Registration](/api-auth/dynamic-client-registration) for details.
 
-Follow the links above to get more information on how to configure each one.
-
-::: note
-After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
+::: panel Multi-Tenancy
+You can set up up a more complex configuration that allows users to log in differently for different apps. See [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps) and [Create Multiple Tenants](/dashboard/guides/tenants/create-multiple-tenants).
 :::
 
-Auth0 also differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
+By default, Auth0 enables all connections associated with your tenant when you create a new application. To change this, [update application connections](/dashboard/guides/applications/update-app-connections) in the Application Settings in the Dashboard.
 
-## How to Delete an Application
+## Monitor apps
 
-Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Application** button. This operation cannot be undone.
+You can [monitor apps](/monitoring/guides/monitor-applications) and perform end-to-end testing using your own tests. Auth0 stores [log data](/logs) including Dashboard administrator actions, successful and failed user authentications, and password change requests. You can use Auth0 [Extensions](/extensions) to export your log data and use tools like Sumo Logic, Splunk, or Loggly to analyze and store your log data. 
 
-Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete application** to permanently remove the application.
+## Remove apps
 
-::: note
-You can also delete an application using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
-:::
+You can [remove an application using the Auth0 Dashboard](/dashboard/guides/applications/remove-app) or the [Management API](/api/management/guides/applications/remove-app).
 
-## Application Auditing
+## Manage client secrets
 
-Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to an application or requesting a password change. For more details refer to: [Logs](/logs).
+You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret) using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret).
 
-If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
+## Grant types
 
-## Dynamic Client Registration
-
-You can use the Auth0 to programmatically create applications, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
-
-## Next Steps
-
-Once you have configured your Application, some common next steps to take are:
-
-- **Configure a Connection** and enable it for your Application. For details refer to [Application Connections](/applications/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
-
-- **Configure your app** to use your Auth0 Application. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
-
-  ::: note
-  For background theory on application authentication flows, refer to [Application Authentication](/application-auth).
-  :::
-
-- Use our latest [API Authorization](/api-auth) features to **call an API**.
-
-- **Use [our APIs](/api/info)**.
-
-  - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
-
-  - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.
+Auth0 provides many different authentication and authorization grant types or *flows* and allows you to indicate which grant types are appropriate based on the `grant_types` property of your Auth0-registered app. See [Application Grant Types](/applications/concepts/application-grant-types) for more details.

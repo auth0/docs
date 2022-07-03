@@ -1,10 +1,9 @@
+<!-- markdownlint-disable MD041-->
 ```js
+// src/App.js
+
 var Auth0 = require('auth0-js');
 var Auth0Cordova = require('@auth0/cordova');
-
-function getAllBySelector(arg) {
-  return document.querySelectorAll(arg);
-}
 
 function getBySelector(arg) {
   return document.querySelector(arg);
@@ -14,8 +13,30 @@ function getById(id) {
   return document.getElementById(id);
 }
 
-function getAllByClassName(className) {
-  return document.getElementsByClassName(className);
+function getRedirectUrl() {
+  var returnTo = env.PACKAGE_ID + '://${account.namespace}/cordova/' + env.PACKAGE_ID + '/callback';
+  var url = 'https://${account.namespace}/v2/logout?client_id=${account.clientId}&returnTo=' + returnTo;
+  return url;
+}
+
+function openUrl(url) {
+  SafariViewController.isAvailable(function (available) {
+    if (available) {
+      SafariViewController.show({
+            url: url
+          },
+          function(result) {
+            if (result.event === 'loaded') {
+              SafariViewController.hide();
+            }
+          },
+          function(msg) {
+            console.log("KO: " + JSON.stringify(msg));
+          })
+    } else {
+      window.open(url, '_system');
+    }
+  })
 }
 
 function App() {
@@ -108,6 +129,8 @@ App.prototype.login = function(e) {
 
 App.prototype.logout = function(e) {
   localStorage.removeItem('access_token');
+  var url = getRedirectUrl();
+  openUrl(url);
   this.resumeApp();
 };
 

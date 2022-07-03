@@ -15,9 +15,7 @@ useCase: extensibility-extensions
 
 # Delegated Administration: Hooks
 
-If you're a user assigned the **Delegated Admin - Administrator** role, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension. 
-
-![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
+If you're a user assigned the **Delegated Admin - Administrator** <dfn data-key="role">role</dfn>, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension. 
 
 To access the configuration area:
 

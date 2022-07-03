@@ -21,6 +21,8 @@ You can either:
 
 Once you have either your own SMTP server set up or a test service available, you can provide its credentials the way you typically would for a [custom email provider](/email/providers#configure-a-custom-smtp-server-for-sending-email).
 
+<%= include('../_includes/_email-domain-blacklist') %>
+
 ## Resources to Consider
 
 ::: next-steps

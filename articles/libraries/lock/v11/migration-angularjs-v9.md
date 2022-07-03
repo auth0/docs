@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating Angular 1.x Applications to from Lock v9 to Lock v11
 description: How to migrate Angular 1.x Applications from Lock v9 to v11
+public: false
 toc: true
 topics:
   - libraries
@@ -16,7 +17,7 @@ useCase:
 ---
 # Migrating Angular 1.x Applications from Lock v9 to v11
 
-This guide will help you migrating your Angular 1.x application from Lock 9 to Lock v11. 
+This guide will help you migrating your Angular 1.x application from <dfn data-key="lock">Lock</dfn> 9 to Lock v11. 
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 

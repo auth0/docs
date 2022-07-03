@@ -1,6 +1,6 @@
 ### Verifying your migration
 
-Once you have migrated your codebase, you should no longer see [deprecation notes in your logs](/errors/deprecation-errors).
+Once you have migrated your codebase, you should no longer see [deprecation notes in your logs](/troubleshoot/guides/check-deprecation-errors).
 
 If you would like to be sure that your applications are no longer calling the legacy endpoints, you can go to the [Dashboard](${manage_url}/#/tenant/advanced) under **Tenant Settings > Advanced** then scroll down to **Migrations** and toggle off the Legacy Lock API switch. Turning off this switch will disable the deprecated Lock / Auth0.js endpoints for your tenant, preventing them from being used at all.
 

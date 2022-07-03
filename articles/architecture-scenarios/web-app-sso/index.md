@@ -2,8 +2,8 @@
 order: 01
 title: Single Sign-On for Regular Web Apps
 image: /media/articles/architecture-scenarios/web-oidc.png
-extract: Traditional web application which needs to authenticate users using OpenID Connect.
-description: Regular web app scenario which needs to authenticate users using OpenID Connect.
+extract: Traditional web application which needs to authenticate users using OpenID Connect (OIDC).
+description: Regular web app scenario which needs to authenticate users using OpenID Connect (OIDC).
 toc: true
 topics:
     - architecture
@@ -25,7 +25,7 @@ useCase:
 In this scenario, we will build a web application for a fictitious company named ExampleCo. The app is meant to be used by ExampleCo's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
 
 ::: panel TL;DR
-* Auth0 supports open standards such as OAuth 2.0 and OpenID Connect (OIDC) for authentication and authorization (see [Which protocol to use](/architecture-scenarios/web-app-sso/part-1#which-protocol-to-use))
+* Auth0 supports open standards such as OAuth 2.0 and <dfn data-key="openid">OpenID Connect (OIDC)</dfn> for authentication and authorization (see [Which protocol to use](/architecture-scenarios/web-app-sso/part-1#which-protocol-to-use))
 * OIDC supports several different authorization flows - the most appropriate one for Web Applications being the Authorization Code Flow (see [Authentication Flow](/architecture-scenarios/web-app-sso/part-1#authentication-flow))
 * Your application will be configured in Auth0 as an application (see [Application](/architecture-scenarios/web-app-sso/part-2#application))
 * Identity Providers will be configured in Auth0 as a Connection (see [Connections](/architecture-scenarios/web-app-sso/part-2#connections))
@@ -36,7 +36,7 @@ In this scenario, we will build a web application for a fictitious company named
 :::
 
 ::: note
-By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
+By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single-Page App), that heavily relies on client side JavaScript code calling an API.
 :::
 
 ## The Premise
@@ -51,7 +51,7 @@ The company evaluated several of the available timesheets application and conclu
 
 ExampleCo wants to launch the new solution quickly so they chose to start simple and build into it as they gather feedback from their employees.
 
-The application should be available to logged in users only. Each user will have a role, and based on this role, they should be able to perform certain actions and view specific data.
+The application should be available to logged in users only. Each user will have a <dfn data-key="role">role</dfn>, and based on this role, they should be able to perform certain actions and view specific data.
 
 ::: panel Authentication vs Authorization
 ExampleCo wants to __authenticate__ and __authorize__ each user. Authentication has to do with identity: verifying that the user is indeed who they claim to be. Authorization is about deciding which resources a user should have access to, and what they should be allowed to do with those resources.

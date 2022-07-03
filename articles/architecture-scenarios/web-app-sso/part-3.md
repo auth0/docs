@@ -13,7 +13,7 @@ useCase:
   - secure-an-api
   - build-an-app
 ---
-# SSO for Regular Web Apps: Application Implementation
+# Single Sign-On for Regular Web Apps: Application Implementation
 
 Let's walk through the implementation of our regular web application. We used ASP .NET Core for the implementation, you can find the code in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-webapp-oidc).
 
@@ -36,11 +36,11 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
+- __Identify the IdP programmatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
-- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain. Note that you can associate multiple domains to a single connection.
+- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an email with a mapped domain. Note that you can associate multiple domains to a single connection.
 
 For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
 
@@ -85,9 +85,9 @@ If they do so, they are signed in without having to re-enter their credentials w
 When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before:
 - __Application Session__: You need to log out the user from your Web Application, by clearing their session.
 - __Auth0 session__: You need to log out the user from Auth0. To do this you redirect the user to `https://${account.namespace}/v2/logout`. Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
-- __Identity Provider session__: Although this is not common practice, you can force the user to log out from the Identity Provider used, for example Facebook or Google. To do this add a `federated` querystring parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`.
+- __Identity Provider session__: Although this is not common practice, you can force the user to log out from the Identity Provider used, for example Facebook or Google. To do this add a `federated` query string parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`.
 
-To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value: `https://${account.namespace}/v2/logout?returnTo=http://www.example.com`. Note, that you will need to add the `returnTo` URL as an __Allowed Logout URLs__. For more information on how to implement this refer to: [Logout](/logout).
+To redirect a user after logout, add a `returnTo` query string parameter with the target URL as the value: `https://${account.namespace}/v2/logout?returnTo=http://www.example.com`. Note, that you will need to add the `returnTo` URL as an __Allowed Logout URLs__. For more information on how to implement this refer to: [Logout](/logout).
 
 The logout flow (not including federated logout) is as follows:
 
@@ -97,7 +97,7 @@ The logout flow (not including federated logout) is as follows:
 1. __Clear user’s local session__: The user's Application Session / Cookie will be cleared.
 1. __Redirect browser to Auth0 Logout__: The user's browser will be redirected to the Auth0 Logout URL.
 1. __Clear SSO Cookie__: Auth0 will clear the user's SSO Cookie.
-1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter.
+1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` query string parameter.
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-the-logout)**.
 

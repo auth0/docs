@@ -5,4 +5,4 @@ added:
       - redirect
       - callback url
     description: |
-       A [new document](/tutorials/redirecting-users) was created on how to handle returning users after authentication.
+       A [new document](/users/guides/redirect-users-after-login) was created on how to handle returning users after authentication.

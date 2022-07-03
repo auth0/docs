@@ -21,8 +21,8 @@ There are several Auth0 features than can help you achieve these goals, like acc
 To limit the amount of personal information in the Auth0 user profile, you can:
 
 - Minimize (or avoid) saving personal information in the metadata section of the user profile
-- If you use [enterprise directories](/identityproviders#enterprise), configure them to return only the minimum information needed
-- If you use [social providers](/identityproviders#social), configure them to return only the minimum information needed
+- If you use [enterprise directories](/connections/identity-providers-enterprise), configure them to return only the minimum information needed
+- If you use [social providers](/connections/identity-providers-social), configure them to return only the minimum information needed
 - [Blacklist the user attributes](/security/blacklisting-attributes) that you do not want to persist in the Auth0 databases
 
 ## Encrypt user profile information
@@ -31,7 +31,7 @@ To limit the amount of personal information in the Auth0 user profile, you can:
 
 ## Use account linking
 
-Every time a user uses a connection to log in to your application, a user profile is created if it doeasn't already exist. Note that this is per connection.
+Every time a user uses a connection to log in to your application, a user profile is created if it doesn't already exist. Note that this is per connection.
 
 To better understand this, consider the following scenario. Your application offers three different options for signup:
 - sign up with email/password
@@ -40,12 +40,12 @@ To better understand this, consider the following scenario. Your application off
 
 If a user signs up with Google, this will create a user profile in Auth0. If the same user, upon return, does not remember what he signed up with, and chooses to login with Facebook, Auth0 will create another user profile for the user. So now you have two profiles for the same user.
 
-You can fix this with [account linking](/link-accounts). You can link multiple accounts under a single user profile, regardless of the connection's type (for example, user/password, social, or SAML).
+You can fix this with [account linking](/users/concepts/overview-user-account-linking). You can link multiple accounts under a single user profile, regardless of the connection's type (for example, user/password, social, or <dfn data-key="security-assertion-markup-language">SAML</dfn>).
 
-There are three ways to implement this:
-- **Automatic** account linking: you can configure a rule that will link accounts with the same email address. For more info and a sample rule, see [Automatic Account Linking](/link-accounts#automatic-account-linking)
-- **User-initiated** account linking: your app must provide the UI so an authenticated user can link their accounts manually. For a sample implementation, see [User Initiated Account Linking](/link-accounts/user-initiated-linking)
-- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified e-mail address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Account Linking using server side code](/link-accounts/suggested-linking)
+There are two ways to implement this:
+
+- **User-initiated** account linking: your app must provide the UI so an authenticated user can link their accounts manually. For a sample implementation, see [Link User Accounts Server-Side Scenario](/users/references/link-accounts-user-initiated-scenario)
+- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified email address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 
 ## Export logs
 
@@ -63,7 +63,7 @@ You can provide search criteria using the **q** parameter and retrieve specific 
 
 To access the API, you need a [Management APIv2 token](/api/management/v2/tokens).
 
-This sample request retrieves all logs for successful logins (the event acronym for successful login is `s`). The list of fields we will retrieve per log entry is: **date**, **escription**, **client_id**, and **log_id**. 
+This sample request retrieves all logs for successful logins (the event acronym for successful login is `s`). The list of fields we will retrieve per log entry is: **date**, **description**, **client_id**, and **log_id**.
 
 ```har
 {

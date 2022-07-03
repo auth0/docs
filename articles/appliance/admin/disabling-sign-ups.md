@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance3
+sitemap: false
 ---
 
 # PSaaS Appliance Administration: Disabling Sign-Ups

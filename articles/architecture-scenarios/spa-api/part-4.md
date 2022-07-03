@@ -16,7 +16,7 @@ useCase:
 
 # SPA + API: Conclusion
 
-In this document we covered a simple scenario involving an API used by a Single Page Application (SPA) to allow employees to capture their timesheets.
+In this document we covered a simple scenario involving an API used by a Single-Page Application (SPA) to allow employees to capture their timesheets.
 
 We learned about the Implicit Grant, what an Access Token is, how to configure an API in Auth0, how to configure a SPA application to communicate securely with this API, how to define and secure our API endpoints, how to use the provided libraries to validate the Access Token and how to retrieve a new one from Auth0.
 

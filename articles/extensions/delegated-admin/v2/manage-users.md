@@ -39,11 +39,6 @@ The table below lists the options you can perform on users, as well as informati
         <th>No</th>
     </tr>
     <tr>
-        <th>Sign in as User (Impersonation)</th>
-        <th>Yes</th>
-        <th>No</th>
-    </tr>
-    <tr>
         <th>Block User</th>
         <th>Yes</th>
         <th>Yes</th>
@@ -82,7 +77,7 @@ Notice the new *Reset Password* option available via the extension. This option 
 
 This will send an email to the user, containing a link to change the password.
 
-If your profile indicates that you have the `Delegated Admin - Administrator` role, the *Logs* view allows you to see a list of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs). The Log Dashboard also displays data on administrative actions taken in the Dashboard.
+If your profile indicates that you have the `Delegated Admin - Administrator` <dfn data-key="role">role</dfn>, the *Logs* view allows you to see a list of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs). The Log Dashboard also displays data on administrative actions taken in the Dashboard.
 
 ## Create Users
 

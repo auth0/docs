@@ -6,6 +6,7 @@ title: Lock v1 for iOS and macOS
 snippets:
   dependencies: native-platforms/ios-objc/dependencies
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
+public: false
 topics:
   - libraries
   - lock
@@ -23,14 +24,14 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
+Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, G Suite and Salesforce.
 
 ## Key features
 
 * **Integrates** your iOS app with **Auth0** (OS X coming soon).
 * Provides a elegant **native UI** to log in your users.
 * Provides support for **Social Providers** (Facebook, Twitter, and so on), **Enterprise Providers** (AD, LDAP, and so on) and **Username & Password** authentication.
-* Provides the ability to do **SSO** with 2 or more mobile apps, similar to Facebook and Messenger apps.
+* Provides the ability to do <dfn data-key="single-sign-on">**Single Sign-on (SSO)**</dfn> with 2 or more mobile apps, similar to Facebook and Messenger apps.
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
 
 ::: note
@@ -119,21 +120,22 @@ Then call this method:
 lock.applicationLaunched(options: launchOptions)
 ```
 
-Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:sourceApplication:annotation:` method and add the following line:
+Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:options:` method and add the following line:
 
 **Objective C**:
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [self.lock handleURL:url sourceApplication:sourceApplication];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    return [self.lock handleURL:url sourceApplication:app];
 }
 ```
 
 **Swift**:
 
 ```swift
-func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-    return self.lock.handle(url, sourceApplication: sourceApplication)
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    return self.lock.handle(url, sourceApplication: app)
 }
 ```
 
@@ -145,7 +147,7 @@ This call is required to be able to return to your application when authenticati
 
 `A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your application in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
-First, instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Then present it as a modal view controller:
+First, instantiate `A0LockViewController` and register the authentication <dfn data-key="callback">callback</dfn> that will receive the authenticated user's credentials. Then present it as a modal view controller:
 
 #### Objective C
 
@@ -281,7 +283,7 @@ Your `viewController` should also implement the `A0LockEventDelegate` methods:
 - (void)userAuthenticatedWithToken:(A0Token *)token profile:(A0UserProfile *)profile; - Calls `onAuthenticationBlock` of `A0LockViewController` with token and profile
 ```
 
-After implementating your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
+After implementing your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
 
 **Objective-C**:
 

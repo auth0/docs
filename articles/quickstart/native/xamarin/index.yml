@@ -1,12 +1,16 @@
 title: Xamarin
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/xamarin.png
+logo: xamarin
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 language:
   - C#
 framework:
   - Xamarin
 hybrid: false
-image: /media/platforms/xamarin.png
 topics:
   - quickstart
 contentType: tutorial
@@ -20,13 +24,17 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-xamarin-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: xamarin
 requirements:
-  - Visual Studio 2017 or Visual Studio for Mac
-  - Xamarin for Visual Studio 4.5
-  - Auth0.OidcClient.Android 1.0.0
-  - Auth0.OidcClient.iOS 1.0.0
+  - Visual Studio 2017+ or Visual Studio for Mac
+  - Xamarin for Visual Studio
+  - Auth0.OidcClient.Android 3.1.3
+  - Auth0.OidcClient.iOS 3.2.0
 next_steps:
   - path: 01-login
     list:
@@ -36,9 +44,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

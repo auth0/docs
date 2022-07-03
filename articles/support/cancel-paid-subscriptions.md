@@ -12,17 +12,17 @@ useCase:
   - support
 ---
 
-# Cancel your Auth0 Subscription
+# Cancel Your Auth0 Subscription
 
-If you wish to cancel your Auth0 subscription, you have two options:
+If you wish to cancel your Auth0 subscription, you should:
 
-1. [Downgrade](#downgrade-a-paid-subscription-to-a-free-subscription) a paid subscription to a free subscription;
-2. [Delete](#delete-your-auth0-tenant) your Auth0 tenant.
+1. [Downgrade](#downgrade-a-paid-subscription-to-a-free-subscription) a paid subscription to a free subscription
+2. [Delete](#delete-your-auth0-tenant) your Auth0 tenant
 
-## Downgrade a Paid Subscription to a Free Subscription
+## Downgrade to a free subscription
 
 1. Log in to the [dashboard](${manage_url}).
-2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
+2. Click on your tenant name in the top right corner to display the  dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)
 
