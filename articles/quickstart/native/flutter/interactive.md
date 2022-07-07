@@ -16,6 +16,7 @@ interactive: true
 files:
   - files/build
   - files/main
+  - files/profile
 ---
 
 # Add login to your Flutter app
@@ -32,7 +33,7 @@ This quickstart assumes you already have a [Flutter](https://flutter.dev/) appli
 
 You should be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('\_configure_urls_interactive') %>
+<%= include('_configure_urls_interactive') %>
 
 ## Install the Auth0 Flutter SDK
 
@@ -57,7 +58,7 @@ In the snippet, we are using values referenced from `strings.xml`:
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 
-## Add login to your app {{{ data-action="code" data-code="main.dart#4:5" }}}
+## Add login to your app {{{ data-action="code" data-code="main_view.dart#30:40" }}}
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
@@ -90,24 +91,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show user profile information {{{ data-action="code" data-code="main.dart#8:9" }}}
-
-The user profile is automatically retrieved for you when you call `webAuthentication().login()`. The object that is returned from the login step contains a `user` property that has all the user profile properties, which have been populated by decoding the ID token.
-
-::::checkpoint
-:::checkpoint-default
-Log in and inspect the `user` property on the result. Verify that you can access the current user's profile information, such as `email` or `name`.
-:::
-:::checkpoint-failure
-If your application did not return user profile information:
-
-- Verify the access token is valid
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Add logout to your app {{{ data-action=code data-code="main.dart#11:12"}}}
+## Add logout to your app {{{ data-action=code data-code="main_view.dart#45:55"}}}
 
 To log out, users must be redirected to the Auth0 logout endpoint to clear their login session. This can be achieved using the Auth0 Flutter SDK using `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
@@ -127,6 +111,23 @@ If your application did not log out successfully:
 
 - Ensure the Allowed Logout URLs are set properly
 - Verify you saved your changes after entering your URLs
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Show user profile information {{{ data-action="code" data-code="profile_view.dart" }}}
+
+The user profile is automatically retrieved for you when you call `webAuthentication().login()`. The object that is returned from the login step contains a `user` property that has all the user profile properties, which have been populated by decoding the ID token.
+
+::::checkpoint
+:::checkpoint-default
+Log in and inspect the `user` property on the result. Verify that you can access the current user's profile information, such as `email` or `name`.
+:::
+:::checkpoint-failure
+If your application did not return user profile information:
+
+- Verify the access token is valid
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
