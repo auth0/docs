@@ -44,6 +44,6 @@ next_steps:
       - text: Learn about attack protection
         icon: 345
         href: '/attack-protection'
-      - text: Learn about rules
+      - text: Learn about Actions
         icon: 345
-        href: '/rules'
+        href: '/customize/actions'
