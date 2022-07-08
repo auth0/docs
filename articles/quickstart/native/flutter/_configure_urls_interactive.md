@@ -19,7 +19,11 @@ If you would rather explore a complete configuration, you can view a sample appl
 A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
 
 ::: note
-If you are following along with our sample project, set this to `SCHEME://${account.namespace}/flutter/YOUR_PACKAGE_ID/callback`
+If you are following along with our sample project, set this to one of the following URLs, depending on your platform:
+
+**Android**: `SCHEME://${account.namespace}/android/YOUR_PACKAGE_ID/callback`
+
+**iOS**: `YOUR_BUNDLE_ID://${account.namespace}/ios/YOUR_BUNDLE_ID/callback`
 :::
 
 ### Configure Logout URLs
@@ -27,7 +31,11 @@ If you are following along with our sample project, set this to `SCHEME://${acco
 A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
 
 ::: note
-If you are following along with our sample project, set this to `SCHEME://${account.namespace}/flutter/YOUR_PACKAGE_ID/callback`.
+If you are following along with our sample project, set this to one of the following URLs, depending on your platform:
+
+**Android**: `SCHEME://${account.namespace}/android/YOUR_PACKAGE_ID/callback`
+
+**iOS**: `YOUR_BUNDLE_ID://${account.namespace}/ios/YOUR_BUNDLE_ID/callback`
 :::
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
