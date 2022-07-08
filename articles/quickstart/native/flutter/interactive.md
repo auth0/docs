@@ -58,6 +58,16 @@ In the snippet, we are using values referenced from `strings.xml`:
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 
+## Configure iOS
+
+If you are not developing for the iOS platform, you can skip this step.
+
+You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
+
+In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+
+<p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
+
 ## Add login to your app {{{ data-action="code" data-code="main_view.dart#29:38" }}}
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
