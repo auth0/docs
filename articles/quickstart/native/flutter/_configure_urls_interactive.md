@@ -33,7 +33,7 @@ A logout URL is a URL in your application that you would like Auth0 to redirect 
 ::: note
 If you are following along with our sample project, set this to one of the following URLs, depending on your platform:
 
-**Android**: `SCHEME://${account.namespace}/android/YOUR_PACKAGE_ID/callback`
+**Android**: `SCHEME://${account.namespace}/android/YOUR_PACKAGE_NAME/callback`
 
 **iOS**: `YOUR_BUNDLE_ID://${account.namespace}/ios/YOUR_BUNDLE_ID/callback`
 :::
