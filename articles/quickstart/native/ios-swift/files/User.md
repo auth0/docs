@@ -13,17 +13,15 @@ struct User {
 }
 
 extension User {
-    static var empty: Self {
-        return User(id: "", email: "", picture: "")
-    }
-
-    static func from(_ idToken: String) -> Self {
+    init?(from idToken: String) {
         guard let jwt = try? decode(jwt: idToken),
               let id = jwt.subject,
               let email = jwt.claim(name: "email").string,
               let picture = jwt.claim(name: "picture").string
-        else { return .empty }
-        return User(id: id, email: email, picture: picture)
+        else { return nil }
+        self.id = id
+        self.email = email
+        self.picture = picture
     }
 }
 ```

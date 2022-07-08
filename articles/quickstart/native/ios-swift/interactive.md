@@ -149,7 +149,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add login to your app {{{ data-action=code data-code="MainView.swift#21:33" }}}
+## Add login to your app {{{ data-action=code data-code="MainView.swift#20:31" }}}
 
 Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
@@ -177,7 +177,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="MainView.swift#35:46" }}}
+## Add logout to your app {{{ data-action=code data-code="MainView.swift#33:44" }}}
 
 Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
@@ -198,7 +198,7 @@ Still having issues? Check out our [documentation]() or visit our [community pag
 :::
 ::::
 
-## Access user profile information {{{ data-action=code data-code="User.swift#15:18" }}}
+## Access user profile information {{{ data-action=code data-code="User.swift#11:14" }}}
 
 The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your app.
 
