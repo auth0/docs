@@ -16,7 +16,6 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  bool _isLoggedIn = false;
   Credentials? _credentials;
 
   late Auth0 auth0;
@@ -32,14 +31,13 @@ class _MainViewState extends State<MainView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        if (!_isLoggedIn)
+        if (_credentials == null)
           ElevatedButton(
               onPressed: () async {
                 final credentials =
                     await auth0.webAuthentication().login();
 
                 setState(() {
-                  _isLoggedIn = true;
                   _credentials = credentials;
                 });
               },
@@ -53,7 +51,6 @@ class _MainViewState extends State<MainView> {
                     await auth0.webAuthentication().logout();
 
                     setState(() {
-                      _isLoggedIn = false;
                       _credentials = null;
                     });
                   },

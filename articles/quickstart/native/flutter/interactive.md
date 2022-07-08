@@ -58,7 +58,7 @@ In the snippet, we are using values referenced from `strings.xml`:
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 
-## Add login to your app {{{ data-action="code" data-code="main_view.dart#30:40" }}}
+## Add login to your app {{{ data-action="code" data-code="main_view.dart#29:38" }}}
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
@@ -91,7 +91,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="main_view.dart#45:55"}}}
+## Add logout to your app {{{ data-action=code data-code="main_view.dart#43:51"}}}
 
 To log out, users must be redirected to the Auth0 logout endpoint to clear their login session. This can be achieved using the Auth0 Flutter SDK using `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
