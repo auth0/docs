@@ -24,7 +24,7 @@ class _MainViewState extends State<MainView> {
   @override
   void initState() {
     super.initState();
-    auth0 = Auth0('${account.namespace}', '${account.clientId}}');
+    auth0 = Auth0('${account.namespace}', '${account.clientId}');
   }
 
   @override
