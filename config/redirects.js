@@ -6605,15 +6605,17 @@ const redirects = [
     from: [
       '/migrations/guides/unpaginated-requests',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-paginated-queries',
   },
   {
     from: [
       '/migrations/guides/extensibility-node12',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-nodejs-12',
   },
   {
     from: [
