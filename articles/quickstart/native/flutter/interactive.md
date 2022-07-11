@@ -45,26 +45,26 @@ flutter pub get auth0-flutter
 
 ## Configure Android {{{ data-action=code data-code="build.gradle#11" }}}
 
-If you are not developing for the Android platform, you can skip this step.
+If you are not developing for the Android platform, skip this step.
 
 The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
 
-You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
+You do not need to declare a specific `intent-filter` for your activity because you defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values. The library handles the redirection for you.
 
-In the snippet, we are using values referenced from `strings.xml`:
+The sample uses values from `strings.xml`:
 
-- `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
+- `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your Application's **Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
 - `com_auth0_scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 
 ## Configure iOS
 
-If you are not developing for the iOS platform, you can skip this step.
+If you are not developing for the iOS platform, skip this step.
 
 You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
 
-In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, select the **＋** button to add a new entry. Then enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
 
 <p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
 
@@ -72,15 +72,15 @@ In Xcode, go to the **Info** tab of your app target settings. In the **URL Types
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
-Integrate with Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
+Integrate Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
 
-**Android**: if you are using a custom scheme, you must pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
+**Android**: if you are using a custom scheme, pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
 
 ```dart
 await auth0.webAuthentication().login(scheme: 'YOUR CUSTOM SCHEME');
 ```
 
-Once a user has logged in, they will be redirected back to your application. You will then be able to access the ID and access tokens for this user.
+When a user logs in, they are redirected back to your application. Then, you are able to access the ID and access tokens for this user.
 
 ::::checkpoint
 :::checkpoint-default
@@ -103,9 +103,9 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add logout to your app {{{ data-action=code data-code="main_view.dart#43:51"}}}
 
-To log out, users must be redirected to the Auth0 logout endpoint to clear their login session. This can be achieved using the Auth0 Flutter SDK using `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
+To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
-**Android**: if you are using a custom scheme, you must pass this scheme to the logout method so that the SDK can route back to your app correctly:
+**Android**: if you are using a custom scheme, pass this scheme to the logout method so that the SDK can route back to your app correctly:
 
 ```
 await auth0.webAuthentication().logout(scheme: 'YOUR CUSTOM SCHEME');
@@ -113,7 +113,7 @@ await auth0.webAuthentication().logout(scheme: 'YOUR CUSTOM SCHEME');
 
 ::::checkpoint
 :::checkpoint-default
-Add a button to your app that calls `webAuthentication().logout()` and logs the user out of your application. When you click it, verify that your Flutter app redirects you to the logout endpoint and back again and that you are no longer logged in to your application.
+Add a button to your app that calls `webAuthentication().logout()` and logs the user out of your application. When you select it, verify that your Flutter app redirects you to the logout endpoint and back again. You should not be logged in to your application.
 :::
 
 :::checkpoint-failure
@@ -128,11 +128,11 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show user profile information {{{ data-action="code" data-code="profile_view.dart" }}}
 
-The user profile is automatically retrieved for you when you call `webAuthentication().login()`. The object that is returned from the login step contains a `user` property that has all the user profile properties, which have been populated by decoding the ID token.
+The user profile automatically retrieves user profile properties for you when you call `webAuthentication().login()`. The returned object from the login step contains a `user` property with all the user profile properties, which populates by decoding the ID token.
 
 ::::checkpoint
 :::checkpoint-default
-Log in and inspect the `user` property on the result. Verify that you can access the current user's profile information, such as `email` or `name`.
+Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
 :::
 :::checkpoint-failure
 If your application did not return user profile information:
