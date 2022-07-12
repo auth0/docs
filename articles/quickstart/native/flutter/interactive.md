@@ -17,6 +17,8 @@ files:
   - files/build
   - files/main
   - files/profile
+github:
+  path: sample
 ---
 
 # Add login to your Flutter app
