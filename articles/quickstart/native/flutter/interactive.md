@@ -86,7 +86,7 @@ When a user logs in, they are redirected back to your application. Then, you are
 
 ::::checkpoint
 :::checkpoint-default
-Add a button to your app that calls `webAuthentication().login()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication, and then back to your application.
+Add a button to your app that calls `webAuthentication().login()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication and then back to your application.
 
 Verify that you can get access to the tokens on the result of calling `login`.
 :::
