@@ -33,7 +33,7 @@ The Flutter SDK currently only supports Flutter applications running on Android 
 
 This quickstart assumes you already have a [Flutter](https://flutter.dev/) application up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
 
-You should be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
+You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
 <%= include('_configure_urls_interactive') %>
 
