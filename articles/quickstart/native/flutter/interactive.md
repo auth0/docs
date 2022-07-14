@@ -42,7 +42,7 @@ You should also be familiar with the [Flutter command line tool](https://docs.fl
 Add the Auth0 Flutter SDK into the project:
 
 ```shell
-flutter pub get auth0-flutter
+flutter pub get auth0_flutter
 ```
 
 ## Configure Android {{{ data-action=code data-code="build.gradle#11" }}}
