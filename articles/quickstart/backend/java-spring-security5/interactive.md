@@ -91,13 +91,13 @@ To validate the JWT, you also need to validate that the JWT is intended for your
 
 ## Configure the resource server {{{ data-action=code data-code="SecurityConfig.java" }}}
 
-To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method
+To configure the application as a Resource Server and validate the JWTs, create a class that will provide an instance of `SecurityFilterChain`, and add the `@EnableWebSecurity` annotation:
 
 ### Protect API endpoints
 
 <%= include('../_includes/_api_endpoints') %>
 
-The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers restrict access based on the level of authorization required:
+The example below shows how to secure API methods using the `HttpSecurity` object provided in the `filterChain()` method of the `SecurityConfig` class. Route matchers restrict access based on the level of authorization required:
 
 ::: note
 By default, Spring Security creates a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This scope enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
