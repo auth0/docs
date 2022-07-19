@@ -91,21 +91,23 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 
 ### Configure the resource server
 
-To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method:
+To configure the application as a Resource Server and validate the JWTs, create a class that will provide an instance of `SecurityFilterChain`, and add the `@EnableWebSecurity` annotation:
 
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.oauth2ResourceServer().jwt();
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.oauth2Login();
+        return http.build();
     }
 }
 ```
@@ -147,9 +149,7 @@ Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -159,7 +159,7 @@ import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
     @Value("<%= "${auth0.audience}" %>")
     private String audience;
@@ -187,26 +187,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 <%= include('../_includes/_api_endpoints') %>
 
-The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
+The example below shows how to secure API methods using the `HttpSecurity` object provided in the `filterChain()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
 
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/api/public").permitAll()
                 .mvcMatchers("/api/private").authenticated()
                 .mvcMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
                 .and().cors()
                 .and().oauth2ResourceServer().jwt();
+        return http.build();
     }
 }
 ```
