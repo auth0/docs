@@ -77,7 +77,7 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 :::checkpoint-failure
 Sorry about that. Here's a couple of things to double check:
 * Are your environment variables populated correctly?
-* did you put the `[...auth].js` and `_app.jsx` files in the correct folder?
+* did you put the `[...auth0].js` and `_app.jsx` files in the correct folder?
 * make sure the domain and client ID are configured correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
