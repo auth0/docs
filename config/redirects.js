@@ -7448,8 +7448,9 @@ const redirects = [
       '/tokens/guides/create-namespaced-custom-claims',
       '/tokens/concepts/claims-namespacing',
       '/security/tokens/json-web-tokens/create-namespaced-custom-claims',
+      '/secure/tokens/json-web-tokens/create-namespaced-custom-claims',
     ],
-    to: '/secure/tokens/json-web-tokens/create-namespaced-custom-claims',
+    to: '/secure/tokens/json-web-tokens/create-custom-claims',
   },
   {
     from: [
