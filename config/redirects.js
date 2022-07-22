@@ -6330,7 +6330,11 @@ const redirects = [
   },
   {
     from: ['/mfa/adpative-mfa/adaptive-mfa-rule-actions', '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions'],
-    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
+  },
+  {
+    from: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules'
   },
   {
     from: ['/mfa/adaptive-mfa/adaptive-mfa-log-events', '/login/mfa/adaptive-mfa/adaptive-mfa-log-events'],
