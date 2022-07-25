@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// platform/router/router.go
+// Save this file in ./platform/router/router.go
 
 package router
 

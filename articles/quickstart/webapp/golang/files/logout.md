@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// web/app/logout/logout.go
+// Save this file in ./web/app/logout/logout.go
 
 package logout
 

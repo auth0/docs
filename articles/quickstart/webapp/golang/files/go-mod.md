@@ -4,7 +4,7 @@ language: go-mod
 ---
 
 ```go-mod
-// go.mod
+// Save this file in ./go.mod
 
 module 01-Login
 

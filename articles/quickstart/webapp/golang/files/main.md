@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// main.go
+// Save this file in ./main.go
 
 package main
 
