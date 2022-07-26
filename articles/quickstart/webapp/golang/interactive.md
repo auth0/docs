@@ -40,7 +40,7 @@ Create a `go.mod` file to list all the dependencies in your application.
 
 To integrate Auth0 in a Go application, add the`coreos/go-oidc/v3` and `x/oauth2` packages. 
 
-In addition to the OIDC and OAuth2 packages, add`joho/godotenv`, `gin-gonic/gin` and `in-contrib/sessions`.
+In addition to the OIDC and OAuth2 packages, add`joho/godotenv`, `gin-gonic/gin` and `gin-contrib/sessions`.
 
 ::: note
 This example uses `gin` for routing, but you can use whichever router you want.
@@ -78,13 +78,6 @@ instance of `Authenticator` to the method, for use with the `login` and `callbac
 The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-contrib/sessions) middleware to manage our cookie-based sessions.
 :::
 
-## Serve your application {{{ data-action=code data-code="main.go" }}}
-
-With both the authenticator and router configured, we can wire things up using our
-application's entry point. Inside `main.go`, create an instance of the authenticator and the router, which gets passed the authenticator instance.
-
-If you are using a `.env` file, you must call `godotenv.Load()` at the very beginning of the `main()` function.
-
 ## Add login to your application {{{ data-action=code data-code="login.go" }}}
 
 For the user to authenticate themselves, we need to create a handler function to handle the `/login` route.
@@ -94,7 +87,8 @@ Create a file called `login.go` in the `web/app/login` folder, and add a `Handle
 To call the `/login` route, add a link to `/login` in the `home.html` template located in the `web/template` directory.
 
 ```html
-<!-- web/template/home.html -->
+<!-- Save this within ./web/template/home.html -->
+
 <div>
     <h3>Auth0 Example</h3>
     <p>Zero friction identity infrastructure, built for developers</p>
@@ -118,12 +112,12 @@ Now that your users can log in, you will likely want to be able to retrieve and 
 
 You can access that [profile information](/users/concepts/overview-user-profile), such as their nickname or profile picture, through the `profile` that was stored in the session previously.
 
-Create a handler for the `/user` endpoint in `web/app/user/user.go` and return the corresponding HTML file. As the `profile` if being passed to `ctx.HTML()`, you can access the profile information such as `picture` and `nickname` inside that same HTML file. 
+Create a handler for the `/user` endpoint in `web/app/user/user.go` and return the corresponding HTML file. As the `profile` is being passed to `ctx.HTML()`, you can access the profile information such as `picture` and `nickname` inside that same HTML file. 
 
 An example of such an HTML file could look like the example below, but you can retrieve any [profile information](/users/concepts/overview-user-profile), including custom claims.
 
 ```html
-<!-- web/template/user.html -->
+<!-- Save this within ./web/template/user.html -->
 
 <div>
     <img class="avatar" src="{{ .picture }}"/>
@@ -145,6 +139,8 @@ Create a file called `user.js` in the folder `web/static/js`, and add the code t
 user.
 
 ```js
+// Save this within ./web/static/js/user.js
+
 $(document).ready(function () {
     $('.btn-logout').click(function (e) {
         Cookies.remove('auth-session');
@@ -168,7 +164,20 @@ Create a file called `isAuthenticated.go` in `platform/middleware` and add a fun
 With the middleware created, we can set it up for any route that needs authentication by adding it to the router.
 
 ```go
-// platform/router/router.go
+// This goes within ./platform/router/router.go
 
 router.GET("/user", middleware.IsAuthenticated, user.Handler)
+```
+
+## Serve your application {{{ data-action=code data-code="main.go" }}}
+
+With both the authenticator and router configured, we can wire things up using our
+application's entry point. Inside `main.go`, create an instance of the authenticator and the router, which gets passed the authenticator instance.
+
+If you are using a `.env` file, you must call `godotenv.Load()` at the very beginning of the `main()` function.
+
+Serve your application by using the following command in your terminal:
+
+```shell
+go run main.go
 ```

@@ -4,6 +4,8 @@ language: shell
 ---
 
 ```shell
+# Save this file in ./.env
+
 # The URL of our Auth0 Tenant Domain.
 # If you're using a Custom Domain, be sure to set this to that value instead.
 AUTH0_DOMAIN='${account.namespace}'

@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// web/app/user/user.go
+// Save this file in ./web/app/user/user.go
 
 package user
 

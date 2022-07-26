@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// platform/authenticator/auth.go
+// Save this file in ./platform/authenticator/auth.go
 
 package authenticator
 

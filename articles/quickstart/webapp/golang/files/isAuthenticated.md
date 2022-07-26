@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// platform/middleware/isAuthenticated.go
+// Save this file in ./platform/middleware/isAuthenticated.go
 
 package middleware
 
