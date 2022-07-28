@@ -5114,12 +5114,6 @@ const redirects = [
   },
   {
     from: [
-      '/meta/snippets/sso-integrations/g-suite',
-    ],
-    to: '/authenticate/identity-providers/enterprise-identity-providers/google-apps',
-  },
-  {
-    from: [
       '/integrations/sso-integrations/ad-rms',
       '/integrations/sso-integrations/ad-rms-sso-integration',
       '/sso/current/integrations/ad-rms',
