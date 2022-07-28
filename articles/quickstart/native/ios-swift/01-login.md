@@ -211,8 +211,8 @@ Then, use the `decode(jwt:)` method to decode the ID Token and access the claims
 
 ```swift
 guard let jwt = try? decode(jwt: credentials.idToken),
-      let name = jwt.claim(name: "name").string,
-      let picture = jwt.claim(name: "picture").string else { return }
+      let name = jwt["name"].string,
+      let picture = jwt["picture"].string else { return }
 print("Name: \(name)")
 print("Picture URL: \(picture)")
 ```
