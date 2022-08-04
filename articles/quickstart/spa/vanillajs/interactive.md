@@ -30,7 +30,7 @@ showWebOriginInfo: true
 
 ## Add the Auth0 SPA SDK
 
-Auth0 provides a SPA SDK (auth0-spa-js) to simplify the process of implementing Auth0 authentication and authorization in JavaScript applications. You can install the Auth0 SPA SDK as an NPM package or from the CDN. For the purpos of this quickstart, we will use the CDN. Include this script tag on your HTML page:
+Auth0 provides a SPA SDK (auth0-spa-js) to simplify the process of implementing Auth0 authentication and authorization in JavaScript applications. You can install the Auth0 SPA SDK as an NPM package or from the CDN. For the purpose of this quickstart, we will use the CDN. Include this script tag on your HTML page:
 
 ```html
 <script src="${auth0spajs_url}"></script>
