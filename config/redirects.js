@@ -2015,6 +2015,7 @@ const redirects = [
       '/saml/identity-providers/ping7',
       '/protocols/saml/identity-providers/ping7',
       '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
+      '/protocols/saml-protocol/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-pingfederate-as-saml-identity-provider',
       '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
