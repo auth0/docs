@@ -29,7 +29,7 @@ django~=4.1
 djangorestframework~=3.13.1
 django-cors-headers~=3.1.1
 drf-jwt~=1.13.4
-pyjwt~=1.7.1
+pyjwt~=2.4
 requests~=2.22.0
 ```
 
