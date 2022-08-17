@@ -8,7 +8,9 @@ The URLs below make use of a `SCHEME` placeholder, and this value varies dependi
 
 ### Configure an application
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+Use the interactive selector to create a new "Native Application", or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+
+Ensure that the **Token Endpoint Authentication Method** setting has a value of "None".
 
 Any settings you configure using this quickstart will automatically update for your application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
 

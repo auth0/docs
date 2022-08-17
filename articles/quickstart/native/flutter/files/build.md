@@ -13,7 +13,7 @@ android {
         // ...
 
         // ---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "@string/com_auth0_scheme"]
+        manifestPlaceholders += [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "@string/com_auth0_scheme"]
         // <---
     }
 }
