@@ -20,8 +20,10 @@ topics:
 contentType: tutorial
 useCase: quickstart
 seo_alias: flutter
-default_article: interactive
+default_article: 01-login
 articles:
+  - 01-login
+hidden_articles:
   - interactive
 show_steps: true
 github:
