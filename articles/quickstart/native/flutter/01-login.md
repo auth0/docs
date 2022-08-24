@@ -114,7 +114,7 @@ ElevatedButton(
 **Android**: if you are using a custom scheme, pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
 
 ```dart
-await auth0.webAuthentication().login(scheme: 'YOUR CUSTOM SCHEME');
+await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').login();
 ```
 
 When a user logs in, they are redirected back to your application. Then, you are able to access the ID and access tokens for this user.
@@ -136,6 +136,7 @@ If your application did not launch successfully:
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
+::::
 
 ## Add logout to your app
 
@@ -158,7 +159,7 @@ ElevatedButton(
 **Android**: if you are using a custom scheme, pass this scheme to the logout method so that the SDK can route back to your app correctly:
 
 ```
-await auth0.webAuthentication().logout(scheme: 'YOUR CUSTOM SCHEME');
+await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').logout();
 ```
 
 ::::checkpoint
