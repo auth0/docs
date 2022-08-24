@@ -13,6 +13,10 @@ language:
   - Dart
 framework:
   - Flutter
+sdk:
+  name: auth0-flutter
+  url: https://www.github.com/auth0/auth0-flutter/
+  logo: flutter
 hybrid: true
 beta: true
 topics:
