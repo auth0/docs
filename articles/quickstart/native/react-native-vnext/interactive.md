@@ -52,6 +52,7 @@ If you are following along with our sample project, set this
 ## Install dependencies 
 
 In this section, you will learn how to install the React Native Auth0 module.
+
 ::: note
 Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
 :::
@@ -158,62 +159,83 @@ In a later step, you will use this value to define the callback URLs below. You 
 
 For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
 
+## Configure the Auth0Provider component {{{ data-action=code data-code="app.js#41:43"}}}
 
-<%= include('../../../_includes/_callback_url') %>
+The `useAuth0` hook relies on a React Context to provide state management. This context is provided by the `Auth0Provider` component.
 
-#### iOS callback URL
+Import the `useAuth0` hook and `Auth0Provider` component from the `react-native-auth0` package:
 
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```js
+import {useAuth0, Auth0Provider} from 'react-native-auth0';
 ```
 
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+For the SDK to function properly, you must wrap your application in the `Auth0Provider` component, and set the following properties:
 
+- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
+- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 
-#### Android callback URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-
-## Add authentication with Auth0 {{{ data-action=code data-code="app.js#12:22" }}}
-
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
-
-::: note
-You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
+::::checkpoint
+:::checkpoint-default
+Your `Auth0Provider` component should now be properly configured. Run your application to verify that:
+- the SDK is initializing correctly
+- your application is not throwing any errors related to Auth0
 :::
-
-Upon successful authentication, Auth0 returns the user's `credentials`, containing an `access_token`, an `id_token` and an `expires_in` value.
-
-::: note
-For more information on the `accessToken`, refer to our [access token documentation](/tokens/concepts/access-tokens).
+:::checkpoint-failure
+If your application did not launch successfully:
+- make sure the correct application is selected
+- did you save after entering your URLs?
+- ensure your domain and client ID values are correct
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
+::::
+## Add login to your app {{{ data-action=code data-code="app.js#8:14" }}}
 
-## Log the user out {{{ data-action=code data-code="app.js#24:34" }}}
+Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
 
-To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the access token from the state. 
+For confirmation that the user was logged in successfully, check that the `user` property provided by the hook is not `null`.
 
+::::checkpoint
+:::checkpoint-default
+Add a button component that calls `authorize` when clicked. Verify that you are redirected to the login page and then back to your application.
+:::
+:::checkpoint-failure
+If your application did not launch successfully:
+
+- Ensure you set the Allowed Callback URLs are correct
+- Verify you saved your changes after entering your URLs
+- Make sure the domain and client ID values are imported correctly
+- If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Add logout to your app {{{ data-action=code data-code="app.js#16:22" }}}
+
+To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
+
+::::checkpoint
+:::checkpoint-default
+Add a button that calls `clearSession` and observe that you are redirected to the Auth0 logout endpoint and back again. You should no longer be logged in to your application.
+:::
+:::checkpoint-failure
+If your application did not log out successfully:
+
+- Ensure the Allowed Logout URLs are set properly
+- Verify you saved your changes after entering your URLs
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Show user profile information {{{ data-action=code data-code="app.js#28:29" }}}
+
+The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
+
+If a user has not been authenticated, this property will be `null`.
+
+::::checkpoint
+:::checkpoint-default
+Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
+:::
+::::

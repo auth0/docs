@@ -166,13 +166,6 @@ Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's pac
 
 ## Add login to your app
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
-
-::: note
-You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible.
-To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
-:::
-
 First, import the `useAuth0` hook and the `Auth0Provider` component from the `react-native-auth0` package.
 
 ```js
@@ -241,7 +234,9 @@ Add a button that calls `clearSession` when clicked. Verify that you are logged 
 
 ## Show user profile information
 
-The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. If a user has not been authenticated, this propertyu will be `null`.
+The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
+
+If a user has not been authenticated, this property will be `null`.
 
 ```js
 const Profile = () => {
