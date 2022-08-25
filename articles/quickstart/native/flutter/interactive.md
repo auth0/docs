@@ -79,7 +79,7 @@ Integrate Auth0 Universal Login in your Flutter app by using the `Auth0` class. 
 **Android**: if you are using a custom scheme, pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
 
 ```dart
-await auth0.webAuthentication().login(scheme: 'YOUR CUSTOM SCHEME');
+await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').login();
 ```
 
 When a user logs in, they are redirected back to your application. Then, you are able to access the ID and access tokens for this user.
@@ -110,7 +110,7 @@ To log users out, redirect them to the Auth0 logout endpoint to clear their logi
 **Android**: if you are using a custom scheme, pass this scheme to the logout method so that the SDK can route back to your app correctly:
 
 ```
-await auth0.webAuthentication().logout(scheme: 'YOUR CUSTOM SCHEME');
+await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').logout();
 ```
 
 ::::checkpoint
