@@ -172,7 +172,7 @@ First, import the `useAuth0` hook and the `Auth0Provider` component from the `re
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 ```
 
-Next, wrap your application in the `Auth0Provider` component, providing your Auth0 domain and client ID values:
+Next, wrap your application in the `Auth0Provider` component, providing your Auth0 domain and Client ID values:
 
 ```js
 const App = () => {
