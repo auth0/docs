@@ -159,46 +159,6 @@ In a later step, you will use this value to define the callback URLs below. You 
 
 For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
 
-
-<%= include('../../../_includes/_callback_url') %>
-
-#### iOS callback URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-
-#### Android callback URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-
 ## Add authentication with Auth0 {{{ data-action=code data-code="app.js#12:22" }}}
 
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
