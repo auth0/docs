@@ -13,7 +13,7 @@ const Home = () => {
 
   const onLogin = async () => {
     try {
-      await authorize();
+      await authorize({scope: 'openid profile email'});
     } catch (e) {
       console.log(e);
     }
@@ -49,6 +49,15 @@ const App = () => {
     </Auth0Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  }
+});
 
 export default App;
 ```
