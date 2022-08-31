@@ -89,7 +89,7 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 }
 ```
 
-Next you will need to add a URLScheme using your App's bundle identifier.
+Next, add a URLScheme using your App's bundle identifier.
 
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
