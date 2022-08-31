@@ -123,7 +123,7 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 Next, add a URLScheme using your App's bundle identifier.
 
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
+In the `ios` folder, open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
 ```xml
 <key>CFBundleIdentifier</key>
