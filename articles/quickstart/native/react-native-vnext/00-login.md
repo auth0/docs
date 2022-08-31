@@ -120,7 +120,7 @@ Below this value, register a URL type entry using the value of `CFBundleIdentifi
 If your application was generated using the React Native CLI, the default value of `$(PRODUCT_BUNDLE_IDENTIFIER)` dynamically matches `org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)`. For the sample app, this value matches `com.auth0samples`.
 :::
 
-Take note of this value as you'll be using it to define the callback URLs below. If desired, you can change it using XCode in the following way:
+Note this value as you'll be using it to define the callback URLs below. If desired, you can change it using XCode in the following way:
 
 - Open the `ios/<YOUR PROJECT>.xcodeproj` file or run `xed ios` on a Terminal from the app root.
 - Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
