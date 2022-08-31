@@ -231,7 +231,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show user profile information {{{ data-action=code data-code="app.js#28:29" }}}
 
-The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
+The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access decoded user profile information about the authenticated user from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
 
 If a user has not been authenticated, this property will be `null`.
 
