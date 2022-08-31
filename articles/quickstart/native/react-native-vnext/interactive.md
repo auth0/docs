@@ -162,7 +162,7 @@ For additional information please read [react native docs](https://facebook.gith
 
 ## Configure the Auth0Provider component {{{ data-action=code data-code="app.js#41:43"}}}
 
-The `useAuth0` hook relies on a React Context to provide state management. This context is provided by the `Auth0Provider` component.
+The `useAuth0` hook relies on a React Context to provide state management. The `Auth0Provider` component provides this context.
 
 Import the `useAuth0` hook and `Auth0Provider` component from the `react-native-auth0` package:
 
