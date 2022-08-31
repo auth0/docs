@@ -75,7 +75,7 @@ npm install react-native-auth0 --save
 
 ### Additional iOS step: install the module Pod
 
-[CocoaPods](https://cocoapods.org/) is the package management tool for iOS. The React Native framework uses CocoaPods to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you are familiar with older React Native SDK versions, this is similar to _linking a native module_. The process is now simplified:
+CocoaPods is the iOS package management tool the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app, first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to the previous _linking a native module_. The process is now simplified:
 
 Change directory into the `ios` folder and run `pod install`.
 
