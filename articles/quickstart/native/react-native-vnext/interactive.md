@@ -27,7 +27,7 @@ Use the interactive selector to create a new Auth0 application or select an exis
 
 Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+To explore a complete configuration, review the sample application in your Dashboard.
 
 ### Configure Callback URLs
 
