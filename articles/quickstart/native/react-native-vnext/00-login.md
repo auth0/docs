@@ -98,7 +98,7 @@ In the `ios` folder, open the `Info.plist` and locate the value for `CFBundleIde
 <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 ```
 
-then below register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
+Below this value, register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`.
 
 ```xml
 <key>CFBundleURLTypes</key>
