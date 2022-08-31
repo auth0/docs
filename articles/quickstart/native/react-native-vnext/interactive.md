@@ -177,7 +177,7 @@ For the SDK to function properly, you must wrap your application in the `Auth0Pr
 
 ::::checkpoint
 :::checkpoint-default
-Your `Auth0Provider` component should now be properly configured. Run your application to verify that:
+You just configured the `Auth0Provider` component. Run your application to verify that:
 - the SDK is initializing correctly
 - your application is not throwing any errors related to Auth0
 :::
