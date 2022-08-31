@@ -205,7 +205,7 @@ If your application did not launch successfully:
 - Ensure you set the Allowed Callback URLs are correct
 - Verify you saved your changes after entering your URLs
 - Make sure the domain and client ID values are imported correctly
-- If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
+- If using Android, ensure you set up the manifest placeholders correctly, otherwise the redirect back to your app may not work
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
