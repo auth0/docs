@@ -170,7 +170,7 @@ Import the `useAuth0` hook and `Auth0Provider` component from the `react-native-
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 ```
 
-For the SDK to function properly, you must wrap your application in the `Auth0Provider` component, and set the following properties:
+For the SDK to function correctly, wrap your application in the `Auth0Provider` component and set the following properties:
 
 - `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
 - `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
