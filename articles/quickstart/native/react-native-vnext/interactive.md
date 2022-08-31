@@ -19,7 +19,7 @@ topics:
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
-To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
+To use Auth0 services, you must have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
 
 ### Configure an application
 
