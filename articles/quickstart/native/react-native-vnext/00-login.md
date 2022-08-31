@@ -51,7 +51,7 @@ cd ios
 pod install
 ```
 
-The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
+First, you must provide a way for your users to log in. We recommend useing the Auth0 hosted [login page](/hosted-pages/login).
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
