@@ -193,7 +193,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
 
-For confirmation that the user was logged in successfully, check that the `user` property provided by the hook is not `null`.
+To confirm the user successfully logged in, check that the `user` property provided by the hook is not `null`.
 
 ::::checkpoint
 :::checkpoint-default
