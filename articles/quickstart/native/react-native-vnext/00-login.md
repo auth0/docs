@@ -166,7 +166,7 @@ Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's pac
 
 ## Add login to your app
 
-First, import the `useAuth0` hook and the `Auth0Provider` component from the `react-native-auth0` package.
+Import the `useAuth0` hook and the `Auth0Provider` component from the `react-native-auth0` package.
 
 ```js
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
