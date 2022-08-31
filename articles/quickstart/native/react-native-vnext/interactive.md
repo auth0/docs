@@ -91,7 +91,7 @@ First, you must provide a way for your users to log in. We recommend useing the 
 
 ### Configure Android
 
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
+Open the `build.gradle` file in your application directory (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should contain your Auth0 application settings [as configured above](#get-your-application-keys).
 
 ```groovy
 android {
