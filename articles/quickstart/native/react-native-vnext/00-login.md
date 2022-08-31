@@ -208,7 +208,7 @@ Add a button component that calls `authorize` when clicked. Verify that you are 
 
 ## Add logout to your app
 
-To log the user out, redirect them to the Auth0 log out endpoint by importing and calling the `clearSession` method from the `useAuth0` hook. This will remove their session from the authorization server.
+To log the user out, redirect them to the Auth0 log out endpoint by importing and calling the `clearSession` method from the `useAuth0` hook. This method removes their session from the authorization server.
 
 See this usage example of a button that logs the user out of the app when clicked:
 
