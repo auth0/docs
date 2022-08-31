@@ -18,7 +18,7 @@ useCase: quickstart
 
 ## Install Dependencies
 
-How to install the React Native Auth0 module.
+In this section, you will install the React Native Auth0 module.
 
 ::: note
 Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
