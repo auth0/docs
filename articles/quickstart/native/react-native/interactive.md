@@ -87,6 +87,7 @@ pod install
 
 First, you must provide a way for your users to log in. We recommend useing the Auth0 hosted [login page](/hosted-pages/login).
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
+
 ### Configure Android
 
 Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
@@ -157,46 +158,6 @@ In a later step, you will use this value to define the callback URLs below. You 
 - Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
 
 For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
-
-
-<%= include('../../../_includes/_callback_url') %>
-
-#### iOS callback URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-
-#### Android callback URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
 
 ## Add authentication with Auth0 {{{ data-action=code data-code="app.js#12:22" }}}
 
