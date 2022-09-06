@@ -2773,6 +2773,7 @@ const redirects = [
     from: [
       '/flows/guides/device-auth/call-api-device-auth',
       '/authorization/flows/call-your-api-using-the-device-authorization-flow',
+      '/microsites/protect-api/protect-api',
     ],
     to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
   },
