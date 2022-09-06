@@ -8,7 +8,7 @@ topics:
   - apis
 useCase:
   - secure-api
-public = false
+public: false
 ---
 
 Using Auth0 to protect your API means that you will be "outsourcing" the authentication process to a centralized service that will help you ensure only approved applications can access your data. The calling application will authenticate the user, and Auth0 will generate tokens that can be passed to your API. Auth0 can also help you verify the tokens you receive from the applications that call your API.
