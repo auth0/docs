@@ -94,7 +94,7 @@ You must generate the native code for the above configuration to be set. To do t
 expo prebuild
 ```
 
-While generating the native source code, if the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) are not already present in Expo Config, you will be prompted to provide it.
+You will be prompted to provide the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) if they are not already present in the Expo config:
 
 ```bash
 ? What would you like your Android package name to be? > com.auth0samples
