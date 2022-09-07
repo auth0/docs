@@ -54,7 +54,7 @@ The first step in adding authentication to your application is to provide a way 
 
 The Auth0 package runs custom native code that needs to be configured at build time. We will use [Expo Config Plugin](https://docs.expo.dev/guides/config-plugins/) to achieve this.
 
-The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.expo.dev/workflow/configuration/) file at `app.json` or `app.config.js`.
+Add the `react-native-auth0` plugin to the [Expo config](https://docs.expo.dev/workflow/configuration/) file at `app.json` or `app.config.js`.
 
 ```json
 {
