@@ -102,7 +102,7 @@ You will be prompted to provide the [Android package](https://github.com/expo/fy
 ? What would you like your iOS bundle identifier to be? > com.auth0samples
 ```
 
-These values are used to set the callback and logout URL
+These values are used to set the callback and logout URLs.
 
 ## Configure the Auth0Provider component {{{ data-action=code data-code="App.js#41:43"}}}
 
