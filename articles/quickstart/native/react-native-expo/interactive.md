@@ -88,7 +88,7 @@ You can replace `{DOMAIN}` with the value from Auth0 Dashboard under your Applic
 
 ## Generate Native Source Code {{{ data-action=code data-code="app.json#31:36"}}}
 
-We have to generate the native code for the above configuration to be set. To do this we will run the following command
+You must generate the native code for the above configuration to be set. To do this, run the following command:
 
 ```bash
 expo prebuild
