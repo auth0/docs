@@ -39,6 +39,7 @@ sdk:
 requirements:
   - React Native 0.62.2
   - NodeJS 10.16
+  - Expo SDK 41
 next_steps:
   - path: 00-login
     list:

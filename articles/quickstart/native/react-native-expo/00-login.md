@@ -1,27 +1,31 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to a React Native application using Auth0.
+description: This tutorial demonstrates how to add user login to an Expo application using Auth0.
 budicon: 448
 topics:
   - quickstarts
   - native
   - react-native
+  - expo
 github:
-  path: 00-Login-Hooks
+  path: 00-Login-Expo
 contentType: tutorial
 useCase: quickstart
 ---
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
+::: warning
+This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds
+:::
 
-<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
+<%= include('../_includes/_getting_started', { library: 'Expo'}) %>
 
 ## Install Dependencies
 
 How to install the React Native Auth0 module.
 
 ::: note
-Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
+Please refer to the [official documentation](https://docs.expo.dev/) for additional details on Expo.
 :::
 
 ### Yarn
@@ -40,129 +44,102 @@ For further reference on yarn, check [their official documentation](https://yarn
 npm install react-native-auth0 --save
 ```
 
-### Additional iOS step: install the module Pod
-
-CocoaPods is the package management tool for iOS that the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to what was called _linking a native module_. The process is now simplified:
-
-Change directory into the `ios` folder and run `pod install`.
-
-```bash
-cd ios
-pod install
-```
-
 The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
 ## Integrate Auth0 in Your Application
 
-### Configure Android
+### Setup Auth0 Config Plugin
 
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
+The Auth0 package runs custom native code that needs to be configured at build time. We will use [Expo Config Plugin](https://docs.expo.dev/guides/config-plugins/) to achieve this.
 
-```groovy
-android {
-    defaultConfig {
-        // Add the next line
-        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
-    }
-    ...
-}
-```
+The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.expo.dev/workflow/configuration/) file at `app.json` or `app.config.js`.
 
-::: note
-The `applicationId` value will be auto-replaced at runtime with the package name or ID of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
-:::
-
-### Configure iOS
-
-In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
-
-```objc
-#import <React/RCTLinkingManager.h>
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+```json
 {
-  return [RCTLinkingManager application:app openURL:url options:options];
+  "expo": {
+    ...
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "{DOMAIN}"
+        }
+      ]
+    ]
+  }
 }
 ```
 
-Next you will need to add a URLScheme using your App's bundle identifier.
+Replace `{DOMAIN}` with the value from Auth0 application settings [as shown above](#get-your-application-keys).
 
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
+### Generate Native Source Code
 
-```xml
-<key>CFBundleIdentifier</key>
-<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+We have to generate the native code for the above configuration to be set. To do this we will run the following command
+
+```bash
+expo prebuild
 ```
 
-then below register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
+While generating the native source code, if the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) are not already present in Expo Config, you will be prompted to provide it.
 
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        </array>
-    </dict>
-</array>
+```bash
+? What would you like your Android package name to be? > com.auth0samples
+
+? What would you like your iOS bundle identifier to be? > com.auth0samples
 ```
 
-::: note
-If your application was generated using the React Native CLI, the default value of `$(PRODUCT_BUNDLE_IDENTIFIER)` dynamically matches `org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)`. For the sample app, this value matches `com.auth0samples`.
-:::
+These values are found in the Expo Config file at `app.json` or `app.config.js`. It will be used in the callback and logout URL
 
-Take note of this value as you'll be using it to define the callback URLs below. If desired, you can change it using XCode in the following way:
-
-- Open the `ios/<YOUR PROJECT>.xcodeproj` file or run `xed ios` on a Terminal from the app root.
-- Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
-- Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
-
-For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
+```json
+{
+    ...
+    "android": {
+      "package": "com.auth0samples"
+    },
+    "ios": {
+      "bundleIdentifier": "com.auth0samples"
+    }
+  }
+}
+```
 
 <%= include('../../../_includes/_callback_url') %>
 
 #### iOS callback URL
 
 ```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 #### Android callback URL
 
 ```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
 
 <%= include('../../../_includes/_logout_url') %>
 
 #### iOS logout URL
 
 ```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 #### Android logout URL
 
 ```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
 
 ## Add login to your app
 

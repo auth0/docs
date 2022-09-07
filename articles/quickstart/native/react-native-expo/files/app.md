@@ -1,5 +1,5 @@
 ---
-name: app.js
+name: App.js
 language: javascript
 ---
 

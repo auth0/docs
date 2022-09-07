@@ -4,6 +4,7 @@ description: This quickstart demonstrates how to add user login to an React Nati
 seo_alias: react-native
 interactive: true
 files:
+  - files/app-json
   - files/app
 github:
   path: 00-Login
@@ -16,6 +17,10 @@ topics:
 # Add Login to your React Native App
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
+
+::: warning
+This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds
+:::
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
@@ -35,8 +40,8 @@ A callback URL is the application URL that Auth0 will direct your users to once 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+- for iOS - `{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback`
+- for Android - `{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback`
 :::
 
 ### Configure Logout URLs
@@ -45,8 +50,8 @@ A logout URL is the application URL Auth0 will redirect your users to once they 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+- for iOS - `{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback`
+- for Android - `{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback`
 :::
 
 ## Install dependencies 
@@ -73,94 +78,33 @@ For further reference on yarn, check [their official documentation](https://yarn
 npm install react-native-auth0 --save
 ```
 
-### Additional iOS step: install the module Pod
+## Setup Auth0 Config Plugin {{{ data-action=code data-code="app.json#10:15"}}}
 
-[CocoaPods](https://cocoapods.org/) is the package management tool for iOS. The React Native framework uses CocoaPods to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you are familiar with older React Native SDK versions, this is similar to _linking a native module_. The process is now simplified:
+The Auth0 package runs custom native code that needs to be configured at build time. We will use [Expo Config Plugin](https://docs.expo.dev/guides/config-plugins/) to achieve this.
 
-Change directory into the `ios` folder and run `pod install`.
+The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.expo.dev/workflow/configuration/)
+
+You can replace `{DOMAIN}` with the value from Auth0 Dashboard under your Application's Settings.
+
+## Generate Native Source Code {{{ data-action=code data-code="app.json#31:36"}}}
+
+We have to generate the native code for the above configuration to be set. To do this we will run the following command
 
 ```bash
-cd ios
-pod install
+expo prebuild
 ```
 
-## Integrate Auth0 in your application
+While generating the native source code, if the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) are not already present in Expo Config, you will be prompted to provide it.
 
-First, you must provide a way for your users to log in. We recommend useing the Auth0 hosted [login page](/hosted-pages/login).
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
+```bash
+? What would you like your Android package name to be? > com.auth0samples
 
-### Configure Android
-
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
-
-```groovy
-android {
-    defaultConfig {
-        // Add the next line
-        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
-    }
-    ...
-}
+? What would you like your iOS bundle identifier to be? > com.auth0samples
 ```
 
-::: note
-The `applicationId` value will be auto-replaced at runtime with the package name or ID of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
-:::
+These values are used to set the callback and logout URL
 
-### Configure iOS
-
-In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
-
-```objc
-#import <React/RCTLinkingManager.h>
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
-{
-  return [RCTLinkingManager application:app openURL:url options:options];
-}
-```
-
-Next, add a URLScheme using your App's bundle identifier.
-
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
-
-```xml
-<key>CFBundleIdentifier</key>
-<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-```
-
-Update the value for the `CFBundleURLSchemes` with the value `CFBundleIdentifier` to register a URL type entry.
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        </array>
-    </dict>
-</array>
-```
-
-::: note
-If your application was generated using the React Native CLI, the default value of `$(PRODUCT_BUNDLE_IDENTIFIER)` dynamically matches `org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)`. For the sample app, this value matches `com.auth0samples`.
-:::
-
-In a later step, you will use this value to define the callback URLs below. You can change it using XCode with the following steps:
-
-- Open the `ios/<YOUR PROJECT>.xcodeproj` file or run `xed ios` on a Terminal from the app root.
-- Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
-- Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
-
-For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
-
-## Configure the Auth0Provider component {{{ data-action=code data-code="app.js#41:43"}}}
+## Configure the Auth0Provider component {{{ data-action=code data-code="App.js#41:43"}}}
 
 The `useAuth0` hook relies on a React Context to provide state management. This context is provided by the `Auth0Provider` component.
 
@@ -189,7 +133,8 @@ If your application did not launch successfully:
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
-## Add login to your app {{{ data-action=code data-code="app.js#8:14" }}}
+
+## Add login to your app {{{ data-action=code data-code="App.js#8:14" }}}
 
 Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
 
@@ -211,7 +156,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="app.js#16:22" }}}
+## Add logout to your app {{{ data-action=code data-code="App.js#16:22" }}}
 
 To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
 
@@ -229,7 +174,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show user profile information {{{ data-action=code data-code="app.js#28:29" }}}
+## Show user profile information {{{ data-action=code data-code="App.js#28:29" }}}
 
 The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
 
