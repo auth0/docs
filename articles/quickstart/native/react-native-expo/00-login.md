@@ -64,7 +64,7 @@ The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.
       [
         "react-native-auth0",
         {
-          "domain": "{DOMAIN}"
+          "domain": "${account.namespace}"
         }
       ]
     ]
