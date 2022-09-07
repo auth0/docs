@@ -74,7 +74,7 @@ The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.
 
 Replace `{DOMAIN}` with the value from Auth0 application settings [as shown above](#get-your-application-keys).
 
-### Generate Native Source Code
+### Generate native source code
 
 We have to generate the native code for the above configuration to be set. To do this we will run the following command
 
