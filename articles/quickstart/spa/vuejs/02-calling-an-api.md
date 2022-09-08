@@ -31,7 +31,7 @@ const app = createApp(App);
 app.use(
   createAuth0({
     domain: "${account.namespace}",
-    clientId: "${account.clientId}",
+    client_id: "${account.clientId}",
     redirect_uri: window.location.origin,
     audience: "${apiIdentifier}",
   })
