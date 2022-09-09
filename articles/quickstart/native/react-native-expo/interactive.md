@@ -84,8 +84,6 @@ The Auth0 package runs custom native code that needs to be configured at build t
 
 The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.expo.dev/workflow/configuration/)
 
-You can replace `{DOMAIN}` with the value from Auth0 Dashboard under your Application's Settings.
-
 ## Generate Native Source Code {{{ data-action=code data-code="app.json#31:36"}}}
 
 You must generate the native code for the above configuration to be set. To do this, run the following command:
