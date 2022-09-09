@@ -76,7 +76,7 @@ Replace `{DOMAIN}` with the value from Auth0 application settings [as shown abov
 
 ### Generate native source code
 
-We have to generate the native code for the above configuration to be set. To do this we will run the following command
+You must generate the native code for the above configuration to be set. To do this, run the following command:
 
 ```bash
 expo prebuild
