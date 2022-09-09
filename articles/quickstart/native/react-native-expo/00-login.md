@@ -88,7 +88,7 @@ You will be prompted to provide the [Android package](https://github.com/expo/fy
 ? What would you like your iOS bundle identifier to be? > com.auth0samples
 ```
 
-These values are found in the Expo Config file at `app.json` or `app.config.js`. It will be used in the callback and logout URL
+These values are found in the Expo config file at `app.json` or `app.config.js`. It will be used in the callback and logout URLs:
 
 ```json
 {
