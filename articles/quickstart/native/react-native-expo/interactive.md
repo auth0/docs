@@ -82,7 +82,7 @@ npm install react-native-auth0 --save
 
 The Auth0 package runs custom native code that must be configured at build time. Use [Expo Config Plugin](https://docs.expo.dev/guides/config-plugins/) to achieve this.
 
-The `react-native-auth0` plugin will be added in the [Expo Config](https://docs.expo.dev/workflow/configuration/)
+The `react-native-auth0` plugin will be added in the [Expo config](https://docs.expo.dev/workflow/configuration/)
 
 ## Generate Native Source Code {{{ data-action=code data-code="app.json#31:36"}}}
 
