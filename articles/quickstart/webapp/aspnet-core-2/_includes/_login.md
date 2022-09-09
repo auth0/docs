@@ -28,7 +28,7 @@ Next, configure the OIDC authentication handler. Add a call to `AddOpenIdConnect
 
 Configure other parameters, such as `ClientId`, `ClientSecret` or `ResponseType`.
 
-By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/02-user-profile).
+By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core-2/02-user-profile).
 
 ::: note
 In the code sample below, only the `openid` scope is requested.
