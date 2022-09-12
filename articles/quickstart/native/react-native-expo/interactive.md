@@ -19,7 +19,7 @@ topics:
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
 ::: warning
-This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds
+This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds.
 :::
 
 ## Configure Auth0 {{{ data-action=configure }}}
@@ -145,10 +145,10 @@ Add a button component that calls `authorize` when clicked. Verify that you are 
 :::checkpoint-failure
 If your application did not launch successfully:
 
-- Ensure you set the Allowed Callback URLs are correct
-- Verify you saved your changes after entering your URLs
-- Make sure the domain and client ID values are imported correctly
-- If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
+- ensure you set the Allowed Callback URLs are correct
+- verify you saved your changes after entering your URLs
+- make sure the domain and client ID values are imported correctly
+- if using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -156,17 +156,17 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add logout to your app {{{ data-action=code data-code="App.js#16:22" }}}
 
-To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
+To log the user out, redirect them to the Auth0 logout endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
 
 ::::checkpoint
 :::checkpoint-default
-Add a button that calls `clearSession` and observe that you are redirected to the Auth0 logout endpoint and back again. You should no longer be logged in to your application.
+Add a logout button that calls `clearSession` and observe that you are redirected to the Auth0 logout endpoint and back again. You should no longer be logged in to your application.
 :::
 :::checkpoint-failure
 If your application did not log out successfully:
 
-- Ensure the Allowed Logout URLs are set properly
-- Verify you saved your changes after entering your URLs
+- ensure the Allowed Logout URLs are set properly
+- verify you saved your changes after entering your URLs
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
