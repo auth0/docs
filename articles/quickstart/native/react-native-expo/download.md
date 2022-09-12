@@ -16,9 +16,9 @@ com.auth0samples://${account.namespace}/ios/com.auth0samples/callback,com.auth0s
 
 ```bash
 yarn install # Install dependencies
-expo prebuild # Generate the native source code
-expo run:ios # Run on iOS device
-expo run:android # Run on Android device
+cd ios && pod install # Install the iOS module Pod
+yarn run ios # Run on iOS device
+yarn run android # Run on Android device
 ```
 
-Read more about how to run Expo apps in their [official documentation](https://docs.expo.dev/workflow/expo-cli/#compiling).
+Read more about how to run react-native apps in their [official documentation](https://facebook.github.io/react-native/docs/running-on-device.html).
