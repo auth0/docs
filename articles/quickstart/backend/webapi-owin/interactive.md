@@ -48,8 +48,8 @@ Go to the `Configuration` method of your `Startup` class and add a call to `UseJ
 
 The `JwtBearerAuthenticationOptions` needs to specify your Auth0 API Identifier in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will need to configure the `IssuerSigningKeyResolver` to use the instance of `OpenIdConnectSigningKeyResolver` to resolve the signing key:
 
-::: panel-warning Do not forget the trailing backslash
-Ensure the URL specified for `ValidIssuer` contains a trailing backslash. This must match exactly with the JWT issuer claim. API calls will not authenticate correctly if you misconfigured this value.
+::: panel-warning Do not forget the trailing slash
+Ensure the URL specified for `ValidIssuer` contains a trailing forward slash (`/`). This must match exactly with the JWT issuer claim. API calls will not authenticate correctly if you misconfigured this value.
 :::
 
 ## Verifying the token signature {{{ data-action=code data-code="OpenIdConnectSigningKeyResolver.cs" }}}
