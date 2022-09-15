@@ -27,7 +27,7 @@ If you are following along with the sample project you downloaded from the top o
 
 <% if (typeof show_install_info === 'undefined' || (typeof show_install_info !== 'undefined' && show_install_info !== false)) { %>
   <% if (typeof new_js_sdk !== 'undefined' && new_js_sdk === true) { %>
-  <%= include('_install_auth0-spa-js', { beta: new_js_sdk_beta }) %>
+  <%= include('_install_auth0-spa-js', { v2: typeof new_js_sdk_v2 !== 'undefined' && new_js_sdk_v2 === true  }) %>
   <% } else { %>
   <%= include('_install_auth0js') %>
   <% } %>
