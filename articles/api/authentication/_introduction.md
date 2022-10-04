@@ -14,7 +14,8 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 
 ## Authentication methods
 
-There are three ways to authenticate with this API: 
+There are three ways that you can authenticate with this API:
+
 - with an OAuth2 <dfn data-key="access-token">Access Token</dfn> in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
 - with your Client ID and Client Secret credentials
 - only with your Client ID
@@ -27,7 +28,13 @@ In this case, you have to send a valid Access Token in the `Authorization` heade
 
 ### Client ID and Client Secret
 
-In this case, you have to send your Client ID and Client Secret information in the request JSON body. An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential applications (such as applications that are able to hold credentials in a secure way without exposing them to unauthorized parties).
+In this case, you have to send your Client ID and Client Secret. The method you can use to send this data is determined by the [Token Endpoint Authentication Method](https://auth0.com/docs/get-started/applications/confidential-and-public-applications/view-application-type) configured for your application.
+
+If you are using **Post**, you have to send this data in the JSON body of your request.
+
+If you are using **Basic**, you have to send this data in the `Authorization` header, using the `Basic` authentication scheme. To generate your credential value, concatenate your Client ID and Client Secret, separated by a colon (`:`), and encode it in Base64.
+
+An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential applications (such as applications that are able to hold credentials in a secure way without exposing them to unauthorized parties).
 
 ### Client ID
 
