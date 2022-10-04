@@ -14,31 +14,32 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 
 ## Authentication methods
 
-There are three ways that you can authenticate with this API:
+You have three options for authenticating with this API:
+- OAuth2 <dfn data-key="access-token">Access Token</dfn>
+- Client ID and Client Secret (confidential applications)
+- Client ID (public applications)
 
-- with an OAuth2 <dfn data-key="access-token">Access Token</dfn> in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
-- with your Client ID and Client Secret credentials
-- only with your Client ID
+### OAuth2 Access Token
 
-Each endpoint supports only one option.
+Send a valid Access Token in the `Authorization` header, using the `Bearer` authentication scheme.
 
-### OAuth2 token
-
-In this case, you have to send a valid Access Token in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client ID and Client Secret
 
-In this case, you have to send your Client ID and Client Secret. The method you can use to send this data is determined by the [Token Endpoint Authentication Method](https://auth0.com/docs/get-started/applications/confidential-and-public-applications/view-application-type) configured for your application.
+Send the Client ID and Client Secret. The method you can use to send this data is determined by the [Token Endpoint Authentication Method](https://auth0.com/docs/get-started/applications/confidential-and-public-applications/view-application-type) configured for your application.
 
-If you are using **Post**, you have to send this data in the JSON body of your request.
+If you are using **Post**, you must send this data in the JSON body of your request.
 
-If you are using **Basic**, you have to send this data in the `Authorization` header, using the `Basic` authentication scheme. To generate your credential value, concatenate your Client ID and Client Secret, separated by a colon (`:`), and encode it in Base64.
+If you are using **Basic**, you must send this data in the `Authorization` header, using the `Basic` authentication scheme. To generate your credential value, concatenate your Client ID and Client Secret, separated by a colon (`:`), and encode it in Base64.
 
 An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This option is available only for confidential applications (such as applications that are able to hold credentials in a secure way without exposing them to unauthorized parties).
 
 ### Client ID
 
-For public applications (such as applications that cannot hold credentials securely, like SPAs or mobile apps), we offer some endpoints that can be accessed using only the Client ID. An example is the [Implicit Grant](#implicit-grant).
+Send the Client ID. For public applications (applications that cannot hold credentials securely, such as SPAs or mobile apps), we offer some endpoints that can be accessed using only the Client ID.
+
+An example is the [Implicit Grant](#implicit-grant).
 
 ## Parameters
 
