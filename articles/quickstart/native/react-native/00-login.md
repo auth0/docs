@@ -14,6 +14,8 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
+This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
+
 <%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
 ## Install Dependencies

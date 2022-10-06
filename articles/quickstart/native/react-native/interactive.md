@@ -17,6 +17,8 @@ topics:
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
+This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
+
 ## Configure Auth0 {{{ data-action=configure }}}
 
 To use Auth0 services, you must have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
