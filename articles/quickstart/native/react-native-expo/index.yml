@@ -17,7 +17,6 @@ framework:
   - React Native
   - Expo
 hybrid: true
-beta: true
 topics:
   - quickstart
 contentType: tutorial

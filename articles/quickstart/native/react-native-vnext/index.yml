@@ -16,7 +16,6 @@ language:
 framework:
   - React Native
 hybrid: true
-beta: true
 topics:
   - quickstart
 contentType: tutorial
