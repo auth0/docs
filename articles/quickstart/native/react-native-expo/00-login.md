@@ -14,6 +14,8 @@ useCase: quickstart
 ---
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
+This Quickstart is for the Expo framework. To integrate Auth0 into your React Native application, please refer to the [React Native Quickstart](https://auth0.com/docs/quickstart/native/react-native/interactive)
+
 ::: warning
 This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds
 :::

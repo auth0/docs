@@ -17,9 +17,11 @@ topics:
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
+This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
+
 ## Configure Auth0 {{{ data-action=configure }}}
 
-To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
+To use Auth0 services, you must have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
 
 ### Configure an application
 
@@ -27,7 +29,7 @@ Use the interactive selector to create a new Auth0 application or select an exis
 
 Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+To explore a complete configuration, review the sample application in your Dashboard.
 
 ### Configure Callback URLs
 
@@ -51,7 +53,8 @@ If you are following along with our sample project, set this
 
 ## Install dependencies 
 
-In this section, you will learn how to install the React Native Auth0 module.
+In this section, you will install the React Native Auth0 module.
+
 ::: note
 Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
 :::
@@ -74,7 +77,7 @@ npm install react-native-auth0 --save
 
 ### Additional iOS step: install the module Pod
 
-[CocoaPods](https://cocoapods.org/) is the package management tool for iOS. The React Native framework uses CocoaPods to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you are familiar with older React Native SDK versions, this is similar to _linking a native module_. The process is now simplified:
+CocoaPods is the iOS package management tool the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app, first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to the previous _linking a native module_. The process is now simplified:
 
 Change directory into the `ios` folder and run `pod install`.
 
@@ -90,7 +93,7 @@ First, you must provide a way for your users to log in. We recommend useing the 
 
 ### Configure Android
 
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
+Open the `build.gradle` file in your application directory (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should contain your Auth0 application settings [as configured above](#get-your-application-keys).
 
 ```groovy
 android {
@@ -103,7 +106,7 @@ android {
 ```
 
 ::: note
-The `applicationId` value will be auto-replaced at runtime with the package name or ID of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
+At runtime, the `applicationId` value will automatically update with your application's package name or ID (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
 :::
 
 ### Configure iOS
@@ -122,14 +125,14 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 Next, add a URLScheme using your App's bundle identifier.
 
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
+In the `ios` folder, open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 ```
 
-Update the value for the `CFBundleURLSchemes` with the value `CFBundleIdentifier` to register a URL type entry.
+Below this value, register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -159,22 +162,83 @@ In a later step, you will use this value to define the callback URLs below. You 
 
 For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
 
-## Add authentication with Auth0 {{{ data-action=code data-code="app.js#12:22" }}}
+## Configure the Auth0Provider component {{{ data-action=code data-code="app.js#41:43"}}}
 
-[Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+The `useAuth0` hook relies on a React Context to provide state management. The `Auth0Provider` component provides this context.
 
-::: note
-You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
+Import the `useAuth0` hook and `Auth0Provider` component from the `react-native-auth0` package:
+
+```js
+import {useAuth0, Auth0Provider} from 'react-native-auth0';
+```
+
+For the SDK to function correctly, wrap your application in the `Auth0Provider` component and set the following properties:
+
+- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
+- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+
+::::checkpoint
+:::checkpoint-default
+You just configured the `Auth0Provider` component. Run your application to verify that:
+- the SDK is initializing correctly
+- your application is not throwing any errors related to Auth0
 :::
-
-Upon successful authentication, Auth0 returns the user's `credentials`, containing an `access_token`, an `id_token` and an `expires_in` value.
-
-::: note
-For more information on the `accessToken`, refer to our [access token documentation](/tokens/concepts/access-tokens).
+:::checkpoint-failure
+If your application did not launch successfully:
+- make sure the correct application is selected
+- did you save after entering your URLs?
+- ensure your domain and client ID values are correct
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
+::::
+## Add login to your app {{{ data-action=code data-code="app.js#8:14" }}}
 
-## Log the user out {{{ data-action=code data-code="app.js#24:34" }}}
+Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This method redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
 
-To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the access token from the state. 
+To confirm the user successfully logged in, check that the `user` property provided by the hook is not `null`.
 
+::::checkpoint
+:::checkpoint-default
+Add a button component that calls `authorize` when clicked. Verify that you are redirected to the login page and then back to your application.
+:::
+:::checkpoint-failure
+If your application did not launch successfully:
+
+- Ensure you set the Allowed Callback URLs are correct
+- Verify you saved your changes after entering your URLs
+- Make sure the domain and client ID values are imported correctly
+- If using Android, ensure you set up the manifest placeholders correctly, otherwise the redirect back to your app may not work
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Add logout to your app {{{ data-action=code data-code="app.js#16:22" }}}
+
+To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
+
+::::checkpoint
+:::checkpoint-default
+Add a button that calls `clearSession` and observe that you are redirected to the Auth0 logout endpoint and back again. You should no longer be logged in to your application.
+:::
+:::checkpoint-failure
+If your application did not log out successfully:
+
+- Ensure the Allowed Logout URLs are set properly
+- Verify you saved your changes after entering your URLs
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+::::
+
+## Show user profile information {{{ data-action=code data-code="app.js#28:29" }}}
+
+The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access decoded user profile information about the authenticated user from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
+
+If a user has not been authenticated, this property will be `null`.
+
+::::checkpoint
+:::checkpoint-default
+Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
+:::
+::::

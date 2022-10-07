@@ -1,7 +1,8 @@
 title: Expo
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/react.png
-logo: react
+logo_name: expo
+logo: expo
 alias:
   - reactnative
   - react native
@@ -17,7 +18,6 @@ framework:
   - React Native
   - Expo
 hybrid: true
-beta: true
 topics:
   - quickstart
 contentType: tutorial
@@ -35,7 +35,7 @@ github:
 sdk:
   name: react-native-auth0
   url: https://github.com/auth0/react-native-auth0
-  logo: react
+  logo: expo
 requirements:
   - React Native 0.62.2
   - NodeJS 10.16
