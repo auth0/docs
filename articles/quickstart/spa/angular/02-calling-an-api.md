@@ -112,7 +112,7 @@ The following component demonstrates how to display the `user_metadata` field fr
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { concatMap, tap, pluck } from 'rxjs/operators';
+import { concatMap, tap, map } from 'rxjs/operators';
 
 // Import the HttpClient for making API requests
 import { HttpClient } from '@angular/common/http';
@@ -142,7 +142,7 @@ export class UserMetadataComponent implements OnInit {
           encodeURI(`https://${account.namespace}/api/v2/users/<%= "${user.sub}" %>`)
         )
       ),
-      pluck('user_metadata'),
+      map((user) => user['user_metadata']),
       tap((meta) => (this.metadata = meta))
     )
     .subscribe();
