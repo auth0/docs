@@ -33,16 +33,16 @@ showWebOriginInfo: true
 Auth0 provides a SPA SDK (auth0-spa-js) to simplify the process of implementing Auth0 authentication and authorization in JavaScript applications. You can install the Auth0 SPA SDK as an NPM package or from the CDN. For the purpose of this quickstart, we will use the CDN. Include this script tag on your HTML page:
 
 ```html
-<script src="${auth0spajs_url}"></script>
+<script src="${auth0spajs_urlv2}"></script>
 ```
 
-## Create the Auth0 client {{{ data-action=code data-code="app.js#1:5" }}}
+## Create the Auth0 client {{{ data-action=code data-code="app.js#1:7" }}}
 
 Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and provide the Auth0 application details you created earlier in this quickstart.
 
 If a user has previously logged in, the client will refresh the authentication state on page load; the user will still be logged in once the page is refreshed.
 
-## Add login to your application {{{ data-action=code data-code="app.js#6:12" }}}
+## Add login to your application {{{ data-action=code data-code="app.js#8:14" }}}
 
 Now that you have configured your Auth0 Application, added the Auth0 SPA SDK, and created the Auth0 client, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
@@ -73,7 +73,7 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 :::
 ::::
 
-## Handle the callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
+## Handle the callback from Auth0 {{{ data-action=code data-code="app.js#16:21" }}}
 
 When the browser is redirected back to your application process, your application should call the `handleRedirectCallback()` function on the Auth0 client only when it detects a callback from Auth0. One way to do this is to only call `handleRedirectCallback()` when `code` and `state` query parameters are detected.
 
@@ -99,7 +99,7 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 :::
 ::::
 
-## Add logout to your application {{{ data-action=code data-code="app.js#21:27" }}}
+## Add logout to your application {{{ data-action=code data-code="app.js#23:29" }}}
 
 Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
@@ -132,7 +132,7 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 :::
 ::::
 
-## Show user profile information {{{ data-action=code data-code="app.js#29:43" }}}
+## Show user profile information {{{ data-action=code data-code="app.js#31:45" }}}
 
 Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
 

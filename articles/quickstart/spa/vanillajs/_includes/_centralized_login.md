@@ -67,7 +67,7 @@ This article is based on the new SPA SDK available [here](https://github.com/aut
   <!-- other HTML -->
   
   <!-- add the lines below existing code -->
-  <script src="${auth0spajs_url}"></script>
+  <script src="${auth0spajs_urlv2}"></script>
   <script src="js/app.js"></script>
 </body>
 ```
@@ -171,7 +171,7 @@ The SDK must be properly initialized with the information of the Auth0 applicati
 To start, open the `public/js/app.js` file and add a variable to hold the Auth0 client object:
 
 ```js
-let auth0 = null;
+let auth0Client = null;
 ```
 
 This must be initialized using the values from the `auth_config.json` file. This can be done by calling the endpoint on the server that was created in the previous section. To do this, create a new function called `fetchAuthConfig` further down the `app.js` file, which can be used to download this information:
@@ -183,7 +183,7 @@ This must be initialized using the values from the `auth_config.json` file. This
 const fetchAuthConfig = () => fetch("/auth_config.json");
 ```
 
-Next, create another new function called `configureClient`. This will use `fetchAuthConfig` to download the configuration file and initialize the `auth0` variable:
+Next, create another new function called `configureClient`. This will use `fetchAuthConfig` to download the configuration file and initialize the `auth0Client` variable:
 
 ```js
 // ..
@@ -192,9 +192,9 @@ const configureClient = async () => {
   const response = await fetchAuthConfig();
   const config = await response.json();
 
-  auth0 = await createAuth0Client({
+  auth0Client = await auth0.createAuth0Client({
     domain: config.domain,
-    client_id: config.clientId
+    clientId: config.clientId
   });
 };
 ```
@@ -217,7 +217,7 @@ Now go and access it at [http://localhost:3000](http://localhost:3000). You shou
 
 ## Evaluate the authentication state
 
-As a first approach, you want to make sure anyone is able to visit the public page but not the page that is meant for authenticated users only, such as a settings panel or the user profile details. You can decide which content is available by hiding, disabling, or removing it if no user is currently logged in. You do so by checking the result of calling the `auth0.isAuthenticated()` method. Use this to enable or disable the **Log in** and **Log out** buttons, which are disabled by default. This can be part of a new `updateUI()` function called from the `window.onload` method right after the initialization.
+As a first approach, you want to make sure anyone is able to visit the public page but not the page that is meant for authenticated users only, such as a settings panel or the user profile details. You can decide which content is available by hiding, disabling, or removing it if no user is currently logged in. You do so by checking the result of calling the `auth0Client.isAuthenticated()` method. Use this to enable or disable the **Log in** and **Log out** buttons, which are disabled by default. This can be part of a new `updateUI()` function called from the `window.onload` method right after the initialization.
 
 Still inside the `app.js` file, add a new function called `updateUI` and modify the `onload` handler to call this new function:
 
@@ -233,7 +233,7 @@ window.onload = async () => {
 
 // NEW
 const updateUI = async () => {
-  const isAuthenticated = await auth0.isAuthenticated();
+  const isAuthenticated = await auth0Client.isAuthenticated();
 
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
@@ -246,14 +246,16 @@ const updateUI = async () => {
 
 Authentication is achieved through a redirect to the Auth0 [Universal Login Page](https://auth0.com/docs/hosted-pages/login). Once the user signs up or logs in, the result will be passed to your app's redirect URI, which is provided with the authorization request.
 
-Inside the `app.js` file, provide a `login` function that calls `auth0.loginWithRedirect()` to perform the login step. The `login` function is called by the **Log in** button previously defined in the HTML page. In this sample, you will redirect the user back to the same page they are now. You can obtain that value from `window.location.origin` property:
+Inside the `app.js` file, provide a `login` function that calls `auth0Client.loginWithRedirect()` to perform the login step. The `login` function is called by the **Log in** button previously defined in the HTML page. In this sample, you will redirect the user back to the same page they are now. You can obtain that value from `window.location.origin` property:
 
 ```js
 // ..
 
 const login = async () => {
-  await auth0.loginWithRedirect({
-    redirect_uri: window.location.origin
+  await auth0Client.loginWithRedirect({
+    authorizationParams: {
+      redirect_uri: window.location.origin
+    }
   });
 };
 ```
@@ -263,7 +265,7 @@ Additionally, because this is a _single page application_, the result of this ca
 1. The user does not want to authenticate and is just navigating through public content or
 2. The user has recently initiated the authentication process and is now looking to complete it.
 
-This second scenario is the one you need to handle. In your `window.onload` method, check whether the user is authenticated or not, and if the URL query contains both a `code` and `state` parameter. This will indicate that an authentication result is present and needs to be parsed. In that scenario, you do so by calling the `auth0.handleRedirectCallback()` method. This will attempt to exchange the result that the Auth0 backend gave you back for real tokens you can use.
+This second scenario is the one you need to handle. In your `window.onload` method, check whether the user is authenticated or not, and if the URL query contains both a `code` and `state` parameter. This will indicate that an authentication result is present and needs to be parsed. In that scenario, you do so by calling the `auth0Client.handleRedirectCallback()` method. This will attempt to exchange the result that the Auth0 backend gave you back for real tokens you can use.
 
 In addition, the query parameters must be removed from the URL so that if the user refreshes the page, the app does not try to parse the `state` and `code` parameters again. This is achieved with the `window.history.replaceState` method.
 
@@ -278,7 +280,7 @@ window.onload = async () => {
 
   updateUI();
 
-  const isAuthenticated = await auth0.isAuthenticated();
+  const isAuthenticated = await auth0Client.isAuthenticated();
 
   if (isAuthenticated) {
     // show the gated content
@@ -290,7 +292,7 @@ window.onload = async () => {
   if (query.includes("code=") && query.includes("state=")) {
 
     // Process the login state
-    await auth0.handleRedirectCallback();
+    await auth0Client.handleRedirectCallback();
     
     updateUI();
 
@@ -314,14 +316,16 @@ If you see any errors from the Auth0 server, check that you have not forgotten t
 
 You may have noticed that the **Log out** button is clickable when the user is authenticated, but does nothing. You need to add the code that will log the user out from the Auth0 backend.
 
-Start the log out by calling the `auth0.logout()` method passing a valid return-to URI. In this sample you will return the user back to the same page they are now. You can obtain that value from `window.location.origin` property. Abstract this logic into a `logout()` method.
+Start the log out by calling the `auth0Client.logout()` method passing a valid return-to URI. In this sample you will return the user back to the same page they are now. You can obtain that value from `window.location.origin` property. Abstract this logic into a `logout()` method.
 
 ```js
 // public/js/app.js
 
 const logout = () => {
-  auth0.logout({
-    returnTo: window.location.origin
+  auth0Client.logout({
+    logoutParams: {
+      returnTo: window.location.origin
+    }
   });
 };
 ```
@@ -367,7 +371,7 @@ In addition, at the start of this article you added a `public/css/main.css` file
 // ...
 
 const updateUI = async () => { 
-  const isAuthenticated = await auth0.isAuthenticated();
+  const isAuthenticated = await auth0Client.isAuthenticated();
 
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
@@ -378,10 +382,10 @@ const updateUI = async () => {
 
     document.getElementById(
       "ipt-access-token"
-    ).innerHTML = await auth0.getTokenSilently();
+    ).innerHTML = await auth0Client.getTokenSilently();
 
     document.getElementById("ipt-user-profile").textContent = JSON.stringify(
-      await auth0.getUser()
+      await auth0Client.getUser()
     );
 
   } else {
