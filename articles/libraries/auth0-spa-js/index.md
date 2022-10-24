@@ -31,7 +31,7 @@ You have a few options for using auth0-spa-js in your project:
 From the CDN:
 
 ```html
-<script src="${auth0spajs_url}"></script>
+<script src="${auth0spajs_urlv2}"></script>
 ```
 
 Using [npm](https://npmjs.org):
@@ -53,12 +53,12 @@ yarn add @auth0/auth0-spa-js
 First, you'll need to create a new instance of `Auth0Client` client object. Create the `Auth0Client` instance before rendering or initializing your application. You can do this using either the async/await method, or with promises. You should only create one instance of the client.
 
 ```js
-import createAuth0Client from '@auth0/auth0-spa-js';
+import { createAuth0Client } from '@auth0/auth0-spa-js';
 
 // either with async/await
 const auth0 = await createAuth0Client({
   domain: '${account.namespace}',
-  client_id: '${account.clientId}'
+  clientId: '${account.clientId}'
 });
 ```
 
@@ -66,7 +66,7 @@ const auth0 = await createAuth0Client({
 // or with promises
 createAuth0Client({
   domain: '${account.namespace}',
-  client_id: '${account.clientId}'
+  clientId: '${account.clientId}'
 }).then(auth0 => {
   //...
 });
@@ -89,7 +89,7 @@ import { Auth0Client } from '@auth0/auth0-spa-js';
 
 const auth0 = new Auth0Client({
   domain: '${account.namespace}',
-  client_id: '${account.clientId}'
+  clientId: '${account.clientId}'
 });
 ```
 
@@ -107,7 +107,9 @@ Listen for click events on the button you created. When the event occurs, use th
 // either with async/await
 document.getElementById('login').addEventListener('click', async () => {
   await auth0.loginWithRedirect({
-    redirect_uri: 'http://localhost:3000/'
+    authorizationParams: {
+      redirect_uri: 'http://localhost:3000/'
+    }
   });
   //logged in. you can get the user profile like this:
   const user = await auth0.getUser();
@@ -119,7 +121,9 @@ document.getElementById('login').addEventListener('click', async () => {
 // or with promises
 document.getElementById('login').addEventListener('click', () => {
   auth0.loginWithRedirect({
-    redirect_uri: 'http://localhost:3000/'
+    authorizationParams: {
+      redirect_uri: 'http://localhost:3000/'
+    }
   }).then(token => {
     //logged in. you can get the user profile like this:
     auth0.getUser().then(user => {
@@ -199,7 +203,7 @@ Read more about [token storage](/tokens/concepts/token-storage#single-page-app-s
 ```js
 const auth0 = await createAuth0Client({
   domain: '${account.namespace}',
-  client_id: '${account.clientId}',
+  clientId: '${account.clientId}',
   cacheLocation: 'localstorage'
 });
 ```
@@ -213,7 +217,7 @@ Configure the SDK to do this by setting `useRefreshTokens` to `true` on initiali
 ```js
 const auth0 = await createAuth0Client({
   domain: '${account.namespace}',
-  client_id: '${account.clientId}',
+  clientId: '${account.clientId}',
   useRefreshTokens: true
 });
 
@@ -246,7 +250,9 @@ $('#loginPopup').click(async () => {
 ```js
 $('#loginRedirect').click(async () => {
   await auth0.loginWithRedirect({
-    redirect_uri: 'http://localhost:3000/'
+    authorizationParams: {
+      redirect_uri: 'http://localhost:3000/'
+    }
   });
 });
 ```
@@ -280,8 +286,10 @@ The `getTokenSilently()` method requires you to have **Allow Skipping User Conse
 ```js
 $('#getTokenPopup').click(async () => {
   const token = await auth0.getTokenWithPopup({
-    audience: 'https://mydomain/api/',
-    scope: 'read:rules'
+    authorizationParams: {
+      audience: 'https://mydomain/api/',
+      scope: 'read:rules'
+    }
   });
 });
 ```
@@ -291,9 +299,11 @@ $('#getTokenPopup').click(async () => {
 ```js
 $('#getToken_audience').click(async () => {
   const differentAudienceOptions = {
-    audience: 'https://mydomain/another-api/',
-    scope: 'read:rules',
-    redirect_uri: 'http://localhost:3000/callback.html'
+    authorizationParams: {
+      audience: 'https://mydomain/another-api/',
+      scope: 'read:rules',
+      redirect_uri: 'http://localhost:3000/callback.html',
+    }
   };
   const token = await auth0.getTokenSilently(differentAudienceOptions);
 });
@@ -323,7 +333,9 @@ $('#getIdTokenClaims').click(async () => {
 ```js
 $('#logout').click(async () => {
   auth0.logout({
-    returnTo: 'http://localhost:3000/'
+    logoutParams: {
+      returnTo: 'http://localhost:3000/'
+    }
   });
 });
 ```
@@ -333,8 +345,10 @@ $('#logout').click(async () => {
 ```js
 $('#logoutNoClientId').click(async () => {
   auth0.logout({
-    client_id: null,
-    returnTo: 'http://localhost:3000/'
+    clientId: null,
+    logoutParams: {
+      returnTo: 'http://localhost:3000/'
+    }
   });
 });
 ```
