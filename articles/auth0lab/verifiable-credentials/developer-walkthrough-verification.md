@@ -1,6 +1,6 @@
 ---
 title: Verifiable Credentials Hands-On Labs
-description: TBC.
+description: Verifiable Credentials Walkthrough - Verification
 topics:
   - auth0lab
   - verifiable-credentials
@@ -73,8 +73,9 @@ To setup a verification template that asks for a Vaccine Card type verifiable cr
 	]
 
 	```
-
-	> The code snippet asks for any credential where the last element of the **type** array is **VaccineCard**. The filter parameter helps the user’s wallet application find the specific credential your application is looking for from the user. In a mature Verifiable Credential ecosystem, a user could have many credentials in a single wallet. You can read more about this specification format [<u>here</u>](https://identity.foundation/presentation-exchange/#input-descriptor).
+	::: note
+	The code snippet asks for any credential where the last element of the **type** array is **VaccineCard**. The filter parameter helps the user’s wallet application find the specific credential your application is looking for from the user. In a mature Verifiable Credential ecosystem, a user could have many credentials in a single wallet. You can read more about this specification format [<u>here</u>](https://identity.foundation/presentation-exchange/#input-descriptor).
+	:::
 
 3.  Click **Save** to save…
 
@@ -90,7 +91,9 @@ This section will walk you through the code necessary to use Auth0 as a verifier
 
 Edit the .env.local file, and set the missing values:
 
-> **Note**: sometimes “.” files are hidden by your system and you will need to change some settings to see them or open the directory in a code editor
+::: note
+Sometimes “.” files are hidden by your system and you will need to change some settings to see them or open the directory in a code editor
+:::
 
 -   `AUTH0_TENANT` is your tenant name
 -   `AUTH0_CLIENT_ID` from the application you created above
@@ -127,7 +130,9 @@ The following steps describe how the application works:
 
 1.  When the “**Start Presentation Flow with Auth0 Verification**” button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the “clientid”, “clientsecret” and “templateid” variables to the API. Auth0 will reply with a URL and a “request\_id”.
 
-> **Note**: The URL is what we’d normally encode into a QR code for a wallet application to scan and start the process. In this demo, we’ll just display this url as a clickable link for simplicity
+::: note
+The URL is what we’d normally encode into a QR code for a wallet application to scan and start the process. In this demo, we’ll just display this url as a clickable link for simplicity
+:::
 
 2.  The request\_id is used to call back to another Auth0 API to check if the user submitted credentials.
 3.  Then the application periodically checks Auth0, by making a separate API call, to check if the user has successfully submitted a presentation. Pass the request\_id that was received previously to this API call, and keep doing it until you receive a response indicating the process is complete.

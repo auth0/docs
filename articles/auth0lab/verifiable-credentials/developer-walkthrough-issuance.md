@@ -1,6 +1,6 @@
 ---
 title: Verifiable Credentials Hands-On Labs
-description: TBC.
+description: Verifiable Credentials Walkthrough - Verification
 topics:
   - auth0lab
   - verifiable-credentials

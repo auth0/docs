@@ -28,18 +28,9 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 4.  At the sign-in prompt, sign-up for a new account. Create a username and password. Use any email address you can access, as a verification email will be sent.
 
-	<table>
-	<colgroup>
-	<col style="width: 100%" />
-	</colgroup>
-	<thead>
-	<tr class="header">
-	<th><strong>Note</strong>: No personal data is used in the test. Credentials are issued with fake, hard-coded data.</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table>
+    ::: note
+    No personal data is used in the test. Credentials are issued with fake, hard-coded data.</th>
+    :::
 
 5.  At the consent prompt, click accept to allow ID Wallet to be issued a credential by the Auth0 tenant.
 
@@ -51,18 +42,9 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 	In the home screen of the IDWallet, you should now have a credential with a first/last name as Susan Doe.
 
-	<table>
-	<colgroup>
-	<col style="width: 100%" />
-	</colgroup>
-	<thead>
-	<tr class="header">
-	<th>Note: The credentials issued in this walkthrough are stored locally in the browser. You’ll need to use the same device to utilize them in the future.</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table>
+    ::: note
+    The credentials issued in this walkthrough are stored locally in the browser. You’ll need to use the same device to utilize them in the future.
+    :::
 
 ### Present a Credential
 
@@ -76,18 +58,9 @@ This task simulates presenting a credential to an application, but for ease of u
 
 3.  This will take you to the Auth0 Lab verification tool at [<u>https://present.verifiablecredentials.dev/</u>](https://present.verifiablecredentials.dev/), and populate the presentation request that asks for a credential with the type **VaccineCard**.
 
-	<table>
-	<colgroup>
-	<col style="width: 100%" />
-	</colgroup>
-	<thead>
-	<tr class="header">
-	<th><strong>Note:</strong> The “Presentation Request” code requests the wallet to present a credential with the type “VaccineCard”. You can edit that field to request the other types of verifiable credentials. You can find out more about presentation requests at: <a href="https://identity.foundation/presentation-exchange/#input-descriptor"><u>https://identity.foundation/presentation-exchange/#input-descriptor</u></a>.</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table>
+    ::: note
+    The “Presentation Request” code requests the wallet to present a credential with the type “VaccineCard”. You can edit that field to request the other types of verifiable credentials. You can find out more about presentation requests at: <a href="https://identity.foundation/presentation-exchange/#input-descriptor"><u>https://identity.foundation/presentation-exchange/#input-descriptor</u></a>.</th>
+	  :::
 
 4.  Wait a moment, a QR code will be generated that will request that credential from the wallet; beneath it will be a clickable button with a URL link to continue. If you want, you could set up the vaccine card on your phone, and scan the QR code, but for this walkthrough, just click “**click here to continue**” to use the credential from the previous section.
 
