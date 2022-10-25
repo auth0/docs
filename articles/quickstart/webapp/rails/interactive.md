@@ -38,7 +38,7 @@ Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, c
 
 ## Configure OmniAuth middleware {{{ data-action=code data-code="auth0.rb" }}}
 
-Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware with the configuration file you created in the previous step.
+Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters) the **OmniAuth** middleware with the configuration file you created in the previous step.
 
 Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 application.
 
