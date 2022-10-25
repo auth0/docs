@@ -43,7 +43,7 @@ If you would rather explore a complete configuration, you can view a sample app 
 
 ### Configure callback and logout URLs
 
-Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your application will return an error.
+Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your application will produce an error.
 
 Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to your app's platform. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant’s domain.
 
@@ -90,7 +90,7 @@ https://github.com/auth0/Auth0.swift
 Then, select the dependency rule and press **Add Package**.
 
 ::: note
-For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 :::
 
 ### Cocoapods
@@ -145,7 +145,7 @@ If your application produces errors related to the SDK:
 - Verify you saved your URL updates
 - Ensure you set the Auth0 Domain and Client ID correctly
 
-Still having issues? Check out our [documentation]() or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
@@ -169,11 +169,11 @@ Press the **Login** button and verify that:
 :::
 
 :::checkpoint-failure
-If login fails or returns errors:
+If login fails or produces errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 Domain and Client ID correctly
 
-Still having issues? Check out our [documentation]() or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
@@ -190,11 +190,11 @@ Press the **Logout** button and verify that:
 :::
 
 :::checkpoint-failure
-If logout fails or returns errors:
+If logout fails or produces errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 Domain and Client ID correctly
 
-Still having issues? Check out our [documentation]() or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
@@ -205,7 +205,7 @@ The `Credentials` instance you obtained after logging in includes an [ID token](
 The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID token and access the claims it contains.
 
 ::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
 :::
 
 ::::checkpoint
@@ -218,6 +218,6 @@ If you cannot access the user information:
 - Verify you imported the `JWTDecode` module when you invoke `decode(jwt:)` method
 - Make sure you spelled your claims correctly
 
-Still having issues? Check out our [documentation]() or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
