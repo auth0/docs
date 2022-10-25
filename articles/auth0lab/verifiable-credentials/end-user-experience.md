@@ -10,7 +10,7 @@ useCase: auth0lab
 ---
 ## End User Experience
 
-In this walkthrough article you are going to experience verifiable credentials from the end user’s perspective. If you get stuck, or have questions, join us on our Discord server [<u>auth0lab.com/chat</u>](http://auth0lab.com/chat).
+In this walkthrough article you are going to experience verifiable credentials from the end user’s perspective. If you get stuck, or have questions, join us on our [Discord server](http://auth0lab.com/chat).
 
 ### Obtaining a Credential
 
@@ -66,7 +66,7 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 ### Present a Credential
 
-This task simulates presenting a credential to an application, but for ease of use we will start it from IDWallet. *As a prerequisite, you must have a vaccine credential in your [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/), which you obtained by following the previous section [<u>Obtaining a Credential</u>](#obtaining-a-credential).*
+This task simulates presenting a credential to an application, but for ease of use we will start it from IDWallet. As a prerequisite, you must have a vaccine credential in your [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/), which you obtained by following the previous section [<u>Obtaining a Credential</u>](#obtaining-a-credential).
 
 1.  Browse to [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/)
 
@@ -97,35 +97,37 @@ This task simulates presenting a credential to an application, but for ease of u
 
 	By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation. It also contains the credential body, which is a portion of the full presentation.
 
-	```
+	```json
 	"verifiableCredential": [
-        {
-          "credentialSubject": {
-            "dateOfApplication": "2022-01-17",
-            "familyName": "Doe",
-            "givenName": "Susan",
-            "lotNumber": "3006322",
-            "performer": "Atlantis Hospital",
-            "status": "completed",
-            "userId": "auth0|63126708c65b7aa0f1b186e0",
-            "vaccinationIdentifier": "A3T411Y",
-            "vaccine": "SARS Cov-2 mRNA",
-            "id": "did:ethr:0x033bd481d1d80dcb748cbd8c136822b6ec5a172c73ae5f493bc258a394395c8930"
-          },
-          "issuer": {
-            "id": "did:web:atlantis-hospital.auth0lab.com"
-          },
-          "id": "3c013202-9c08-4218-921a-07a6c19d82b4",
-          "type": [
-            "VerifiableCredential",
-            "VaccineCard"
-          ],
+		{
+			"credentialSubject": {
+				"dateOfApplication":"2022-01-17",
+				"familyName":"Doe",
+				"givenName":"Susan",
+				"lotNumber":"3006322",
+				"performer":"Atlantis Hospital",
+				"status":"completed",
+				"userId":"auth0|63126708c65b7aa0f1b186e0",
+				"vaccinationIdentifier":"A3T411Y",
+				"vaccine":"SARS Cov-2 mRNA",
+				"id":"did:ethr:0x033bd481d1d80dcb748cbd8c136822b6ec5a172c73ae5f493bc258a394395c8930"
+			},
+			"issuer": {
+				"id":"did:web:atlantis-hospital.auth0lab.com"
+			},
+			"id":"3c013202-9c08-4218-921a-07a6c19d82b4",
+			"type": [
+				"VerifiableCredential",
+				"VaccineCard"
+			]
+		}
+	]
 	```
 
 You can learn more about the full presentation here: [<u>https://www.w3.org/TR/vc-data-model/#presentations</u>](https://www.w3.org/TR/vc-data-model/#presentations):
 
 ### Next Steps
 
-You've seen how a user will interact with verifiable credentials. Let us know how the experience was by leaving us feedback on the Auth0 Lab Discord: [<u>auth0lab.com/chat</u>](http://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+You've seen how a user will interact with verifiable credentials. Let us know how the experience was by leaving us feedback on the [Auth0 Lab Discord](http://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
 
-Now you can start experimenting with the developer side of Verifiable Credentials by [<u>creating your own issuer</u>](https://docs.google.com/document/d/1bs_cmSkPPjss5ARCJAuQHh25kRUVdAon_Q9jIt31b9k/edit#), or by [<u>setting up a verifier</u>](https://docs.google.com/document/d/12X4WB-lHMpTrfai4fViOlcbpL6ew-ruT8fC4_Rmg2vA/edit#).
+Now you can start experimenting with the developer side of Verifiable Credentials by [<u>creating your own issuer</u>](/auth0lab/verifiable-credentials/developer-walkthrough-issuance), or by [<u>setting up a verifier</u>](/auth0lab/verifiable-credentials/developer-walkthrough-verification).
