@@ -161,6 +161,6 @@ public class AccountController : Controller
 
 We put together a few examples of how to use the SDK in more advanced use cases:
 
-- [Configuring Scopes](https://github.com/auth0/auth0-aspnetcore-authentication#scopes)
-- [Obtain an Access Token for Calling an API](https://github.com/auth0/auth0-aspnetcore-authentication#calling-an-api)
-- [Adding Role-based authorization](https://github.com/auth0/auth0-aspnetcore-authentication#roles)
+- [Configuring Scopes](https://github.com/auth0/auth0-aspnetcore-authentication/blob/main/EXAMPLES.md#scopes)
+- [Obtain an Access Token for Calling an API](https://github.com/auth0/auth0-aspnetcore-authentication/blob/main/EXAMPLES.md#calling-an-api)
+- [Adding Role-based authorization](https://github.com/auth0/auth0-aspnetcore-authentication/blob/main/EXAMPLES.md#roles)

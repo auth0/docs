@@ -144,7 +144,7 @@ You can then include the access token in the authorization header of the API cal
 
 Upon success, you extract the `user_metadata` property from the API response and use `setUserMetadata()` to make React aware of it.
 
-For a more detailed example, see how to [create a `useApi` hook](https://github.com/auth0/auth0-react/blob/master/EXAMPLES.md#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token) for accessing protected APIs with an access token.
+For a more detailed example, see how to [create a `useApi` hook](https://github.com/auth0/auth0-react/blob/master/EXAMPLES.md#create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token) for accessing protected APIs with an access token.
 
 :::panel Checkpoint
 Your application will show "No user metadata defined" if you have not set any `user_metadata` for the logged-in user. To further test out this integration, head to the [Users section of the Auth0 dashboard](https://manage.auth0.com/#/users) and click on the user who is logged in. Update the `user_metadata` section with a value like `{ "theme": "dark" }` and click "Save". Refresh your React application and verify that it reflects the new `user_metadata`. 
