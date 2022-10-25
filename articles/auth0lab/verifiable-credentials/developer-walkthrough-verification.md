@@ -7,6 +7,7 @@ topics:
   - verifiable-presentations
 contentType: how-to
 useCase: auth0lab
+interpolate_es: false
 ---
 
 ## Developer Walkthrough - Verification
@@ -282,6 +283,7 @@ That is all that is needed to implement verification through Auth0. To test the 
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image7.png" style="width:6.5in;height:4.55556in" />
 
 4.  This will open the Wallet in another tab. If you have followed the previous steps in this Hands On Lab, you should already have a VaccineCard credential in your wallet which will be preselected now ready to be presented:
+
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image10.png" style="width:1.96321in;height:3.39693in" />
 
 5.  (Optional) If you switch back to the application page, you should see the status changed from “pending” to “initialized”, indicating that Auth0 has started the flow with the wallet.
@@ -293,6 +295,7 @@ That is all that is needed to implement verification through Auth0. To test the 
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image11.png" style="width:2.0391in;height:3.66146in" />
 
 7.  Back in our app you will see the JSON contents of the Verifiable Presentation received from the wallet:
+
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image2.png" style="width:6.5in;height:3.52778in" />
 
 ### Wrap Up and Next Steps
