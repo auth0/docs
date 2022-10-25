@@ -46,7 +46,7 @@ com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
 ```
 
 ::: warning
-Make sure that the [application type](/configure/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
+Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
 :::
 
 ### Configure a Custom URL Scheme
@@ -76,7 +76,7 @@ https://github.com/auth0/Auth0.swift
 Then, select the dependency rule and press **Add Package**..
 
 ::: note
-For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 :::
 
 ### Cocoapods
@@ -218,7 +218,7 @@ print("Picture URL: \(picture)")
 ```
 
 ::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
 :::
 
 ::: panel Checkpoint
@@ -229,6 +229,6 @@ Verify that you can access the `name`, `picture`, or any other [claim](/secure/t
 
 Check the SDK documentation to learn how to perform some common tasks, explore more advanced use cases, and discover all the available features:
 
-- [Common tasks](https://github.com/auth0/Auth0.swift#common-tasks)
+- [Next steps](https://github.com/auth0/Auth0.swift#next-steps)
 - [API documentation](https://auth0.github.io/Auth0.swift/)
 - [FAQ](https://github.com/auth0/Auth0.swift/blob/master/FAQ.md)
