@@ -1,6 +1,9 @@
 ---
 title: Verifiable Credentials Hands-On Labs
-description: End user walkthrough for verifiable credentials.
+editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
+breadcrumbs:
+  - title: Auth0 Lab
+    url: /docs/auth0lab
 topics:
   - auth0lab
   - verifiable-credentials
