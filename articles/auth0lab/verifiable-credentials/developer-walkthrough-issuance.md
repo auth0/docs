@@ -1,5 +1,5 @@
 ---
-title: Issuance Walkthrough
+title: Using Auth0 as an Issuer - Dev Walkthrough
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-issuance.md'
 breadcrumbs:
   - title: Auth0 Lab Features
@@ -23,11 +23,13 @@ The content of this article will walk you through the developer experience of ge
 This section walks you through how to set up a Credential Template for your new verifiable credential. A credential template stores metadata and branding data about your credential.
 
 1. Navigate to the [Auth0 Lab instance](https://manage.auth0lab.com), and continue with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
-2. Create a Credential Template using the left nav and go to Credentials (LAB) -> Issuance.
-3. Add a type and a name:
-
-    - The type will identify the credential to other developers and be included in the credential payload. It should be the string that other entities use to reference that kind of credential.
-    - The name should be a human-readable string for your Auth0 Lab/CIC tenant. For example, a credential type of UniversityDegreeCredential issued by Acme University could be named Acme University Degree.
+2. Using the left nav and go to Credentials (LAB) > Issuance.
+4. Click "+ Add Credential Template" to create a Credential Template.
+3. Provide the following values for type and a name:
+    - Type: UniversityDegreeCredential. 
+	The type will identify the credential to other developers and be included in the credential payload. It's a the string that other entities use to reference that kind of credential.
+    - Name: Acme University Degree. 
+	The name should be a human-readable string for your Auth0 Lab tenant.
 
   <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image7.png" style="width:6.5in;height:3.41667in" />
 
@@ -43,12 +45,16 @@ To issue a credential to a user, you need to define the claims the credential wi
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image2.png" style="width:6.5in;height:4.61111in" />
 
-4. Define the handler that will issue your credential. Here you will be able to create your claims, and define where they’ll be populated from. We have two claims pulled from a user's app metadata in this example.
+4. Provide the following code for the handler that will issue your credential. This code allows you  to define credentials claims and how they'll be populated. The code snippet below sets credential claims from a user's `app_metadata`.
 
 	::: note
 	There is an example below of a working action. You can explore changing the claim fields and source data if you'd like.
 
 	You can find examples of actions used for sample issuers [here](https://github.com/auth0-lab/vc-samples/tree/main/sample-issuers).
+	:::
+
+	::: note
+	The string used in the line `if (event.credential.type !== 'UniversityDegreeCredential') {` must match the credential type you set when creating the credential template.
 	:::
 
 	```js
@@ -72,46 +78,34 @@ To issue a credential to a user, you need to define the claims the credential wi
 	};
 	```
 
-5. We assume that another application or service adds degree information to a user’s app_metadata before issuing a credential. If you would like to test how app_metadata is pulled into the credential, you can [create a user](https://auth0.com/docs/manage-users/user-accounts/create-users) and add the following app_metadata to their profile. Make sure to save your changes.
+5. Click **Deploy** on the top right of the code editor. This will make the action code available for usage and wait for the action to be deployed.
 
-	```json
-	{
-	  "degree": {
-	    "type": "Bachelor of the Arts",
-	    "name": "Awesomeness"
-	  }
-	}
-	```
-
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image4.png" style="width:6.5in;height:3.06944in" />
-
-
-6. After you set up your action, you will need to add it to the flow. Navigate back to the verifiable credential issuance flow (step 1), and then click on __"Custom"__ under the _Add Action_ window. There you should see your newly created custom action. Drag it into the flow, and apply changes.
+6. After you set up your action, you will need to add it to the flow. Navigate back to the verifiable credential issuance flow (step 1), and then click on __"Custom"__ under the _Add Action_ window. There you should see your newly created custom action.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image5.png" style="width:6.5in;height:2.11111in" />
 
+7.  Click **Apply** in the top-right corner to apply the changes.
 
-7. Configure your tenant to accept OIDC Dynamic Clients:
-  a. Using the left nav, go to _Settings_. At the top of the page, click the Advanced tab.
-  b. Scroll down to the Settings panel and enable the "OIDC Dynamic Application Registration" toggle.
+8. Configure your tenant to accept OIDC Dynamic Clients:
+	a. Using the left nav, go to _Settings_. At the top of the page, click the Advanced tab.
+	b. Scroll down to the Settings panel and enable the "OIDC Dynamic Application Registration" toggle.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image6.png" style="width:6.5in;height:2.41667in" />
 
 
-8. Promote any connections in use in your Auth0 Lab tenant to domain level. By default, you will have a database connection that was created when your tenant was created.
+9. Promote any connections in use in your Auth0 Lab tenant to domain level. By default, you will have a database connection that was created when your tenant was created.
   	- Navigate on the left hand nav to Authentication > Database.
   	- There should be a database connection listed called "Username-Password-Authentication"; click it to head to _Settings_.
   	- Scroll down, and enable the __"Enable for third party clients"__ switch.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image1.png" style="width:6.5in;height:0.86111in" />
 
-
-9. Ensure that the connection you just promoted is enabled for at least one regular application.
-  	- Go to Applications > Applications.
+10. Ensure that the connection you just promoted is enabled for at least one regular application.
+  	- Using the left nav and go to Applications > Applications.
   	- Select the Default App.
   	- Go to the connections tab, and ensure that the connection you promoted is toggled on.
 
-10. Finally, add your tenant as an issuer in ID wallet:
+11. Finally, add your tenant as an issuer in ID wallet:
   a. Head to [wallet issuers list](https://wallet.verifiablecredentials.dev/settings/issuers)
   b. Add an issuer using the '+' button.
   c. Type in your tenant domain: `TENANT_ID.auth0lab.com`
@@ -124,18 +118,16 @@ If everything was configured correctly, you should see your new credentials show
 
 ### Implement Display and Branding Changes
 
-This section will help you customize how your credential looks in ID Wallet. It will expose claim fields to the user, and create a more professional look and feel to the credential.
+This section will help you customize how your credential looks in wallets. It will expose claim fields to the user, and provide an on-brand look and feelthx.
 
-1. Add branding to change the look of your credential when it is displayed in wallets. Navigate back to your credential template from the beginning of the "Create a Custom Verifiable Credential Type" section above. It should be at Credentials -> Issuance in the left nav button. Click __"Acme University Credential"__ and then click the __"Branding"__ tab.
-  	- Try changing the background color and text by adding hexadecimal values to the fields.
+1.  Navigate back to your credential template from the beginning of the "Create a Custom Verifiable Credential Type" section above. It should be at Credentials -> Issuance in the left nav button. Click __"Acme University Credential"__ and then click the __"Branding"__ tab.
+
+  	- Set the background color to **#FF4400** and the text color to **#FFFFFF**.
   	- You can optionally add a "Thumbnail URL" and "Hero URL" to give it a fully custom look and feel.
 
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image10.png" style="width:6.5in;height:6.15278in" />
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-002.png" />
 
-2. You can also customize which fields that show up in the graphic presentation, how they’re described to the user, and metadata about the credential by utilizing the __"Display"__ code box at the bottom of the page.
-  	- Replace the default __"subtitle"__ value with the code below. It will add a fake dead URL to the credential that we can imagine represents a student portal a user could go to.
-  	- Add two paths for the degree fields __"degreeType"__ and __"degreeName"__. A code sample for the entire "Display" box with suggested changes is below.
-
+2. You can also customize which fields that show up in the graphic presentation, how they're described to the user, and metadata about the credential by utilizing the __"Display"__ code box at the bottom of the page. Replace the contents of the **Display** input with the code from the snippet below.
 	```json
 	{
 	  "title": {
@@ -192,14 +184,61 @@ This section will help you customize how your credential looks in ID Wallet. It 
 	}
 	```
 
-3. Save your changes and now you can see how your credential will look by clicking __"Try Credential"__, which will start the IDWallet credential request process for your new credential. You can learn more about display descriptors at [https://identity.foundation/credential-manifest/#output-descriptor](https://identity.foundation/credential-manifest/#output-descriptor).
+3. Click **Save Changes**.
 
-Result:
+You can learn more about display descriptors at [https://identity.foundation/credential-manifest/#output-descriptor](https://identity.foundation/credential-manifest/#output-descriptor).
 
-<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image9.png" style="width:2.84681in;height:4.91995in" />
+
+### Create a sample user
+
+We'll now create a sample user that you can use to test the credential. In this lab we use the default [Database Connection](https://auth0.com/docs/authenticate/database-connections) that is created when you set up the tenant **Username-Password-Authentication**, but the Verifiable Credentials features work with all types of connection.
+
+1. Using the left nav and go to User Managemenet > Users.
+2. Click the **+ Create User** button in the main view.
+3. Provide the following values for each field.
+	a. **Email:** susan@acme.com
+	b. **Password:** sus@nsecr3t
+	c. **Connection**: Username-Password-Authentication
+
+	<img src=https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-001.png />
+
+4. Scroll down to the **app_metadata** input and add the following JSON as app_metadata for the user. 
+
+	```json
+	{
+	  "degree": {
+	    "type": "Bachelor of the Arts",
+	    "name": "Awesomeness"
+	  }
+	}
+	```
+
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image4.png" style="width:6.5in;height:3.06944in" />
+
+5. Click **Save** under the **app_metadata** input to save the changes.
+
+### Verification
+In this section we'll verify that the credential is being correctly issued and displayed.
+
+1. Using the left nav and go to Credentials (LAB) > Issuance.
+2. Click "Acme University Degree" to open the details for the credential.
+3. On the top-right corner click **Try Credential**. This will initiate a credential issuance flow using ID Wallet.
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-8.png"/>
+4. Once in ID Wallet, click **Continue** to request a "University Degree Credential".
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-3.png"/>
+5. Provide the details for the user created in the previous section. Email should be **susan@acme.com** and password **sus@nsecr3t**.
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-7.png"/>
+6. Click **Accept** when prompted with the Auth0 consent dialog.
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-4.png"/>
+7. In ID Wallet click **Add credential** to confirm you want to add the credential to your wallet.
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-5.png"/>
+
+Open the credential and you will see that the degree type and degree field are those you set in the user's **app_metadata**.
+
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-6.png" />
 
 ### Next Steps
 
 You've seen how a developer can create a new verifiable credential with Auth0. Let us know how the experience was by leaving us feedback on the [Auth0 Lab Discord](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
 
-Now you can start experimenting with setting up Auth0 as a [verifier of other Verifiable Credentials](/auth0lab/verifiable-credentials/developer-walkthrough-verification).
+Now you can start experimenting with setting up Auth0 as a [verifier of Verifiable Credentials](/auth0lab/verifiable-credentials/developer-walkthrough-verification).

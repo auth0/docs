@@ -1,5 +1,5 @@
 ---
-title: End User Experience
+title: Verifiable Credentials - User Basics
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
 breadcrumbs:
   - title: Auth0 Lab Features
@@ -32,7 +32,7 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/end-user-experience/image3.png" style="width:2.22622in;height:4.14247in" />
 
-4.  At the sign-in prompt, sign-up for a new account. Create a username and password. Use any email address you can access, as a verification email will be sent.
+4.  At the sign-in prompt, sign-up for a new account.
 
     ::: note
     No personal data is used in the test. Credentials are issued with fake, hard-coded data.</th>
@@ -46,11 +46,13 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/end-user-experience/image1.png" style="width:2.90104in;height:5.3723in" />
 
-	In the home screen of the IDWallet, you should now have a credential with a first/last name as Susan Doe.
+8. Click the home icon in the botton bar to navigate to the IDWallet home screen.
 
-    ::: note
-    The credentials issued in this walkthrough are stored locally in the browser. You’ll need to use the same device to utilize them in the future.
-    :::
+A credential with a first/last name "Susan Doe" should be displayed there. As we noted at the beginning of this seciton, credentials used in this lab are populated with fake data for demo purposes.
+
+::: note
+The credentials issued in this walkthrough are stored locally in the browser. You’ll need to use the same device and browser to have them available in the future.
+:::
 
 ### Present a Credential
 
@@ -74,36 +76,37 @@ This task simulates presenting a credential to an application, but for ease of u
 
 6.  Once presented, head back to the requester tool, which should still be open in a previous browser tab. A payload should now be available at the bottom of the page.
 
-	By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation. It also contains the credential body, which is a portion of the full presentation.
+By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation. 
 
-	```json
-	"verifiableCredential": [
-		{
-			"credentialSubject": {
-				"dateOfApplication":"2022-01-17",
-				"familyName":"Doe",
-				"givenName":"Susan",
-				"lotNumber":"3006322",
-				"performer":"Atlantis Hospital",
-				"status":"completed",
-				"userId":"auth0|63126708c65b7aa0f1b186e0",
-				"vaccinationIdentifier":"A3T411Y",
-				"vaccine":"SARS Cov-2 mRNA",
-				"id":"did:ethr:0x033bd481d1d80dcb748cbd8c136822b6ec5a172c73ae5f493bc258a394395c8930"
-			},
-			"issuer": {
-				"id":"did:web:atlantis-hospital.auth0lab.com"
-			},
-			"id":"3c013202-9c08-4218-921a-07a6c19d82b4",
-			"type": [
-				"VerifiableCredential",
-				"VaccineCard"
-			]
-		}
-	]
-	```
+It also contains the credential body, which is a portion of the full presentation. You'll need to scroll down in the tool's output to see it:
+```json
+"verifiableCredential": [
+	{
+		"credentialSubject": {
+			"dateOfApplication":"2022-01-17",
+			"familyName":"Doe",
+			"givenName":"Susan",
+			"lotNumber":"3006322",
+			"performer":"Atlantis Hospital",
+			"status":"completed",
+			"userId":"auth0|63126708c65b7aa0f1b186e0",
+			"vaccinationIdentifier":"A3T411Y",
+			"vaccine":"SARS Cov-2 mRNA",
+			"id":"did:ethr:0x033bd481d1d80dcb748cbd8c136822b6ec5a172c73ae5f493bc258a394395c8930"
+		},
+		"issuer": {
+			"id":"did:web:atlantis-hospital.auth0lab.com"
+		},
+		"id":"3c013202-9c08-4218-921a-07a6c19d82b4",
+		"type": [
+			"VerifiableCredential",
+			"VaccineCard"
+		]
+	}
+]
+```
 
-You can learn more about the full presentation here: [<u>https://www.w3.org/TR/vc-data-model/#presentations</u>](https://www.w3.org/TR/vc-data-model/#presentations):
+You can learn more about presentations here: [<u>https://www.w3.org/TR/vc-data-model/#presentations</u>](https://www.w3.org/TR/vc-data-model/#presentations):
 
 ### Next Steps
 
