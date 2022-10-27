@@ -2,8 +2,12 @@
 title: Issuance Walkthrough
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-issuance.md'
 breadcrumbs:
-  - title: Auth0 Lab
+  - title: Auth0 Lab Features
     url: /docs/auth0lab
+  - title: Verifiable Credentials
+    url: /docs/auth0lab/verifiable-credentials/overview
+  - title: Issuance Walkthrough
+    url: /docs/auth0lab/verifiable-credentials/developer-walkthrough-issuance
 topics:
   - auth0lab
   - verifiable-credentials

@@ -2,8 +2,12 @@
 title: End User Experience
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
 breadcrumbs:
-  - title: Auth0 Lab
+  - title: Auth0 Lab Features
     url: /docs/auth0lab
+  - title: Verifiable Credentials
+    url: /docs/auth0lab/verifiable-credentials/overview
+  - title: End User Experience
+    url: /docs/auth0lab/verifiable-credentials/end-user-experience
 topics:
   - auth0lab
   - verifiable-credentials

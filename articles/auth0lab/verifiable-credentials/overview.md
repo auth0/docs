@@ -2,8 +2,12 @@
 title: Overview
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/overview.md'
 breadcrumbs:
-  - title: Auth0 Lab
+  - title: Auth0 Lab Features
     url: /docs/auth0lab
+  - title: Verifiable Credentials
+    url: /docs/auth0lab/verifiable-credentials/overview
+  - title: Overview
+    url: /docs/auth0lab/verifiable-credentials/overview
 topics:
   - auth0lab
   - verifiable-credentials
