@@ -13,6 +13,8 @@ useCase: auth0lab
 interpolate_es: false
 ---
 
+## Using Auth0 as a Verifiable Credential Verifier - Developer Walkthrough
+
 This article will show you how to configure an Auth0 Lab tenant to act as a verifier for Verifiable Credentials issued by other issuers. If you get stuck, or have questions, join us at [<u>auth0lab.com/chat</u>](http://auth0lab.com/chat).
 
 ### Prerequisites
