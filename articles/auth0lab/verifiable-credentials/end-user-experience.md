@@ -1,5 +1,5 @@
 ---
-title: User Experience
+title: End User Experience
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
 breadcrumbs:
   - title: Auth0 Lab
