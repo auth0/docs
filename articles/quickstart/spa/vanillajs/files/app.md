@@ -4,23 +4,25 @@ language: javascript
 ---
 
 ```javascript
-createAuth0Client({
+auth0.createAuth0Client({
   domain: "${account.namespace}",
-  client_id: "${account.clientId}",
-  redirect_uri: window.location.origin,
-}).then(async (auth0) => {
+  clientId: "${account.clientId}",
+  authorizationParams: {
+    redirect_uri: window.location.origin
+  }
+}).then(async (auth0Client) => {
   // Assumes a button with id "login" in the DOM
   const loginButton = document.getElementById("login");
 
   loginButton.addEventListener("click", (e) => {
     e.preventDefault();
-    auth0.loginWithRedirect();
+    auth0Client.loginWithRedirect();
   });
 
   if (location.search.includes("state=") && 
       (location.search.includes("code=") || 
       location.search.includes("error="))) {
-    await auth0.handleRedirectCallback();
+    await auth0Client.handleRedirectCallback();
     window.history.replaceState({}, document.title, "/");
   }
 
@@ -29,11 +31,11 @@ createAuth0Client({
 
   logoutButton.addEventListener("click", (e) => {
     e.preventDefault();
-    auth0.logout();
+    auth0Client.logout();
   });
 
-  const isAuthenticated = await auth0.isAuthenticated();
-  const userProfile = await auth0.getUser();
+  const isAuthenticated = await auth0Client.isAuthenticated();
+  const userProfile = await auth0Client.getUser();
 
   // Assumes an element with id "profile" in the DOM
   const profileElement = document.getElementById("profile");
