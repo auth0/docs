@@ -1,5 +1,5 @@
 ---
-title: Verifiable Credentials Hands-On Labs
+title: User Experience
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
 breadcrumbs:
   - title: Auth0 Lab
@@ -11,7 +11,6 @@ topics:
 contentType: how-to
 useCase: auth0lab
 ---
-## End User Experience
 
 In this walkthrough article you are going to experience verifiable credentials from the end user’s perspective. If you get stuck, or have questions, join us on our [Discord server](http://auth0lab.com/chat).
 

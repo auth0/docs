@@ -1,5 +1,5 @@
 ---
-title: Verifiable Credentials Hands-On Labs
+title: Overview
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/overview.md'
 breadcrumbs:
   - title: Auth0 Lab
@@ -10,8 +10,8 @@ topics:
   - verifiable-presentations
 contentType: how-to
 useCase: auth0lab
+navigationIndex: 0
 ---
-## Overview
 
 We are all used to physical credentials, driver licenses, passports, credit cards, etc. They all have data (claims) made by an issuer (Driver’s License government authority, state department, bank) about a subject. Verifiable credentials (VCs) are digital, cryptographically verifiable versions of these credentials. This means they can be stored on digital devices, and you can use cryptography to verify their validity.
 

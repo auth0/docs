@@ -1,5 +1,5 @@
 ---
-title: Verifiable Credentials Hands-On Labs
+title: Verification Walkthrough
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-verification.md'
 breadcrumbs:
   - title: Auth0 Lab
@@ -12,8 +12,6 @@ contentType: how-to
 useCase: auth0lab
 interpolate_es: false
 ---
-
-## Developer Walkthrough - Verification
 
 This article will show you how to configure an Auth0 Lab tenant to act as a verifier for Verifiable Credentials issued by other issuers. If you get stuck, or have questions, join us at [<u>auth0lab.com/chat</u>](http://auth0lab.com/chat).
 

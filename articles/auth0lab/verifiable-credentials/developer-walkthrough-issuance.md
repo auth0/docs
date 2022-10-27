@@ -1,5 +1,5 @@
 ---
-title: Verifiable Credentials Hands-On Labs
+title: Issuance Walkthrough
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-issuance.md'
 breadcrumbs:
   - title: Auth0 Lab
@@ -11,8 +11,6 @@ topics:
 contentType: how-to
 useCase: auth0lab
 ---
-
-## Developer Walkthrough of Auth0 as an Issuer
 
 The content of this article will walk you through the developer experience of generating a new credential type, signed and issued by their Auth0 tenant. It requires you to have an existing Auth0 account. If you do not have one, sign up for it [auth0.com/signup](https://auth0.com/signup). If you get stuck, or have questions, join us at our [Discord server](https://auth0lab.com/chat).
 

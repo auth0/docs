@@ -1,5 +1,6 @@
 ---
-title: Verifiable Credentials Hands-On Labs
+title: Verifiable Credentials
+description: Documentation for the Auth0 Lab instance Verifiable Credentials Hands-On Labs.
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/index.md'
 breadcrumbs:
   - title: Auth0 Lab
