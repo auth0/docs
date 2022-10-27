@@ -1,5 +1,5 @@
 ---
-title: Verification Walkthrough
+title: Using Auth0 as a Verifier - Dev Walkthrough
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-verification.md'
 breadcrumbs:
   - title: Auth0 Lab
@@ -17,10 +17,13 @@ This article will show you how to configure an Auth0 Lab tenant to act as a veri
 
 ### Prerequisites
 
--   Start by cloning the Sample App repo [<u>https://github.com/auth0-lab/hol-verifier-auth0</u>](https://github.com/auth0-lab/hol-verifier-auth0)
 -   Install node.js locally. If you do not have Node installed, you can download it here [<u>https://nodejs.org/en/download/</u>](https://nodejs.org/en/download/).
--   Install dependencies with yarn. If you do not have yarn installed, you can use node to install it [<u>https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable</u>](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
--   Have a Vaccine Credential in your IDWallet. This was obtained in the [<u>Obtaining a Credential</u>](https://docs.google.com/document/d/1m5dSlyCpWPSojfVQoWTLT1ZS0tXVHUpYe7YytLdXlNE/edit#heading=h.3v12zrszw0lk) section.
+-   Start by cloning the Sample App repo [<u>https://github.com/auth0-lab/hol-verifier-auth0</u>](https://github.com/auth0-lab/hol-verifier-auth0)
+	```bash
+	git clone git@github.com:auth0-lab/hol-verifier-auth0.git
+	```
+-   Install dependencies for the **hol-verifier-auth0** project you just cloned with **yarn**. If you do not have yarn installed, you can use node to install it [https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
+-   Have a Vaccine Credential in your IDWallet. This can be obtained following the **Obtaining a Credential** section of the [Verifiable Credentials - User Basics](/auth0lab/verifiable-credentials/end-user-experience) lab.
 
 ### Auth0 Lab Environment setup
 
@@ -30,10 +33,10 @@ In this section you will configure your Auth0 Lab tenant with a new application 
 
 To create an application within your Auth0 tenant that will receive the verifiable credential API calls from your application follow these steps.
 
-1.  Navigate to the Auth0 Lab instance: [<u>manage.auth0lab.com</u>](http://manage.auth0lab.com), and sign in with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
+1.  Navigate to the Auth0 Lab instance: [manage.auth0lab.com](http://manage.auth0lab.com), and sign in with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
 2.  In the left menu, go to Applications &gt; Applications.
 3.  Click “**+ Create Application**” Button.
-4.  Create a [<u>Regular Web Application.</u>](https://auth0.com/docs/get-started/auth0-overview/create-applications)
+4.  Create a [Regular Web Application.](https://auth0.com/docs/get-started/auth0-overview/create-applications)
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" style="width:6.5in;height:3.77778in" />
 
