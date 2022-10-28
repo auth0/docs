@@ -193,7 +193,7 @@ You can learn more about display descriptors at [https://identity.foundation/cre
 
 We'll now create a sample user that you can use to test the credential. In this lab we use the default [Database Connection](https://auth0.com/docs/authenticate/database-connections) that is created when you set up the tenant **Username-Password-Authentication**, but the Verifiable Credentials features work with all types of connection.
 
-1. Using the left nav and go to User Managemenet > Users.
+1. Using the left nav go to User Management > Users.
 2. Click the **+ Create User** button in the main view.
 3. Provide the following values for each field.
 	- **Email:** susan@acme.com
