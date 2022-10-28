@@ -1,8 +1,8 @@
 ---
-title: Verifiable Credentials - User Basics
+title: Use Credentials as a user
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/end-user-experience.md'
 breadcrumbs:
-  - title: Auth0 Lab Features
+  - title: Auth0 Lab
     url: /docs/auth0lab
   - title: Verifiable Credentials
     url: /docs/auth0lab/verifiable-credentials/overview
@@ -14,6 +14,7 @@ topics:
   - verifiable-presentations
 contentType: how-to
 useCase: auth0lab
+navigationIndex: 1
 ---
 
 In this walkthrough article you are going to experience verifiable credentials from the end user’s perspective. If you get stuck, or have questions, join us on our [Discord server](http://auth0lab.com/chat).
@@ -76,7 +77,7 @@ This task simulates presenting a credential to an application, but for ease of u
 
 6.  Once presented, head back to the requester tool, which should still be open in a previous browser tab. A payload should now be available at the bottom of the page.
 
-By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation. 
+By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation.
 
 It also contains the credential body, which is a portion of the full presentation. You'll need to scroll down in the tool's output to see it:
 ```json

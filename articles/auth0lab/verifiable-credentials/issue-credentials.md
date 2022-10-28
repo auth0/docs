@@ -1,13 +1,13 @@
 ---
-title: Using Auth0 as an Issuer - Dev Walkthrough
+title: Issue credentials
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-issuance.md'
 breadcrumbs:
-  - title: Auth0 Lab Features
+  - title: Auth0 Lab
     url: /docs/auth0lab
   - title: Verifiable Credentials
     url: /docs/auth0lab/verifiable-credentials/overview
-  - title: Issuance Walkthrough
-    url: /docs/auth0lab/verifiable-credentials/developer-walkthrough-issuance
+  - title: Issue credentials
+    url: /docs/auth0lab/verifiable-credentials/issue-credentials
 topics:
   - auth0lab
   - verifiable-credentials
@@ -26,9 +26,9 @@ This section walks you through how to set up a Credential Template for your new 
 2. Using the left nav and go to Credentials (LAB) > Issuance.
 4. Click "+ Add Credential Template" to create a Credential Template.
 3. Provide the following values for type and a name:
-    - Type: UniversityDegreeCredential. 
+    - Type: UniversityDegreeCredential.
 	The type will identify the credential to other developers and be included in the credential payload. It's a the string that other entities use to reference this kind of credential.
-    - Name: Acme University Degree. 
+    - Name: Acme University Degree.
 	The name should be a human-readable string for your Auth0 Lab tenant.
 
   <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image7.png" style="width:6.5in;height:3.41667in" />
@@ -202,7 +202,7 @@ We'll now create a sample user that you can use to test the credential. In this 
 
 	<img src=https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-001.png />
 
-4. Scroll down to the **app_metadata** input and add the following JSON as app_metadata for the user. 
+4. Scroll down to the **app_metadata** input and add the following JSON as app_metadata for the user.
 
 	```json
 	{

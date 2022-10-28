@@ -1,13 +1,13 @@
 ---
-title: Using Auth0 as a Verifier - Dev Walkthrough
+title: Verify credentials
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-verification.md'
 breadcrumbs:
-  - title: Auth0 Lab Features
+  - title: Auth0 Lab
     url: /docs/auth0lab
   - title: Verifiable Credentials
     url: /docs/auth0lab/verifiable-credentials/overview
-  - title: Verification Walkthrough
-    url: /docs/auth0lab/verifiable-credentials/developer-walkthrough-verification
+  - title: Verify credentials
+    url: /docs/auth0lab/verifiable-credentials/verify-credentials
 topics:
   - auth0lab
   - verifiable-credentials

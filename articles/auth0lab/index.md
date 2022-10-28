@@ -1,9 +1,9 @@
 ---
-title: Auth0 Lab Features
+title: Auth0 Lab
 description: Documentation for the Auth0 Lab features.
 editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/index.md'
 breadcrumbs:
-  - title: Auth0 Lab Features
+  - title: Auth0 Lab
     url: /docs/auth0lab
 topics:
   - auth0lab
