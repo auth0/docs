@@ -27,7 +27,7 @@ This section walks you through how to set up a Credential Template for your new 
 4. Click "+ Add Credential Template" to create a Credential Template.
 3. Provide the following values for type and a name:
     - Type: `UniversityDegreeCredential`.
-	The type will identify the credential to other developers and be included in the credential payload. It's a the string that other entities use to reference this kind of credential.
+	The type will identify the credential to other developers and be included in the credential payload. It's a the string that other entities use to reference that kind of credential.
     - Name: `Acme University Degree`.
 	The name should be a human-readable string for your Auth0 Lab tenant.
 
@@ -39,8 +39,8 @@ This section walks you through how to set up a Credential Template for your new 
 
 To issue a credential to a user, you need to define the claims the credential will have. For that, we will use the Auth0 actions feature, which allows you to write custom code as part of various flows, including credential issuance. We will create an action that takes the user as input and sets the claims to add to the credential.
 
-1. On the left nav, navigate to Actions > Flows, then click __"Verifiable Credential Issuance"__.
-2. You will be presented with an Action Flow. On the right hand navigation, add an action by clicking the __"+"__ button, then the __"Build Custom"__ option.
+1. On the left nav, navigate to Actions > Flows, then click **Verifiable Credential Issuance**.
+2. You will be presented with an Action Flow. On the right hand navigation, add an action by clicking the **+** button, then the **Build Custom** option.
 3. Name your action something you’ll remember. This action will contain the claim types for your credential, so you can tie your name to your credential type to make editing both easier in the future. The Trigger should be "Pre Credential Issue", the default for this type of Action Flow. Create your action.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image2.png" />

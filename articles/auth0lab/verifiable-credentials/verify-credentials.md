@@ -45,25 +45,26 @@ In this section, you will create an application within your Auth0 tenant that wi
 3.  Click **+ Create Application**.
 4.  Pick [Regular Web Application.](https://auth0.com/docs/get-started/auth0-overview/create-applications) and click **Create**.
 
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" style="width:6.5in;height:3.77778in" />
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" />
 
 5.  Navigate to the **Settings** tab and take note of the **Client ID**, **Client Secret**, as you will use them in another section.
 
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image4.png" style="width:6.5in;height:4.02778in" />
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image4.png" />
 
 #### Create a Verification Template
 
 In this section we will create a **Verification Template** that verifies credentials of the **VaccineCard** type. A **Verification Template** allows Auth0 to prompt and verify credentials matching a paritcular criteria.
 
-1.  Using the left nav go to Credentials (LAB) > Verification. 
+1.  Using the left nav go to Credentials (LAB) > Verification.
 
 2. Click **Add Verification Template**.
 
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image6.png" style="width:6.5in;height:2.45833in" />
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image6.png" />
 
 3.  Name the template **Ask for Vaccine Card**.
 
-4. Use the following code snippet for the **Input Descriptors** input. The **Input Descriptors** queries are used to prompt users to submit for verification any credential that matches the constraints. In this case, we are asking for any credential where the last element of the [type](https://www.w3.org/TR/vc-data-model/#types) array is **"VaccineCard"**. 
+4. Use the following code snippet for the **Input Descriptors** input. The **Input Descriptors** queries are used to prompt users to submit for verification any credential that matches the constraints. In this case, we are asking for any credential where the last element of the [type](https://www.w3.org/TR/vc-data-model/#types) array is **"VaccineCard"**.
+
 	```json
 	[
 	  {
@@ -95,11 +96,11 @@ In this section we will create a **Verification Template** that verifies credent
 
 4.  Copy the **Template ID** that is displayed the Verification Template name and take note of it, as you will use it in another section. The **Template ID** is prefixed **vp_**.
 
-	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image5.png" style="width:6.5in;height:1.25in" />
+	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image5.png" />
 
 ### Adding Verification to the Sample App
 
-This section walks you through setting up Auth0 as a verifier in a Web application. For this lab we are using a Next.js application as an example. 
+This section walks you through setting up Auth0 as a verifier in a Web application. For this lab we are using a Next.js application as an example.
 
 You will add code to the sample application you cloned in the [pre-requisites](#Prerequisites).
 
@@ -118,13 +119,13 @@ Sometimes “.” files are hidden by your system, and you might need to change 
 
 For example:
 
-<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/3_change_env_file.png" style="width:6.5in;height:1.33333in" />
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/3_change_env_file.png" />
 
 #### App Structure
 
 The code in its current state implements a web server with a simple UI. The UI has a button that starts the verification process.
 
-<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image3.png" style="width:6.5in;height:2.65278in" />
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image3.png"  />
 
 The following high level steps describe how the app works:
 
@@ -194,7 +195,7 @@ A **Presentation Request** keeps track in Auth0 that the sample app requested a 
 	- `url`: the URL the user's wallet should navigate to present a credential
 	- `request_id`: the unique identifier of the presentation request in the Auth0 tenant
 	- `expires at`: timestamp when the presentation request is no longer valid
-	
+
 	```js
 	async function run() {
 	 const result = await fetch(`https://${AUTH0_TENANT}/vcs/presentation-request`, {
@@ -307,25 +308,25 @@ event - compiled client and server successfully in 423 ms (173 modules)
 2.  Open the application at [http://localhost:3000/](http://localhost:3000/)
 
 3.  Click **Start Presentation Flow with Auth0 Verification**.
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image12.png" style="width:6.5in;height:4.125in" />
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image12.png" />
 
 4.  Once ready, click **HERE**. ID Wallet will open in another tab, where you should have a **VacccineCard** credential in your wallet after following the [pre-requisities](#prerequisites).
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image7.png" style="width:6.5in;height:4.55556in" /> 
 
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image10.png" style="width:1.96321in;height:3.39693in" />
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image7.png"  />
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image10.png" style="width:40%;" />
 
 5.  (Optional) Switch back to the tab where the sample verifier app is running. The status changed from **pending** to **initialized**, indicating that Auth0 has started the presentation flow with the wallet.
 
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image9.png" style="width:6.5in;height:4.52778in" />
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image9.png" />
 
 6.  Click **Present Credential**. You can close the tab once you see the success screen:
 
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image11.png" style="width:2.0391in;height:3.66146in" />
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image11.png" style="width:40%;" />
 
 
 Back in the app, you will see the JSON contents of the Verifiable Presentation received from the wallet. You can explore the contents and see that there is a `credentialSubject` object that contains the data from the original credential.
 
-<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image2.png" style="width:6.5in;height:3.52778in" />
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image2.png" />
 
 ### Wrap Up and Next Steps
 
