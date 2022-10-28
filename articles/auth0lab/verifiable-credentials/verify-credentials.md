@@ -21,43 +21,49 @@ This article will show you how to configure an Auth0 Lab tenant to act as a veri
 
 ### Prerequisites
 
--   Install node.js locally. If you do not have Node installed, you can download it here [<u>https://nodejs.org/en/download/</u>](https://nodejs.org/en/download/).
--   Start by cloning the Sample App repo [<u>https://github.com/auth0-lab/hol-verifier-auth0</u>](https://github.com/auth0-lab/hol-verifier-auth0)
+- Install node.js version 16.x locally. If you do not have Node installed, you can download it here [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
+- Clone the Sample App repo [https://github.com/auth0-lab/hol-verifier-auth0](https://github.com/auth0-lab/hol-verifier-auth0)
 	```bash
 	git clone git@github.com:auth0-lab/hol-verifier-auth0.git
 	```
--   Install dependencies for the **hol-verifier-auth0** project you just cloned with **yarn**. If you do not have yarn installed, you can use node to install it [https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
--   Have a Vaccine Credential in your IDWallet. This can be obtained following the **Obtaining a Credential** section of the [Verifiable Credentials - User Basics](/auth0lab/verifiable-credentials/end-user-experience) lab.
+- Install dependencies for the **hol-verifier-auth0** project you just cloned with **npm**.
+	```bash
+	npm i
+	```
+- Have a Vaccine Credential in your IDWallet. You can obtain it following the **Obtaining a Credential** section of the [Verifiable Credentials - User Basics](/auth0lab/verifiable-credentials/end-user-experience) lab.
 
 ### Auth0 Lab Environment setup
 
 In this section you will configure your Auth0 Lab tenant with a new application and a verifiable credential presentation template.
 
-### Application Setup
+#### Create an application
 
-To create an application within your Auth0 tenant that will receive the verifiable credential API calls from your application follow these steps.
+In this section, you will create an application within your Auth0 tenant that will receive the verifiable credential API calls from your application.
 
 1.  Navigate to the Auth0 Lab instance: [manage.auth0lab.com](http://manage.auth0lab.com), and sign in with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
-2.  In the left menu, go to Applications &gt; Applications.
-3.  Click “**+ Create Application**” Button.
-4.  Create a [Regular Web Application.](https://auth0.com/docs/get-started/auth0-overview/create-applications)
+2.  Using the left nav go to Applications > Applications.
+3.  Click **+ Create Application**.
+4.  Pick [Regular Web Application.](https://auth0.com/docs/get-started/auth0-overview/create-applications) and click **Create**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" style="width:6.5in;height:3.77778in" />
 
-5.  Navigate to the “**Settings**” tab and note the ClientID, ClientSecret.
+5.  Navigate to the **Settings** tab and take note of the **Client ID**, **Client Secret**, as you will use them in another section.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image4.png" style="width:6.5in;height:4.02778in" />
 
-### Verification Template
+#### Create a Verification Template
 
-To setup a verification template that asks for a Vaccine Card type verifiable credential follow these steps:
+In this section we will create a **Verification Template** that verifies credentials of the **VaccineCard** type. A **Verification Template** allows Auth0 to prompt and verify credentials matching a paritcular criteria.
 
-1.  On the left-hand nav, go to Credentials (LAB) &gt; Verification. Click **Add Verification Template**”.
+1.  Using the left nav go to Credentials (LAB) > Verification. 
+
+2. Click **Add Verification Template**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image6.png" style="width:6.5in;height:2.45833in" />
 
-2.  Enter a name **Ask for Vaccine Card** and for Input Descriptors, use the following code to ask for a vaccine card.
+3.  Name the template **Ask for Vaccine Card**.
 
+4. Use the following code snippet for the **Input Descriptors** input. The **Input Descriptors** queries are used to prompt users to submit for verification any credential that matches the constraints. In this case, we are asking for any credential where the last element of the [type](https://www.w3.org/TR/vc-data-model/#types) array is **"VaccineCard"**. 
 	```json
 	[
 	  {
@@ -79,94 +85,85 @@ To setup a verification template that asks for a Vaccine Card type verifiable cr
 	    }
 	  }
 	]
-
 	```
+
 	::: note
-	The code snippet asks for any credential where the last element of the **type** array is **VaccineCard**. The filter parameter helps the user’s wallet application find the specific credential your application is looking for from the user. In a mature Verifiable Credential ecosystem, a user could have many credentials in a single wallet. You can read more about this specification format [<u>here</u>](https://identity.foundation/presentation-exchange/#input-descriptor).
+	The filter parameter helps the user's wallet application find the specific credential your application is looking for from the user. In a mature Verifiable Credential ecosystem, a user could have many credentials in a single wallet. You can read more about this specification format [here](https://identity.foundation/presentation-exchange/#input-descriptor).
 	:::
 
-3.  Click **Save** to save…
+3.  Click **Add Verification Template** to add the template to your Auth0 tenant.
 
-4.  Copy the template ID from the Verification Templates page, click “Back to Verification Templates” at the top of the page. Then use the copy button.
+4.  Copy the **Template ID** that is displayed the Verification Template name and take note of it, as you will use it in another section. The **Template ID** is prefixed **vp_**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image5.png" style="width:6.5in;height:1.25in" />
 
 ### Adding Verification to the Sample App
 
-This section will walk you through the code necessary to use Auth0 as a verifier in a Next.js application. We will be adding the code to the Sample App from the pre-requisites: [<u>https://github.com/auth0-lab/hol-verifier-auth0</u>](https://github.com/auth0-lab/hol-verifier-auth0).
+This section walks you through setting up Auth0 as a verifier in a Web application. For this lab we are using a Next.js application as an example. 
 
-#### .env File
+You will add code to the sample application you cloned in the [pre-requisites](#Prerequisites).
+
+#### Update the .env file
 
 Edit the `.env.local` file, and set the missing values:
 
 ::: note
-Sometimes “.” files are hidden by your system and you will need to change some settings to see them or open the directory in a code editor
+Sometimes “.” files are hidden by your system, and you might need to change some settings to see them or open the directory in a code editor
 :::
 
--   `AUTH0_TENANT` is your tenant name
--   `AUTH0_CLIENT_ID` from the application you created above
--   `AUTH0_SECRET` from the application you created above
--   `TEMPLATE_ID` from the template you created above
+-   `AUTH0_TENANT`: your tenant name followed by `.auth0lab.com`
+-   `AUTH0_CLIENT_ID`: the **Client ID** of the application you created in the **Create an application** section
+-   `AUTH0_SECRET`: the **Client Secret** of the application you created in the **Create an application** section
+-   `TEMPLATE_ID`: the  **Template ID** from the template you created above in the **Create a Verification Template** section
 
 For example:
 
-<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image1.png" style="width:6.5in;height:1.33333in" />
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/3_change_env_file.png" style="width:6.5in;height:1.33333in" />
 
-### Start The App
+#### App Structure
 
-In a terminal, run \`yarn dev\`. This should start the app running on localhost:3000
-
-```
-> npm run dev
-
-> hol-verifier@0.1.0 dev
-> next dev
-
-ready - started server on 0.0.0.0:3000, url: http://localhost:3000
-info  - Loaded env from /Users/alex/projects/auth0/vc/hol-verifier-auth0/.env.local
-event - compiled client and server successfully in 423 ms (173 modules)
-
-```
-
-### App Structure
-
-The application in its current state will be a server for a simple UI. The UI has a button that starts the verification process.
+The code in its current state implements a web server with a simple UI. The UI has a button that starts the verification process.
 
 <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image3.png" style="width:6.5in;height:2.65278in" />
 
-The following steps describe how the application works:
+The following high level steps describe how the app works:
 
-1.  When the “**Start Presentation Flow with Auth0 Verification**” button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the “clientid”, “clientsecret” and “templateid” variables to the API. Auth0 will reply with a URL and a “request\_id”.
+1.  When the **Start Presentation Flow with Auth0 Verification** button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the `clientid`, `clientsecret` and `templateid` variables to the API. Auth0 replies with a URL and a `request_id`.
 
 ::: note
-The URL is what we’d normally encode into a QR code for a wallet application to scan and start the process. In this demo, we’ll just display this url as a clickable link for simplicity
+The URL is what you would normally encode into a QR code for a wallet application to scan and start the process. In this guide, we'll just display this URL as a clickable link for simplicity.
 :::
 
-2.  The request\_id is used to call back to another Auth0 API to check if the user submitted credentials.
-3.  Then the application periodically checks Auth0, by making a separate API call, to check if the user has successfully submitted a presentation. Pass the request\_id that was received previously to this API call, and keep doing it until you receive a response indicating the process is complete.
+2.  The `request_id` is used to call back to another Auth0 API to check if the user submitted credentials.
 
-To make this flow work, create two endpoints in our application:
+3.  Then the application periodically checks Auth0, by making a separate API call, to check if the user has successfully submitted a presentation. It passes the `request_id` that was received as a response in step 1, and keep doing it (long polling) until a response indicating the process is complete is received.
+
+To make this flow work, you wil create two endpoints in our application:
 
 -   `/api/verify/start`
 -   `/api/verify/check`
 
-When the user clicks the button to start the flow, a call needs to be made to the local /api/verify/start endpoint, which will then start an interval timer on the UI to call the /api/verify/check endpoint once per second.
+When the user clicks the button to start the flow, a call needs to be made to the **/api/verify/start** endpoint, which will then start an interval timer on the UI to call the **/api/verify/check** endpoint once per second.
 
-The UI is already wired up to handle calling the backend, the different states, loading, error, etc, so just the two endpoints need to be implemented.
+For simplicity, the UI is already wired up to handle calling the backend, the different states, loading, error, etc. You only need to implement the two endpoits where the core logic is handled
 
-### Implement /api/verify/start
+#### Createa a presentation request
 
-This endpoint starts the presentation request by making a call to the Auth0 API. The API returns a URL with the presentation request information for the user’s wallet to consume.
+This endpoint starts a **Presentation Request** by making a call to the Auth0 API. The API returns a URL with the presentation request information for the user's wallet to consume.
 
-1.  Create a new file in the pages/api/verify folder named ‘start.js’
+A **Presentation Request** keeps track in Auth0 that the sample app requested a credential from a user.
 
-2.  You will need to make API calls to Auth0. Do that using node-fetch, which you can import with this code:
+1. Create a new folder named **api** inapi the pages folder.
+2. Create a new folder named **verify** in the **api** folder you created in the previous step.
+3. Create a new file  named **start.js** in the **pages/api/verify** folder.
+
+3.  You will need to make API calls to Auth0. Add the following snippet to the **start.js** file. The snippet imports the **node-fetch** module, which you will use to make HTTP calls to the Auth0 API.
 
 	```js
 	import fetch from "node-fetch";
 	```
 
-3.  Next, load the variables from the .env.local file. The framework, Next.js, already parses this file and puts the variables in process.env, so load them and verify they exist.
+4.  Assign the environment variables from the .env.local file to variables. By default, Next.js parses this file and sets the variables on the `process.env` object.
 
 	```js
 	const AUTH0_TENANT = process.env.AUTH0_TENANT;
@@ -180,21 +177,24 @@ This endpoint starts the presentation request by making a call to the Auth0 API.
 	if (!TEMPLATE_ID) throw new Error("TEMPLATE_ID not set");
 	```
 
-4.  Add the method to handle the HTTP request. This is mostly Next.js boilerplate, but inside it will call a separate run() method that will do the bulk of the work. Wrap it in some error handling:
+5.  Add the function to handle the HTTP request. This is mostly Next.js boilerplate. The relevant part is `run()` call that will do the bulk of the work.
 
 	```js
 	export default async function handler(req, res) {
-	 try {
-	   const result = await run();
-	   res.status(200).json(result);
-	 } catch (err) {
-	   res.status(500).send({ error: err.message });
-	 }
+	  try {
+	    const result = await run();
+	    res.status(200).json(result);
+	  } catch (err) {
+	    res.status(500).send({ error: err.message });
+	  }
 	}
 	```
 
-5.  Define the run() method. This will simply make a fetch request to the Auth0 verification API to start a request, and return the results back to the caller. The results contain the url, which instructs the wallet on how to continue the flow, a request\_id to track this particular flow in case multiple users are using the application at the same time, and expires\_at which dictates how long this request is valid for. In this walkthrough, expires\_at is not used for validation.
-
+6.  Define the `run()` function. It makes a POST HTTP request to the Auth0 verification API to start a Verifiable Presentation request and returns an object with three variables from the response.
+	- `url`: the URL the user's wallet should navigate to present a credential
+	- `request_id`: the unique identifier of the presentation request in the Auth0 tenant
+	- `expires at`: timestamp when the presentation request is no longer valid
+	
 	```js
 	async function run() {
 	 const result = await fetch(`https://${AUTH0_TENANT}/vcs/presentation-request`, {
@@ -216,13 +216,13 @@ This endpoint starts the presentation request by making a call to the Auth0 API.
 	}
 	```
 
-### Implement /api/verify/check
+### Check the Presentation Request's status
 
-This application will need to see if the user finished the presentation request to the Auth0 tenant and get the results data. It does this by calling the check endpoint periodically. This endpoint in turn calls an Auth0 API to check the status of the request. If the presentation was successful, the API will return the JSON from the presentation.
+Once a **Presentation Request** has been created, the sample verifier app needs to know if the user submitted a credential for the it. The app does this by calling the **/api/verify/check** endpoint periodically. This endpoint in turn calls an Auth0 API to check the status of the request. If the presentation was successful, the API will return the JSON from the presentation.
 
-1.  Create a new file in the pages/api/verify folder named check.js
+1.  Create a new file named **check.js** in the **pages/api/verify** folder.
 
-2.  This file will also import the node-fetch library, load the environment variables. These steps are identical to the previous section, so just copy paste them all:
+2.  Import the **node-fetch** library, load the environment variables. These code is identical to the previous section:
 
 	```js
 	import fetch from "node-fetch";
@@ -238,7 +238,7 @@ This application will need to see if the user finished the presentation request 
 	if (!TEMPLATE_ID) throw new Error("TEMPLATE_ID not set");
 	```
 
-3.  The HTTP handler will be very similar to the previous one. However, request\_id must be extracted from the POST body. Then pass the request\_id to the run() method where most of the work will be done:
+3.  The HTTP handler will be very similar to the previous one. However, `request_id` must be extracted from the POST body, so the sample app can query Auth0 for the status of the **Presentation Request**. Then pass the `request_id` to the run() function where most of the work will be done:
 
 	```js
 	export default async function handler(req, res) {
@@ -252,7 +252,11 @@ This application will need to see if the user finished the presentation request 
 	}
 	```
 
-4.  Now add the run() method. Here an API call is made to Auth0, using request\_id, to retrieve the status of that request. It will then need to return the result.
+4.  Implement the `run` function. It uses the ID of the **Presentation Request** (`request_id`) to check the status of that request in Auth0 and returns the result.
+
+	::: note
+	Once the presentation request completes, Auth0 responds to the HTTP request with an object that has a `presentation` property. The value of this property is a JSON object represented as a string. Before returning the result to the caller we are turning the string into a JSON object.
+	:::
 
 	```js
 	async function run(id) {
@@ -285,37 +289,51 @@ This application will need to see if the user finished the presentation request 
 
 ### Verify it works
 
-That is all that is needed to implement verification through Auth0. To test the flow:
+That is all that is needed to implement verification through Auth0. To test the flow follow these steps.
 
-1.  Open the application at [<u>http://localhost:3000/</u>](http://localhost:3000/)
+1. In a terminal, run `npm run dev`. This should start the app on localhost:3000.
 
-2.  Click the “Start Presentation Flow with Auth0 Verification” button
+```
+$ npm run dev
+
+> hol-verifier@0.1.0 dev
+> next dev
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+info  - Loaded env from /Users/alex/projects/auth0/vc/hol-verifier-auth0/.env.local
+event - compiled client and server successfully in 423 ms (173 modules)
+```
+
+2.  Open the application at [http://localhost:3000/](http://localhost:3000/)
+
+3.  Click **Start Presentation Flow with Auth0 Verification**.
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image12.png" style="width:6.5in;height:4.125in" />
 
-3.  Once ready, click the “HERE” link.
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image7.png" style="width:6.5in;height:4.55556in" />
-
-4.  This will open the Wallet in another tab. If you have followed the previous steps in this Hands On Lab, you should already have a VaccineCard credential in your wallet which will be preselected now ready to be presented:
+4.  Once ready, click **HERE**. ID Wallet will open in another tab, where you should have a **VacccineCard** credential in your wallet after following the [pre-requisities](#prerequisites).
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image7.png" style="width:6.5in;height:4.55556in" /> 
 
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image10.png" style="width:1.96321in;height:3.39693in" />
 
-5.  (Optional) If you switch back to the application page, you should see the status changed from “pending” to “initialized”, indicating that Auth0 has started the flow with the wallet.
+5.  (Optional) Switch back to the tab where the sample verifier app is running. The status changed from **pending** to **initialized**, indicating that Auth0 has started the presentation flow with the wallet.
 
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image9.png" style="width:6.5in;height:4.52778in" />
 
-6.  Click Present Credential. You can close the tab once you see the success screen:
+6.  Click **Present Credential**. You can close the tab once you see the success screen:
 
     <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image11.png" style="width:2.0391in;height:3.66146in" />
 
-7.  Back in our app you will see the JSON contents of the Verifiable Presentation received from the wallet:
 
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image2.png" style="width:6.5in;height:3.52778in" />
+Back in the app, you will see the JSON contents of the Verifiable Presentation received from the wallet. You can explore the contents and see that there is a `credentialSubject` object that contains the data from the original credential.
+
+<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image2.png" style="width:6.5in;height:3.52778in" />
 
 ### Wrap Up and Next Steps
 
-The full completed code for this lab is available on the `endstate` branch of the repo:
-[<u>https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate</u>](https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate)
+The full completed code for this lab is available on the **endstate** branch of the repo:
+[https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate](https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate)
 
-You have seen how a developer can add verifiable credential verification to their application with Auth0. Let us know how the experience was by leaving us feedback on the Auth0 Lab Discord [<u>https://auth0lab.com/chat</u>](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+You have seen how a developer can add verifiable credential verification to their application with Auth0. Let us know how the experience was by leaving us feedback on the Auth0 Lab Discord [https://auth0lab.com/chat](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+
+If you would like to see a version of this app that does not rely on Auth0 , please checkout this repo: [auth0-lab/hol-verifier-local](https://github.com/auth0-lab/hol-verifier-local).
 
 Now you can start experimenting with your own use cases. Let us know what you are building!
