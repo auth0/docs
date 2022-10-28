@@ -308,7 +308,7 @@ That is all that is needed to implement verification through Auth0. To test the 
 
 ### Wrap Up and Next Steps
 
-The full completed code for this lab is available on the ‘endstate’ branch of the repo:
+The full completed code for this lab is available on the `endstate` branch of the repo:
 [<u>https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate</u>](https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate)
 
 You have seen how a developer can add verifiable credential verification to their application with Auth0. Let us know how the experience was by leaving us feedback on the Auth0 Lab Discord [<u>https://auth0lab.com/chat</u>](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
