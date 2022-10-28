@@ -56,7 +56,7 @@ To setup a verification template that asks for a Vaccine Card type verifiable cr
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image6.png" style="width:6.5in;height:2.45833in" />
 
-2.  Enter a name (Ask for Vaccine Card) and for Input Descriptors, use the following code to ask for a vaccine card.
+2.  Enter a name **Ask for Vaccine Card** and for Input Descriptors, use the following code to ask for a vaccine card.
 
 	```json
 	[
@@ -97,7 +97,7 @@ This section will walk you through the code necessary to use Auth0 as a verifier
 
 #### .env File
 
-Edit the .env.local file, and set the missing values:
+Edit the `.env.local` file, and set the missing values:
 
 ::: note
 Sometimes “.” files are hidden by your system and you will need to change some settings to see them or open the directory in a code editor
