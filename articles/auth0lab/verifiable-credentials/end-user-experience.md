@@ -21,9 +21,9 @@ In this walkthrough article you are going to experience verifiable credentials f
 
 ### Obtaining a Credential
 
-In this task you will add an existing sample credential to your browser wallet. This example shows how a user could request a credential on ID Wallet, Auth0 Lab’s developer learning wallet. We will be using a vaccine card in this example, but it could also be an ID, insurance card, employment credential, university degree, professional certification, or membership card.
+In this task you will add an existing sample credential to your browser wallet. This example shows how a user could request a credential on ID Wallet, the Auth0 Lab’s developer learning wallet. We will be using a vaccine card in this example, but it could also be an ID, insurance card, employment credential, university degree, professional certification, or membership card.
 
-1.  Browse to [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/)
+1.  Browse to [https://wallet.verifiablecredentials.dev/](https://wallet.verifiablecredentials.dev/)
 
 2.  Click the **+ button** (purple circle) to add a credential
 
@@ -43,13 +43,11 @@ In this task you will add an existing sample credential to your browser wallet. 
 
 6.  Add the credential to your wallet.
 
-7.  Inspect your new credential by clicking it. Inspect the payload of your credential by clicking on the “&lt; &gt;” code-expand, located in the upper-right corner. This code contains the claims, subject, and issuer information, while the proof is present at the bottom. You can learn more about schemas on the [<u>w3c VCs website</u>](http://www.w3.org/TR/vc-data-model-2.0/).
+A credential with a first/last name "Susan Doe" should be displayed there. As we noted at the beginning of this seciton, credentials used in this lab are populated with fake data for demo purposes.
+
+7.  Inspect your new credential by clicking it. Inspect the payload of your credential by clicking on the “&lt; &gt;” code-expand, located in the upper-right corner. This code contains the claims, subject, and issuer information, while the proof is present at the bottom. You can learn more about schemas on the [w3c VCs website](http://www.w3.org/TR/vc-data-model-2.0/).
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/end-user-experience/image1.png" style="width:2.90104in;height:5.3723in" />
-
-8. Click the home icon in the botton bar to navigate to the IDWallet home screen.
-
-A credential with a first/last name "Susan Doe" should be displayed there. As we noted at the beginning of this seciton, credentials used in this lab are populated with fake data for demo purposes.
 
 ::: note
 The credentials issued in this walkthrough are stored locally in the browser. You’ll need to use the same device and browser to have them available in the future.
@@ -57,27 +55,27 @@ The credentials issued in this walkthrough are stored locally in the browser. Yo
 
 ### Present a Credential
 
-This task simulates presenting a credential to an application, but for ease of use we will start it from IDWallet. As a prerequisite, you must have a vaccine credential in your [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/), which you obtained by following the previous section [<u>Obtaining a Credential</u>](#obtaining-a-credential).
+This task simulates presenting a credential to an application, but for ease of use we will start it from ID Wallet. As a prerequisite, you must have a vaccine credential in your [https://wallet.verifiablecredentials.dev/](https://wallet.verifiablecredentials.dev/), which you obtained by following the previous section [Obtaining a Credential](#obtaining-a-credential).
 
-1.  Browse to [<u>https://wallet.verifiablecredentials.dev/</u>](https://wallet.verifiablecredentials.dev/)
+1.  Browse to [https://wallet.verifiablecredentials.dev/](https://wallet.verifiablecredentials.dev/)
 
 2.  Click on your vaccine record from the previous section. Scroll down and click “**Try Presentation Flow.**”
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/end-user-experience/image2.png" style="width:2.53824in;height:4.72112in" />
 
-3.  This will take you to the Auth0 Lab verification tool at [<u>https://present.verifiablecredentials.dev/</u>](https://present.verifiablecredentials.dev/), and populate the presentation request that asks for a credential with the type **VaccineCard**.
+3.  This will take you to the Auth0 Lab Presentation tool at [https://present.verifiablecredentials.dev/](https://present.verifiablecredentials.dev/), and populate the presentation request that asks for a credential with the type **VaccineCard**.
 
     ::: note
-    The “Presentation Request” code requests the wallet to present a credential with the type “VaccineCard”. You can edit that field to request the other types of verifiable credentials. You can find out more about presentation requests at: <a href="https://identity.foundation/presentation-exchange/#input-descriptor"><u>https://identity.foundation/presentation-exchange/#input-descriptor</u></a>.</th>
+    The "Presentation Request" code asks the wallet to present a credential with the type “VaccineCard”. You can edit that field to request other types of verifiable credentials. You can find out more about examples at: <a href="https://identity.foundation/presentation-exchange/#input-descriptor">https://identity.foundation/presentation-exchange/#input-descriptor</a>.
 	  :::
 
-4.  Wait a moment, a QR code will be generated that will request that credential from the wallet; beneath it will be a clickable button with a URL link to continue. If you want, you could set up the vaccine card on your phone, and scan the QR code, but for this walkthrough, just click “**click here to continue**” to use the credential from the previous section.
+4.  Wait a moment, a QR code will be generated that will request that credential from the wallet; beneath it will be a clickable button with a URL link to continue. If you want, you could set up the vaccine card on your phone, and scan the QR code, but for this walkthrough, just click “**Click here to continue**” to use the credential from the previous section.
 
-5.  IDWallet should open with a prompt to present the credential. Present it by clicking “**Present credential**”.
+5.  ID Wallet should open with a prompt to present the credential. Present it by clicking “**Present credential**”.
 
-6.  Once presented, head back to the requester tool, which should still be open in a previous browser tab. A payload should now be available at the bottom of the page.
+6.  Once presented, head back to the Presentation tool, which should still be open in a previous browser tab. A payload should now be available at the bottom of the page.
 
-By the end of this task, the verification tool should have a payload containing the full presentation data from your IDWallet. The payload is validated via the proofs in the presentation.
+By the end of this task, the Presentation tool should have a payload containing the full presentation data from your ID Wallet. The payload is validated via the proofs in the presentation.
 
 It also contains the credential body, which is a portion of the full presentation. You'll need to scroll down in the tool's output to see it:
 ```json
@@ -107,10 +105,10 @@ It also contains the credential body, which is a portion of the full presentatio
 ]
 ```
 
-You can learn more about presentations here: [<u>https://www.w3.org/TR/vc-data-model/#presentations</u>](https://www.w3.org/TR/vc-data-model/#presentations):
+You can learn more about presentations here: [https://www.w3.org/TR/vc-data-model/#presentations](https://www.w3.org/TR/vc-data-model/#presentations):
 
 ### Next Steps
 
-You've seen how a user will interact with verifiable credentials. Let us know how the experience was by leaving us feedback on the [Auth0 Lab Discord](http://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+You've seen how a user will interact with verifiable credentials. Let us know how the experience was by leaving us feedback on our [Discord server](http://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
 
-Now you can start experimenting with the developer side of Verifiable Credentials by [<u>creating your own issuer</u>](/auth0lab/verifiable-credentials/developer-walkthrough-issuance), or by [<u>setting up a verifier</u>](/auth0lab/verifiable-credentials/developer-walkthrough-verification).
+Now you can start experimenting with the developer side of Verifiable Credentials by [configuring your own issuer](/auth0lab/verifiable-credentials/issue-credentials), or by [setting up a verifier](/auth0lab/verifiable-credentials/verify-credentials).
