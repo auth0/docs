@@ -148,13 +148,13 @@ When the user clicks the button to start the flow, a call needs to be made to th
 
 For simplicity, the UI is already wired up to handle calling the backend, the different states, loading, error, etc. You only need to implement the two endpoits where the core logic is handled
 
-#### Createa a presentation request
+#### Create a presentation request
 
 This endpoint starts a **Presentation Request** by making a call to the Auth0 API. The API returns a URL with the presentation request information for the user's wallet to consume.
 
 A **Presentation Request** keeps track in Auth0 that the sample app requested a credential from a user.
 
-1. Create a new folder named **api** inapi the pages folder.
+1. Create a new folder named **api** in the **pages** folder.
 2. Create a new folder named **verify** in the **api** folder you created in the previous step.
 3. Create a new file  named **start.js** in the **pages/api/verify** folder.
 
