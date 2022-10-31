@@ -48,8 +48,8 @@ In the following articles, you will experience Verifiable Credentials from the e
 * [Use Credentials as a user](/auth0lab/verifiable-credentials/end-user-experience):
   * __Obtain a Credential:__ Using a developer wallet that the Auth0 Lab team has set up, you will obtain a vaccine card from a sample institution.
   * __Present a Credential:__ Using a tool developed by Auth0 Lab to request specific types of credentials, you will request your vaccine card from the developer wallet.
-* [Issue credentials](/auth0lab/verifiable-credentials/developer-walkthrough-issuance): Using the Auth0 Lab instance, you will set up a tenant as a credential issuer.
-* [Verify credentials](/auth0lab/verifiable-credentials/developer-walkthrough-verification): Using the Auth0 Lab instance, you will set up a tenant as a credential verifier.
+* [Issue credentials](/auth0lab/verifiable-credentials/issue-credentials): Using the Auth0 Lab instance, you will set up a tenant as a credential issuer.
+* [Verify credentials](/auth0lab/verifiable-credentials/verify-credentials): Using the Auth0 Lab instance, you will set up a tenant as a credential verifier.
 
 ::: note
 If you encounter any issues, please raise them to the Auth0 Labs team by heading to our <a href="https://auth0lab.com/chat" target="_blank">Discord server</a>.
