@@ -1,6 +1,6 @@
 ---
 title: Verify credentials
-editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/developer-walkthrough-verification.md'
+editUrl: 'https://github.com/auth0/docs/edit/auth0lab/articles/auth0lab/verifiable-credentials/verify-credentials.md'
 breadcrumbs:
   - title: Auth0 Lab
     url: /docs/auth0lab
@@ -17,12 +17,12 @@ useCase: auth0lab
 interpolate_es: false
 ---
 
-This article will show you how to configure an Auth0 Lab tenant to act as a verifier for verifiable credentials issued by other issuers. If you get stuck, or have questions, join us on our Discord at [<u>auth0lab.com/chat</u>](http://auth0lab.com/chat).
+This article will show you how to configure an Auth0 Lab tenant to act as a verifier for verifiable credentials issued by other issuers. If you get stuck, or have questions, join us on our [Discord server](https://auth0lab.com/chat).
 
 ### Prerequisites
 
-- Install node.js version 16.x locally. If you do not have Node installed, you can download it here [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
-- Clone the Sample App repo [https://github.com/auth0-lab/hol-verifier-auth0](https://github.com/auth0-lab/hol-verifier-auth0).
+- Install Node.js version 16.x locally. If you do not have Node installed, you can download it here [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
+- Clone the [Sample App repo](https://github.com/auth0-lab/hol-verifier-auth0).
 	```bash
 	git clone git@github.com:auth0-lab/hol-verifier-auth0.git
 	```
@@ -30,7 +30,7 @@ This article will show you how to configure an Auth0 Lab tenant to act as a veri
 	```bash
 	npm i
 	```
-- Have a Vaccine Credential in your IDWallet. You can obtain it following the **Obtaining a Credential** section of the [Verifiable Credentials - User Basics](/auth0lab/verifiable-credentials/end-user-experience) lab.
+- Have a Vaccine Credential in your IDWallet. You can obtain it following the **Obtaining a Credential** section of the [Use Credentials as a user](/auth0lab/verifiable-credentials/end-user-experience) lab.
 
 ### Auth0 Lab Environment Setup
 
@@ -38,12 +38,12 @@ In this section, you will configure your Auth0 Lab tenant with a new application
 
 #### Create an Application
 
-Now, you will create an application within your Auth0 tenant that will receive the verifiable credential API calls from your application.
+Now, you will create an application within your Auth0 Lab tenant that will receive the verifiable credential API calls from your application.
 
-1.  Navigate to the Auth0 Lab instance: [manage.auth0lab.com](http://manage.auth0lab.com), and sign in with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
-2.  Using the left nav go to Applications > Applications.
+1.  Navigate to the [Auth0 Lab instance](https://manage.auth0lab.com), and sign in with your Auth0 account. You will have to accept the terms if this is your first time at manage.auth0lab.com.
+2.  Using the left nav go to **Applications > Applications**.
 3.  Click **+ Create Application**.
-4.  Pick [Regular Web Applications](https://auth0.com/docs/get-started/auth0-overview/create-applications) and click **Create**.
+4.  Pick **Regular Web Applications** and click **Create**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" />
 
@@ -55,9 +55,9 @@ Now, you will create an application within your Auth0 tenant that will receive t
 
 Here you will create a **Verification Template** that verifies credentials of the **VaccineCard** type. A **Verification Template** allows Auth0 to prompt and verify credentials matching a paritcular criteria.
 
-1.  Using the left nav go to Credentials (LAB) > Verification.
+1. Using the left nav go to **Credentials (LAB) > Verification**.
 
-2. Click **Add Verification Template**.
+2. Click **+ Add Verification Template**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image6.png" />
 
@@ -92,9 +92,9 @@ Here you will create a **Verification Template** that verifies credentials of th
 	The filter parameter helps the user's wallet application find the specific credential your application is looking for from the user. In a mature Verifiable Credential ecosystem, a user could have many credentials in a single wallet. You can read more about this specification format [here](https://identity.foundation/presentation-exchange/#input-descriptor).
 	:::
 
-3.  Click **Add Verification Template** to add the template to your Auth0 tenant.
+5.  Click **Add Verification Template** to add the template to your Auth0 Lab tenant.
 
-4.  Copy the **Template ID** that is displayed the Verification Template name and take note of it, as you will use it in another section. The **Template ID** is prefixed **vp_**.
+6.  Copy the **Template ID** that is displayed below the Verification Template name and take note of it, as you will use it in another section. The **Template ID** is prefixed **vp_**.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image5.png" />
 
@@ -102,7 +102,7 @@ Here you will create a **Verification Template** that verifies credentials of th
 
 This section walks you through setting up Auth0 as a verifier in a web application. For this lab, we are using a Next.js application as an example.
 
-You will add code to the sample application you cloned in the [prerequisites](#Prerequisites).
+You will add code to the sample application you cloned in the [prerequisites](#prerequisites).
 
 #### Update the .env file
 
@@ -333,8 +333,8 @@ Back in the app, you will see the JSON contents of the Verifiable Presentation r
 The full completed code for this lab is available on the **endstate** branch of the repo:
 [https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate](https://github.com/auth0-lab/hol-verifier-auth0/tree/endstate)
 
-You have seen how a developer can add verifiable credential verification to their application with Auth0. Let us know how the experience was by leaving us feedback on the Auth0 Lab Discord [https://auth0lab.com/chat](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+You have seen how a developer can add verifiable credential verification to their application with Auth0. Let us know how the experience was by leaving us feedback on our [Discord server](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
 
-If you would like to see a version of this app that does not rely on Auth0 , please checkout this repo: [auth0-lab/hol-verifier-local](https://github.com/auth0-lab/hol-verifier-local).
+If you would like to see a version of this app that does not rely on Auth0, please checkout this repo: [auth0-lab/hol-verifier-local](https://github.com/auth0-lab/hol-verifier-local).
 
 Now you can start experimenting with your own use cases. Let us know what you are building!
