@@ -129,7 +129,7 @@ The code in its current state implements a web server with a simple UI. The UI h
 
 The following high level steps describe how the app works:
 
-1.  When the **Start Presentation Flow with Auth0 Verification** button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the `clientid`, `clientsecret` and `templateid` variables to the API. Auth0 replies with a URL and a `request_id`.
+1.  When the **Start Presentation Flow** button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the `clientid`, `clientsecret` and `templateid` variables to the API. Auth0 replies with a URL and a `request_id`.
 
 ::: note
 The URL is what you would normally encode into a QR code for a wallet application to scan and start the process. In this guide, we'll just display this URL as a clickable link for simplicity.
@@ -307,8 +307,8 @@ event - compiled client and server successfully in 423 ms (173 modules)
 
 2.  Open the application at [http://localhost:3000/](http://localhost:3000/)
 
-3.  Click **Start Presentation Flow with Auth0 Verification**.
-    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image12.png" />
+3.  Click **Start Presentation Flow**.
+    <img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image3.png" />
 
 4.  Once ready, click **HERE**. ID Wallet will open in another tab, where you should have a **VacccineCard** credential in your wallet after following the [pre-requisities](#prerequisites).
 
