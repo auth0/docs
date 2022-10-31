@@ -39,7 +39,7 @@ A typical verifiable credential life cycle follows a sequence similar to the fol
 6. The Verifier cryptographically verifies the VP (it was signed by the Holder and original VC signed by the Issuer) and checks its validity (for example, it hasn't expired). It obtains the holder and Issuer public keys from a Verifiable Data Registry.
 7. __(Optional)__ Finally, for any number of reasons the issuer MAY revoke the credential, or the credential MAY expire (e.g. Past an expiration date).
 
-You can find a more in depth explanation and visual presentation of verifiable credentials at <a href="https://verifiablecredentials.dev/" target="_blank">verifiablecredentials.dev</a>.
+You can find a more in depth explanation and visual presentation of verifiable credentials at [verifiablecredentials.dev](https://verifiablecredentials.dev/).
 
 ### Walkthrough Articles
 
@@ -52,11 +52,11 @@ In the following articles, you will experience Verifiable Credentials from the e
 * [Verify credentials](/auth0lab/verifiable-credentials/verify-credentials): Using the Auth0 Lab instance, you will set up a tenant as a credential verifier.
 
 ::: note
-If you encounter any issues, please raise them to the Auth0 Labs team by heading to our <a href="https://auth0lab.com/chat" target="_blank">Discord server</a>.
+If you encounter any issues, please raise them to the Auth0 Labs team by heading to our [Discord server](https://auth0lab.com/chat).
 :::
 
 ### Next Steps
 
-1. Visit <a href="https://verifiablecredentials.dev/" target="_blank">verifiablecredentials.dev</a> to get a quick overview of verifiable credentials with potential use cases.
+1. Visit [verifiablecredentials.dev](https://verifiablecredentials.dev/) to get a quick overview of verifiable credentials with potential use cases.
 2. Try the [Walkthrough Articles](#walkthrough-articles).
-3. Join the conversation at our <a href="https://auth0lab.com/chat" target="_blank">Discord server</a>.
+3. Join the conversation at our [Discord server](https://auth0lab.com/chat).
