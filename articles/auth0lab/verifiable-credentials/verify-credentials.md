@@ -47,7 +47,7 @@ In this section, you will create an application within your Auth0 tenant that wi
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image8.png" />
 
-5.  Navigate to the **Settings** tab and take note of the **Client ID**, **Client Secret**, as you will use them in another section.
+5.  Navigate to the **Settings** tab and take note of the **Domain**, **Client ID**, **Client Secret**, as you will use them in another section.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-verifier/image4.png" />
 
@@ -112,7 +112,7 @@ Edit the `.env.local` file, and set the missing values:
 Sometimes “.” files are hidden by your system, and you might need to change some settings to see them or open the directory in a code editor
 :::
 
--   `AUTH0_TENANT`: your tenant name followed by `.auth0lab.com`
+-   `AUTH0_DOMAIN`: the **Domain** that you copied in the **Create an application** section
 -   `AUTH0_CLIENT_ID`: the **Client ID** of the application you created in the **Create an application** section
 -   `AUTH0_SECRET`: the **Client Secret** of the application you created in the **Create an application** section
 -   `TEMPLATE_ID`: the  **Template ID** from the template you created above in the **Create a Verification Template** section
@@ -167,12 +167,12 @@ A **Presentation Request** keeps track in Auth0 that the sample app requested a 
 4.  Assign the environment variables from the .env.local file to variables. By default, Next.js parses this file and sets the variables on the `process.env` object.
 
 	```js
-	const AUTH0_TENANT = process.env.AUTH0_TENANT;
+	const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
 	const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID;
 	const AUTH0_SECRET = process.env.AUTH0_SECRET;
 	const TEMPLATE_ID = process.env.TEMPLATE_ID;
 
-	if (!AUTH0_TENANT) throw new Error("AUTH0_TENANT not set");
+	if (!AUTH0_DOMAIN) throw new Error("AUTH0_DOMAIN not set");
 	if (!AUTH0_CLIENT_ID) throw new Error("AUTH0_CLIENT_ID not set");
 	if (!AUTH0_SECRET) throw new Error("AUTH0_SECRET not set");
 	if (!TEMPLATE_ID) throw new Error("TEMPLATE_ID not set");
@@ -198,7 +198,7 @@ A **Presentation Request** keeps track in Auth0 that the sample app requested a 
 
 	```js
 	async function run() {
-	 const result = await fetch(`https://${AUTH0_TENANT}/vcs/presentation-request`, {
+	 const result = await fetch(`https://${AUTH0_DOMAIN}/vcs/presentation-request`, {
 	   method: "post",
 	   headers: {
 	     Accept: "application/json",
@@ -228,12 +228,12 @@ Once a **Presentation Request** has been created, the sample verifier app needs 
 	```js
 	import fetch from "node-fetch";
 
-	const AUTH0_TENANT = process.env.AUTH0_TENANT;
+	const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
 	const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID;
 	const AUTH0_SECRET = process.env.AUTH0_SECRET;
 	const TEMPLATE_ID = process.env.TEMPLATE_ID;
 
-	if (!AUTH0_TENANT) throw new Error("AUTH0_TENANT not set");
+	if (!AUTH0_DOMAIN) throw new Error("AUTH0_DOMAIN not set");
 	if (!AUTH0_CLIENT_ID) throw new Error("AUTH0_CLIENT_ID not set");
 	if (!AUTH0_SECRET) throw new Error("AUTH0_SECRET not set");
 	if (!TEMPLATE_ID) throw new Error("TEMPLATE_ID not set");
@@ -264,7 +264,7 @@ Once a **Presentation Request** has been created, the sample verifier app needs 
 	  if (!id) throw new Error("request_id not found");
 
 	  const result = await fetch(
-	    `https://${AUTH0_TENANT}/vcs/presentation-request/${id}/status`,
+	    `https://${AUTH0_DOMAIN}/vcs/presentation-request/${id}/status`,
 	    {
 	      method: "post",
 	      headers: {
