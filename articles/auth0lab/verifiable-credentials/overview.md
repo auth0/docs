@@ -25,7 +25,7 @@ Here are the key parts of a Verifiable Credential:
 * __subject:__ the entity which claims are made about
 * __issuer:__ the entity that created the credential
 * __claims:__ attributes about the subject that the issuer is asserting
-* __proofs (signature):__ Cryptographic mechanism for establishing authorship and validity
+* __proofs (signature):__ cryptographic mechanism for establishing authorship and validity
 
 ### Verifiable Credential Lifecycle
 
@@ -45,11 +45,11 @@ You can find a more in depth explanation and visual presentation of verifiable c
 
 In the following articles, you will experience Verifiable Credentials from the end user and developer perspectives.
 
-* [End User Walkthroughs](/auth0lab/verifiable-credentials/end-user-experience):
+* [Use Credentials as a user](/auth0lab/verifiable-credentials/end-user-experience):
   * __Obtain a Credential:__ Using a developer wallet that the Auth0 Lab team has set up, you will obtain a vaccine card from a sample institution.
   * __Present a Credential:__ Using a tool developed by Auth0 Lab to request specific types of credentials, you will request your vaccine card from the developer wallet.
-* [Developer Walkthroughs: Issue a Credential using Auth0](/auth0lab/verifiable-credentials/developer-walkthrough-issuance): Using the Auth0 Lab instance of Auth0, you will set up a tenant as a credential issuer.
-* [Developer Walkthrough: Verify a Credential using Auth0](/auth0lab/verifiable-credentials/developer-walkthrough-verification): Using the Auth0 Lab instance of Auth0, you will set up a tenant as a credential verifier.
+* [Issue credentials](/auth0lab/verifiable-credentials/issue-credentials): Using the Auth0 Lab instance, you will set up a tenant as a credential issuer.
+* [Verify credentials](/auth0lab/verifiable-credentials/verify-credentials): Using the Auth0 Lab instance, you will set up a tenant as a credential verifier.
 
 ::: note
 If you encounter any issues, please raise them to the Auth0 Labs team by heading to our [Discord server](https://auth0lab.com/chat).
@@ -59,4 +59,4 @@ If you encounter any issues, please raise them to the Auth0 Labs team by heading
 
 1. Visit [verifiablecredentials.dev](https://verifiablecredentials.dev/) to get a quick overview of verifiable credentials with potential use cases.
 2. Try the [Walkthrough Articles](#walkthrough-articles).
-3. Join the conversation at [our Discord server](https://auth0lab.com/chat).
+3. Join the conversation at our [Discord server](https://auth0lab.com/chat).
