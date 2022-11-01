@@ -7,7 +7,7 @@ topics:
   - django
   - login
 github:
-  path: Quickstart/Sample
+  path: 01-Login
 contentType: tutorial
 useCase: quickstart
 interactive: true
