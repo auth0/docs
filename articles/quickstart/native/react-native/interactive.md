@@ -124,7 +124,7 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.mm` add the following:
 ```
 
 ::: note
-This file will be `ios/<YOUR PROJECT>/AppDelegate.m` in applications using the [old architecture](https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension).
+This file will be `ios/<YOUR PROJECT>/AppDelegate.m` on applications using the [old architecture](https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension).
 :::
 
 Next, add a URLScheme using your App's bundle identifier.
