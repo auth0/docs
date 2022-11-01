@@ -79,7 +79,7 @@ At runtime, the `applicationId` value will automatically update with your applic
 
 ### Configure iOS
 
-In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
+In the file `ios/<YOUR PROJECT>/AppDelegate.mm` add the following:
 
 ```objc
 #import <React/RCTLinkingManager.h>
@@ -90,6 +90,10 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
   return [RCTLinkingManager application:app openURL:url options:options];
 }
 ```
+
+::: note
+This file will be `ios/<YOUR PROJECT>/AppDelegate.m` on applications using the [old architecture](https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension).
+:::
 
 Next, add a URLScheme using your App's bundle identifier.
 
