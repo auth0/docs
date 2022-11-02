@@ -17,18 +17,18 @@ useCase: auth0lab
 navigationIndex: 2
 ---
 
-The content of this article will walk you through the developer experience of generating a new credential type, signed and issued by your Auth0 tenant. It requires you to have an existing Auth0 account. If you do not have one, sign up for it at [auth0.com/signup](https://auth0.com/signup). If you get stuck, or have questions, join us at our [Discord server](https://auth0lab.com/chat).
+The content of this article will walk you through the developer experience of generating a new verifiable credential (VC) type, signed and issued by your Auth0 tenant. It requires you to have an existing Auth0 account. If you do not have one, sign up for it at [auth0.com/signup](https://auth0.com/signup). If you get stuck, or have questions, join us on our [Discord server](https://auth0lab.com/chat).
 
 ### Adding the Credential Template
 
-This section walks you through how to set up a Credential Template for your new verifiable credential. A credential template stores metadata and branding data about your credential.
+This section walks you through how to set up a credential template for your new verifiable credential. A credential template stores metadata and branding data about your credential.
 
 1. Navigate to the [Auth0 Lab instance](https://manage.auth0lab.com), and log in by clicking on **"Continue with your Auth0 account"**. You will have to accept the terms if this is your first time at [manage.auth0lab.com](https://manage.auth0lab.com).
-2. Using the left nav and go to **Credentials (LAB) > Issuance**.
+2. Using the left nav, go to **Credentials (LAB) > Issuance**.
 4. Click **+ Add Credential Template** to create a Credential Template.
 3. Provide the following values for type and a name:
     - **Type:** `UniversityDegreeCredential`.
-	The type will identify the credential to other developers and be included in the credential payload. It's a the string that other entities use to reference this kind of credential.
+	The type will identify the credential to other developers and is included in the credential payload. It is a string that other entities use to reference this kind of credential.
     - **Name:** `Acme University Degree`.
 	The name should be a human-readable string for your Auth0 Lab tenant.
 
@@ -38,18 +38,18 @@ This section walks you through how to set up a Credential Template for your new 
 
 ### Implement the Pre-Credential Issuance Action
 
-To issue a credential to a user, you need to define the claims the credential will have. For that, we will use the Auth0 actions feature, which allows you to write custom code as part of various flows, including credential issuance. We will create an action that takes the user as input and sets the claims to add to the credential.
+To issue a credential to a user, you need to define the claims the credential will have. For that, we will use the [Auth0 actions](https://manage.auth0lab.com/docs/customize/actions) feature, which allows you to write custom code as part of various flows, including credential issuance. We will create an action that takes the user as input and sets the claims to add to the credential.
 
 1. On the left nav, navigate to **Actions > Flows**, then click **Verifiable Credential Issuance**.
 2. You will be presented with an Action Flow. On the right hand navigation, add an action by clicking **+**, then the **Build Custom** option.
-3. Name your action something you'll remember. This action will contain the claim types for your credential, so you can tie your name to your credential type to make editing both easier in the future. The Trigger should be **"Pre Credential Issue"**, the default for this type of Action Flow. Create your action.
+3. Name your action something you will remember. This action will contain the claim types for your credential, so you can tie your name to your credential type to make editing both easier in the future. The Trigger should be **"Pre Credential Issue"**, the default for this type of Action Flow. Create your action.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image2.png" />
 
-4. Provide the following code for the `onExecutePreCredentialIssue` handler that will prepare your credential. This code allows you to define credentials claims and how they'll be populated. The code snippet below sets credential claims from authenticated user's app_metadata.
+4. Provide the following code for the `onExecutePreCredentialIssue` handler that will prepare your credential. This code allows you to define credentials claims and how they will be populated. The code snippet below sets credential claims from authenticated user's app_metadata.
 
 	::: note
-	There is an example below of a working action. You can explore changing the claim fields and source data if you'd like.
+	There is an example below of a working action. You can explore changing the claim fields and source data if you would like.
 
 	You can find examples of actions used for sample issuers [here](https://github.com/auth0-lab/vc-samples/tree/main/sample-issuers).
 	:::
@@ -79,11 +79,11 @@ To issue a credential to a user, you need to define the claims the credential wi
 	};
 	```
 
-5. Click **Deploy** on the top right of the code editor. This will make the action code available for usage and wait for the action to be deployed.
+5. Click **Deploy** on the top right of the code editor. This button will make the action code available for usage. Wait for the action to be deployed.
 
-6. After you set up your action, you'll need to add it to the flow. Navigate back to the verifiable credential issuance flow (step 1), and then click on **Custom** under the **"Add Action"** window. There you should see your newly created custom action.
+6. After you set up your action, you will need to add it to the flow. Navigate back to the verifiable credential issuance flow (step 1), and then click on **Custom** under the **Add Action** window. There you should see your newly created custom action.
 
-7. Drag the action from the right menu and drop it in-between the **Start** and **End** workflow nodes. See the animation below for help on how to do this.
+7. Drag the action from the right menu and drop it in-between the **Start** and **Complete** workflow nodes. See the animation below for help on how to do this operation.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image5.gif" style="border-radius: 7px;border: 1px #8f8f8f solid;"/>
 
@@ -91,7 +91,7 @@ To issue a credential to a user, you need to define the claims the credential wi
 
 9. To accept requests from ID Wallet you need to configure your tenant to accept OIDC Dynamic Clients:
 	- Using the left nav, go to **Settings**. At the top of the page, click the **Advanced** tab.
-	- Scroll down to the **Settings** panel and enable the **"OIDC Dynamic Application Registration"** toggle.
+	- Scroll down to the **Settings** panel and enable the **"IDC Dynamic Application Registration** toggle.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/image6.png" />
 
@@ -123,14 +123,14 @@ If everything was configured correctly, you should see your new credentials show
 
 This section will help you customize how your credential looks in wallets. It will expose claim fields to the user, and provide an on-brand look and feel.
 
-1. Using the left nav and go to **Credentials (LAB) > Issuance** to Navigate back to your credential template from the beginning of the [Adding the credential template](#adding-the-credential-template) section above.
+1. Head back to your Auth0 Lab tenant and using the left nav go to **Credentials (LAB) > Issuance** to navigate back to your credential template from the beginning of the [Adding the credential template](#adding-the-credential-template) section above.
 2. Click **Acme University Degree**. Then open the **Branding** tab.
   	- Set the background color to `#FF4400` and the text color to `#FFFFFF`.
   	- You can optionally add a "Thumbnail URL" and "Hero URL" to give it a fully custom look and feel.
 
 	<img src="https://cdn.auth0.com/docs/auth0lab/vcs/developer-walkthrough-issuer/screenshot-002.png" />
 
-3. You can also customize which fields that show up in the graphic presentation, how they're described to the user, and metadata about the credential by utilizing the __Display__ code box at the bottom of the page. Replace the contents of the **Display** input with the code from the snippet below.
+3. You can also customize which fields that show up in the graphic presentation, how they are described to the user, and metadata about the credential by utilizing the __Display__ code box at the bottom of the page. Replace the contents of the **Display** input with the code from the snippet below.
 	```json
 	{
 	  "title": {
@@ -194,7 +194,7 @@ You can learn more about display descriptors at [https://identity.foundation/cre
 
 ### Create a sample user
 
-We'll now create a sample user that you can use to test the credential. In this lab we use the default [Database Connection](https://auth0.com/docs/authenticate/database-connections) (**Username-Password-Authentication**) that is created when you set up the tenant, but the Verifiable Credentials feature work with all types of connection.
+Now create a sample user that you can use to test the credential. In this lab, use the default [Database Connection](https://auth0.com/docs/authenticate/database-connections) (**Username-Password-Authentication**) that is created when you set up the tenant, but note the Verifiable Credentials features work with all types of connections.
 
 1. Using the left nav go to **User Management > Users**.
 2. Click the **+ Create User** button in the main view.
@@ -219,7 +219,7 @@ We'll now create a sample user that you can use to test the credential. In this 
 5. Click **Save** under the **app_metadata** input to save the changes.
 
 ### Verification
-In this section we'll verify that the credential is being correctly issued and displayed.
+In this section, you will verify that the credential is being correctly issued and displayed.
 
 1. Using the left nav and go to **Credentials (LAB) > Issuance**.
 2. Click **Acme University Degree** to open the details for the credential.
@@ -249,6 +249,6 @@ Open the credential and you will see that the **degree type** and **degree field
 
 ### Next Steps
 
-You've seen how a developer can create a new verifiable credential with Auth0. Let us know how the experience was by leaving us feedback on our [Discord server](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
+You have seen how a developer can create a new verifiable credential with Auth0. Let us know how the experience was by leaving us feedback on our [Discord server](https://auth0lab.com/chat). If you have any issues with any of the steps, you can also bring them up there.
 
 Now you can start experimenting with setting up Auth0 as a [verifier of Verifiable Credentials](/auth0lab/verifiable-credentials/verify-credentials).
