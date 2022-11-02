@@ -15,6 +15,7 @@ topics:
 contentType: how-to
 useCase: auth0lab
 interpolate_es: false
+navigationIndex: 3
 ---
 
 This article will show you how to configure an Auth0 Lab tenant to act as a verifier for verifiable credentials issued by other issuers. If you get stuck, or have questions, join us on our [Discord server](https://auth0lab.com/chat).
