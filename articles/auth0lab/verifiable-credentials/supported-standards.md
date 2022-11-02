@@ -20,16 +20,44 @@ navigationIndex: 4
 
 This document list the supported standards of Verifiable Credentials in the Auth0 Lab instance.
 
--  [Verifiable Credentials Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
--  Credential Formats
+## Auth0 as Issuer
+
+The [OpenID Connect for Verifiable Credential Issuance v1.0-05](https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0-05.html) specification defines an API designated as Credential Endpoint and corresponding OAuth-based authorization mechanisms for issuance of verifiable credentials.
+
+This allows existing OAuth deployments and OpenID Connect OPs (like Auth0) to extend their service and become credential issuers. It also allows new applications built using Verifiable Credentials to utilize OAuth and OpenID Connect as integration and interoperability layer.
+
+#### Supported Standards
+
+-  Specification Draft: [OpenID Connect for Verifiable Credential Issuance v1.0-05](https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0-05.html)
+-  Data Model: [Verifiable Credentials Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
+-  Credential Format:
     - [jwt_vc](https://www.w3.org/TR/vc-data-model/#json-web-token) which uses [RFC7515 - JWS](https://datatracker.ietf.org/doc/html/rfc7515)
-    - [ldp_vc](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html#name-vc-secured-using-data-integ) which uses [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/)
--  [OpenID for Verifiable Credentials Issuance 1.0](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html) for issuance of VCs.
--  [OpenID for Verifiable Credentials Presentations 1.0](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) running on top of [Self-Issued OpenID Provider v2 (SIOP)](https://openid.bitbucket.io/connect/openid-connect-self-issued-v2-1_0.html) as the presentation exchange protocol.
--  Decentralized identifier for Auth0's issuers and verifiers [did:web](https://github.com/w3c-ccg/did-method-web).
--  Supported decentralized identifier for Verifiable Credentials and Presentations: [did:web](https://github.com/w3c-ccg/did-method-web), [did:key](https://w3c-ccg.github.io/did-method-key/), [did:ethr](https://github.com/decentralized-identity/ethr-did-resolver/blob/master/doc/did-method-spec.md), [did:ion](https://identity.foundation/ion/).
--  Credentials issued by Auth0 uses (WIP) [Verifiable Credential Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/)
--  Auth0's issuers support [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration)
+    - [ldp_vc (WIP)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html#name-vc-secured-using-data-integ) which uses [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/)
+-  Decentralized identifier of the issuer: [did:web](https://github.com/w3c-ccg/did-method-web) (did:web:{TENANT}.auth0lab.com)
+-  Supported DID methods for users: [did:web](https://github.com/w3c-ccg/did-method-web), [did:key](https://w3c-ccg.github.io/did-method-key/), [did:ethr](https://github.com/decentralized-identity/ethr-did-resolver/blob/master/doc/did-method-spec.md), [did:ion](https://identity.foundation/ion/)
+-  Status List (WIP): [Verifiable Credential Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/)
+-  DID to origin relationship: [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration)
+
+
+## Auth0 as Verifier
+
+The [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) specification extends OpenID Connect with support for presentation of claims via Verifiable Credentials.
+
+This allows existing relying parties to extend their reach towards claims sources asserting claims in this format. It also allows new applications built using verifiable credentials to utilize OpenID Connect as integration and interoperability layer towards credential holders.
+
+The specification enables requesting and delivery of verifiable presentations in conjunction with Self-Issued OpenID Providers (SIOPv2) as well as traditional OpenID Providers.
+
+#### Supported standards:
+
+-  Specification: [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html)
+-  Data Model: [Verifiable Credentials Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
+-  Credential Format:
+    - [jwt_vc](https://www.w3.org/TR/vc-data-model/#json-web-token) which uses [RFC7515 - JWS](https://datatracker.ietf.org/doc/html/rfc7515)
+    - [ldp_vc (WIP)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html#name-vc-secured-using-data-integ) which uses [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/)
+-  Decentralized identifier of the verifier: [did:web](https://github.com/w3c-ccg/did-method-web) (did:web:{TENANT}.auth0lab.com)
+-  Query language: [Presentation Exchange v2.0](https://identity.foundation/presentation-exchange/)
+-  Supported DID methods for verifiable credentials and presentations: [did:web](https://github.com/w3c-ccg/did-method-web), [did:key](https://w3c-ccg.github.io/did-method-key/), [did:ethr](https://github.com/decentralized-identity/ethr-did-resolver/blob/master/doc/did-method-spec.md), [did:ion](https://identity.foundation/ion/)
+
 
 ## Supported signature algorithms
 
