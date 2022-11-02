@@ -14,6 +14,7 @@ topics:
   - verifiable-presentations
 contentType: how-to
 useCase: auth0lab
+navigationIndex: 2
 ---
 
 The content of this article will walk you through the developer experience of generating a new verifiable credential (VC) type, signed and issued by your Auth0 tenant. It requires you to have an existing Auth0 account. If you do not have one, sign up for it at [auth0.com/signup](https://auth0.com/signup). If you get stuck, or have questions, join us on our [Discord server](https://auth0lab.com/chat).
@@ -52,11 +53,11 @@ To issue a credential to a user, you need to define the claims the credential wi
 
 	You can find examples of actions used for sample issuers [here](https://github.com/auth0-lab/vc-samples/tree/main/sample-issuers).
 	:::
-	
+
 	::: note
 	The string used in the line `if (event.credential.type !== 'UniversityDegreeCredential') {` must match the credential type you set when creating the credential template.
 	:::
-	
+
 	```js
 	exports.onExecutePreCredentialIssue = async (event, api) => {
 	  if (event.credential.type !== 'UniversityDegreeCredential') {
@@ -122,7 +123,7 @@ If everything was configured correctly, you should see your new credentials show
 
 This section will help you customize how your credential looks in wallets. It will expose claim fields to the user, and provide an on-brand look and feel.
 
-1. Head back to your Auth0 Lab tenante and using the left nav and go to **Credentials (LAB) > Issuance** to navigate back to your credential template from the beginning of the [Adding the credential template](#adding-the-credential-template) section above. 
+1. Head back to your Auth0 Lab tenante and using the left nav and go to **Credentials (LAB) > Issuance** to navigate back to your credential template from the beginning of the [Adding the credential template](#adding-the-credential-template) section above.
 2. Click **Acme University Degree**. Then open the **Branding** tab.
   	- Set the background color to `#FF4400` and the text color to `#FFFFFF`.
   	- You can optionally add a "Thumbnail URL" and "Hero URL" to give it a fully custom look and feel.
