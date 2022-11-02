@@ -17,27 +17,27 @@ useCase: auth0lab
 navigationIndex: 0
 ---
 
-We are all used to physical credentials, driver licenses, passports, credit cards, etc. They all have data (claims) made by an issuer (Driver’s License government authority, state department, bank) about a subject. Verifiable credentials (VCs) are digital, cryptographically verifiable versions of these credentials. This means they can be stored on digital devices, and you can use cryptography to verify their validity.
+We are all used to physical credentials, driver licenses, passports, credit cards, etc. They all have data (claims) made by an issuer (driver’s license government authority, state department, bank) about a subject. Verifiable Credentials (VCs) are digital, cryptographically verifiable versions of these credentials. This means they can be stored on digital devices, and you can use cryptography to verify their data.
 
 Here are the key parts of a Verifiable Credential:
 
-* __holder:__ the entity that controls the credential, most often this is the subject
-* __subject:__ the entity which claims are made about
-* __issuer:__ the entity that created the credential
-* __claims:__ attributes about the subject that the issuer is asserting
-* __proofs (signature):__ cryptographic mechanism for establishing authorship and validity
+* __Holder:__ the entity that controls the credential, most often this is the Subject
+* __Subject:__ the entity which claims are made about
+* __Issuer:__ the entity that created the credential
+* __Claims:__ attributes about the Subject that the Issuer is asserting
+* __Proofs (signature):__ cryptographic mechanism for establishing authorship and validity
 
 ### Verifiable Credential Lifecycle
 
-A typical verifiable credential life cycle follows a sequence similar to the following:
+A typical Verifiable Credential life cycle follows a sequence similar to the following:
 
 1. A user (often the Subject) requests or is given a credential from an Issuer.
 2. The Issuer includes data about the Subject in a digital credential, including the Subject's identifier.
 3. The Issuer signs the VC with its private key.
 4. The user receives the VC and stores it in a digital wallet, becoming the Holder. The digital wallet allows users to store and present VCs of any type.
-5. Later, the Holder is using an application that wants to verify the Holder has a particular VC. The Holder uses the digital wallet to present the credential to the Verifier, signing a Verifiable Presentation (VP) with the Holder’s private key.
-6. The Verifier cryptographically verifies the VP (it was signed by the Holder and original VC signed by the Issuer) and checks its validity (for example, it hasn't expired). It obtains the holder and Issuer public keys from a Verifiable Data Registry.
-7. __(Optional)__ Finally, for any number of reasons the issuer MAY revoke the credential, or the credential MAY expire (e.g. Past an expiration date).
+5. Later, the Holder encounters an application that wants to verify that the Holder has a particular VC. The Holder uses the digital wallet to present the credential to the Verifier, and signs a Verifiable Presentation (VP) with the Holder’s private key.
+6. The Verifier cryptographically verifies the VP (it was signed by the Holder and original VC signed by the Issuer) and checks its validity (for example, it hasn't expired). It obtains the Holder and Issuer public keys from a Verifiable Data Registry.
+7. __(Optional)__ Finally, for any number of reasons the Issuer MAY revoke the credential, or the credential MAY expire (e.g. Past an expiration date).
 
 You can find a more in depth explanation and visual presentation of verifiable credentials at [verifiablecredentials.dev](https://verifiablecredentials.dev/).
 
