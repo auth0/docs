@@ -25,7 +25,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the Auth0 Domain from the settings page.
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of the Auth0 domain from the settings page.
 
 #### iOS
 
@@ -39,14 +39,14 @@ YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callbac
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
-E.g. if your iOS bundle identifier was `com.company.myapp` and your Auth0 Domain was `company.us.auth0.com`, then this value would be:
+For example, if your iOS bundle identifier was `com.example.MyApp` and your Auth0 domain was `example.us.auth0.com`, then this value would be:
 
 ```text
-com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
+com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 
 ::: warning
-Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
+Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**, and that the **Token Endpoint Authentication Method** setting is set to `None`. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
 :::
 
 ### Configure a Custom URL Scheme
@@ -109,7 +109,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 ## Configure the SDK
 
-The Auth0.swift SDK needs the **Client ID** and **Domain** of the Auth0 application to communicate with Auth0. You can find these details in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application. If you are using a [Custom Domain](/customize/custom-domains), use the value of your Custom Domain instead of the value from the settings page.
+The Auth0.swift SDK needs the **Client ID** and **domain** of the Auth0 application to communicate with Auth0. You can find these details in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of the value from the settings page.
 
 <% if(typeof hideDashboardScreenshot === 'undefined' || hideDashboardScreenshot !== true) { %>
 ![App Dashboard](/media/articles/dashboard/client_settings.png)
@@ -138,7 +138,7 @@ You can also configure the SDK programmatically. Check the [README](https://gith
 :::
 
 ::: panel Checkpoint
-Now that you have configured Auth0.swift with the Client ID and Domain, run your application to verify that it is not producing any errors related to the SDK.
+Now that you have configured Auth0.swift with the Client ID and domain, run your application to verify that it is not producing any errors related to the SDK.
 :::
 
 ## Login
@@ -199,7 +199,7 @@ Verify that pressing the **Logout** button shows an alert box asking for consent
 
 ## Access User Profile Information
 
-The `Credentials` instance you obtained after logging in includes an [ID Token](/secure/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your application.
+The `Credentials` instance you obtained after logging in includes an [ID Token](/secure/tokens/id-tokens). The ID Token contains the profile information associated with the logged-in user, such as their email and profile picture. You can use these details to personalize the user interface of your application.
 
 The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID Token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information.
 
@@ -218,11 +218,11 @@ print("Picture URL: \(picture)")
 ```
 
 ::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [EXAMPLES](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
 :::
 
 ::: panel Checkpoint
-Verify that you can access the `name`, `picture`, or any other [claim](/secure/tokens/id-tokens/id-token-structure) after you have logged in.
+Verify that you can access the `email`, `picture`, or any other [claim](/secure/tokens/id-tokens/id-token-structure) after you have logged in.
 :::
 
 ## What's Next?
