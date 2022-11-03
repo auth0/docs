@@ -30,7 +30,6 @@ const apis = `:api(${apiNames.join('|')})`;
 
 const redirects = [
   /* MISCELLANEOUS AND OUTDATED  */
-
   {
     from: [
       '/addons',
