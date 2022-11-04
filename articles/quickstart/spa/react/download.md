@@ -23,7 +23,6 @@ You can also run it from a [Docker](https://www.docker.com) image with the follo
 ```bash
 # In Linux / macOS
 sh exec.sh
-
 # In Windows' Powershell
 ./exec.ps1
 ```
