@@ -41,7 +41,7 @@ This allows existing OAuth deployments and OpenID Connect OPs (like Auth0) to ex
 
 ## Auth0 as Verifier
 
-The [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) specification extends OpenID Connect with support for presentation of claims via Verifiable Credentials.
+The [OpenID for Verifiable Presentations v1.0-10](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-10.html) specification extends OpenID Connect with support for presentation of claims via Verifiable Credentials.
 
 This allows existing relying parties to extend their reach towards claims sources asserting claims in this format. It also allows new applications built using verifiable credentials to utilize OpenID Connect as integration and interoperability layer towards credential holders.
 
@@ -49,13 +49,13 @@ The specification enables requesting and delivery of verifiable presentations in
 
 #### Supported standards:
 
--  Specification: [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html)
+-  Specification: [OpenID for Verifiable Presentations v1.0-10](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-10.html) and [Self-Issued OpenID Provider v2 (SIOPv2)](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 -  Data Model: [Verifiable Credentials Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
 -  Credential Format:
     - [jwt_vc](https://www.w3.org/TR/vc-data-model/#json-web-token) which uses [RFC7515 - JWS](https://datatracker.ietf.org/doc/html/rfc7515)
     - [ldp_vc (WIP)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html#name-vc-secured-using-data-integ) which uses [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/)
 -  Decentralized identifier of the verifier: [did:web](https://github.com/w3c-ccg/did-method-web) (did:web:{TENANT}.auth0lab.com)
--  Query language: [Presentation Exchange v2.0](https://identity.foundation/presentation-exchange/)
+-  Query language: Presentation Exchange [v1.0](https://identity.foundation/presentation-exchange/spec/v1.0.0/) and [v2.0](https://identity.foundation/presentation-exchange/spec/v2.0.0/)
 -  Supported DID methods for verifiable credentials and presentations: [did:web](https://github.com/w3c-ccg/did-method-web), [did:key](https://w3c-ccg.github.io/did-method-key/), [did:ethr](https://github.com/decentralized-identity/ethr-did-resolver/blob/master/doc/did-method-spec.md), [did:ion](https://identity.foundation/ion/)
 
 
