@@ -482,6 +482,10 @@ const redirects = [
     to: '/authenticate/identity-providers/enterprise-identity-providers/oidc',
   },
   {
+    from: ['/connections/enterprise/okta'],
+    to: '/authenticate/identity-providers/enterprise-identity-providers/okta',
+  },
+  {
     from: ['/paypal-clientid', '/connections/social/paypal'],
     to: 'https://marketplace.auth0.com/integrations/paypal-social-connection',
   },
