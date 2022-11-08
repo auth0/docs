@@ -35,7 +35,7 @@ To use Auth0 services, you need an application set up in the Auth0 Dashboard. Th
 
 ### Configure an Auth0 application
 
-Use the interactive selector to create a new Auth0 application or select an existing application of the iOS or macOS app you want to integrate. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.
+Use the interactive selector to create a new Auth0 application or select an existing **Native** Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.
 
 Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
 
@@ -59,10 +59,10 @@ YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callbac
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
-For example, if your iOS bundle identifier was `com.company.myapp` and your Auth0 tenant's domain was `company.us.auth0.com`, then this value would be:
+For example, if your iOS bundle identifier was `com.example.MyApp` and your Auth0 domain was `example.us.auth0.com`, then this value would be:
 
 ```text
-com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
+com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 
 ## Configure your app
@@ -128,7 +128,7 @@ The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find 
 - **domain**: The domain of your Auth0 tenant. If you are using a [custom domain](/customize/custom-domains), you should set this to the value of your custom domain instead.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
 
-Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 Domain and Client ID values. 
+Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 domain and Client ID values. 
 
 ::: note
 You can also configure the SDK programmatically. Check the [README](https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically) to learn more.
@@ -143,7 +143,7 @@ You configured the Auth0.swift SDK. Run your app to verify that it is not produc
 If your application produces errors related to the SDK:
 - Make sure you selected the correct Auth0 application
 - Verify you saved your URL updates
-- Ensure you set the Auth0 Domain and Client ID correctly
+- Ensure you set the Auth0 domain and Client ID correctly
 
 Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -171,7 +171,7 @@ Press the **Login** button and verify that:
 :::checkpoint-failure
 If login fails or produces errors:
 - Verify you entered the correct callback URL
-- Ensure you set the Auth0 Domain and Client ID correctly
+- Ensure you set the Auth0 domain and Client ID correctly
 
 Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -192,7 +192,7 @@ Press the **Logout** button and verify that:
 :::checkpoint-failure
 If logout fails or produces errors:
 - Verify you entered the correct callback URL
-- Ensure you set the Auth0 Domain and Client ID correctly
+- Ensure you set the Auth0 domain and Client ID correctly
 
 Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -200,12 +200,12 @@ Still having issues? Check out our [documentation](https://github.com/auth0/Auth
 
 ## Access user profile information {{{ data-action=code data-code="User.swift#11:14" }}}
 
-The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their name or profile picture. You can use these details to personalize the user interface of your app.
+The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their email and profile picture. You can use these details to personalize the user interface of your app.
 
 The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID token and access the claims it contains.
 
 ::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [README](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [EXAMPLES](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
 :::
 
 ::::checkpoint
@@ -215,9 +215,9 @@ Verify that you can access the `email`, `picture`, or any other [claim](/secure/
 
 :::checkpoint-failure
 If you cannot access the user information:
-- Verify you imported the `JWTDecode` module when you invoke `decode(jwt:)` method
+- Verify you imported the `JWTDecode` module where you invoke the `decode(jwt:)` method
 - Make sure you spelled your claims correctly
 
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community forums](https://community.auth0.com) to get more help.
 :::
 ::::
