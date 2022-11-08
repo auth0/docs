@@ -63,7 +63,7 @@ composer require auth0/login
 Create the SDK's configuration file from the project's root directory. Use Laravel's the `vendor:publish` command to import the configuration file into the application:
 
 ```sh
-php artisan vendor:publish --tag=auth0-config
+php artisan vendor:publish --tag auth0-config
 ```
 
 Now, configure your Auth0 integration by adding options to the `.env` file in the project's root directory. Open the `.env` file to add essential details for your project.
