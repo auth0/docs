@@ -94,21 +94,52 @@ The minimum target platform supported by the SDK is **iOS 12**.
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
-Integrate Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
-
-See this example of a `ElevatedButton` widget that logs the user in when clicked:
+Integrate Auth0 Universal Login in your Flutter app by importing the SDK and instantiating the `Auth0` class using your Auth0 domain and Client ID values. See this example, which instantiates the class inside a widget state object:
 
 ```dart
-ElevatedButton(
-  onPressed: () async {
-    final credentials =
-        await auth0.webAuthentication().login();
+import 'package:auth0_flutter/auth0_flutter.dart';
 
-    setState(() {
-      _credentials = credentials;
-    });
-  },
-  child: const Text("Log in"))
+class MainView extends StatefulWidget {
+  const MainView({Key? key}) : super(key: key);
+
+  @override
+  State<MainView> createState() => _MainViewState();
+}
+
+class _MainViewState extends State<MainView> {
+  Credentials? _credentials;
+
+  late Auth0 auth0;
+
+  @override
+  void initState() {
+    super.initState();
+    auth0 = Auth0('${account.namespace}', '${account.clientId}');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // ...
+  }
+}
+```
+
+Next, redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens. See this example of a `ElevatedButton` widget that logs the user in when clicked. Note that `_credentials` is used to determine locally within your app whether or not a user is signed in:
+
+```dart
+if (_credentials == null) {
+  ElevatedButton(
+    onPressed: () async {
+      final credentials =
+          await auth0.webAuthentication().login();
+
+      setState(() {
+        _credentials = credentials;
+      });
+    },
+    child: const Text("Log in")
+  )
+}
 ```
 
 **Android**: if you are using a custom scheme, pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
@@ -142,7 +173,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
-See this example of an `ElevatedButton` widget that logs the user out of the app:
+See this example of an `ElevatedButton` widget that logs the user out of the app. Note that `_credentials` is set to `null`, indicating that the user is no longer signed in to your app:
 
 ```dart
 ElevatedButton(
