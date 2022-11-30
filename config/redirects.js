@@ -352,7 +352,7 @@ const redirects = [
     to: '/quickstart/spa',
   },
   {
-    from: ['/quickstart', '/quickstart/',],
+    from: ['/quickstart', '/quickstart/'],
     to: '/quickstarts',
   },
   {
