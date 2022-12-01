@@ -41,7 +41,7 @@ This allows existing OAuth deployments and OpenID Connect OPs (like Auth0) to ex
 
 ## Auth0 as Verifier
 
-The [OpenID for Verifiable Presentations v1.0-10](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-10.html) specification extends OpenID Connect with support for presentation of claims via Verifiable Credentials.
+The [OpenID for Verifiable Presentations ID1](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-ID1.html) specification extends OpenID Connect with support for presentation of claims via Verifiable Credentials.
 
 This allows existing relying parties to extend their reach towards claims sources asserting claims in this format. It also allows new applications built using verifiable credentials to utilize OpenID Connect as integration and interoperability layer towards credential holders.
 
@@ -49,7 +49,7 @@ The specification enables requesting and delivery of verifiable presentations in
 
 #### Supported standards:
 
--  Specification: [OpenID for Verifiable Presentations v1.0-10](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-10.html) and [Self-Issued OpenID Provider v2 (SIOPv2)](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
+-  Specification: [OpenID for Verifiable Presentations ID1 (OpenID4VP ID1)](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-ID1.html) and [Self-Issued OpenID Provider v2 (SIOPv2)](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 -  Data Model: [Verifiable Credentials Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
 -  Credential Format:
     - [jwt_vc](https://www.w3.org/TR/vc-data-model/#json-web-token) which uses [RFC7515 - JWS](https://datatracker.ietf.org/doc/html/rfc7515)
