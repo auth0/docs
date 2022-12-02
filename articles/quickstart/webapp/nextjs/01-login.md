@@ -75,7 +75,7 @@ On the frontend side, the SDK uses React Context to manage the authentication st
 ```jsx
 // pages/_app.js
 import React from 'react';
-import { UserProvider } from '@auth0/nextjs-auth0';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -132,7 +132,7 @@ The Auth0 Next.js SDK helps you retrieve the [profile information](https://auth0
 
 ```jsx
 import React from 'react';
-import { useUser } from '@auth0/nextjs-auth0';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
