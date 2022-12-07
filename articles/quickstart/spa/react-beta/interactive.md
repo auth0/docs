@@ -34,7 +34,7 @@ Install the Auth0 React SDK by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
-npm install @auth0/auth0-react
+npm install @auth0/auth0-react@beta
 ```
 
 ### Configure the Auth0Provider component
