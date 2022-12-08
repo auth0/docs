@@ -129,7 +129,7 @@ With the Options API, you can use the same `logout` method from the global `$aut
 :::checkpoint-default
 
 Run your application and click the logout button, verify that:
-* your Vue application redirects you to the `authorizationParams.returnTo` address
+* your Vue application redirects you to the `logoutParams.returnTo` address
 * you are no longer logged in to your application
 
 :::
