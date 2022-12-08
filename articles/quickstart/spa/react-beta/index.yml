@@ -38,7 +38,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-react-samples
-  branch: master
+  branch: beta
 requirements:
   - React 16.8
 next_steps:

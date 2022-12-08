@@ -78,7 +78,7 @@ export default LoginButton;
 :::panel Checkpoint
 Add the `LoginButton` component to your application. When you click it, verify that your React application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
 
-Once that's complete, verify that Auth0 redirects you to your application using the value of the `authorizationParams.redirectUri` that you used to configure the `Auth0Provider`.
+Once that's complete, verify that Auth0 redirects you to your application using the value of the `authorizationParams.redirect_uri` that you used to configure the `Auth0Provider`.
 :::
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
