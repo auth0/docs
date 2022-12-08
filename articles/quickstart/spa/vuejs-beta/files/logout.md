@@ -20,7 +20,7 @@ language: html
       return {
         logout() {
           auth0.logout({ 
-            authorizationParams: { 
+            logoutParams: { 
               returnTo: window.location.origin 
             } 
           });
@@ -34,7 +34,7 @@ language: html
     methods: {
       logout() {
         this.$auth0.logout({ 
-          authorizationParams: { 
+          logoutParams: { 
             returnTo: window.location.origin 
           } 
         });

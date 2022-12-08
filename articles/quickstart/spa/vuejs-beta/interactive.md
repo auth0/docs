@@ -97,7 +97,7 @@ You should now be able to log in using Auth0 Universal Login.
 Click the login button and verify that:
 * your Vue application redirects you to the Auth0 Universal Login page
 * you can log in or sign up
-* Auth0 redirects you to your application using the value of the `redirect_uri` you used to configure the plugin.
+* Auth0 redirects you to your application using the value of the `authorizationParams.redirect_uri` you used to configure the plugin.
 
 :::
 
@@ -136,7 +136,7 @@ Run your application and click the logout button, verify that:
 
 :::checkpoint-failure
 If you are not able to logout:
-* Verify you specified a value for `authorizationParams.returnTo` when calling `logout`
+* Verify you specified a value for `logoutParams.returnTo` when calling `logout`
 * Verify the Allowed Logout URLs in your Application Settings contains the `returnTo` value.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
