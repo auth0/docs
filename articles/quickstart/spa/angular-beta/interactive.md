@@ -76,7 +76,7 @@ Run your application, and select the login button. Verify that:
 :::checkpoint-failure
 Sorry about that. Here are a few things to double check:
 
-- make sure you configured the correct `redirect_uri`
+- make sure you configured the correct `authorizationParams.redirect_uri`
 - make sure you added the `LoginButtonComponent` button to the module's declarations
 
 Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).

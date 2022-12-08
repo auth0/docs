@@ -124,7 +124,7 @@ export class AuthButtonComponent {
 Specify the `returnTo` option when calling `logout` to tell Auth0 where it should redirect to after a successful logout. This value must be specified in [the **Allowed Logout URLs** setting](#configure-logout-urls) in the dashboard.
 
 :::note
-Here we use `http://localhost:4200` as the value for `returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
+Here we use `http://localhost:4200` as the value for `logoutParams.returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
 :::
 
 :::panel Checkpoint
