@@ -53,7 +53,7 @@ cd ios
 pod install
 ```
 
-First, you must provide a way for your users to log in. We recommend useing the Auth0 hosted [login page](/hosted-pages/login).
+First, you must provide a way for your users to log in. We recommend using the Auth0 hosted [login page](/hosted-pages/login).
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
