@@ -352,8 +352,8 @@ const redirects = [
     to: '/quickstart/spa',
   },
   {
-    from: '/quickstart',
-    to: '/',
+    from: ['/quickstart', '/quickstart/'],
+    to: '/quickstarts',
   },
   {
     from: '/quickstart/backend/golang/00-getting-started',
