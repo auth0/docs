@@ -44,6 +44,9 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: '${account.namespace}',
       clientId: '${account.clientId}'
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
     }),
   ],
 
@@ -52,7 +55,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 export class AppModule {}
 ```
 
-We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
+We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
