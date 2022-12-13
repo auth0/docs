@@ -48,7 +48,7 @@ The SDK exports `AuthModule`, which is a module that contains all the services r
 3. Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array.
 4. Inject `AuthService` into `AppComponent`.
 
-To configure the module, we use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern), which takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0.
+To configure the module, we use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern), which takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
