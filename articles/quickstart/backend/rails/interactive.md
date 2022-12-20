@@ -11,7 +11,8 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
-  - files/json_web_token
+  - files/application_controller
+  - files/auth0_client
   - files/secured
   - files/public
   - files/private
