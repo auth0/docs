@@ -159,5 +159,5 @@ Your application will show an empty JSON object if you have not set any `user_me
 Please refer to the the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
 
 :::note
-For a deep dive into making secure calls to an API from Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/#Calling-an-API). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
+For a deep dive into making secure calls to an API from Angular, visit the [Call a Protected API from Angular](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#call-a-protected-api-from-angular). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
 :::

@@ -157,5 +157,5 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 ::::
 
 :::note
-For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides information for additional tasks, like creating a signup button.
+For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides information for additional tasks, like creating a signup button.
 :::

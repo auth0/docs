@@ -105,3 +105,6 @@ There are many ways to make HTTP calls with Vue. Here is an example using the `f
   };
 </script>
 ```
+:::note
+For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example: Call an API.](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+:::

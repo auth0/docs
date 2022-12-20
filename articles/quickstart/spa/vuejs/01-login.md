@@ -24,3 +24,7 @@ This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0
 <%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
 <%= include('_includes/_centralized_login') %>
+
+:::note
+For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+:::
