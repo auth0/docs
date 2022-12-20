@@ -21,7 +21,7 @@ useCase: quickstart
 
 ### Install dependencies
 
-This tutorial performs Access Token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming Access Token.
+This tutorial performs access token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
 
 Install the **jwt** Gem.
 
@@ -32,7 +32,7 @@ bundle install
 
 ### Create an Auth0Client class
 
-Create a class called `Auth0Client` which decodes and verifies the incoming Access Token taken from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
+Create a class called `Auth0Client` which decodes and verifies the incoming access token taken from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
 
 ```rb
 # app/lib/auth0_client.rb
@@ -58,7 +58,7 @@ class Auth0Client
                  algorithm: 'RS256',
                  iss: domain_url,
                  verify_iss: true,
-                 aud: Rails.configuration.auth0.audience.to_s,
+                 aud: Rails.configuration.auth0.audience,
                  verify_aud: true,
                  jwks: { keys: jwks_hash[:keys] }
                })
@@ -66,7 +66,7 @@ class Auth0Client
 
   def self.get_jwks
     jwks_uri = URI("#{domain_url}.well-known/jwks.json")
-    jwks_response = Net::HTTP.get_response jwks_uri
+    Net::HTTP.get_response jwks_uri
   end
 
   # Token Validation 
@@ -92,7 +92,7 @@ end
 
 ### Define a Secured concern
 
-Create a Concern called `Secured` which looks for the Access Token in the `Authorization` header of an incoming request. If the token is present, it should be passed to `Auth0Client.validate_token`.
+Create a Concern called `Secured` which looks for the access token in the `Authorization` header of an incoming request. If the token is present, it should be passed to `Auth0Client.validate_token`.
 
 ```rb
 # app/controllers/concerns/secured.rb
@@ -121,7 +121,7 @@ module Secured
     
     return unless (error = validation_response.error)
     
-    render json: {message: error.message}, status: error.status
+    render json: { message: error.message }, status: error.status
   end
 
   private
@@ -146,9 +146,9 @@ end
 
 ### Validate scopes
 
-The `Auth0Client.validate_token` method above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `Auth0Client.validate_token` method above verifies that the access token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-To look for a particular `scope` in an Access Token, create a new struct in your `Auth0Client` class called `Token` and define a new method inside, `validate_permissions`, that given an array of required scopes it will check if they are present in the payload of the token.
+To look for a particular `scope` in an access token, create a new struct in your `Auth0Client` class called `Token` and define a new method inside, `validate_permissions`, that given an array of required scopes it will check if they are present in the payload of the token.
 
 Go to the `Auth0Client` class. Add the new `Token` struct and update the return value of the `validate_token` method as follows: 
 
@@ -225,7 +225,7 @@ module Secured
 
     validation_response = Auth0Client.validate_token(token)
 
-    @decoded_token = validation_response.decoded_token
+    @decoded_token = validation_response.decoded_token # Add this line
 
     return unless (error = validation_response.error)
 
@@ -266,7 +266,7 @@ class PrivateController < ApplicationController
 end
 ```
 
-In order to check that your Access Token has the right permissions, call the `validate_permissions` method as follows in the `private-scoped` action: 
+In order to check that your access token has the right permissions, call the `validate_permissions` method as follows in the `private-scoped` action:
 
 ```ruby
 class PrivateController < ApplicationController

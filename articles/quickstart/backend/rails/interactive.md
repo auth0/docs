@@ -19,7 +19,7 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add authorization to a Ruby on Rails API
-This tutorial performs Access Token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming Access Token.
+This tutorial performs access token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
 
 If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
 
@@ -70,7 +70,7 @@ The `/public` endpoint does not require any authorization so no `before_action` 
 
 Create a controller to handle the private endpoints: `/api/private` and `/api/private-scoped`. 
 
-`/api/private` is available for authenticated requests containing an Access Token with no additional scopes.
+`/api/private` is available for authenticated requests containing an access token with no additional scopes.
 
 `/api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope granted
 
