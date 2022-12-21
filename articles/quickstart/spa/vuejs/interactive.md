@@ -20,6 +20,10 @@ files:
   - files/profile
 ---
 
+:::note
+For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+:::
+
 # Add login to your Vue app
 
 Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.

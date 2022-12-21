@@ -11,6 +11,10 @@ github:
   path: Sample-01
 ---
 
+:::note
+For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides information for additional tasks, like creating a signup button.
+:::
+
 # Add Login to Your Angular App
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
@@ -155,7 +159,3 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 :::
 
 ::::
-
-:::note
-For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides information for additional tasks, like creating a signup button.
-:::
