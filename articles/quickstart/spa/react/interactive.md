@@ -11,6 +11,9 @@ github:
   path: Sample-01
 ---
 
+:::note
+For a deep dive into implementing user authentication in React, visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+
 # Add Login to your React App
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any React application using the Auth0 React SDK.
