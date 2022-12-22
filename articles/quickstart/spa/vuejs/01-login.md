@@ -21,7 +21,7 @@ useCase: quickstart
 This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead.
 :::
 :::note
-For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
 :::
 
 <%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
