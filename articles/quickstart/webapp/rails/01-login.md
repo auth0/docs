@@ -128,7 +128,7 @@ class Auth0Controller < ApplicationController
   # ..Insert the code below
   def logout
     reset_session
-    redirect_to logout_url
+    redirect_to logout_url # in Rails 7: redirect_to logout_url, allow_other_host: true
   end
 
   private
