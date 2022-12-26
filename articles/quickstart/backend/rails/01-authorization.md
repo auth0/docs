@@ -61,10 +61,7 @@ class JsonWebToken
       jwks_keys
       .map do |k|
         [
-          k['kid'],
-          OpenSSL::X509::Certificate.new(
-            Base64.decode64(k['x5c'].first)
-          ).public_key
+          k['kid'], JWT::JWK.import(k).keypair
         ]
       end
     ]
