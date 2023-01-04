@@ -157,4 +157,3 @@ Your application will show an empty JSON object if you have not set any `user_me
 :::
 
 Please refer to the the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
-

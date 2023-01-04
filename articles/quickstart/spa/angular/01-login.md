@@ -14,6 +14,9 @@ useCase: quickstart
 ---
 
 <!-- markdownlint-disable MD002 MD034 MD041 -->
+:::note
+For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides you with additional details, such as creating a signup button.
+:::
 
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
@@ -157,4 +160,3 @@ The `user$` observable contains sensitive information and artifacts related to t
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::
-
