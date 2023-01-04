@@ -21,7 +21,7 @@ files:
 ---
 
 :::note
-For a deep dive into implementing user authentication in Vue, visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/) guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
 :::
 
 # Add login to your Vue app
