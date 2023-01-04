@@ -18,6 +18,10 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+:::note
+Visit the [Call a Protected API from Angular](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#call-a-protected-api-from-angular) section of the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into calling a protected API from Angular. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+:::
+
 <%= include('../_includes/_calling_api_preamble_api2") %>
 
 This article builds upon [the previous chapter](/quickstart/spa/angular-next), adding the capability to automatically attach an access token to outgoing requests made using Angular's built-in `HttpClient` service.

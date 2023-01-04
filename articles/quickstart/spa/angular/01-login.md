@@ -14,8 +14,9 @@ useCase: quickstart
 ---
 
 <!-- markdownlint-disable MD002 MD034 MD041 -->
+
 :::note
-For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides you with additional details, such as creating a signup button.
+Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button and add route guards to an Angular application.
 :::
 
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
