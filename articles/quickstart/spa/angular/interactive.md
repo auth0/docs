@@ -12,7 +12,7 @@ github:
 ---
 
 :::note
-For a deep dive into implementing user authentication in Angular, visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication). This guide provides information for additional tasks, like creating a signup button.
+Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
 :::
 
 # Add Login to Your Angular App
