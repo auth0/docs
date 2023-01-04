@@ -15,7 +15,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 :::note
-For a deep dive into implementing user authentication in React, visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button and add route guards using React Router.
 :::
 
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
