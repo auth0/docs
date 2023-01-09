@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Copy your recovery code for safe keeping | <%= "${clientName}" %>|`pageTitle`|
 |Almost There!|`title`|
 |Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|`description`|
 |Secure code to copy|`altText`|
@@ -26,7 +26,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Enter your recovery code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Verify Your Identity|`title`|
 |Enter the recovery code you were provided during your initial enrollment.|`description`|
 |Continue|`buttonText`|
@@ -35,7 +35,6 @@
 |<%= "${companyName}" %>|`logoAltText`|
 |The code you entered is invalid|`invalid-code`|
 |Recovery code must have 24 alphanumeric characters|`invalid-code-format`|
-|Invalid or expired user code|`invalid-expired-code`|
 |We couldn't verify the code. Please try again later.|`authenticator-error`|
 |Please confirm you have recorded the code|`no-confirmation`|
 |Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|

@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Device Activation|`pageTitle`|
+|Enter your device code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Continue|`buttonText`|
 |Enter the code displayed on your device|`description`|
 |Enter your one-time code|`placeholder`|
@@ -26,7 +26,7 @@
 
 |Text|Key|
 |----------|----------|
-|Device Activation|`pageTitle`|
+|Login successful | <%= "${clientName}" %>|`pageTitle`|
 |Your device is now connected.|`description`|
 |Congratulations, you're all set!|`eventTitle`|
 
@@ -38,7 +38,7 @@
 
 |Text|Key|
 |----------|----------|
-|Device Activation|`pageTitle`|
+|Login error | <%= "${clientName}" %>|`pageTitle`|
 |We are not able to activate your device.|`description`|
 |Activation Denied|`eventTitle`|
 
@@ -50,7 +50,7 @@
 
 |Text|Key|
 |----------|----------|
-|Connect to <%= "${clientName}" %>|`pageTitle`|
+|Confirm your device code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Please confirm this is the code displayed on your <%= "${clientName}" %>:|`description`|
 |Secure code|`inputCodeLabel`|
 |Device Confirmation|`title`|

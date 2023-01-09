@@ -8,11 +8,12 @@
 
 |Text|Key|
 |----------|----------|
-|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Sign up | <%= "${clientName}" %>|`pageTitle`|
 |Create Your Account|`title`|
 |Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
 |Or|`separatorText`|
 |Continue|`buttonText`|
+|Phone number|`phonePlaceholder`|
 |Email address|`emailPlaceholder`|
 |Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
 |Log in|`loginActionLinkText`|
@@ -20,10 +21,12 @@
 |Password|`passwordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
 |Username|`usernamePlaceholder`|
+|Enter a valid phone number|`error-invalid-phone-number`|
 |<%= "${companyName}" %>|`logoAltText`|
 |The user already exists.|`email-in-use`|
 |Email is not valid.|`invalid-email-format`|
 |The password is too weak|`password-too-weak`|
+|The password is too weak|`password-policy-not-conformant`|
 |The password is too common|`password-too-common`|
 |Password has previously been used|`password-previously-used`|
 |Passwords don't match|`password-mismatch`|

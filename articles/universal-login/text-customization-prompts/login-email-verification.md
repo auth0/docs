@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Enter your email code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Continue|`buttonText`|
 |We've sent an email with your code to <%= "${email}" %>|`description`|
 |Enter the code|`placeholder`|

@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Log in | <%= "${clientName}" %>|`pageTitle`|
 |Welcome|`title`|
 |Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
 |Or|`separatorText`|
@@ -19,8 +19,10 @@
 |Password|`passwordPlaceholder`|
 |Username or email address|`usernamePlaceholder`|
 |Email address|`emailPlaceholder`|
+|Phone number|`phonePlaceholder`|
 |Edit|`editEmailText`|
 |Alerts|`alertListTitle`|
+|Enter a valid phone number|`error-invalid-phone-number`|
 |<%= "${companyName}" %>|`logoAltText`|
 |Wrong username or password|`wrong-credentials`|
 |The code you entered is invalid|`invalid-code`|

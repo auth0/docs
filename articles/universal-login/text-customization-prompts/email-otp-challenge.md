@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Enter your email code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Continue|`buttonText`|
 |We've sent an email with your code to <%= "${email}" %>|`description`|
 |Enter the code|`placeholder`|
@@ -18,6 +18,5 @@
 |<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
-|Invalid or expired user code|`invalid-expired-code`|
 |We couldn't verify the code. Please try again later.|`authenticator-error`|
 |You have exceeded the amount of emails. Wait a few minutes and try again.|`too-many-email`|
