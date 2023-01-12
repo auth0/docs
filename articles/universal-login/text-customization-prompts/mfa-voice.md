@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Enter your phone number to log in using a phone code | <%= "${clientName}" %>|`pageTitle`|
 |Secure Your Account|`title`|
 |Enter your phone number below. A voice call will be placed on that number with a code to enter on the next screen.|`description`|
 |Continue|`buttonText`|
@@ -30,11 +30,12 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Enter your phone code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Verify Your Identity|`title`|
 |We've sent a 6-digit code via voice phone call to the following phone number:|`description`|
 |Continue|`buttonText`|
 |Edit|`editText`|
+|Edit phone number|`editLinkScreenReadableText`|
 |Choose another phone number.|`changePhoneText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter the 6-digit code|`placeholder`|
@@ -43,11 +44,9 @@
 |Didn't receive a call?|`resendText`|
 |or|`resendSmsActionSeparatorTextBefore`|
 |send a text|`resendSmsActionText`|
-||`resendSmsActionSeparatorTextAfter`|
 |<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
-|Invalid or expired user code|`invalid-expired-code`|
 |There was a problem making the voice call|`send-voice-failed`|
 |We couldn't verify the code. Please try again later.|`authenticator-error`|
 |We couldn't make the voice call. Please try again later.|`voice-authenticator-error`|

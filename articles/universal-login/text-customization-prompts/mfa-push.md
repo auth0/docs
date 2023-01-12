@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Install the application | <%= "${clientName}" %>|`pageTitle`|
 |Secure Your Account|`title`|
 |In order to continue, install the <%= "${appName}" %> app via the app store from your mobile device.|`description`|
 |Google Play|`androidButtonText`|
@@ -25,7 +25,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Scan the code to log in using a push notification | <%= "${clientName}" %>|`pageTitle`|
 |Secure Your Account|`title`|
 |Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|`description`|
 |Try another method|`pickAuthenticatorText`|
@@ -41,7 +41,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Accept the push notification to log in | <%= "${clientName}" %>|`pageTitle`|
 |Verify Your Identity|`title`|
 |We’ve sent a notification to the following device via the <%= "${appName}" %> app:|`description`|
 |I've responded on my device|`buttonText`|
@@ -61,7 +61,6 @@
 |We couldn't send the notification. Please try again later.|`mfa-push-challenge-authenticator-error`|
 |Notification rejected|`transaction-rejected`|
 
-
 ## Screen: mfa-push-list
 
 <p style="text-align: center;">
@@ -70,6 +69,6 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|List of available devices | <%= "${clientName}" %>|`pageTitle`|
 |Go back|`backText`|
-|Enrolled Devices|`title`|
+|Registered Devices|`title`|

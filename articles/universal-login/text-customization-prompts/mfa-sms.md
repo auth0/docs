@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Select your country code | <%= "${clientName}" %>|`pageTitle`|
 |Go back|`backText`|
 |Select a Country Code|`title`|
 
@@ -20,7 +20,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Enter your phone number to log in using a text message | <%= "${clientName}" %>|`pageTitle`|
 |Secure Your Account|`title`|
 |Enter your phone number below. An SMS will be sent to that number with a code to enter on the next screen.|`description`|
 |Continue|`buttonText`|
@@ -28,6 +28,7 @@
 |Enter your phone number|`placeholder`|
 |<%= "${companyName}" %>|`logoAltText`|
 |There was a problem sending the SMS|`send-sms-failed`|
+|We couldn't send the SMS. Please try again later.|`sms-authenticator-error`|
 |Phone number can only include digits.|`invalid-phone-format`|
 |Seems that your phone number is not valid. Please check and retry.|`invalid-phone`|
 |You have exceeded the maximum number of phone messages per hour. Wait a few minutes and try again.|`too-many-sms`|
@@ -42,11 +43,12 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Enter your phone code to log in | <%= "${clientName}" %>|`pageTitle`|
 |Verify Your Identity|`title`|
 |We've sent a text message to:|`description`|
 |Continue|`buttonText`|
 |Edit|`editText`|
+|Edit phone number|`editLinkScreenReadableText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter the 6-digit code|`placeholder`|
 |Remember this device for 30 days|`rememberMeText`|
@@ -54,11 +56,9 @@
 |Didn't receive a code?|`resendText`|
 |or|`resendVoiceActionSeparatorTextBefore`|
 |get a call|`resendVoiceActionText`|
-||`resendVoiceActionSeparatorTextAfter`|
 |<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
-|Invalid or expired user code|`invalid-expired-code`|
 |There was a problem sending the SMS|`send-sms-failed`|
 |We couldn't verify the code. Please try again later.|`authenticator-error`|
 |We couldn't send the SMS. Please try again later.|`sms-authenticator-error`|
@@ -75,6 +75,6 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|List of available phone numbers | <%= "${clientName}" %>|`pageTitle`|
 |Go back|`backText`|
 |Enrolled Phone Numbers|`title`|

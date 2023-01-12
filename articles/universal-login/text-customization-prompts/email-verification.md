@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Email Verification|`pageTitle`|
+|Email verification status | <%= "${clientName}" %>|`pageTitle`|
 |Email Verified|`verifiedTitle`|
 |Error|`errorTitle`|
 |Your email address was successfully verified.|`verifiedDescription`|
