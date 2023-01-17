@@ -46,7 +46,7 @@ Install the Auth0 Vue SDK by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
-npm install @auth0/auth0-vue@beta
+npm install @auth0/auth0-vue
 ```
 
 ### Register the plugin
