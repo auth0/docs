@@ -1,7 +1,8 @@
 ---
-name: build.gradle
+name: app/build.gradle
 language: groovy
 ---
+
 ```groovy
 apply plugin: 'com.android.application'
 
@@ -9,11 +10,11 @@ android {
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion flutter.targetSdkVersion
         // ...
 
         // ---> Add the next line
-        manifestPlaceholders += [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "@string/com_auth0_scheme"]
+        manifestPlaceholders += [auth0Domain: "${account.namespace}", auth0Scheme: "https"]
         // <---
     }
 }
