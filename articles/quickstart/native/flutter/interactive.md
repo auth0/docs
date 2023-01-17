@@ -35,7 +35,7 @@ This quickstart assumes you already have a [Flutter](https://flutter.dev/) appli
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('\_configure_urls_interactive') %>
+<%= include('_configure_urls_interactive') %>
 
 ## Install the Auth0 Flutter SDK
 
