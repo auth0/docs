@@ -37,9 +37,9 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-angular-samples
-  branch: master
+  branch: beta
 requirements:
-  - Angular 9+
+  - Angular 12+
 next_steps:
   - path: 01-login
     list:

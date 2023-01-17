@@ -15,7 +15,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AuthModule.forRoot({
       domain: '${account.namespace}',
-      clientId: '${account.clientId}'
+      clientId: '${account.clientId}',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
     }),
   ],
   bootstrap: [AppComponent],
