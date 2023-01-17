@@ -18,7 +18,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 :::note
-For a deep dive into making secure calls to an API from React, visit the [Call a Protected API from React](https://developer.auth0.com/resources/guides/spa/react/basic-authentication#call-a-protected-api-from-react/). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
+Visit the [Integrate React with an API Server](https://developer.auth0.com/resources/guides/spa/react/basic-authentication#integrate-react-with-an-api-server) section of the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into calling a protected API from React. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
 :::
 
 <%= include('../_includes/_calling_api_preamble_api2") %>
