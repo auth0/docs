@@ -45,7 +45,7 @@ Add the Auth0 Flutter SDK into the project:
 flutter pub add auth0_flutter
 ```
 
-## Configure Android {{{ data-action=code data-code="build.gradle#11" }}}
+## Configure Android {{{ data-action=code data-code="app/build.gradle#11" }}}
 
 If you are not developing for the Android platform, skip this step.
 

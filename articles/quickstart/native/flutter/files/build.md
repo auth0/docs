@@ -1,5 +1,5 @@
 ---
-name: build.gradle
+name: app/build.gradle
 language: groovy
 ---
 
@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion flutter.targetSdkVersion
         // ...
 
         // ---> Add the next line

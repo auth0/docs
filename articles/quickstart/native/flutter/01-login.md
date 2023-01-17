@@ -48,7 +48,9 @@ flutter pub add auth0_flutter
 
 If you are not developing for the Android platform, skip this step.
 
-The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme, as in the following example:
+The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
+
+Modify `app/build.gradle` to include manifest placeholders for `auth0Domain` and `auth0Scheme` inside the `defaultConfig` section:
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -57,7 +59,7 @@ android {
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion flutter.targetSdkVersion
         // ...
 
         // ---> Add the next line
