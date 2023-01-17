@@ -155,7 +155,3 @@ Sorry about that. Here are a few things to double check:
 - make sure you added the `UserProfileComponent` component to the correct module's declarations
 
 Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
-
-:::
-
-::::
