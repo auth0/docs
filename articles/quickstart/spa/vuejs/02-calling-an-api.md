@@ -19,7 +19,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD041 -->
 
 :::note
-For a deep dive into making secure calls to an API from Vue, visit the [integrating Vue.js with an API server guide](https://developer.auth0.com/resources/guides/spa/react/basic-authentication#call-a-protected-api-from-react/). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard.
+Visit the [Integrate Vue.js with an API Server](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server) section of the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication) guide for a deep dive into calling a protected API from Vue. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
 :::
 
 <%= include('../_includes/_calling_api_create_api') %>
