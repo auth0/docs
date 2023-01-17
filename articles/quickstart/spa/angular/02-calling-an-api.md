@@ -19,7 +19,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 :::note
-Visit the [Call a Protected API from Angular](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#call-a-protected-api-from-angular) section of the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into calling a protected API from Angular. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+Visit the [Integrate Angular with an API Server](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#integrate-angular-with-an-api-server) section of the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into calling a protected API from Angular. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
 :::
 
 <%= include('../_includes/_calling_api_preamble_api2") %>
