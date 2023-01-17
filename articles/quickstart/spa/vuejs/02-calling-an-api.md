@@ -31,9 +31,11 @@ const app = createApp(App);
 app.use(
   createAuth0({
     domain: "${account.namespace}",
-    client_id: "${account.clientId}",
-    redirect_uri: window.location.origin,
-    audience: "${apiIdentifier}",
+    clientId: "${account.clientId}",
+    authorizationParams: {
+      redirect_uri: window.location.origin,
+      audience: "${apiIdentifier}",
+    }
   })
 );
 
