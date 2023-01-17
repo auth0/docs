@@ -18,8 +18,11 @@ export class LoginButtonComponent {
 
   login() {
     this.auth
-      .buildAuthorizeUrl()
-      .pipe(mergeMap((url) => Browser.open({ url, windowName: '_self' })))
+      .loginWithRedirect({
+        async openUrl(url: string) {
+          await Browser.open({ url, windowName: '_self' });
+        }
+      })
       .subscribe();
   }
 }
