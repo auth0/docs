@@ -35,7 +35,7 @@ This quickstart assumes you already have a [Flutter](https://flutter.dev/) appli
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('_configure_urls_interactive') %>
+<%= include('\_configure_urls_interactive') %>
 
 ## Install the Auth0 Flutter SDK
 
@@ -51,12 +51,14 @@ If you are not developing for the Android platform, skip this step.
 
 The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
 
+[The sample](https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample/android) uses the following placeholders:
+
+- `auth0Domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your Application's **Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
+- `auth0Scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
+
+:::note
 You do not need to declare a specific `intent-filter` for your activity because you defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values. The library handles the redirection for you.
-
-The sample uses values from `strings.xml`:
-
-- `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your Application's **Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
-- `com_auth0_scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
+:::
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 

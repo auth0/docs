@@ -2,6 +2,7 @@
 name: build.gradle
 language: groovy
 ---
+
 ```groovy
 apply plugin: 'com.android.application'
 
@@ -13,7 +14,7 @@ android {
         // ...
 
         // ---> Add the next line
-        manifestPlaceholders += [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "@string/com_auth0_scheme"]
+        manifestPlaceholders += [auth0Domain: "${account.namespace}", auth0Scheme: "https"]
         // <---
     }
 }
