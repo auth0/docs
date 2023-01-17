@@ -152,3 +152,6 @@ Sorry about that. Here's a couple things to double check:
 * you added the `Profile` component to the `index.js` file 
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+
+::::

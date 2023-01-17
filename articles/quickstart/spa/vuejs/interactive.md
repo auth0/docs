@@ -177,3 +177,6 @@ If you are having issues with the `user` properties:
 * Verify you added the `isAuthenticated` check before accessing the `user` property
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+:::
+
+::::
