@@ -34,7 +34,7 @@ Auth0 provides an [Angular SDK](https://github.com/auth0/auth0-angular) to simpl
 Install the Auth0 Angular SDK by running the following command in your terminal:
 
 ```bash
-npm install @auth0/auth0-angular@beta
+npm install @auth0/auth0-angular
 ```
 
 The SDK exposes several types that help integrate Auth0 in an Angular application idiomatically, including a module and an authentication service.

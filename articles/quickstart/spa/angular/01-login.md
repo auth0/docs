@@ -17,7 +17,7 @@ useCase: quickstart
 
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
-<%= include('../../_includes/_auth0-angular-install', { v2: true }) %>
+<%= include('../../_includes/_auth0-angular-install') %>
 
 ### Register and configure the authentication module
 
