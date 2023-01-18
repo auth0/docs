@@ -17,6 +17,10 @@ useCase: quickstart
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+:::note
+Visit the [Integrate React with an API Server](https://developer.auth0.com/resources/guides/spa/react/basic-authentication#integrate-react-with-an-api-server) section of the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into calling a protected API from React. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+:::
+
 <%= include('../_includes/_calling_api_preamble_api2") %>
 
 :::note
@@ -156,6 +160,3 @@ The `getAccessTokenSilently()` method can renew the access and ID token for you 
 
 As a final reminder, consult the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
 
-:::note
-For a deep dive into making secure calls to an API from React, visit the [Complete Guide to React User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-react-user-authentication/#Calling-an-API). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
-:::

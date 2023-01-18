@@ -14,6 +14,10 @@ useCase: quickstart
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+:::note
+Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button and add route guards using React Router.
+:::
+
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
 <%= include('../../_includes/_auth0-react-install.md') %>
@@ -143,6 +147,3 @@ The `user` property contains sensitive information and artifacts related to the 
 Verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::                                              
 
-:::note
-For a deep dive into implementing user authentication in React, visit the [Complete Guide to React User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-react-user-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
-:::

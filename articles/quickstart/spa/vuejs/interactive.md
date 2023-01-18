@@ -20,12 +20,16 @@ files:
   - files/profile
 ---
 
+:::note
+Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/) guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
+:::
+
 # Add login to your Vue app
 
 Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.
 
 ::: warning
-This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead.
+This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead or visit the [Vue.js Authentication 2 By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/v2-javascript) guide.
 :::
 
 To use this quickstart, you will need:
@@ -173,7 +177,6 @@ If you are having issues with the `user` properties:
 * Verify you added the `isAuthenticated` check before accessing the `user` property
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
 :::
 
 ::::
