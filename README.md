@@ -1,6 +1,6 @@
 # Auth0 Documentation
 
-This repository contains the Auth0 Quickstarts, but most other documentation content in this repository is no longer up to date, and is not the source of content at https://auth0.com/docs. Pull requests and issues for Quickstarts can still be submitted here, but most other content is no longer hosted on GitHub and therefore no longer open-source. If you are an Auth0 employee trying to make a change to other documenation, please [submit a ticket](https://auth0team.atlassian.net/servicedesk/customer/portal/9) or contact the Documentation Team to request access to our content management system.
+This repository contains the Auth0 Quickstarts, but most other documentation content in this repository is no longer up to date, and is not the source of content at https://auth0.com/docs. Pull requests and issues for Quickstarts can still be submitted here, but most other content is no longer hosted on GitHub and therefore no longer open-source. If you are an Auth0 employee trying to make a change to other documentation, please [submit a ticket](https://auth0team.atlassian.net/servicedesk/customer/portal/9) or contact the Documentation Team to request access to our content management system.
 
 
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
