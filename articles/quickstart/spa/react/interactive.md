@@ -11,6 +11,10 @@ github:
   path: Sample-01
 ---
 
+:::note
+Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button, add route guards using React Router, and call a protected API from React.
+:::
+
 # Add Login to your React App
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any React application using the Auth0 React SDK.
@@ -149,7 +153,6 @@ Sorry about that. Here's a couple things to double check:
 * you added the `Profile` component to the `index.js` file 
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
 :::
 
 ::::

@@ -11,6 +11,10 @@ github:
   path: Sample-01
 ---
 
+:::note
+Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
+:::
+
 # Add Login to Your Angular App
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
@@ -151,11 +155,6 @@ Sorry about that. Here are a few things to double check:
 - make sure you added the `UserProfileComponent` component to the correct module's declarations
 
 Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
-
 :::
 
 ::::
-
-:::note
-For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides information for additional tasks, like creating a signup button.
-:::
