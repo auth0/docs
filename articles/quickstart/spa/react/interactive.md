@@ -47,7 +47,7 @@ For the SDK to function properly, you must set the following properties in the A
 
 - `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
 - `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- `redirectUri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
+- `authorizationParams.redirectUri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
 
 ::::checkpoint
 
@@ -87,13 +87,13 @@ You should now be able to log in or sign up using a username and password.
 Click the login button and verify that:
 * your React Application redirects you to the Auth0 Universal Login page
 * you can log in or sign up
-* Auth0 redirects you to your application using the value of the `redirectUri` you used to configure the `Auth0Provider`
+* Auth0 redirects you to your application using the value of the `authorizationParams.redirectUri` you used to configure the `Auth0Provider`
 
 :::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* you configured the correct `redirectUri`
+* you configured the correct `authorizationParams.redirectUri`
 * you added the Login button to the `index.js` file
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.

@@ -36,7 +36,9 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri={window.location.origin}
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
   >
     <App />
   </Auth0Provider>,
@@ -50,7 +52,7 @@ The `Auth0Provider` component takes the following props:
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `authorizationParams.redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 `Auth0Provider` stores the authentication state of your users and the state of the SDK &mdash; whether Auth0 is ready to use or not. It also exposes helper methods to log in and log out your users, which you can access using the `useAuth0()` hook.
 
@@ -80,7 +82,7 @@ export default LoginButton;
 :::panel Checkpoint
 Add the `LoginButton` component to your application. When you click it, verify that your React application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
 
-Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure the `Auth0Provider`.
+Once that's complete, verify that Auth0 redirects you to your application using the value of the `authorizationParams.redirectUri` that you used to configure the `Auth0Provider`.
 :::
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
@@ -99,7 +101,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button onClick={() => logout({ returnTo: window.location.origin })}>
+    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
     </button>
   );
