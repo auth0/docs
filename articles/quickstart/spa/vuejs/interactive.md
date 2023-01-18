@@ -117,7 +117,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add logout to your application {{{ data-action=code data-code="logout.js" }}}
 
-Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then redirect them to the specified `authorizationParams.returnTo` parameter.
+Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then redirect them to the specified `logoutParams.returnTo` parameter.
 
 Use the `logout` function exposed on the return value of `useAuth0`, which you can access in your component's `setup` function, to log the user out of your application.
 
