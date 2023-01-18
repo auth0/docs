@@ -44,7 +44,7 @@ ReactDOM.render(
     domain="${account.namespace}"
     clientId="${account.clientId}"
     authorizationParams={{
-      redirectUri: window.location.origin,
+      redirect_uri: window.location.origin,
       audience: "https://${account.namespace}/api/v2/",
       scope: "read:current_user update:current_user_metadata"
     }}
