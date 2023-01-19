@@ -42,7 +42,7 @@ The `Auth0Provider` component takes the following props:
 
 - `domain`: The `domain` value present under the **Settings** of the application you created in your Auth0 Dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains).
 - `clientId`: The Client ID value present under the **Settings** of the application you created in your Auth0 Dashboard.
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -68,7 +68,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::checkpoint
 ::: checkpoint-default
-Use the `buildAuthorizeUrl` function to construct the login URL, and the `Browser.open` function to open it using the platform's system browser component for a way your users log in. Users redirect to the login page at Auth0 and do not receive any errors.
+The `loginWithRedirect` function tells the SDK to initiaze the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
 :::
 
 ::: checkpoint-failure

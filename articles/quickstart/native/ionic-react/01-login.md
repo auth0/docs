@@ -43,7 +43,9 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
+    authorizationParams={{
+      redirect_uri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
+    }}
   >
     <App />
   </Auth0Provider>,
@@ -55,7 +57,7 @@ The `Auth0Provider` component takes the following props:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -75,14 +77,18 @@ import { Browser } from '@capacitor/browser';
 import { IonButton } from '@ionic/react';
 
 const LoginButton: React.FC = () => {
-  const { buildAuthorizeUrl } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
   const login = async () => {
-    // Ask auth0-react to build the login URL
-    const url = await buildAuthorizeUrl();
-
-    // Redirect using Capacitor's Browser plugin
-    await Browser.open({ url });
+    await loginWithRedirect({
+      async openUrl(url) {
+         // Redirect using Capacitor's Browser plugin
+        await Browser.open({
+          url,
+          windowName: "_self"
+        });
+      }
+    });
   };
 
   return <IonButton onClick={login}>Log in</IonButton>;
@@ -94,8 +100,8 @@ export default LoginButton;
 This component:
 
 - defines a template with a simple button that logs the user in when clicked
-- uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
-- uses Capacitor's Browser plugin to open the URL and show the login page to the user
+- uses `loginWithRedirect` to login using Auth0's Universal Login page
+- uses the `openUrl` callback to use Capacitor's Browser plugin to open the URL and show the login page to the user
 
 <%= include('../../_includes/_auth0-react-classes-info.md') %>
 
@@ -158,14 +164,18 @@ import { IonButton } from '@ionic/react';
 const logoutUri = 'YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback';
 
 const LogoutButton: React.FC = () => {
-  const { buildLogoutUrl, logout } = useAuth0();
+  const { logout } = useAuth0();
 
   const doLogout = async () => {
-    // Open the browser to perform a logout
-    await Browser.open({ url: buildLogoutUrl({ returnTo: logoutUri }) });
-
-    // Ask the SDK to log out locally, but not do the redirect
-    logout({ localOnly: true });
+    await logout({
+      async openUrl(url) {
+         // Redirect using Capacitor's Browser plugin
+        await Browser.open({
+          url,
+          windowName: "_self"
+        });
+      }
+    });
   };
 
   return <IonButton onClick={doLogout}>Log out</IonButton>;
