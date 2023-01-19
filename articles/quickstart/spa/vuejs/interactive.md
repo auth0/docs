@@ -107,7 +107,7 @@ Click the login button and verify that:
 
 :::checkpoint-failure
 If you were not able to log in using Auth0 Universal Login:
-* Verify you configured the correct `redirect_uri`
+* Verify you configured the correct `authorizationParams.redirect_uri`
 * Verify the domain and Client ID are set correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
