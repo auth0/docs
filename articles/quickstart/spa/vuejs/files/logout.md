@@ -19,7 +19,11 @@ language: html
 
       return {
         logout() {
-          auth0.logout({ returnTo: window.location.origin });
+          auth0.logout({ 
+            logoutParams: { 
+              returnTo: window.location.origin 
+            } 
+          });
         }
       };
     }
@@ -29,7 +33,11 @@ language: html
   export default {
     methods: {
       logout() {
-        this.$auth0.logout({ returnTo: window.location.origin });
+        this.$auth0.logout({ 
+          logoutParams: { 
+            returnTo: window.location.origin 
+          } 
+        });
       }
     }
   };
