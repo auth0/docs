@@ -21,17 +21,15 @@ export class LogoutButtonComponent {
   constructor(public auth: AuthService) {}
 
    logout() {
-    // Use the SDK to build the logout URL
     this.auth
-      .buildLogoutUrl({ returnTo })
-      .pipe(
-        tap((url) => {
-          // Call the logout fuction, but only log out locally
-          this.auth.logout({ localOnly: true });
-          // Redirect to Auth0 using the Browser plugin, to clear the user's session
-          Browser.open({ url });
-        })
-      )
+      .logout({ 
+        logoutParams: {
+          returnTo,
+        },
+        async openUrl(url: string) {
+          await Browser.open({ url });
+        } 
+      })
       .subscribe();
   }
 }
