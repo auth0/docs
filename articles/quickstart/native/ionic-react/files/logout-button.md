@@ -17,7 +17,7 @@ const LogoutButton: React.FC = () => {
 
   const doLogout = async () => {
     await logout({
-        logoutParams: {
+      logoutParams: {
         returnTo: logoutUri
       },
       async openUrl(url) {
