@@ -68,7 +68,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::checkpoint
 ::: checkpoint-default
-The `loginWithRedirect` function tells the SDK to initiaze the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
+The `loginWithRedirect` function tells the SDK to initiate the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
 :::
 
 ::: checkpoint-failure
