@@ -52,7 +52,7 @@ The SDK exports `AuthModule`, which is a module that contains all the services r
 3. Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array.
 4. Inject `AuthService` into `AppComponent`.
 
-To configure the module, we use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern), which takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0.
+To configure the module, we use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern), which takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
@@ -80,7 +80,7 @@ Run your application, and select the login button. Verify that:
 :::checkpoint-failure
 Sorry about that. Here are a few things to double check:
 
-- make sure you configured the correct `redirectUri`
+- make sure you configured the correct `authorizationParams.redirect_uri`
 - make sure you added the `LoginButtonComponent` button to the module's declarations
 
 Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
@@ -88,7 +88,7 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 :::
 ::::
 
-## Add Logout to your Application {{{ data-action=code data-code="logout-button.ts#21:25" }}}
+## Add Logout to your Application {{{ data-action=code data-code="logout-button.ts#19:25" }}}
 
 Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The SDK provides a `logout()` method on the `AuthService` class that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 

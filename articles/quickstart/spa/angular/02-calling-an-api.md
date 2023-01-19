@@ -77,11 +77,13 @@ AuthModule.forRoot({
   domain: '${account.namespace}',
   clientId: '${account.clientId}',
 
-  // Request this audience at user authentication time
-  audience: 'https://${account.namespace}/api/v2/',
+  authorizationParams: {
+    // Request this audience at user authentication time
+    audience: 'https://${account.namespace}/api/v2/',
 
-  // Request this scope at user authentication time
-  scope: 'read:current_user',
+    // Request this scope at user authentication time
+    scope: 'read:current_user',
+  }
 
   // Specify configuration for the interceptor              
   httpInterceptor: {
@@ -90,11 +92,13 @@ AuthModule.forRoot({
         // Match any request that starts 'https://${account.namespace}/api/v2/' (note the asterisk)
         uri: 'https://${account.namespace}/api/v2/*',
         tokenOptions: {
-          // The attached token should target this audience
-          audience: 'https://${account.namespace}/api/v2/',
+          authorizationParameters: {
+            // The attached token should target this audience
+            audience: 'https://${account.namespace}/api/v2/',
 
-          // The attached token should have these scopes
-          scope: 'read:current_user'
+            // The attached token should have these scopes
+            scope: 'read:current_user'
+          }
         }
       }
     ]

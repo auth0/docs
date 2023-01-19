@@ -48,6 +48,9 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: '${account.namespace}',
       clientId: '${account.clientId}'
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
     }),
   ],
 
@@ -56,7 +59,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 export class AppModule {}
 ```
 
-We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
+We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
@@ -109,7 +112,7 @@ import { DOCUMENT } from '@angular/common';
   selector: 'app-auth-button',
   template: `
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-      <button (click)="auth.logout({ returnTo: document.location.origin })">
+      <button (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
         Log out
       </button>
     </ng-container>
@@ -128,7 +131,7 @@ export class AuthButtonComponent {
 Specify the `returnTo` option when calling `logout` to tell Auth0 where it should redirect to after a successful logout. This value must be specified in [the **Allowed Logout URLs** setting](#configure-logout-urls) in the dashboard.
 
 :::note
-Here we use `http://localhost:4200` as the value for `returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
+Here we use `http://localhost:4200` as the value for `logoutParams.returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
 :::
 
 :::panel Checkpoint
