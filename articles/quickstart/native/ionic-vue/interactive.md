@@ -15,7 +15,7 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
-  - files/index
+  - files/main
   - files/login-button
   - files/logout-button
   - files/app
@@ -41,8 +41,8 @@ The SDK exports `createAuth0`, a composable that contains all the services requi
 The `createAuth0` composable takes the following configuration:
 
 - `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's [custom domains feature](http://localhost:3000/docs/custom-domains).
-- `client_id`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
-- `redirect_uri`: The URL to redirect your users after they authenticate with Auth0.
+- `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
+- `authorizationParams.redirect_uri`: The URL to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -68,7 +68,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::checkpoint
 ::: checkpoint-default
-Use the `buildAuthorizeUrl` function to construct the login URL, and the `Browser.open` function to open it using the platform's system browser component for a way your users log in. Users redirect to the login page at Auth0 and do not receive any errors.
+The `loginWithRedirect` function tells the SDK to initiate the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
 :::
 
 ::: checkpoint-failure

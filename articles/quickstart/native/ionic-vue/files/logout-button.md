@@ -20,17 +20,19 @@ export default defineComponent({
     IonButton,
   },
   setup() {
-    const { buildLogoutUrl, logout } = useAuth0();
+    const { logout } = useAuth0();
 
     const onLogout = async () => {
-      // Open the browser to perform a logout
-      await Browser.open({
-        url: buildLogoutUrl({ returnTo: callbackUri }),
-        windowName: "_self",
+      await logout({
+        logoutParams: {
+          returnTo: callbackUri,
+        },
+        openUrl: (url: string) =>
+          Browser.open({
+            url,
+            windowName: "_self",
+          }),
       });
-
-      // Ask the SDK to log out locally, but not do the redirect
-      logout({ localOnly: true });
     };
 
     return {

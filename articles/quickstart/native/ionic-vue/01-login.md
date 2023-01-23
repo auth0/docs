@@ -46,7 +46,7 @@ import config from "./auth.config";
 // ..
 
 // Build the URL that Auth0 should redirect back to
-const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+const redirect_uri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 
 const app = createApp(App).use(IonicVue).use(router);
 
@@ -54,7 +54,9 @@ app.use(
   createAuth0({
     domain: "${account.namespace}",
     clientId: "${account.clientId}",
-    redirectUri
+    authorizationParams: {
+      redirect_uri
+    }
   })
 );
 
@@ -66,8 +68,8 @@ router.isReady().then(() => {
 The `createAuth0` plugin takes the following props:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
-- `client_id`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
-- `redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -99,11 +101,16 @@ export default defineComponent({
     IonButton,
   },
   setup() {
-    const { buildAuthorizeUrl } = useAuth0();
+    const { loginWithRedirect } = useAuth0();
 
     const login = async () => {
-      const url = await buildAuthorizeUrl();
-      await Browser.open({ url, windowName: "_self" });
+      await loginWithRedirect({
+        openUrl: (url: string) =>
+          Browser.open({
+            url,
+            windowName: "_self",
+          }),
+      });
     };
 
     return { login };
@@ -115,8 +122,8 @@ export default defineComponent({
 This component:
 
 - defines a template with a simple button that logs the user in when clicked
-- uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
-- uses Capacitor's Browser plugin to open the URL and show the login page to the user
+- uses `loginWithRedirect` to login using Auth0's Universal Login page
+- uses the `openUrl` callback to use Capacitor's Browser plugin to open the URL and show the login page to the user
 
 ### Handling the callback
 
@@ -191,17 +198,19 @@ export default defineComponent({
     IonButton,
   },
   setup() {
-    const { buildLogoutUrl, logout } = useAuth0();
+    const { logout } = useAuth0();
 
     const onLogout = async () => {
-      // Open the browser to perform a logout
-      await Browser.open({
-        url: buildLogoutUrl({ returnTo: callbackUri }),
-        windowName: "_self",
+      await logout({
+        logoutParams: {
+          returnTo: callbackUri,
+        },
+        openUrl: (url: string) =>
+          Browser.open({
+            url,
+            windowName: "_self",
+          }),
       });
-
-      // Ask the SDK to log out locally, but not do the redirect
-      logout({ localOnly: true });
     };
 
     return {
