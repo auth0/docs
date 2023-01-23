@@ -8,8 +8,8 @@ alias:
   - react native ios
   - react native android
 author:
-  name: Martin Walsh
-  email: martin.walsh@auth0.com
+  name: Steve Hobbs
+  email: steve.hobbs@okta.com
   community: false
 language:
   - Javascript
@@ -40,15 +40,15 @@ requirements:
 next_steps:
   - path: 00-login
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

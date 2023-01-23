@@ -206,10 +206,12 @@ const configureClient = async () => {
   const response = await fetchAuthConfig();
   const config = await response.json();
 
-  auth0 = await createAuth0Client({
+  auth0 = await auth0Client.createAuth0Client({
     domain: config.domain,
-    client_id: config.clientId,
-    audience: config.audience   // NEW - add the audience value
+    clientId: config.clientId,
+    authorizationParams: {
+      audience: config.audience   // NEW - add the audience value
+    }
   });
 };
 ```
@@ -221,7 +223,7 @@ const callApi = async () => {
   try {
 
     // Get the access token from the Auth0 client
-    const token = await auth0.getTokenSilently();
+    const token = await auth0Client.getTokenSilently();
 
     // Make the call to the API, setting the token
     // in the Authorization header
@@ -252,7 +254,7 @@ Finally, find the `updateUI` function within `app.js` and modify it so that the 
 // public/js/app.js
 
 const updateUI = async () => {
-  const isAuthenticated = await auth0.isAuthenticated();
+  const isAuthenticated = await auth0Client.isAuthenticated();
 
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;

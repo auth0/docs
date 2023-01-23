@@ -112,21 +112,23 @@ spring:
 
 ## Add Login to Your Application
 
-To enable users to login with Auth0, you will need to extend the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and override the `configure(HttpSecurity http)` method.
+To enable user login with Auth0, create a class that will provide an instance of [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), and add the `@EnableWebSecurity` annotation.
 
 ```java
 package com.auth0.example;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class SecurityConfig {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.oauth2Login();
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http.oauth2Login()
+                .and().build();
     }
 }
 ```
@@ -280,18 +282,19 @@ public class LogoutHandler extends SecurityContextLogoutHandler {
 }
 ```
 
-Next, you need to update your implementation of `WebSecurityConfigurerAdapter` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
+Next, you need to update your implementation of `SecurityFilterChain` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
 
 ```java
 package com.auth0.example;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class SecurityConfig {
 
     private final LogoutHandler logoutHandler;
 
@@ -299,13 +302,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.logoutHandler = logoutHandler;
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-       http
-          .oauth2Login()
-          .and().logout()
-          .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-          .addLogoutHandler(logoutHandler);
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http
+                .oauth2Login()
+                .and().logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .addLogoutHandler(logoutHandler)
+                .and().build();
     }
 }
 ```

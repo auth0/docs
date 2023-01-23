@@ -19,7 +19,7 @@ yarn add @auth0/auth0-spa-js
 Once the Auth0 SPA SDK is installed, reference it using an import statement at the entrypoint of your application ():
 
 ```js
-import createAuth0Client from '@auth0/auth0-spa-js';
+import { createAuth0Client } from '@auth0/auth0-spa-js';
 ```
 
 ### Reference the CDN
@@ -27,7 +27,7 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 Alternatively, if you do not use a package manager such as Webpack, you can retrieve the Auth0 SPA SDK from Auth0's CDN.
 
 ```html
-<script src="${auth0spajs_url}"></script>
+<script src="${auth0spajs_urlv2}"></script>
 ```
 
 <%= include('../../../libraries/_includes/_spa_js_faq') %>

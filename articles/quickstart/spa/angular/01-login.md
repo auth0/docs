@@ -15,6 +15,10 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+:::note
+Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button and add route guards to an Angular application.
+:::
+
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
 <%= include('../../_includes/_auth0-angular-install') %>
@@ -44,6 +48,9 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: '${account.namespace}',
       clientId: '${account.clientId}'
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
     }),
   ],
 
@@ -52,7 +59,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 export class AppModule {}
 ```
 
-We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
+We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
@@ -105,7 +112,7 @@ import { DOCUMENT } from '@angular/common';
   selector: 'app-auth-button',
   template: `
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-      <button (click)="auth.logout({ returnTo: document.location.origin })">
+      <button (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
         Log out
       </button>
     </ng-container>
@@ -124,7 +131,7 @@ export class AuthButtonComponent {
 Specify the `returnTo` option when calling `logout` to tell Auth0 where it should redirect to after a successful logout. This value must be specified in [the **Allowed Logout URLs** setting](#configure-logout-urls) in the dashboard.
 
 :::note
-Here we use `http://localhost:4200` as the value for `returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
+Here we use `http://localhost:4200` as the value for `logoutParams.returnTo`, but the associate sample uses `window.location.origin`, which in this case would resolve to the same value. Ultimately, this value should point to the root URL for your application.
 :::
 
 :::panel Checkpoint
@@ -156,8 +163,4 @@ The `user$` observable contains sensitive information and artifacts related to t
 
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
-:::
-
-:::note
-For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides you with additional details, such as creating a signup button.
 :::

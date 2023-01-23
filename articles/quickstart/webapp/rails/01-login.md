@@ -40,7 +40,7 @@ development:
   auth0_client_secret: <YOUR AUTH0 CLIENT SECRET>
 ```
 
-Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware.
+Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters) the **OmniAuth** middleware.
 
 ```ruby
 # ./config/initializers/auth0.rb
@@ -71,7 +71,7 @@ class Auth0Controller < ApplicationController
   def callback
     # OmniAuth stores the information returned from Auth0 and the IdP in request.env['omniauth.auth'].
     # In this code, you will pull the raw_info supplied from the id_token and assign it to the session.
-    # Refer to https://github.com/auth0/omniauth-auth0#authentication-hash for complete information on 'omniauth.auth' contents.
+    # Refer to https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#example-of-the-resulting-authentication-hash for complete information on 'omniauth.auth' contents.
     auth_info = request.env['omniauth.auth']
     session[:userinfo] = auth_info['extra']['raw_info']
 

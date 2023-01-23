@@ -38,4 +38,8 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
     message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'
   });
 });
+
+app.listen(3000, function() {
+  console.log('Listening on http://localhost:3000');
+});
 ```

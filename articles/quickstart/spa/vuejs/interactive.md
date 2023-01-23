@@ -20,12 +20,16 @@ files:
   - files/profile
 ---
 
+:::note
+Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/) guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
+:::
+
 # Add login to your Vue app
 
 Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.
 
 ::: warning
-This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead.
+This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead or visit the [Vue.js Authentication 2 By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/v2-javascript) guide.
 :::
 
 To use this quickstart, you will need:
@@ -54,8 +58,8 @@ npm install @auth0/auth0-vue
 For the SDK to function, you must register the plugin with your Vue application using the following properties:
 
 - `domain`: The domain of your Auth0 tenant. This value is in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
-- `client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- `redirect_uri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. This value is in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
+- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+- `authorizationParams.redirect_uri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. This value is in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
 
 The plugin will register the SDK using both `provide` and `app.config.globalProperties`. This enables both the [Composition API](https://vuejs.org/guide/introduction.html#composition-api) and [Options API](https://vuejs.org/guide/introduction.html#options-api).
 
@@ -97,13 +101,13 @@ You should now be able to log in using Auth0 Universal Login.
 Click the login button and verify that:
 * your Vue application redirects you to the Auth0 Universal Login page
 * you can log in or sign up
-* Auth0 redirects you to your application using the value of the `redirectUri` you used to configure the plugin.
+* Auth0 redirects you to your application using the value of the `authorizationParams.redirect_uri` you used to configure the plugin.
 
 :::
 
 :::checkpoint-failure
 If you were not able to log in using Auth0 Universal Login:
-* Verify you configured the correct `redirectUri`
+* Verify you configured the correct `authorizationParams.redirect_uri`
 * Verify the domain and Client ID are set correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
@@ -113,12 +117,12 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add logout to your application {{{ data-action=code data-code="logout.js" }}}
 
-Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then  redirect them to the specified `returnTo` parameter.
+Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then redirect them to the specified `logoutParams.returnTo` parameter.
 
 Use the `logout` function exposed on the return value of `useAuth0`, which you can access in your component's `setup` function, to log the user out of your application.
 
 :::note
-To log the user out of your application but not from Auth0, use `logout({ localOnly: true })`.
+To log the user out of your application but not from Auth0, use `logout({ openUrl: false })`.
 :::
 
 ### Using the Options API
@@ -129,14 +133,14 @@ With the Options API, you can use the same `logout` method from the global `$aut
 :::checkpoint-default
 
 Run your application and click the logout button, verify that:
-* your Vue application redirects you to the `returnTo` address
+* your Vue application redirects you to the `logoutParams.returnTo` address
 * you are no longer logged in to your application
 
 :::
 
 :::checkpoint-failure
 If you are not able to logout:
-* Verify you specified a value for `returnTo` when calling `logout`
+* Verify you specified a value for `logoutParams.returnTo` when calling `logout`
 * Verify the Allowed Logout URLs in your Application Settings contains the `returnTo` value.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
@@ -173,7 +177,6 @@ If you are having issues with the `user` properties:
 * Verify you added the `isAuthenticated` check before accessing the `user` property
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
 :::
 
 ::::

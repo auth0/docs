@@ -97,7 +97,7 @@ If you need more property mappings, [review the Spring documentation](https://do
 
 ## Add login to your application {{{ data-action=code data-code="SecurityConfig.java" }}}
 
-To enable user login with Auth0, extend the [WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html) class and override the `configure(HttpSecurity http)` method.
+To enable user login with Auth0, create a class that will provide an instance of [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), and add the `@EnableWebSecurity` annotation.
 
 Later in this quickstart, you will overwrite this file with `SecurityConfigWithLogout.java` to provide extra configurations to support the logout feature.
 
@@ -153,7 +153,7 @@ Now that users can log into your application, they need [a way to log out](https
 
 ## Update your security configuration {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
 
-Next, update your implementation of `WebSecurityConfigurerAdapter` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
+Next, update your implementation of `SecurityFilterChain` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
 
 You can remove the `SecurityConfig.java` and replace it with `SecurityConfigWithLogout.java` or update the contents from the one file to another.
 

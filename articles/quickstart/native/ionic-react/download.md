@@ -30,7 +30,6 @@ npm run build
 
 # to test it in iOS
 npx cap run ios
-
 # to test it in Android
 npx cap run android
 ```

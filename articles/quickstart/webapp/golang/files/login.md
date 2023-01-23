@@ -4,7 +4,7 @@ language: go
 ---
 
 ```go
-// web/app/login/login.go
+// Save this file in ./web/app/login/login.go
 
 package login
 

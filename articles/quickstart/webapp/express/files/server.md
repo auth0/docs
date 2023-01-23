@@ -6,7 +6,9 @@ language: javascript
 <!-- markdownlint-disable MD041 -->
 
 ```javascript
+const express = require('express');
 const { auth, requiresAuth } = require('express-openid-connect');
+const app = express();
 
 const config = {
   authRequired: false,
@@ -31,5 +33,9 @@ app.get('/', (req, res) => {
 // The /profile route will show the user profile as JSON
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user, null, 2));
+});
+
+app.listen(3000, function() {
+  console.log('Listening on http://localhost:3000');
 });
 ```

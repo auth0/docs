@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Log in | <%= "${clientName}" %>|`pageTitle`|
 |Welcome|`title`|
 |Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
 |Or|`separatorText`|
@@ -25,6 +25,8 @@
 |You've Been Invited!|`invitationTitle`|
 |Log in to accept <%= "${inviterName}" %>'s invitation to join <%= "${companyName}" %> on <%= "${clientName}" %>.|`invitationDescription`|
 |<%= "${companyName}" %>|`logoAltText`|
+|Show password|`showPasswordText`|
+|Hide password|`hidePasswordText`|
 |Wrong username or password|`wrong-credentials`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|

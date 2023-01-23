@@ -352,8 +352,8 @@ const redirects = [
     to: '/quickstart/spa',
   },
   {
-    from: '/quickstart',
-    to: '/',
+    from: ['/quickstart', '/quickstart/'],
+    to: '/quickstarts',
   },
   {
     from: '/quickstart/backend/golang/00-getting-started',
@@ -480,6 +480,10 @@ const redirects = [
   {
     from: ['/connections/social/auth0-oidc', '/connections/enterprise/oidc'],
     to: '/authenticate/identity-providers/enterprise-identity-providers/oidc',
+  },
+  {
+    from: ['/connections/enterprise/okta'],
+    to: '/authenticate/identity-providers/enterprise-identity-providers/okta',
   },
   {
     from: ['/paypal-clientid', '/connections/social/paypal'],
@@ -2015,6 +2019,7 @@ const redirects = [
       '/saml/identity-providers/ping7',
       '/protocols/saml/identity-providers/ping7',
       '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
+      '/protocols/saml-protocol/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-pingfederate-as-saml-identity-provider',
       '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
@@ -2772,6 +2777,7 @@ const redirects = [
     from: [
       '/flows/guides/device-auth/call-api-device-auth',
       '/authorization/flows/call-your-api-using-the-device-authorization-flow',
+      '/microsites/protect-api/protect-api',
     ],
     to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
   },
@@ -3355,6 +3361,7 @@ const redirects = [
       '/universal-login/new-experience/text-customization-new-universal-login',
       '/universal-login/text-customization',
       '/brand-and-customize/text-customization-new-universal-login',
+      '/brand-and-customize/customize-login-text-prompts',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
   },
@@ -3364,6 +3371,7 @@ const redirects = [
       '/universal-login/prompt-common',
       '/universal-login/text-customization-prompts/common',
       '/brand-and-customize/text-customization-new-universal-login/prompt-common',
+      '/brand-and-customize/customize-login-text-prompts/prompt-common',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-common',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3374,6 +3382,7 @@ const redirects = [
       '/universal-login/text-customization-prompts/consent',
       '/login/universal-login/prompt-consent',
       '/brand-and-customize/text-customization-new-universal-login/prompt-consent',
+      '/brand-and-customize/customize-login-text-prompts/prompt-consent',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-consent',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3384,6 +3393,7 @@ const redirects = [
       '/universal-login/text-customization-prompts/device-flow',
       '/login/universal-login/prompt-device-flow',
       '/brand-and-customize/text-customization-new-universal-login/prompt-device-flow',
+      '/brand-and-customize/customize-login-text-prompts/prompt-device-flow',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-device-flow',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts'
@@ -3392,6 +3402,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-email-otp-challenge',
       '/brand-and-customize/text-customization-new-universal-login/prompt-email-otp-challenge',
+      '/brand-and-customize/customize-login-text-prompts/prompt-email-otp-challenge',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-email-otp-challenge',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3402,6 +3413,7 @@ const redirects = [
       '/universal-login/text-customization-prompts/email-verification',
       '/login/universal-login/prompt-email-verification',
       '/brand-and-customize/text-customization-new-universal-login/prompt-email-verification',
+      '/brand-and-customize/customize-login-text-prompts/prompt-email-verification',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-email-verification',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3410,6 +3422,7 @@ const redirects = [
     from: [
       '/univeral-login/prompt-accept-invitation',
       '/brand-and-customize/text-customization-new-universal-login/prompt-accept-invitation',
+      '/brand-and-customize/customize-login-text-prompts/prompt-accept-invitation',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-accept-invitation',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3420,6 +3433,7 @@ const redirects = [
       '/universal-login/prompt-login',
       '/universal-login/text-customization-prompts/login',
       '/brand-and-customize/text-customization-new-universal-login/prompt-login',
+      '/brand-and-customize/customize-login-text-prompts/prompt-login',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-login',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3428,6 +3442,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-login-email-verification',
       '/brand-and-customize/text-customization-new-universal-login/prompt-login-email-verification',
+      '/brand-and-customize/customize-login-text-prompts/prompt-login-email-verification',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-email-verification',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3436,6 +3451,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-login-id',
       '/brand-and-customize/text-customization-new-universal-login/prompt-login-id',
+      '/brand-and-customize/customize-login-text-prompts/prompt-login-id',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-id',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3444,6 +3460,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-login-password',
       '/brand-and-customize/text-customization-new-universal-login/prompt-login-password',
+      '/brand-and-customize/customize-login-text-prompts/prompt-login-password',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-password',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3453,6 +3470,7 @@ const redirects = [
       '/universal-login/prompt-mfa',
       '/universal-login/text-customization-prompts/mfa',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3462,6 +3480,7 @@ const redirects = [
       '/universal-login/prompt-mfa-email',
       '/universal-login/text-customization-prompts/mfa-email',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-email',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-email',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-email',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3471,6 +3490,7 @@ const redirects = [
       '/universal-login/prompt-mfa-otp',
       '/universal-login/text-customization-prompts/mfa-otp',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-otp',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-otp',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-otp',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3479,6 +3499,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-mfa-phone',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-phone',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-phone',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-phone',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3488,6 +3509,7 @@ const redirects = [
       '/universal-login/prompt-mfa-push',
       '/universal-login/text-customization-prompts/mfa-push',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-push',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-push',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-push',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3497,6 +3519,7 @@ const redirects = [
       '/universal-login/prompt-mfa-recovery-code',
       '/universal-login/text-customization-prompts/mfa-recovery-code',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-recovery-code',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-recovery-code',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-recovery-code',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3506,6 +3529,7 @@ const redirects = [
       '/universal-login/prompt-mfa-sms',
       '/universal-login/text-customization-prompts/mfa-sms',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-sms',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-sms',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-sms',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3514,6 +3538,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-mfa-voice',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-voice',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-voice',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-voice',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3522,6 +3547,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-mfa-webauthn',
       '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-webauthn',
+      '/brand-and-customize/customize-login-text-prompts/prompt-mfa-webauthn',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-webauthn',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3530,6 +3556,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-organization-selection',
       '/brand-and-customize/text-customization-new-universal-login/prompt-organization-selection',
+      '/brand-and-customize/customize-login-text-prompts/prompt-organization-selection',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-organization-selection',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3539,6 +3566,7 @@ const redirects = [
       '/universal-login/prompt-reset-password',
       '/universal-login/text-customization-prompts/reset-password',
       '/brand-and-customize/text-customization-new-universal-login/prompt-reset-password',
+      '/brand-and-customize/customize-login-text-prompts/prompt-reset-password',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-reset-password',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3548,6 +3576,7 @@ const redirects = [
       '/universal-login/prompt-signup',
       '/universal-login/text-customization-prompts/signup',
       '/brand-and-customize/text-customization-new-universal-login/prompt-signup',
+      '/brand-and-customize/customize-login-text-prompts/prompt-signup',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-signup',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3556,6 +3585,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-signup-id',
       '/brand-and-customize/text-customization-new-universal-login/prompt-signup-id',
+      '/brand-and-customize/customize-login-text-prompts/prompt-signup-id',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-signup-id',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -3564,6 +3594,7 @@ const redirects = [
     from: [
       '/universal-login/prompt-signup-password',
       '/brand-and-customize/text-customization-new-universal-login/prompt-signup-password',
+      '/brand-and-customize/customize-login-text-prompts/prompt-signup-password',
       '/customize/universal-login-pages/customize-login-text-prompts/prompt-signup-password',
     ],
     to: '/customize/universal-login-pages/customize-login-text-prompts',
@@ -4830,64 +4861,109 @@ const redirects = [
   /* Identity Labs */
 
   {
-    from: ['/labs'],
-    to: '/identity-labs',
+    from: [
+      '/labs',
+      '/identity-labs',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/01-web-sign-in'],
-    to: '/identity-labs/lab-1-web-sign-in',
+    from: [
+      '/identity-labs/01-web-sign-in',
+      '/identity-labs/lab-1-web-sign-in',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/01-web-sign-in/exercise-01'],
-    to: '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-1',
+    from: [
+      '/identity-labs/01-web-sign-in/exercise-01',
+      '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-1',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/01-web-sign-in/exercise-02'],
-    to: '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-2',
+    from: [
+      '/identity-labs/01-web-sign-in/exercise-02',
+      '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-2',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/02-calling-an-api'],
-    to: '/identity-labs/identity-lab-2-calling-api',
+    from: [
+      '/identity-labs/02-calling-an-api',
+      '/identity-labs/identity-lab-2-calling-api',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/02-calling-an-api/exercise-01'],
-    to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-1',
+    from: [
+      '/identity-labs/02-calling-an-api/exercise-01',
+      '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-1',
+    ],
+    to:  '/get-started',
   },
   {
-    from: ['/identity-labs/02-calling-an-api/exercise-02'],
-    to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-2',
+    from: [
+      '/identity-labs/02-calling-an-api/exercise-02',
+      '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-2',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/02-calling-an-api/exercise-03'],
-    to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3',
+    from: [
+      '/identity-labs/02-calling-an-api/exercise-03',
+      '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/03-mobile-native-app'],
-    to: '/identity-labs/lab-3-mobile-native-app',
+    from: [
+      '/identity-labs/03-mobile-native-app',
+      '/identity-labs/lab-3-mobile-native-app',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/03-mobile-native-app/exercise-01'],
-    to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1',
+    from: [
+      '/identity-labs/03-mobile-native-app/exercise-01',
+      '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/03-mobile-native-app/exercise-02'],
-    to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-2',
+    from: [
+      '/identity-labs/03-mobile-native-app/exercise-02',
+      '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-2',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/03-mobile-native-app/exercise-03'],
-    to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-3',
+    from: [
+      '/identity-labs/03-mobile-native-app/exercise-03',
+      '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-3',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/04-single-page-app'],
-    to: '/identity-labs/lab-4-single-page-app',
+    from: [
+      '/identity-labs/04-single-page-app',
+      '/identity-labs/lab-4-single-page-app',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/04-single-page-app/exercise-01'],
-    to: '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-1',
+    from: [
+      '/identity-labs/04-single-page-app/exercise-01',
+      '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-1',
+    ],
+    to: '/get-started',
   },
   {
-    from: ['/identity-labs/04-single-page-app/exercise-02'],
-    to: '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2',
+    from: [
+      '/identity-labs/04-single-page-app/exercise-02',
+      '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2',
+    ],
+    to: '/get-started',
   },
 
   /* Integrations */
@@ -6285,7 +6361,11 @@ const redirects = [
   },
   {
     from: ['/mfa/adpative-mfa/adaptive-mfa-rule-actions', '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions'],
-    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
+  },
+  {
+    from: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules'
   },
   {
     from: ['/mfa/adaptive-mfa/adaptive-mfa-log-events', '/login/mfa/adaptive-mfa/adaptive-mfa-log-events'],
@@ -6605,15 +6685,17 @@ const redirects = [
     from: [
       '/migrations/guides/unpaginated-requests',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-paginated-queries',
   },
   {
     from: [
       '/migrations/guides/extensibility-node12',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-nodejs-12',
   },
   {
     from: [
@@ -7372,8 +7454,9 @@ const redirects = [
       '/tokens/guides/create-namespaced-custom-claims',
       '/tokens/concepts/claims-namespacing',
       '/security/tokens/json-web-tokens/create-namespaced-custom-claims',
+      '/secure/tokens/json-web-tokens/create-namespaced-custom-claims',
     ],
-    to: '/secure/tokens/json-web-tokens/create-namespaced-custom-claims',
+    to: '/secure/tokens/json-web-tokens/create-custom-claims',
   },
   {
     from: [

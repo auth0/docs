@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to a Windows Universal C# application using Auth0.
+description: This tutorial demonstrates how to add user login to a UWP C# application using Auth0.
 budicon: 448
 topics:
   - quickstarts

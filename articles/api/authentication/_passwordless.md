@@ -215,7 +215,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth-token](#post-oauth-token).
+For the complete error code reference for this endpoint refer to [Standard Error Responses](#standard-error-responses). 
 
 ### More Information
 

@@ -57,7 +57,7 @@ composer require auth0/login
 Create the SDK's configuration file from the project's root directory. Use Laravel's the `vendor:publish` command to import the configuration file into the application:
 
 ```sh
-php artisan vendor:publish --tag=auth0-config
+php artisan vendor:publish --tag auth0-config
 ```
 
 Now, configure your Auth0 integration by adding options to the `.env` file in the project's root directory. Open the `.env` file and add some essential details for your project.
@@ -140,7 +140,7 @@ You're all set. Your new application is live and waiting for use. Give it a try 
 
 Now that you have configured your Laravel application to use Auth0, run your application to verify that:
 * When users navigate to the `/login` route, they redirect to Auth0.
-* Users redirect back to your application after sucessfully entering their credentials, indicating they are authenticated.
+* Users redirect back to your application after successfully entering their credentials, indicating they are authenticated.
 * Users not authenticated are prohibited from accessing the `/required` route.
 * When users navigate to the `/logout` route, they redirect to Auth0's logout endpoint and sign them out of our application.
 
