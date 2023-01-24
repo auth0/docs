@@ -4,9 +4,9 @@ image: /media/platforms/ionic.jpeg
 logo_name: ionic
 logo: ionic
 author:
-  name: Jonathan 'ArcticGizmo' Howell
-  email: jon.howell314@gmail.com
-  community: true
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 alias:
   - ionic
   - vue
