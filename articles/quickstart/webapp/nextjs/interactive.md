@@ -55,9 +55,9 @@ The SDK will read these values from the Node.js process environment and automati
 
 ## Add the dynamic API route {{{ data-action=code data-code="[...auth0].js" }}}
 
-Inside the `pages/api` directory, create the file `auth/[...auth0].js`. Import in that file the `handleAuth` method from the SDK, and export the result of calling it.
+Create an `auth` directory under the `pages/api` directory. Under this newly created `auth` directory, create a `[...auth0].js` file. The path to your [dynamic API route](https://nextjs.org/docs/api-routes/dynamic-api-routes) file should then be `pages/api/auth/[...auth0].js`.
 
-This creates the following routes:
+Then, import in that file the `handleAuth` method from the SDK, and export the result of calling it. This creates the following routes:
 
 - `/api/auth/login`: The route used to perform login with Auth0.
 - `/api/auth/logout`: The route used to log the user out.
@@ -86,7 +86,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add Login to Your Application {{{ data-action=code data-code="login.jsx" }}}
 
-A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
+Users can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link that points to the login route using an **anchor tag**. Clicking it redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
 
 :::note
 Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform [client-side transitions between pages](https://nextjs.org/docs/api-reference/next/link). As the link points to an API route and not to a page, you should keep it as an anchor tag.
@@ -113,7 +113,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add Logout to Your Application {{{ data-action=code data-code="logout.jsx" }}}
 
-Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). You can add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
+Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). Add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
 
 ::::checkpoint
 :::checkpoint-default
