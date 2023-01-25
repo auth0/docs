@@ -24,7 +24,7 @@ files:
 
 # Add login to your Ionic React with Capacitor app
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (React) & Capacitor application using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (React) & Capacitor application using the [Auth0 React SDK](https://github.com/auth0/auth0-react).
 
 <%= include('../_includes/ionic/_article_intro') %>
 
