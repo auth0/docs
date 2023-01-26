@@ -68,6 +68,10 @@ Then, import in that file the `handleAuth` method from the SDK, and export the r
 
 On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider` in the file `pages/_app.jsx`.
 
+:::note
+The `app` directory introduced with Next.js 13 is currently in beta, and Vercel [does not recommend](https://nextjs.org/blog/next-13#new-app-directory-beta) using it in production. As such, this SDK does not support it yet.
+:::
+
 The authentication state exposed by `UserProvider` can be accessed in any component using the `useUser()` hook.
 
 ::::checkpoint
