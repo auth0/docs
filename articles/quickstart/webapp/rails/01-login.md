@@ -111,7 +111,7 @@ To [prevent forged authentication requests](https://github.com/cookpad/omniauth-
 
 ```erb
   <!-- Place a login button anywhere on your application -->
-  ${"<%= button_to 'Login', '/auth/auth0', method: :post, data: { turbo: false } %>"}
+  ${"<%= button_to 'Login', '/auth/auth0', method: :post, data: \{ turbo: false \} %>"}
 ```
 
 ## Add Logout to Your Application
@@ -152,7 +152,7 @@ The user will now be able to logout of your application by visiting the `/auth/l
 
 ```erb
   <!-- Place a logout button anywhere on your application -->
-  ${"<%= button_to 'Logout', 'auth/logout', method: :get, data: { turbo: false } %>"}
+  ${"<%= button_to 'Logout', 'auth/logout', method: :get, data: \{ turbo: false \} %>"}
 ```
 
 ## Show User Profile Information
