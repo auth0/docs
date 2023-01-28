@@ -150,7 +150,7 @@ export class UserMetadataComponent implements OnInit {
           encodeURI(`https://${account.namespace}/api/v2/users/<%= "${user.sub}" %>`)
         )
       ),
-      map((user) => user['user_metadata']),
+      map((user) => user['email']),
       tap((meta) => (this.metadata = meta))
     )
     .subscribe();
