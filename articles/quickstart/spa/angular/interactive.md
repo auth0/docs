@@ -83,7 +83,7 @@ Sorry about that. Here are a few things to double check:
 - make sure you configured the correct `authorizationParams.redirect_uri`
 - make sure you added the `LoginButtonComponent` button to the module's declarations
 
-Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com).
 
 :::
 ::::
@@ -119,7 +119,7 @@ Sorry about that. Here are a few things to double check:
 - check that you added the `LogoutButtonComponent` to the module's declarations 
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
 
-Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com).
 
 :::
 
@@ -127,7 +127,7 @@ Still having issues? To get more help, check out our [documentation](/docs) or v
 
 ## Show user profile information {{{ data-action=code data-code="user-profile.ts" }}}
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
+Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
 
 The Auth0 Angular SDK provides user information through the `user$` observable exposed by the `AuthService` class. Because the `user$` observable contains sensitive information and artifacts related to the user's identity, its availability depends on the user's authentication status. Fortunately, the `user$` observable is configured to only emit values once the `isAuthenticated$` observable is true, so there is no need to manually check the authentication state before accessing the user profile data.
 
@@ -154,7 +154,7 @@ Sorry about that. Here are a few things to double check:
 - make sure you are trying to access an existing property such as `user.name`
 - make sure you added the `UserProfileComponent` component to the correct module's declarations
 
-Still having issues? To get more help, check out our [documentation](/docs) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com).
 :::
 
 ::::
