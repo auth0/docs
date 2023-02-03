@@ -36,9 +36,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
+    redirectUri={window.location.origin}
   >
     <App />
   </Auth0Provider>,
@@ -52,7 +50,7 @@ The `Auth0Provider` component takes the following props:
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
-- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 `Auth0Provider` stores the authentication state of your users and the state of the SDK &mdash; whether Auth0 is ready to use or not. It also exposes helper methods to log in and log out your users, which you can access using the `useAuth0()` hook.
 
@@ -101,7 +99,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+    <button onClick={() => logout({ returnTo: window.location.origin })}>
       Log Out
     </button>
   );
