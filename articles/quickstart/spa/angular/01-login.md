@@ -47,7 +47,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     // Import the module into the application, with configuration
     AuthModule.forRoot({
       domain: '${account.namespace}',
-      clientId: '${account.clientId}'
+      clientId: '${account.clientId}',
       authorizationParams: {
         redirect_uri: window.location.origin
       }
