@@ -83,7 +83,7 @@ AuthModule.forRoot({
 
     // Request this scope at user authentication time
     scope: 'read:current_user',
-  }
+  },
 
   // Specify configuration for the interceptor              
   httpInterceptor: {
@@ -92,7 +92,7 @@ AuthModule.forRoot({
         // Match any request that starts 'https://${account.namespace}/api/v2/' (note the asterisk)
         uri: 'https://${account.namespace}/api/v2/*',
         tokenOptions: {
-          authorizationParameters: {
+          authorizationParams: {
             // The attached token should target this audience
             audience: 'https://${account.namespace}/api/v2/',
 
