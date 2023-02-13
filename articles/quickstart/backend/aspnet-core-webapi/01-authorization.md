@@ -88,11 +88,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseAuthentication();
     app.UseAuthorization();
 
-    app.UseMvc(routes =>
+    app.UseEndpoints(endpoints =>
     {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapControllers();
     });
 }
 ```
