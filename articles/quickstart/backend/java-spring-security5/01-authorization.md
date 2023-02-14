@@ -114,6 +114,9 @@ public class SecurityConfig {
 
 ### Validate the audience
 
+> Note: If you are using Spring Boot version 2.7 or higher, audience validation is supported out of the box by Spring Security. Instead of customizing beans as indicated below, you should just include the Auth0 API identifier as a value in the `spring.security.oauth2.resourceserver.jwt.audiences` array. 
+> Example: `spring.security.oauth2.resourceserver.jwt.audiences=http://api-identifier`
+
 In addition to validating the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface:
 
 ```java
