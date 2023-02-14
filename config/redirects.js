@@ -474,8 +474,9 @@ const redirects = [
       '/protocols/configure-okta-as-oauth2-identity-provider',
       '/authorization/protocols/configure-okta-as-oauth2-identity-provider',
       '/connections/social/configure-okta-as-oauth2-identity-provider',
+      '/authenticate/identity-providers/social-identity-providers/configure-okta-as-oauth2-identity-provider',
     ],
-    to: '/authenticate/identity-providers/social-identity-providers/configure-okta-as-oauth2-identity-provider',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/okta',
   },
   {
     from: ['/connections/social/auth0-oidc', '/connections/enterprise/oidc'],
