@@ -7594,7 +7594,14 @@ const redirects = [
     to: '/troubleshoot/customer-support',
   },
   {
-    from: ['/support/support-overview', '/support/support-plans'],
+    from: [
+      '/support/support-overview',
+      '/support/support-plans',
+      '/support/support-procedures',
+      '/troubleshoot/customer-support/support-procedures',
+      '/support/support-hours-and-languages',
+      '/troubleshoot/customer-support/support-hours-and-languages'
+    ],
     to: '/troubleshoot/customer-support/support-plans',
   },
   {
@@ -7658,14 +7665,6 @@ const redirects = [
   {
     from: ['/support/support-channels'],
     to: '/troubleshoot/customer-support/support-channels',
-  },
-  {
-    from: ['/support/support-procedures'],
-    to: '/troubleshoot/customer-support/support-procedures',
-  },
-  {
-    from: ['/support/support-hours-and-languages'],
-    to: '/troubleshoot/customer-support/support-hours-and-languages',
   },
   {
     from: ['/support/software-updates'],
