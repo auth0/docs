@@ -43,6 +43,8 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
+    useRefreshTokens={true}
+    useRefreshTokensFallback={false}
     authorizationParams={{
       redirect_uri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
     }}
@@ -57,6 +59,8 @@ The `Auth0Provider` component takes the following props:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `useRefreshTokens`: To use auth0-react with Ionic on Android and iOS, it's required to enable refresh tokens.
+- `useRefreshTokensFallback`: To use auth0-react with Ionic on Android and iOS, it's required to disable the iframe fallback.
 - `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
