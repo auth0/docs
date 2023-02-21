@@ -24,6 +24,8 @@ app.use(
   createAuth0({
     domain: "${account.namespace}",
     clientId: "${account.clientId}",
+    useRefreshTokens: true,
+    useRefreshTokensFallback: false,
     authorizationParams: {
       redirect_uri
     }

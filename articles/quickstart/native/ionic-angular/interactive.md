@@ -42,6 +42,8 @@ The `AuthModule.forRoot` function takes the following configuration:
 
 - `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's [custom domains feature](http://localhost:3000/docs/custom-domains).
 - `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
+- `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
+- `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.
 - `authorizationParams.redirect_uri`: The URL to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
