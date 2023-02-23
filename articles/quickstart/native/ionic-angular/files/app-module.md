@@ -24,6 +24,8 @@ const redirect_uri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/
     AuthModule.forRoot({
       domain: "${account.namespace}",
       clientId: "${account.clientId}",
+      useRefreshTokens: true,
+      useRefreshTokensFallback: false,
       authorizationParams: {
         redirect_uri
       }

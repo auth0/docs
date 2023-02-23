@@ -13,6 +13,8 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
+    useRefreshTokens={true}
+    useRefreshTokensFallback={false}
     authorizationParams={{
       redirect_uri: "YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
     }}
