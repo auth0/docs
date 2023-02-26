@@ -127,24 +127,18 @@ public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
 }
 ```
 
-In your Startup's `ConfigureServices` method, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
+Under your Program's `var builder = WebApplication.CreateBuilder(args);` method, call the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
 
 ```csharp
-// Startup.cs
+// Program.cs
 
-public void ConfigureServices(IServiceCollection services)
+builder.Services.AddAuthorization(options =>
 {
-    //...
+    options.AddPolicy("read:messages", policy => policy.Requirements.Add(new 
+    HasScopeRequirement("read:messages", domain)));
+});
 
-    services.AddAuthorization(options =>
-    {
-        options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
-    });
-
-    services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
-
-    //...
-}
+builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 ```
 
 ## Protect API Endpoints
