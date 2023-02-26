@@ -4,20 +4,16 @@ language: csharp
 ---
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
 {
-  // Some code omitted for brevity...
-  services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+    options.Authority = $"https://{builder.Configuration["Auth0:Domain"]}/";
+    options.Audience = builder.Configuration["Auth0:Audience"];
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.Authority = $"https://{Configuration["Auth0:Domain"]}/";
-        options.Audience = Configuration["Auth0:Audience"];
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = ClaimTypes.NameIdentifier
-        };
-    });
+        NameClaimType = ClaimTypes.NameIdentifier
+    };
+});
 
     services
       .AddAuthorization(options =>
@@ -33,10 +29,18 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 }
 
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+builder.Services.AddAuthorization(options =>
 {
-  // Some code omitted for brevity...
-  app.UseAuthentication();
-  app.UseAuthorization();
-}
+    options.AddPolicy(
+        "read:messages",
+         policy => policy.Requirements.Add(
+            new HasScopeRequirement("read:messages", domain)
+        )
+    );
+});
+
+services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+
+app.UseAuthentication();
+app.UseAuthorization();
 ```
