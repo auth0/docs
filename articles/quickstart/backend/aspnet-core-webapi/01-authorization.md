@@ -54,45 +54,32 @@ In your application, register the authentication services:
 2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience. In some cases the access token will not have a `sub` claim which will lead to `User.Identity.Name` being `null`. If you want to map a different claim to `User.Identity.Name` then add it to `options.TokenValidationParameters` within the `AddAuthentication()` call.
 
 ```csharp
-// Startup.cs
+// Program.cs
 
-public void ConfigureServices(IServiceCollection services)
+var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
 {
-    // Some code omitted for brevity...
-
-    string domain = $"https://{Configuration["Auth0:Domain"]}/";
-    services
-        .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.Authority = domain;
-            options.Audience = Configuration["Auth0:Audience"];
-            // If the access token does not have a `sub` claim, `User.Identity.Name` will be `null`. Map it to a different claim by setting the NameClaimType below.
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                NameClaimType = ClaimTypes.NameIdentifier
-            };
-        });
-}
+    options.Authority = domain;
+    options.Audience = builder.Configuration["Auth0:Audience"];
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        NameClaimType = ClaimTypes.NameIdentifier
+    };
+});
 ```
 
-To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's `Configure` method:
+To add the authentication and authorization middleware to the middleware pipeline, call  the `UseAuthentication` and `UseAuthorization` methods under your Program.cs `var app = builder.Build();` method:
 
 ```csharp
 // Startup.cs
 
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
 {
-    // Some code omitted for brevity...
-
-    app.UseAuthentication();
-    app.UseAuthorization();
-
-    app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapControllers();
-    });
-}
+    endpoints.MapControllers();
+});
 ```
 
 ### Validate scopes
