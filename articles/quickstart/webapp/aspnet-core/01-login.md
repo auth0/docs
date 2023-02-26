@@ -48,7 +48,7 @@ Ensure to configure the `Domain` and `ClientId`, these are required fields to en
 ```cs
 var builder = WebApplication.CreateBuilder(args);
 // Cookie configuration for HTTP to support cookies with SameSite=None
-services.ConfigureSameSiteNoneCookies();
+builder.Services.ConfigureSameSiteNoneCookies();
 
 // Cookie configuration for HTTPS
 //  builder.Services.Configure<CookiePolicyOptions>(options =>
