@@ -1,5 +1,5 @@
 ---
-name: Startup.cs
+name: Program.cs
 language: csharp
 ---
 
@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 
-    services
+    builder.Services
       .AddAuthorization(options =>
       {
           options.AddPolicy(
@@ -26,20 +26,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
           );
       });
 
-    services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
-}
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy(
-        "read:messages",
-         policy => policy.Requirements.Add(
-            new HasScopeRequirement("read:messages", domain)
-        )
-    );
-});
-
-builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+    builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
 app.UseAuthentication();
 app.UseAuthorization();
