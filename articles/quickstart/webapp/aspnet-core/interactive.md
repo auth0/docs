@@ -13,7 +13,7 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
-  - files/startup
+  - files/program
   - files/appsettings
   - files/account.controller
 ---
