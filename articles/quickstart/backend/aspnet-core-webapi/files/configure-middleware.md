@@ -39,7 +39,7 @@ builder.Services.AddAuthorization(options =>
     );
 });
 
-services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
 app.UseAuthentication();
 app.UseAuthorization();
