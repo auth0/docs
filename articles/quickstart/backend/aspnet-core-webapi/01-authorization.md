@@ -69,7 +69,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 });
 ```
 
-To add the authentication and authorization middleware to the middleware pipeline, call  the `UseAuthentication` and `UseAuthorization` methods under your Program.cs `var app = builder.Build();` method:
+To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Program.cs file:
 
 ```csharp
 // Program.cs
