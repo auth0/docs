@@ -127,7 +127,7 @@ public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
 }
 ```
 
-Under your Program's `var builder = WebApplication.CreateBuilder(args);` method, call the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
+In your Program.cs file, add a call to the `AddAuthorization` method. To add policies for the scopes, call `AddPolicy` for each scope. Also ensure that you register the `HasScopeHandler` as a singleton:
 
 ```csharp
 // Program.cs
