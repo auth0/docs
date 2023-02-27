@@ -43,7 +43,7 @@ To enable authentication in your ASP.NET Core application, use the middleware pr
 
 Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
 
-Make sure you have enabled authentication and authorization below your `var app = builder.Build();` middleware pipeline setup statement in `Program.cs`.
+Make sure you have enabled authentication and authorization in your `Program.cs` file.
 ## Login {{{ data-action=code data-code="AccountController.cs#7:20" }}}
 
 To allow users to login to your ASP.NET MVC application, add a `Login` action to your controller.
