@@ -6300,9 +6300,10 @@ const redirects = [
     to: '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider',
   },
   {
-    from: ['/mfa/webauthn-as-mfa'
+    from: [
+      '/mfa/webauthn-as-mfa'
     ],
-    to:'/secure/multi-factor-authentication/webauthn-as-mfa'
+    to: '/secure/multi-factor-authentication/webauthn-as-mfa',
   },
   {
     from: [
