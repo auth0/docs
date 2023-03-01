@@ -6300,6 +6300,11 @@ const redirects = [
     to: '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider',
   },
   {
+    from: ['/mfa/webauthn-as-mfa'
+    ],
+    to:'/secure/multi-factor-authentication/webauthn-as-mfa'
+  },
+  {
     from: [
       '/multifactor-authentication/send-phone-message-hook-twilio',
       '/mfa/send-phone-message-hook-twilio',
