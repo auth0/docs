@@ -4040,8 +4040,61 @@ const redirects = [
     to: '/customize/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
   },
   {
-    from: ['/deploy/private-cloud-on-azure'],
+    from: [
+    '/deploy/private-cloud-on-azure'
+    ],
     to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-azure',
+  },
+
+  /* Deploy CLI Tool */
+  
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  }, 
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
   },
 
   /* Extensions */
