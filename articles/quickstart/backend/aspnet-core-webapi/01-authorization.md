@@ -73,6 +73,7 @@ To add the authentication and authorization middleware to the middleware pipelin
 
 ```csharp
 // Program.cs
+var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
