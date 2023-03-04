@@ -41,7 +41,7 @@ Install-Package Auth0.AspNetCore.Authentication
 
 ### Install and configure the SDK
 
-To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the  `Program` class and between `var builder = WebApplication.CreateBuilder(args);` and `var app = builder.Build();` call `builder.Services.AddAuth0WebAppAuthentication()` to configure the Auth0 ASP.NET Core SDK.
+To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `Program.cs` file and call `builder.Services.AddAuth0WebAppAuthentication()` to configure the Auth0 ASP.NET Core SDK.
 
 Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
 
