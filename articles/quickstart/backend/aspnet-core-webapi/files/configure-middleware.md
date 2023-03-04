@@ -4,6 +4,7 @@ language: csharp
 ---
 
 ```csharp
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
