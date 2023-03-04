@@ -4,6 +4,7 @@ language: csharp
 ---
 
 ```csharp
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
@@ -28,6 +29,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
     builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
+var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 ```
