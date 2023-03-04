@@ -55,7 +55,7 @@ In your application, register the authentication services:
 
 ```csharp
 // Program.cs
-
+var builder = WebApplication.CreateBuilder(args);
 var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
