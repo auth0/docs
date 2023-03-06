@@ -6596,6 +6596,12 @@ const redirects = [
   },
   {
     from: [
+      '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api'
+    ],
+    to: '/secure/multi-factor-authentication/manage-mfa-auth0-apis/manage-authenticator-factors-mfa-api'
+  },
+  {
+    from: [
       '/multifactor-authentication/developer/step-up-authentication',
       '/step-up-authentication',
       '/tutorials/step-up-authentication',
