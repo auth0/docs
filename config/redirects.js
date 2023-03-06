@@ -6591,14 +6591,9 @@ const redirects = [
       '/multifactor-authentication/api/manage',
       '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api',
       '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api',
+      '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api',
     ],
-    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api',
-  },
-  {
-    from: [
-      '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api'
-    ],
-    to: '/secure/multi-factor-authentication/manage-mfa-auth0-apis/manage-authenticator-factors-mfa-api'
+    to: '/secure/multi-factor-authentication/manage-mfa-auth0-apis/manage-authenticator-factors-mfa-api',
   },
   {
     from: [
