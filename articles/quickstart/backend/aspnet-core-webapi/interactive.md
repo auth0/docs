@@ -47,7 +47,7 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configure the middleware {{{ data-action=code data-code="Startup.cs" }}}
 
-Set up the authentication middleware by configuring it in your application's `Startup.cs` file:
+Set up the authentication middleware by configuring it in your application's `Program.cs` file:
 
 1. Register the authentication services by making a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default scheme.
  
@@ -57,14 +57,14 @@ Set up the authentication middleware by configuring it in your application's `St
 In some cases, the access token will not have a `sub` claim; in this case, the `User.Identity.Name` will be `null`. If you want to map a different claim to `User.Identity.Name`, add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
 :::
 
-3. Add the authentication and authorization middleware to the middleware pipeline by adding calls to the `UseAuthentication` and `UseAuthorization` methods in the `Configure` method.
+3. Add the authentication and authorization middleware to the middleware pipeline by adding calls to the `UseAuthentication` and `UseAuthorization` methods under the `var app = builder.Build();` method.
 
 ## Validate scopes {{{ data-action=code data-code="HasScopeHandler.cs" }}}
 
 To ensure that an access token contains the correct scopes, use [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in the ASP.NET Core:
 
 1. Create a new authorization requirement called `HasScopeRequirement`, which will check whether the `scope` claim issued by your Auth0 tenant is present, and if so, will check that the claim contains the requested scope.
-2. In your `Startup.cs` file's `ConfigureServices` method, add a call to the `AddAuthorization` method.
+2. Under your `Program.cs` file's `var builder = WebApplication.CreateBuilder(args);` method, add a call to the `app.AddAuthorization` method.
 3. Add policies for scopes by calling `AddPolicy` for each scope.
 4. Register a singleton for the `HasScopeHandler` class.
 
