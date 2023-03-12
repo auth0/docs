@@ -27,7 +27,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Install and Configure the SDK {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Install and Configure the SDK {{{ data-action=code data-code="Program.cs" }}}
 
 ### Install from Nuget
 
