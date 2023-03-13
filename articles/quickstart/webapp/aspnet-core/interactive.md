@@ -13,7 +13,7 @@ contentType: tutorial
 useCase: quickstart
 interactive: true
 files:
-  - files/startup
+  - files/program
   - files/appsettings
   - files/account.controller
 ---
@@ -27,7 +27,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
   returnTo: 'http://localhost:3000'
 }) %>
 
-## Install and Configure the SDK {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Install and Configure the SDK {{{ data-action=code data-code="Program.cs" }}}
 
 ### Install from Nuget
 
@@ -39,12 +39,11 @@ Install-Package Auth0.AspNetCore.Authentication
 
 ### Configure the middleware
 
-To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `ConfigureServices` method of your `Startup` class and call `services.AddAuth0WebAppAuthentication()` to register the SDK's middleware.
+To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `Program.cs` file and call `builder.Services.AddAuth0WebAppAuthentication()` to register the SDK's middleware.
 
 Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
 
-Make sure you have enabled authentication and authorization in your `Startup.Configure` method.
-
+Make sure you have enabled authentication and authorization in your `Program.cs` file.
 ## Login {{{ data-action=code data-code="AccountController.cs#7:20" }}}
 
 To allow users to login to your ASP.NET MVC application, add a `Login` action to your controller.
