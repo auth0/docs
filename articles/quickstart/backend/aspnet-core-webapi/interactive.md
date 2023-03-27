@@ -145,7 +145,7 @@ Call the `/api/private-scoped` endpoint in a similar way, but ensure that the AP
 ::::checkpoint
 
 :::checkpoint-default
-You should now be able to call the `/api/private` and `/api/private-scoped` endpooints. 
+You should now be able to call the `/api/private` and `/api/private-scoped` endpoints. 
 
 Run your application, and verify that:
 
