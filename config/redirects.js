@@ -4092,9 +4092,21 @@ const redirects = [
   },
   {
     from: [
-    '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options'
+      '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options'
     ],
     to: '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+  },
+  {
+    from: [
+      '/deploy-monitor/deploy-cli-tool/auth0-terraform-provider'
+    ],
+    to: '/deploy-monitor/auth0-terraform-provider',
+  },
+  {
+    from: [
+      '/deploy-monitor/deploy-cli-tool/how-to-contribute'
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
   },
 
   /* Extensions */
