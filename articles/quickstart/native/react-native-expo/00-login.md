@@ -112,7 +112,7 @@ These values are found in the Expo config file at `app.json` or `app.config.js`.
 
 <%= include('../../../_includes/_callback_url') %>
 
-#### Callback URL and logout URL
+#### iOS callback URL
 
 ```text
 {YOUR_CUSTOM_SCHEME}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
