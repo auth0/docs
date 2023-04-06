@@ -261,17 +261,19 @@ function loginByEmail(email, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
-  const postgres = require('pg');
+  const { Client } = require('pg');
 
   const conString = 'postgres://user:pass@localhost/mydb';
-  postgres.connect(conString, function (err, client, done) {
+  const client = new Client(conString);
+
+  client.connect(function (err) {
     if (err) return callback(err);
 
     const query = 'SELECT id, nickname, email FROM users WHERE email = $1';
     client.query(query, [email], function (err, result) {
-      // NOTE: always call `done()` here to close
+      // NOTE: always call `client.end()` here to close
       // the connection to the database
-      done();
+      client.end();
 
       if (err || result.rows.length === 0) return callback(err);
 
