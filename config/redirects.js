@@ -391,6 +391,12 @@ const redirects = [
     ],
     to: '/quickstart/webapp/express',
   },
+  {
+    from: [
+      '/quickstart/native/cordova',
+    ],
+    to: '/quickstart'
+  },
 
   /* CONNECTIONS */
 
