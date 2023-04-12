@@ -90,7 +90,9 @@ You have three options for [passwordless authentication](/connections/passwordle
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Required for Regular Web Applications **only**. |
+| `client_assertion` <br/>| A JWT containing containing a signed assertion with your applications credentials. Required when Private Key JWT is your application authentication method. |
+|`client_assertion_type`| Use the value `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
+| `client_secret` <br/> | The `client_secret` of your application. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. Specifically required for Regular Web Applications **only**. |
 | `connection` <br/><span class="label label-danger">Required</span> | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
 | `email` | Set this to the user's email address, when `connection=email`. |
 | `phone_number` | Set this to the user's phone number, when `connection=sms`. |
@@ -194,8 +196,10 @@ Once you have a verification code, use this endpoint to login the user with thei
 | Parameter        |Description |
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | It should be `http://auth0.com/oauth/grant-type/passwordless/otp`. |
+| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
+|`client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Only required for Regular Web Applications. |
+| `client_secret` <br/> | The `client_secret` of your application. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`.  Specifically required for Regular Web Applications **only**. |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `realm=sms`, or the user's email if `realm=email`. |
 | `realm` <br/><span class="label label-danger">Required</span> | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
 | `otp` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
