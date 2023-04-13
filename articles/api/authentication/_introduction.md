@@ -27,7 +27,7 @@ Send a valid Access Token in the `Authorization` header, using the `Bearer` auth
 An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client ID and Client Assertion
-Generate a [client assertion](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-private-key-jwt) containing a signed JSON Web Token (JWT) to authenticate. In the body of the request, include your Client ID, a `client_assertion_type` parameter with the value `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, and a `client_assertion` parameter containing your signed assertion. Review [Private Key JWT]( https://auth0.com/docs/applications/application-credentials/configure-private-key-jwt) for examples.
+Generate a [client assertion](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-private-key-jwt) containing a signed JSON Web Token (JWT) to authenticate. In the body of the request, include your Client ID, a `client_assertion_type` parameter with the value `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, and a `client_assertion` parameter with your signed assertion. Review [Private Key JWT]( https://auth0.com/docs/applications/application-credentials/configure-private-key-jwt) for examples.
 
 ### Client ID and Client Secret
 
