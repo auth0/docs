@@ -58,7 +58,7 @@ If successful, you'll receive a response like the one below:
     "recovery_codes": [
         "ALKE6EJZ4853BJYLM2DM2WU7"
     ],
-    "oob_channel": "auth0",
+    "oob_channels": "auth0",
     "oob_code": "Fe26.2...SYAg"
 }
 ```
@@ -156,7 +156,7 @@ You will get a list of authenticators with the format below:
         "id": "push|dev_ZUla9SQ6tAIHSz6y",
         "authenticator_type": "oob",
         "active": true,
-        "oob_channel": "auth0",
+        "oob_channels": "auth0",
         "name": "user's device name"
     },
     {
