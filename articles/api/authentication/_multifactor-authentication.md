@@ -483,7 +483,7 @@ To access this endpoint, you must set an Access Token at the Authorization heade
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
 | `oob_channels` | The type of OOB channels supported by the client. An array with values `"auth0"`, `"sms"`, `"voice"`. Required if `authenticator_types` include `oob`. |
-| `phone_number` | The phone number to use for SMS or Voice. Required if `oob_channel` includes `sms` or `voice`. |
+| `phone_number` | The phone number to use for SMS or Voice. Required if `oob_channels` includes `sms` or `voice`. |
 
 ### More information
 
