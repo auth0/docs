@@ -70,7 +70,7 @@ You should receive information about the authenticator type(s) in the response:
   },
   {
     "authenticator_type": "oob",
-    "oob_channel": "sms",
+    "oob_channels": "sms",
     "id": "sms|dev_sEe99pcpN0xp0yOO",
     "name": "+1123XXXXX",
     "active": true
