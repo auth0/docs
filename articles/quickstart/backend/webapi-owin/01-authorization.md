@@ -132,7 +132,7 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
         // Get the claim principal
         ClaimsPrincipal principal = actionContext.ControllerContext.RequestContext.Principal as ClaimsPrincipal;
 
-        // Get the scope clain. Ensure that the issuer is for the correct Auth0 domain
+        // Get the scope claim. Ensure that the issuer is for the correct Auth0 domain
         var scopeClaim = principal?.Claims.FirstOrDefault(c => c.Type == "scope" && c.Issuer == domain);
         if (scopeClaim != null)
         {
