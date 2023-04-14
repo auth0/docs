@@ -64,7 +64,7 @@ If successful, you'll receive a response like the one below:
   "authenticator_type": "oob",
   "binding_method": "prompt",
   "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ],
-  "oob_channel": "sms",
+  "oob_channels": "sms",
   "oob_code": "ata6daXAiOi..."
 }
 ```
@@ -159,14 +159,14 @@ You will get a list of authenticators with the format below:
         "id": "sms|dev_NU1Ofuw3Cw0XCt5x",
         "authenticator_type": "oob",
         "active": true,
-        "oob_channel": "sms",
+        "oob_channels": "sms",
         "name": "XXXXXXXX8730"
     },
         {
         "id": "voice|dev_NU1Ofuw3Cw0XCt5x",
         "authenticator_type": "oob",
         "active": true,
-        "oob_channel": "voice",
+        "oob_channels": "voice",
         "name": "XXXXXXXX8730"
     }
 ]
