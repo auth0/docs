@@ -103,7 +103,7 @@ You will get an array with the available authenticators. The array will be empty
         "id": "email|dev_NU1Ofuw3Cw0XCt5x",
         "authenticator_type": "oob",
         "active": true,
-        "oob_channel": "email",
+        "oob_channels": "email",
         "name": "email@address.com"
     }
 ]
