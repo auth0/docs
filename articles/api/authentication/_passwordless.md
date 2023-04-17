@@ -196,9 +196,9 @@ Once you have a verification code, use this endpoint to login the user with thei
 | Parameter        |Description |
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | It should be `http://auth0.com/oauth/grant-type/passwordless/otp`. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
-|`client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
+| `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
 | `client_secret` | The `client_secret` of your application. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`.  Specifically required for Regular Web Applications **only**. |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `realm=sms`, or the user's email if `realm=email`. |
 | `realm` <br/><span class="label label-danger">Required</span> | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
