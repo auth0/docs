@@ -1,175 +1,214 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to a Laravel API application using the Auth0 Laravel SDK.
+description: Build a Laravel backend API that authorizes requests for protected routes using access tokens with the Auth0 Laravel SDK.
 topics:
-    - quickstart
-    - backend
-    - laravel
+  - quickstarts
+  - backend
+  - laravel
+  - authorization
 contentType: tutorial
 useCase: quickstart
 default: true
 github:
-   path: app
+  path: app
 ---
 
-<%= include('../../../_includes/_api_auth_intro') %>
+## Create an Application and API
 
-<%= include('../_includes/_api_create_new') %>
+Download the [Auth0 CLI](https://github.com/auth0/auth0-cli) to your working directory:
+
+```shell
+curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
+```
+
+Run the following command to authenticate with your Auth0 account:
+
+```shell
+./auth0 login
+```
+
+Next, run the following command to create a new application with Auth0:
+
+```shell
+./auth0 apps create \
+  --name "My Laravel Backend Application" \
+  --type "regular" \
+  --auth-method "post" \
+  --callbacks "http://localhost:8000/callback" \
+  --logout-urls "http://localhost:8000" \
+  --reveal-secrets \
+  --no-input
+```
+
+Make a note of your tenant domain and client ID. These are necessary for SDK configuration later.
+
+Next, run the following command to create a new API with Auth0:
+
+```shell
+./auth0 apis create \
+  --name "My Laravel Backend Application's API" \
+  --identifier "https://github.com/auth0-samples/auth0-laravel-api-samples" \
+  --offline-access \
+  --no-input
+```
 
 ## Create a Laravel Application
 
-::: note
-If you already have a Laravel 9 application prepared, you can skip this step.
-:::
+Open a shell to a preferred directory for your new project, and run the following command:
 
-Let's begin by setting up a new Laravel application. Let's open a shell and run the following command — replacing `DIRECTORY_NAME` with a directory name of preference to create and install Laravel within. The directory cannot already exist.
-
-```sh
-composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME
+```shell
+composer create-project --prefer-dist laravel/laravel auth0-laravel-api
 ```
 
-We'll refer to this new directory as our project's root directory. As we work through this tutorial, we'll run any instructed shell commands from within that directory.
+Then `cd` into your new project directory:
 
-## Install the SDK
+```shell
+cd auth0-laravel-api
+```
 
-Let's install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) to protect our new Laravel application's routes. The SDK offers a range of middleware types we can use which will check for and verify any bearer tokens in the 'Authorization' header of an incoming HTTP request.
+## Install the Auth0 Laravel SDK
 
-From a shell opened to our project's root directory, let's use Composer to install the SDK in our application:
+Run the following command within your project directory to install the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0):
 
-```sh
+```shell
 composer require auth0/login
 ```
 
 ## Configure the SDK
 
-Next, let's create the SDK's configuration file. Again from a shell opened to our projects root directory, let's use Laravel's the `vendor:publish` command to import the configuration file into our application:
+Run the following command to generate an SDK configuration file for your application:
 
-```sh
+```shell
 php artisan vendor:publish --tag auth0-config
 ```
 
-Now we can begin configuring our Auth0 integration by adding options to the `.env` file in our project's root directory. Let's open that `.env` file and add some essential details for our project:
+Open the `.env` file in your project directory. Append the following to the end of the file:
 
 ```sh
-# This tells the Auth0 Laravel SDK about your use case to customize its behavior.
-# The 'api' strategy is used for backend API applications like we're building here.
+# This informs the SDK of the application type and tailors it's behavior.
 AUTH0_STRATEGY=api
 
-# The URL of your Auth0 tenant domain
-# You'll find this in your Auth0 Application's settings page.
+# Your Auth0 account's tenant domain.
 AUTH0_DOMAIN=${account.namespace}
 
-# Your Auth0 application's Client ID
-# You'll find this in your Auth0 Application's settings page.
+# Your Auth0 application's client ID.
 AUTH0_CLIENT_ID=${account.clientId}
 
-# Your Auth0 Custom API identifier/audience.
-# You'll find this in your Custom API's settings page.
+# Your Auth0 API's identifier/audience.
 AUTH0_AUDIENCE=${apiIdentifier}
 ```
 
-## Configure the application
+## Configure the Guard
 
-Now let's connect our Laravel application with the SDK so we can begin working with our Auth0 integration. For this, we'll be making changes to our `config\auth.php` file. This file contains a lot of settings, but we only need to make a few small changes.
+Open the `config/auth0.php` file. We will update this to add a new Guard and Provider that uses the SDK.
 
-To start, let's find the `defaults` section. We'll set the default `guard` to `auth0`, like this:
+Find the `guards` array, and add an entry to it:
 
 ```php
-// 📂 config/auth.php
-
-'defaults' => [
-    'guard' => 'auth0',
-    // 📝 Leave any other settings in this section alone.
-],
-```
-
-Next, find the `guards` section, and add `auth0` there:
-```php
-// 👆 Continued from above, in config/auth.php
-
+/**
+ * Register the SDK's Guard with your application.
+ * You should not remove any other entries from this array.
+ */
 'guards' => [
-    // 📝 Any additional guards you use should stay here, too.
-
-    'auth0' => [
-        'driver' => 'auth0',
-        'provider' => 'auth0',
-    ],
+  'my-example-guard' => [
+    'driver' => 'auth0.driver',
+    'provider' => 'my-example-provider',
+  ],
 ],
 ```
 
-Finally, find the `providers` section, and add `auth0` there as well:
-```php
-// 👆 Continued from above, in config/auth.php
+Next, find the `providers` array, and add an entry to it:
 
+```php
+/**
+ * Register the SDK's User Provider with your application.
+ * You should not remove any other entries from this array.
+ */
 'providers' => [
-    // 📝 Any additional providers you use should stay here, too.
-
-    'auth0' => [
-        'driver' => 'auth0',
-        'repository' => \Auth0\Laravel\Auth\User\Repository::class
-    ],
+  'my-example-provider' => [
+    'driver' => 'auth0.provider',
+    'repository' => \Auth0\Laravel\Auth\User\Repository::class
+  ],
 ],
 ```
 
-## Protecting routes
+## Protect Routes
 
-We'll use the SDK's middleware to automatically protect these using bearer tokens. For this type of application there are types of middleware available for us to use. Let's create three routes to demonstrate each one.
+Routes are rotected by the SDK using Middleware. For this demonstration, we will have three routes available, each using a distinct middleware configuration:
 
-We'll need to edit our `routes/web.php` file, and add the following routes to that file:
+- `GET /api` is a public route. It uses the `auth0.authorize.optional` middleware. Anyone can access this route.
+- `GET /api/protected` is a protected route. It uses the `auth0.authorize` middleware. You need an access token to access this route.
+- `GET /api/scoped` is another protected route using the `auth0.authorize` middleware; it requires the access token have a specific scope granted. You need an access token with the `read:messages` scope to access this route.
 
-```php
-// 📂 routes/web.php
-// 👆 Keep anything already present in the file, just add the following ...
-
-Route::get('/api/public', function () {
-    return response()->json([
-        'message' => 'Hello from a public endpoint! You don\'t need to be authenticated to see this.',
-        'authorized' => Auth::check(),
-        'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-    ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize.optional']);
-```
-
-This route demonstrates the `auth0.authorize.optional` middleware. This middleware will resolve an available bearer token when provided (allowing you to access the token's properties through the `Auth::user()` command) but won't block requests without a token either, allowing you to treat tokenless requests as "guest" requests.
-
-Let's add another to that file:
+Replace the contents of your application's `routes/api.php` file with the following:
 
 ```php
-// 👆 Continued from above, in routes/web.php
+<?php
 
-Route::get('/api/private', function () {
-    return response()->json([
-        'message' => 'Hello from a private endpoint! You need to be authenticated to see this.',
-        'authorized' => Auth::check(),
-        'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-    ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize']);
+Route::middleware('guard:my-example-guard')->group(function () {
+
+    Route::get('/api', function () {
+        return response()->json([
+            'message' => 'This is a public route. Anyone can access this.',
+            'authorized' => Auth::check(),
+            'details' => auth()?->user()?->getAttributes(),
+        ], 200, [], JSON_PRETTY_PRINT);
+    })->middleware('auth0.authorize.optional');
+
+    Route::get('/api/protected', function () {
+        return response()->json([
+            'message' => 'This is a protected route. You need an access token to see this.',
+            'authorized' => Auth::check(),
+            'details' => auth()?->user()?->getAttributes(),
+        ], 200, [], JSON_PRETTY_PRINT);
+    })->middleware('auth0.authorize');
+
+    Route::get('/api/scoped', function () {
+        return response()->json([
+            'message' => 'This is a protected route. You need an access token with the `read:messages` scope granted to see this.',
+            'authorized' => Auth::check(),
+            'details' => auth()?->user()?->getAttributes(),
+        ], 200, [], JSON_PRETTY_PRINT);
+    })->middleware('auth0.authorize:read:messages');
+
+});
 ```
 
-Similar to the `optional` middleware above, the `auth0.authorize` middleware will resolve a bearer token for us, but this middleware will reject any requests that don't pass a valid Access Token for our application.
+## Run the Application
 
-```php
-// 👆 Continued from above, in routes/web.php
+You are now ready to start your new application, so it can accept requests:
 
-Route::get('/api/private-scoped', function () {
-    return response()->json([
-        'message' => 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.',
-        'authorized' => Auth::check(),
-        'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-    ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize:read:messages']);
+```shell
+php artisan serve
 ```
 
-In this demonstration we're using the `auth0.authorize` middleware with an extra check: the request will be rejected if the Access Token is invalid or doesn't include the required scope (in this case `read:messages`.)
+## Prepare an Access Token
 
-## Run the application
+This demonstration backend API authorizes requests using access tokens provided as a header with each request. The requesting client (such a single page application or native client) handles the retrieval and storage of access tokens, and the backend API doesn't need to maintain any state information for clients. You can learn more about [retrieving access tokens here.](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens)
 
-We've installed Laravel and the SDK, configured our application, and set up some routes — all that's left is for us to try out our new application:
+For the purposes of testing this application, you can use an access token from the "test" view of your [API settings](https://manage.auth0.com/#/apis).
 
-```sh
-php artisan serve --port=3010
+## Send a Network Request
+
+Run the following command to request the public route:
+
+```shell
+curl --request GET \
+  --url http://localhost:8000/api
 ```
 
-We're all set our new application is live and waiting for us. Give it a try by loading [http://localhost:3010/api/public](http://localhost:3010/api/public) in your web browser.
+Next, use your access token in an `Authorization` header to request a protected route:
 
-Move on to the next section, "using your API", to learn more about how to interface with these routes.
+```shell
+curl --request GET \
+  --url http://localhost:8000/api/protected \
+  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+```
+
+Finally, try requesting the scope-protected route, which will only succeed if your access token has the  `read:messages` scope granted:
+
+```shell
+curl --request GET \
+  --url http://localhost:8000/api/scoped \
+  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+```

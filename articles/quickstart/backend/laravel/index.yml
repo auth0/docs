@@ -18,8 +18,6 @@ contentType: tutorial
 useCase: quickstart
 articles:
   - 01-authorization
-  - 02-using
-  - 03-troubleshooting
 hidden_articles:
   - interactive
 default_article: 01-authorization
@@ -34,9 +32,9 @@ sdk:
   url: https://github.com/auth0/laravel-auth0
   logo: laravel
 requirements:
-  - Composer 2.0+
+  - Composer
   - PHP 8.0+
-  - Laravel 9.0+
+  - Laravel 9/10
 next_steps:
   - path: 01-authorization
     list:

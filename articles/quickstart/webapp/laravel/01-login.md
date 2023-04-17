@@ -1,212 +1,220 @@
 ---
 title: Login
-description: This guide demonstrates how to integrate Auth0 with a Laravel application using the Auth0 Laravel SDK.
+description: Build a Laravel application that authenticates users with Auth0 using the Auth0 Laravel SDK.
 topics:
-    - quickstart
-    - backend
-    - laravel
+  - quickstarts
+  - webapp
+  - laravel
+  - authentication
+  - login
 contentType: tutorial
 useCase: quickstart
 default: true
 github:
-   path: app
+  path: app
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/auth0/callback' }) %>
+## Create an Application and API
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+Download the [Auth0 CLI](https://github.com/auth0/auth0-cli) to your working directory:
+
+```shell
+curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
+```
+
+Run the following command to authenticate with your Auth0 account:
+
+```shell
+./auth0 login
+```
+
+Next, run the following command to create a new application with Auth0:
+
+```shell
+./auth0 apps create \
+  --name "My Laravel Application" \
+  --type "regular" \
+  --auth-method "post" \
+  --callbacks "http://localhost:8000/callback" \
+  --logout-urls "http://localhost:8000" \
+  --reveal-secrets \
+  --no-input
+```
+
+Make a note of your tenant domain, client ID and client secret. These are necessary for SDK configuration later.
+
+Next, run the following command to create a new API with Auth0:
+
+```shell
+./auth0 apis create \
+  --name "My Laravel Application's API" \
+  --identifier "https://github.com/auth0-samples/auth0-laravel-php-web-app" \
+  --offline-access \
+  --no-input
+```
 
 ## Create a Laravel Application
 
-::: note
-If you already have a Laravel 9 application prepared, you can skip this step.
-:::
+Open a shell to a preferred directory for your new project, and run the following command:
 
-Let's begin by setting up a new Laravel application. Let's open a shell and run the following command — replacing `DIRECTORY_NAME` with a directory name of preference to create and install Laravel within. The directory cannot already exist.
-
-```sh
-composer create-project --prefer-dist laravel/laravel DIRECTORY_NAME
+```shell
+composer create-project --prefer-dist laravel/laravel auth0-laravel-app
 ```
 
-We'll refer to this new directory as our project's root directory. As we work through this tutorial, we'll run any instructed shell commands from within that directory.
+Then `cd` into your new project directory:
 
-## Install the SDK
+```shell
+cd auth0-laravel-app
+```
 
-Let's install the [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) to protect our new Laravel application's routes. The SDK offers a range of middleware types and router controllers that will help us integrate authentication and protect our application's routes.
+## Install the Auth0 Laravel SDK
 
-From a shell opened to our project's root directory, let's use Composer to install the SDK in our application:
+Run the following command within your project directory to install the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0):
 
-```sh
+```shell
 composer require auth0/login
 ```
 
 ## Configure the SDK
 
-Next, let's create the SDK's configuration file. Again from a shell opened to our projects root directory, let's use Laravel's the `vendor:publish` command to import the configuration file into our application:
+Run the following command to generate an SDK configuration file for your application:
 
-```sh
+```shell
 php artisan vendor:publish --tag auth0-config
 ```
 
-Now we can begin configuring our Auth0 integration by adding options to the `.env` file in our project's root directory. Let's open that `.env` file and add some essential details for our project:
+Open the `.env` file in your project directory. Append the following to the end of the file:
 
 ```sh
-# The URL of your Auth0 tenant domain
-# You'll find this in your Auth0 Application's settings page.
+# Your Auth0 account's tenant domain.
 AUTH0_DOMAIN=${account.namespace}
 
-# Your Auth0 application's Client ID
-# You'll find this in your Auth0 Application's settings page.
+# Your Auth0 application's client ID.
 AUTH0_CLIENT_ID=${account.clientId}
 
-# Your Auth0 application's Client ID
-# You'll find this in your Auth0 Application's settings page.
+# Your Auth0 application's client secret.
 AUTH0_CLIENT_SECRET=${account.clientSecret}
 
-# Your Auth0 Custom API identifier/audience.
-# You'll find this in your Custom API's settings page.
+# Your Auth0 API's identifier/audience.
 AUTH0_AUDIENCE=${apiIdentifier}
 
-# Authentication callback URI, as defined in your Auth0 Application settings.
-# (You must configure this in your AUth0 Application's settings page as well!)
-AUTH0_REDIRECT_URI=http://localhost:3000/auth0/callback
+# Used for encrypting session cookies. This should be a long, secret value.
+# You can generate a suitable string using `openssl rand -hex 32`.
+AUTH0_COOKIE_SECRET=
 ```
 
-## Configure the application
+## Configure the Guard
 
-Now let's connect our Laravel application with the SDK so we can begin working with our Auth0 integration. For this, we'll be making changes to our `config\auth.php` file. This file contains a lot of settings, but we only need to make a few small changes.
+Open the `config/auth0.php` file. We will update this to add a new Guard and Provider that uses the SDK.
 
-To start, let's find the `defaults` section. We'll set the default `guard` to `auth0`, like this:
+Find the `guards` array, and add an entry to it:
 
 ```php
-// 📂 config/auth.php
-
-'defaults' => [
-    'guard' => 'auth0',
-    // 📝 Leave any other settings in this section alone.
-],
-```
-
-Next, find the `guards` section, and add `auth0` there:
-```php
-// 👆 Continued from above, in config/auth.php
-
+/**
+ * Register the SDK's Guard with your application.
+ * You should not remove any other entries from this array.
+ */
 'guards' => [
-    // 📝 Any additional guards you use should stay here, too.
-
-    'auth0' => [
-        'driver' => 'auth0',
-        'provider' => 'auth0',
-    ],
+  'my-example-guard' => [
+    'driver' => 'auth0.driver',
+    'provider' => 'my-example-provider',
+  ],
 ],
 ```
 
-Finally, find the `providers` section, and add `auth0` there as well:
-```php
-// 👆 Continued from above, in config/auth.php
+Next, find the `providers` array, and add an entry to it:
 
+```php
+/**
+ * Register the SDK's User Provider with your application.
+ * You should not remove any other entries from this array.
+ */
 'providers' => [
-    // 📝 Any additional providers you use should stay here, too.
-
-    'auth0' => [
-        'driver' => 'auth0',
-        'repository' => \Auth0\Laravel\Auth\User\Repository::class
-    ],
+  'my-example-provider' => [
+    'driver' => 'auth0.provider',
+    'repository' => \Auth0\Laravel\Auth\User\Repository::class
+  ],
 ],
 ```
 
-## Authentication routes
+## Add Login and Logout
 
-To make setting up authentication a cinch, the SDK includes some plug-and-play router controllers we can setup some routes with. Let's edit our `routes/web.php` file to add those now:
-
-```php
-// 📂 routes/web.php
-// 👆 Keep anything already present in the file, just add the following ...
-
-Route::get('/login', \Auth0\Laravel\Http\Controller\Stateful\Login::class)->name('login');
-Route::get('/logout', \Auth0\Laravel\Http\Controller\Stateful\Logout::class)->name('logout');
-Route::get('/auth0/callback', \Auth0\Laravel\Http\Controller\Stateful\Callback::class)->name('auth0.callback');
-```
-
-- We'll direct our end users to the `/login` route when they want to login, where they'll use Auth0's Universal Login Page to authenticate with our app.
-- The `/logout` route will redirect them to Auth0's logout endpoint and sign them out of our application.
-- The `/auth0/callback` route handles some important final authentication matters for us after the user logs in, and sets up the user's local session with our application.
-
-## Protecting routes
-
-Now we can setup our routes using the SDK's middleware to automatically protect parts of our application. For this type of application there are two types of middleware available — so let's create a few routes to demonstrate them!
-
-We'll need to again edit our `routes/web.php` file, and add the following routes to that file:
+Replace the contents of your application's `routes/web.php` file with the following:
 
 ```php
-// 📂 routes/web.php
-// 👆 Keep anything already present in the file, just add the following ...
+<?php
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return view('auth0.user');
-    }
+use Auth0\Laravel\Http\Controller\Stateful\{Callback, Login, Logout};
 
-    return view('auth0/guest');
-})->middleware(['auth0.authenticate.optional']);
+Route::get('/login', Login::class)->name('login');
+Route::get('/logout', Logout::class)->name('logout');
+Route::get('/callback', Callback::class)->name('callback');
 ```
 
-This route demonstrates the `auth0.authenticate.optional` middleware. This middleware will resolve an available user session (allowing you to access the user's profile through the `Auth::user()` method) but won't block requests without a session, allowing you to treat those as "guest" requests.
+Users can now log in to your application by visiting the `/login` route. The process is handled by the SDK's route controllers. Users are redirected at login to the Auth0 Universal Login Page, where they are authenticated. After successfully authenticating, Auth0 returns the users back to your application.
 
-Let's add another to that file:
+## Protect Routes
+
+Routes are rotected by the SDK using Middleware. For this demonstration, we will have three routes available, each using a distinct middleware configuration:
+
+- `GET /` is a public route. It uses the `auth0.authenticate.optional` middleware. Anyone can access this route.
+- `GET /protected` is a protected route. It uses the `auth0.authenticate` middleware. Visitors must already be logged in.
+- `GET /scoped` is another protected route. It requires the user have a specific scope granted. Visitors need the `read:messages` scope for this example.
+
+Open your application's `routes/web` file and, after the authentication routes we added in the previous step, append the following:
 
 ```php
-// 👆 Continued from above, in routes/web.php
+Route::middleware('guard:my-example-guard')->group(function () {
 
-// Require an authenticated session to access this route.
-Route::get('/required', function () {
-    return view('auth0.user');
-})->middleware(['auth0.authenticate']);
+    Route::get('/', function () {
+      if (Auth::check()) {
+					return response(<<<'HTML'
+						<h1>Welcome! You\'re logged in.</h1>
+						<div><pre>${Auth::user()?->getAttribues()}</pre></div>
+						<p>Would you like to <a href="/logout">logout</a>?</p>
+					HTML);
+      }
+
+      return response(<<<'HTML'
+        <h1>Hello, Guest!</h1>
+        <p>Would you like to <a href="/login">login</a>?</p>
+      HTML);
+    })->middleware('auth0.authenticate.optional');
+
+    Route::get('/protected', function () {
+        return response(<<<'HTML'
+          <h1>Hello! This is a protected route.</h1>
+          <p>Any logged in users can see this.</p>
+
+          <p>Would you like to <a href="/">go home</a>?</p>
+        HTML);
+    })->middleware('auth0.authenticate');
+
+    Route::get('/scoped', function () {
+        return response(<<<'HTML'
+          <h1>This is a protected route with a scope requirement.</h1>
+          <p>Only logged in users granted with the `read:messages` scope can see this.</p>
+
+          <p>Would you like to <a href="/">go home</a>?</p>
+        HTML);
+    })->middleware('auth0.authenticate:read:messages');
+
+});
 ```
 
-This middleware will reject requests from end users that aren't authenticated, limiting that route to requests from users with accounts.
+## Run the Application
 
-## Adding views
+You are now ready to start your new application, so it can accept requests:
 
-Last but not least, let's create a couple small Blade views that we defined in those routes; nothing fancy here, just for demonstration purposes.
-
-Let's create our `resources/views/auth0/guest.blade.php` file:
-
-```php
-// 📂 resources/views/auth0/guest.blade.php
-
-<!DOCTYPE html>
-<html>
-    <body>
-        <p>You're a guest. <a href="{{ route('login') }}">Log in</a></p>
-    </body>
-</html>
+```shell
+php artisan serve
 ```
 
-And finally, let's create our `resources/views/auth0/user.blade.php` file:
+## Test the Application
 
-```php
-// 📂 resources/views/auth0/user.blade.php
-
-<!DOCTYPE html>
-<html>
-    <body>
-        <p>Welcome! You are authenticated. <a href="{{ route('logout') }}">Log out</a></p>
-        <div>
-            <pre><?php print_r(Auth::user()) ?></pre>
-        </div>
-    </body>
-</html>
-```
-
-In a real world application you'll probably want to do something a bit more elaborate, but this will serve our needs here!
-
-## Run the application
-
-We've installed Laravel and the SDK, configured our application, and set up some routes — all that's left is for us to try out our new application:
-
-```sh
-php artisan serve --port=3000
-```
-
-We're all set our new application is live and waiting for us. Give it a try by loading [http://localhost:3000](http://localhost:3000) in your web browser.
+- Open a browser to http://localhost:8000 to see the public route.
+- Visit http://localhost:8000/protected to be redirected to login.
+- You'll be redirected back to http://localhost:8000, which now identifies you as being logged in.
+- Visit http://localhost:8000/protected again, which now works.
+- Visit http://localhost:8000/scoped. Depending on whether the user has the `read:messages` scoped granted, you'll either see a web page or run into a "forbidden" error page.
+- Visit http://localhost:8000/logout to log out.

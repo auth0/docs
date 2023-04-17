@@ -4,9 +4,16 @@ language: php
 ---
 
 ```php
-Route::get('/login', \Auth0\Laravel\Http\Controller\Stateful\Login::class)->name('login');
-Route::get('/logout', \Auth0\Laravel\Http\Controller\Stateful\Logout::class)->name('logout');
-Route::get('/auth0/callback', \Auth0\Laravel\Http\Controller\Stateful\Callback::class)->name('auth0.callback');
+<?php
+
+use Illuminate\Support\Facades\{Auth, Route};
+use Auth0\Laravel\Http\Controller\Stateful\{Login, Logout, Callback};
+
+Auth::shouldUse('myAuth0Guard');
+
+Route::get('/login', Login::class)->name('login');
+Route::get('/logout', Logout::class)->name('logout');
+Route::get('/callback', Callback::class)->name('callback');
 
 Route::get('/', function () {
     return view('auth0.user');

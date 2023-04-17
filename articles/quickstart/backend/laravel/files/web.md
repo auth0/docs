@@ -4,6 +4,13 @@ language: php
 ---
 
 ```php
+<?php
+
+use Illuminate\Support\Facades\{Auth, Route};
+use Auth0\Laravel\Http\Controller\Stateful\{Login, Logout, Callback};
+
+Auth::shouldUse('myAuth0Guard');
+
 Route::get('/api/public', function () {
   return response()->json([
     'message' => 'Hello from a public endpoint! You don\'t need to be authenticated to see this.',

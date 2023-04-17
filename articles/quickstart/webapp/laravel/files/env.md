@@ -22,5 +22,5 @@ AUTH0_AUDIENCE=${apiIdentifier}
 
 # Authentication callback URI, as defined in your Auth0 Application settings.
 # (You must configure this in your AUth0 Application's settings page as well!)
-AUTH0_REDIRECT_URI=http://localhost:3000/auth0/callback
+AUTH0_REDIRECT_URI=http://localhost:3000/callback
 ```

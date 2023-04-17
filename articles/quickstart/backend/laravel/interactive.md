@@ -2,23 +2,23 @@
 title: Add authorization to a Laravel application
 description: This tutorial demonstrates how to add authorization to a Laravel API application using the Auth0 Laravel SDK.
 topics:
-    - quickstart
-    - backend
-    - laravel
+  - quickstart
+  - backend
+  - laravel
 contentType: tutorial
 useCase: quickstart
 default: true
 github:
-   path: app
+  path: app
 interactive: true
 files:
   - files/auth
   - files/env
   - files/web
-
 ---
 
 # Add authorization to a Laravel application
+
 Auth0 allows you to add authorization to almost any application type quickly. This guide demonstrates how to integrate Auth0 with any new or existing Laravel API application using the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0).
 
 If you haven't created an API in your Auth0 Dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project with which you want to integrate.
@@ -30,6 +30,7 @@ Every API in Auth0 is configured using an API identifier that your application c
 <%= include('../../../_includes/_api_auth_intro') %>
 
 ## Define permissions
+
 <%= include('../_includes/_api_scopes_access_resources') %>
 
 ## Create a Laravel application
@@ -72,9 +73,13 @@ Now, configure your Auth0 integration by adding options to the `.env` file in th
 
 Now, connect your Laravel application with the SDK so you can work with your Auth0 integration. For this, make changes to your `config\auth.php` file. This file contains different settings, but you only need to make a few changes.
 
-- In the `defaults` section, set the default `guard` to `auth0`.
-- In the `guards` section, add a guard for `auth0`.
-- In the `providers` section, add a provider for `auth0`.
+- In the `defaults` array, set the default value for `guard` to `myAuth0Guard`.
+- In the `guards` array, add a new guard named `myAuth0Guard`.
+  - Set the `driver` set to `auth0.guard`.
+  - Configure the `provider` to be `myAuth0Provider`.
+- In the `providers` array, add a new provider named `myAuth0Provider`.
+  - Set the `driver` set to `auth0.provider`.
+  - Configure the `repository` to be `\Auth0\Laravel\Auth\User\Repository::class`.
 
 ## Configure routes {{{ data-action=code data-code="routes/web.php" }}}
 
@@ -97,15 +102,17 @@ php artisan serve --port=3010
 ::::checkpoint
 :::checkpoint-default
 Now that you have your application running, verify that:
-* `GET /api/public` is available for non-authenticated requests.
-* `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
+
+- `GET /api/public` is available for non-authenticated requests.
+- `GET /api/private` is available for authenticated requests.
+- `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
   :::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* make sure the token is added as the `Authorization` header
-* does the token have the correct scopes? You can use [jwt.io](https://jwt.io/) to verify.
+
+- make sure the token is added as the `Authorization` header
+- does the token have the correct scopes? You can use [jwt.io](https://jwt.io/) to verify.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
@@ -119,9 +126,7 @@ Call the API from your application by passing an access token in the `Authorizat
 {
   "method": "GET",
   "url": "http://localhost:3010/api/private",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
-  ]
+  "headers": [{ "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }]
 }
 ```
 
@@ -129,8 +134,8 @@ Call the API from your application by passing an access token in the `Authorizat
 
 If you call the API from a single-page application or a mobile/native application, you receive an access token after the authorization flow is complete. The type of application and framework determine how you get the token and how you make the call to the API. For more information, refer to the relevant application quickstarts which contain detailed instructions:
 
-* [Single-page applications](/quickstart/spa)
-* [Mobile / native application](/quickstart/native)
+- [Single-page applications](/quickstart/spa)
+- [Mobile / native application](/quickstart/native)
 
 If you call the API from a command-line tool or another service in which a user doesn't supply their credentials, use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and use the **Client ID** and **Client Secret** of this application when you make the request below and pass those along in the `client_id` and `client_secret` parameters. Also include the `aud` parameter for the API you want to call.
 
@@ -142,9 +147,7 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-  ],
+  "headers": [{ "name": "Content-Type", "value": "application/x-www-form-urlencoded" }],
   "postData": {
     "mimeType": "application/x-www-form-urlencoded",
     "params": [

@@ -3,11 +3,11 @@ title: Add Login to your Laravel application
 description: This guide demonstrates how to integrate Auth0 with a Laravel application using the Auth0 Laravel SDK.
 budicon: 448
 topics:
-    - quickstart
-    - backend
-    - laravel
+  - quickstart
+  - backend
+  - laravel
 github:
-   path: app
+  path: app
 contentType: tutorial
 useCase: quickstart
 interactive: true
@@ -22,8 +22,8 @@ files:
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Laravel web application using the Auth0 Laravel SDK.
 
 <%= include('../../_includes/_configure_auth0_interactive', {
-  callback: 'http://localhost:3000/auth0/callback',
-  returnTo: 'http://localhost:3000/'
+callback: 'http://localhost:3000/auth0/callback',
+returnTo: 'http://localhost:3000/'
 }) %>
 
 ## Create a Laravel application
@@ -66,9 +66,13 @@ Now, configure your Auth0 integration by adding options to the `.env` file in th
 
 Now connect your Laravel application with the SDK so you can work with your Auth0 integration. For this connection, make changes to the `config\auth.php` file. This file contains different settings, but you only need to make a few small changes.
 
-- In the `defaults` section, set the default `guard` to `auth0`.
-- In the `guards` section, add a guard for `auth0`.
-- In the `providers` section, add a provider for `auth0`.
+- In the `defaults` array, set the default value for `guard` to `myAuth0Guard`.
+- In the `guards` array, add a new guard named `myAuth0Guard`.
+  - Set the `driver` set to `auth0.guard`.
+  - Configure the `provider` to be `myAuth0Provider`.
+- In the `providers` array, add a new provider named `myAuth0Provider`.
+  - Set the `driver` set to `auth0.provider`.
+  - Configure the `repository` to be `\Auth0\Laravel\Auth\User\Repository::class`.
 
 ## Authentication routes {{{ data-action=code data-code="routes/web.php#1:3" }}}
 
@@ -139,18 +143,20 @@ You're all set. Your new application is live and waiting for use. Give it a try 
 :::checkpoint-default
 
 Now that you have configured your Laravel application to use Auth0, run your application to verify that:
-* When users navigate to the `/login` route, they redirect to Auth0.
-* Users redirect back to your application after successfully entering their credentials, indicating they are authenticated.
-* Users not authenticated are prohibited from accessing the `/required` route.
-* When users navigate to the `/logout` route, they redirect to Auth0's logout endpoint and sign them out of our application.
+
+- When users navigate to the `/login` route, they redirect to Auth0.
+- Users redirect back to your application after successfully entering their credentials, indicating they are authenticated.
+- Users not authenticated are prohibited from accessing the `/required` route.
+- When users navigate to the `/logout` route, they redirect to Auth0's logout endpoint and sign them out of our application.
 
 :::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain, Client ID, and Client Secret are configured correctly
+
+- make sure the correct application is selected
+- did you save after entering your URLs?
+- make sure the domain, Client ID, and Client Secret are configured correctly
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 

@@ -32,21 +32,21 @@ sdk:
   url: https://github.com/auth0/laravel-auth0
   logo: laravel
 requirements:
-  - Composer 2.0+
+  - Composer
   - PHP 8.0+
-  - Laravel 9.0+
+  - Laravel 9/10
 next_steps:
   - path: 01-login
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

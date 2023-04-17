@@ -4,26 +4,36 @@ language: php
 ---
 
 ```php
-'defaults' => [
-    'guard' => 'auth0',
-    // 📝 Leave any other settings in this section alone.
-],
+<?php
 
-'guards' => [
-    // 📝 Any additional guards you use should stay here, too.
+return [
+  /**
+   * Update the default guard to use the Auth0 guard.
+   */
+  'defaults' => [
+    'guard' => 'myAuth0Guard',
+  ],
 
-    'auth0' => [
-        'driver' => 'auth0',
-        'provider' => 'auth0',
+  /**
+   * Add a new Auth0 guard to your application.
+   * Do not remove any other guards from this array.
+   */
+  'guards' => [
+    'myAuth0Guard' => [
+      'driver' => 'auth0.driver',
+      'provider' => 'myAuth0Provider',
     ],
-],
+  ],
 
-'providers' => [
-    // 📝 Any additional providers you use should stay here, too.
-
-    'auth0' => [
-        'driver' => 'auth0',
-        'repository' => \Auth0\Laravel\Auth\User\Repository::class
+  /**
+   * Add a new Auth0 provider to your application.
+   * Do not remove any other providers from this array.
+   */
+  'myAuth0Provider' => [
+    'myAuth0Provider' => [
+      'driver' => 'auth0.provider',
+      'repository' => \Auth0\Laravel\Auth\User\Repository::class
     ],
-],
+  ],
+];
 ```
