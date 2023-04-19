@@ -80,9 +80,7 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Authorization Code, use `authorization_code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
-| `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | The `client_secret` of your application. Required when Client Secret Basic or Client Secret Post is the application authentication method. Specifically required for Regular Web Applications **only**. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
 | `code` <br/><span class="label label-danger">Required</span> | The Authorization Code received from the initial `/authorize` call. |
 | `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
@@ -259,9 +257,7 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Client Credentials use `client_credentials`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
-| `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | The `client_secret` of your application. Required when Client Secret Basic or Client Secret Post is the application authentication method. Specifically required for Regular Web Applications **only**. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 
 
@@ -355,9 +351,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. To add realm support use `http://auth0.com/oauth/grant-type/password-realm`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
-| `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier, such as a username or email address. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
@@ -565,9 +559,7 @@ Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token, use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
-| `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
 | `scope` | A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded. |
 

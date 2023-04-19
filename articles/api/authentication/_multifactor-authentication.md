@@ -106,7 +106,7 @@ If OTP is supported by the user and you don't want to request a different factor
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 | `authenticator_id` | The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
 
@@ -192,7 +192,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 | `client_id` | Your application's Client ID. |
 | `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
@@ -295,7 +295,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
@@ -374,7 +374,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user.
 
@@ -490,7 +490,7 @@ To access this endpoint, you must set an Access Token at the Authorization heade
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
+| `client_secret` | Your application's Client Secret. Required when the Token Endpoint Authentication Method field in your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
 | `oob_channels` | The type of OOB channels supported by the client. An array with values `"auth0"`, `"sms"`, `"voice"`. Required if `authenticator_types` include `oob`. |
 | `phone_number` | The phone number to use for SMS or Voice. Required if `oob_channels` includes `sms` or `voice`. |
