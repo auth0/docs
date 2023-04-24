@@ -4,6 +4,8 @@ language: shell
 ---
 
 ```shell
+APP_URL=http://localhost:8000
+
 # The URL of your Auth0 tenant domain
 # You'll find this in your Auth0 Application's settings page.
 AUTH0_DOMAIN=${account.namespace}
@@ -20,7 +22,7 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 # You'll find this in your Custom API's settings page.
 AUTH0_AUDIENCE=${apiIdentifier}
 
-# Authentication callback URI, as defined in your Auth0 Application settings.
-# (You must configure this in your AUth0 Application's settings page as well!)
-AUTH0_REDIRECT_URI=http://localhost:3000/callback
+# Used for encrypting session cookies. This should be a long, secret value.
+# You can generate a suitable string using `openssl rand -hex 32`.
+AUTH0_COOKIE_SECRET=
 ```

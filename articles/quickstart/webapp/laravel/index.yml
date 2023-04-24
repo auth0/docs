@@ -17,12 +17,15 @@ topics:
 contentType: tutorial
 useCase: quickstart
 articles:
+  - 00-integrate
+  - 02-middleware
   - 01-login
+  - 03-users
+  - 04-checkpoint
 hidden_articles:
   - interactive
-default_article: 01-login
+default_article: 00-integrate
 seo_alias: laravel
-show_steps: true
 github:
   org: auth0-samples
   repo: auth0-laravel-php-web-app
@@ -35,18 +38,3 @@ requirements:
   - Composer
   - PHP 8.0+
   - Laravel 9/10
-next_steps:
-  - path: 01-login
-    list:
-      - text: Configure other identity providers
-        icon: 345
-        href: '/identityproviders'
-      - text: Enable multifactor authentication
-        icon: 345
-        href: '/multifactor-authentication'
-      - text: Learn about attack protection
-        icon: 345
-        href: '/attack-protection'
-      - text: Learn about rules
-        icon: 345
-        href: '/rules'
