@@ -2,11 +2,15 @@
 title: Authenticating Users
 description: "Your Laravel application can have fully functional user authentication using Auth0 in just a few lines of code. In this guide, we will demonstrate how to add login, logout and callback routes to an application."
 topics:
-  - quickstarts
+  - quickstart
   - webapp
   - laravel
   - authentication
   - login
+  - user profile
+  - logout
+  - php
+  - laravel
 contentType: tutorial
 useCase: quickstart
 github:

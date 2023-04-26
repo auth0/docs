@@ -3,12 +3,9 @@ title: Getting Started
 description: "Integrating Auth0 with your Laravel applications is simple. Our Laravel SDK makes authenticating users, retrieving profiles and protecting routes straightforward."
 topics:
   - quickstart
-  - webapp
+  - backend
   - laravel
-  - authentication
-  - login
-  - user profile
-  - logout
+  - authorization
   - php
   - laravel
 contentType: tutorial
@@ -36,7 +33,7 @@ Next, run the following command to create a new application with Auth0:
 
 ```shell
 ./auth0 apps create \
-  --name "My Laravel Application" \
+  --name "My Laravel Backend Application" \
   --type "regular" \
   --auth-method "post" \
   --callbacks "http://localhost:8000/callback" \
@@ -51,8 +48,8 @@ Next, run the following command to create a new API with Auth0:
 
 ```shell
 ./auth0 apis create \
-  --name "My Laravel Application's API" \
-  --identifier "https://github.com/auth0-samples/auth0-laravel-php-web-app" \
+  --name "My Laravel Backend Application's API" \
+  --identifier "https://github.com/auth0-samples/auth0-laravel-api-samples" \
   --offline-access \
   --no-input
 ```
@@ -62,13 +59,13 @@ Next, run the following command to create a new API with Auth0:
 Open a shell to a preferred directory for your new project, and run the following command:
 
 ```shell
-composer create-project --prefer-dist laravel/laravel auth0-laravel-app
+composer create-project --prefer-dist laravel/laravel auth0-laravel-api
 ```
 
 Then `cd` into your new project directory:
 
 ```shell
-cd auth0-laravel-app
+cd auth0-laravel-api
 ```
 
 ### Install the SDK
@@ -92,6 +89,8 @@ Open the `.env` file in your project directory. Append the following to the end 
 ```ini
 APP_URL=http://localhost:8000
 
+AUTH0_STRATEGY=api
+
 # Your Auth0 account's tenant domain.
 AUTH0_DOMAIN=${account.namespace}
 
@@ -103,10 +102,6 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 
 # Your Auth0 API's identifier/audience.
 AUTH0_AUDIENCE=${apiIdentifier}
-
-# Used for encrypting session cookies. This should be a long, secret value.
-# You can generate a suitable string using `openssl rand -hex 32`.
-AUTH0_COOKIE_SECRET=
 ```
 
 ### Configure the Guard
@@ -147,4 +142,4 @@ Next, find the `providers` array, and add an entry to it:
 
 Your Laravel application is now set up with the Auth0 SDK, and you're ready to begin integrating functionality.
 
-**Next, you'll [learn how to protect your application's routes using the SDK's middleware.](/quickstart/webapp/laravel/02-middleware)**
+**Next, you'll [learn how to authorize requests to your application's routes using the SDK's middleware.](/quickstart/backend/laravel/01-authorization)**

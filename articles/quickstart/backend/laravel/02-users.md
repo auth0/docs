@@ -3,12 +3,9 @@ title: Working with Users
 description: "Retrieving user information from Auth0 for authenticated users is simple. In this guide, we will demonstrate how your application can access this information."
 topics:
   - quickstart
-  - webapp
+  - backend
   - laravel
-  - authentication
-  - login
-  - user profile
-  - logout
+  - authorization
   - php
   - laravel
 contentType: tutorial

@@ -26,12 +26,36 @@ You are now ready to start your new Laravel application, so it can accept reques
 php artisan serve
 ```
 
-### Test the Application
+### Prepare an Access Token
 
-- Open a browser to [http://localhost:8000](http://localhost:8000) to see the public route.
-- Visit [/protected](http://localhost:8000/protected) to be redirected to login.
-- Visit [/scoped](http://localhost:8000/scoped).<br />If you don't have the `read:messages` scope, you'll be denied access.
-- Visit [/logout](http://localhost:8000/logout) to log out.
+This demonstration backend API authorizes requests using access tokens provided as a header with each request. The requesting client (such as a single-page application or native client) handles the retrieval and storage of access tokens. The backend API doesn't need to maintain any state information for clients. You can learn more about [retrieving access tokens here.](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens)
+
+To test this application, you can use an access token from [your API settings' "test" view](https://manage.auth0.com/#/apis).
+
+### Send a Network Request
+
+Run the following command to request the public route:
+
+```shell
+curl --request GET \
+  --url http://localhost:8000/api
+```
+
+Next, use your access token in an `Authorization` header to request a protected route:
+
+```shell
+curl --request GET \
+  --url http://localhost:8000/api/protected \
+  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+```
+
+Finally, try requesting the scope-protected route, which will only succeed if your access token has the  `read:messages` scope granted:
+
+```shell
+curl --request GET \
+  --url http://localhost:8000/api/scoped \
+  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+```
 
 ### Additional Reading
 

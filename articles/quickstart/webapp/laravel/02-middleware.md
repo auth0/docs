@@ -2,11 +2,15 @@
 title: Protecting Routes
 description: "You can protect a Laravel application's routes using the Auth0 SDK's middleware, and optionally redirect visitors to the application's login route if they are not authenticated."
 topics:
-  - quickstarts
+  - quickstart
   - webapp
   - laravel
   - authentication
   - login
+  - user profile
+  - logout
+  - php
+  - laravel
 contentType: tutorial
 useCase: quickstart
 github:
@@ -99,4 +103,4 @@ Route::middleware('guard:my-example-guard')->group(function () {
 
 Your application now has protected routes, but users need to be able to log in before they can use them.
 
-**Next, you'll [how to add authentication your application.](/quickstart/webapp/laravel/01-login)**
+**Next, you'll [learn how to add authentication your application.](/quickstart/webapp/laravel/01-login)**

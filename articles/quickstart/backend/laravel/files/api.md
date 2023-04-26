@@ -1,5 +1,5 @@
 ---
-name: routes/web.php
+name: routes/api.php
 language: php
 ---
 
