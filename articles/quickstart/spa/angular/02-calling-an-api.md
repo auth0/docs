@@ -78,6 +78,8 @@ AuthModule.forRoot({
   clientId: '${account.clientId}',
 
   authorizationParams: {
+    redirect_uri: window.location.origin,
+    
     // Request this audience at user authentication time
     audience: 'https://${account.namespace}/api/v2/',
 
