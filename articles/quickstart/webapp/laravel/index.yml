@@ -24,8 +24,8 @@ default_article: 01-login
 seo_alias: laravel
 github:
   org: auth0-samples
-  repo: auth0-laravel-php-web-app
-  branch: master
+  repo: laravel
+  branch: 7.x
 sdk:
   name: laravel-auth0
   url: https://github.com/auth0/laravel-auth0
