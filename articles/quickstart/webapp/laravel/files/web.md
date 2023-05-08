@@ -14,7 +14,7 @@ Route::get('/private', function () {
 })->middleware('auth');
 
 Route::get('/scope', function () {
-    return response('You have the `read:messages` permissions, and can therefore access this resource.');
+    return response('You have `read:messages` permission, and can therefore access this resource.');
 })->middleware('auth')->can('read:messages');
 
 Route::get('/', function () {
