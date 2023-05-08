@@ -17,14 +17,10 @@ topics:
 contentType: tutorial
 useCase: quickstart
 articles:
-  - 00-integrate
-  - 02-middleware
   - 01-login
-  - 03-users
-  - 04-checkpoint
 hidden_articles:
   - interactive
-default_article: 00-integrate
+default_article: 01-login
 seo_alias: laravel
 github:
   org: auth0-samples
@@ -35,6 +31,6 @@ sdk:
   url: https://github.com/auth0/laravel-auth0
   logo: laravel
 requirements:
-  - Composer
+  - Laravel 9 / 10
   - PHP 8.0+
-  - Laravel 9/10
+  - Composer

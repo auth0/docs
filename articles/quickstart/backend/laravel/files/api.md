@@ -6,32 +6,53 @@ language: php
 ```php
 <?php
 
-use Illuminate\Support\Facades\{Auth, Route};
-use Auth0\Laravel\Http\Controller\Stateful\{Login, Logout, Callback};
+use Auth0\Laravel\Facade\Auth0;
+use Illuminate\Support\Facades\Route;
 
-Auth::shouldUse('myAuth0Guard');
-
-Route::get('/api/public', function () {
+Route::get('/private', function () {
   return response()->json([
-    'message' => 'Hello from a public endpoint! You don\'t need to be authenticated to see this.',
-    'authorized' => Auth::check(),
-    'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-  ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize.optional']);
+    'message' => 'Your token is valid; you are authorized.',
+  ]);
+})->middleware('auth');
 
-Route::get('/api/private', function () {
-  return response()->json([
-    'message' => 'Hello from a private endpoint! You need to be authenticated to see this.',
-    'authorized' => Auth::check(),
-    'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-  ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize']);
+Route::get('/scope', function () {
+    return response()->json([
+      'message' => 'Your token is valid and has the `read:messages` permission; you are authorized.',
+    ]);
+})->middleware('auth')->can('read:messages');
 
-Route::get('/api/private-scoped', function () {
+Route::get('/', function () {
+  if (! auth()->check()) {
+    return response()->json([
+      'message' => 'You did not provide a valid token.',
+    ]);
+  }
+
   return response()->json([
-    'message' => 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.',
-    'authorized' => Auth::check(),
-    'user' => Auth::check() ? json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true) : null,
-  ], 200, [], JSON_PRETTY_PRINT);
-})->middleware(['auth0.authorize:read:messages']);
+    'message' => 'Your token is valid; you are authorized.',
+    'id' => auth()->id(),
+    'token' => auth()?->user()?->getAttributes(),
+  ]);
+});
+
+Route::get('/me', function () {
+  $user = auth()->id();
+  $profile = cache()->get($user);
+
+  if (null === $profile) {
+    $endpoint = Auth0::management()->users();
+    $profile = $endpoint->get($user);
+    $profile = Auth0::json($profile);
+
+    cache()->put($user, $profile, 120);
+  }
+
+  $name = $profile['name'] ?? 'Unknown';
+  $email = $profile['email'] ?? 'Unknown';
+
+  return response()->json([
+    'name' => $name,
+    'email' => $email,
+  ]);
+})->middleware('auth');
 ```

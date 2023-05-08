@@ -6,72 +6,48 @@ language: php
 ```php
 <?php
 
-use Illuminate\Support\Facades\{Auth, Route};
-use Auth0\Laravel\Http\Controller\Stateful\{Login, Logout, Callback};
+use Auth0\Laravel\Facade\Auth0;
+use Illuminate\Support\Facades\Route;
 
-Auth::shouldUse('my-example-guard');
+Route::get('/private', function () {
+  return response('Welcome! You are logged in.');
+})->middleware('auth');
 
-Route::get('/login', Login::class)->name('login');
-Route::get('/logout', Logout::class)->name('logout');
-Route::get('/callback', Callback::class)->name('callback');
+Route::get('/scope', function () {
+    return response('You have the `read:messages` permissions, and can therefore access this resource.');
+})->middleware('auth')->can('read:messages');
 
 Route::get('/', function () {
-    if (auth()?->check()) {
-        $user = json_encode(auth()?->user()?->getAttributes(), JSON_PRETTY_PRINT);
+  if (! auth()->check()) {
+    return response('You are not logged in.');
+  }
 
-        return response(<<<"HTML"
-            <h1>Welcome! You are logged in.</h1>
-            <div><pre>{$user}</pre></div>
-            <p>Would you like to <a href="/logout">logout</a>?</p>
-        HTML);
-    }
+  $user = auth()->user();
+  $name = $user->name ?? 'User';
+  $email = $user->email ?? '';
 
-    return response(<<<'HTML'
-        <h1>Hello, Guest!</h1>
-        <p>Would you like to <a href="/login">login</a>?</p>
-    HTML);
-})->middleware('auth0.authenticate.optional');
+  return response("Hello {$name}! Your email address is {$email}.");
+});
 
-Route::get('/protected', function () {
-    return response(<<<'HTML'
-        <h1>Hello! This is a protected route.</h1>
-        <p>Any logged in users can see this.</p>
+Route::get('/colors', function () {
+  $endpoint = Auth0::management()->users();
 
-        <p>Would you like to <a href="/">go home</a>?</p>
-    HTML);
-})->middleware('auth0.authenticate');
+  $colors = ['red', 'blue', 'green', 'black', 'white', 'yellow', 'purple', 'orange', 'pink', 'brown'];
 
-Route::get('/scoped', function () {
-    return response(<<<'HTML'
-        <h1>This is a protected route with a scope requirement.</h1>
-        <p>Only logged in users granted with the `read:messages` scope can see this.</p>
-
-        <p>Would you like to <a href="/">go home</a>?</p>
-    HTML);
-})->middleware('auth0.authenticate:read:messages');
-
-Route::get('/update', function () {
-    $colors = ['black', 'white', 'red', 'blue', 'yellow', 'green'];
-
-    app('auth0')
-    ->management()
-    ->users()
-    ->update(
-        id: auth()->id(),
-        body: [
-            'user_metadata' => [
-                'favorite_color' => $colors[rand(0, count($colors))],
-            ],
+  $endpoint->update(
+    id: auth()->id(),
+    body: [
+        'user_metadata' => [
+            'color' => $colors[random_int(0, count($colors) - 1)]
         ]
-    );
+    ]
+  );
 
-    auth()->refreshUser();
+  $metadata = $endpoint->get(auth()->id()); // Retrieve the user's metadata.
+  $metadata = Auth0::json($metadata); // Convert the JSON to a PHP array.
 
-    $user = json_encode(auth()?->user()?->getAttributes(), JSON_PRETTY_PRINT);
+  $color = $metadata['user_metadata']['color'] ?? 'unknown';
+  $name = auth()->user()->name;
 
-    return response(<<<"HTML"
-        <h1>Welcome! Your favorite color has been updated.</h1>
-        <div><pre>{$user}</pre></div>
-        <p>Would you like to <a href="/logout">logout</a>?</p>
-    HTML);
-})->middleware('auth0.authenticate');
+  return response("Hello {$name}! Your favorite color is {$color}.");
+})->middleware('auth');
