@@ -51,3 +51,4 @@ Route::get('/colors', function () {
 
   return response("Hello {$name}! Your favorite color is {$color}.");
 })->middleware('auth');
+```
