@@ -117,7 +117,7 @@ For the SDK to work as expected without additional configuration, **you should d
 
 You can use the Auth0 SDK's authorization guard to restrict access to your application's routes.
 
-To reject requests that do not contain a valid access token in the `Authorization` header, you can use the SDK's `auth0` middleware:
+To reject requests that do not contain a valid access token in the `Authorization` header, you can use Laravel's `auth` middleware:
 
 ```php
 Route::get('/private', function () {
