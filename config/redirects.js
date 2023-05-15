@@ -1508,6 +1508,7 @@ const redirects = [
       '/applications/application-types',
       '/applications/concepts/client-secret',
       '/configure/applications',
+      '/applications/enable-sso-for-applications',
     ],
     to: '/get-started/applications',
   },
