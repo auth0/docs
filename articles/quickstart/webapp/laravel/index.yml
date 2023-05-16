@@ -22,31 +22,15 @@ hidden_articles:
   - interactive
 default_article: 01-login
 seo_alias: laravel
-show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-laravel-php-web-app
-  branch: master
+  repo: laravel
+  branch: 7.x
 sdk:
   name: laravel-auth0
   url: https://github.com/auth0/laravel-auth0
   logo: laravel
 requirements:
-  - Composer 2.0+
+  - Laravel 9 / 10
   - PHP 8.0+
-  - Laravel 9.0+
-next_steps:
-  - path: 01-login
-    list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+  - Composer
