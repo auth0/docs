@@ -4806,8 +4806,9 @@ const redirects = [
       '/hooks/concepts/extensibility-points',
       '/hooks/concepts/overview-extensibility-points',
       '/hooks/extensibility-points',
+      '/customize/hooks/extensibility-points',
     ],
-    to: '/customize/hooks/extensibility-points',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -4816,8 +4817,9 @@ const redirects = [
       '/hooks/client-credentials-exchange',
       '/hooks/extensibility-points/credentials-exchange',
       '/hooks/extensibility-points/client-credentials-exchange',
+      '/customize/hooks/extensibility-points/client-credentials-exchange',
     ],
-    to: '/customize/hooks/extensibility-points/client-credentials-exchange',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -4857,8 +4859,9 @@ const redirects = [
       '/hooks/guides/post-change-password',
       '/hooks/post-change-password',
       '/hooks/extensibility-points/post-change-password',
+      '/customize/hooks/extensibility-points/post-change-password',
     ],
-    to: '/customize/hooks/extensibility-points/post-change-password',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -4866,8 +4869,9 @@ const redirects = [
       '/hooks/guides/use-the-post-user-registration-extensibility-point',
       '/hooks/post-user-registration',
       '/hooks/extensibility-points/post-user-registration',
+      '/customize/hooks/extensibility-points/post-user-registration',
     ],
-    to: '/customize/hooks/extensibility-points/post-user-registration',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -4876,8 +4880,9 @@ const redirects = [
       '/auth0-hooks/extensibility-points/pre-user-registration',
       '/hooks/pre-user-registration',
       '/hooks/extensibility-points/pre-user-registration',
+      '/customize/hooks/extensibility-points/pre-user-registration',
     ],
-    to: '/customize/hooks/extensibility-points/pre-user-registration',
+    to: '/customize/hooks',
   },
   {
     from: ['/hooks/secrets/create', '/hooks/hook-secrets/create-hook-secrets'],
@@ -4926,8 +4931,10 @@ const redirects = [
     to: '/customize/hooks/view-hooks',
   },
   {
-    from: ['/hooks/extensibility-points/send-phone-message'],
-    to: '/customize/hooks/extensibility-points/send-phone-message',
+    from: ['/hooks/extensibility-points/send-phone-message',
+    '/customize/hooks/extensibility-points/send-phone-message',
+    ],
+    to: '/customize/hooks',
   },
 
   /* Identity Labs */
