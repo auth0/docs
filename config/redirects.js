@@ -6334,8 +6334,9 @@ const redirects = [
       '/mfa/configure-amazon-sns-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-amazon-sns-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-amazon-sns-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-amazon-sns-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6344,8 +6345,9 @@ const redirects = [
       '/mfa/configure-esendex-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-esendex-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-esendex-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-esendex-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6354,8 +6356,9 @@ const redirects = [
       '/mfa/configure-infobip-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-infobip-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-infobip-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-infobip-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6364,8 +6367,9 @@ const redirects = [
       '/mfa/configure-mitto-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-mitto-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-mitto-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-mitto-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6374,8 +6378,9 @@ const redirects = [
       '/mfa/configure-telesign-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-telesign-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6390,8 +6395,9 @@ const redirects = [
       '/mfa/configure-twilio-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-twilio-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-twilio-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-twilio-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -6400,8 +6406,9 @@ const redirects = [
       '/mfa/configure-vonage-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-vonage-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-vonage-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-vonage-as-mfa-sms-provider',
+    to: '/customize/hooks',
   },
   {
     from: [
