@@ -34,24 +34,25 @@ The `Auth0Provider` setup is similar to the one discussed in the [Configure the 
 However, your React application needs to pass an access token when it calls a target API to access private resources. You can [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) in a format that the API can verify by passing the `audience` and `scope` props to `Auth0Provider` as follows:
 
 ```javascript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+
+root.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
+    useRefreshTokens={true}
+    useRefreshTokensFallback={false}
     authorizationParams={{
-      redirect_uri: window.location.origin,
-      audience: "https://${account.namespace}/api/v2/",
-      scope: "read:current_user update:current_user_metadata"
+      redirect_uri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
     }}
   >
     <App />
-  </Auth0Provider>,
-  document.getElementById("root")
+  </Auth0Provider>
 );
 ```
 

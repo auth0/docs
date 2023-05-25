@@ -27,13 +27,15 @@ Visit the [React Authentication By Example](https://developer.auth0.com/resource
 Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/docs/context.html) to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` that you can import from the SDK.
 
 ```javascript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
 
-ReactDOM.render(
-  <Auth0Provider
+const root = createRoot(document.getElementById('root'));
+
+root.render(
+<Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
     authorizationParams={{
@@ -42,7 +44,6 @@ ReactDOM.render(
   >
     <App />
   </Auth0Provider>,
-  document.getElementById("root")
 );
 ```
 
