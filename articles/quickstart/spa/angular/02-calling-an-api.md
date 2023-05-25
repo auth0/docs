@@ -149,10 +149,10 @@ export class UserMetadataComponent implements OnInit {
       concatMap((user) =>
         // Use HttpClient to make the call
         this.http.get(
-          encodeURI(`https://${account.namespace}/api/v2/users/<%= "${user.sub}" %>`)
+          encodeURI(`https://${account.namespace}/api/v2/users/<%= "${user?.sub}" %>`)
         )
       ),
-      map((user) => user['user_metadata']),
+      map((user: any) => user.user_metadata),
       tap((meta) => (this.metadata = meta))
     )
     .subscribe();
