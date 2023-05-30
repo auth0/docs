@@ -122,7 +122,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
-See this example of an `ElevatedButton` widget that logs the user out of the app. Note that `_credentials` is set to `null`, indicating that the user is no longer signed in to your app:
+See this example of an `ElevatedButton` widget that logs the user out of the app:
 
 ```dart
 ElevatedButton(
