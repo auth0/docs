@@ -26,6 +26,10 @@ github:
 
 Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
+:::note
+The Flutter SDK currently only supports Flutter applications running on Android, iOS, or Web platforms.
+:::
+
 ## Getting started
 
 This quickstart assumes you already have a [Flutter](https://flutter.dev/) application up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
