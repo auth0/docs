@@ -60,7 +60,8 @@ When a user logs in, they are redirected back to your application. You are then 
 
 ```dart
 auth0.onLoad().then((final credentials) => setState(() {
-    // handle or store credentials here
+    // Handle or store credentials here
+    _credentials = credentials;
   }));
 ```
 
@@ -74,7 +75,7 @@ Verify that you can access `credentials` as a result of calling `onLoad` and tha
 :::checkpoint-failure
 If your application did not launch successfully:
 
-- Ensure you set the Allowed Callback URLs are correct
+- Ensure the Allowed Callback URLs are set properly
 - Verify you saved your changes after entering your URLs
 - Make sure the domain and client ID values are imported correctly
 
@@ -116,7 +117,7 @@ Log in and inspect the `user` property on the result. Verify the current user's 
 :::checkpoint-failure
 If your application did not return user profile information:
 
-- Verify the access token is valid
+- Verify the ID token is valid
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::

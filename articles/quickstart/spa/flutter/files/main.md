@@ -46,10 +46,6 @@ class _MainViewState extends State<MainView> {
               ProfileView(user: _credentials!.user),
               ElevatedButton(
                   onPressed: () async {
-                    setState(() {
-                      _credentials = null;
-                    });
-                    
                     await auth0.logout(returnToUrl: 'http://localhost:3000');
                   },
                   child: const Text("Log out"))

@@ -33,7 +33,7 @@ github:
   branch: main
 requirements:
   - Flutter 3+
-  - Xcode 13+ (for iOS)
+  - Xcode 14+ (for iOS)
   - Android Studio 4+ (for Android)
 next_steps:
   - path: interactive
