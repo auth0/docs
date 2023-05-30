@@ -1,11 +1,8 @@
-<!-- markdownlint-disable MD041 -->
-
 ---
-
 name: profile_view.dart
 language: dart
-
 ---
+<!-- markdownlint-disable MD041 -->
 
 ```dart
 import 'package:auth0_flutter/auth0_flutter.dart';

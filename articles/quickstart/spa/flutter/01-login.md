@@ -20,7 +20,7 @@ github:
   path: sample
 ---
 
-<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD025 MD034 -->
 
 # Add login to your Flutter app
 
@@ -36,7 +36,7 @@ This quickstart assumes you already have a [Flutter](https://flutter.dev/) appli
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('\_configure_urls_interactive') %>
+<%= include('../_includes/_getting_started', { library: 'Flutter', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
 ## Install the Auth0 Flutter SDK
 
