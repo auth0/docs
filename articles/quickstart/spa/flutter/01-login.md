@@ -34,13 +34,7 @@ You should also be familiar with the [Flutter command line tool](https://docs.fl
 
 <%= include('../_includes/_getting_started', { library: 'Flutter', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
-## Install the Auth0 Flutter SDK
-
-Add the Auth0 Flutter SDK into the project:
-
-```shell
-flutter pub add auth0_flutter
-```
+<%= include('_install_sdk') %>
 
 ## Add login to your app
 
