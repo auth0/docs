@@ -6096,6 +6096,18 @@ const redirects = [
     ],
     to: '/authenticate/login/logout/redirect-users-after-logout',
   },
+  {
+    from: [
+      '/back-channel-logout'
+    ],
+    to: '/authenticate/login/logout/back-channel-logout'
+  },
+  {
+    from: [
+      '/configure-back-channel-logout'
+    ],
+    to: '/authenticate/login/logout/back-channel-logout/configure-back-channel-logout'
+  },
 
   /* Monitor - Logs */
 
