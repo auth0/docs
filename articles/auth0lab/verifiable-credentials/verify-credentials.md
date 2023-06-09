@@ -130,7 +130,7 @@ The code in its current state implements a web server with a simple UI. The UI h
 
 The following high level steps describe how the app works:
 
-1.  When the **Start Presentation Flow** button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the `clientid`, `clientsecret` and `templateid` variables to the API. Auth0 replies with a URL and a `request_id`.
+1.  When the **Start Presentation Flow** button is clicked, the app starts a verification request by making an API call to Auth0. In this API call, the app sends the `client_id`, `client_secret` and `template_id` variables to the API. Auth0 replies with a URL and a `request_id`.
 
 ::: note
 The URL is what you would normally encode into a QR code for a wallet application to scan and start the process. In this guide, we'll just display this URL as a clickable link for simplicity.
@@ -155,7 +155,7 @@ This endpoint starts a **Presentation Request** by making a call to the Auth0 AP
 
 A **Presentation Request** keeps track in Auth0 that the sample app requested a credential from a user.
 
-1. Create a new folder named **api** in the **api** the pages folder.
+1. Create a new folder named **api** in the **pages** folder.
 2. Create a new folder named **verify** in the **api** folder you created in the previous step.
 3. Create a new file  named **start.js** in the **pages/api/verify** folder.
 
