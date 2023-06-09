@@ -4465,8 +4465,12 @@ const redirects = [
     to: '/customize/extensions/authentication-api-debugger-extension',
   },
   {
-    from: ['/extensions/authentication-api-webhooks', '/extensions/auth0-authentication-api-webhooks'],
-    to: '/customize/extensions/auth0-authentication-api-webhooks',
+    from: [
+      '/extensions/authentication-api-webhooks', 
+      '/extensions/auth0-authentication-api-webhooks' , 
+      '/customize/extensions/auth0-authentication-api-webhooks',
+    ],
+    to: '/customize/extensions',
   },
   {
     from: ['/extensions/user-import-export', '/extensions/user-import-export-extension'],
@@ -4495,8 +4499,12 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/gitlab-pipeline',
   },
   {
-    from: ['/extensions/management-api-webhooks', '/extensions/auth0-management-api-webhooks'],
-    to: '/customize/extensions/auth0-management-api-webhooks',
+    from: [
+      '/extensions/management-api-webhooks', 
+      '/extensions/auth0-management-api-webhooks',
+      '/customize/extensions/auth0-management-api-webhooks',
+    ],
+    to: '/customize/extensions',
   },
   {
     from: ['/extensions/realtime-webtask-logs', '/extensions/real-time-webtask-logs'],
