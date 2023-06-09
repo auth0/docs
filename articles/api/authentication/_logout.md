@@ -82,8 +82,8 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 ### Remarks
 
 - Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` query string parameter.
-- If providing both `id_token_hint` and `logout_hint`, the `logout_hint` value must match either the `sub` or `sid` claim from the `id_token_hint`.
-- If providing both `id_token_hint` and `client_id`, the `client_id` value must match either the `aud` claim from the `id_token_hint`.
+- If providing both `id_token_hint` and `logout_hint`, the `logout_hint` value must match either the `sub` or `sid` claim from the id_token_hint.
+- If providing both `id_token_hint` and `client_id`, the `client_id` value must match the `aud` claim from the `id_token_hint`.
 - If `id_token_hint` is not provided, then the user will be prompted for consent unless a `logout_hint` that matches either the user's ID or session ID is provided.
 - The `POST` HTTP method is also supported for this request. When using `POST`, the request parameters should be provided in the request body as form parameters instead of the query string. The federated parameter requires a value of `true` or `false`.
 - This conforms to the [OIDC RP-initiated Logout Specification](https://openid.net/specs/openid-connect-rpinitiated-1_0.html).
@@ -91,4 +91,5 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 ### More Information
 
 - [Logout](/logout)
+- [Use the OIDC Endpoint to Log Users Out of Auth0](/logout/log-users-out-of-auth0)
 - [OIDC RP-initiated Logout Specification](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)
