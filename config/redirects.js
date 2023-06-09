@@ -3077,36 +3077,57 @@ const redirects = [
     to: '/troubleshoot/performance-best-practices',
   },
   {
-    from: ['/best-practices/rules', '/best-practices/rules-best-practices'],
-    to: '/customize/rules/rules-best-practices',
+    from: [
+      '/best-practices/rules', 
+      '/best-practices/rules-best-practices',
+      '/customize/rules/rules-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
     from: [
       '/best-practices/search-best-practices',
       '/users/search/best-practices',
       '/best-practices/user-search-best-practices',
+
     ],
     to: '/manage-users/user-search/user-search-best-practices',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-anatomy-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-anatomy-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-anatomy-best-practices',
+      '/customize/rules/rules-best-practices/rules-anatomy-best-practices',
+  ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-environment-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-environment-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-environment-best-practices',
+      '/customize/rules/rules-best-practices/rules-environment-best-practices',
+  ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-execution-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-execution-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-execution-best-practices',
+      '/customize/rules/rules-best-practices/rules-execution-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-security-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-security-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-security-best-practices',
+      '/customize/rules/rules-best-practices/rules-security-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/testing', '/best-practices/rules-best-practices/rules-testing-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-testing-best-practices',
+    from: [
+      '/best-practices/testing', 
+      '/best-practices/rules-best-practices/rules-testing-best-practices',
+      '/customize/rules/rules-best-practices/rules-testing-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
     from: [
@@ -7048,16 +7069,24 @@ const redirects = [
     to: '/customize/rules/debug-rules',
   },
   {
-    from: ['/rules/references/samples', '/rules/examples'],
-    to: '/customize/rules/examples',
+    from: [
+      '/rules/references/samples', 
+      '/rules/examples',
+      '/customize/rules/examples',
+    ],
+    to: '/customize/actions/actions-overview',
   },
   {
     from: ['/rules/guides/integrate-user-id-verification', '/rules/integrate-user-id-verification'],
     to: 'https://marketplace.auth0.com/integrations/onfido-identity-verification',
   },
   {
-    from: ['/rules/guides/integrate-efm-solutions', '/rules/integrate-efm-solutions'],
-    to: '/customize/rules/use-cases/integrate-efm-solutions',
+    from: [
+      '/rules/guides/integrate-efm-solutions', 
+      '/rules/integrate-efm-solutions',
+      '/customize/rules/use-cases/integrate-efm-solutions',
+    ],
+    to: '/customize/actions/use-cases',
   },
   {
     from: ['/rules/guides/integrate-erfm-solutions', '/rules/integrate-erfm-solutions'],
