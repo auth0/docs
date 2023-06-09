@@ -4,20 +4,22 @@ language: javascript
 ---
 
 ```javascript
-import { Auth0Provider } from "@auth0/auth0-react";
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
 
-import App from "./App";
+const root = createRoot(document.getElementById('root'));
 
-ReactDOM.render(
-  <Auth0Provider
+root.render(
+<Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri={window.location.origin}
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
   >
     <App />
   </Auth0Provider>,
-  document.getElementById("root")
 );
 ```

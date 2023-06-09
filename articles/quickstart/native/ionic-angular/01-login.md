@@ -44,7 +44,7 @@ import config from '../../capacitor.config';
 // ..
 
 // Build the URL that Auth0 should redirect back to
-const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+const redirect_uri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 
 // Register AuthModule with your AppModule
 @NgModule({
@@ -57,7 +57,11 @@ const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<
     AuthModule.forRoot({
       domain: "${account.namespace}",
       clientId: "${account.clientId}",
-      redirectUri
+      useRefreshTokens: true,
+      useRefreshTokensFallback: false,
+      authorizationParams: {
+        redirect_uri,
+      }
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
@@ -69,7 +73,9 @@ The `AuthModule.forRoot` function takes the following configuration:
 
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
+- `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.
+- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -98,8 +104,11 @@ export class LoginButtonComponent {
 
   login() {
     this.auth
-      .buildAuthorizeUrl()
-      .pipe(mergeMap((url) => Browser.open({ url, windowName: '_self' })))
+      .loginWithRedirect({
+        async openUrl(url: string) {
+          await Browser.open({ url, windowName: '_self' });
+        }
+      })
       .subscribe();
   }
 }
@@ -108,8 +117,8 @@ export class LoginButtonComponent {
 This component:
 
 - defines a template with a simple button that logs the user in when clicked
-- uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
-- uses Capacitor's Browser plugin to open the URL and show the login page to the user
+- uses `loginWithRedirect` to login using Auth0's Universal Login page
+- uses the `openUrl` callback to use Capacitor's Browser plugin to open the URL and show the login page to the user
 
 ### Handling the callback
 
@@ -196,17 +205,15 @@ export class LogoutButtonComponent {
   constructor(public auth: AuthService) {}
 
    logout() {
-    // Use the SDK to build the logout URL
     this.auth
-      .buildLogoutUrl({ returnTo })
-      .pipe(
-        tap((url) => {
-          // Call the logout fuction, but only log out locally
-          this.auth.logout({ localOnly: true });
-          // Redirect to Auth0 using the Browser plugin, to clear the user's session
-          Browser.open({ url });
-        })
-      )
+      .logout({ 
+        logoutParams: {
+          returnTo,
+        },
+        async openUrl(url: string) {
+          await Browser.open({ url });
+        } 
+      })
       .subscribe();
   }
 }

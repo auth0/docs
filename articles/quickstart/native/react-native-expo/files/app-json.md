@@ -16,7 +16,8 @@ language: json
       [
         "react-native-auth0",
         {
-          "domain": "${account.namespace}"
+          "domain": "${account.namespace}",
+          "customScheme": "auth0.com.auth0samples"
         }
       ]
     ],

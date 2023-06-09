@@ -38,6 +38,7 @@ requirements:
   - Node & Npm (LTS)
   - XCode 12+ (for iOS)
   - Android Studio 4+ (for Android)
+  - React 18
 next_steps:
   - path: 01-login
     list:

@@ -11,7 +11,7 @@ import config from '../../capacitor.config';
 // ..
 
 // Build the URL that Auth0 should redirect back to
-const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+const redirect_uri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 
 // Register AuthModule with your AppModule
 @NgModule({
@@ -24,7 +24,11 @@ const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<
     AuthModule.forRoot({
       domain: "${account.namespace}",
       clientId: "${account.clientId}",
-      redirectUri
+      useRefreshTokens: true,
+      useRefreshTokensFallback: false,
+      authorizationParams: {
+        redirect_uri
+      }
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

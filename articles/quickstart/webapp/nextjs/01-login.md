@@ -50,9 +50,9 @@ The SDK will read these values from the Node.js process environment and automati
 
 ### Add the dynamic API route
 
-Create an `auth` directory under the `pages/api` directory. Then, create a `[...auth0].js` file under the newly created `auth` directory. The path to your dynamic API route file should then be `pages/api/auth/[...auth0].js`.
+Create an `auth` directory under the `pages/api` directory. Under this newly created `auth` directory, create a `[...auth0].js` file. The path to your [dynamic API route](https://nextjs.org/docs/api-routes/dynamic-api-routes) file should then be `pages/api/auth/[...auth0].js`.
 
-Import in that file the `handleAuth` method from the SDK, and export the result of calling it.
+Then, import in that file the `handleAuth` method from the SDK, and export the result of calling it.
 
 ```javascript
 // pages/api/auth/[...auth0].js
@@ -61,7 +61,7 @@ import { handleAuth } from '@auth0/nextjs-auth0';
 export default handleAuth();
 ```
 
-Under the hood, `handleAuth()` creates the following routes:
+This creates the following routes:
 
 - `/api/auth/login`: The route used to perform login with Auth0.
 - `/api/auth/logout`: The route used to log the user out.
@@ -70,7 +70,13 @@ Under the hood, `handleAuth()` creates the following routes:
 
 ### Add the `UserProvider` component
 
-On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
+On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. 
+
+:::note
+The `app` directory introduced with Next.js 13 is currently in beta, and Vercel [does not recommend](https://nextjs.org/blog/next-13#new-app-directory-beta) using it in production. As such, this SDK does not support it yet.
+:::
+
+Create the file `pages/_app.js` as follows:
 
 ```jsx
 // pages/_app.js
@@ -94,7 +100,7 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 
 ## Add Login to Your Application
 
-A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
+Users can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link that points to the login route using an **anchor tag**. Clicking it redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
 
 :::note
 Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform [client-side transitions between pages](https://nextjs.org/docs/api-reference/next/link). As the link points to an API route and not to a page, you should keep it as an anchor tag.
@@ -116,7 +122,7 @@ Once that's complete, verify that Auth0 redirects back to your application.
 
 ## Add Logout to Your Application
 
-Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). You can add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
+Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). Add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
 
 ```html
 <a href="/api/auth/logout">Logout</a>

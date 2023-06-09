@@ -9,11 +9,11 @@ import {Button, Text, View} from 'react-native';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 
 const Home = () => {
-  const {authorize, clearSession, user} = useAuth0();
+  const {authorize, clearSession, user, error} = useAuth0();
 
   const onLogin = async () => {
     try {
-      await authorize({scope: 'openid profile email'});
+      await authorize({scope: 'openid profile email'}, {customScheme: 'auth0.com.auth0samples'});
     } catch (e) {
       console.log(e);
     }
@@ -21,7 +21,7 @@ const Home = () => {
 
   const onLogout = async () => {
     try {
-      await clearSession();
+      await clearSession({customScheme: 'auth0.com.auth0samples'});
     } catch (e) {
       console.log('Log out cancelled');
     }
@@ -33,6 +33,7 @@ const Home = () => {
     <View style={styles.container}>
       {loggedIn && <Text>You are logged in as {user.name}</Text>}
       {!loggedIn && <Text>You are not logged in</Text>}
+      {error && <Text>{error.message}</Text>}
 
       <Button
         onPress={loggedIn ? onLogout : onLogin}

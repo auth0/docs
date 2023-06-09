@@ -13,14 +13,21 @@ import { IonButton } from '@ionic/react';
 const logoutUri = 'YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback';
 
 const LogoutButton: React.FC = () => {
-  const { buildLogoutUrl, logout } = useAuth0();
+  const { logout } = useAuth0();
 
   const doLogout = async () => {
-    // Open the browser to perform a logout
-    await Browser.open({ url: buildLogoutUrl({ returnTo: logoutUri }) });
-
-    // Ask the SDK to log out locally, but not do the redirect
-    logout({ localOnly: true });
+    await logout({
+      logoutParams: {
+        returnTo: logoutUri
+      },
+      async openUrl(url) {
+         // Redirect using Capacitor's Browser plugin
+        await Browser.open({
+          url,
+          windowName: "_self"
+        });
+      }
+    });
   };
 
   return <IonButton onClick={doLogout}>Log out</IonButton>;

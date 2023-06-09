@@ -7,6 +7,7 @@ alias:
   - aspnet core webapi
   - asp.net core webapi 3.1
   - asp.net 5.0
+  - asp.net core webapi 6.0
 language:
   - C#
 framework:
@@ -36,6 +37,7 @@ github:
 requirements:
   - .NET Core 3.1
   - .NET 5.0
+  - .NET 6.0
 next_steps:
   - path: 01-authorization
     list:

@@ -9,14 +9,18 @@ import { Browser } from '@capacitor/browser';
 import { IonButton } from '@ionic/react';
 
 const LoginButton: React.FC = () => {
-  const { buildAuthorizeUrl } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
   const login = async () => {
-    // Ask auth0-react to build the login URL
-    const url = await buildAuthorizeUrl();
-
-    // Redirect using Capacitor's Browser plugin
-    await Browser.open({ url });
+    await loginWithRedirect({
+      async openUrl(url) {
+         // Redirect using Capacitor's Browser plugin
+        await Browser.open({
+          url,
+          windowName: "_self"
+        });
+      }
+    });
   };
 
   return <IonButton onClick={login}>Log in</IonButton>;

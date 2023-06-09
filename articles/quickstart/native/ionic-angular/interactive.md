@@ -24,7 +24,7 @@ files:
 
 # Add login to your Ionic Angular with Capacitor app
 
-Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
+Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
 
 <%= include('../_includes/ionic/_article_intro') %>
 
@@ -42,7 +42,9 @@ The `AuthModule.forRoot` function takes the following configuration:
 
 - `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's [custom domains feature](http://localhost:3000/docs/custom-domains).
 - `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
-- `redirectUri`: The URL to redirect your users after they authenticate with Auth0.
+- `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
+- `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.
+- `authorizationParams.redirect_uri`: The URL to redirect your users after they authenticate with Auth0.
 
 <%= include('../_includes/ionic/_note_storage') %>
 
@@ -66,7 +68,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::checkpoint
 ::: checkpoint-default
-The `buildAuthorizeUrl` function constructs the login URL, and the `Browser.open` function opens the login URL with the platform's system browser component. Together, these functions provide a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
+The `loginWithRedirect` function tells the SDK to initiate the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
 :::
 
 ::: checkpoint-failure

@@ -24,7 +24,9 @@ export class LogoutButtonComponent {
 
   logout() {
     this.auth.logout({ 
-      returnTo: this.document.location.origin 
+      logoutParams: {
+        returnTo: this.document.location.origin 
+      }
     });
   }
 }

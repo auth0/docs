@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Reset Password|`pageTitle`|
+|Reset your password | <%= "${clientName}" %>|`pageTitle`|
 |Forgot Your Password?|`title`|
 |Back to <%= "${clientName}" %>|`backToLoginLinkText`|
 |Continue|`buttonText`|
@@ -36,7 +36,7 @@
 
 |Text|Key|
 |----------|----------|
-|Reset Password|`pageTitle`|
+|Check your email | <%= "${clientName}" %>|`pageTitle`|
 |Check Your Email|`title`|
 |Please check the email address <%= "${email}" %> for instructions to reset your password.|`emailDescription`|
 |Resend email|`resendLinkText`|
@@ -50,7 +50,7 @@
 
 |Text|Key|
 |----------|----------|
-|Reset Password|`pageTitle`|
+|Reset your password | <%= "${clientName}" %>|`pageTitle`|
 |Change Your Password|`title`|
 |Enter a new password below to change your password.|`description`|
 |Reset password|`buttonText`|
@@ -58,11 +58,14 @@
 |Re-enter new password|`reEnterpasswordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
 |<%= "${companyName}" %>|`logoAltText`|
+|Show password|`showPasswordText`|
+|Hide password|`hidePasswordText`|
 |This ticket was expired.|`auth0-users-expired-ticket`|
 |Something went wrong, please try again later.|`custom-script-error-code`|
 |This ticket was already used.|`auth0-users-used-ticket`|
 |Something went wrong, please try again later|`auth0-users-validation`|
 |New password confirmation is missing|`no-re-enter-password`|
+|Password contains user information|`password-contains-user-information`|
 
 ## Screen: reset-password-success
 
@@ -72,7 +75,7 @@
 
 |Text|Key|
 |----------|----------|
-|Reset Password|`pageTitle`|
+|Password reset successful | <%= "${clientName}" %>|`pageTitle`|
 |Password Changed!|`eventTitle`|
 |Your password has been changed successfully.|`description`|
 |Back to <%= "${clientName}" %>|`buttonText`|
@@ -85,7 +88,7 @@
 
 |Text|Key|
 |----------|----------|
-|Reset Password|`pageTitle`|
+|Password reset error | <%= "${clientName}" %>|`pageTitle`|
 |Back to <%= "${clientName}" %>|`backToLoginLinkText`|
 |To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|`descriptionExpired`|
 |To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|`descriptionGeneric`|

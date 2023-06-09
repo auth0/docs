@@ -39,7 +39,7 @@ github:
   repo: auth0-react-samples
   branch: master
 requirements:
-  - React 16.8
+  - React 18
 next_steps:
   - path: 01-login
     list:

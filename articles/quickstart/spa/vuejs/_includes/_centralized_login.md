@@ -20,8 +20,10 @@ const app = createApp(App);
 app.use(
   createAuth0({
     domain: "${account.namespace}",
-    client_id: "${account.clientId}",
-    redirect_uri: window.location.origin
+    clientId: "${account.clientId}",
+    authorizationParams: {
+      redirect_uri: window.location.origin
+    }
   })
 );
 
@@ -98,7 +100,7 @@ Use the `logout` function that is exposed on the return value of `useAuth0`, whi
 
       return {
         logout: () => {
-          logout({ returnTo: window.location.origin });
+          logout({ logoutParams: { returnTo: window.location.origin } });
         }
       };
     }
@@ -126,7 +128,7 @@ If you're using the Options API, you can use the same `logout` method from the g
   export default {
     methods: {
       logout() {
-        this.$auth0.logout({ returnTo: window.location.origin });
+        this.$auth0.logout({ logoutParams: { returnTo: window.location.origin } });
       }
     }
   };

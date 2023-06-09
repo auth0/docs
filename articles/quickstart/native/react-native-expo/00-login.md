@@ -66,13 +66,18 @@ Add the `react-native-auth0` plugin to the [Expo config](https://docs.expo.dev/w
       [
         "react-native-auth0",
         {
-          "domain": "${account.namespace}"
+          "domain": "${account.namespace}",
+          "customScheme": "YOUR_CUSTOM_SCHEME"
         }
       ]
     ]
   }
 }
 ```
+
+::: note
+The custom scheme should be a unique, all lowercase value with no special characters.
+:::
 
 ### Generate native source code
 
@@ -96,10 +101,10 @@ These values are found in the Expo config file at `app.json` or `app.config.js`.
 {
     ...
     "android": {
-      "package": "com.auth0samples"
+      "package": "YOUR_ANDROID_PACKAGE_NAME_IS_FOUND_HERE"
     },
     "ios": {
-      "bundleIdentifier": "com.auth0samples"
+      "bundleIdentifier": "YOUR_IOS_BUNDLE_IDENTIFIER_IS_FOUND_HERE"
     }
   }
 }
@@ -110,7 +115,7 @@ These values are found in the Expo config file at `app.json` or `app.config.js`.
 #### iOS callback URL
 
 ```text
-{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
+{YOUR_CUSTOM_SCHEME}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -118,7 +123,7 @@ Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bun
 #### Android callback URL
 
 ```text
-{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
+{YOUR_CUSTOM_SCHEME}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
 Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
@@ -128,7 +133,7 @@ Remember to replace `{ANDROID_PACKAGE}` with your actual application's package n
 #### iOS logout URL
 
 ```text
-{IOS_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
+{YOUR_CUSTOM_SCHEME}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -136,7 +141,7 @@ Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bun
 #### Android logout URL
 
 ```text
-{ANDROID_PACKAGE}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
+{YOUR_CUSTOM_SCHEME}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
 Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
@@ -169,7 +174,7 @@ const LoginButton = () => {
 
     const onPress = async () => {
         try {
-            await authorize();
+            await authorize({scope: 'openid profile email'}, {customScheme: '{YOUR_CUSTOM_SCHEME}'});
         } catch (e) {
             console.log(e);
         }
@@ -195,7 +200,7 @@ const LogoutButton = () => {
 
     const onPress = async () => {
         try {
-            await clearSession();
+            await clearSession({customScheme: '{YOUR_CUSTOM_SCHEME}'});
         } catch (e) {
             console.log(e);
         }
@@ -217,12 +222,13 @@ If a user has not been authenticated, this property will be `null`.
 
 ```js
 const Profile = () => {
-    const {user} = useAuth0();
+    const {user, error} = useAuth0();
 
     return (
         <>
             {user && <Text>Logged in as {user.name}</Text>}
             {!user && <Text>Not logged in</Text>}
+            {error && <Text>{error.message}</Text>}
         </>
     )
 }

@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Sign up | <%= "${clientName}" %>|`pageTitle`|
 |Welcome|`title`|
 |Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
 |Or|`separatorText`|
@@ -21,12 +21,16 @@
 |Your password must contain:|`passwordSecurityText`|
 |Username|`usernamePlaceholder`|
 |<%= "${companyName}" %>|`logoAltText`|
+|Show password|`showPasswordText`|
+|Hide password|`hidePasswordText`|
 |The user already exists.|`email-in-use`|
 |Email is not valid.|`invalid-email-format`|
 |The password is too weak|`password-too-weak`|
+|The password is too weak|`password-policy-not-conformant`|
 |The password is too common|`password-too-common`|
 |Password has previously been used|`password-previously-used`|
 |Passwords don't match|`password-mismatch`|
+|Password contains user information|`password-contains-user-information`|
 |Username can only contain alphanumeric characters or: '<%= "${characters}" %>'. Username should have between <%= "${min}" %> and <%= "${max}" %> characters.|`invalid-username`|
 |The username must not be longer than <%= "${max}" %> characters.|`invalid-username-max-length`|
 |The username must have at least <%= "${min}" %> characters.|`invalid-username-min-length`|
@@ -43,3 +47,4 @@
 |Password is required|`no-password`|
 |New password confirmation is missing|`no-re-enter-password`|
 |Username is required|`no-username`|
+|This combination of credentials was detected in a public data breach on another website. Before your account is created, please use a different password to keep it secure.|`password-breached`|

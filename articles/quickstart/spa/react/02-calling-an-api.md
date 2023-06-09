@@ -17,6 +17,10 @@ useCase: quickstart
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
+:::note
+Visit the [Integrate React with an API Server](https://developer.auth0.com/resources/guides/spa/react/basic-authentication#integrate-react-with-an-api-server) section of the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into calling a protected API from React. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+:::
+
 <%= include('../_includes/_calling_api_preamble_api2") %>
 
 :::note
@@ -30,22 +34,25 @@ The `Auth0Provider` setup is similar to the one discussed in the [Configure the 
 However, your React application needs to pass an access token when it calls a target API to access private resources. You can [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) in a format that the API can verify by passing the `audience` and `scope` props to `Auth0Provider` as follows:
 
 ```javascript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+
+root.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri={window.location.origin}
-    audience="https://${account.namespace}/api/v2/"
-    scope="read:current_user update:current_user_metadata"
+    useRefreshTokens={true}
+    useRefreshTokensFallback={false}
+    authorizationParams={{
+      redirect_uri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
+    }}
   >
     <App />
-  </Auth0Provider>,
-  document.getElementById("root")
+  </Auth0Provider>
 );
 ```
 
@@ -53,13 +60,13 @@ ReactDOM.render(
 As Auth0 can only issue tokens for custom scopes that exist on your API, ensure that you define the scopes used above when [setting up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
 :::
 
-Auth0 uses the value of the `audience` prop to determine which resource server (API) the user is authorizing your React application to access. 
+Auth0 uses the value of the `authorizationParams.audience` prop to determine which resource server (API) the user is authorizing your React application to access.
 
 :::note
 In the case of the Auth0 Management API, the audience is `https://${account.namespace}/api/v2/`. In the case of your APIs, you create an _Identifier_ value that serves as the _Audience_ value whenever you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
 :::
 
-The actions that your React application can perform on the API depend on the [scopes](https://auth0.com/docs/scopes/current) that your access token contains, which you define as the value of `scope`. Your React application will request authorization from the user to access the requested scopes, and the user will approve or deny the request.
+The actions that your React application can perform on the API depend on the [scopes](https://auth0.com/docs/scopes/current) that your access token contains, which you define as the value of `authorizationParams.scope`. Your React application will request authorization from the user to access the requested scopes, and the user will approve or deny the request.
 
 :::note
 In the case of the Auth0 Management API, the `read:current_user` and `update:current_user_metadata` scopes let you get an access token that can retrieve user details and update the user's information. In the case of your APIs, you'll define custom [API scopes](https://auth0.com/docs/scopes/current/api-scopes) to implement access control, and you'll identify them in the calls that your client applications make to that API.
@@ -67,7 +74,7 @@ In the case of the Auth0 Management API, the `read:current_user` and `update:cur
 
 ## Get an Access Token 
 
-Once you configure `Auth0Provider`, you can easily get the access token using the [`getAccessTokenSilently()`](https://auth0.github.io/auth0-react/interfaces/auth0_context.auth0contextinterface.html#getaccesstokensilently) method from the [`useAuth0()`](https://auth0.github.io/auth0-react/modules/use_auth0.html) custom React Hook wherever you need it. 
+Once you configure `Auth0Provider`, you can easily get the access token using the [`getAccessTokenSilently()`](https://auth0.github.io/auth0-react/interfaces/Auth0ContextInterface.html#getAccessTokenSilently) method from the [`useAuth0()`](https://auth0.github.io/auth0-react/functions/useAuth0.html) custom React Hook wherever you need it. 
 
 Take this `Profile` component as an example:
 
@@ -108,8 +115,10 @@ useEffect(() => {
 
     try {
       const accessToken = await getAccessTokenSilently({
-        audience: `https://<%= "${domain}" %>/api/v2/`,
-        scope: "read:current_user",
+        authorizationParams: {
+          audience: `https://<%= "${domain}" %>/api/v2/`,
+          scope: "read:current_user",
+        },
       });
 
       const userDetailsByIdUrl = `https://<%= "${domain}" %>/api/v2/users/<%= "${user.sub}" %>`;
@@ -134,7 +143,7 @@ useEffect(() => {
 
 You use a React Effect Hook to call an asynchronous `getUserMetadata()` function. The function first calls `getAccessTokenSilently()`, which returns a Promise that resolves to an access token that you can use to make a call to a protected API.
 
-You pass an object with the `audience` and `scope` properties as the argument of `getAccessTokenSilently()` to ensure that the access token you get is for the intended API and has the required permissions to access the desired endpoint.
+You pass an object with the `authorizationParams.audience` and `authorizationParams.scope` properties as the argument of `getAccessTokenSilently()` to ensure that the access token you get is for the intended API and has the required permissions to access the desired endpoint.
  
 :::note
 In the case of the Auth0 Management API, one of the scopes that the [`/api/v2/users/{id}` endpoint](https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id) requires is `read:current_user`.
@@ -156,6 +165,3 @@ The `getAccessTokenSilently()` method can renew the access and ID token for you 
 
 As a final reminder, consult the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
 
-:::note
-For a deep dive into making secure calls to an API from React, visit the [Complete Guide to React User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-react-user-authentication/#Calling-an-API). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
-:::

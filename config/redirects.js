@@ -391,6 +391,12 @@ const redirects = [
     ],
     to: '/quickstart/webapp/express',
   },
+  {
+    from: [
+      '/quickstart/native/cordova',
+    ],
+    to: '/quickstart'
+  },
 
   /* CONNECTIONS */
 
@@ -474,8 +480,9 @@ const redirects = [
       '/protocols/configure-okta-as-oauth2-identity-provider',
       '/authorization/protocols/configure-okta-as-oauth2-identity-provider',
       '/connections/social/configure-okta-as-oauth2-identity-provider',
+      '/authenticate/identity-providers/social-identity-providers/configure-okta-as-oauth2-identity-provider',
     ],
-    to: '/authenticate/identity-providers/social-identity-providers/configure-okta-as-oauth2-identity-provider',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/okta',
   },
   {
     from: ['/connections/social/auth0-oidc', '/connections/enterprise/oidc'],
@@ -4039,8 +4046,73 @@ const redirects = [
     to: '/customize/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
   },
   {
-    from: ['/deploy/private-cloud-on-azure'],
+    from: [
+    '/deploy/private-cloud-on-azure',
+    ],
     to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-azure',
+  },
+
+  /* Deploy CLI Tool */
+  
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  },
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  }, 
+  {
+    from: [
+    '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
+  },
+  {
+    from: [
+      '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+  },
+  {
+    from: [
+      '/deploy-monitor/deploy-cli-tool/auth0-terraform-provider'
+    ],
+    to: '/deploy-monitor/auth0-terraform-provider',
+  },
+  {
+    from: [
+      '/deploy-monitor/deploy-cli-tool/how-to-contribute',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool',
   },
 
   /* Extensions */
@@ -4734,8 +4806,9 @@ const redirects = [
       '/hooks/concepts/extensibility-points',
       '/hooks/concepts/overview-extensibility-points',
       '/hooks/extensibility-points',
+      '/customize/hooks/extensibility-points',
     ],
-    to: '/customize/hooks/extensibility-points',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -4744,8 +4817,9 @@ const redirects = [
       '/hooks/client-credentials-exchange',
       '/hooks/extensibility-points/credentials-exchange',
       '/hooks/extensibility-points/client-credentials-exchange',
+      '/customize/hooks/extensibility-points/client-credentials-exchange',
     ],
-    to: '/customize/hooks/extensibility-points/client-credentials-exchange',
+    to: '/customize/hooks',
   },
   {
     from: [
@@ -4785,8 +4859,9 @@ const redirects = [
       '/hooks/guides/post-change-password',
       '/hooks/post-change-password',
       '/hooks/extensibility-points/post-change-password',
+      '/customize/hooks/extensibility-points/post-change-password',
     ],
-    to: '/customize/hooks/extensibility-points/post-change-password',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -4794,8 +4869,9 @@ const redirects = [
       '/hooks/guides/use-the-post-user-registration-extensibility-point',
       '/hooks/post-user-registration',
       '/hooks/extensibility-points/post-user-registration',
+      '/customize/hooks/extensibility-points/post-user-registration',
     ],
-    to: '/customize/hooks/extensibility-points/post-user-registration',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -4804,8 +4880,9 @@ const redirects = [
       '/auth0-hooks/extensibility-points/pre-user-registration',
       '/hooks/pre-user-registration',
       '/hooks/extensibility-points/pre-user-registration',
+      '/customize/hooks/extensibility-points/pre-user-registration',
     ],
-    to: '/customize/hooks/extensibility-points/pre-user-registration',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: ['/hooks/secrets/create', '/hooks/hook-secrets/create-hook-secrets'],
@@ -4854,8 +4931,10 @@ const redirects = [
     to: '/customize/hooks/view-hooks',
   },
   {
-    from: ['/hooks/extensibility-points/send-phone-message'],
-    to: '/customize/hooks/extensibility-points/send-phone-message',
+    from: ['/hooks/extensibility-points/send-phone-message',
+    '/customize/hooks/extensibility-points/send-phone-message',
+    ],
+    to: '/customize/actions/flows-and-triggers',
   },
 
   /* Identity Labs */
@@ -6017,6 +6096,18 @@ const redirects = [
     ],
     to: '/authenticate/login/logout/redirect-users-after-logout',
   },
+  {
+    from: [
+      '/back-channel-logout'
+    ],
+    to: '/authenticate/login/logout/back-channel-logout'
+  },
+  {
+    from: [
+      '/configure-back-channel-logout'
+    ],
+    to: '/authenticate/login/logout/back-channel-logout/configure-back-channel-logout'
+  },
 
   /* Monitor - Logs */
 
@@ -6255,8 +6346,9 @@ const redirects = [
       '/mfa/configure-amazon-sns-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-amazon-sns-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-amazon-sns-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-amazon-sns-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6265,8 +6357,9 @@ const redirects = [
       '/mfa/configure-esendex-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-esendex-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-esendex-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-esendex-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6275,8 +6368,9 @@ const redirects = [
       '/mfa/configure-infobip-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-infobip-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-infobip-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-infobip-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6285,8 +6379,9 @@ const redirects = [
       '/mfa/configure-mitto-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-mitto-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-mitto-as-mfa-sms-provider',
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-mitto-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6295,8 +6390,15 @@ const redirects = [
       '/mfa/configure-telesign-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-telesign-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
+  },
+  {
+    from: [
+      '/mfa/webauthn-as-mfa'
+    ],
+    to: '/secure/multi-factor-authentication/webauthn-as-mfa',
   },
   {
     from: [
@@ -6305,8 +6407,9 @@ const redirects = [
       '/mfa/configure-twilio-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-twilio-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-twilio-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-twilio-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6315,8 +6418,9 @@ const redirects = [
       '/mfa/configure-vonage-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider',
       '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-vonage-as-mfa-sms-provider',
+      '/customize/hooks/extensibility-points/send-phone-message/configure-vonage-as-mfa-sms-provider'
     ],
-    to: '/customize/hooks/extensibility-points/send-phone-message/configure-vonage-as-mfa-sms-provider',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
     from: [
@@ -6531,8 +6635,9 @@ const redirects = [
       '/multifactor-authentication/api/manage',
       '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api',
       '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api',
+      '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api',
     ],
-    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api',
+    to: '/secure/multi-factor-authentication/manage-mfa-auth0-apis/manage-authenticator-factors-mfa-api',
   },
   {
     from: [
@@ -7593,7 +7698,14 @@ const redirects = [
     to: '/troubleshoot/customer-support',
   },
   {
-    from: ['/support/support-overview', '/support/support-plans'],
+    from: [
+      '/support/support-overview',
+      '/support/support-plans',
+      '/support/support-procedures',
+      '/troubleshoot/customer-support/support-procedures',
+      '/support/support-hours-and-languages',
+      '/troubleshoot/customer-support/support-hours-and-languages'
+    ],
     to: '/troubleshoot/customer-support/support-plans',
   },
   {
@@ -7657,14 +7769,6 @@ const redirects = [
   {
     from: ['/support/support-channels'],
     to: '/troubleshoot/customer-support/support-channels',
-  },
-  {
-    from: ['/support/support-procedures'],
-    to: '/troubleshoot/customer-support/support-procedures',
-  },
-  {
-    from: ['/support/support-hours-and-languages'],
-    to: '/troubleshoot/customer-support/support-hours-and-languages',
   },
   {
     from: ['/support/software-updates'],

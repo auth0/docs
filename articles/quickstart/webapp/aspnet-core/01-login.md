@@ -41,44 +41,38 @@ Install-Package Auth0.AspNetCore.Authentication
 
 ### Install and configure the SDK
 
-To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `ConfigureServices` method of your `Startup` class and call `services.AddAuth0WebAppAuthentication()` to configure the Auth0 ASP.NET Core SDK.
+To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `Program.cs` file and call `builder.Services.AddAuth0WebAppAuthentication()` to configure the Auth0 ASP.NET Core SDK.
 
 Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
 
 ```cs
-public void ConfigureServices(IServiceCollection services)
+var builder = WebApplication.CreateBuilder(args);
+// Cookie configuration for HTTP to support cookies with SameSite=None
+builder.Services.ConfigureSameSiteNoneCookies();
+
+// Cookie configuration for HTTPS
+//  builder.Services.Configure<CookiePolicyOptions>(options =>
+//  {
+//     options.MinimumSameSitePolicy = SameSiteMode.None;
+//  });
+builder.Services.AddAuth0WebAppAuthentication(options =>
 {
-    // Cookie configuration for HTTP to support cookies with SameSite=None
-    services.ConfigureSameSiteNoneCookies();
-
-    // Cookie configuration for HTTPS
-    // services.Configure<CookiePolicyOptions>(options =>
-    // {
-    //    options.MinimumSameSitePolicy = SameSiteMode.None;
-    // });
-
-    services
-        .AddAuth0WebAppAuthentication(options => {
-            options.Domain = Configuration["Auth0:Domain"];
-            options.ClientId = Configuration["Auth0:ClientId"];
-        });
-
-    services.AddControllersWithViews();
-}
+    options.Domain = builder.Configuration["Auth0:Domain"];
+    options.ClientId = builder.Configuration["Auth0:ClientId"];
+});
+builder.Services.AddControllersWithViews();
+var app = builder.Build();
 ```
 
 ::: note
 The `ConfigureSameSiteNoneCookies` method used above was added as part of the [sample application](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/blob/master/Quickstart/Sample/Support/SameSiteServiceCollectionExtensions.cs) in order to ([make cookies with SameSite=None work over HTTP when using Chrome](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)). We recommend using HTTPS instead of HTTP, which removes the need for the `ConfigureSameSiteNoneCookies` method.
 :::
 
-Make sure you have enabled authentication and authorization in your `Startup.Configure` method:
+Make sure you have enabled authentication and authorization in your Program.cs file:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    app.UseAuthentication();
-    app.UseAuthorization();
-}
+app.UseAuthentication();
+app.UseAuthorization();
 ```
 
 ## Login
