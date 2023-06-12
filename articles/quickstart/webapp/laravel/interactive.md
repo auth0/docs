@@ -61,7 +61,7 @@ Run the following command from your project directory to download the [Auth0 CLI
 curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
 ```
 
-Then authenticate the CLI with your Auth0 account:
+Then authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
 
 ```shell
 ./auth0 login
