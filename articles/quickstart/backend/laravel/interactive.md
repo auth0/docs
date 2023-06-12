@@ -68,7 +68,7 @@ Run the following command from your project directory to download the [Auth0 CLI
 curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
 ```
 
-Then authenticate the CLI with your Auth0 account:
+Then authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
 
 ```shell
 ./auth0 login
@@ -196,7 +196,6 @@ Route::get('/me', function () {
 **You should cache user information in your application for brief periods.** This reduces the number of requests your application makes to Auth0, and improves performance. You should avoid storing user information in your application for long periods as this can lead to stale data. You should also avoid storing user information beyond the user's identifier in persistent databases.
 :::
 
-
 ## Run the Application
 
 You are now ready to start your Laravel application, so it can accept requests:
@@ -234,7 +233,7 @@ curl --request GET \
   --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
 ```
 
-Finally, try requesting the scope-protected route, which will only succeed if the access token has the  `read:messages` scope granted:
+Finally, try requesting the scope-protected route, which will only succeed if the access token has the `read:messages` scope granted:
 
 ```shell
 curl --request GET \
