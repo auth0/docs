@@ -14,8 +14,7 @@ curl --request GET \
   { 
     "client_id":"${account.clientId}", 
     "post_logout_redirect_uri":"LOGOUT_URL", 
-    "id_token_hint":"ID_TOKEN_HINT",
-    "logout_hint":"LOGOUT_HINT"
+    "id_token_hint":"ID_TOKEN_HINT"
   }'
 ```
 
@@ -31,8 +30,7 @@ curl --request GET \
   
   webAuth.logout({
     post_logout_redirect_uri: 'YOUR_LOGOUT_URL',
-    id_token_hint: 'YOUR_ID_TOKEN_HINT',
-    logout_hint: 'YOUR_LOGOUT_HINT'
+    id_token_hint: 'YOUR_ID_TOKEN_HINT'
   });
 </script>
 ```
@@ -59,8 +57,8 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 | Parameter                             | Description                                                                                                                                                     |
 | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id_token_hint` (Recommended)         | Previously issued ID Token for the user. This is used to indicate which user to log out                                                                         |
-| `logout_hint` (Optional)              | Optional `sub` (user ID) or `sid` (session ID) value to indicate which user to log out.                                                                         |
+| `id_token_hint` (Recommended)         | Previously issued ID Token for the user. This is used to indicate which user to log out.                                                                         |
+| `logout_hint` (Optional)              | Optional `sid` (session ID) value to indicate which user to log out. Should be provided when `id_token_hint` is not available.                                                                       |
 | `post_logout_redirect_uri` (Optional) | URL to redirect the user after the logout.                                                                                                                      |
 | `client_id` (Optional)                | The `client_id` of your application.                                                                                                                            |
 | `federated` (Optional)                | Add this query string parameter to log the user out of their identity provider: `https://YOUR_DOMAIN/oidc/logout?federated`.        |
@@ -81,10 +79,10 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 ### Remarks
 
-- Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` query string parameter.
-- If providing both `id_token_hint` and `logout_hint`, the `logout_hint` value must match either the `sub` or `sid` claim from the id_token_hint.
+- Logging the user out of their social identity provider is not common practice, so think about the user experience before you use the `federated` query string parameter with social identity providers.
+- If providing both `id_token_hint` and `logout_hint`, the `logout_hint` value must match the `sid` claim from the id_token_hint.
 - If providing both `id_token_hint` and `client_id`, the `client_id` value must match the `aud` claim from the `id_token_hint`.
-- If `id_token_hint` is not provided, then the user will be prompted for consent unless a `logout_hint` that matches either the user's ID or session ID is provided.
+- If `id_token_hint` is not provided, then the user will be prompted for consent unless a `logout_hint` that matches the user's session ID is provided.
 - The `POST` HTTP method is also supported for this request. When using `POST`, the request parameters should be provided in the request body as form parameters instead of the query string. The federated parameter requires a value of `true` or `false`.
 - This conforms to the [OIDC RP-initiated Logout Specification](https://openid.net/specs/openid-connect-rpinitiated-1_0.html).
 
