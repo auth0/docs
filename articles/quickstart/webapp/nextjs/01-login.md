@@ -73,7 +73,7 @@ This creates the following routes:
 On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. 
 
 :::note
-The `app` directory introduced with Next.js 13 is currently in beta, and Vercel [does not recommend](https://nextjs.org/blog/next-13#new-app-directory-beta) using it in production. As such, this SDK does not support it yet.
+Support for the new `app` directory is coming. Check out the [beta release](https://github.com/auth0/nextjs-auth0/issues/1235).
 :::
 
 Create the file `pages/_app.js` as follows:
