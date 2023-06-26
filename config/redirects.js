@@ -4089,6 +4089,12 @@ const redirects = [
   },
   {
     from: [
+      '/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+  },
+  {
+    from: [
     '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
     ],
     to: '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
