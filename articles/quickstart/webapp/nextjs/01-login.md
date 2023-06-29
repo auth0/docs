@@ -50,12 +50,12 @@ The SDK will read these values from the Node.js process environment and automati
 
 ### Add the dynamic API route
 
-Create an `auth` directory under the `pages/api` directory. Under this newly created `auth` directory, create a `[...auth0].js` file. The path to your [dynamic API route](https://nextjs.org/docs/api-routes/dynamic-api-routes) file should then be `pages/api/auth/[...auth0].js`.
+Create an `auth` directory under the `pages/api` directory. Under this newly created `auth` directory, create a `[auth0].js` file. The path to your [dynamic API route](https://nextjs.org/docs/api-routes/dynamic-api-routes) file should then be `pages/api/auth/[auth0].js`.
 
 Then, import in that file the `handleAuth` method from the SDK, and export the result of calling it.
 
 ```javascript
-// pages/api/auth/[...auth0].js
+// pages/api/auth/[auth0].js
 import { handleAuth } from '@auth0/nextjs-auth0';
 
 export default handleAuth();
