@@ -42,8 +42,8 @@ A callback URL is the application URL that Auth0 will direct your users to once 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `auth0.com.auth0samples://${account.namespace}/ios/com.auth0samples/callback`
-- for Android - `auth0.com.auth0samples://${account.namespace}/android/com.auth0samples/callback`
+- for iOS - `auth0.com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `auth0.com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
 :::
 
 ### Configure Logout URLs
@@ -52,8 +52,8 @@ A logout URL is the application URL Auth0 will redirect your users to once they 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `auth0.com.auth0samples://${account.namespace}/ios/com.auth0samples/callback`
-- for Android - `auth0.com.auth0samples://${account.namespace}/android/com.auth0samples/callback`
+- for iOS - `auth0.com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `auth0.com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
 :::
 
 ## Install dependencies 

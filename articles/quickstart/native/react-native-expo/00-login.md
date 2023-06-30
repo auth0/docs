@@ -66,18 +66,13 @@ Add the `react-native-auth0` plugin to the [Expo config](https://docs.expo.dev/w
       [
         "react-native-auth0",
         {
-          "domain": "${account.namespace}",
-          "customScheme": "YOUR_CUSTOM_SCHEME"
+          "domain": "${account.namespace}"
         }
       ]
     ]
   }
 }
 ```
-
-::: note
-The custom scheme should be a unique, all lowercase value with no special characters.
-:::
 
 ### Generate native source code
 
@@ -115,7 +110,7 @@ These values are found in the Expo config file at `app.json` or `app.config.js`.
 #### iOS callback URL
 
 ```text
-{YOUR_CUSTOM_SCHEME}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
+{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -123,7 +118,7 @@ Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bun
 #### Android callback URL
 
 ```text
-{YOUR_CUSTOM_SCHEME}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
+{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
 Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
@@ -133,7 +128,7 @@ Remember to replace `{ANDROID_PACKAGE}` with your actual application's package n
 #### iOS logout URL
 
 ```text
-{YOUR_CUSTOM_SCHEME}://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
+{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -141,7 +136,7 @@ Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bun
 #### Android logout URL
 
 ```text
-{YOUR_CUSTOM_SCHEME}://${account.namespace}/android/{ANDROID_PACKAGE}/callback
+{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/android/{ANDROID_PACKAGE}/callback
 ```
 
 Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
@@ -174,7 +169,7 @@ const LoginButton = () => {
 
     const onPress = async () => {
         try {
-            await authorize({scope: 'openid profile email'}, {customScheme: '{YOUR_CUSTOM_SCHEME}'});
+            await authorize();
         } catch (e) {
             console.log(e);
         }
@@ -200,7 +195,7 @@ const LogoutButton = () => {
 
     const onPress = async () => {
         try {
-            await clearSession({customScheme: '{YOUR_CUSTOM_SCHEME}'});
+            await clearSession();
         } catch (e) {
             console.log(e);
         }
