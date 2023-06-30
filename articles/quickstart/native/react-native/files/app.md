@@ -3,6 +3,8 @@ name: app.js
 language: javascript
 ---
 
+<!-- markdownlint-disable MD041 -->
+
 ```javascript
 import React from 'react';
 import {Button, Text, View} from 'react-native';
@@ -13,7 +15,7 @@ const Home = () => {
 
   const onLogin = async () => {
     try {
-      await authorize({scope: 'openid profile email'});
+      await authorize();
     } catch (e) {
       console.log(e);
     }

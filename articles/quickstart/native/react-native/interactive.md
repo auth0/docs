@@ -15,7 +15,7 @@ topics:
 
 # Add Login to your React Native App
 
-<!-- markdownlint-disable MD002 MD012 MD041 -->
+<!-- markdownlint-disable MD002 MD012 MD025 MD041 -->
 
 This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
 
@@ -37,9 +37,10 @@ A callback URL is the application URL that Auth0 will direct your users to once 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
+- for Android - `{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
 :::
+
 
 ### Configure Logout URLs
 
@@ -47,8 +48,8 @@ A logout URL is the application URL Auth0 will redirect your users to once they 
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
+- for Android - `{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
 :::
 
 ## Install dependencies 

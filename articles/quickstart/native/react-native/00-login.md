@@ -139,7 +139,7 @@ For additional information please read [react native docs](https://facebook.gith
 #### iOS callback URL
 
 ```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -147,7 +147,7 @@ Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's
 #### Android callback URL
 
 ```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
 Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
@@ -157,7 +157,7 @@ Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's pac
 #### iOS logout URL
 
 ```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
 Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
@@ -165,7 +165,7 @@ Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's
 #### Android logout URL
 
 ```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
 Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
