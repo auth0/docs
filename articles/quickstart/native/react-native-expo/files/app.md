@@ -13,7 +13,7 @@ const Home = () => {
 
   const onLogin = async () => {
     try {
-      await authorize({scope: 'openid profile email'}, {customScheme: 'auth0.com.auth0samples'});
+      await authorize();
     } catch (e) {
       console.log(e);
     }
@@ -21,7 +21,7 @@ const Home = () => {
 
   const onLogout = async () => {
     try {
-      await clearSession({customScheme: 'auth0.com.auth0samples'});
+      await clearSession();
     } catch (e) {
       console.log('Log out cancelled');
     }
