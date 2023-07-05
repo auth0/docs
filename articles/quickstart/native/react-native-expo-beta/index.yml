@@ -18,6 +18,7 @@ framework:
   - React Native
   - Expo
 hybrid: true
+beta: true
 topics:
   - quickstart
 contentType: tutorial
@@ -34,7 +35,7 @@ github:
   repo: auth0-react-native-sample
 sdk:
   name: react-native-auth0
-  url: https://github.com/auth0/react-native-auth0
+  url: https://github.com/auth0/react-native-auth0/tree/vnext
   logo: expo
 requirements:
   - React Native 0.62.2
