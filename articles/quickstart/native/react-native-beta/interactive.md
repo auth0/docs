@@ -31,25 +31,26 @@ Any settings you configure using this quickstart will automatically update for y
 
 To explore a complete configuration, review the sample application in your Dashboard.
 
-### Configure Callback URLs
+### Configure callback and logout URLs
 
-A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.
+Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and logout URLs, users will not be able to log in and out of the app, and your application will produce an error.
+
+Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to your app's platform. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant’s domain.
+
+#### iOS
+```text
+BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
+```
+
+#### Android
+```text
+PACKAGE_NAME.auth0://${account.namespace}/android/PACKAGE_NAME/callback
+```
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
-:::
-
-
-### Configure Logout URLs
-
-A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.
-
-::: note
-If you are following along with our sample project, set this
-- for iOS - `{PRODUCT_BUNDLE_IDENTIFIER}.auth0://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback`
-- for Android - `{YOUR_APP_PACKAGE_NAME}.auth0://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+- for iOS - `com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
 :::
 
 ## Install dependencies 
@@ -100,7 +101,7 @@ Open the `build.gradle` file in your application directory (typically at `androi
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
+        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}.auth0" %>"]
     }
     ...
 }
@@ -149,7 +150,7 @@ Below this value, register a URL type entry using the value of `CFBundleIdentifi
         <string>auth0</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).auth0</string>
         </array>
     </dict>
 </array>
