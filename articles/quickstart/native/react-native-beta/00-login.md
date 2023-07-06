@@ -67,7 +67,7 @@ Open your app's `build.gradle` file (typically at `android/app/build.gradle`) an
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
+        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}.auth0" %>"]
     }
     ...
 }
@@ -116,7 +116,7 @@ Below this value, register a URL type entry using the value of `CFBundleIdentifi
         <string>auth0</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).auth0</string>
         </array>
     </dict>
 </array>
