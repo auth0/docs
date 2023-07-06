@@ -7,7 +7,7 @@ language: javascript
 
 ```javascript
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View, StyleSheet} from 'react-native';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 
 const Home = () => {

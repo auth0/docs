@@ -85,9 +85,9 @@ expo prebuild
 You will be prompted to provide the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) if they are not already present in the Expo config:
 
 ```bash
-? What would you like your Android package name to be? > com.auth0samples
+? What would you like your Android package name to be? > com.auth0samples # or your desired package name
 
-? What would you like your iOS bundle identifier to be? > com.auth0samples
+? What would you like your iOS bundle identifier to be? > com.auth0samples # or your desired bundle identifier
 ```
 
 These values are found in the Expo config file at `app.json` or `app.config.js`. It will be used in the callback and logout URLs:
@@ -105,41 +105,28 @@ These values are found in the Expo config file at `app.json` or `app.config.js`.
 }
 ```
 
-<%= include('../../../_includes/_callback_url') %>
+### Configure Callback and Logout URLs
 
-#### iOS callback URL
+The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your application. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie.
 
+If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
+
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of the Auth0 domain from the settings page.
+
+#### iOS
 ```text
-{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
+BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
+```
+#### Android
+```text
+PACKAGE_NAME.auth0://${account.namespace}/android/PACKAGE_NAME/callback
 ```
 
-Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android callback URL
-
-```text
-{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/android/{ANDROID_PACKAGE}/callback
-```
-
-Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/ios/{IOS_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{IOS_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_CUSTOM_SCHEME}.auth0://${account.namespace}/android/{ANDROID_PACKAGE}/callback
-```
-
-Remember to replace `{ANDROID_PACKAGE}` with your actual application's package name.
+::: note
+If you are following along with our sample project, set this
+- for iOS - `com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
+:::
 
 ## Add login to your app
 
