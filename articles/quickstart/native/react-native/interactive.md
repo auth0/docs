@@ -14,7 +14,7 @@ topics:
 ---
 
 ::: note
-Exciting news! We have just released our latest beta version of v3, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-beta/interactive)
+Exciting news! We have just released React Native Auth0 v3 BETA, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-beta/interactive)
 :::
 
 # Add Login to your React Native App
