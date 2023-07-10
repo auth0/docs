@@ -3077,36 +3077,57 @@ const redirects = [
     to: '/troubleshoot/performance-best-practices',
   },
   {
-    from: ['/best-practices/rules', '/best-practices/rules-best-practices'],
-    to: '/customize/rules/rules-best-practices',
+    from: [
+      '/best-practices/rules', 
+      '/best-practices/rules-best-practices',
+      '/customize/rules/rules-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
     from: [
       '/best-practices/search-best-practices',
       '/users/search/best-practices',
       '/best-practices/user-search-best-practices',
+
     ],
     to: '/manage-users/user-search/user-search-best-practices',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-anatomy-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-anatomy-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-anatomy-best-practices',
+      '/customize/rules/rules-best-practices/rules-anatomy-best-practices',
+  ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-environment-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-environment-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-environment-best-practices',
+      '/customize/rules/rules-best-practices/rules-environment-best-practices',
+  ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-execution-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-execution-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-execution-best-practices',
+      '/customize/rules/rules-best-practices/rules-execution-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/rules-best-practices/rules-security-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-security-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-security-best-practices',
+      '/customize/rules/rules-best-practices/rules-security-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
-    from: ['/best-practices/testing', '/best-practices/rules-best-practices/rules-testing-best-practices'],
-    to: '/customize/rules/rules-best-practices/rules-testing-best-practices',
+    from: [
+      '/best-practices/testing', 
+      '/best-practices/rules-best-practices/rules-testing-best-practices',
+      '/customize/rules/rules-best-practices/rules-testing-best-practices',
+    ],
+    to: '/customize/actions/action-coding-guidelines',
   },
   {
     from: [
@@ -4065,6 +4086,12 @@ const redirects = [
     '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
     ],
     to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: [
+      '/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
+    ],
+    to: '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
   },
   {
     from: [
@@ -7029,8 +7056,9 @@ const redirects = [
       '/rules/guides/automatically-generate-leads-in-shopify',
       '/rules/guides/automatically-generate-leads-shopify',
       '/rules/automatically-generate-leads-in-shopify',
+      '/customize/rules/use-cases/automatically-generate-leads-in-shopify',
     ],
-    to: '/customize/rules/use-cases/automatically-generate-leads-in-shopify',
+    to: '/customize/actions/use-cases', 
   },
   {
     from: ['/rules/guides/cache-resources', '/rules/cache-expensive-resources-in-rules', '/rules/cache-resources'],
@@ -7068,44 +7096,80 @@ const redirects = [
     to: '/customize/rules/debug-rules',
   },
   {
-    from: ['/rules/references/samples', '/rules/examples'],
-    to: '/customize/rules/examples',
+    from: [
+      '/rules/references/samples', 
+      '/rules/examples',
+      '/customize/rules/examples',
+    ],
+    to: '/customize/actions/actions-overview',
   },
   {
-    from: ['/rules/guides/integrate-user-id-verification', '/rules/integrate-user-id-verification'],
-    to: 'https://marketplace.auth0.com/integrations/onfido-identity-verification',
+    from: [
+      '/rules/guides/integrate-user-id-verification', 
+      '/rules/integrate-user-id-verification',
+      '/customize/rules/use-cases/integrate-user-id-verification',
+    ],
+    to: '/customize/actions/use-cases',
   },
   {
-    from: ['/rules/guides/integrate-efm-solutions', '/rules/integrate-efm-solutions'],
-    to: '/customize/rules/use-cases/integrate-efm-solutions',
+    from: [
+      '/rules/guides/integrate-efm-solutions', 
+      '/rules/integrate-efm-solutions',
+      '/customize/rules/use-cases/integrate-efm-solutions',
+    ],
+    to: '/customize/actions/use-cases',
   },
   {
-    from: ['/rules/guides/integrate-erfm-solutions', '/rules/integrate-erfm-solutions'],
-    to: '/customize/rules/use-cases/integrate-erfm-solutions',
+    from: [
+      '/rules/guides/integrate-erfm-solutions',
+      '/rules/integrate-erfm-solutions',
+      '/customize/rules/use-cases/integrate-erfm-solutions',
+    ],
+    to: '/customize/actions/use-cases',
   },
   {
-    from: ['/rules/guides/integrate-hubspot', '/rules/integrate-hubspot'],
-    to: '/customize/rules/use-cases/integrate-hubspot',
+    from: [
+      '/rules/guides/integrate-hubspot', 
+      '/rules/integrate-hubspot',
+      '/customize/rules/use-cases/integrate-hubspot',
+    ],
+    to: '/customize/actions/use-cases', 
   },
   {
-    from: ['/rules/guides/integrate-maxmind', '/rules/integrate-maxmind'],
-    to: '/customize/rules/use-cases/integrate-maxmind',
+    from: [
+      '/rules/guides/integrate-maxmind', 
+      '/rules/integrate-maxmind',
+      '/customize/rules/use-cases/integrate-maxmind',
+    ],
+    to: '/customize/actions/use-cases', 
   },
   {
-    from: ['/rules/guides/integrate-mixpanel', '/rules/integrate-mixpanel'],
-    to: '/customize/rules/use-cases/integrate-mixpanel',
+    from: [
+      '/rules/guides/integrate-mixpanel', 
+      '/rules/integrate-mixpanel',
+      '/customize/rules/use-cases/integrate-mixpanel',
+    ],
+    to: '/customize/actions/use-cases', 
   },
   {
-    from: ['/rules/guides/integrate-salesforce', '/rules/integrate-salesforce'],
-    to: '/customize/rules/use-cases/integrate-salesforce',
+    from: [
+      '/rules/guides/integrate-salesforce', 
+      '/rules/integrate-salesforce',
+      '/customize/rules/use-cases/integrate-salesforce',    
+    ],
+    to: '/customize/actions/use-cases', 
   },
-  {
+    {
     from: ['/rules/current/redirect', '/rules/redirect', '/rules/guides/redirect', '/rules/redirect-users'],
     to: '/customize/rules/redirect-users',
   },
   {
-    from: ['/rules/references/use-cases', '/rules/use-cases'],
-    to: '/customize/rules/use-cases',
+    from: [
+      '/rules/references/use-cases', 
+      '/rules/use-cases',
+      '/customize/rules/use-cases',
+    ],
+    to: '/customize/actions/use-cases', 
   },
   {
     from: ['/rules/current/management-api', '/rules/guides/management-api', '/rules/use-management-api'],
@@ -7123,8 +7187,9 @@ const redirects = [
       '/scenarios/rapleaf-salesforce',
       '/monitor-auth0/track-new-leads-in-salesforce',
       '/rules/use-cases/track-new-leads-in-salesforce',
+      '/customize/rules/use-cases/track-new-leads-in-salesforce',
     ],
-    to: '/customize/rules/use-cases/track-new-leads-in-salesforce',
+    to: '/customize/actions/use-cases', 
   },
   {
     from: [
@@ -7134,8 +7199,9 @@ const redirects = [
       '/scenarios/mixpanel-fullcontact-salesforce',
       '/monitor-auth0/track-new-sign-ups-in-salesforce',
       '/rules/use-cases/track-new-sign-ups-in-salesforce',
+      '/customize/rules/use-cases/track-new-sign-ups-in-salesforce',
     ],
-    to: '/customize/rules/use-cases/track-new-sign-ups-in-salesforce',
+    to: '/customize/actions/use-cases', 
   },
   {
     from: ['/rules/raise-errors-from-rules'],

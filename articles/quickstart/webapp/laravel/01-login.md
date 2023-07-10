@@ -16,6 +16,7 @@ useCase: quickstart
 github:
   path: sample
 ---
+
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 ## Laravel Installation
@@ -54,7 +55,7 @@ Run the following command from your project directory to download the [Auth0 CLI
 curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
 ```
 
-Then authenticate the CLI with your Auth0 account:
+Then authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
 
 ```shell
 ./auth0 login
@@ -191,6 +192,7 @@ php artisan serve
 ```
 
 ### Checkpoint
+
 Open your web browser and try accessing the following routes:
 
 - [http://localhost:8000](http://localhost:8000) to see the public route.
