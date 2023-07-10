@@ -4369,96 +4369,108 @@ const redirects = [
       '/logs/export-log-events-with-extensions',
       '/logs/log-export-extensions',
       '/extensions/log-export-extensions',
+      '/customize/extensions/export-log-events-with-extensions',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-application-insights',
       '/extensions/application-insight',
       '/extensions/log-export-extensions/export-logs-to-application-insights',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-application-insights',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-application-insights',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-cloudwatch',
       '/extensions/cloudwatch',
       '/extensions/log-export-extensions/export-logs-to-cloudwatch',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-cloudwatch',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-cloudwatch',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-azure-blob-storage',
       '/extensions/azure-blob-storage',
       '/extensions/log-export-extensions/export-logs-to-azure-blob-storage',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-azure-blob-storage',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-azure-blob-storage',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-logentries',
       '/extensions/logentries',
       '/extensions/log-export-extensions/export-logs-to-logentries',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-logentries',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-logentries',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-loggly',
       '/extensions/loggly',
       '/extensions/log-export-extensions/export-logs-to-loggly',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-loggly',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-loggly',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-logstash',
       '/extensions/logstash',
       '/extensions/log-export-extensions/export-logs-to-logstash',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-logstash',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-logstash',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-mixpanel',
       '/extensions/mixpanel',
       '/extensions/log-export-extensions/export-logs-to-mixpanel',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-mixpanel',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-mixpanel',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-papertrail',
       '/extensions/papertrail',
       '/extensions/log-export-extensions/export-logs-to-papertrail',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-papertrail',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-papertrail',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-segment',
       '/extensions/segment',
       '/extensions/log-export-extensions/export-logs-to-segment',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-segment',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-segment',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/export-logs-to-splunk',
       '/extensions/splunk',
       '/extensions/log-export-extensions/export-logs-to-splunk',
+      '/customize/extensions/export-log-events-with-extensions/export-logs-to-splunk',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-splunk',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/extensions/auth0-logs-to-sumo-logic',
       '/extensions/sumologic',
       '/extensions/log-export-extensions/auth0-logs-to-sumo-logic',
+      '/customize/extensions/export-log-events-with-extensions/auth0-logs-to-sumo-logic',
     ],
-    to: '/customize/extensions/export-log-events-with-extensions/auth0-logs-to-sumo-logic',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: ['/extensions/authentication-api-debugger', '/extensions/authentication-api-debugger-extension'],
