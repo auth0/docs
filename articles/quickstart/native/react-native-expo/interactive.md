@@ -14,6 +14,10 @@ topics:
   - react-native
 ---
 
+::: note
+Exciting news! We have just released React Native Auth0 v3 BETA, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-expo-beta/00-login)
+:::
+
 # Add Login to your React Native App
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->

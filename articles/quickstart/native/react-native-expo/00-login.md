@@ -14,6 +14,10 @@ useCase: quickstart
 ---
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
+::: note
+Exciting news! We have just released React Native Auth0 v3 BETA, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-expo-beta/00-login)
+:::
+
 This Quickstart is for the Expo framework. To integrate Auth0 into your React Native application, please refer to the [React Native Quickstart](https://auth0.com/docs/quickstart/native/react-native/interactive)
 
 ::: warning
