@@ -12,7 +12,7 @@ github:
 ---
 
 :::note
-Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication/) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button, add route guards using React Router, and call a protected API from React.
+Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button, add route guards using React Router, and call a protected API from React.
 :::
 
 # Add Login to your React App
