@@ -64,7 +64,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     options.Audience = builder.Configuration["Auth0:Audience"];
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        NameClaimType = ClaimTypes.NameIdentifier
+        NameClaimType = ClaimTypes.NameIdentifier,
+        SignatureValidator = delegate (string token, TokenValidationParameters parameters)
+          {
+              var jwt = new JwtSecurityToken(token);
+
+              return jwt;
+          }
     };
 });
 ```
