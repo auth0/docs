@@ -2522,8 +2522,9 @@ const redirects = [
       '/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
       '/attack-protection/bot-detection/configure-recaptcha-enterprise',
       '/configure/attack-protection/bot-detection/configure-recaptcha-enterprise',
+      '/secure/attack-protection/bot-detection/configure-recaptcha-enterprise',
     ],
-    to: '/secure/attack-protection/bot-detection/configure-recaptcha-enterprise',
+    to: '/secure/attack-protection/bot-detection/configure-captcha',
   },
   {
     from: [
@@ -4877,8 +4878,9 @@ const redirects = [
       '/hooks/guides/create-hooks-using-dashboard',
       '/auth0-hooks/cli/create-delete',
       '/hooks/create-hooks',
+      '/customize/hooks/create-hooks',
     ],
-    to: '/customize/hooks/create-hooks',
+    to: '/customize/hooks',
   },
   {
     from: [
