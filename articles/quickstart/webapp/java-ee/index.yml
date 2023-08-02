@@ -32,7 +32,7 @@ sdk:
   url: https://github.com/auth0/auth0-java-mvc-common
   logo: java
 requirements:
-  - Java 8
+  - Java 11
 next_steps:
   - path: 01-login
     list:
