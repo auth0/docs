@@ -21,8 +21,8 @@ seo_alias: swift
 show_releases: true
 show_steps: true
 requirements:
-  - iOS 12+ or macOS 10.15+
-  - Xcode 12.x / 13.x
+  - iOS 13+ or macOS 11+
+  - Xcode 14.x
 default_article: 01-login
 articles:
   - 01-login
