@@ -4880,7 +4880,7 @@ const redirects = [
       '/hooks/create-hooks',
       '/customize/hooks/create-hooks',
     ],
-    to: '/customize/hooks',
+    to: '/customize/hooks/create-hooks',
   },
   {
     from: [
