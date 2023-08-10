@@ -3,9 +3,11 @@ name: app.js
 language: javascript
 ---
 
+<!-- markdownlint-disable MD041 -->
+
 ```javascript
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View, StyleSheet} from 'react-native';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 
 const Home = () => {
@@ -13,7 +15,7 @@ const Home = () => {
 
   const onLogin = async () => {
     try {
-      await authorize({scope: 'openid profile email'});
+      await authorize();
     } catch (e) {
       console.log(e);
     }
