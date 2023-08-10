@@ -32,7 +32,7 @@ github:
   repo: auth0-react-native-sample
 sdk:
   name: react-native-auth0
-  url: https://github.com/auth0/react-native-auth0
+  url: https://github.com/auth0/react-native-auth0/tree/vnext
   logo: react
 requirements:
   - React Native 0.62.2
