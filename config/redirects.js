@@ -4878,6 +4878,7 @@ const redirects = [
       '/hooks/guides/create-hooks-using-dashboard',
       '/auth0-hooks/cli/create-delete',
       '/hooks/create-hooks',
+      '/create-hooks',
     ],
     to: '/customize/hooks/create-hooks',
   },
