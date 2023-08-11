@@ -67,7 +67,7 @@ Note: This endpoint only works for database connections.
 | `client_id` | The `client_id` of your client. We strongly recommend including a Client ID so that the email template knows from which client the request was triggered. |
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
-| `organization` | The `organization_id` of the Organization the user is a member of. |
+| `organization` | The `organization_id` of the Organization associated with the user. |
 
 
 ### Remarks
