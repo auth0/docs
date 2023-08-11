@@ -43,7 +43,7 @@ You should also be familiar with the [Flutter command line tool](https://docs.fl
 Integrate Auth0 Universal Login in your Flutter app by importing the SDK and instantiating the `Auth0` class using your Auth0 domain and Client ID values. See this example, which instantiates the class inside a widget state object:
 
 ```dart
-import 'package:auth0_flutter/auth0_flutter.dart';
+import 'package:auth0_flutter/auth0_flutter_web.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);

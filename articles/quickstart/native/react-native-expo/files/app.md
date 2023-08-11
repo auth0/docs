@@ -5,15 +5,15 @@ language: javascript
 
 ```javascript
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View, StyleSheet} from 'react-native';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 
 const Home = () => {
-  const {authorize, clearSession, user, error} = useAuth0();
+  const {authorize, clearSession, user, error, isLoading} = useAuth0();
 
   const onLogin = async () => {
     try {
-      await authorize({scope: 'openid profile email'}, {customScheme: 'auth0.com.auth0samples'});
+      await authorize();
     } catch (e) {
       console.log(e);
     }
@@ -21,11 +21,15 @@ const Home = () => {
 
   const onLogout = async () => {
     try {
-      await clearSession({customScheme: 'auth0.com.auth0samples'});
+      await clearSession();
     } catch (e) {
       console.log('Log out cancelled');
     }
   };
+
+  if (isLoading) {
+    return <View style={styles.container}><Text>Loading</Text></View>;
+  }
 
   const loggedIn = user !== undefined && user !== null;
 

@@ -14,10 +14,6 @@ topics:
   - react-native
 ---
 
-::: note
-Exciting news! We have just released React Native Auth0 v3 BETA, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-expo-beta/00-login)
-:::
-
 # Add Login to your React Native App
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
@@ -40,24 +36,26 @@ Any settings you configure using this quickstart will automatically update for y
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
-### Configure Callback URLs
+### Configure callback and logout URLs
 
-A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.
+Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and logout URLs, users will not be able to log in and out of the app, and your application will produce an error.
+
+Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to your app's platform. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant’s domain.
+
+#### iOS
+```text
+BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
+```
+
+#### Android
+```text
+PACKAGE_NAME.auth0://${account.namespace}/android/PACKAGE_NAME/callback
+```
 
 ::: note
 If you are following along with our sample project, set this
-- for iOS - `auth0.com.auth0samples://${account.namespace}/ios/com.auth0samples/callback`
-- for Android - `auth0.com.auth0samples://${account.namespace}/android/com.auth0samples/callback`
-:::
-
-### Configure Logout URLs
-
-A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.
-
-::: note
-If you are following along with our sample project, set this
-- for iOS - `auth0.com.auth0samples://${account.namespace}/ios/com.auth0samples/callback`
-- for Android - `auth0.com.auth0samples://${account.namespace}/android/com.auth0samples/callback`
+- for iOS - `com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
 :::
 
 ## Install dependencies 
@@ -98,12 +96,12 @@ You must generate the native code for the above configuration to be set. To do t
 expo prebuild
 ```
 
-You will be prompted to provide the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) if they are not already present in the Expo config:
+You will be prompted to provide the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) if they are not already present in the Expo config. 
 
 ```bash
-? What would you like your Android package name to be? > com.auth0samples
+? What would you like your Android package name to be? > com.auth0samples # or your desired package name
 
-? What would you like your iOS bundle identifier to be? > com.auth0samples
+? What would you like your iOS bundle identifier to be? > com.auth0samples # or your desired bundle identifier
 ```
 
 These values are used to set the callback and logout URLs.
@@ -178,7 +176,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show user profile information {{{ data-action=code data-code="App.js#28:29" }}}
+## Show user profile information {{{ data-action=code data-code="App.js#32:34" }}}
 
 The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
 

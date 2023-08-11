@@ -14,10 +14,6 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
-::: note
-Exciting news! We have just released React Native Auth0 v3 BETA, packed with powerful features and improvements. [Check out the latest Quickstart for more details](https://auth0.com/docs/quickstart/native/react-native-beta/00-login)
-:::
-
 This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
 
 <%= include('../_includes/_getting_started', { library: 'React Native'}) %>
@@ -71,7 +67,7 @@ Open your app's `build.gradle` file (typically at `android/app/build.gradle`) an
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
+        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}.auth0" %>"]
     }
     ...
 }
@@ -120,7 +116,7 @@ Below this value, register a URL type entry using the value of `CFBundleIdentifi
         <string>auth0</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).auth0</string>
         </array>
     </dict>
 </array>
@@ -138,41 +134,29 @@ Note this value as you'll be using it to define the callback URLs below. If desi
 
 For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
 
-<%= include('../../../_includes/_callback_url') %>
 
-#### iOS callback URL
+### Configure Callback and Logout URLs
 
+The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your application. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie.
+
+If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
+
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of the Auth0 domain from the settings page.
+
+#### iOS
 ```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
+```
+#### Android
+```text
+PACKAGE_NAME.auth0://${account.namespace}/android/PACKAGE_NAME/callback
 ```
 
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android callback URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+::: note
+If you are following along with our sample project, set this
+- for iOS - `com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
+- for Android - `com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
+:::
 
 ## Add login to your app
 
