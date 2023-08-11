@@ -46,7 +46,7 @@ com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 
 ::: warning
-Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**, and that the **Token Endpoint Authentication Method** setting is set to `None`. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
+Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
 :::
 
 ### Configure a Custom URL Scheme
