@@ -54,9 +54,9 @@ curl --request POST \
 "We've just sent you an email to reset your password."
 ```
 
-Send a change password email to the user with the given email address on the given connection.
+Send a change password email to the user's provided email address and `connection`.
 
-Optionally, you may provide an Organization ID to support Organization-specific variables in customized email templates and redirect URLs.
+Optionally, you may provide an Organization ID to support Organization-specific variables in [customized email templates](https://auth0.com/docs/customize/email/email-templates#common-variables) and to include the `organization_id` and `organization_name` parameters in the **Redirect To** URL.
 
 Note: This endpoint only works for database connections.
 
