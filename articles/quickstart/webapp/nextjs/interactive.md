@@ -69,7 +69,7 @@ Then, import in that file the `handleAuth` method from the SDK, and export the r
 On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider` in the file `pages/_app.jsx`.
 
 :::note
-Support for the new `app` directory is coming. Check out the [beta release](https://github.com/auth0/nextjs-auth0/issues/1235).
+Support for the new `app` directory is coming. For now, follow the `app` directory specific instructions [here](https://www.npmjs.com/package/@auth0/nextjs-auth0#app-router) on NPM.
 :::
 
 The authentication state exposed by `UserProvider` can be accessed in any component using the `useUser()` hook.
