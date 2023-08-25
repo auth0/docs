@@ -166,7 +166,7 @@ The `user` property contains sensitive information and artifacts related to the 
 - Ensure that the SDK has loaded successfully by checking that no `error` was produced.
 - Check the `user` property to ensure that Auth0 has authenticated the user before React renders any component that consumes it.
 
-### From a Client Component
+### From a Server Component
 
 The profile information is available through the `user` property exposed by the `getSession` function. Take this [Server Component](https://nextjs.org/docs/getting-started/react-essentials#server-components) as an example of how to use it:
 
