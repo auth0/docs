@@ -1,5 +1,5 @@
 ---
-name: login.jsx
+name: "app/login.jsx"
 language: jsx
 ---
 

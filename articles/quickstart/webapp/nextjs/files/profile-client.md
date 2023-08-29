@@ -1,15 +1,16 @@
 ---
-name: profile.jsx
+name: "app/profile-client/page.jsx"
 language: jsx
 ---
 
 <!-- markdownlint-disable MD041 -->
 
 ```jsx
-import React from 'react';
+'use client';
+
 import { useUser } from '@auth0/nextjs-auth0/client';
 
-export default function Profile() {
+export default function ProfileClient() {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;

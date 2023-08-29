@@ -23,7 +23,7 @@ seo_alias: nextjs
 show_releases: true
 show_steps: true
 requirements:
-  - Next.js 10+
+  - Next.js 13.4+
 default_article: 01-login
 articles:
   - 01-login
