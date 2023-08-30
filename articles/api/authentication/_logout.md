@@ -167,3 +167,34 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 - [Logout](/logout)
 - [Use the OIDC Endpoint to Log Users Out of Auth0](/logout/log-users-out-of-auth0)
 - [OIDC RP-initiated Logout Specification](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)
+
+## SAML Logout
+
+```http
+POST https://${account.namespace}/samlp/CLIENT_ID/logout
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/samlp/CLIENT_ID/logout' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data '{SAML_LOGOUT_REQUEST}'
+```
+
+Use this endpoint to log out a user from an Auth0 tenant configured as a SAML identity provider (IdP).
+
+Logout behavior is determined by the configuration of the SAML2 Web App addon for the application on the Auth0 tenant acting as the SAML IdP. To learn more, read [Log Users Out of SAML Identity Providers](https://auth0.com/docs/authenticate/login/logout/log-users-out-of-saml-idps#configure-slo-when-auth0-is-the-saml-idp).
+
+### Request Parameters
+
+| Parameter | Description |
+|:--|:--|
+| `CLIENT_ID` | Client ID of your application configured with the [SAML2 Web App addon](https://auth0.com/docs/authenticate/protocols/saml/saml-sso-integrations/enable-saml2-web-app-addon). |
+| `SAML_LOGOUT_REQUEST` | SAML `<LogoutRequest>` message. |
+
+### Remarks
+- The POST body must contain a valid SAML `<LogoutRequest>` message. To learn more, read [Assertions and Protocols for the OASIS Security Assertion Markup Language (SAML) V2.0 on Oasis](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf).
+
+### More information
+- [Logout](/logout)
+- [Log Users Out of SAML Identity Providers](https://auth0.com/docs/authenticate/login/logout/log-users-out-of-saml-idps)
