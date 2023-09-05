@@ -1,5 +1,5 @@
 ---
-name: logout.jsx
+name: "app/logout.jsx"
 language: jsx
 ---
 

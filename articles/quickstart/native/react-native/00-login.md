@@ -44,6 +44,12 @@ npm install react-native-auth0 --save
 
 ### Additional iOS step: install the module Pod
 
+Our SDK requires a minimum iOS deployment target of 13.0. In your project's `ios/Podfile``, ensure your platform target is set to 13.0.
+
+```
+platform :ios '13.0'
+```
+
 CocoaPods is the iOS package management tool the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app, first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to the previous _linking a native module_. The process is now simplified:
 
 Change directory into the `ios` folder and run `pod install`.
