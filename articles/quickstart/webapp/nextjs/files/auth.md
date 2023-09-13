@@ -1,5 +1,5 @@
 ---
-name: "app/api/[auth0]/route.js"
+name: "app/api/auth/[auth0]/route.js"
 language: javascript
 ---
 
