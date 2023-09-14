@@ -3,8 +3,8 @@ title: ASP.NET (OWIN)
 image: /media/platforms/asp.png
 logo: dotnet
 author:
-  name: Damien Guard
-  email: damien.guard@auth0.com
+  name: Frederik Prijck
+  email: frederik.prijck@okta.com
   community: false
 topics:
   - quickstart
@@ -21,9 +21,6 @@ seo_alias: aspnet-owin
 default_article: 01-login
 articles:
   - 01-login
-  - 02-user-profile
-  - 03-authorization
-  - 04-migrating
 hidden_articles:
   - interactive
 show_steps: true
@@ -35,7 +32,7 @@ requirements:
   - Microsoft Visual Studio 2017
   - Microsoft.Owin.Security.OpenIdConnect v4.1.0 and up
 next_steps:
-  - path: 03-authorization
+  - path: 01-login
     list:
     - text: Configure other identity providers
       icon: 345
