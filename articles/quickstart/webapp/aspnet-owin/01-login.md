@@ -24,7 +24,7 @@ sample_download_required_data:
   This quickstart makes use of OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently making use of OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
 :::
 
-The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware which is available in the `Microsoft.Owin.Security.OpenIdConnect` NuGet package, so install that first:
+The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware, so install the `Microsoft.Owin.Security.OpenIdConnect` NuGet package first:
 
 ```bash
 Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -142,7 +142,7 @@ To allow users to login to your ASP.NET OWIN application, add a `Login` action t
 
 Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This invokes the OIDC authentication handler that was registered earlier. Be sure to specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
 
-After successfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user redirects to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
+After successfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user is redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow users to be authenticated on subsequent requests.
 
 ```cs
 public class AccountController : Controller
@@ -177,11 +177,11 @@ public class AccountController : Controller
 }
 ```
 
-## Display User Profile
+## Display the user profile
 
-After the middleware successfully retrieves the tokens from Auth0, it extracts the user's information and claims from the ID token and makes them available as ClaimsIdentity. Access the extracted information by using the User property on the controller.
+After the middleware successfully retrieves the tokens from Auth0, it extracts the user's information and claims from the ID token and makes them available as `ClaimsIdentity`. Access the extracted information by using the `User` property on the controller.
 
-To create a user profile, retrieve a user's name, email address, and profile image from the User and pass it to the view from inside your controller.
+To create a user profile, retrieve a user's name, email address, and profile image from `User.Identity` and pass it to the view from inside your controller.
 ```csharp
 // Controllers/AccountController.cs
 
