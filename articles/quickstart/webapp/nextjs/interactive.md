@@ -54,7 +54,7 @@ In the root directory of your project, add the file `.env.local` with the follow
 
 The SDK will read these values from the Node.js process environment and automatically configure itself.
 
-## Add the dynamic Route Handler {{{ data-action=code data-code="app/api/[auth0]/route.js" }}}
+## Add the dynamic Route Handler {{{ data-action=code data-code="app/api/auth/[auth0]/route.js" }}}
 
 Create a file at `app/api/auth/[auth0]/route.js`. This is your Route Handler file with a [Dynamic Route Segment](https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments).
 
