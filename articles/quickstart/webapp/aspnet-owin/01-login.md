@@ -99,10 +99,14 @@ public void Configuration(IAppBuilder app)
         // https://docs.microsoft.com/en-us/aspnet/samesite/owin-samesite
         CookieManager = new SameSiteCookieManager(new SystemWebCookieManager()),
 
+        // Configure Auth0's Logout URL by hooking into the RedirectToIdentityProvider notification, 
+        // which is getting triggered before any redirect to Auth0 happens.
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
             RedirectToIdentityProvider = notification =>
             {
+                // Only when the RequestType is OpenIdConnectRequestType.Logout should we configure the logout URL.
+                // Any other RequestType means a different kind of interaction with Auth0 that isn't logging out.
                 if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
                 {
                     var logoutUri = $"https://{auth0Domain}/v2/logout?client_id={auth0ClientId}";
