@@ -41,7 +41,6 @@ sdk:
 requirements:
   - Microsoft Visual Studio 2022
   - .NET Framework 4.6.2
-  - .NET Framework 4.8.1
   - .NET 6
 next_steps:
   - path: 01-login
