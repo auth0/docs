@@ -6418,12 +6418,13 @@ const redirects = [
     to: '/secure/multi-factor-authentication/adaptive-mfa/enable-adaptive-mfa',
   },
   {
-    from: ['/mfa/adpative-mfa/adaptive-mfa-rule-actions', '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions'],
-    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
-  },
-  {
-    from: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
-    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
+    from: [
+      '/mfa/adpative-mfa/adaptive-mfa-rule-actions', 
+      '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions', 
+      '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
+      '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
+      ],
+    to: '/secure/multi-factor-authentication/adaptive-mfa/customize-adaptive-mfa',
   },
   {
     from: ['/mfa/adaptive-mfa/adaptive-mfa-log-events', '/login/mfa/adaptive-mfa/adaptive-mfa-log-events'],
