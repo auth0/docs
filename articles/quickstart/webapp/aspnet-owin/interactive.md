@@ -8,7 +8,7 @@ topics:
   - aspnet-owin
   - login
 github:
-  path: Quickstart/02-User-Profile
+  path: Quickstart/Sample
 contentType: tutorial
 useCase: quickstart
 interactive: true
