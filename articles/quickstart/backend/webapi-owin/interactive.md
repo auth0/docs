@@ -7,7 +7,7 @@ topics:
   - backend
   - webapi-owin
 github:
-  path: Quickstart/01-Authorization
+  path: Quickstart/Sample
 contentType: tutorial
 useCase: quickstart
 interactive: true

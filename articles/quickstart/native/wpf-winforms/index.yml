@@ -39,8 +39,9 @@ sdk:
   url: https://github.com/auth0/auth0-oidc-client-net
   logo: windows
 requirements:
-  - Microsoft Visual Studio 2017
+  - Microsoft Visual Studio 2022
   - .NET Framework 4.6.2
+  - .NET 6
 next_steps:
   - path: 01-login
     list:
