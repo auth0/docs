@@ -6422,7 +6422,7 @@ const redirects = [
       '/mfa/adpative-mfa/adaptive-mfa-rule-actions', 
       '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions', 
       '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
-      '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules'
+      '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
       ],
     to: '/secure/multi-factor-authentication/adaptive-mfa/customize-adaptive-mfa',
   },
