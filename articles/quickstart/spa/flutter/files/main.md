@@ -5,6 +5,7 @@ language: dart
 <!-- markdownlint-disable MD041 -->
 
 ```dart
+import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:auth0_flutter/auth0_flutter_web.dart';
 import 'package:flutter/material.dart';
 import 'profile_view.dart';
