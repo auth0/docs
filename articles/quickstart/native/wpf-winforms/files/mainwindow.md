@@ -20,8 +20,8 @@ public partial class MainWindow : Window
     {
         Auth0ClientOptions clientOptions = new Auth0ClientOptions
         {
-            Domain = "{yourDomain}",
-            ClientId = "{yourClientId}"
+            Domain = "${account.namespace}"
+            ClientId = "${account.clientId}"
         };
         client = new Auth0Client(clientOptions);
         clientOptions.PostLogoutRedirectUri = clientOptions.RedirectUri;
