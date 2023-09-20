@@ -18,7 +18,7 @@ files:
   - files/mainwindow
 ---
 
-# Add Login to Your Angular App
+# Add Login to Your WPF or WinForms App
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any WPF and WinForms application using the Auth0 SDKs for [WPF](https://www.nuget.org/packages/Auth0.OidcClient.WPF/) and [WinForms](https://www.nuget.org/packages/Auth0.OidcClient.WinForms).
 
