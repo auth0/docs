@@ -65,8 +65,7 @@ var client = new Auth0Client(new Auth0ClientOptions
 }, this);
 ```
 
-By default, the SDK will leverage Chrome Custom Tabs for Android and 
-ASWebAuthenticationSession for iOS.
+By default, the SDK will leverage Chrome Custom Tabs for Android and ASWebAuthenticationSession for iOS.
 
 ::::checkpoint
 
