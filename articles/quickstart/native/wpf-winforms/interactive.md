@@ -49,7 +49,6 @@ dotnet add Auth0.OidcClient.WPF
 dotnet add Auth0.OidcClient.WinForms
 ```
 
-
 ## Instantiate the Auth0Client {{{ data-action="code" data-code="MainWindow.xaml.cs#13:22" }}}
 
 To integrate Auth0 into your application, instantiate an instance of the Auth0Client class, passing an instance of Auth0ClientOptions that contains your Auth0 Domain and Client ID.
