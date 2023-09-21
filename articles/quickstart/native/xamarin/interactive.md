@@ -25,7 +25,9 @@ files:
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET Android and iOS application using the Auth0 SDKs for [Android](https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/) and [iOS](https://www.nuget.org/packages/Auth0.OidcClient.iOS).
 
-> This quickstart focusses on .NET Android and iOS, as they are the next generation of `Xamarin.Android` and `Xamarin.iOS`. If you are still using `Xamarin.Android` and `Xamarin.iOS`, you can follow this guide as well as integration is identical and the SDKs are compatible.
+::: note
+This quickstart focusses on .NET Android and iOS, as they are the next generation of `Xamarin.Android` and `Xamarin.iOS`. If you are still using `Xamarin.Android` and `Xamarin.iOS`, you can follow this guide as well as integration is identical and the SDKs are compatible.
+:::
 
 To use this quickstart, you’ll need to:
 
