@@ -309,6 +309,14 @@ const redirects = [
     to: '/quickstart/native/xamarin',
   },
   {
+    from: '/quickstart/native/xamarin',
+    to: '/quickstart/native/net-android-ios',
+  },
+  {
+    from: '/quickstart/native/xamarin/interactive',
+    to: '/quickstart/native/net-android-ios/interactive',
+  },
+  {
     from: '/quickstart/spa/auth0-react/02',
     to: '/quickstart/spa/react/02-calling-an-api',
   },

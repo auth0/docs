@@ -64,7 +64,7 @@ var client = new Auth0Client(new Auth0ClientOptions
 {
     Domain = "${account.namespace}",
     ClientId = "${account.namespace}"
-});
+}, this);
 ```
 
 By default, the SDK will leverage Chrome Custom Tabs for Android and ASWebAuthenticationSession for iOS.
