@@ -1,24 +1,17 @@
 ---
-title: Add login to your .NET Android or iOS application
+title: Login
 default: true
-description: This tutorial demonstrates how to add user login with Auth0 to a .NET Android or iOS application.
+description: This tutorial demonstrates how to add user login with Auth0 to a Xamarin application using Auth0.
 budicon: 448
 topics:
   - quickstarts
   - native
   - xamarin
-  - dotnet
-  - android
-  - ios
 github:
     path: Quickstart/01-Login
 contentType: tutorial
 useCase: quickstart
 ---
-
-::: note
-This quickstart focusses on .NET Android and iOS, as they are the next generation of `Xamarin.Android` and `Xamarin.iOS`. If you are still using `Xamarin.Android` and `Xamarin.iOS`, you can follow this guide as well as integration is identical and the SDKs are compatible.
-:::
 
 <!-- markdownlint-disable MD002 MD041 -->
 
