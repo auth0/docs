@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login with Auth0 to a Xamarin application using Auth0.
+description: This tutorial demonstrates how to add user login to a Xamarin application using Auth0.
 budicon: 448
 topics:
   - quickstarts
