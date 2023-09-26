@@ -50,6 +50,8 @@ While you wait for the user to authorize the device, you may receive a few diffe
 You will see this error while waiting for the user to take action. Continue polling using the suggested interval retrieved in the previous step of this tutorial.
 
 ```json
+`HTTP 403`
+
 {
   "error": "authorization_pending",
   "error_description": "..."
@@ -61,6 +63,8 @@ You will see this error while waiting for the user to take action. Continue poll
 You are polling too fast. Slow down and use the suggested interval retrieved in the previous step of this tutorial. To avoid receiving this error due to network latency, you should start counting each interval after receipt of the last polling request's response. 
 
 ```json
+`HTTP 429`
+
 {
   "error": "slow_down",
   "error_description": "..."
@@ -76,6 +80,8 @@ Then `expired_token` error will be returned exactly once; after that, the dreade
 :::
 
 ```json
+`HTTP 403`
+
 { 
   "error": "expired_token",
   "error_description": "..."
@@ -87,6 +93,8 @@ Then `expired_token` error will be returned exactly once; after that, the dreade
 Finally, if access is denied, you will receive: 
 
 ```json
+`HTTP 403`
+
 {
   "error": "access_denied",
   "error_description": "..."
