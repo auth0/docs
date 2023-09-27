@@ -1,7 +1,7 @@
 title: ASP.NET Core Web API
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/asp.png
-logo: dotnet
+logo: dotnet-platform
 alias:
   - asp.net core webapi
   - aspnet core webapi
