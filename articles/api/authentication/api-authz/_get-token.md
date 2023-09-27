@@ -438,7 +438,7 @@ Content-Type: application/json
 ```
 
 ```JSON
-HTTP/1.1 403 BAD REQUEST
+HTTP/1.1 403 Forbidden
 Content-Type: application/json
  { 
   // Can be retried
@@ -448,7 +448,7 @@ Content-Type: application/json
 ```
 
 ```JSON
-HTTP/1.1 429 BAD REQUEST
+HTTP/1.1 429 Too Many Requests
 Content-Type: application/json
  { 
   // Can be retried
@@ -458,7 +458,7 @@ Content-Type: application/json
 ```
 
 ```JSON
-HTTP/1.1 403 BAD REQUEST
+HTTP/1.1 403 Forbidden
 Content-Type: application/json
  { 
     // Cannot be retried; transaction failed
