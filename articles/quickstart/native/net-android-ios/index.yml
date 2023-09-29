@@ -1,7 +1,7 @@
-title: Xamarin
+title: .NET Android and iOS
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/xamarin.png
-logo: xamarin
+logo: dotnet
 author:
   name: Frederik Prijck
   email: frederik.prijck@auth0.com
@@ -9,7 +9,7 @@ author:
 language:
   - C#
 framework:
-  - Xamarin
+  - net-android-ios
 hybrid: false
 topics:
   - quickstart
@@ -33,9 +33,9 @@ sdk:
   url: https://github.com/auth0/auth0-oidc-client-net
   logo: xamarin
 requirements:
-  - Visual Studio 2022 or Visual Studio for Mac
+  - Visual Studio 2022+ or Visual Studio for Mac
   - Xamarin for Visual Studio
-  - .NET 6+
+  - .NET6+
 next_steps:
   - path: 01-login
     list:
