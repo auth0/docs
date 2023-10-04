@@ -13,7 +13,7 @@ Content-Type: application/json
   "family_name": "Doe",
   "name": "John Doe",
   "nickname": "johnny",
-  "picture": "http://example.org/jdoe.png"
+  "picture": "http://example.org/jdoe.png",
   "user_metadata": { plan: 'silver', team_id: 'a111' }
 }
 ```
