@@ -7833,8 +7833,10 @@ const redirects = [
       '/policies/rate-limits-api',
       '/policies/authentication-api-endpoint-rate-limits',
       '/support/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
@@ -7843,8 +7845,9 @@ const redirects = [
       '/policies/rate-limits-mgmt-api',
       '/policies/management-api-endpoint-rate-limits',
       '/support/policies/rate-limit-policy/management-api-endpoint-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/management-api-endpoint-rate-limits',
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/management-api-endpoint-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
@@ -7853,8 +7856,15 @@ const redirects = [
       '/connections/database/rate-limits',
       '/support/policies/database-connections-rate-limits',
       '/support/policies/rate-limit-policy/database-connections-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/database-connections-rate-limits',
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/database-connections-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
+  },
+  {
+    from: [
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/understand-rate-limit-burst-capability',
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
