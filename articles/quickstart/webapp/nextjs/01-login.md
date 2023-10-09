@@ -69,7 +69,7 @@ This creates the following routes:
 - `/api/auth/me`: The route to fetch the user profile from.
 
 ::: note
-This QuickStart targets the Next.js [App Router](https://nextjs.org/docs/app). If you're using the [Pages Router](https://nextjs.org/docs/pages), checkout the example in the SDK's [README](https://github.com/auth0/nextjs-auth0#page-router).
+This QuickStart targets the Next.js [App Router](https://nextjs.org/docs/app). If you're using the [Pages Router](https://nextjs.org/docs/pages), check out the example in the SDK's [README](https://github.com/auth0/nextjs-auth0#page-router).
 :::
 
 ### Add the `UserProvider` component
