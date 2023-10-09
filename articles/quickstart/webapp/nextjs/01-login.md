@@ -68,6 +68,10 @@ This creates the following routes:
 - `/api/auth/callback`: The route Auth0 will redirect the user to after a successful login.
 - `/api/auth/me`: The route to fetch the user profile from.
 
+::: note
+This QuickStart targets the Next.js [App Router](https://nextjs.org/docs/app). If you're using the [Pages Router](https://nextjs.org/docs/pages), checkout the example in the SDK's [README](https://github.com/auth0/nextjs-auth0#page-router).
+:::
+
 ### Add the `UserProvider` component
 
 On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [Root Layout component](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required) and wrap the `<body>` tag with a `UserProvider` in the file `app/layout.jsx`. 
