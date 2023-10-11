@@ -4046,8 +4046,10 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool',
   },
   {
-    from: ['/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli'],
-    to: '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+    from: ['/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
+          '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/configure-the-deploy-cli',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically'],
