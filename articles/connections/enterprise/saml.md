@@ -30,7 +30,7 @@ Auth0 lets you create <dfn data-key="security-assertion-markup-language">SAML</d
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 * Decide on the name of this enterprise connection
-  * The Post-back URL (also called Assertion Consumer Service URL) becomes: `https://YOUR_DOMAIN/login/callback?connection=YOUR_CONNECTION_NAME`
+  * The Post-back URL (also called Assertion Consumer Service URL) becomes: `https://YOUR_DOMAIN/login/callback?connection=YOUR_CONNECTION_NAME` or `https://<YOUR CUSTOM DOMAIN>/login/callback?connection=YOUR_CONNECTION_NAME`, if you are using a [custom domain](/custom-domains).
   * The Entity ID becomes: `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME`
 
 ## Steps
