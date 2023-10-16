@@ -4050,8 +4050,9 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically'],
-    to: '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
+    from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+          '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',],
+    to: '/deploy-monitor/deploy-cli-tool/use-as-a-node-module',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'],
