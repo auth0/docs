@@ -4088,6 +4088,10 @@ const redirects = [
     from: ['/deploy-monitor/deploy-cli-tool/how-to-contribute'],
     to: '/deploy-monitor/deploy-cli-tool',
   },
+  {
+    from: ['/deploy-monitor/deploy-cli-tool/excluding-resources-from-management'],
+    to: '/deploy-monitor/deploy-cli-tool/exclude-resources-from-management',
+  },
 
   /* Extensions */
 
