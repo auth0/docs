@@ -4057,8 +4057,10 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool/use-as-a-node-module',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'],
-    to: '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+    from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+          '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/incorporate-into-multi-environment-workflows',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'],
