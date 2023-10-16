@@ -4070,8 +4070,10 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options'],
-    to: '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+    from: ['/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
+          '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/use-as-a-cli',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/auth0-terraform-provider'],
