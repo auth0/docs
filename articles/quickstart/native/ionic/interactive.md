@@ -57,6 +57,8 @@ npm install @auth0/auth0-angular
 
 The SDK exposes several types that help you integrate Auth0 with your Angular application idiomatically, including a module and an authentication service.
 
+<%= include('../_includes/ionic/_install_plugins') %>
+
 ## Install the Auth0 React SDK {{{ data-variant="react" }}}
 
 Run the following command within your project directory to install the Auth0 React SDK:
@@ -66,6 +68,8 @@ npm install @auth0/auth0-react
 ```
 
 The SDK exposes methods and variables that help you integrate Auth0 with your React application idiomatically using [React Hooks](https://reactjs.org/docs/hooks-overview.html) or [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html).
+
+<%= include('../_includes/ionic/_install_plugins') %>
 
 ## Install the Auth0 Vue SDK {{{ data-variant="vue" }}}
 
