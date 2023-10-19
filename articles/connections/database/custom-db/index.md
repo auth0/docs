@@ -17,7 +17,7 @@ useCase:
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Custom Database Connections</h1>
   <p>
-  Use a custom database connection when you want to provide Auth0 with access to your own independent (legacy) identity data store primarily for authenticaton (filling the role of an identity provider) and for migrating user data to Auth0's data store. 
+  Use a custom database connection when you want to provide Auth0 with access to your own independent (legacy) identity data store primarily for authentication (filling the role of an identity provider) and for migrating user data to Auth0's data store. 
   </p>
 </div>
 

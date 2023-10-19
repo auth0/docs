@@ -31,7 +31,7 @@ The following example shows a credential stuffing attack on 11/20, with a large 
 
 ![Traffic Failure Trends](/media/articles/anomaly-detection/traffic-failure-trends.png)
 
-## Authenticaton failure events from distinct IPs 
+## Authentication failure events from distinct IPs 
 
 You can use the `ip` event to see the number of distinct IPs that your failure traffic is coming from, in this case, the number of distinct IPs that correspond to your `fu` event traffic.
 

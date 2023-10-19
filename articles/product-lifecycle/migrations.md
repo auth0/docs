@@ -24,7 +24,7 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
   </thead>
   <tbody>
     <tr>
-      <td><a href="/migrations/guides/unpaginated-requests">Unpaginated Managment API v2 Request deprecation</a></td>
+      <td><a href="/migrations/guides/unpaginated-requests">Unpaginated Management API v2 Request deprecation</a></td>
       <td>21 July 2020 (Public Cloud)</td>
       <td>26 January 2021</td>
       <td>
