@@ -111,7 +111,7 @@ The `Auth0Provider` component takes the following props:
 
 <%= include('../_includes/ionic/_note_storage') %>
 
-## Configure the `createAuth0` plugin {{{ data-action=code data-code="main.ts" data-variant="Ve" }}}
+## Configure the `createAuth0` plugin {{{ data-action=code data-code="main.ts" data-variant="Vue" }}}
 
 The SDK exports `createAuth0`, a composable that contains all the services required for the SDK to function. This composable should be registered with your application and be configured with your Auth0 domain and Client ID.
 
