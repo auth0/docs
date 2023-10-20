@@ -145,7 +145,7 @@ This quickstart sets the `openid profile email` scopes by default during the log
 
 The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
 
-## Show user profile information {{{ data-action=code data-code="MainActivity.java#57:72" data-variant="Java" }}}
+## Show user profile information {{{ data-action=code data-code="MainActivity.java#57:73" data-variant="Java" }}}
 
 Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
