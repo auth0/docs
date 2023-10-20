@@ -959,6 +959,11 @@ const redirects = [
   },
 
   /* MICROSITES */
+  {
+    from: ['/microsites/call-api/call-api-m2m-app'],
+    to: '/get-started/authentication-and-authorization-flow/client-credentials-flow',
+
+  },
 
   /* ARCHITECTURE SCENARIOS */
 
