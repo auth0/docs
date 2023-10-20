@@ -2,7 +2,7 @@
 name: logout-button.tsx
 language: javascript
 variants:
-  - react
+  - React
 ---
 
 ```javascript

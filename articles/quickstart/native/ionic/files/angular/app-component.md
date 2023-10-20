@@ -2,7 +2,7 @@
 name: app.component.ts
 language: javascript
 variants:
-  - angular
+  - Angular
 ---
 
 ```javascript

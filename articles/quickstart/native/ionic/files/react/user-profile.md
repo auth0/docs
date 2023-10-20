@@ -2,7 +2,7 @@
 name: user-profile.tsx
 language: javascript
 variants:
-  - react
+  - React
 ---
 
 ```javascript

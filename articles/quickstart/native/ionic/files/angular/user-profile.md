@@ -2,7 +2,7 @@
 name: user-profile.ts
 language: javascript
 variants:
-  - angular
+  - Angular
 ---
 
 ```javascript

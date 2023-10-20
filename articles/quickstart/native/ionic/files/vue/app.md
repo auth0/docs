@@ -2,7 +2,7 @@
 name: App.vue
 language: html
 variants:
-  - vue
+  - Vue
 ---
 
 ```html

@@ -2,7 +2,7 @@
 name: index.tsx
 language: javascript
 variants:
-  - react
+  - React
 ---
 
 ```javascript

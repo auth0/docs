@@ -2,7 +2,7 @@
 name: login-button.ts
 language: javascript
 variants:
-  - angular
+  - Angular
 ---
 
 ```javascript

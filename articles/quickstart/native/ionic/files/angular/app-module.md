@@ -2,7 +2,7 @@
 name: app.module.ts
 language: javascript
 variants:
-  - angular
+  - Angular
 ---
 
 ```javascript

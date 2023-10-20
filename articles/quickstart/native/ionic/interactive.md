@@ -34,9 +34,9 @@ files:
   - files/vue/user-profile
 defaultVariant: angular
 variants:
-  - angular
-  - react
-  - vue
+  - Angular
+  - React
+  - Vue
 ---
 
 # Add login to your Ionic with Capacitor app
@@ -47,7 +47,7 @@ Auth0 allows you to quickly add authentication and access user profile informati
 
 <%= include('../_includes/ionic/_configure_urls_interactive') %>
 
-## Install the Auth0 Angular SDK {{{ data-variant="angular" }}}
+## Install the Auth0 Angular SDK {{{ data-variant="Angular" }}}
 
 Run the following command within your project directory to install the Auth0 Angular SDK:
 
@@ -59,7 +59,7 @@ The SDK exposes several types that help you integrate Auth0 with your Angular ap
 
 <%= include('../_includes/ionic/_install_plugins') %>
 
-## Install the Auth0 React SDK {{{ data-variant="react" }}}
+## Install the Auth0 React SDK {{{ data-variant="React" }}}
 
 Run the following command within your project directory to install the Auth0 React SDK:
 
@@ -71,7 +71,7 @@ The SDK exposes methods and variables that help you integrate Auth0 with your Re
 
 <%= include('../_includes/ionic/_install_plugins') %>
 
-## Install the Auth0 Vue SDK {{{ data-variant="vue" }}}
+## Install the Auth0 Vue SDK {{{ data-variant="Vue" }}}
 
 Run the following command within your project directory to install the Auth0 Vue SDK:
 
@@ -83,7 +83,7 @@ The SDK exposes several types that help you integrate Auth0 with your Vue applic
 
 <%= include('../_includes/ionic/_install_plugins') %>
 
-## Register and configure the authentication module {{{ data-action=code data-code="app.module.ts" data-variant="angular" }}}
+## Register and configure the authentication module {{{ data-action=code data-code="app.module.ts" data-variant="Angular" }}}
 
 The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. This module should be registered with your application and be configured with your Auth0 domain and Client ID.
 
@@ -97,7 +97,7 @@ The `AuthModule.forRoot` function takes the following configuration:
 
 <%= include('../_includes/ionic/_note_storage') %>
 
-## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" data-variant="react" }}}
+## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" data-variant="React" }}}
 
 Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/docs/context.html) to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` you can import from the SDK.
 
@@ -111,7 +111,7 @@ The `Auth0Provider` component takes the following props:
 
 <%= include('../_includes/ionic/_note_storage') %>
 
-## Configure the `createAuth0` plugin {{{ data-action=code data-code="main.ts" data-variant="vue" }}}
+## Configure the `createAuth0` plugin {{{ data-action=code data-code="main.ts" data-variant="Ve" }}}
 
 The SDK exports `createAuth0`, a composable that contains all the services required for the SDK to function. This composable should be registered with your application and be configured with your Auth0 domain and Client ID.
 
@@ -139,15 +139,15 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add login to your application {{{ data-action=code data-code="login-button.ts" data-variant="angular" }}}
+## Add login to your application {{{ data-action=code data-code="login-button.ts" data-variant="Angular" }}}
 
 <%= include('../_includes/ionic/_add_login_intro') %>
 
-## Add login to your application {{{ data-action=code data-code="login-button.tsx" data-variant="react" }}}
+## Add login to your application {{{ data-action=code data-code="login-button.tsx" data-variant="React" }}}
 
 <%= include('../_includes/ionic/_add_login_intro') %>
 
-## Add login to your application {{{ data-action=code data-code="LoginButton.vue" data-variant="vue" }}}
+## Add login to your application {{{ data-action=code data-code="LoginButton.vue" data-variant="Vue" }}}
 
 <%= include('../_includes/ionic/_add_login_intro') %>
 
@@ -165,7 +165,7 @@ Sorry about that. Here's a couple things to double check:
 :::
 ::::
 
-## Handling the login callback {{{ data-action=code data-code="app.component.ts" data-variant="angular" }}}
+## Handling the login callback {{{ data-action=code data-code="app.component.ts" data-variant="Angular" }}}
 
 <%= include('../_includes/ionic/_handle_callback_intro') %>
 
@@ -173,14 +173,14 @@ Note that the `appUrlOpen` event callback is wrapped in `ngZone.run`. Changes to
 
 <%= include('../_includes/ionic/_note_custom_schemes') %>
 
-## Handle the login callback {{{ data-action=code data-code="app.tsx" data-variant="react" }}}
+## Handle the login callback {{{ data-action=code data-code="app.tsx" data-variant="React" }}}
 
 <%= include('../_includes/ionic/_handle_callback_intro') %>
 
 <%= include('../_includes/ionic/_note_custom_schemes') %>
 
 
-## Handle the login callback {{{ data-action=code data-code="App.vue" data-variant="vue" }}}
+## Handle the login callback {{{ data-action=code data-code="App.vue" data-variant="Vue" }}}
 
 <%= include('../_includes/ionic/_handle_callback_intro') %>
 
@@ -199,15 +199,15 @@ Sorry about that. Here's a couple things to double check:
 :::
 ::::
 
-## Add logout to your application {{{ data-action=code data-code="logout-button.ts" data-variant="angular" }}}
+## Add logout to your application {{{ data-action=code data-code="logout-button.ts" data-variant="Angular" }}}
 
 <%= include('../_includes/ionic/_add_logout_intro.md') %>
 
-## Add logout to your application {{{ data-action=code data-code="logout-button.tsx" data-variant="react" }}}
+## Add logout to your application {{{ data-action=code data-code="logout-button.tsx" data-variant="React" }}}
 
 <%= include('../_includes/ionic/_add_logout_intro.md') %>
 
-## Add logout to your application {{{ data-action=code data-code="LogoutButton.vue" data-variant="vue" }}}
+## Add logout to your application {{{ data-action=code data-code="LogoutButton.vue" data-variant="Vue" }}}
 
 <%= include('../_includes/ionic/_add_logout_intro.md') %>
 
@@ -223,17 +223,17 @@ Sorry about that. Here's a couple things to double check:
 :::
 ::::
 
-## Show the user profile {{{ data-action=code data-code="user-profile.ts" data-variant="angular" }}}
+## Show the user profile {{{ data-action=code data-code="user-profile.ts" data-variant="Angular" }}}
 
 The Auth0 SDK retrieves the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` property exposed by `AuthService`.
 
-## Show the user profile {{{ data-action=code data-code="user-profile.tsx" data-variant="react" }}}
+## Show the user profile {{{ data-action=code data-code="user-profile.tsx" data-variant="React" }}}
 
 The Auth0 React SDK retrieves the [user's profile](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` hook.
 
 Initializing the SDK is asynchronous, and you should guard the user profile by checking the `isLoading` and `user` properties. Once `isLoading` is `false` and `user` has a value, the user profile can be used.
 
-## Show the user profile {{{ data-action=code data-code="UserProfile.vue" data-variant="vue" }}}
+## Show the user profile {{{ data-action=code data-code="UserProfile.vue" data-variant="Vue" }}}
 
 The Auth0 Vue SDK retrieves the [user's profile](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` composable.
 

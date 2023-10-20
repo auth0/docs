@@ -2,7 +2,7 @@
 name: UserProfile.vue
 language: html
 variants:
-  - vue
+  - Vue
 ---
 
 ```html

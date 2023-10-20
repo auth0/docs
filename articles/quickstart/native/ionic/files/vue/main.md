@@ -2,7 +2,7 @@
 name: main.ts
 language: javascript
 variants:
-  - vue
+  - Vue
 ---
 
 ```javascript

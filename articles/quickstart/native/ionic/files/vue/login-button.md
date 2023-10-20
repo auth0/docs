@@ -2,7 +2,7 @@
 name: LoginButton.vue
 language: html
 variants:
-  - vue
+  - Vue
 ---
 
 ```html

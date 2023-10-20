@@ -2,7 +2,7 @@
 name: app.tsx
 language: javascript
 variants:
-  - react
+  - React
 ---
 
 ```javascript

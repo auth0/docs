@@ -2,7 +2,7 @@
 name: logout-button.ts
 language: javascript
 variants:
-  - angular
+  - Angular
 ---
 
 ```javascript
