@@ -32,7 +32,7 @@ files:
   - files/vue/login-button
   - files/vue/logout-button
   - files/vue/user-profile
-defaultVariant: angular
+defaultVariant: Angular
 variants:
   - Angular
   - React
