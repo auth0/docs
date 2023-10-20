@@ -1,6 +1,9 @@
 ---
 name: build.gradle
 language: groovy
+variants:
+  - Kotlin
+  - Java
 ---
 ```groovy
 apply plugin: 'com.android.application'

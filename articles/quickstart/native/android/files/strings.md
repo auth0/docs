@@ -1,6 +1,9 @@
 ---
 name: strings.xml
 language: xml
+variants:
+  - Kotlin
+  - Java
 ---
 ```xml
 <resources>

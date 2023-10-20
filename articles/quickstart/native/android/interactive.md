@@ -6,9 +6,14 @@ interactive: true
 files:
   - files/build
   - files/strings
-  - files/main
+  - files/kotlin/main
+  - files/java/main
 github:
   path: 00-Login-Kt
+defaultVariant: Kotlin
+variants:
+  - Kotlin
+  - Java
 ---
 
 # Add login to your Android app
@@ -85,7 +90,7 @@ Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradl
 For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
 :::
 
-## Add login to your app {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
+## Add login to your app {{{ data-action=code data-code="MainActivity.kt#6:38" data-variant="Kotlin" }}}
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
@@ -95,54 +100,37 @@ Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authen
 
 After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
-::::checkpoint
+## Add login to your app {{{ data-action=code data-code="MainActivity.java#11:39" data-variant="Java" }}}
 
-:::checkpoint-default
+[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
-Add a button to your application that calls `loginWithBrowser`. When you click it, verify that your Android application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials.
 
-Once that's complete, verify that Auth0 redirects back to your app.
+Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/). Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
 
-:::
+After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
-:::checkpoint-failure
 
-If your application did not launch successfully:
-* Ensure you set the Allowed Callback URLs are correct
-* Verify you saved your changes after entering your URLs
-* Make sure the domain and cliend ID values imported correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
-
-## Add logout to your app {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
+## Add logout to your app {{{ data-action=code data-code="MainActivity.kt#40:52"  data-variant="Kotlin" }}}
 
 Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 
 Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
 
 Use the `WebAuthProvider` class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.
-::::checkpoint
 
-:::checkpoint-default
+## Add logout to your app {{{ data-action=code data-code="MainActivity.java#41:55" data-variant="Java" }}}
 
-Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.
+Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 
-:::
+Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
 
-:::checkpoint-failure
-If your application did not logout successfully:
-* Ensure the Allowed Logout URLs are set properly
-* Verify you saved your changes after entering your URLs
+Use the `WebAuthProvider` class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
-:::
-::::
 
-## Show user profile information {{{ data-action=code data-code="MainActivity.kt#54:70" }}}
+## Show user profile information {{{ data-action=code data-code="MainActivity.kt#54:70"  data-variant="Kotlin" }}}
 
 Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
@@ -157,18 +145,17 @@ This quickstart sets the `openid profile email` scopes by default during the log
 
 The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
 
-::::checkpoint
+## Show user profile information {{{ data-action=code data-code="MainActivity.java#57:72" data-variant="Java" }}}
 
-:::checkpoint-default
-Call the `showUserProfile` function after login. Verify the `onSuccess` callback returns the user's profile information. 
+Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
+- The access token returned from the login phase
+- The `WebAuthProvider.login` must contain the `profile` scope
+
+You must specify the `email` scope if you need to retreive the user's email address.
+
+:::note
+This quickstart sets the `openid profile email` scopes by default during the login step above.
 :::
 
-:::checkpoint-failure
-If your application did not return user profile information:
-* Verify the `accessToken` is valid
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
+The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:

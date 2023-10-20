@@ -1,6 +1,8 @@
 ---
 name: MainActivity.kt
 language: kotlin
+variants:
+  - Kotlin
 ---
 ```kotlin
 import com.auth0.android.Auth0
