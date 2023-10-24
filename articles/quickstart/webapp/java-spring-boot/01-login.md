@@ -53,7 +53,7 @@ If you are using Maven:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.4</version>
+    <version>3.1.5</version>
     <relativePath/>
 </parent>
 
