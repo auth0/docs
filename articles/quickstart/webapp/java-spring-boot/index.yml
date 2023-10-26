@@ -21,13 +21,16 @@ articles:
 show_steps: true
 hidden_articles:
   - "interactive"
+sdk:
+  name: Okta Spring Boot Starter
+  url: https://github.com/okta/okta-spring-boot/
+  logo: spring
 github:
   org: auth0-samples
   repo: auth0-spring-boot-login-samples
   branch: master
 requirements:
-  - Java 8
-  - Gradle 6 or Maven 3
+  - Java 17
 next_steps:
   - path: 01-login
     list:
