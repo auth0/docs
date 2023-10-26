@@ -8,8 +8,8 @@ author:
   email: jim.anderson@auth0.com
   community: false
 sdk:
-  name: auth0-spring-security-api
-  url: https://github.com/auth0/auth0-spring-security-api
+  name: Okta Spring Boot Starter
+  url: https://github.com/okta/okta-spring-boot/
   logo: spring
 alias:
   - spring security
@@ -34,7 +34,7 @@ github:
   org: auth0-samples
   repo: auth0-spring-security5-api-sample
 requirements:
-  - Java 8 or above
+  - Java 17
 next_steps:
   - path: 01-authorization
     list:
