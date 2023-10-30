@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Spring Boot and Spring Security support OIDC natively, enabling you to add authentication to your application without the need for any additional libraries. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot 2 web application.
+description: The Okta Spring Boot Starter makes it easy to add login to your Spring Boot application.
 budicon: 448
 topics:
   - quickstarts
@@ -17,15 +17,15 @@ useCase: quickstart
 This tutorial uses [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). If you are using [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-web-reactive), the steps to add authentication are similar, but some of the implementation details are different. Refer to the [Spring Boot WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-boot-login-samples/tree/master/webflux-login) to see how to integrate Auth0 with your Spring Boot WebFlux application.
 :::
 
-<%= include('../_includes/_getting_started', { library: 'Java Spring Security', callback: 'http://localhost:3000/login/oauth2/code/auth0' }) %>
+<%= include('../_includes/_getting_started', { library: 'Java Spring Security', callback: 'http://localhost:3000/login/oauth2/code/okta' }) %>
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000/' }) %>
 
 ## Configure Spring Boot Application
 
-### Add Spring dependencies
+### Add dependencies
 
-Spring Boot provides a `spring-boot-starter-oauth2-client` starter, which provides all the Spring Security dependencies needed to add authentication to your web application.
+To integrate your Spring Boot application with Auth0, include the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot/) in your application's dependencies.
 
 :::note
 This guide uses [Thymeleaf](https://www.thymeleaf.org/) and the [Spring Security integration module](https://github.com/thymeleaf/thymeleaf-extras-springsecurity) for the view layer. If you are using a different view technology, the Spring Security configuration and components remain the same.
@@ -36,14 +36,15 @@ If you're using Gradle, you can include these dependencies as shown below.
 ```groovy
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.5.12'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.springframework.boot' version '3.1.4'
+    id 'io.spring.dependency-management' version '1.1.3'
 }
 
+implementation 'com.okta.spring:okta-spring-boot-starter:3.0.5'
 implementation 'org.springframework.boot:spring-boot-starter-web'
-implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 ```
 
 If you are using Maven:
@@ -52,11 +53,16 @@ If you are using Maven:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.12</version>
+    <version>3.1.5</version>
     <relativePath/>
 </parent>
 
 <dependencies>
+    <dependency>
+        <groupId>com.okta</groupId>
+        <artifactId>okta-spring-boot-starter</artifactId>
+        <version>3.0.5</version>
+    </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
@@ -71,64 +77,56 @@ If you are using Maven:
     </dependency>
     <dependency>
         <groupId>org.thymeleaf.extras</groupId>
-        <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>nz.net.ultraq.thymeleaf</groupId>
+        <artifactId>thymeleaf-layout-dialect</artifactId>
     </dependency>
 </dependencies>
 ```
 
-:::note
-The Spring Security 5.4.0 release will include [a fix](https://github.com/spring-projects/spring-security/pull/8357) to validate the issuer claim of the ID token. You should update to this release when available.
-:::
-
 ### Configure Spring Security
 
-Spring Security makes it easy to configure your application for authentication with OIDC providers such as Auth0. In your application's configuration, configure the OAuth2 client and provider. The sample below uses an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
+The Okta Spring Boot Starter makes it easy to configure your application with Auth0. The sample below uses an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
 
-:::note
-Spring Security will use the `issuer-uri` property value to retrieve all the information necessary to enable login and validation of the ID token at runtime.
-
-[Additional property mappings](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-boot-property-mappings) are available for further customization, if required.
-:::
 
 ```yaml
 # src/main/resources/application.yml
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          auth0:
-            client-id: ${account.clientId}
-            client-secret: YOUR_CLIENT_SECRET
-            scope:
-              - openid
-              - profile
-              - email
-        provider:
-          auth0:
-            # trailing slash is important!
-            issuer-uri: https://${account.namespace}/
+okta:
+  oauth2:
+    issuer: https://${account.namespace}/
+    client-id: ${account.clientId}
+    client-secret: YOUR_CLIENT_SECRET
 ```
 
 ## Add Login to Your Application
 
-To enable user login with Auth0, create a class that will provide an instance of [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), and add the `@EnableWebSecurity` annotation.
+To enable user login with Auth0, create a class that will register a [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), and add the `@Configuration` annotation.
 
 ```java
 package com.auth0.example;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.oauth2Login()
-                .and().build();
+    public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authorize -> authorize
+                .anyRequest().authenticated()
+            )
+            .oauth2Login(withDefaults());
+        return http.build();
     }
 }
 ```
@@ -137,21 +135,22 @@ public class SecurityConfig {
 You can further configure the [HttpSecurity](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html) instance to require authentication on all or certain paths. For example, to require authentication on all paths except the home page:
 
 ```java
-http.authorizeRequests()
-      .mvcMatchers("/").permitAll()
-      .anyRequest().authenticated()
-      .and().oauth2Login();
+ http
+    .authorizeHttpRequests(authorize -> authorize
+        .requestMatchers("/").permitAll()
+        .anyRequest().authenticated()
+    );
 ```
 :::
 
-Spring Security will use the client configuration you defined earlier to handle login when a user visits the `/oauth2/authorization/auth0` path of your application. You can use this to create a login link in your application.
+The Okta Spring Boot Starter will use the client configuration you defined earlier to handle login when a user visits the `/oauth2/authorization/okta` path of your application. You can use this to create a login link in your application.
 
 ```html
 <!-- src/main/resources/templates/index.html -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <body>
         <div sec:authorize="!isAuthenticated()">
-            <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+            <a th:href="@{/oauth2/authorization/okta}">Log In</a>
         </div>
         <div sec:authorize="isAuthenticated()">
             <p>You are logged in!</p>
@@ -198,128 +197,71 @@ Auth0 enables the Google social provider by default on new tenants and offers yo
 
 ## Add Logout to Your Application
 
-Now that users can log into your application, they need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can extend the `SecurityContextLogoutHandler` class to redirect users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
+Now that users can log into your application, they need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can provide a `LogoutHandler` to redirect users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
+
+In the `SecurityConfig` class, provide a `LogoutHandler` that redirects to the Auth0 logout endpoint, and configure the `HttpSecurity` to add the logout handler:
 
 ```java
 package com.auth0.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.registration.ClientRegistration;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-/**
- * Needed to perform SSO logout with Auth0. By default, Spring will clear the SecurityContext and the session.
- * This controller will also log users out of Auth0 by calling the Auth0 logout endpoint.
- */
-@Controller
-public class LogoutHandler extends SecurityContextLogoutHandler {
-
-    private final ClientRegistrationRepository clientRegistrationRepository;
-
-    /**
-     * Create a new instance with a {@code ClientRegistrationRepository}, so that we can look up information about the
-     * configured provider to call the Auth0 logout endpoint. Called by the Spring framework.
-     *
-     * @param clientRegistrationRepository the {@code ClientRegistrationRepository} for this application.
-     */
-    @Autowired
-    public LogoutHandler(ClientRegistrationRepository clientRegistrationRepository) {
-        this.clientRegistrationRepository = clientRegistrationRepository;
-    }
-
-    /**
-     * Delegates to {@linkplain SecurityContextLogoutHandler} to log the user out of the application, and then logs
-     * the user out of Auth0.
-     *
-     * @param httpServletRequest the request.
-     * @param httpServletResponse the response.
-     * @param authentication the current authentication.
-     */
-    @Override
-    public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
-                       Authentication authentication) {
-
-        // Invalidate the session and clear the security context
-        super.logout(httpServletRequest, httpServletResponse, authentication);
-
-        // Build the URL to log the user out of Auth0 and redirect them to the home page.
-        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
-        String issuer = (String) getClientRegistration().getProviderDetails().getConfigurationMetadata().get("issuer");
-        String clientId = getClientRegistration().getClientId();
-        String returnTo = ServletUriComponentsBuilder.fromCurrentContextPath().build().toString();
-
-        String logoutUrl = UriComponentsBuilder
-                .fromHttpUrl(issuer + "v2/logout?client_id={clientId}&returnTo={returnTo}")
-                .encode()
-                .buildAndExpand(clientId, returnTo)
-                .toUriString();
-
-        try {
-            httpServletResponse.sendRedirect(logoutUrl);
-        } catch (IOException ioe) {
-            // Handle or log error redirecting to logout URL
-        }
-    }
-
-    /**
-     * Gets the Spring ClientRegistration, which we use to get the registered client ID and issuer for building the
-     * {@code returnTo} query parameter when calling the Auth0 logout API.
-     *
-     * @return the {@code ClientRegistration} for this application.
-     */
-    private ClientRegistration getClientRegistration() {
-        return this.clientRegistrationRepository.findByRegistrationId("auth0");
-    }
-}
-```
-
-Next, you need to update your implementation of `SecurityFilterChain` to register your logout handler and specify the request path that should trigger logout (`/logout` in the example below).
-
-```java
-package com.auth0.example;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
+
+import static org.springframework.security.config.Customizer.withDefaults;
+
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final LogoutHandler logoutHandler;
-
-    public SecurityConfig(LogoutHandler logoutHandler) {
-        this.logoutHandler = logoutHandler;
-    }
+    @Value("<%= "${okta.oauth2.issuer}" %>")
+    private String issuer;
+    @Value("<%= "${okta.oauth2.client-id}" %>")
+    private String clientId;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
-                .oauth2Login()
-                .and().logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .addLogoutHandler(logoutHandler)
-                .and().build();
+    public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/", "/images/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .oauth2Login(withDefaults())
+
+            // configure logout with Auth0
+            .logout(logout -> logout
+                .addLogoutHandler(logoutHandler()));
+        return http.build();
+    }
+
+    private LogoutHandler logoutHandler() {
+        return (request, response, authentication) -> {
+            try {
+                String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+                response.sendRedirect(issuer + "v2/logout?client_id=" + clientId + "&returnTo=" + baseUrl);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        };
     }
 }
 ```
 
-You can then update your view to add a logout link for authenticated users.
+You can then update your view to POST to the `/logout` endpoint (Spring Security provides this by default) to enable users to log out.
 
 ```html
 <div sec:authorize="isAuthenticated()">
     <p>You are logged in!</p>
-    <a th:href="@{/logout}">Log Out</a>
+    <form name="logoutForm" th:action="@{/logout}" method="post">
+        <button type="submit" value="Log out"/>
+    </form>
 </div>
 ```
 
