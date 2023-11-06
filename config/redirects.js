@@ -309,6 +309,14 @@ const redirects = [
     to: '/quickstart/native/xamarin',
   },
   {
+    from: '/quickstart/native/xamarin',
+    to: '/quickstart/native/net-android-ios',
+  },
+  {
+    from: '/quickstart/native/xamarin/interactive',
+    to: '/quickstart/native/net-android-ios/interactive',
+  },
+  {
     from: '/quickstart/spa/auth0-react/02',
     to: '/quickstart/spa/react/02-calling-an-api',
   },
@@ -951,6 +959,11 @@ const redirects = [
   },
 
   /* MICROSITES */
+  {
+    from: ['/microsites/call-api/call-api-m2m-app'],
+    to: '/get-started/authentication-and-authorization-flow/client-credentials-flow',
+
+  },
 
   /* ARCHITECTURE SCENARIOS */
 
@@ -4038,16 +4051,21 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool',
   },
   {
-    from: ['/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli'],
-    to: '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+    from: ['/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
+          '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/configure-the-deploy-cli',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically'],
-    to: '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
+    from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+          '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',],
+    to: '/deploy-monitor/deploy-cli-tool/use-as-a-node-module',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'],
-    to: '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+    from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+          '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/incorporate-into-multi-environment-workflows',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'],
@@ -4062,8 +4080,10 @@ const redirects = [
     to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options'],
-    to: '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+    from: ['/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
+          '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+          ],
+    to: '/deploy-monitor/deploy-cli-tool/use-as-a-cli',
   },
   {
     from: ['/deploy-monitor/deploy-cli-tool/auth0-terraform-provider'],
@@ -4072,6 +4092,10 @@ const redirects = [
   {
     from: ['/deploy-monitor/deploy-cli-tool/how-to-contribute'],
     to: '/deploy-monitor/deploy-cli-tool',
+  },
+  {
+    from: ['/deploy-monitor/deploy-cli-tool/excluding-resources-from-management'],
+    to: '/deploy-monitor/deploy-cli-tool/exclude-resources-from-management',
   },
 
   /* Extensions */
@@ -7825,8 +7849,10 @@ const redirects = [
       '/policies/rate-limits-api',
       '/policies/authentication-api-endpoint-rate-limits',
       '/support/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
@@ -7835,8 +7861,9 @@ const redirects = [
       '/policies/rate-limits-mgmt-api',
       '/policies/management-api-endpoint-rate-limits',
       '/support/policies/rate-limit-policy/management-api-endpoint-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/management-api-endpoint-rate-limits',
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/management-api-endpoint-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
@@ -7845,8 +7872,15 @@ const redirects = [
       '/connections/database/rate-limits',
       '/support/policies/database-connections-rate-limits',
       '/support/policies/rate-limit-policy/database-connections-rate-limits',
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/database-connections-rate-limits',
     ],
-    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy/database-connections-rate-limits',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
+  },
+  {
+    from: [
+      '/troubleshoot/customer-support/operational-policies/rate-limit-policy/understand-rate-limit-burst-capability',
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [

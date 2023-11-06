@@ -1,7 +1,7 @@
 ---
 title: Authorization
-name: How to secure your API using Spring Security 5 and Auth0
-description: This tutorial demonstrates how to add authorization to an API using Spring Security 5.
+name: How to secure your API with Spring Boot
+description: This tutorial demonstrates how to add authorization to an API using the Okta Spring Boot Starter.
 budicon: 500
 topics:
     - quickstart
@@ -30,24 +30,20 @@ This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to s
 The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
 ```yaml
-auth0:
-  audience: ${apiIdentifier}
-spring:
-  security:
-    oauth2:
-        resourceserver:
-            jwt:
-                issuer-uri: https://${account.namespace}/
+okta:
+  oauth2:
+    # Replace with the domain of your Auth0 tenant.
+    issuer: https://${account.namespace}/
+    # Replace with the API Identifier for your Auth0 API.
+    audience: ${apiIdentifier}
 ```
 
 | Attribute | Description|
 | --- | --- |
-| `auth0.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
-| `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
+| `okta.oauth2.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
+| `okta.oauth2.issuer` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
 
-## Validate Access Tokens
-
-### Install dependencies
+## Install dependencies
 
 If you are using Gradle, you can add the required dependencies using the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/) and the [Dependency Management Plugin](https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/) to resolve dependency versions:
 
@@ -55,13 +51,14 @@ If you are using Gradle, you can add the required dependencies using the [Spring
 // build.gradle
 
 plugins {
-    id 'org.springframework.boot' version '2.5.12'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+    id 'org.springframework.boot' version '3.1.5'
+    id 'io.spring.dependency-management' version '1.1.3'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'com.okta.spring:okta-spring-boot-starter:3.0.5'
 }
 ```
 
@@ -73,7 +70,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.12</version>
+    <version>3.1.5</version>
     <relativePath/>
 </parent>
 
@@ -83,112 +80,18 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        <groupId>com.okta</groupId>
+        <artifactId>okta-spring-boot-starter</artifactId>
+        <version>3.0.5</version>
     </dependency>
 </dependencies>
 ```
 
-### Configure the resource server
-
-To configure the application as a Resource Server and validate the JWTs, create a class that will provide an instance of `SecurityFilterChain`, and add the `@EnableWebSecurity` annotation:
-
-```java
-// src/main/java/com/auth0/example/security/SecurityConfig.java
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.SecurityFilterChain;
-
-@EnableWebSecurity
-public class SecurityConfig {
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.oauth2Login();
-        return http.build();
-    }
-}
-```
-
-### Validate the audience
-
-> Note: If you are using Spring Boot version 2.7 or higher, audience validation is supported out of the box by Spring Security. Instead of customizing beans as indicated below, you should just include the Auth0 API identifier as a value in the `spring.security.oauth2.resourceserver.jwt.audiences` array. 
-> Example: `spring.security.oauth2.resourceserver.jwt.audiences=http://api-identifier`
-
-In addition to validating the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface:
-
-```java
-// src/main/java/com/auth0/example/security/AudienceValidator.java
-
-import org.springframework.security.oauth2.core.OAuth2Error;
-import org.springframework.security.oauth2.core.OAuth2TokenValidator;
-import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
-import org.springframework.security.oauth2.jwt.Jwt;
-
-class AudienceValidator implements OAuth2TokenValidator<Jwt> {
-    private final String audience;
-
-    AudienceValidator(String audience) {
-        this.audience = audience;
-    }
-
-    public OAuth2TokenValidatorResult validate(Jwt jwt) {
-        OAuth2Error error = new OAuth2Error("invalid_token", "The required audience is missing", null);
-        
-        if (jwt.getAudience().contains(audience)) {
-            return OAuth2TokenValidatorResult.success();
-        }
-        return OAuth2TokenValidatorResult.failure(error);
-    }
-}
-```
-
-Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the `AudienceValidator`:
-
-```java
-// src/main/java/com/auth0/example/security/SecurityConfig.java
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
-import org.springframework.security.oauth2.core.OAuth2TokenValidator;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtDecoders;
-import org.springframework.security.oauth2.jwt.JwtValidators;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
-
-@EnableWebSecurity
-public class SecurityConfig {
-
-    @Value("<%= "${auth0.audience}" %>")
-    private String audience;
-
-    @Value("<%= "${spring.security.oauth2.resourceserver.jwt.issuer-uri}" %>")
-    private String issuer;
-
-    @Bean
-    JwtDecoder jwtDecoder() {
-        NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder)
-                JwtDecoders.fromOidcIssuerLocation(issuer);
-
-        OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
-        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuer);
-        OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
-
-        jwtDecoder.setJwtValidator(withAudience);
-
-        return jwtDecoder;
-    }
-}
-```
-
-## Protect API Endpoints
+## Protect API endpoints
 
 <%= include('../_includes/_api_endpoints') %>
+
+To configure the application as a Resource Server and validate the JWTs, create a class that will register a [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), an instance of `SecurityFilterChain`, and add the `@Configuration` annotation.
 
 The example below shows how to secure API methods using the `HttpSecurity` object provided in the `filterChain()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
 
@@ -218,28 +121,16 @@ public class SecurityConfig {
 
 ::: note
 By default, Spring Security will create a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This is what enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
-
-If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) to learn how to customize the extracted authorities.
 :::
 
 ### Create the API controller
 
-Create a new class named `Message`, which is the domain object the API will return:
+Create a new record named `Message`, which will be the domain object the API will return:
 
 ```java
 // src/main/java/com/auth0/example/model/Message.java
 
-public class Message {
-    private final String message;
-
-    public Message(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-}
+public record Message(String message) {}
 ```
 
 Create a new class named `APIController` to handle requests to the endpoints:
@@ -254,6 +145,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Handles requests to "/api" endpoints.
+ * @see com.auth0.example.security.SecurityConfig to see how these endpoints are protected.
+ */
 @RestController
 @RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
 // For simplicity of this sample, allow all origins. Real applications should configure CORS for their use case.

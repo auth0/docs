@@ -1,7 +1,7 @@
 title: WPF / Winforms
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/asp.png
-logo: windows
+logo: dotnet-platform
 author:
   name: Damien Guard
   email: damien.guard@auth0.com
@@ -30,6 +30,8 @@ seo_alias: wpf-winforms
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - "interactive"
 show_steps: true
 github:
   org: auth0-samples

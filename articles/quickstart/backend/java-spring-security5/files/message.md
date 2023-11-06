@@ -3,15 +3,9 @@ name: Message.java
 language: java
 ---
 ```java
-public class Message {
-    private final String message;
+/**
+ * Simple domain object for our API to return a message.
+ */
+public record Message(String message) {}
 
-    public Message(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-}
 ```
