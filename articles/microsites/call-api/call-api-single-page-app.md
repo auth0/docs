@@ -4,7 +4,6 @@ description: Everything you need to know to call your API from your single-page 
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/spa
 template: microsite
-public: false
 topics:
   - authentication
   - oauth2

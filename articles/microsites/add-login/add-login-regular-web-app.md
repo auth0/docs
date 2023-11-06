@@ -4,7 +4,6 @@ description: Everything you need to know to implement login for a regular web ap
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
 template: microsite
-public: false
 topics:
   - authentication
   - oauth2
