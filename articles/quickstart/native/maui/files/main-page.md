@@ -58,6 +58,11 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        var user = loginResult.User;
+        var name = user.FindFirst(c => c.Type == "name")?.Value;
+        var email = user.FindFirst(c => c.Type == "email")?.Value;
+        var picture = user.FindFirst(c => c.Type == "picture")?.Value;
+        
         LogoutBtn.IsVisible = true;
         LoginBtn.IsVisible = false;
 

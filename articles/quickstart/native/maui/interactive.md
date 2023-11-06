@@ -196,18 +196,8 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ::::
 
-## Show User Profile Information
+## Show User Profile Information {{{ data-action="code" data-code="MainPage.xaml.cs#55-58" }}}
 
 Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
 The Auth0 SDK for MAUI provides user information through the `LoginResult.User` property.
-
-```csharp
-if (loginResult.IsError == false)
-{
-    var user = loginResult.User;
-    var name = user.FindFirst(c => c.Type == "name")?.Value;
-    var email = user.FindFirst(c => c.Type == "email")?.Value;
-    var picture = user.FindFirst(c => c.Type == "picture")?.Value;
-}
-```
