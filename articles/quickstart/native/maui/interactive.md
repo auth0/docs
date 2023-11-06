@@ -37,15 +37,15 @@ The MAUI SDK supports Android, iOS, macOS and Windows. For platform specific con
 
 Auth0 provides a [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/) SDK to simplify the process of implementing Auth0 authentication in MAUI applications.
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.MAUI` package.
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.MAUI` package (ensure to show pre-releases).
 
 Alternatively, you can use the Nuget Package Manager Console (`Install-Package`) or the `dotnet` CLI (`dotnet add`).
 
 ```ps
-Install-Package Auth0.OidcClient.MAUI
+Install-Package Auth0.OidcClient.MAUI -IncludePrerelease
 ```
 ```
-dotnet add Auth0.OidcClient.MAUI
+dotnet add Auth0.OidcClient.MAUI --prerelease
 ```
 
 ## Platform specific configuration
