@@ -77,8 +77,6 @@ public class WebAuthenticatorActivity : Microsoft.Maui.Authentication.WebAuthent
 The above activity will ensure the application can handle the `myapp://callback` URL when Auth0 redirects back to the Android application after logging in.
 
 ### Windows
-To support Windows, the SDK relies on [WinUIEx](https://github.com/dotMorten/WinUIEx), a community-built package to provide a WebAuthenticator that supports Windows.
-
 To make sure it can properly reactivate your application after being redirected back go Auth0, you need to do two things:
 
 - Add the corresponding protocol to the `Package.appxmanifest`. In this case, this is set to `myapp`, but you can change this to whatever you like (ensure to update all relevant Auth0 URLs as well).
@@ -93,11 +91,11 @@ To make sure it can properly reactivate your application after being redirected 
     </Application>
   </Applications>
   ```
-- Call `WinUIEx.WebAuthenticator.CheckOAuthRedirectionActivation()` in the Windows specific App.xaml.cs file.
+- Call `Activator.Default.CheckRedirectionActivation()` in the Windows specific App.xaml.cs file.
   ```csharp
   public App()
   {
-    if (WinUIEx.WebAuthenticator.CheckOAuthRedirectionActivation())
+    if (Auth0.OidcClient.Platforms.Windows.Activator.Default.CheckRedirectionActivation())
       return;
   
     this.InitializeComponent();
