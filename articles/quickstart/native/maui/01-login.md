@@ -53,7 +53,7 @@ Alternatively, you can use the Nuget Package Manager Console (`Install-Package`)
 Install-Package Auth0.OidcClient.MAUI -IncludePrerelease
 ```
 ```
-dotnet add Auth0.OidcClient.MAUI --prerelease
+dotnet add package Auth0.OidcClient.MAUI --prerelease
 ```
 
 ## Platform specific configuration
