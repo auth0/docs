@@ -3,12 +3,10 @@ name: application.yml
 language: yaml
 ---
 ```yaml
-auth0:
-  audience: ${apiIdentifier}
-spring:
-  security:
-    oauth2:
-        resourceserver:
-            jwt:
-                issuer-uri: https://${account.namespace}/
+okta:
+  oauth2:
+    # Replace with the domain of your Auth0 tenant.
+    issuer: https://${account.namespace}/
+    # Replace with the API Identifier for your Auth0 API.
+    audience: ${apiIdentifier}
 ```

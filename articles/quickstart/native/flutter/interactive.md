@@ -29,8 +29,6 @@ Auth0 allows you to quickly add authentication and access user profile informati
 The Flutter SDK currently only supports Flutter applications running on Android or iOS platforms.
 :::
 
-## Getting started
-
 This quickstart assumes you already have a [Flutter](https://flutter.dev/) application up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
