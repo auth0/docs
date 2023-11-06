@@ -94,7 +94,7 @@ To make sure it can properly reactivate your application after being redirected 
   }
   ```
 
-## Instantiate the Auth0Client {{{ data-action="code" data-code="MainPage.xaml.cs#3-8" }}}
+## Instantiate the Auth0Client {{{ data-action="code" data-code="MainPage.xaml.cs#3-10" }}}
 
 To integrate Auth0 into your application, instantiate an instance of the `Auth0Client` class, passing an instance of `Auth0ClientOptions` that contains your Auth0 Domain, Client ID and the required Scopes.
 Additionally, you also need to configure the `RedirectUri` and `PostLogoutRedirectUri` to ensure Auth0 can redirect back to the application using the URL(s) configured.
