@@ -973,8 +973,8 @@ const redirects = [
     to: '/quickstart/webapp',
   },
   {
-    from: ['/microsites/call-api/call-api-device'],
-    to: '/quickstart/native',
+    from: ['/microsites/add-login/add-login-single-page-app'],
+    to: '/quickstart/spa',
   },
   {
     from: ['/microsites/call-api/call-api-device'],
