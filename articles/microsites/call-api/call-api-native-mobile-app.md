@@ -4,6 +4,7 @@ description: Everything you need to know to call your API from your native/mobil
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/native
 template: microsite
+public: false
 topics:
   - authentication
   - oauth2

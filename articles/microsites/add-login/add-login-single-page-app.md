@@ -4,6 +4,7 @@ description: Everything you need to know to implement login for a single-page ap
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/spa
 template: microsite
+public: false
 topics:
   - authentication
   - oauth2

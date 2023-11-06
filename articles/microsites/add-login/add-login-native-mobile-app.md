@@ -4,6 +4,7 @@ description: Everything you need to know to implement login for a native/mobile 
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/native
 template: microsite
+public: false
 topics:
   - authentication
   - oauth2

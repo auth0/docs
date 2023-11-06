@@ -2,6 +2,7 @@
 title: Call Your API from an Input-Constrained Device
 description: Everything you need to know to call your API from your input-constrained device. For use with native apps.
 template: microsite
+public: false
 topics:
   - authorization
   - oauth2

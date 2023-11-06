@@ -4,6 +4,7 @@ description: Everything you need to know to call your API from your regular web 
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
 template: microsite
+public: false
 topics:
   - authentication
   - oauth2
