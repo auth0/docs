@@ -966,15 +966,15 @@ const redirects = [
   },
   {
     from: ['/microsites/add-login/add-login-native-mobile-app'],
-    to: '/quickstart/native',
+    to: '/quickstarts',
   },
   {
     from: ['/microsites/add-login/add-login-regular-web-app'],
-    to: '/quickstart/webapp',
+    to: '/quickstarts',
   },
   {
     from: ['/microsites/call-api/call-api-device'],
-    to: '/quickstart/spa',
+    to: '/quickstarts',
   },
   {
     from: ['/microsites/call-api/call-api-device'],
