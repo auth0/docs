@@ -964,6 +964,42 @@ const redirects = [
     to: '/get-started/authentication-and-authorization-flow/client-credentials-flow',
 
   },
+  {
+    from: ['/microsites/add-login/add-login-native-mobile-app'],
+    to: '/quickstart/native',
+  },
+  {
+    from: ['/microsites/add-login/add-login-regular-web-app'],
+    to: '/quickstart/webapp',
+  },
+  {
+    from: ['/microsites/add-login/add-login-single-page-app'],
+    to: '/quickstart/spa',
+  },
+  {
+    from: ['/microsites/call-api/call-api-device'],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
+  },
+  {
+    from: ['/microsites/call-api/call-api-native-mobile-app'],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
+  },
+  {
+    from: ['/microsites/call-api/call-api-regular-web-app'],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow',
+  },
+  {
+    from: ['/microsites/call-api/call-api-single-page-app'],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
+  },
+  {
+    from: ['/microsites/manage-users/define-maintain-custom-user-data'],
+    to: '/manage-users/user-accounts/metadata',
+  },
+  {
+    from: ['/microsites/manage-users/manage-users-and-user-profiles'],
+    to: '/manage-users/user-accounts/metadata',
+  },
 
   /* ARCHITECTURE SCENARIOS */
 
