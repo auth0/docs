@@ -3,6 +3,7 @@ title: Call Your API from Your Single-Page App
 description: Everything you need to know to call your API from your single-page app (SPA)
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/spa
+public: false
 template: microsite
 topics:
   - authentication

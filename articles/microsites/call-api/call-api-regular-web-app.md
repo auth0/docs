@@ -3,6 +3,7 @@ title: Call Your API from Your Regular Web App
 description: Everything you need to know to call your API from your regular web app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
+public: false
 template: microsite
 topics:
   - authentication
