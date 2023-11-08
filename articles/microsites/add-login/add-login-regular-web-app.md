@@ -3,6 +3,7 @@ title: Add Login to Your Regular Web App
 description: Everything you need to know to implement login for a regular web app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
+public: false
 template: microsite
 topics:
   - authentication
