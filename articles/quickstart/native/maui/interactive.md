@@ -25,7 +25,7 @@ files:
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET MAUI application using the Auth0 SDKs for [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/).
 
 ::: note
-The MAUI SDK supports Android, iOS, macOS and Windows. For platform specific configuration, continue reading.
+The MAUI SDK supports Android, iOS, macOS, and Windows. Continue reading for platform-specific configuration.
 :::
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
@@ -50,7 +50,7 @@ dotnet add package Auth0.OidcClient.MAUI --prerelease
 
 ## Platform specific configuration
 
-In order to use the SDK with Android and Windows, you need some platform specific configuration.
+You need some platform-specific configuration to use the SDK with Android and Windows.
 
 ### Android
 Create a new Activity that extends `WebAuthenticatorCallbackActivity`:
@@ -69,7 +69,7 @@ public class WebAuthenticatorActivity : Microsoft.Maui.Authentication.WebAuthent
 The above activity will ensure the application can handle the `myapp://callback` URL when Auth0 redirects back to the Android application after logging in.
 
 ### Windows
-To make sure it can properly reactivate your application after being redirected back go Auth0, you need to do two things:
+To make sure it can properly reactivate your application after being redirected back to Auth0, you need to do two things:
 
 - Add the corresponding protocol to the `Package.appxmanifest`. In this case, this is set to `myapp`, but you can change this to whatever you like (ensure to update all relevant Auth0 URLs as well).
   ```xml
@@ -83,7 +83,7 @@ To make sure it can properly reactivate your application after being redirected 
     </Application>
   </Applications>
   ```
-- Call `Activator.Default.CheckRedirectionActivation()` in the Windows specific App.xaml.cs file.
+- Call `Activator.Default.CheckRedirectionActivation()` in the Windows-specific `App.xaml.cs` file.
   ```csharp
   public App()
   {
