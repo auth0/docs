@@ -53,7 +53,7 @@ To allow users to login to your Blazor Server application, add a `LoginModel` to
 
 Inside the `LoginModel`'s `OnGet` method, call `HttpContext.ChallengeAsync()` and pass `Auth0Constants.AuthenticationScheme` as the authentication scheme. This will invoke the OIDC authentication handler that our SDK registers internally. Be sure to also specify the corresponding `authenticationProperties`, which you can construct using the `LoginAuthenticationPropertiesBuilder`.
 
-After succesfully calling `HttpContext.ChallengeAsync()`, the user will be redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
+After successfully calling `HttpContext.ChallengeAsync()`, the user will be redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
 
 ::::checkpoint
 
@@ -79,16 +79,16 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Display User Profile {{{ data-action=code data-code="Profile.razor" }}}
 
-After the middleware has successfully retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available through the `AuthenticationState`, which you can add as a `CascadingParameter`.
+After the middleware has successfully retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and make them available through the `AuthenticationState`, which you can add as a `CascadingParameter`.
 
-You can create a custom user profile page for displaying the user's name, as well as additional claims (such as email, and picture), by retrieving the corresponding information from the `AuthenticationState`'s `User` property and pass it to the view from inside Blazor code.
+You can create a custom user profile page for displaying the user's name, as well as additional claims (such as email and picture), by retrieving the corresponding information from the `AuthenticationState`'s `User` property and passing it to the view from inside Blazor code.
 
 ::::checkpoint
 
 :::checkpoint-default
 
 Now that you have set up to render the user's profile, run your application to verify that:
-* Navigating to the endpoint containing the profile after being succesfully logged in, shows the user's profile.
+* Navigating to the endpoint containing the profile after being successfully logged in shows the user's profile.
 
 :::
 
@@ -108,7 +108,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 Logging out the user from your own application can be done by calling `HttpContext.SignOutAsync` with the `CookieAuthenticationDefaults.AuthenticationScheme` authentication scheme from inside a `LogoutModel`'s `OnGet` method.
 
-Additionaly, If you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.SignOutAsync` with the `Auth0Constants.AuthenticationScheme` authentication scheme as well as the appropriate `authenticationProperties` that can be constructed using the `LogoutAuthenticationPropertiesBuilder`.
+Additionally, if you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.SignOutAsync` with the `Auth0Constants.AuthenticationScheme` authentication scheme as well as the appropriate `authenticationProperties` that can be constructed using the `LogoutAuthenticationPropertiesBuilder`.
 
 ::: note
 When only logging the user out from your own application but not from Auth0, ensure to return `Redirect("/")` or any other appropriate redirect.
