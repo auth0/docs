@@ -165,6 +165,9 @@ private fun loginWithBrowser() {
 After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
 :::note
+To make Auth0 able to open login page you should always use `context` of Activity (not Application). 
+
+:::note
 There are many options to customize the authentication with the `WebAuthProvider` builder. You can read about them in the [Auth0 SDK for Android documentation](/libraries/auth0-android).
 
 <div class="phone-mockup">
