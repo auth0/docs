@@ -1,6 +1,6 @@
 ---
 title: Spring Boot API
-description: Secure your API using Spring Security 5 and Auth0
+description: Secure your API using the Okta Spring Boot Starter
 interactive: true
 alias:
   - spring security
@@ -18,7 +18,7 @@ github:
   path: 01-Authorization-MVC
 ---
 
-# Secure your API using Spring Security 5 and Auth0
+# Add authorization to a Spring Boot application
 
 Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
 
