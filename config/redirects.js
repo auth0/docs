@@ -1623,8 +1623,8 @@ const redirects = [
     to: '/get-started/applications/application-grant-types',
   },
   {
-    from: [`/get-started/applications/how-to-rotate-application-secret`],
-    to: `/get-started/applications/rotate-client-secret`,
+    from: ['/get-started/applications/how-to-rotate-application-secret'],
+    to: '/get-started/applications/rotate-client-secret',
   },
   {
     from: [
@@ -2119,7 +2119,7 @@ const redirects = [
       '/protocols/saml/saml-configuration/auth0-as-identity-provider',
       '/protocols/saml-protocol/configure-auth0-as-saml-identity-provider',
       '/configure/saml-configuration/configure-auth0-saml-identity-provider',
-      `/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider`,
+      '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider',
     ],
     to: '/authenticate/single-sign-on/outbound-single-sign-on/configure-auth0-saml-identity-provider',
   },
