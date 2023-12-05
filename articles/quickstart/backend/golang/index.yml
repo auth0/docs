@@ -36,7 +36,7 @@ sdk:
   url: https://github.com/auth0/go-jwt-middleware
   logo: golang
 requirements:
-  - Go 1.15+
+  - Go 1.21+
 next_steps:
   - path: 01-authorization
     list:

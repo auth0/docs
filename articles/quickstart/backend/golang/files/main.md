@@ -9,10 +9,13 @@ language: go
 package main
 
 import (
+	"01-Authorization-RS256/middleware"
 	"log"
 	"net/http"
+
+	jwtmiddleware "github.com/auth0/go-jwt-middleware/v2"
+	"github.com/auth0/go-jwt-middleware/v2/validator"
 	"github.com/joho/godotenv"
-	"01-Authorization-RS256/middleware"
 )
 
 func main() {
@@ -37,9 +40,9 @@ func main() {
 			w.Write([]byte(`{"message":"Hello from a private endpoint! You need to be authenticated to see this."}`))
 		}),
 	))
-	
+
 	// This route is only accessible if the user has a
-    // valid access_token with the read:messages scope.
+	// valid access_token with the read:messages scope.
 	router.Handle("/api/private-scoped", middleware.EnsureValidToken()(
 		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
@@ -63,4 +66,5 @@ func main() {
 		log.Fatalf("There was an error with the http server: %v", err)
 	}
 }
+
 ```
