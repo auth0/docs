@@ -28,11 +28,11 @@ Add a `go.mod` file to list all the dependencies to be used.
 
 module 01-Authorization-RS256
 
-go 1.16
+go 1.21
 
 require (
-	github.com/auth0/go-jwt-middleware/v2 v2.0.0
-	github.com/joho/godotenv v1.4.0
+	github.com/auth0/go-jwt-middleware/v2 v2.2.0
+	github.com/joho/godotenv v1.5.1
 )
 ```
 
@@ -77,7 +77,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/auth0/go-jwt-middleware/v2"
+	jwtmiddleware "github.com/auth0/go-jwt-middleware/v2"
 	"github.com/auth0/go-jwt-middleware/v2/jwks"
 	"github.com/auth0/go-jwt-middleware/v2/validator"
 )

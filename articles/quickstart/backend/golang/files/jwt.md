@@ -14,9 +14,10 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 	"time"
 
-	"github.com/auth0/go-jwt-middleware/v2"
+	jwtmiddleware "github.com/auth0/go-jwt-middleware/v2"
 	"github.com/auth0/go-jwt-middleware/v2/jwks"
 	"github.com/auth0/go-jwt-middleware/v2/validator"
 )
@@ -77,13 +78,13 @@ func EnsureValidToken() func(next http.Handler) http.Handler {
 
 // HasScope checks whether our claims have a specific scope.
 func (c CustomClaims) HasScope(expectedScope string) bool {
-    result := strings.Split(c.Scope, " ")
-    for i := range result {
-        if result[i] == expectedScope {
-            return true
-        }
-    }
+	result := strings.Split(c.Scope, " ")
+	for i := range result {
+		if result[i] == expectedScope {
+			return true
+		}
+	}
 
-    return false
+	return false
 }
 ```
