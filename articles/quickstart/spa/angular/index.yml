@@ -37,7 +37,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-angular-samples
-  branch: master
+  branch: main
 requirements:
   - Angular 12+
 next_steps:
