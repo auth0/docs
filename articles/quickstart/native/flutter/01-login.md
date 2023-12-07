@@ -1,7 +1,7 @@
 ---
 title: Add login to your Flutter app
 default: true
-description: This tutorial demonstrates how to add user login with Auth0 to an Android or iOS Flutter application using the Auth0 Flutter SDK
+description: This tutorial demonstrates how to add user login with Auth0 to an Android, iOS, or macOS Flutter app using the Auth0 Flutter SDK
 budicon: 448
 topics:
   - quickstarts
@@ -9,6 +9,7 @@ topics:
   - flutter
   - dart
   - ios
+  - macos
   - android
 contentType: tutorial
 useCase: quickstart
@@ -22,15 +23,15 @@ github:
 
 # Add login to your Flutter app
 
-Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
+Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
 :::note
-The Flutter SDK currently only supports Flutter applications running on Android or iOS platforms.
+The Flutter SDK currently only supports Flutter app running on Android, iOS, and macOS platforms.
 :::
 
 ## Getting started
 
-This quickstart assumes you already have a [Flutter](https://flutter.dev/) application up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
+This quickstart assumes you already have a [Flutter](https://flutter.dev/) app up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
@@ -69,7 +70,7 @@ android {
 }
 ```
 
-- `auth0Domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your Application's **Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
+- `auth0Domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your **Application Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
 - `auth0Scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
 
 :::note
@@ -78,9 +79,9 @@ You do not need to declare a specific `intent-filter` for your activity because 
 
 Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
 
-## Configure iOS
+## Configure iOS/macOS
 
-If you are not developing for the iOS platform, skip this step.
+If you are not developing for the iOS or macOS platform, skip this step.
 
 You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
 
@@ -88,13 +89,9 @@ In Xcode, go to the **Info** tab of your app target settings. In the **URL Types
 
 <p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
 
-:::note
-The minimum target platform supported by the SDK is **iOS 12**.
-:::
-
 ## Add login to your app
 
-[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
+[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
 
 Integrate Auth0 Universal Login in your Flutter app by importing the SDK and instantiating the `Auth0` class using your Auth0 domain and Client ID values. See this example, which instantiates the class inside a widget state object:
 
@@ -150,17 +147,17 @@ if (_credentials == null) {
 await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').login();
 ```
 
-When a user logs in, they are redirected back to your application. Then, you are able to access the ID and access tokens for this user.
+When a user logs in, they are redirected back to your app. Then, you are able to access the ID and access tokens for this user.
 
 ::::checkpoint
 :::checkpoint-default
-Add a button to your app that calls `webAuthentication().login()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication and then back to your application.
+Add a button to your app that calls `webAuthentication().login()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication and then back to your app.
 
 Verify that you can get access to the tokens on the result of calling `login`.
 :::
 
 :::checkpoint-failure
-If your application did not launch successfully:
+If your app did not launch successfully:
 
 - Ensure you set the Allowed Callback URLs are correct
 - Verify you saved your changes after entering your URLs
@@ -197,11 +194,11 @@ await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').logout();
 
 ::::checkpoint
 :::checkpoint-default
-Add a button to your app that calls `webAuthentication().logout()` and logs the user out of your application. When you select it, verify that your Flutter app redirects you to the logout endpoint and back again. You should not be logged in to your application.
+Add a button to your app that calls `webAuthentication().logout()` and logs the user out of your app. When you select it, verify that your Flutter app redirects you to the logout endpoint and back again. You should not be logged in to your app.
 :::
 
 :::checkpoint-failure
-If your application did not log out successfully:
+If your app did not log out successfully:
 
 - Ensure the Allowed Logout URLs are set properly
 - Verify you saved your changes after entering your URLs
@@ -243,7 +240,7 @@ class ProfileView extends StatelessWidget {
 Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
 :::
 :::checkpoint-failure
-If your application did not return user profile information:
+If your app did not return user profile information:
 
 - Verify the access token is valid
 

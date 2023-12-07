@@ -35,8 +35,9 @@ github:
   branch: main
 requirements:
   - Flutter 3+
-  - Xcode 13+ (for iOS)
-  - Android Studio 4+ (for Android)
+  - Android API 21+ and Android Studio 4+ (for Android)
+  - iOS 13+ and Xcode 14+ (for iOS)
+  - macOS 11+ and Xcode 14+ (for macOS)
 next_steps:
   - path: interactive
     list:
