@@ -8179,6 +8179,7 @@ const redirects = [
       '/troubleshoot/guides/generate-har-files',
       '/troubleshoot/generate-and-analyze-har-files',
       '/troubleshoot/tools/generate-and-analyze-har-files',
+      '/troubleshoot/troubleshooting-tools/sanitize-http-traces',
     ],
     to: '/troubleshoot/troubleshooting-tools/generate-and-analyze-har-files',
   },
