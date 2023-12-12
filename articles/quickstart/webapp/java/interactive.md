@@ -107,12 +107,15 @@ The project contains also four servlets:
 - `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
-
-Lastly, the project defines a helper class: the `AuthenticationControllerProvider.java` which will be in charge of creating new instances of `AuthenticationController`. Because this controller is very simple and doesn't keep any context it can be safely reused. You can also choose to create a new one every time it's needed.
-
-## Trigger Authentication {{{ data-action=code data-code="AuthenticationControllerProvider.java#4:12" }}}
+- `AuthenticationControllerProvider`: Responsible to create and manage a single instance of the `AuthenticationController`
+  
+## Create the AuthenticationController {{{ data-action=code data-code="AuthenticationControllerProvider.java#6-32 }}}
 
 To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
+
+:::note
+The `AuthenticationController` does not store any context, and is inteded to be reused. Unneccessary creation may result in additonal resources being created which could impact performance.
+:::
 
 ## Login Redirection {{{ data-action=code data-code="LoginServlet.java#21:23" }}}
 
