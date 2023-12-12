@@ -70,7 +70,7 @@ AUTH0_AUDIENCE='${apiIdentifier}'
 
 ## Create a middleware to validate access tokens {{{ data-action=code data-code="middleware/jwt.go" }}}
 
-The `EnsureValidToken` middleware function validates the access token. You can be apply this function to any endpoints you wish to protect.
+The `EnsureValidToken` middleware function validates the access token. You can apply this function to any endpoints you wish to protect.
 If the token is valid, the endpoint releases the resources. If the token is not valid, the API returns a `401 Authorization` error.
 
 Setup the **go-jwt-middleware** middleware to verify access tokens from incoming requests.
