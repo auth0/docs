@@ -62,7 +62,7 @@ This QuickStart targets the Next.js [App Router](https://nextjs.org/docs/app). I
 
 Create a file at `app/api/auth/[auth0]/route.js`. This is your Route Handler file with a [Dynamic Route Segment](https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments).
 
-Then, import in that file the `handleAuth` method from the SDK, and export the result of calling it from the `GET` export. This creates the following routes:
+Then, import the `handleAuth` method from the SDK and call it from the `GET` export. This creates the following routes:
 
 - `/api/auth/login`: The route used to perform login with Auth0.
 - `/api/auth/logout`: The route used to log the user out.
