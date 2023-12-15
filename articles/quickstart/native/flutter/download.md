@@ -1,9 +1,9 @@
 To run the sample follow these steps:
 
-1) Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to the following value so it works for both Android and iOS apps:
+1) Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to the following value so it works for Android, iOS, and macOS apps:
 
 ```text
-com.auth0.samples.FlutterSample://${account.namespace}/ios/com.auth0.samples.FlutterSample/callback,com.auth0.sample://${account.namespace}/android/com.auth0.sample/callback
+com.auth0.samples.FlutterSample://${account.namespace}/ios/com.auth0.samples.FlutterSample/callback,com.auth0.sample://${account.namespace}/android/com.auth0.sample/callback,com.auth0.sample://${account.namespace}/macos/com.auth0.sample/callback
 ```
 
 2) Rename the file `.env.example` to `.env` and fill in the following values:
