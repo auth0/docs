@@ -100,6 +100,12 @@ okta:
     issuer: https://${account.namespace}/
     client-id: ${account.clientId}
     client-secret: YOUR_CLIENT_SECRET
+
+# The sample and instructions above for the callback and logout URL configuration use port 3000.
+# If you wish to use a different port, change this and be sure your callback and logout URLs are
+# configured with the correct port.
+server:
+  port: 3000
 ```
 
 ## Add login to your application {{{ data-action=code data-code="SecurityConfig.java" }}}
