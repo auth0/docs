@@ -305,11 +305,7 @@ const redirects = [
     to: '/quickstart/native/wpf-winforms',
   },
   {
-    from: '/xamarin-tutorial',
-    to: '/quickstart/native/xamarin',
-  },
-  {
-    from: '/quickstart/native/xamarin',
+    from: ['/quickstart/native/xamarin', '/xamarin-tutorial'],
     to: '/quickstart/native/net-android-ios',
   },
   {
@@ -361,7 +357,7 @@ const redirects = [
     to: '/quickstart/spa',
   },
   {
-    from: ['/quickstart', '/quickstart/'],
+    from: ['/quickstart', '/quickstart/', '/quickstart/native/cordova'],
     to: '/quickstarts',
   },
   {
@@ -399,10 +395,6 @@ const redirects = [
       '/quickstart/webapp/nodejs/01-login',
     ],
     to: '/quickstart/webapp/express',
-  },
-  {
-    from: ['/quickstart/native/cordova'],
-    to: '/quickstart',
   },
 
   /* CONNECTIONS */
@@ -962,7 +954,6 @@ const redirects = [
   {
     from: ['/microsites/call-api/call-api-m2m-app'],
     to: '/get-started/authentication-and-authorization-flow/client-credentials-flow',
-
   },
   {
     from: ['/microsites/add-login/add-login-native-mobile-app'],
@@ -4099,46 +4090,86 @@ const redirects = [
   /* Deploy CLI Tool */
 
   {
-    from: ['/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+      '/extensions/deploy-cli/guides/install-deploy-cli',
+      '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+      '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+    ],
     to: '/deploy-monitor/deploy-cli-tool',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application'],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+      '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+      '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+    ],
     to: '/deploy-monitor/deploy-cli-tool',
   },
   {
-    from: ['/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
-          '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
-          ],
+    from: [
+      '/deploy-monitor/auth0-deploy-cli/configuring-the-deploy-cli',
+      '/deploy-monitor/deploy-cli-tool/configuring-the-deploy-cli',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/configure-the-deploy-cli',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-          '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+      '/deploy-monitor/deploy-cli-tool/using-as-a-node-module',
+      '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+      '/extensions/deploy-cli/guides/call-deploy-cli-programmatically',
+      '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/use-as-a-node-module',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-          '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
-          ],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+      '/deploy-monitor/deploy-cli-tool/incorporating-into-multi-environment-workflows',
+      '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
+      '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+      '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/incorporate-into-multi-environment-workflows',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+      '/extensions/deploy-cli/guides/import-export-yaml-file',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+      '/extensions/deploy-cli/guides/import-export-directory-structure',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings'],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings',
+      '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
+      '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings',
+      '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/keyword-replacement',
   },
   {
-    from: ['/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
-          '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
-          ],
+    from: [
+      '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
+      '/deploy-monitor/deploy-cli-tool/using-as-a-cli',
+      '/extensions/deploy-cli/references/deploy-cli-options',
+      '/extensions/deploy-cli-tool/deploy-cli-tool-options',
+      '/deploy/deploy-cli-tool/deploy-cli-tool-options',
+    ],
     to: '/deploy-monitor/deploy-cli-tool/use-as-a-cli',
   },
   {
@@ -4589,71 +4620,6 @@ const redirects = [
       '/deploy/deploy-cli-tool',
     ],
     to: '/deploy-monitor/deploy-cli-tool',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-      '/extensions/deploy-cli/guides/call-deploy-cli-programmatically',
-      '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
-      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
-      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-      '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/guides/import-export-directory-structure',
-      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/guides/import-export-yaml-file',
-      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
-      '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-      '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/guides/install-deploy-cli',
-      '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-      '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/references/deploy-cli-options',
-      '/extensions/deploy-cli-tool/deploy-cli-tool-options',
-      '/deploy/deploy-cli-tool/deploy-cli-tool-options',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
-      '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings',
-      '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings',
-    ],
-    to: '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings',
   },
 
   /* Get Started */
@@ -6499,11 +6465,11 @@ const redirects = [
   },
   {
     from: [
-      '/mfa/adpative-mfa/adaptive-mfa-rule-actions', 
-      '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions', 
+      '/mfa/adpative-mfa/adaptive-mfa-rule-actions',
+      '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions',
       '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
       '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rules',
-      ],
+    ],
     to: '/secure/multi-factor-authentication/adaptive-mfa/customize-adaptive-mfa',
   },
   {
@@ -7906,7 +7872,6 @@ const redirects = [
       '/policies/authentication-api-endpoint-rate-limits',
       '/support/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
       '/troubleshoot/customer-support/operational-policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
-
     ],
     to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
