@@ -77,10 +77,11 @@ require 'vendor/autoload.php';
 
 // Now instantiate the Auth0 class with our configuration:
 $auth0 = new \Auth0\SDK\Auth0([
+    'strategy' => \Auth0\SDK\Configuration\SdkConfiguration::STRATEGY_API,
     'domain' => $_ENV['AUTH0_DOMAIN'],
     'clientId' => $_ENV['AUTH0_CLIENT_ID'],
     'clientSecret' => $_ENV['AUTH0_CLIENT_SECRET'],
-    'audience' => $_ENV['AUTH0_AUDIENCE']
+    'audience' => ($_ENV['AUTH0_AUDIENCE'] ?? null) !== null ? [trim($_ENV['AUTH0_AUDIENCE'])] : null,
 ]);
 ```
 
