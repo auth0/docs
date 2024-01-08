@@ -31,8 +31,8 @@ github:
   repo: auth0-aspnetcore-mvc-samples
   branch: master
 requirements:
-  - .NET Core 3.1
-  - .NET 5.0
   - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
 sample_download_required_data:
   - client
