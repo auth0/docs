@@ -45,15 +45,15 @@ When following along with this quickstart, configure `myapp://callback` as the *
 
 Auth0 provides a [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/) SDK to simplify the process of implementing Auth0 authentication in MAUI applications.
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.MAUI` package (ensure to show pre-releases).
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.MAUI` package.
 
 Alternatively, you can use the Nuget Package Manager Console (`Install-Package`) or the `dotnet` CLI (`dotnet add`).
 
 ```ps
-Install-Package Auth0.OidcClient.MAUI -IncludePrerelease
+Install-Package Auth0.OidcClient.MAUI
 ```
 ```
-dotnet add package Auth0.OidcClient.MAUI --prerelease
+dotnet add package Auth0.OidcClient.MAUI
 ```
 
 ## Platform specific configuration
