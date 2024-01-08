@@ -31,5 +31,7 @@ github:
   branch: main
 requirements:
   - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
 sample_download_required_data:
   - client
