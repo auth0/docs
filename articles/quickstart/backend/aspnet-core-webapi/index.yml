@@ -5,9 +5,9 @@ logo: dotnet-platform
 alias:
   - asp.net core webapi
   - aspnet core webapi
-  - asp.net core webapi 3.1
-  - asp.net 5.0
   - asp.net core webapi 6.0
+  - asp.net core webapi 7.0
+  - asp.net core webapi 8.0
 language:
   - C#
 framework:
@@ -35,9 +35,9 @@ github:
   repo: auth0-aspnetcore-webapi-samples
   branch: master
 requirements:
-  - .NET Core 3.1
-  - .NET 5.0
   - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
 next_steps:
   - path: 01-authorization
     list:

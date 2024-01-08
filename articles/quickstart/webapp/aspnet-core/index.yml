@@ -17,8 +17,9 @@ sdk:
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
-  - aspnetcore-3.1
-  - net-5
+  - net-6
+  - net-7
+  - net-8
 seo_alias: aspnet-core
 default_article: 01-login
 articles:
@@ -31,8 +32,8 @@ github:
   repo: auth0-aspnetcore-mvc-samples
   branch: master
 requirements:
-  - .NET Core 3.1
-  - .NET 5.0
   - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
 sample_download_required_data:
   - client
