@@ -18,6 +18,8 @@ snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
   - net-6
+  - net-7
+  - net-8
 seo_alias: aspnet-core-blazor-server
 default_article: 01-login
 articles:
