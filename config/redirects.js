@@ -59,8 +59,9 @@ const redirects = [
       '/design/browser-based-vs-native-experience-on-mobile',
       '/tutorials/browser-based-vs-native-experience-on-mobile',
       '/best-practices/mobile-device-login-flow-best-practices',
+      '/get-started/authentication-and-authorization-flow/mobile-device-login-flow-best-practices',
     ],
-    to: '/get-started/authentication-and-authorization-flow/mobile-device-login-flow-best-practices',
+    to: '/get-started/authentication-and-authorization-flow/device-authorization-flow/mobile-device-login-flow-best-practices',
   },
   {
     from: '/topics/identity-glossary',
@@ -978,7 +979,7 @@ const redirects = [
   },
   {
     from: ['/microsites/call-api/call-api-device'],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
+    to: '/get-started/authentication-and-authorization-flow/device-authorization-flow/call-your-api-using-the-device-authorization-flow',
   },
   {
     from: ['/microsites/call-api/call-api-native-mobile-app'],
@@ -2756,8 +2757,9 @@ const redirects = [
       '/api-auth/tutorials/nonce',
       '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow',
       '/authorization/flows/mitigate-replay-attacks-when-using-the-implicit-flow',
+      '/get-started/authentication-and-authorization-flow/mitigate-replay-attacks-when-using-the-implicit-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/mitigate-replay-attacks-when-using-the-implicit-flow',
+    to: '/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post/mitigate-replay-attacks-when-using-the-implicit-flow',
   },
   {
     from: ['/flows/hybrid-flow', '/api-auth/grant/hybrid', '/authorization/flows/hybrid-flow'],
@@ -2768,8 +2770,9 @@ const redirects = [
       '/api-auth/tutorials/hybrid-flow',
       '/flows/call-api-hybrid-flow',
       '/authorization/flows/call-api-hybrid-flow',
+      '/get-started/authentication-and-authorization-flow/call-api-hybrid-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-api-hybrid-flow',
+    to: '/get-started/authentication-and-authorization-flow/hybrid-flow/call-api-hybrid-flow',
   },
   {
     from: [
@@ -2820,8 +2823,9 @@ const redirects = [
       '/flows/guides/device-auth/call-api-device-auth',
       '/authorization/flows/call-your-api-using-the-device-authorization-flow',
       '/microsites/protect-api/protect-api',
+      '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
+    to: '/get-started/authentication-and-authorization-flow/device-authorization-flow/call-your-api-using-the-device-authorization-flow',
   },
   {
     from: [
@@ -2837,8 +2841,9 @@ const redirects = [
       '/flows/call-your-api-using-resource-owner-password-flow',
       '/api-auth/tutorials/password-grant',
       '/authorization/flows/call-your-api-using-resource-owner-password-flow',
+      '/get-started/authentication-and-authorization-flow/call-your-api-using-resource-owner-password-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-resource-owner-password-flow',
+    to: '/get-started/authentication-and-authorization-flow/resource-owner-password-flow/call-your-api-using-resource-owner-password-flow',
   },
   {
     from: [
@@ -2846,8 +2851,9 @@ const redirects = [
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection',
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
       '/authorization/flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
+      '/get-started/authentication-and-authorization-flow/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
     ],
-    to: '/get-started/authentication-and-authorization-flow/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
+    to: '/get-started/authentication-and-authorization-flow/resource-owner-password-flow/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
   },
   {
     from: ['/authorization/concepts/rbac', '/authorization/rbac', '/rbac'],
@@ -6081,8 +6087,9 @@ const redirects = [
       '/application-auth/legacy/client-side-web',
       '/flows/add-login-using-the-implicit-flow-with-form-post',
       '/login/authentication/add-login-using-the-implicit-flow-with-form-post',
+      '/get-started/authentication-and-authorization-flow/add-login-using-the-implicit-flow-with-form-post',
     ],
-    to: '/get-started/authentication-and-authorization-flow/add-login-using-the-implicit-flow-with-form-post',
+    to: '/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post/add-login-using-the-implicit-flow-with-form-post',
   },
   {
     from: [
