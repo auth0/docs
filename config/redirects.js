@@ -982,15 +982,15 @@ const redirects = [
   },
   {
     from: ['/microsites/call-api/call-api-native-mobile-app'],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce/call-your-api-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: ['/microsites/call-api/call-api-regular-web-app'],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow/call-your-api-using-the-authorization-code-flow',
   },
   {
     from: ['/microsites/call-api/call-api-single-page-app'],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce/call-your-api-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: ['/microsites/manage-users/define-maintain-custom-user-data'],
@@ -2704,8 +2704,9 @@ const redirects = [
       '/api-auth/tutorials/authorization-code-grant',
       '/flows/call-your-api-using-the-authorization-code-flow',
       '/authorization/flows/call-your-api-using-the-authorization-code-flow',
+      '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow/call-your-api-using-the-authorization-code-flow',
   },
   {
     from: [
@@ -2715,8 +2716,9 @@ const redirects = [
       '/flows/concepts/single-page-login-flow',
       '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
       '/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
+      '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
     ],
-    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce',
   },
   {
     from: [
@@ -2728,8 +2730,9 @@ const redirects = [
       '/api-auth/tutorials/authorization-code-grant-pkce',
       '/flows/call-your-api-using-the-authorization-code-flow-with-pkce',
       '/authorization/flows/call-your-api-using-the-authorization-code-flow-with-pkce',
+      '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce/call-your-api-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: [
@@ -2790,8 +2793,9 @@ const redirects = [
       '/api-auth/config/asking-for-access-tokens',
       '/flows/call-your-api-using-the-client-credentials-flow',
       '/authorization/flows/call-your-api-using-the-client-credentials-flow',
+      '/get-started/authentication-and-authorization-flow/call-your-api-using-the-client-credentials-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-client-credentials-flow',
+    to: '/get-started/authentication-and-authorization-flow/client-credentials-flow/call-your-api-using-the-client-credentials-flow',
   },
   {
     from: [
@@ -2799,8 +2803,9 @@ const redirects = [
       '/api-auth/grant/using-rules',
       '/authorization/customize-tokens-using-hooks-with-client-credentials-flow',
       '/authorization/flows/customize-tokens-using-hooks-with-client-credentials-flow',
+      '/get-started/authentication-and-authorization-flow/customize-tokens-using-hooks-with-client-credentials-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/customize-tokens-using-hooks-with-client-credentials-flow',
+    to: '/get-started/authentication-and-authorization-flow/client-credentials-flow/customize-tokens-using-hooks-with-client-credentials-flow',
   },
   {
     from: [
@@ -6040,8 +6045,9 @@ const redirects = [
       '/application-auth/legacy/server-side-web',
       '/flows/add-login-auth-code-flow',
       '/login/authentication/add-login-auth-code-flow',
+      '/get-started/authentication-and-authorization-flow/add-login-auth-code-flow',
     ],
-    to: '/get-started/authentication-and-authorization-flow/add-login-auth-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow/add-login-auth-code-flow',
   },
   {
     from: [
@@ -6058,8 +6064,9 @@ const redirects = [
       '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow',
       '/flows/add-login-using-the-authorization-code-flow-with-pkce',
       '/login/authentication/add-login-using-the-authorization-code-flow-with-pkce',
+      '/get-started/authentication-and-authorization-flow/add-login-using-the-authorization-code-flow-with-pkce',
     ],
-    to: '/get-started/authentication-and-authorization-flow/add-login-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce/add-login-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: [
