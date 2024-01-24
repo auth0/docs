@@ -84,10 +84,6 @@ const redirects = [
     ],
     to: '/quickstart/native/:platform',
   },
-   {
-    from: `/quickstart/native/maui`,
-    to: '/quickstart/native/maui/interactive',
-  },
   {
     from: `/quickstart/spa/:platform/${apis}`,
     to: '/quickstart/spa/:platform',
