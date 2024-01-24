@@ -105,7 +105,7 @@ using Auth0.OidcClient;
 var client = new Auth0Client(new Auth0ClientOptions
 {
     Domain = "${account.namespace}",
-    ClientId = "${account.namespace}",
+    ClientId = "${account.clientId}",
     RedirectUri = "myapp://callback",
     PostLogoutRedirectUri = "myapp://callback",
     Scope = "openid profile email"
