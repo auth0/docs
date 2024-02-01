@@ -3191,9 +3191,8 @@ const redirects = [
     to: '/customize',
   },
   {
-     from: ['/sign-up-prompt-customizations',
-],
-  to: '/customize/universal-login-pages/customize-signup-and-login-prompts',
+     from: ['/sign-up-prompt-customizations',],
+     to: '/customize/universal-login-pages/customize-signup-and-login-prompts',
 },
   {
     from: [
