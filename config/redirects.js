@@ -3191,6 +3191,10 @@ const redirects = [
     to: '/customize',
   },
   {
+     from: ['/sign-up-prompt-customizations',],
+     to: '/customize/universal-login-pages/customize-signup-and-login-prompts',
+},
+  {
     from: [
       '/universal-login/new-experience/universal-login-page-templates',
       '/universal-login/page-templates',
