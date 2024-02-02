@@ -6810,8 +6810,11 @@ const redirects = [
     to: '/troubleshoot/product-lifecycle/past-migrations/migrate-tenant-member-roles',
   },
   {
-    from: ['/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration'],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration',
+    from: [
+        '/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration',
+        '/troubleshoot/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration',
+    ],
+    to: '/troubleshoot/product-lifecycle/past-migrations/tenant-hostname-migration',
   },
   {
     from: [
@@ -6982,6 +6985,35 @@ const redirects = [
       '/product-lifecycle/past-migrations/migrate-from-legacy-auth-flows',
     ],
     to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-legacy-auth-flows',
+  },
+  {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-edge-js-extensibility-features'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-edge-js-extensibility-features',
+  },
+  
+  {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-oracledb-extensibility-features'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-oracledb-extensibility-features',
+  },
+  
+  {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/custom-claims-migration'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/custom-claims-migration',
+  },
+  
+  {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-actions-nodejs-16-to-nodejs-18'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-actions-nodejs-16-to-nodejs-18',
+  },
+  
+   {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-16'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-nodejs-16',
+  },
+  
+  {
+    from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-log-extensions'],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-log-extensions',
   },
 
   /* Professional Services */
