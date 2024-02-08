@@ -146,6 +146,9 @@ export default Profile;
 
 The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors, use the `isAuthenticated` property from `useAuth0()` to check if Auth0 has authenticated the user before React renders any component that consumes the `user` property. Ensure that the SDK has completed loading before accessing the `isAuthenticated` property, by checking that `isLoading` is `false`.
 
+If you encounter any issues with authentication or viewing user profiles while using Auth0, you are encouraged to check out our FAQ for additional information and troubleshooting tips, including a section on what to do if the user is not logged in after a page refresh. You can find the FAQ here: https://github.com/auth0/auth0-react/blob/master/FAQ.md#1-user-is-not-logged-in-after-page-refresh
+
+
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::                                              
