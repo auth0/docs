@@ -1811,6 +1811,42 @@ const redirects = [
     ],
     to: '/get-started/applications/test-database-connections',
   },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams',
+    ],
+    to: '/get-started/auth0-teams',
+  },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams/tenant-management',
+    ],
+    to: '/get-started/auth0-teams/tenant-management',
+  },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams/team-member-management',
+    ],
+    to: '/get-started/auth0-teams/team-member-management',
+  },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams/tenant-member-management',
+    ],
+    to: '/get-started/auth0-teams/tenant-member-management',
+  },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams/configure-security-policies',
+    ],
+    to: '/get-started/auth0-teams/configure-security-policies',
+  },
+  {
+    from: [
+      '/get-started/tenant-settings/auth0-teams/troubleshoot-teams',
+    ],
+    to: '/get-started/auth0-teams/troubleshoot-teams',
+  },
 
   /* APIs */
 
