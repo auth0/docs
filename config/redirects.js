@@ -56,6 +56,15 @@ const redirects = [
   },
   {
     from: [
+      '/contentful-test-1',
+      '/contentful-test-2',
+      '/contentful-test-3',
+      '/contentful-test-4',
+    ],
+    to: '/',
+  },
+  {
+    from: [
       '/design/browser-based-vs-native-experience-on-mobile',
       '/tutorials/browser-based-vs-native-experience-on-mobile',
       '/best-practices/mobile-device-login-flow-best-practices',
