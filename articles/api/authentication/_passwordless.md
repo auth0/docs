@@ -206,7 +206,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `otp` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
 | <dfn data-key="audience">`audience`</dfn> | API Identifier of the API for which you want to get an Access Token. |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to also include user profile information in the ID Token. |
-| `redirect_uri` | A callback URL that has been registered with your application's **Allowed Callback URLs**. |
+| `redirect_uri` <br/><span class="label label-danger">Required</span> | A callback URL that has been registered with your application's **Allowed Callback URLs**. |
 
 
 ### Test with Authentication API Debugger
