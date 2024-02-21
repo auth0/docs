@@ -128,7 +128,8 @@ Content-Type: application/json
   "realm": "email|sms" //email or sms
   "username":"USER_EMAIL|USER_PHONE_NUMBER", // depends on which realm you chose
   "audience" : "API_IDENTIFIER", // in case you need an access token for a specific API
-  "scope": "SCOPE"
+  "scope": "SCOPE",
+  "redirect_uri": "REDIRECT_URI"
 }
 ```
 
@@ -136,7 +137,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"http://auth0.com/oauth/grant-type/passwordless/otp", "client_id":"${account.clientId}", "client_secret":"CLIENT_SECRET", "otp":"CODE", "realm":"email|sms", "username":"USER_EMAIL|USER_PHONE_NUMBER", "audience":"API_IDENTIFIER", "scope":"SCOPE"}'
+  --data '{"grant_type":"http://auth0.com/oauth/grant-type/passwordless/otp", "client_id":"${account.clientId}", "client_secret":"CLIENT_SECRET", "otp":"CODE", "realm":"email|sms", "username":"USER_EMAIL|USER_PHONE_NUMBER", "audience":"API_IDENTIFIER", "scope":"SCOPE", "redirect_uri": "REDIRECT_URI"}'
 ```
 
 ```javascript
@@ -205,6 +206,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `otp` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
 | <dfn data-key="audience">`audience`</dfn> | API Identifier of the API for which you want to get an Access Token. |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to also include user profile information in the ID Token. |
+| `redirect_uri` <br/><span class="label label-danger">Required</span> | A callback URL that has been registered with your application's **Allowed Callback URLs**. |
 
 
 ### Test with Authentication API Debugger
