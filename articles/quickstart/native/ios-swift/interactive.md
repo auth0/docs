@@ -156,7 +156,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
 
-- **domain**: The domain of your Auth0 tenant. If you are using a [custom domain](/customize/custom-domains), you should set this to the value of your custom domain instead.
+- **domain**: The domain of your Auth0 tenant. If you have a [custom domain](/customize/custom-domains), use it instead of your Auth0 tenant’s domain.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
 
 Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 domain and Client ID values. 
