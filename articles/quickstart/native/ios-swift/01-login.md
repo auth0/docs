@@ -78,14 +78,6 @@ Next, add the following [entry](https://developer.apple.com/documentation/xcode/
 webcredentials:${account.namespace}
 ```
 
-<% if (!account.userName) { %>
-For example, if your Auth0 domain were `example.us.auth0.com`, then this value would be:
-
-```text
-webcredentials:example.us.auth0.com
-```
-<% } %>
-
 If you have a [custom domain](/customize/custom-domains), use it instead of the Auth0 domain from the settings page.
 
 ## Install the SDK
