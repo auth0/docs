@@ -76,7 +76,7 @@ com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 
 ### Configure the Team ID and bundle identifier
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings), scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to [your Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings), scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
 
