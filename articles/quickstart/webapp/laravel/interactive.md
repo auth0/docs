@@ -203,7 +203,7 @@ Open your web browser and try accessing the following routes:
 
 - [http://localhost:8000](http://localhost:8000) to see the public route.
 - [http://localhost:8000/private](http://localhost:8000/private) to be prompted to authenticate.
-- [http://localhost:8000](http://localhost:8000) to see the pubic route, now authenticated.
+- [http://localhost:8000](http://localhost:8000) to see the public route, now authenticated.
 - [http://localhost:8000/scope](http://localhost:8000/scope) to check if you have the `read:messages` [permission](https://auth0.com/docs/manage-users/access-control/rbac).
 - [http://localhost:8000/update](http://localhost:8000/update) to update the user's profile.
 - [http://localhost:8000/logout](http://localhost:8000/logout) to log out.
