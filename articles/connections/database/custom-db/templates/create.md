@@ -438,10 +438,12 @@ function create(user, callback) {
   //more info here: https://github.com/brianc/node-postgres
 
   const bcrypt = require('bcrypt');
-  const postgres = require('pg');
+  const { Client } = require('pg');
 
   const conString = 'postgres://user:pass@localhost/mydb';
-  postgres.connect(conString, function (err, client, done) {
+  const client = new Client(conString);
+
+  client.connect(function (err) {
     if (err) return callback(err);
 
     bcrypt.hash(user.password, 10, function (err, hashedPassword) {
@@ -449,9 +451,9 @@ function create(user, callback) {
 
       const query = 'INSERT INTO users(email, password) VALUES ($1, $2)';
       client.query(query, [user.email, hashedPassword], function (err, result) {
-        // NOTE: always call `done()` here to close
+        // NOTE: always call `client.end()` here to close
         // the connection to the database
-        done();
+        client.end();
 
         return callback(err);
       });
