@@ -18,7 +18,7 @@ files:
   - files/api-controller
 ---
 
-# Add Authorization to an ASP.NET Owin Web API application.
+# Add Authorization to an ASP.NET Owin Web API application
 Auth0 allows you to add authorization to any kind of application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Owin Web API application using the `Microsoft.Owin.Security.Jwt` package.
 
 If you have not created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API for your project. 
