@@ -25,12 +25,16 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use it instead of the Auth0 domain from the settings page.
-
 ::: note
 On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
 
-**This feature requires Xcode 15.3+**.
+**This feature requires Xcode 15.3+ and a paid Apple Developer account**.
+:::
+
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use it instead of the Auth0 domain from the settings page.
+
+::: warning
+Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
 :::
 
 #### iOS
@@ -54,11 +58,13 @@ https://example.us.auth0.com/ios/com.example.MyApp/callback,
 com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 
+### Configure the associated domain
+
 ::: warning
-Make sure that the [application type](/get-started/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing.
+This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
 :::
 
-### Configure the Team ID and bundle identifier
+#### Configure the Team ID and bundle identifier
 
 Scroll to the end of the settings page of your Auth0 application and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
 
@@ -66,7 +72,7 @@ Scroll to the end of the settings page of your Auth0 application and open **Adva
 
 This will add your app to your Auth0 tenant's `apple-app-site-association` file.
 
-### Add the associated domain capability
+#### Add the associated domain capability
 
 In Xcode, go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of your app's target settings, and press the **+ Capability** button. Then select **Associated Domains**.
 
