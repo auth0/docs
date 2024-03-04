@@ -22,7 +22,7 @@ files:
   - files/user-profile
 ---
 
-# Add login to your Ionic Angular with Capacitor app
+# Add Login to your Ionic Angular with Capacitor application
 
 Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
 
@@ -62,7 +62,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add login to your application {{{ data-action=code data-code="login-button.ts" }}}
+## Add Login to your application {{{ data-action=code data-code="login-button.ts" }}}
 
 <%= include('../_includes/ionic/_add_login_intro') %>
 
@@ -101,7 +101,7 @@ Sorry about that. Here's a couple things to double check:
 :::
 ::::
 
-## Add logout to your application {{{ data-action=code data-code="logout-button.ts" }}}
+## Add Logout to your application {{{ data-action=code data-code="logout-button.ts" }}}
 
 <%= include('../_includes/ionic/_add_logout_intro.md') %>
 
