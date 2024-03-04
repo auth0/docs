@@ -8,7 +8,7 @@ files:
   - files/app
 ---
 
-# Add Login to Your JavaScript App
+# Add Login to your JavaScript application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
@@ -42,7 +42,7 @@ Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and prov
 
 If a user has previously logged in, the client will refresh the authentication state on page load; the user will still be logged in once the page is refreshed.
 
-## Add login to your application {{{ data-action=code data-code="app.js#8:14" }}}
+## Add Login to your application {{{ data-action=code data-code="app.js#8:14" }}}
 
 Now that you have configured your Auth0 Application, added the Auth0 SPA SDK, and created the Auth0 client, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
@@ -99,7 +99,7 @@ Still having issues? To get more help, check out our [documentation](/) or visit
 :::
 ::::
 
-## Add logout to your application {{{ data-action=code data-code="app.js#23:29" }}}
+## Add Logout to your application {{{ data-action=code data-code="app.js#23:29" }}}
 
 Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
