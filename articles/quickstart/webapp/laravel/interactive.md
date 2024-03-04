@@ -21,7 +21,7 @@ files:
   - files/web
 ---
 
-# Add Login to a Laravel Application
+# Add Login to your Laravel Application
 
 [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) allows you to quickly add authentication, user profile management, and routing access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) [Laravel 9 or 10](https://github.com/auth0/laravel-auth0#support-policy) application.
 
