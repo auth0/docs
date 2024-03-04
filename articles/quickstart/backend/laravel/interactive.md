@@ -18,7 +18,7 @@ files:
   - files/api
 ---
 
-# Add Authorization to a Laravel Application
+# Add Authorization to a Laravel application
 
 [Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) [Laravel 9 or 10](https://github.com/auth0/laravel-auth0#support-policy) application.
 
