@@ -12,7 +12,7 @@ github:
     path: mvc-login
 ---
 
-# Add login to your Spring Webapp
+# Add Login to your Spring Web application
 
 ::: panel Using Spring WebFlux?
 This tutorial uses [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). If you are using [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-web-reactive), the steps to add authentication are similar, but some implementation details are different. Refer to the [Spring Boot WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-boot-login-samples/tree/master/webflux-login) to see how to integrate Auth0 with your Spring Boot WebFlux application.
@@ -108,7 +108,7 @@ server:
   port: 3000
 ```
 
-## Add login to your application {{{ data-action=code data-code="SecurityConfig.java" }}}
+## Add Login to your application {{{ data-action=code data-code="SecurityConfig.java" }}}
 
 To enable user login with Auth0, create a class that will register a [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), and add the `@Configuration` annotation.
 
@@ -160,7 +160,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with [social identity providers](https://auth0.com/docs/connections/identity-providers-social). However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys) document.
 :::
 
-## Add logout to your application {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
+## Add Logout to your application {{{ data-action=code data-code="SecurityConfigWithLogout.java" }}}
 
 Now that users can log into your application, they need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can provide a `LogoutHandler` to redirect users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
 
