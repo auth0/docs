@@ -15,8 +15,6 @@ Go to the **Signing and Capabilities** tab of the app's target settings. Find th
 
 Open the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**. If you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `YOUR_AUTH0_DOMAIN` with your custom domain instead of the value from the settings page.
 
-> Make sure you're using a **Native** Auth0 application.
-
 For **SwiftSample (iOS)**:
 
 ```text

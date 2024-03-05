@@ -86,6 +86,10 @@ webcredentials:${account.namespace}
 
 If you have a [custom domain](/customize/custom-domains), use it instead of the Auth0 domain from the settings page.
 
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
+
 ## Install the SDK
 
 Add the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK to your project. The library will make requests to the Auth0 Authentication and Management APIs.

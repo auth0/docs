@@ -45,13 +45,13 @@ If you would rather explore a complete configuration, you can view a sample app 
 
 Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.
 
-Add the corresponding URLs to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use it instead of your Auth0 tenant’s domain.
-
 ::: note
 On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
 
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
+
+Add the corresponding URLs to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use it instead of your Auth0 tenant’s domain.
 
 #### iOS
 
@@ -101,6 +101,10 @@ webcredentials:${account.namespace}
 ```
 
 If you have a [custom domain](/customize/custom-domains), use it instead of your Auth0 tenant’s domain.
+
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
 
 ## Install the SDK
 
