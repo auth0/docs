@@ -7,11 +7,15 @@ Then, make sure the **Automatically manage signing** box is checked, and that yo
 
 ## 2. Configure the associated domain
 
+> **This requires Xcode 15.3+ and a paid Apple Developer account**. If you do not have a paid Apple Developer account, skip this step, and comment out the two `useHTTPS()` calls in `MainView.swift`.
+
 Go to the **Signing and Capabilities** tab of the app's target settings. Find the `webcredentials:{YOUR_AUTH0_DOMAIN}` entry under **Associated Domains**, and replace the placeholder `{YOUR_AUTH0_DOMAIN}` value with the domain of your Auth0 application. If have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `{YOUR_AUTH0_DOMAIN}` with your custom domain instead of the value from the settings page.
 
 ## 3. Configure the Auth0 application
 
-Open the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**. If you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `YOUR_AUTH0_DOMAIN` with your custom domain instead of the value from the settings page.
+Open the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**. If you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `YOUR_AUTH0_DOMAIN` with your custom domain instead of the value from the settings page.
+
+> Make sure you're using a **Native** Auth0 application.
 
 For **SwiftSample (iOS)**:
 
@@ -27,4 +31,4 @@ https://YOUR_AUTH0_DOMAIN/macos/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/macos/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
-Then, scroll to the end of the settings page of your Auth0 application and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to the app's bundle identifier.
+Then, scroll to the end of the settings page and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to the app's bundle identifier.
