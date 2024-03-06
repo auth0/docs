@@ -100,7 +100,7 @@ Next, add the following [entry](https://developer.apple.com/documentation/xcode/
 webcredentials:${account.namespace}
 ```
 
-If you have a [custom domain](/customize/custom-domains), use it instead of your Auth0 tenant’s domain.
+If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
 
 ::: note
 For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
