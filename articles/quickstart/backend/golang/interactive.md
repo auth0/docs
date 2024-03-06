@@ -17,7 +17,7 @@ files:
 
 <!-- markdownlint-disable MD041 MD025 -->
 
-# Add Authorization to a Go application
+# Add Authorization to Your Go Application
 This guide demonstrates how to integrate Auth0 with any new or existing Go API application using the [go-jwt-middleware](https://github.com/auth0/go-jwt-middleware) package.
 
 If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
