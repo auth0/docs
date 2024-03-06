@@ -43,43 +43,76 @@ If you would rather explore a complete configuration, you can view a sample app 
 
 ### Configure callback and logout URLs
 
-Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your application will produce an error.
+Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.
 
-Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to your app's platform. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant’s domain.
+::: note
+On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
+
+**This feature requires Xcode 15.3+ and a paid Apple Developer account**.
+:::
+
+Add the corresponding URLs to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
 
 #### iOS
 
 ```text
+https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
 #### macOS
 
 ```text
+https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
 ```
 
 For example, if your iOS bundle identifier was `com.example.MyApp` and your Auth0 domain was `example.us.auth0.com`, then this value would be:
 
 ```text
+https://example.us.auth0.com/ios/com.example.MyApp/callback,
 com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 
-## Configure your app
+### Configure the associated domain
 
-You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
+::: warning
+This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
+:::
 
-In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+#### Configure the Team ID and bundle identifier
 
-<p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings), scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+
+This will add your app to your Auth0 tenant's `apple-app-site-association` file.
+
+#### Add the associated domain capability
+
+In Xcode, go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of your app's target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
+
+Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+
+```text
+webcredentials:${account.namespace}
+```
+
+If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
 
 ## Install the SDK
 
-### Swift Package Manager
+### Using the Swift Package Manager
 
 Open the following menu item in Xcode:
 
-**File > Add Packages...**
+**File > Add Package Dependencies...**
 
 In the **Search or Enter Package URL** search box enter this URL:
 
@@ -93,7 +126,7 @@ Then, select the dependency rule and press **Add Package**.
 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 :::
 
-### Cocoapods
+### Using Cocoapods
 
 Add the following line to your `Podfile`:
 
@@ -107,7 +140,7 @@ Then, run `pod install`.
 For further reference on Cocoapods, check their [official documentation](https://guides.cocoapods.org/using/getting-started.html).
 :::
 
-### Carthage
+### Using Carthage
 
 Add the following line to your `Cartfile`:
 
@@ -125,7 +158,7 @@ For further reference on Carthage, check their [official documentation](https://
 
 The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
 
-- **domain**: The domain of your Auth0 tenant. If you are using a [custom domain](/customize/custom-domains), you should set this to the value of your custom domain instead.
+- **domain**: The domain of your Auth0 tenant. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
 
 Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 domain and Client ID values. 
@@ -140,7 +173,7 @@ You configured the Auth0.swift SDK. Run your app to verify that it is not produc
 :::
 
 :::checkpoint-failure
-If your application produces errors related to the SDK:
+If your app produces errors related to the SDK:
 - Make sure you selected the correct Auth0 application
 - Verify you saved your URL updates
 - Ensure you set the Auth0 domain and Client ID correctly
@@ -149,7 +182,7 @@ Still having issues? Check out our [documentation](https://github.com/auth0/Auth
 :::
 ::::
 
-## Add login to your app {{{ data-action=code data-code="MainView.swift#20:31" }}}
+## Add login to your app {{{ data-action=code data-code="MainView.swift#20:32" }}}
 
 Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
@@ -157,7 +190,7 @@ Import the `Auth0` module in the file where you want to present the login page. 
 You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos) to learn more.
 :::
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Screenshot of the Universal Login page"></div>
 
 ::::checkpoint
 :::checkpoint-default
@@ -177,7 +210,7 @@ Still having issues? Check out our [documentation](https://github.com/auth0/Auth
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="MainView.swift#33:44" }}}
+## Add logout to your app {{{ data-action=code data-code="MainView.swift#34:46" }}}
 
 Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
