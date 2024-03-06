@@ -167,7 +167,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your application {{{ data-action="code" data-code="MainPage.xaml.cs#32" }}}
+## Add logout to your application {{{ data-action="code" data-code="MainPage.xaml.cs#32" }}}
 
 Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s `LogoutAsync()` method. When users log out, they will be redirected to your Auth0 logout endpoint, which will then immediately redirect them back to the logout URL you set up earlier in this quickstart.
 
