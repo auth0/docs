@@ -20,7 +20,7 @@ files:
   - files/main-page
 ---
 
-# Add Login to your MAUI application
+# Add Login to your MAUI Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET MAUI application using the Auth0 SDKs for [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/).
 
@@ -135,7 +135,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to your application {{{ data-action="code" data-code="MainPage.xaml.cs#25" }}}
+## Add login to your application {{{ data-action="code" data-code="MainPage.xaml.cs#25" }}}
 
 Now that you have configured your Auth0 Application and the Auth0 SDK, you need to set up login for your project. To do this, you will use the SDK’s `LoginAsync()` method to create a login button that redirects users to the Auth0 Universal Login page. 
 
