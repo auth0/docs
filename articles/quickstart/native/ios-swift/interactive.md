@@ -21,7 +21,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-# Add Login to your iOS or macOS application
+# Add Login to Your iOS or macOS Application
 
 This guide demonstrates how to add authentication and access user profile information in any iOS / macOS app using the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK.
 
@@ -149,7 +149,7 @@ Still having issues? Check out our [documentation](https://github.com/auth0/Auth
 :::
 ::::
 
-## Add Login to your application {{{ data-action=code data-code="MainView.swift#20:31" }}}
+## Add login to your application {{{ data-action=code data-code="MainView.swift#20:31" }}}
 
 Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
 
@@ -177,7 +177,7 @@ Still having issues? Check out our [documentation](https://github.com/auth0/Auth
 :::
 ::::
 
-## Add Logout to your application {{{ data-action=code data-code="MainView.swift#33:44" }}}
+## Add logout to your application {{{ data-action=code data-code="MainView.swift#33:44" }}}
 
 Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
