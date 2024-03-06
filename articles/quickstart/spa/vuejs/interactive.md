@@ -24,7 +24,7 @@ files:
 Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/) guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
 :::
 
-# Add Login to your Vue application
+# Add Login to Your Vue Application
 
 Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.
 
@@ -84,7 +84,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to your application {{{ data-action=code data-code="login.js" }}}
+## Add login to your application {{{ data-action=code data-code="login.js" }}}
 
 Next, you will set up login for your project. You will use the SDK’s `loginWithRedirect` function exposed on the return value of `useAuth0`, which you can access in your component's setup function. It will redirect users to the Auth0 Universal Login page. and, after a user authenticates, redirect then back to the callback URL you set up earlier in this quickstart.
 
@@ -115,7 +115,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your application {{{ data-action=code data-code="logout.js" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.js" }}}
 
 Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then redirect them to the specified `logoutParams.returnTo` parameter.
 
