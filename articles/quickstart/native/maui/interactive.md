@@ -20,7 +20,7 @@ files:
   - files/main-page
 ---
 
-# Add Login to your MAUI Application
+# Add Login to Your MAUI Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET MAUI application using the Auth0 SDKs for [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/).
 
