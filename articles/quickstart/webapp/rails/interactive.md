@@ -10,7 +10,7 @@ files:
   - files/concern
 ---
 
-# Add Login to your Ruby on Rails application
+# Add Login to Your Ruby on Rails Application
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/auth/auth0/callback',
@@ -70,7 +70,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to your application
+## Add login to your application
 
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
@@ -100,7 +100,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your application
+## Add logout to your application
 
 Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Log out a user by redirecting to the `auth/logout` action, which redirects them to the Auth0 logout endpoint.
 
