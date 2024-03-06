@@ -25,7 +25,7 @@ files:
   - files/user
 ---
 
-# Add Login to your Go application
+# Add Login to Your Go Application
 
 Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
 
@@ -78,7 +78,7 @@ instance of `Authenticator` to the method, for use with the `login` and `callbac
 The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-contrib/sessions) middleware to manage our cookie-based sessions.
 :::
 
-## Add Login to your application {{{ data-action=code data-code="login.go" }}}
+## Add login to your application {{{ data-action=code data-code="login.go" }}}
 
 For the user to authenticate themselves, we need to create a handler function to handle the `/login` route.
 
@@ -125,7 +125,7 @@ An example of such an HTML file could look like the example below, but you can r
 </div>
 ```
 
-## Add Logout to your application {{{ data-action=code data-code="logout.go" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.go" }}}
 
 To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
 
