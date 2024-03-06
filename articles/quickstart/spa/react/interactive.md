@@ -15,7 +15,7 @@ github:
 Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button, add route guards using React Router, and call a protected API from React.
 :::
 
-# Add Login to your React application
+# Add Login to Your React Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any React application using the Auth0 React SDK.
 
@@ -70,7 +70,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to your application {{{ data-action=code data-code="login.js#4:7" }}}
+## Add login to your application {{{ data-action=code data-code="login.js#4:7" }}}
 
 Now that you have configured your Auth0 Application and the Auth0 React SDK, you need to set up login for your project. To do this, you will use the SDK’s loginWithRedirect() method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
@@ -101,7 +101,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your application {{{ data-action=code data-code="logout.js#10:18" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.js#10:18" }}}
 
 Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s logout() method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
 
