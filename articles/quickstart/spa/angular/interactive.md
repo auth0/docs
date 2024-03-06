@@ -15,7 +15,7 @@ github:
 Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
 :::
 
-# Add Login to your Angular application
+# Add Login to Your Angular Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
 
@@ -56,7 +56,7 @@ To configure the module, we use the [`forRoot()` pattern](https://angular.io/gui
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
-## Add Login to your application {{{ data-action=code data-code="login-button.ts#11:13" }}}
+## Add login to your application {{{ data-action=code data-code="login-button.ts#11:13" }}}
 
 Now that you have configured your Auth0 Application and the Auth0 Angular SDK, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method from the `AuthService` class to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to your application and the callback URL you set up earlier in this quickstart.
 
@@ -88,7 +88,7 @@ Still having issues? To get more help, check out our [documentation](/) or visit
 :::
 ::::
 
-## Add Logout to your application {{{ data-action=code data-code="logout-button.ts#19:25" }}}
+## Add logout to your application {{{ data-action=code data-code="logout-button.ts#19:25" }}}
 
 Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The SDK provides a `logout()` method on the `AuthService` class that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
