@@ -20,7 +20,7 @@ files:
   - files/program
 ---
 
-# Add Login to your Blazor Server application
+# Add Login to Your Blazor Server Application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Blazor Server application using the **Auth0.AspNetCore.Authentication** SDK. 
 
