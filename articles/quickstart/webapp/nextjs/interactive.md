@@ -23,7 +23,7 @@ files:
 
 <!-- markdownlint-disable MD025 MD034 -->
 
-# Add Login to your Next.js application
+# Add Login to Your Next.js Application
 
 This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js SDK. We recommend that you log in to follow this quickstart with examples configured for your account.
 
