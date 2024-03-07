@@ -18,7 +18,7 @@ files:
   - files/account.controller
 ---
 
-# Add Login to your ASP.NET MVC application
+# Add Login to Your ASP.NET MVC Application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET MVC application using the **Auth0.AspNetCore.Authentication** SDK. 
 
