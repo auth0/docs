@@ -11,7 +11,7 @@ github:
   path: 00-Login-Kt
 ---
 
-# Add login to your Android app
+# Add Login to Your Android Application
 
 <!-- markdownlint-disable MD002 MD041 -->
 
@@ -85,7 +85,7 @@ Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradl
 For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
 :::
 
-## Add login to your app {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
+## Add login to your application {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
@@ -117,7 +117,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
+## Add logout to your application {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
 
 Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 

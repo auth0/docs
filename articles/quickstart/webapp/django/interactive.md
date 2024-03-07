@@ -20,7 +20,7 @@ files:
 
 <!-- markdownlint-disable MD025 MD034 -->
 
-# Add login to your Django app
+# Add Login to Your Django Application
 
 Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Django](https://www.djangoproject.com/) application using the [Authlib](https://authlib.org/) SDK.
 

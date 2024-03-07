@@ -13,7 +13,7 @@ topics:
   - react-native
 ---
 
-# Add Login to your React Native App
+# Add Login to Your React Native Application
 
 <!-- markdownlint-disable MD002 MD012 MD025 MD041 -->
 
@@ -203,7 +203,7 @@ If your application did not launch successfully:
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
-## Add login to your app {{{ data-action=code data-code="app.js#8:14" }}}
+## Add login to your application {{{ data-action=code data-code="app.js#8:14" }}}
 
 Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This method redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
 
@@ -225,7 +225,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="app.js#16:22" }}}
+## Add logout to your application {{{ data-action=code data-code="app.js#16:22" }}}
 
 To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
 

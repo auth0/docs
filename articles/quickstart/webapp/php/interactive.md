@@ -13,7 +13,7 @@ github:
   path: app
 ---
 
-# Add Login to your PHP application
+# Add Login to Your PHP Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
 
@@ -116,7 +116,7 @@ composer require steampixel/simple-php-router
 
 Create a new file in your application called `router.php` to define our routes, and copy in the code from the interactive panel to the right.
 
-## Add Login to Your Application {{{ data-action=code data-code="login.php" }}}
+## Add login to your application {{{ data-action=code data-code="login.php" }}}
 
 Now that you have configured your Auth0 Application and the Auth0 PHP SDK, you need to set up login for your project. To do this, you will use the SDK’s `login()` method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
@@ -143,7 +143,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to your Application {{{ data-action=code data-code="logout.php" }}}
+## Add logout to your application {{{ data-action=code data-code="logout.php" }}}
 
 Users who log in to your project will also need a way to log out. We will handle a logout button using the SDK’s `logout()` method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?http#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
 

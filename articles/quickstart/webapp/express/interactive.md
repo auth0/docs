@@ -10,7 +10,7 @@ github:
 
 <!-- markdownlint-disable MD025 MD034 -->
 
-# Add Login to your Express App
+# Add Login to Your Express Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK.
 

@@ -19,7 +19,7 @@ github:
 
 <!-- markdownlint-disable MD025 MD034 -->
 
-# Add login to your Python Flask app
+# Add Login to Your Python Flask Application
 
 Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Flask](https://flask.palletsprojects.com) application using the [Authlib](https://authlib.org/) SDK.
 

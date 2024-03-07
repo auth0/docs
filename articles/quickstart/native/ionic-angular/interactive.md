@@ -22,7 +22,7 @@ files:
   - files/user-profile
 ---
 
-# Add login to your Ionic Angular with Capacitor app
+# Add Login to Your Ionic Angular with Capacitor Application
 
 Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
 

@@ -21,7 +21,7 @@ files:
   - files/my-view-controller
 ---
 
-# Add Login to .NET Android and iOS App
+# Add Login to Your .NET Android and iOS Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET Android and iOS application using the Auth0 SDKs for [Android](https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/) and [iOS](https://www.nuget.org/packages/Auth0.OidcClient.iOS).
 
@@ -130,7 +130,7 @@ This is an example of the XML representation of your `info.plist` file after you
 
 Additionally, you need to handle the Callback URL in the `OpenUrl` event in your `AppDelegate` class. You need to notify the Auth0 OIDC Client to finish the authentication flow by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL that was sent in.
 
-## Add Login to Your Application 
+## Add login to your application 
 
 Now that you have configured your Auth0 Application and the Auth0 SDK, you need to set up login for your project. To do this, you will use the SDK’s `LoginAsync()` method to create a login button that redirects users to the Auth0 Universal Login page. 
 
@@ -162,7 +162,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to Your Application
+## Add logout to your application
 
 Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s `LogoutAsync()` method. When users log out, they will be redirected to your Auth0 logout endpoint, which will then immediately redirect them back to the logout URL you set up earlier in this quickstart.
 

@@ -10,7 +10,7 @@ files:
   - files/concern
 ---
 
-# Add login to your Ruby on Rails app
+# Add Login to Your Ruby on Rails Application
 
 <%= include('../../_includes/_configure_auth0_interactive', { 
   callback: 'http://localhost:3000/auth/auth0/callback',

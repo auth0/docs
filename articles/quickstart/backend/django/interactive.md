@@ -13,7 +13,7 @@ github:
 
 <!-- markdownlint-disable MD041 MD002 MD025 -->
 
-# Add Authorization to a Django API Application
+# Add Authorization to Your Django API Application
 
 This guide demonstrates how to integrate Auth0 with any new or existing Python API built with [Django](https://www.djangoproject.com/).
 

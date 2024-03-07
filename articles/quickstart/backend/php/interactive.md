@@ -9,7 +9,7 @@ github:
   path: app
 ---
 
-# Add endpoint authorization to your PHP application
+# Add Authorization to Your PHP Application
 
 Auth0 allows you to add token-based endpoint authorization to almost any application type quickly. This guide demonstrates how to integrate Auth0, add token-based authorization, and protect application routes using the Auth0 PHP SDK.
 
