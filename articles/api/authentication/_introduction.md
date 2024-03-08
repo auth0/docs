@@ -14,11 +14,12 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 
 ## Authentication methods
 
-You have four options for authenticating with this API:
+You have five options for authenticating with this API:
 - OAuth2 <dfn data-key="access-token">Access Token</dfn>
 - Client ID and Client Assertion (confidential applications)
 - Client ID and Client Secret (confidential applications)
 - Client ID (public applications)
+- mTLS Authentication 
 
 ### OAuth2 Access Token
 
@@ -44,6 +45,24 @@ An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This o
 Send the Client ID. For public applications (applications that cannot hold credentials securely, such as SPAs or mobile apps), we offer some endpoints that can be accessed using only the Client ID.
 
 An example is the [Implicit Grant](#implicit-grant).
+
+### mTLS Authentication
+
+Generate a certificate, either [self-signed](https://auth0.com/docs/get-started/applications/configure-mtls/configure-mtls-for-a-client#self-signed-certificates) or [certificate authority signed](https://auth0.com/docs/get-started/applications/configure-mtls/configure-mtls-for-a-client#certificate-authority-signed-certificates). Then, [set up the customer edge network](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge) that performs the mTLS handshake. 
+
+Once your edge network verifies the certificate, forward the request to the Auth0 edge network with the following headers:
+
+- The Custom Domain API key as the `cname-api-key` header.
+- The client certificate as the `client-certificate` header.
+- The client certificate CA verification status as the `client-certificate-ca-verified` header. For more information, see [Forward the Request](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge#forward-the-request-). 
+
+The following Authentication API endpoints support mTLS authentication for configured applications:
+
+- `/oauth/par`
+- `/oauth/token`
+- `/oauth/revoke`
+
+To learn more, read [Authenticate with mTLS](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-mtls). 
 
 ## Parameters
 
