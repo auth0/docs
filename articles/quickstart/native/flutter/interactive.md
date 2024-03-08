@@ -22,7 +22,7 @@ github:
   path: sample
 ---
 
-# Add login to your Flutter app
+# Add Login to Your Flutter Application
 
 Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
@@ -71,7 +71,7 @@ In Xcode, go to the **Info** tab of your app target settings. In the **URL Types
 
 <p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
 
-## Add login to your app {{{ data-action="code" data-code="main_view.dart#29:38" }}}
+## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:38" }}}
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
 
@@ -104,7 +104,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your app {{{ data-action=code data-code="main_view.dart#43:51"}}}
+## Add logout to your application {{{ data-action=code data-code="main_view.dart#43:51"}}}
 
 To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 

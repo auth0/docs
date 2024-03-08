@@ -18,7 +18,7 @@ github:
   path: 01-Authorization-MVC
 ---
 
-# Add authorization to a Spring Boot application
+# Add Authorization to Your Spring Boot Application
 
 Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
 

@@ -8,7 +8,7 @@ files:
   - files/app
 ---
 
-# Add Login to Your JavaScript App
+# Add Login to Your JavaScript Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 

@@ -18,7 +18,7 @@ files:
   - files/mainwindow
 ---
 
-# Add Login to Your WPF or WinForms App
+# Add Login to Your WPF Or WinForms Application
 
 Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any WPF and WinForms application using the Auth0 SDKs for [WPF](https://www.nuget.org/packages/Auth0.OidcClient.WPF/) and [WinForms](https://www.nuget.org/packages/Auth0.OidcClient.WinForms).
 
@@ -76,7 +76,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Login to Your Application {{{ data-action="code" data-code="MainWindow.xaml.cs#24:35" }}}
+## Add login to your application {{{ data-action="code" data-code="MainWindow.xaml.cs#24:35" }}}
 
 Now that you have configured your Auth0 Application and the Auth0 SDK, you need to set up login for your project. To do this, you will use the SDK’s `LoginAsync()` method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
@@ -104,7 +104,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to Your Application {{{ data-action="code" data-code="MainWindow.xaml.cs#37:40" }}}
+## Add logout to your application {{{ data-action="code" data-code="MainWindow.xaml.cs#37:40" }}}
 
 Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s `LogoutAsync()` method. When users log out, they will be redirected to your Auth0 logout endpoint, which will then immediately redirect them back to the logout URL you set up earlier in this quickstart.
 

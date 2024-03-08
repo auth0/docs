@@ -12,7 +12,7 @@ github:
 
 <!-- markdownlint-disable MD041 MD002 MD025 -->
 
-# Add Authorization to a Flask API application
+# Add Authorization to Your Flask API Application
 
 This guide demonstrates how to integrate Auth0 with any new or existing Python API built with [Flask](https://flask.palletsprojects.com/).
 

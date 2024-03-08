@@ -26,6 +26,7 @@ extension MainView {
     func login() {
         Auth0
             .webAuth()
+            .useHTTPS() // Use a Universal Link callback URL on iOS 17.4+ / macOS 14.4+
             .start { result in
                 switch result {
                 case .success(let credentials):
@@ -39,6 +40,7 @@ extension MainView {
     func logout() {
         Auth0
             .webAuth()
+            .useHTTPS() // Use a Universal Link logout URL on iOS 17.4+ / macOS 14.4+
             .clearSession { result in
                 switch result {
                 case .success:

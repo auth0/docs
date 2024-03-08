@@ -20,7 +20,7 @@ files:
   - files/api-controller
 ---
 
-# Add Authorization to an ASP.NET Core Web API Application
+# Add Authorization to Your ASP.NET Core Web API Application
 
 Auth0 allows you to add authentication and access user profile information in almost any application type quickly. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
 

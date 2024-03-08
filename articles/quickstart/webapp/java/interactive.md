@@ -18,7 +18,7 @@ github:
   path: 01-Login
 ---
 
-# Add login to your Java Servlet application
+# Add Login to Your Java Servlet Application
 
 Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Java Servlet application.
 

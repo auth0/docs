@@ -140,7 +140,7 @@ In the code snippet above, note that the `AuthenticationType` is set to **Auth0*
 
 
 
-## Add login to your application
+## Add login to your ASP.NET OWIN application
 
 To allow users to login to your ASP.NET OWIN application, add a `Login` action to your controller.
 
@@ -163,7 +163,7 @@ public class AccountController : Controller
 }
 ```
 
-## Add logout to your application
+## Add logout to your ASP.NET OWIN application
 
 From your controller's action, call `HttpContext.GetOwinContext().Authentication.SignOut` with the `CookieAuthenticationDefaults.AuthenticationType` authentication scheme to log the user out of your application.
 

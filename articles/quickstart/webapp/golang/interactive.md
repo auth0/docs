@@ -25,7 +25,7 @@ files:
   - files/user
 ---
 
-# Add login to your Go application
+# Add Login to Your Go Application
 
 Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
 
