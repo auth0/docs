@@ -19,7 +19,7 @@ You have five options for authenticating with this API:
 - Client ID and Client Assertion (confidential applications)
 - Client ID and Client Secret (confidential applications)
 - Client ID (public applications)
-- mTLS Authentication 
+- mTLS Authentication (confidential applications)
 
 ### OAuth2 Access Token
 
