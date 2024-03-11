@@ -6588,8 +6588,9 @@ const redirects = [
       '/mfa/auth0-guardian/install-guardian-sdk',
       '/mfa/guides/guardian/install-guardian-sdk',
       '/login/mfa/auth0-guardian/install-guardian-sdk',
+      '/secure/multi-factor-authentication/auth0-guardian/install-guardian-sdk',
     ],
-    to: '/secure/multi-factor-authentication/auth0-guardian/install-guardian-sdk',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-developer-resources/install-guardian-sdk',
   },
   {
     from: [
@@ -6616,16 +6617,18 @@ const redirects = [
       '/mfa/guides/guardian/create-enrollment-ticket',
       '/mfa/auth0-guardian/create-custom-enrollment-tickets',
       '/login/mfa/auth0-guardian/create-custom-enrollment-tickets',
+      '/secure/multi-factor-authentication/auth0-guardian/create-custom-enrollment-tickets',
     ],
-    to: '/secure/multi-factor-authentication/auth0-guardian/create-custom-enrollment-tickets',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-developer-resources/create-custom-enrollment-tickets',
   },
   {
     from: [
       '/mfa/auth0-guardian/guardian-error-code-reference',
       '/mfa/references/guardian-error-code-reference',
       '/login/mfa/auth0-guardian/guardian-error-code-reference',
+      '/secure/multi-factor-authentication/auth0-guardian/guardian-error-code-reference'
     ],
-    to: '/secure/multi-factor-authentication/auth0-guardian/guardian-error-code-reference',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-developer-resources/guardian-error-code-reference',
   },
   {
     from: [
