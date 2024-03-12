@@ -54,13 +54,7 @@ Once your edge network verifies the certificate, forward the request to the Auth
 
 - The Custom Domain API key as the `cname-api-key` header.
 - The client certificate as the `client-certificate` header.
-- The client certificate CA verification status as the `client-certificate-ca-verified` header. For more information, see [Forward the Request](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge#forward-the-request-). 
-
-The following Authentication API endpoints support mTLS authentication for configured applications:
-
-- `/oauth/par`
-- `/oauth/token`
-- `/oauth/revoke`
+- The client certificate CA verification status as the `client-certificate-ca-verified` header. For more information, see [Forward the Request](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge#forward-the-request-).
 
 To learn more, read [Authenticate with mTLS](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-mtls). 
 
