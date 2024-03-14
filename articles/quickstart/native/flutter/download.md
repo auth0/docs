@@ -4,7 +4,7 @@
 
 ## 1. Configure the Auth0 application
 
-Open the settings page of your Auth0 application and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform.
+Open the settings page of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform.
 
 - Android: `com.auth0.sample://YOUR_AUTH0_DOMAIN/android/com.auth0.sample/callback`
 - iOS: `https://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback,YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback`

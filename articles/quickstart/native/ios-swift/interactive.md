@@ -51,7 +51,7 @@ On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback a
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
 
-Add the corresponding URLs to **Callback URLs** and **Logout URLs**, according to the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+Add the following URLs to **Callback URLs** and **Logout URLs**, depending on the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
 
 #### iOS
 

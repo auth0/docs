@@ -12,11 +12,9 @@ If you would rather explore a complete configuration, you can view a sample app 
 
 ### Configure the callback and logout URLs
 
-The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your app. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie.
+The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your app. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie. If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
 
-If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
-
-Set the callback and logout URLs to the following value, depending on your platform.
+Set the callback and logout URLs to the following values, depending on your platform.
 
 ::: note
 On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. `https` schemes require enabling [Android App Links](https://auth0.com/docs/get-started/applications/enable-android-app-links-support).
