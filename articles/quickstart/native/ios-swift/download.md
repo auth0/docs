@@ -8,7 +8,7 @@
 
 Open `SwiftSample.xcodeproj` in Xcode and go to the settings of the application target you want to run. There are two application targets available: **SwiftSample (iOS)** and **SwiftSample (macOS)**. Change the bundle identifier from the default `com.auth0.samples.SwiftSample` to another value of your choosing. Then, make sure the **Automatically manage signing** box is checked, and that your Apple Team is selected.
 
-Next, go to the **Signing and Capabilities** tab of the app's target settings. Find the `webcredentials:YOUR_AUTH0_DOMAIN` entry under **Associated Domains**, and replace the `YOUR_AUTH0_DOMAIN` placeholder with the domain of your Auth0 application.
+Next, go to the **Signing & Capabilities** tab of the app's target settings. Find the `webcredentials:YOUR_AUTH0_DOMAIN` entry under **Associated Domains**, and replace the `YOUR_AUTH0_DOMAIN` placeholder with the domain of your Auth0 application.
 
 Finally, open the settings page of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to the app's bundle identifier.
 
