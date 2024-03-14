@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
-> On all steps, if you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `YOUR_AUTH0_DOMAIN` with your custom domain instead of the value from the settings page.
+> On every step, if you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace the `YOUR_AUTH0_DOMAIN` placeholder with your custom domain instead of the value from the settings page.
 
 ## 1. Configure the Auth0 application
 
