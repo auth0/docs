@@ -1,31 +1,25 @@
-To run the sample follow these steps:
+<!-- markdownlint-disable MD041 -->
 
-1) Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to the following value so it works for Android, iOS, and macOS apps:
+> On all steps, if you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace `YOUR_AUTH0_DOMAIN` with your custom domain instead of the value from the settings page.
 
-```text
-com.auth0.samples.FlutterSample://${account.namespace}/ios/com.auth0.samples.FlutterSample/callback,com.auth0.sample://${account.namespace}/android/com.auth0.sample/callback,com.auth0.sample://${account.namespace}/macos/com.auth0.sample/callback
-```
+## 1. Configure the Auth0 application
 
-2) Rename the file `.env.example` to `.env` and fill in the following values:
+Open the settings page of your Auth0 application and add the corresponding URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform.
 
-```sh
-AUTH0_DOMAIN=${account.namespace}
-AUTH0_CLIENT_ID=${account.clientId}
-AUTH0_CUSTOM_SCHEME=com.auth0.sample
-```
+- Android: `com.auth0.sample://YOUR_AUTH0_DOMAIN/android/com.auth0.sample/callback`
+- iOS: `https://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback,YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback`
+- macOS: `https://YOUR_AUTH0_DOMAIN/macos/YOUR_BUNDLE_IDENTIFIER/callback,YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/macos/YOUR_BUNDLE_IDENTIFIER/callback`
 
-3) Rename the file `strings.xml.example` in `android/app/src/main/res/values` to `strings.xml` and fill in the following values:
+## 2. Configure the associated domain (iOS/macOS only)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="com_auth0_domain">${account.namespace}</string>
-    <string name="com_auth0_scheme">com.auth0.sample</string>
-</resources>
-```
+> **This following requires Xcode 15.3+ and a paid Apple Developer account**. If you do not have a paid Apple Developer account, skip this step, and set the `useHTTPS` parameter to `false` in the `login()` and `logout()` calls at `lib/example_app.dart`.
 
-4) Use the [Flutter CLI's](https://docs.flutter.dev/reference/flutter-cli) `run` command to run the app:
+Open `ios/Runner.xcodeproj` (or `macos/Runner.xcodeproj`, for macOS) in Xcode and go to the settings of the **Runner** app target. In the **Signing & Capabilities** tab, change the bundle identifier from the default `com.auth0.samples.FlutterSample` to another value of your choosing. Then, make sure the **Automatically manage signing** box is checked, and that your Apple Team is selected.
 
-```sh
-flutter run
-```
+Next, find the `webcredentials:YOUR_AUTH0_DOMAIN` entry under **Associated Domains**, and replace the `YOUR_AUTH0_DOMAIN` placeholder with the domain of your Auth0 application.
+
+Finally, open the settings page of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to the app's bundle identifier.
+
+## 3. Run the app
+
+Use the [Flutter CLI](https://docs.flutter.dev/reference/flutter-cli) to run the app: `flutter run`.
