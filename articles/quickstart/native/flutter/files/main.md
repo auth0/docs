@@ -34,8 +34,10 @@ class _MainViewState extends State<MainView> {
         if (_credentials == null)
           ElevatedButton(
               onPressed: () async {
+                // Use a Universal Link callback URL on iOS 17.4+ / macOS 14.4+
+                // useHTTPS is ignored on Android
                 final credentials =
-                    await auth0.webAuthentication().login();
+                    await auth0.webAuthentication().login(useHTTPS: true);
 
                 setState(() {
                   _credentials = credentials;
@@ -48,7 +50,9 @@ class _MainViewState extends State<MainView> {
               ProfileView(user: _credentials!.user),
               ElevatedButton(
                   onPressed: () async {
-                    await auth0.webAuthentication().logout();
+                    // Use a Universal Link logout URL on iOS 17.4+ / macOS 14.4+
+                    // useHTTPS is ignored on Android
+                    await auth0.webAuthentication().logout(useHTTPS: true);
 
                     setState(() {
                       _credentials = null;
