@@ -43,7 +43,7 @@ npm install @auth0/auth0-angular
 
 The SDK exposes several types that help integrate Auth0 in an Angular application idiomatically, including a module and an authentication service.
 
-## Register and providing Auth0 {{{ data-action="code" data-code="main.ts#9:13" }}}
+## Register and providing Auth0 {{{ data-action="code" data-code="main.ts#7:13" }}}
 
 The SDK exports `provideAuth0`, which is a provide function that contains all the services required for the SDK to function. To register this with your application:
 
