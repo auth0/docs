@@ -43,16 +43,16 @@ npm install @auth0/auth0-angular
 
 The SDK exposes several types that help integrate Auth0 in an Angular application idiomatically, including a module and an authentication service.
 
-## Register and configure AuthModule {{{ data-action="code" data-code="app.module.ts#10:13" }}}
+## Register and providing Auth0 {{{ data-action="code" data-code="main.ts#9:13" }}}
 
-The SDK exports `AuthModule`, which is a module that contains all the services required for the SDK to function. To register this with your application:
+The SDK exports `provideAuth0`, which is a provide function that contains all the services required for the SDK to function. To register this with your application:
 
-1. Open the `app.module.ts` file.
-2. Import the `AuthModule` type from the `@auth0/auth0-angular` package.
-3. Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array.
+1. Open the `main.ts` file.
+2. Import the `provideAuth0` function from the `@auth0/auth0-angular` package.
+3. Add `provideAuth0` to the application by adding it to the `providers` inside `bootstrapApplication`.
 4. Inject `AuthService` into `AppComponent`.
 
-To configure the module, we use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern), which takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
+The `provideAuth0` function takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
