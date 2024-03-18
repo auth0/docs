@@ -60,7 +60,7 @@
   articles:
 
     - title: "Universal Login Pages"
-      url: "/customize/universal-login-pages"
+      url: "/customize/login-pages"
 
     - title: "Actions"
       url: "/customize/actions"
