@@ -3481,7 +3481,7 @@ const redirects = [
       '/universal-login/text-customization',
       '/brand-and-customize/text-customization-new-universal-login',
       '/brand-and-customize/customize-login-text-prompts',
-      '/customize/universal-login-pages/customize-login-text-prompts'
+      '/customize/universal-login-pages/customize-login-text-prompts',
     ],
     to: '/customize/login-pages/universal-login/customize-text-elements',
   },
