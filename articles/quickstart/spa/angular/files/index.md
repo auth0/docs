@@ -1,27 +1,22 @@
 ---
-name: app.module.ts
+name: main.ts
 language: javascript
 ---
 
 ```javascript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AuthModule } from '@auth0/auth0-angular';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAuth0 } from '@auth0/auth0-angular';
 import { AppComponent } from './app.component';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AuthModule.forRoot({
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAuth0({
       domain: '${account.namespace}',
       clientId: '${account.clientId}',
       authorizationParams: {
         redirect_uri: window.location.origin
       }
     }),
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+  ]
+});
 ```

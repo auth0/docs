@@ -15,6 +15,7 @@ import { DOCUMENT } from '@angular/common';
       Log out
     </button>
   `,
+  standalone: true
 })
 export class LogoutButtonComponent {
   constructor(
