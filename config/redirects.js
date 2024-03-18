@@ -3238,7 +3238,7 @@ const redirects = [
   {
     from: [
       '/sign-up-prompt-customizations',
-      '/customize/universal-login-pages/customize-signup-and-login-prompts'
+      '/customize/universal-login-pages/customize-signup-and-login-prompts',
     ],
     to: '/customize/login-pages/universal-login/customize-signup-and-login-prompts',
 },
