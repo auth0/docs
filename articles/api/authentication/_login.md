@@ -45,7 +45,9 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-Use the `/authorize` endpoint to authenticate a user with a social provider. It will return a `302` redirect to the social provider specified in `connection.`
+You can connect your Auth0 service to a social identity provider and allow your users to log in to your application via Facebook, Google, Apple, or other supported providers. To learn more about supported providers, visit [Marketplace](https://marketplace.auth0.com/features/social-connections). 
+
+To authenticate users with a social provider, make a `GET` call to the `/authorize` endpoint. It will return a `302` redirect to the social provider specified in the `connection` parameter.
 
 ::: note
 Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
@@ -113,14 +115,7 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
-  "http_badge": "badge-primary",
-  "http_method": "GET",
-  "path": "/authorize",
-  "link": "#database-ad-ldap-passive-"
-}) %>
-
-Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can log in with email and password.
+Use the Auth0 user store or your own database to store and manage username and password credentials. If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. When you make a `GET` call to the `/authorize` endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can log in with email and password.
 
 ### Request Parameters
 
@@ -182,14 +177,9 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
-  "http_badge": "badge-primary",
-  "http_method": "GET",
-  "path": "/authorize",
-  "link": "#enterprise-saml-and-others-"
-}) %>
+You can connect your Auth0 service to an enterprise identity provider and allow your users to log in to your application via Microsoft Azure Active Directory, Google Workspace, Okta Workforce, or other supported providers. To learn more about supported providers, visit [Marketplace](https://marketplace.auth0.com/features/enterprise-connections). 
 
-Use this endpoint for passive authentication. It returns a `302` redirect to the <dfn data-key="security-assertion-markup-language">SAML</dfn> Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
+Make a `GET` call to the `/authorize` endpoint for passive authentication. It returns a `302` redirect to the <dfn data-key="security-assertion-markup-language">SAML</dfn> Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
 ### Request Parameters
