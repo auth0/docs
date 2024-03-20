@@ -26,7 +26,7 @@ github:
 Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
 :::note
-The Flutter SDK currently only supports Flutter app running on Android, iOS, and macOS platforms.
+The Flutter SDK currently only supports Flutter apps for Android, iOS, and macOS.
 :::
 
 ## Getting started
@@ -35,7 +35,49 @@ This quickstart assumes you already have a [Flutter](https://flutter.dev/) app u
 
 You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('_configure_urls_interactive') %>
+Finally, you will need a **Native** Auth0 application. If you don’t have a Native Auth0 application already, [create one](/get-started/auth0-overview/create-applications/native-apps) before continuing. Avoid using other application types, as they have different configurations and may cause errors.
+
+### Configure the callback and logout URLs
+
+The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your app. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie.
+
+If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
+
+Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of the Auth0 domain from the settings page.
+
+::: note
+On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. `https` schemes require enabling [Android App Links](https://auth0.com/docs/get-started/applications/enable-android-app-links-support).
+
+On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links (`https` scheme) as callback and logout URLs. When enabled, the SDK will fall back to using a custom URL scheme on older iOS / macOS versions –your app's [bundle identifier](https://developer.apple.com/documentation/appstoreconnectapi/bundle_ids).
+**This feature requires Xcode 15.3+ and a paid Apple Developer account**.
+:::
+
+#### Android
+
+```text
+SCHEME://${account.namespace}/android/YOUR_PACKAGE_NAME/callback
+```
+
+#### iOS
+
+```text
+https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
+YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
+```
+
+#### macOS
+
+```text
+https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
+YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
+```
+
+For example, if your iOS bundle identifier were `com.example.MyApp` and your Auth0 domain were `example.us.auth0.com`, then this value would be:
+
+```text
+https://example.us.auth0.com/ios/com.example.MyApp/callback,
+com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
+```
 
 ## Install the Auth0 Flutter SDK
 
@@ -81,13 +123,37 @@ Run **Sync Project with Gradle Files** inside Android Studio to apply your chang
 
 ## Configure iOS/macOS
 
-If you are not developing for the iOS or macOS platform, skip this step.
+If you are not developing for the iOS or macOS platforms, skip this step.
 
-You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
+::: warning
+This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
+:::
 
-In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, select the **＋** button to add a new entry. Then enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+#### Configure the Team ID and bundle identifier
 
-<p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
+Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+
+This will add your app to your Auth0 tenant's `apple-app-site-association` file.
+
+#### Add the associated domain capability
+
+Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
+
+Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+
+```text
+webcredentials:${account.namespace}
+```
+
+If you have a [custom domain](/customize/custom-domains), use this instead of the Auth0 domain from the settings page.
+
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
 
 ## Add login to your app
 
@@ -129,8 +195,10 @@ Next, redirect your users to the Auth0 Universal Login page using `webAuthentica
 if (_credentials == null) {
   ElevatedButton(
     onPressed: () async {
+      // Use a Universal Link callback URL on iOS 17.4+ / macOS 14.4+
+      // useHTTPS is ignored on Android
       final credentials =
-          await auth0.webAuthentication().login();
+          await auth0.webAuthentication().login(useHTTPS: true);
 
       setState(() {
         _credentials = credentials;
@@ -177,7 +245,9 @@ See this example of an `ElevatedButton` widget that logs the user out of the app
 ```dart
 ElevatedButton(
   onPressed: () async {
-    await auth0.webAuthentication().logout();
+    // Use a Universal Link logout URL on iOS 17.4+ / macOS 14.4+
+    // useHTTPS is ignored on Android
+    await auth0.webAuthentication().logout(useHTTPS: true);
 
     setState(() {
       _credentials = null;

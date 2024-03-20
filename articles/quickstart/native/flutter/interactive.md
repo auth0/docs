@@ -27,7 +27,7 @@ github:
 Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
 :::note
-The Flutter SDK currently only supports Flutter apps running on Android, iOS, and macOS platforms.
+The Flutter SDK currently only supports Flutter apps for Android, iOS, and macOS.
 :::
 
 This quickstart assumes you already have a [Flutter](https://flutter.dev/) app up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
@@ -63,15 +63,39 @@ Run **Sync Project with Gradle Files** inside Android Studio to apply your chang
 
 ## Configure iOS/macOS
 
-If you are not developing for the iOS or macOS platform, skip this step.
+If you are not developing for the iOS or macOS platforms, skip this step.
 
-You need to register your bundle identifier as a custom URL scheme so the callback and logout URLs can reach your app.
+::: warning
+This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
+:::
 
-In Xcode, go to the **Info** tab of your app target settings. In the **URL Types** section, select the **＋** button to add a new entry. Then enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+### Configure the Team ID and bundle identifier
 
-<p><img src="/media/articles/native-platforms/ios-swift/url-scheme.png" alt="Custom URL Scheme"></p>
+Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
 
-## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:38" }}}
+<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+
+This will add your app to your Auth0 tenant's `apple-app-site-association` file.
+
+### Add the associated domain capability
+
+Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
+
+Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+
+```text
+webcredentials:${account.namespace}
+```
+
+If you have a [custom domain](/customize/custom-domains), use this instead of the Auth0 domain from the settings page.
+
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
+
+## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:40" }}}
 
 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
 
@@ -104,7 +128,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add logout to your application {{{ data-action=code data-code="main_view.dart#43:51"}}}
+## Add logout to your application {{{ data-action=code data-code="main_view.dart#45:55"}}}
 
 To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
