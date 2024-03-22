@@ -59,7 +59,7 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
 ```
 
 :::note
-Auth0 customers are billed based on the number of Machine-to-Machine Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
+Auth0 customers are billed based on the number of Machine-to-Machine Access Tokens issued by Auth0. Once your application gets an Access Token, it should keep using it until it expires, to minimize the number of tokens requested.
 :::
 
 For testing purposes, you can also get an Access Token from the **Test** tab in your [API settings](${manage_url}/#/apis).
