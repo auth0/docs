@@ -43,7 +43,7 @@ To exchange the Refresh Token you received during authorization for a new Access
 }
 ```
 
-| Attriburte | Description |
+| Attribute | Description |
 | - | - |
 | `grant_type` | The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token, use `refresh_token` |
 | `client_id` | Your application's Client ID |

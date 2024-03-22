@@ -23,7 +23,7 @@ At this point you should set the following configuration variables:
 | Parameter        | Description |
 |:-----------------|:------------|
 | **Schedule** | The frequency with which logs should be exported. The schedule can be customized even further after creation. |
-| **BATCH_SIZE** | The amount of logs to be read on each execution. Maximun, and default, is `100`. |
+| **BATCH_SIZE** | The amount of logs to be read on each execution. Maximum, and default, is `100`. |
 | **LOGSTASH_URL** <br/><span class="label label-danger">Required</span> | Your Logstash URL as defined for use with `logstash-input-http` plugin. |
 | **LOGSTASH_INDEX** <br/><span class="label label-danger">Required</span> | Your Logstash Index to which the logs will be routed. |
 | **LOGSTASH_TOKEN** | The token required for your Logstash deployments that will be included in the querystring. |

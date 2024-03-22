@@ -20,7 +20,7 @@ At this point you should set the following configuration variables:
 | Parameter        | Description |
 |:-----------------|:------------|
 | **Schedule** | The frequency with which logs should be exported. The schedule can be customized even further after creation. |
-| **BATCH_SIZE** | The amount of logs to be read on each execution. Maximun, and default, is `100`. |
+| **BATCH_SIZE** | The amount of logs to be read on each execution. Maximum, and default, is `100`. |
 | **START_FROM** | The checkpoint ID of the log from where you want to start. |
 | **SLACK_INCOMING_WEBHOOK** | The Slack incoming webhook URL used to send relevant updates. |
 | **SLACK_SEND_SUCCESS** | Toggle for sending verbose notifications to Slack. |
