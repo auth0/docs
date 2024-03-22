@@ -19,7 +19,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 
 ## Check the Token Validation
 
-There are 5 criteria for validating a JWT token. 
+There are five criteria for validating a JWT token. 
 
 1. **Is the token formed properly?**
 Check if the structure of the token matches the structure of a JSON Web Token. Read more about the [JSON Web Token structure](/jwt#what-is-the-json-web-token-structure-).

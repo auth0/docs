@@ -1,4 +1,4 @@
-To run the sample you need [.NET Core](https://www.microsoft.com/net/download) installed, and run the following commands:
+To run the sample, you need [.NET Core](https://www.microsoft.com/net/download) installed, and run the following commands:
 
 ```bash
 dotnet restore

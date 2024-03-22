@@ -121,7 +121,7 @@ if ($jwt !== null) {
         define('ENDPOINT_AUTHORIZED', true);
     } catch (\Auth0\SDK\Exception\InvalidTokenException $exception) {
         // The token wasn't valid. Let's display the error message from the Auth0 SDK.
-        // We'd probably want to show a custom error here for a real world application.
+        // We'd probably want to show a custom error here for a real-world application.
         die($exception->getMessage());
     }
 }

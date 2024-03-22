@@ -72,7 +72,7 @@ Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.
 
 The JWT middleware integrates with the standard ASP.NET authentication and authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint.
 
-Update the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter. This ensures the correct scope is available to call a specific API endpoing.
+Update the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter. This ensures the correct scope is available to call a specific API endpoint.
 
 ::::checkpoint
 
