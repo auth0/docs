@@ -1,5 +1,4 @@
 # POST /passwordless/start
-
 <table class="table">
     <thead>
       <tr>

@@ -1,8 +1,8 @@
 # Standard Error Responses
 
 The Authentication API may return the following HTTP Status Codes:
-| Status           | JSON Response   |
-|:-----------------| :------------|
+| Status            | JSON Response |
+| :---------------- | :------------ |
 | <span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_request", "error_description": "..."}`|
 | <span class="badge badge-danger">400</span> Bad Request| `{"error": "invalid_request", "error_description": "..."}`|
 | <span class="badge badge-danger">400</span> Bad Request| `{"error": "invalid_scope", "error_description": "Scope must be an array or a string"}`|
