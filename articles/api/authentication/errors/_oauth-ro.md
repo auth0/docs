@@ -1,14 +1,14 @@
 # POST /oauth/ro
 ## Grant type: jwt-bearer
-| Status           | Description |
-|:-----------------|:------------|
+| Status           | JSON Response |
+| :----------------| :------------ |
 |<span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_request", "error_description": "missing device parameter"}` </br>You need to provide a device name for the caller device (like a browser, app, and so on) |
 |<span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_request", "error_description": "missing id_token parameter"}`</br>For this grant type you need to provide a JWT ID Token |
 |<span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_grant", "error_description": "..."}` </br>Errors related to an invalid ID Token or user |
 
 ## Grant type: password
-| Status           | Description |
-|:-----------------|:------------|
+| Status           | JSON Response |
+| :----------------| :------------ |
 | <span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_request", "error_description": "scope parameter must be a string"}`</br> Incorrect scope formatting; each scope must be separated by whitespace|
 | <span class="badge badge-danger">400</span> Bad Request|`{"error": "invalid_request", "error_description": "specified strategy does not support requested operation"}`</br>The connection/provider does not implement username/password authentication |
 | <span class="badge badge-danger">401</span> Unauthorized|`{"error": "invalid_user_password", "error_description": "Wrong email or password."}`|
@@ -19,8 +19,8 @@
 | <span class="badge badge-danger">429</span> Too Many Requests|`{"error": "too_many_logins", "error_description": "..."}` </br>Some attack protection features will return this error|
 
 ## All grant types
-| Status           | Description |
-|:-----------------|:------------|
+| Status           | JSON Response |
+| :--------------- | :----------- |
 | <span class="badge badge-danger">400</span> Bad Request |`{"error": "invalid_request", "error_description": "missing client_id parameter"}<`|
 | <span class="badge badge-danger">400</span> Bad Request |`{"error": "invalid_request", "error_description": "the connection was disabled"}`</br>Check the connection in the dashboard, you may have turned it off for the provided `client_id` |
 | <span class="badge badge-danger">400</span> Bad Request |`{"error": "invalid_request", "error_description": "The connection is not yet configured..."}` </br>The connection is not properly configured with custom scripts|

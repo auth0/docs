@@ -1,6 +1,6 @@
 # POST /oauth/access_token
-| Status           | Description |
-|:-----------------|:------------|
+| Status           | JSON Response |
+| :--------------- |:------------- |
 | <span class="badge badge-danger">400</span> Bad Request | `{"error": "invalid_request", "error_description": "the connection was disabled"}`</br> The connection is not active or not enabled for your `client_id`.|
 | <span class="badge badge-danger">400</span> Bad Request | `{"error": "invalid_request", "error_description": "the connection was not found"}` |
 | <span class="badge badge-danger">400</span> Bad Request | `{"error": "invalid_request", "error_description": "missing client_id parameter"}` |
