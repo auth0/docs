@@ -13,7 +13,8 @@ import { AuthService } from '@auth0/auth0-angular';
     <ul *ngIf="auth.user$ | async as user">
       <li>{{ user.name }}</li>
       <li>{{ user.email }}</li>
-    </ul>`
+    </ul>`,
+  standalone: true
 })
 export class UserProfileComponent {
   constructor(public auth: AuthService) {}

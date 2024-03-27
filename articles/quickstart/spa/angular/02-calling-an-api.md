@@ -8,7 +8,7 @@ topics:
   - angular
   - api
 github:
-  path: Sample-01
+  path: Standalone
 sample_download_required_data:
   - client
   - api
@@ -34,9 +34,9 @@ If you followed the [previous section where you added user log in to Angular](/q
 
 To install and configure the HTTP interceptor, perform the following steps:
 
-* Import the `AuthHttpInterceptor` type from the Auth0 Angular SDK
-* Import `HttpClientModule` and `HTTP_INTERCEPTORS` from `@angular/common/http`
-* Register `AuthHttpInterceptor` in the `providers` section of your application module
+* Import the `authHttpInterceptorFn` type from the Auth0 Angular SDK
+* Import `provideHttpClient` from `@angular/common/http`
+* Register `authHttpInterceptorFn` in `provideHttpClient` using `withInterceptors`.
 * Add configuration to specify audience, scope, and which requests should have an `Authorization` header attached automatically
 
 The following is an example of an Angular module (based upon the default implementation when you create a new app using `ng new`) that supports `AuthHttpInterceptor`, configured to call the Auth0 Management API with the ability to read the current user profile:
@@ -45,34 +45,28 @@ To begin, open your `app.module.ts` file and add the necessary imports at the to
 
 ```javascript
 // Import the injector module and the HTTP client module from Angular
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 // Import the HTTP interceptor from the Auth0 Angular SDK
-import { AuthHttpInterceptor } from '@auth0/auth0-angular';
+import { authHttpInterceptorFn } from '@auth0/auth0-angular';
 ```
 
-Next, import `HttpClientModule` into the `imports` array of `AppModule`:
+Next, add `provideHttpClient` to the `providers` of the `bootstrapApplication` function, and add `authHttpInterceptorFn` using `withInterceptors`:
 
 ```javascript
-imports: [
-  HttpClientModule,
-],
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(withInterceptors([authHttpInterceptorFn])),
+  ]
+});
 ```
 
-Now add the Auth0 HTTP interceptor to the `providers` array of `AppModule`, like so:
-
-```javascript
-providers: [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
-],
-```
-
-Finally, modify the configuration given to `AuthModule.forRoot()` to specify the `audience` and `scope` values required by the API you want to call, as well as the API routes that should be intercepted by `AuthHttpInterceptor`.
+Finally, modify the configuration given to `provideAuth0()` to specify the `audience` and `scope` values required by the API you want to call, as well as the API routes that should be intercepted by `authHttpInterceptorFn`.
 
 In this case, the audience and scope for the Auth0 Management API are given, which allows your app to retrieve information about the current user.
 
 ```javascript
-AuthModule.forRoot({
+provideAuth0({
   // The domain and clientId were configured in the previous chapter
   domain: '${account.namespace}',
   clientId: '${account.clientId}',
@@ -135,7 +129,7 @@ import { AuthService } from '@auth0/auth0-angular';
   template: `<div *ngIf="metadata">
     <pre>{{ metadata | json }}</pre>
   </div>`,
-  styles: [],
+  standalone: true,
 })
 export class UserMetadataComponent implements OnInit {
   metadata = {};

@@ -8,7 +8,7 @@ topics:
   - angular
   - login
 github:
-  path: Sample-01
+  path: Standalone
 contentType: tutorial
 useCase: quickstart
 ---
@@ -23,43 +23,34 @@ Visit the [Angular Authentication By Example](https://developer.auth0.com/resour
 
 <%= include('../../_includes/_auth0-angular-install') %>
 
-### Register and configure the authentication module
+### Register and providing Auth0
 
-The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. To register this with your application:
+The SDK exports `provideAuth0`, which is a provide function that contains all the services required for the SDK to function. To register this with your application:
 
-* Open the `app.module.ts` file
-* Import the `AuthModule` type from the `@auth0/auth0-angular` package
-* Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array
+1. Open the `main.ts` file.
+2. Import the `provideAuth0` function from the `@auth0/auth0-angular` package.
+3. Add `provideAuth0` to the application by adding it to the `providers` inside `bootstrapApplication`.
+4. Inject `AuthService` into `AppComponent`.
 
 ```javascript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAuth0 } from '@auth0/auth0-angular';
 import { AppComponent } from './app.component';
 
-// Import the module from the SDK
-import { AuthModule } from '@auth0/auth0-angular';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-
-    // Import the module into the application, with configuration
-    AuthModule.forRoot({
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAuth0({
       domain: '${account.namespace}',
       clientId: '${account.clientId}',
       authorizationParams: {
         redirect_uri: window.location.origin
       }
     }),
-  ],
-
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+  ]
+});
 ```
 
-We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
+The `provideAuth0` function takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
@@ -79,7 +70,8 @@ import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-auth-button',
-  template: '<button (click)="auth.loginWithRedirect()">Log in</button>'
+  template: '<button (click)="auth.loginWithRedirect()">Log in</button>',
+  standalone: true
 })
 export class AuthButtonComponent {
   // Inject the authentication service into your component through the constructor
@@ -121,7 +113,7 @@ import { DOCUMENT } from '@angular/common';
       <button (click)="auth.loginWithRedirect()">Log in</button>
     </ng-template>
   `,
-  styles: [],
+  standalone: true
 })
 export class AuthButtonComponent {
   constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
@@ -152,7 +144,8 @@ import { AuthService } from '@auth0/auth0-angular';
     <ul *ngIf="auth.user$ | async as user">
       <li>{{ user.name }}</li>
       <li>{{ user.email }}</li>
-    </ul>`
+    </ul>`,
+  standalone: true
 })
 export class UserProfileComponent {
   constructor(public auth: AuthService) {}
