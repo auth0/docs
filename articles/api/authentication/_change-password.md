@@ -60,7 +60,7 @@ Optionally, you may provide an Organization ID to support Organization-specific 
 
 Note: This endpoint only works for database connections.
 
-### Request Parameters
+## Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -68,7 +68,6 @@ Note: This endpoint only works for database connections.
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
 | `organization` | The `organization_id` of the Organization associated with the user. |
-
 
 ### Remarks
 
@@ -78,8 +77,7 @@ Note: This endpoint only works for database connections.
   * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
   * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
-
-### More Information
+### Learn More
 
 - [Changing a User's Password](/connections/database/password-change)
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
