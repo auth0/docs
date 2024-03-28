@@ -32,18 +32,6 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wctx`           | Your application's state. |
 | `wreply`         | The <dfn data-key="callback">callback URL</dfn>. |
 
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
-
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *Other Flows* tab, click **WS-Federation**.
-
-
 ### Remarks
 
 - The `wtrealm` parameter must be in one of these formats:
@@ -51,10 +39,8 @@ This endpoint accepts a WS-Federation request to initiate a login.
   - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API.
 - The `whr` parameter is mapped to the connection like this: `urn:CONNECTION_NAME`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
 
-
-### More Information
+### Learn More
 - [WS-Federation](/protocols/ws-fed)
-
 
 ## Get Metadata
 
@@ -78,7 +64,6 @@ include('../../_includes/_http-method', {
 
 This endpoint returns the WS-Federation metadata.
 
-
-### More Information
+### Learn More
 
 - [WS-Federation](/protocols/ws-fed)

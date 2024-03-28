@@ -43,7 +43,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 - The `redirect_uri` value must be specified as a valid <dfn data-key="callback">callback URL</dfn> under your [Application's Settings](${manage_url}/#/applications).
 
 
-### More Information
+### Learn More
 
 - [Link User Accounts](/users/guides/link-user-accounts)
 - [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
@@ -109,6 +109,6 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 
-### More Information
+### Learn More
 
 - [Unlink User Accounts](/users/guides/unlink-user-accounts)

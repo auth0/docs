@@ -1,5 +1,3 @@
-<!-- markdownlint-disable -->
-
 # Delegation
 
 ```http
@@ -49,21 +47,9 @@ Given an existing token, this endpoint will generate a new token signed with the
 | `client_id` <br/><span class="label label-danger">Required</span> | Τhe `client_id` of your app |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
 | `id_token` or `refresh_token` <br/><span class="label label-danger">Required</span> | The existing token of the user. |
-| `target `        | The target `client_id` |
+| `target`        | The target `client_id` |
 | <dfn data-key="scope">`scope`</dfn>         | Use `openid` or `openid profile email` |
 | `api_type`       | The API to be called. |
-
-
-### Test with Authentication API Debugger
-
-<%= include('../../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
-
 
 ### Remarks
 
@@ -81,8 +67,7 @@ Given an existing token, this endpoint will generate a new token signed with the
   - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
-### More Information
+### Learn More
 
 - [Delegation Tokens](/tokens/delegation)
-
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)

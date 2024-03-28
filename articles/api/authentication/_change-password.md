@@ -79,7 +79,7 @@ Note: This endpoint only works for database connections.
   * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
-### More Information
+### Learn More
 
 - [Changing a User's Password](/connections/database/password-change)
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
