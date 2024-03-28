@@ -56,7 +56,6 @@ The behaviour of this endpoint depends on the state of the [Refresh Token Revoca
 If this toggle is enabled, then each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and <dfn data-key="audience">audience</dfn> will be revoked**.
 If this toggle is disabled, then only the refresh token is revoked, while the grant is left intact.
 
-
 ### Request Parameters
 
 | Parameter        | Description |
@@ -75,6 +74,6 @@ If this toggle is disabled, then only the refresh token is revoked, while the gr
 
 For the complete error code reference for this endpoint refer to [Errors > POST /oauth/revoke](#post-oauth-revoke).
 
-### More Information
+### Learn More
 
 - [Refresh Tokens](/tokens/concepts/refresh-tokens)
