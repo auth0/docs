@@ -185,9 +185,3 @@ This is the OAuth 2.0 grant that input-constrained devices use to access an API.
 - [Device Authorization Flow](/flows/concepts/device-auth)
 - [Call API using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
 - [Setting up a Device Code Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
-
-
-### Learn More
-
-- [Device Authorization Flow](/flows/concepts/device-auth)
-- [Call API Using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
