@@ -8082,8 +8082,8 @@ const redirects = [
     to: '/troubleshoot/customer-support/operational-policies/entity-limit-policy',
   },
   {
-    from: ['/support/support-center-users', '/dashboard-access/support-center-users'],
-    to: '/get-started/manage-dashboard-access/support-center-users',
+    from: ['/support/support-center-users', '/dashboard-access/support-center-users', '/get-started/manage-dashboard-access/support-center-users'],
+    to: '/get-started/manage-dashboard-access/feature-access-by-role',
   },
 
   /* Troubleshoot */
