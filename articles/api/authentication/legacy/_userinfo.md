@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD024 MD033 -->
+
 # User Profile
 
 ## Get Token Info
@@ -89,7 +91,7 @@ This endpoint validates a <dfn data-key="json-web-token">JSON Web Token (JWT)</d
   - `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
   - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
-### More Information
+### Learn More
 
 - [User Profile Struture](/users/references/user-profile-structure)
 

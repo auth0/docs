@@ -169,6 +169,11 @@
     "definition": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.",
     "short": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types."
   },
+  "fapi": {
+    "title": "OpenID FAPI",
+    "definition": "A suite of security and privacy specifications developed by the OpenID Foundation to allow applications to interact with and use data from financial accounts.",
+    "short": "A suite of security and privacy specifications developed by the OpenID Foundation."
+  },
   "fine-grained-auth": {
     "title": "Fine Grained Authorization (FGA) ",
     "definition": "Auth0’s SaaS product gives individual users access to specific objects or resources within your application.",
