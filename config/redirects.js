@@ -7671,32 +7671,36 @@ const redirects = [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
       '/api/management/v2/get-access-tokens-for-production',
       '/security/tokens/access-tokens/get-management-api-access-tokens-for-production',
+      '/secure/tokens/access-tokens/get-management-api-access-tokens-for-production',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-production',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
       '/api/management/v2/get-access-tokens-for-test',
       '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing',
+      '/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
       '/api/management/v2/get-access-tokens-for-spas',
       '/security/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
+      '/secure/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
   },
   {
     from: [
       '/api/management/v2/tokens-flows',
       '/tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens',
       '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
+      '/secure/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
     ],
-    to: '/secure/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens',
   },
   {
     from: [
