@@ -6676,13 +6676,26 @@ const redirects = [
   },
   {
     from: [
+      '/secure/multi-factor-authentication/customize-mfa-selection-nul',
+    ],
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-selection-universal-login',
+  },
+  {
+    from: [
+      '/secure/multi-factor-authentication/customize-mfa-enrollments',
+    ],
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-enrollments-universal-login',
+  },
+  {
+    from: [
       '/universal-login/multifactor-authentication',
       '/hosted-pages/guardian',
       '/universal-login/guardian',
       '/universal-login/classic-experience/mfa-classic-experience',
       '/login/mfa/customize-mfa-user-pages/mfa-classic-experience',
+      '/secure/multi-factor-authentication/customize-mfa/mfa-classic-experience',
     ],
-    to: '/secure/multi-factor-authentication/customize-mfa/mfa-classic-experience',
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-classic-login',
   },
   {
     from: [
