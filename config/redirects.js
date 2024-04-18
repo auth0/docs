@@ -8898,6 +8898,14 @@ const redirects = [
     from: ['/videos/get-started/10-logout'],
     to: '/videos/get-started-series/learn-logout',
   },
+
+/* Forms */
+
+{
+    from: ['/customize/forms/intro-to-forms'],
+    to: '/customize/forms/nodes-and-components',
+},
+  
 ];
 
 module.exports = redirects;
