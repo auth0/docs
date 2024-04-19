@@ -8902,7 +8902,10 @@ const redirects = [
 /* Forms */
 
 {
-    from: ['/customize/forms/intro-to-forms'],
+    from: [
+      '/customize/forms/intro-to-forms',
+      '/customize/forms/fields',
+    ],
     to: '/customize/forms/nodes-and-components',
 },
   
