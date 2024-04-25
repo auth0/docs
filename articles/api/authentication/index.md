@@ -55,10 +55,31 @@ contentType:
   <%= include('./api-authz/_authz-client') %>
 </div>
 <div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_get-token') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_auth-code-flow') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_auth-code-flow-pkce') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_client-credential') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_implicit') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_resource-owner.md') %>>
+</div>
+<div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_device-code') %>
 </div>
 <div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_get-token') %>
+  <%= include('./api-authz/_highly-regulated') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_refresh-token') %>
 </div>
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_revoke-refersh-token') %>

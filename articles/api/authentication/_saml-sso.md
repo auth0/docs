@@ -27,7 +27,7 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to accept a <dfn data-key="security-assertion-markup-language">SAML</dfn> request to initiate a login.
 
-Optionally, you can include a `connection` parameter to log in with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
+Optionally, you can include a `connection` parameter to log in with a specific provider. If no connection is specified, the [Auth0 Login Page](/authenticate/login/auth0-universal-login) will be shown.
 
 Optionally, SP-initiated login requests can include an `organization` parameter to authenticate users in the context of an organization. To learn more, see [Organizations](/organizations).
 
@@ -46,7 +46,7 @@ Optionally, SP-initiated login requests can include an `organization` parameter 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
 - The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match one of the application's <dfn data-key="callback">`callback_URLs`</dfn>.
 
-### More Information
+### Learn More
 - [SAML](/protocols/saml)
 
 ## Get Metadata
@@ -78,7 +78,7 @@ This endpoint returns the <dfn data-key="security-assertion-markup-language">SAM
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 
 
-### More Information
+### Learn More
 - [SAML](/protocols/saml)
 
 
@@ -116,17 +116,5 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a <dfn data-key
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your application. |
 | `SAMLResponse` <br/><span class="label label-danger">Required</span> | An IdP-Initiated Sign On SAML Response. |
 
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *Other Flows* tab, click **SAML**.
-
-
-### More Information
+### Learn More
 - [SAML](/protocols/saml)

@@ -1,6 +1,12 @@
 # Logout
 
 ## Auth0 Logout
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "GET",
+  "path": "/v2/logout",
+  "link": "#logout"
+}) %>
 
 ```http
 GET https://${account.namespace}/v2/logout?
@@ -32,17 +38,10 @@ curl --request GET \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
-  "http_badge": "badge-primary",
-  "http_method": "GET",
-  "path": "/v2/logout",
-  "link": "#logout"
-}) %>
-
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter. The URL should be included in any the appropriate `Allowed Logout URLs` list:
-- If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the application level (see [Setting Allowed Logout URLs at the App Level](/logout#set-the-allowed-logout-urls-at-the-application-level)).
-- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the tenant level (see [Setting Allowed Logout URLs at the Tenant Level](/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
-- If the `client_id` parameter is included and the `returnTo` URL is NOT set, the server returns the user to the first Allowed Logout URLs set in the Dashboard (see [Setting Allowed Logout URLs at the Tenant Level](/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
+- If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the application level. To learn more, read [Log Users Out of Applications](/authenticate/login/logout/log-users-out-of-applications).
+- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the tenant level. To learn more, read [Log Users Out of Auth0](/authenticate/login/logout/log-users-out-of-auth0).
+- If the `client_id` parameter is included and the `returnTo` URL is NOT set, the server returns the user to the first Allowed Logout URLs set in the Dashboard. To learn more, read [Log Users Out of Applications](/authenticate/login/logout/log-users-out-of-applications).
 
 
 ### Request Parameters
@@ -52,18 +51,6 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 | `returnTo`      | URL to redirect the user after the logout. |
 | `client_id`      | The `client_id` of your application. |
 | `federated`      | Add this query string parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
-
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Logout URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *Other Flows* tab, click **Logout**, or **Logout (Federated)** to log the user out of the identity provider as well.
-
 
 ### Remarks
 
@@ -75,6 +62,12 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 - [Logout](/logout)
 
 ## OIDC Logout
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "GET",
+  "path": "/oidc/logout",
+  "link": "#logout"
+}) %>
 
 ```http
 GET https://${account.namespace}/oidc/logout?
@@ -111,22 +104,17 @@ curl --request GET \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
-  "http_badge": "badge-primary",
-  "http_method": "GET",
-  "path": "/oidc/logout",
-  "link": "#logout"
-}) %>
-
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `post_logout_redirect_uri` parameter. The URL should be included in the appropriate `Allowed Logout URLs` list:
 
 - If the `id_token_hint` parameter is included:
   - When the `client_id` parameter is included, the server uses the URL from the `aud` claim in the `id_token_hint` to select which of the `Allowed Logout URLs` to use from the application specified by the `client_id`.
   - When the `client_id` parameter is NOT included, the server uses the URL from the `aud` claim in the `id_token_hint` to select which of the `Allowed Logout URLs` at the tenant level to use.
 - If the `id_token_hint` parameter is not included:
-  - If the `client_id` parameter is included, the `post_logout_redirect_uri` URL must be listed in the `Allowed Logout URLs` set at the application level (see [Setting Allowed Logout URLs at the App Level](/docs/logout#set-the-allowed-logout-urls-at-the-application-level)).
-  - If the `client_id` parameter is NOT included, the `post_logout_redirect_uri` URL must be listed in the `Allowed Logout URLs` set at the tenant level (see [Setting Allowed Logout URLs at the Tenant Level](/docs/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
-  - If the `client_id` parameter is included and the `post_logout_redirect_uri` URL is NOT set, the server returns the user to the first `Allowed Logout URLs` set in the Dashboard (see [Setting Allowed Logout URLs at the Tenant Level](/docs/logout#set-the-allowed-logout-urls-at-the-tenant-level)).
+  - If the `client_id` parameter is included, the `post_logout_redirect_uri` URL must be listed in the `Allowed Logout URLs` set at the application level.
+  - If the `client_id` parameter is NOT included, the `post_logout_redirect_uri` URL must be listed in the `Allowed Logout URLs` set at the tenant level.
+  - If the `client_id` parameter is included and the `post_logout_redirect_uri` URL is NOT set, the server returns the user to the first `Allowed Logout URLs` set in Auth0 Dashboard.
+
+  To learn more, read [Log Users Out of Auth0 with OIDC Endpoint](/authenticate/login/logout/log-users-out-of-auth0).
 
 
 ### Request Parameters

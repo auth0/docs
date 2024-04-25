@@ -6,7 +6,7 @@ First, request a challenge based on the challenge types supported by the applica
 
 Next, verify the multi-factor authentication using the `/oauth/token` endpoint and the specified challenge type: a one-time password (OTP), a recovery code, or an out-of-band (OOB) challenge.
 
-Learn More:
+To learn more, read:
 
 - [Multi-factor Authentication and Resource Owner Password](/mfa/guides/mfa-api/multifactor-resource-owner-password)
 - [Multi-factor Authentication API](/mfa/concepts/mfa-api)
@@ -84,13 +84,6 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../_includes/_http-method', {
-  "http_badge": "badge-success",
-  "http_method": "POST",
-  "path": "/mfa/challenge",
-  "link": "#multifactor-authentication"
-}) %>
-
 Request a challenge for <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> based on the challenge types supported by the application and user.
 
 The `challenge_type` is how the user will get the challenge and prove possession. Supported challenge types include:
@@ -118,7 +111,7 @@ If OTP is supported by the user and you don't want to request a different factor
 - Auth0 chooses the challenge type based on the application's supported types and types the user is enrolled with.
 - An `unsupported_challenge_type` error is returned if your application does not support any of the challenge types the user has enrolled with.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
-- If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](#add-an-authenticator) below on how to proceed.
+- If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Read [Add an authenticator](#add-an-authenticator) below on how to proceed.
 
 ### Learn More
 

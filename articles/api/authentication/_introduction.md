@@ -32,7 +32,7 @@ Generate a [client assertion](https://auth0.com/docs/get-started/authentication-
 
 ### Client ID and Client Secret
 
-Send the Client ID and Client Secret. The method you can use to send this data is determined by the [Token Endpoint Authentication Method](https://auth0.com/docs/get-started/applications/confidential-and-public-applications/view-application-type) configured for your application.
+Send the Client ID and Client Secret. The method you can use to send this data is determined by the [Token Endpoint Authentication Method](/get-started/applications/confidential-and-public-applications/view-application-type) configured for your application.
 
 If you are using **Post**, you must send this data in the JSON body of your request.
 
@@ -44,7 +44,7 @@ An example is the [Revoke Refresh Token endpoint](#revoke-refresh-token). This o
 
 Send the Client ID. For public applications (applications that cannot hold credentials securely, such as SPAs or mobile apps), we offer some endpoints that can be accessed using only the Client ID.
 
-An example is the [Implicit Grant](#implicit-grant).
+An example is the [Implicit Grant](#implicit-flow).
 
 ### mTLS Authentication
 
@@ -85,16 +85,38 @@ Each request should be sent with a Content-Type of `application/json`.
 
 You can test the endpoints using the [Authentication API Debugger](/extensions/authentication-api-debugger).
 
-### Test with the Authentication API Debugger
+### Authentication API Debugger
 
 The [Authentication API Debugger](/extensions/authentication-api-debugger) is an Auth0 extension you can use to test several endpoints of the Authentication API. 
 
-If it's the first time you use it, you have to install it using the [dashboard](${manage_url}/#/extensions). Once you do, you are ready to configure your app's settings and run your tests. 
+<%= include('../../_includes/_test-this-endpoint') %>
 
-Note that its URL varies according to your tenant's region:
-- <a href="https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger" target="_blank">US West</a>
-- <a href="https://${account.tenant}.eu.webtask.io/auth0-authentication-api-debugger" target="_blank">Europe Central</a>
-- <a href="https://${account.tenant}.au.webtask.io/auth0-authentication-api-debugger" target="_blank">Australia</a>
+### Configure Connections
+
+1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
+
+### Use Authentication API Debuggar
+Configure other endpoints with the following options:
+
+- Passwordless: At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
+- SAML SSO:  At the *Other Flows* tab, click **SAML**.
+- WS-Federation: At the *Other Flows* tab, click **WS-Federation**.
+- Logout: At the *Other Flows* tab, click **Logout**, or **Logout (Federated)** to log the user out of the identity provider as well.
+- Legacy Login: At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
+- Legacy Delegation: At the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
+- Legacy Resource Owner:  At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
+
+### Use Authentication API Debuggar with authentications flows
+
+Configure authentication flows with the following options:
+- Authorization Code Flow: At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+- Authorization Code Flow + PKCE: At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+- Client Credential Flow:  At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
+
 
 ## Errors
 
