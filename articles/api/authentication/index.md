@@ -78,9 +78,6 @@ contentType:
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_refresh-token') %>
 </div>
-<div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_revoke-refersh-token') %>
-</div>
 
 <span data-section-label="legacy">Legacy</span>
 <div class="api-section" data-section="legacy">
