@@ -93,29 +93,29 @@ The [Authentication API Debugger](/extensions/authentication-api-debugger) is an
 
 ### Configure Connections
 
-1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
+1. On the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
 1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
-1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
+1. At the *OAuth2 / OIDC* tab, select **OAuth2 / OIDC Login**.
 
-### Use Authentication API Debuggar
+### Use Authentication API Debugger
 Configure other endpoints with the following options:
 
-- Passwordless: At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
-- SAML SSO:  At the *Other Flows* tab, click **SAML**.
-- WS-Federation: At the *Other Flows* tab, click **WS-Federation**.
-- Logout: At the *Other Flows* tab, click **Logout**, or **Logout (Federated)** to log the user out of the identity provider as well.
-- Legacy Login: At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
-- Legacy Delegation: At the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
-- Legacy Resource Owner:  At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
+- Passwordless: On the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
+- SAML SSO:  On the *Other Flows* tab, select **SAML**.
+- WS-Federation: On the *Other Flows* tab, select **WS-Federation**.
+- Logout: On the *Other Flows* tab, select **Logout**, or **Logout (Federated)** to log the user out of the identity provider as well.
+- Legacy Login: On the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
+- Legacy Delegation: On the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
+- Legacy Resource Owner:  On the *OAuth2 / OIDC* tab, set the **Username** and **Password**, then select **Resource Owner Endpoint**.
 
-### Use Authentication API Debuggar with authentications flows
+### Use Authentication API Debugger with authentications flows
 
 Configure authentication flows with the following options:
-- Authorization Code Flow: At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
-- Authorization Code Flow + PKCE: At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
-- Client Credential Flow:  At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
+- Authorization Code Flow: On the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+- Authorization Code Flow + PKCE: On the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+- Client Credential Flow:  On the *OAuth2 / OIDC* tab, select **OAuth2 Client Credentials**.
 
 
 ## Errors

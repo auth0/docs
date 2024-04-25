@@ -1,6 +1,6 @@
 # Device Authorization Flow
 
-## Device code
+## Authorize
 
 ```http
 POST https://${account.namespace}/oauth/device/code

@@ -2,6 +2,7 @@
 
 To begin an OAuth 2.0 Authorization flow, your application should first send the user to the authorization URL.
 
+## Authorize endpoint
 The purpose of this call is to obtain consent from the user to invoke the API (specified in <dfn data-key="audience">`audience`</dfn>) and do certain things (specified in <dfn data-key="scope">`scope`</dfn>) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
 
 The OAuth 2.0 flows that require user authorization are:
