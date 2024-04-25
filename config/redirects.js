@@ -6676,13 +6676,26 @@ const redirects = [
   },
   {
     from: [
+      '/secure/multi-factor-authentication/customize-mfa-selection-nul',
+    ],
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-selection-universal-login',
+  },
+  {
+    from: [
+      '/secure/multi-factor-authentication/customize-mfa-enrollments',
+    ],
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-enrollments-universal-login',
+  },
+  {
+    from: [
       '/universal-login/multifactor-authentication',
       '/hosted-pages/guardian',
       '/universal-login/guardian',
       '/universal-login/classic-experience/mfa-classic-experience',
       '/login/mfa/customize-mfa-user-pages/mfa-classic-experience',
+      '/secure/multi-factor-authentication/customize-mfa/mfa-classic-experience',
     ],
-    to: '/secure/multi-factor-authentication/customize-mfa/mfa-classic-experience',
+    to: '/secure/multi-factor-authentication/customize-mfa/customize-mfa-classic-login',
   },
   {
     from: [
@@ -7671,32 +7684,36 @@ const redirects = [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
       '/api/management/v2/get-access-tokens-for-production',
       '/security/tokens/access-tokens/get-management-api-access-tokens-for-production',
+      '/secure/tokens/access-tokens/get-management-api-access-tokens-for-production',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-production',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
       '/api/management/v2/get-access-tokens-for-test',
       '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing',
+      '/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
       '/api/management/v2/get-access-tokens-for-spas',
       '/security/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
+      '/secure/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
     ],
-    to: '/secure/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
   },
   {
     from: [
       '/api/management/v2/tokens-flows',
       '/tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens',
       '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
+      '/secure/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
     ],
-    to: '/secure/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens',
   },
   {
     from: [
@@ -8082,8 +8099,8 @@ const redirects = [
     to: '/troubleshoot/customer-support/operational-policies/entity-limit-policy',
   },
   {
-    from: ['/support/support-center-users', '/dashboard-access/support-center-users'],
-    to: '/get-started/manage-dashboard-access/support-center-users',
+    from: ['/support/support-center-users', '/dashboard-access/support-center-users', '/get-started/manage-dashboard-access/support-center-users'],
+    to: '/get-started/manage-dashboard-access/feature-access-by-role',
   },
 
   /* Troubleshoot */
@@ -8881,6 +8898,17 @@ const redirects = [
     from: ['/videos/get-started/10-logout'],
     to: '/videos/get-started-series/learn-logout',
   },
+
+/* Forms */
+
+{
+    from: [
+      '/customize/forms/intro-to-forms',
+      '/customize/forms/fields',
+    ],
+    to: '/customize/forms/nodes-and-components',
+},
+  
 ];
 
 module.exports = redirects;
