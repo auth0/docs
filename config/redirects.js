@@ -670,6 +670,10 @@ const redirects = [
     to: '/authenticate/passwordless/implement-login/embedded-login',
   },
   {
+    from: ['/authenticate/passwordless/passwordless-with-new-universal-login'],
+    to: '/authenticate/passwordless/passwordless-with-universal-login',
+  },
+  {
     from: ['/password-strength', '/connections/database/password-strength'],
     to: '/authenticate/database-connections/password-strength',
   },
