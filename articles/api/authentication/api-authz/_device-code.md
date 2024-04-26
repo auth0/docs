@@ -167,7 +167,7 @@ Content-Type: application/json
   "link": "#device-auth"
 }) %>
 
-This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication#get-device-code) to directly request an Access Token using the application's credentials (a Client ID) and a device code.
+This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication#get-device-code) to directly request an access token using the application's credentials (a Client ID) and a device code.
 
 ### Request Parameters
 

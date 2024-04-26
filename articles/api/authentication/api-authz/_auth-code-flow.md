@@ -101,7 +101,7 @@ Content-Type: application/json
   "link": "#authorization-code"
 }) %>
 
-This is the flow that regular web apps use to access an API. Use this endpoint to exchange an Authorization Code for a Token.
+This is the flow that regular web apps use to access an API. Use this endpoint to exchange an Authorization Code for a token.
 
 ### Request Parameters
 
@@ -111,7 +111,7 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
 | `code` <br/><span class="label label-danger">Required</span> | The Authorization Code received from the initial `/authorize` call. |
-| `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
+| `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values from `/authorize` must match the value you set at `/oauth/token`. |
 
 ### Learn More
 

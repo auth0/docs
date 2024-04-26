@@ -77,7 +77,7 @@ Social connections only support browser-based (passive) authentication because m
 
 - [Supported Social Identity Providers](https://marketplace.auth0.com/features/social-connections)
 - [Custom Social Connections](/connections/social/oauth2)
-- [State Parameter](https://auth0.com/docs/secure/attack-protection/state-parameters)
+- [State Parameter](/secure/attack-protection/state-parameters)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 ## Database/AD/LDAP (Passive)

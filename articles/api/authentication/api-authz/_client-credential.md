@@ -55,7 +55,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an <dfn data-key="access-token">Access Token</dfn> by using the Client's credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an <dfn data-key="access-token">access token</dfn> by using the application's credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 

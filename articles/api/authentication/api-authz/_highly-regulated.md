@@ -79,30 +79,34 @@ Content-Type: application/json
 ::: note
 Highly Regulated Identity is currently available for Enterprise customers under Limited Early Access. To learn more about this program, contact [Auth0 Support](http://support.auth0.com/). 
 :::
-Push Authorization Requests (PAR), a service of [Highly Regulated Identity](https://auth0.com/docs/secure/highly-regulated-identity), uses the `/oauth/par` endpoint to allow applications to send the authentication parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all standard authorization parameters similar to /authorize. Assuming the call to the /oauth/par endpoint is valid, Auth0 will respond with a redirect_uri value that can be used as a parameter for the /authorize endpoint.
+
+Push Authorization Requests (PAR), a service of [Highly Regulated Identity](https://auth0.com/docs/secure/highly-regulated-identity), uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all standard authorization parameters similar to /authorize. Assuming the call to the /oauth/par endpoint is valid, Auth0 will respond with a redirect_uri value that can be used as a parameter for the /authorize endpoint.
 
 Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value also used as a parameter for the `/authorize` endpoint. To learn more about configuring PAR, read [Configure Push Authorization Requests (PAR)](/get-started/applications/configure-par).
 
 ## Request Parameters
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type` <br/><span class="label label-danger">Required</span> | Specifies the token type. We recommend you use code to request an authorization code, or code id_token to receive an authorization code and a [detached signature](https://openid.net/specs/openid-financial-api-part-2-1_0.html#id-token-as-detached-signature). |
+|`authorization_details`| Requested permissions for each resource. Similar to scopes. To learn more, read [RAR reference documention](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow/authorization-code-flow-with-rar). |
+|`audience`| The unique identifier of the target API you want to access. |
+| `response_type` <br/><span class="label label-danger">Required</span> | Specifies the token type. We recommend you use `code` to request an authorization code, or code `id_token` to receive an authorization code and a [detached signature](https://openid.net/specs/openid-financial-api-part-2-1_0.html#id-token-as-detached-signature). |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. Specify the `redirect_uri` under your [Application's Settings](${manage_url}/#/applications).|
-| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
-| `scope` <br/><span class="label label-primary">Recommended</span>| OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include `offline_access` to get a Refresh Token.|
-| `code_challenge` <br/><span class="label label-primary">Recommended</span> | OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include offline_access to get a Refresh Token. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the application adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
+| `scope` <br/><span class="label label-primary">Recommended</span>| OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include `offline_access` to get a refresh token.|
+| `code_challenge` <br/><span class="label label-primary">Recommended</span> | OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include `offline_access` to get a refresh token. |
 | `code_challenge_method` <br/><span class="label label-primary">Recommended</span> | Method used to generate the challenge. The PKCE specification defines two methods, S256 and plain, however, Auth0 supports only S256 since the latter is discouraged. [Authorization Code Flow with Proof Key for Code Exchange (PKCE)] (/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce).|
-| `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID Token response from Auth0, used to prevent token replay attacks. It is required for `response_type=id_token` token. |
+| `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. It is required for `response_type=id_token` token. |
 | `connection` | The name of the connection configured to your application. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `prompt` | Can be used to force a particular prompt to display, e.g. `prompt=consent` will always display the consent prompt.|
 | `organization` | ID of the organization to use when authenticating a user. When not provided, if your application is configured to Display Organization Prompt, the user will be able to enter the organization name when authenticating. |
 
 ## Remarks
-To make a call to the PAR endpoint, you must:
-- Set the request content type as `application/x-www-form-urlencoded`
-- Use `strings` for all passed parameters
-- Include an additional parameter for application authentication in the request (e.g. `client_secret`, or `client_assertion` and `client_assertion_type` for JSON Web Token Client Authentication, or pass a `client-certificate` and `client-certificate-ca-verified` header when using Mutual TLS).
+- To make a call to the PAR endpoint, you must:
+  - Set the request content type as `application/x-www-form-urlencoded`
+  - Use `strings` for all passed parameters
+  - Include an additional parameter for application authentication in the request (e.g. `client_secret`, or `client_assertion` and `client_assertion_type` for JSON Web Token Client Authentication, or pass a `client-certificate` and `client-certificate-ca-verified` header when using Mutual TLS).
+- Use the `authorization_details` parameter to request permission for each resource. For example, you can specify an array of JSON objects to convey fine-grained information on the authorization. Each JSON object must contain a `type` attribute. The rest is up to you to define.
 
 ## Redirect from PAR to Authorize
 
@@ -119,10 +123,10 @@ GET https://{yourDomain}/authorize
   client_id={yourClientId}
 ```
 
-After calling the `/oauth/par` endpoint, redirect the end user with a `GET` call to the /authorize endpoint.
+After calling the `/oauth/par` endpoint, redirect the end user to the `/authorize` endpoint using a `GET` call.
 
 :::note
-The `/authorize` endpoint will respond based on the parameters passed to the `/oauth/par` endpoint. If you request a `response_type` of code, you should receive an authorization code to use at the `/oauth/token` endpoint.
+The `/authorize` endpoint will respond based on the parameters passed to the `/oauth/par` endpoint. If you request a `response_type`, you should receive an authorization code to use at the `/oauth/token` endpoint.
 :::
 
 ### Request Parameters
@@ -157,21 +161,6 @@ curl --request POST \
 --data 'grant_type=authorization_code& client_id={yourClientId}& code=CODE&redirect_uri={https://yourApp/callback}&code_verifier=CODE_VERIFIER'
 ```
 
-> RESPONSE SAMPLE:
-``` json
-/**
-The `/oauth/token` endpoint will respond with a JSON object containing an `id_token` property, and potentially also a `refresh_token` if one was requested.
-*/
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "refresh_token":"GEbRxBN...edjnXbL",
-  "id_token":"eyJ0XAi...4faeEoQ",
-  "token_type":"Bearer",
-  "expires_in":86400
-}
-```
-
 ```shell
 var request = require("request");
 
@@ -194,7 +183,22 @@ request(options, function (error, response, body) {
 });
 ```
 
-When users are redirected to `/authorize`, you need to make a `POST` call to the `oauth/token` endpoint to exchange an authorization code for an access and/or an ID token.
+> RESPONSE SAMPLE:
+``` json
+/**
+The `/oauth/token` endpoint will respond with a JSON object containing an `id_token` property, and potentially also a `refresh_token` if one was requested.
+*/
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+When users are redirected back to your callback, you need to make a `POST` call to the `oauth/token` endpoint to exchange an authorization code for an access and/or an ID token.
 
 ### Request Parameters
 | Parameter        | Description |
