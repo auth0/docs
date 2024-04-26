@@ -80,7 +80,7 @@ Content-Type: application/json
 Highly Regulated Identity is currently available for Enterprise customers under Limited Early Access. To learn more about this program, contact [Auth0 Support](http://support.auth0.com/). 
 :::
 
-Push Authorization Requests (PAR), a service of [Highly Regulated Identity](https://auth0.com/docs/secure/highly-regulated-identity), uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all standard authorization parameters similar to /authorize. Assuming the call to the /oauth/par endpoint is valid, Auth0 will respond with a redirect_uri value that can be used as a parameter for the /authorize endpoint.
+Push Authorization Requests (PAR), a service of [Highly Regulated Identity](https://auth0.com/docs/secure/highly-regulated-identity), uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all standard authorization parameters similar to `/authorize`. Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value that can be used as a parameter for the `/authorize` endpoint.
 
 Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value also used as a parameter for the `/authorize` endpoint. To learn more about configuring PAR, read [Configure Push Authorization Requests (PAR)](/get-started/applications/configure-par).
 
@@ -95,7 +95,7 @@ Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the application adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 | `scope` <br/><span class="label label-primary">Recommended</span>| OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include `offline_access` to get a refresh token.|
 | `code_challenge` <br/><span class="label label-primary">Recommended</span> | OIDC scopes and custom API scopes. For example: `openid read:timesheets`. Include `offline_access` to get a refresh token. |
-| `code_challenge_method` <br/><span class="label label-primary">Recommended</span> | Method used to generate the challenge. The PKCE specification defines two methods, S256 and plain, however, Auth0 supports only S256 since the latter is discouraged. [Authorization Code Flow with Proof Key for Code Exchange (PKCE)] (/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce).|
+| `code_challenge_method` <br/><span class="label label-primary">Recommended</span> | Method used to generate the challenge. The PKCE specification defines two methods, `S256` and plain, however, Auth0 supports only S256 since the latter is discouraged. [Authorization Code Flow with Proof Key for Code Exchange (PKCE)] (/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce).|
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. It is required for `response_type=id_token` token. |
 | `connection` | The name of the connection configured to your application. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `prompt` | Can be used to force a particular prompt to display, e.g. `prompt=consent` will always display the consent prompt.|
@@ -193,8 +193,15 @@ Content-Type: application/json
 {
   "refresh_token":"GEbRxBN...edjnXbL",
   "id_token":"eyJ0XAi...4faeEoQ",
+  "access_token":"eybRxBN...edjnXZQ",
   "token_type":"Bearer",
   "expires_in":86400
+  "authrorization_details":[
+  {
+  "type":"my_type",
+  "other_attributes_of_my_type":"value"
+},
+],
 }
 ```
 
@@ -203,10 +210,10 @@ When users are redirected back to your callback, you need to make a `POST` call 
 ### Request Parameters
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow. Assuming you have an authorization code from the /authorize endpoint, use `authorization_code`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow. Assuming you have an authorization code from the `/authorize` endpoint, use `authorization_code`. |
 | `code` | The authorization code from the initial `/authorize` call. |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `request_uri` <br/><span class="label label-danger">Required</span> | This is required only if it was set at the `GET` `/oauth/par` endpoint. The values must match. |
+| `request_uri` <br/><span class="label label-danger">Required</span> | This is required only if it was set at the `GET` `/oauth/par` endpoint. The values from `/authorize` must match the value you set at `/oauth/token`. |
 | `code_verifier` <br/><span class="label label-primary">Recommended</span> | Cryptographically random key used to generate the `code_challenge` passed to `/oauth/par`. If the `code_challenge` parameter is passed in the call to `/oauth/par`, this is required. |
 
 ### Remarks
