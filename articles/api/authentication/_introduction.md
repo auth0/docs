@@ -2,7 +2,7 @@
 
 The Authentication API enables you to manage all aspects of user identity when you use Auth0. It offers endpoints so your users can log in, sign up, log out, access APIs, and more. 
 
-The API supports various identity protocols, like <dfn data-key="openid">[OpenID Connect](/protocols/oidc)</dfn>, <dfn data-key="oath2"> [OAuth 2.0](/protocols/oauth2)</dfn>, <dfn data-key="fapi">[FAPI](https://auth0.com/docs/secure/highly-regulated-identity#advanced-security-with-openid-connect-fapi-)</dfn> and <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>.
+The API supports various identity protocols, like <dfn data-key="openid">[OpenID Connect](/protocols/oidc)</dfn>, <dfn data-key="oath2"> [OAuth 2.0](/protocols/oauth2)</dfn>, <dfn data-key="fapi">[FAPI](/secure/highly-regulated-identity#advanced-security-with-openid-connect-fapi-)</dfn> and <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>.
 
 :::note
 This API is designed for people who feel comfortable integrating with RESTful APIs. If you prefer a more guided approach check out our [Quickstarts](/quickstarts) or our [Libraries](/libraries).
