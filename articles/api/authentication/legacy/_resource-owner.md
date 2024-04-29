@@ -83,16 +83,6 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. |
 | `device` | You should set this to a string, if you are requesting a Refresh Token (`scope=offline_access`). |
 
-### Test with Authentication API Debugger
-
-<%= include('../../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test, and **Connection** to the name of the connection to use.
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
-
 ### Remarks
 
 - This endpoint only works for database connections, <dfn data-key="passwordless">passwordless</dfn> connections, Active Directory/LDAP, Windows Azure AD and ADFS.
@@ -105,6 +95,6 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
 
-### More Information
+### Learn More
 
 - [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)

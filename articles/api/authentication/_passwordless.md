@@ -110,7 +110,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/start](#post-passwordless-start).
 
-### More Information
+### Learn More
 
 - [Passwordless Authentication](/connections/passwordless)
 - [Passwordless Best Practices](/connections/passwordless/best-practices)
@@ -208,22 +208,11 @@ Once you have a verification code, use this endpoint to login the user with thei
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to also include user profile information in the ID Token. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | A callback URL that has been registered with your application's **Allowed Callback URLs**. |
 
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
-
 ### Error Codes
 
 For the complete error code reference for this endpoint refer to [Standard Error Responses](#standard-error-responses). 
 
-### More Information
+### Learn More
 
 - [Passwordless Authentication](/connections/passwordless)
 
@@ -251,17 +240,6 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `password` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
 
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
-
-1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
-
 ### Remarks
 
 - The `profile` <dfn data-key="scope">scope</dfn> value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
@@ -272,7 +250,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordless-verify).
 
-### More Information
+### Learn More
 
 - [Passwordless Best Practices](/connections/passwordless/best-practices)
 

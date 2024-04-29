@@ -56,7 +56,7 @@ curl --request POST \
 
 Send a change password email to the user's provided email address and `connection`.
 
-Optionally, you may provide an Organization ID to support Organization-specific variables in [customized email templates](https://auth0.com/docs/customize/email/email-templates#common-variables) and to include the `organization_id` and `organization_name` parameters in the **Redirect To** URL.
+Optionally, you may provide an Organization ID to support Organization-specific variables in [customized email templates](/customize/email/email-templates#common-variables) and to include the `organization_id` and `organization_name` parameters in the **Redirect To** URL.
 
 Note: This endpoint only works for database connections.
 
@@ -79,9 +79,9 @@ Note: This endpoint only works for database connections.
   * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
-### More Information
+### Learn More
 
 - [Changing a User's Password](/connections/database/password-change)
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)
-- [Auth0 API Rate Limit Policy](/policies/rate-limits)
+- [Auth0 API Rate Limit Policy](/troubleshoot/customer-support/operational-policies/rate-limit-policy/rate-limit-configurations)
