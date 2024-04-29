@@ -1,4 +1,4 @@
-# Highly Regulated Identity
+# Authorization Code Flow with Enhanced Privacy Protection
 ## Push Authorization Requests (PAR)
 
 <%= include('../../../_includes/_http-method', {
@@ -11,6 +11,7 @@
 ```http
 POST ${account.namespace}/oauth/par
 Content-Type: 'application/x-www-form-urlencoded'
+  audience={https://yourApi/}&
   response_type=code|code id_token&
   client_id={yourClientId}&
   redirect_uri={https://yourApp/callback}&
@@ -30,12 +31,14 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://{yourDomain}/oauth/par,
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  form: { 
+  form: {
+    audience: '{https://yourApi/}',
     response_type: 'code|code id_token',
     client_id: '{yourClientId}',
     redirect_uri: '{https://yourApp/callback}',
     state: 'STATE',
     scope: 'openid|profile|email',
+    authorization_details: JSON.stringify([{ type: 'my_type' }]),
     code_challenge: 'CODE_CHALLENGE',
     code_challenge_method: 'S256',
     nonce: 'NONCE',
@@ -50,13 +53,16 @@ request(options, function (error, response, body) {
 
   console.log(body);
 });
+
 ```
 
 ```shell
 curl --request POST \
   --url 'https://{yourDomain}/oauth/par' \
   --header 'content-type: application/x-www-form-urlencoded' \
---data 'response_type=code|code id_token& client_id={yourClientId}& redirect_uri={https://yourApp/callback}&state=STATE&scope=openid|profile|email&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&nonce=NONCE&connection=CONNECTION&prompt=login|consent|none&organisation=ORGANIZATION'
+--data 'audience={https://yourApi/}response_type=code|code id_token&client_id={yourClientId}&redirect_uri={https://yourApp/callback}&state=STATE&scope=openid|profile|email&authorization_details='[{"type":"my_type"}]'
+&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&nonce=NONCE&connection=CONNECTION&prompt=login|consent|none&organisation=ORGANIZATION'
+
 ```
 
 > RESPONSE SAMPLE:
@@ -79,8 +85,9 @@ Content-Type: application/json
 ::: note
 Highly Regulated Identity is currently available for Enterprise customers under Limited Early Access. To learn more about this program, contact [Auth0 Support](http://support.auth0.com/). 
 :::
+<br></br>
 
-Push Authorization Requests (PAR), a service of [Highly Regulated Identity](https://auth0.com/docs/secure/highly-regulated-identity), uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all standard authorization parameters similar to `/authorize`. Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value that can be used as a parameter for the `/authorize` endpoint.
+Authorization Code Flow with [Push Authorization Requests (PAR)](/get-started/authentication-and-authorization-flow/authorization-code-flow/authorization-code-flow-with-par), uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The /oauth/par endpoint accepts all authorization parameters which can be proivided to `/authorize`. Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value that can be used as a parameter for the `/authorize` endpoint.
 
 Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value also used as a parameter for the `/authorize` endpoint. To learn more about configuring PAR, read [Configure Push Authorization Requests (PAR)](/get-started/applications/configure-par).
 
@@ -108,7 +115,7 @@ Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with
   - Include an additional parameter for application authentication in the request (e.g. `client_secret`, or `client_assertion` and `client_assertion_type` for JSON Web Token Client Authentication, or pass a `client-certificate` and `client-certificate-ca-verified` header when using Mutual TLS).
 - Use the `authorization_details` parameter to request permission for each resource. For example, you can specify an array of JSON objects to convey fine-grained information on the authorization. Each JSON object must contain a `type` attribute. The rest is up to you to define.
 
-## Redirect from PAR to Authorize
+## Authorize
 
 <%= include('../../../_includes/_http-method', {
   "http_badge": "badge-primary",
@@ -191,18 +198,19 @@ The `/oauth/token` endpoint will respond with a JSON object containing an `id_to
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "refresh_token":"GEbRxBN...edjnXbL",
+   "refresh_token":"GEbRxBN...edjnXbL",
+    "access_token":"eybRxBN...edjnXZQ",  
   "id_token":"eyJ0XAi...4faeEoQ",
-  "access_token":"eybRxBN...edjnXZQ",
   "token_type":"Bearer",
-  "expires_in":86400
+  "expires_in":86400,
   "authrorization_details":[
-  {
-  "type":"my_type",
-  "other_attributes_of_my_type":"value"
+    {
+      "type":"my_type",
+      "other_attributes_of_my_type":"value"}
+  ]
 },
-],
-}
+  
+  
 ```
 
 When users are redirected back to your callback, you need to make a `POST` call to the `oauth/token` endpoint to exchange an authorization code for an access and/or an ID token.

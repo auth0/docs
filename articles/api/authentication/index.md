@@ -61,6 +61,9 @@ contentType:
   <%= include('./api-authz/_auth-code-pkce') %>>
 </div>
 <div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_highly-regulated') %>>
+</div>
+<div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_client-credential') %>>
 </div>
 <div class="api-section" data-section="api-authz">
@@ -71,9 +74,6 @@ contentType:
 </div>
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_device-code') %>
-</div>
-<div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_highly-regulated') %>
 </div>
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_refresh-token') %>
