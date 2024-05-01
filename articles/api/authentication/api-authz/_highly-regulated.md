@@ -1,4 +1,5 @@
 # Authorization Code Flow with Enhanced Privacy Protection
+
 ## Push Authorization Requests (PAR)
 
 <%= include('../../../_includes/_http-method', {
@@ -85,13 +86,12 @@ Content-Type: application/json
 ::: note
 Highly Regulated Identity is currently available for Enterprise customers under Limited Early Access. To learn more about this program, contact [Auth0 Support](http://support.auth0.com/). 
 :::
-<br></br>
 
 Authorization Code Flow with [Pushed Authorization Requests (PAR)](/get-started/authentication-and-authorization-flow/authorization-code-flow/authorization-code-flow-with-par) uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The `/oauth/par` endpoint accepts all authorization parameters which can be proivided to `/authorize`. Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value that can be used as a parameter for the `/authorize` endpoint.
 
 Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value also used as a parameter for the `/authorize` endpoint. To learn more about configuring PAR, read [Configure Pushed Authorization Requests (PAR)](/get-started/applications/configure-par).
 
-## Request Parameters
+### Request Parameters
 | Parameter        | Description |
 |:-----------------|:------------|
 |`authorization_details`| Requested permissions for each resource. Similar to scopes. To learn more, read [RAR reference documention](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow/authorization-code-flow-with-rar). |
@@ -108,7 +108,7 @@ Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with
 | `prompt` | Can be used to force a particular prompt to display, e.g. `prompt=consent` will always display the consent prompt.|
 | `organization` | ID of the organization to use when authenticating a user. When not provided, if your application is configured to **Display Organization Prompt**, the user will be able to enter the organization name when authenticating. |
 
-## Remarks
+### Remarks
 - To make a call to the PAR endpoint, you must:
   - Set the request content type as `application/x-www-form-urlencoded`
   - Use `strings` for all passed parameters
@@ -142,7 +142,7 @@ The `/authorize` endpoint will respond based on the parameters passed to the `/o
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 | `request_uri` <br/><span class="label label-danger">Required</span> | The `request_uri` value that was received from the `/oauth/par` endpoint. |
  
-### Exchange an Authorization Code for a Token
+## Exchange an Authorization Code for a Token
 
 <%= include('../../../_includes/_http-method', {
   "http_badge": "badge-primary",

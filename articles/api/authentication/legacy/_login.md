@@ -1,6 +1,5 @@
 <!-- markdownlint-disable -->
 # Login
-
 ## Social with Provider's Access Token
 
 ```http

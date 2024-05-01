@@ -1,5 +1,4 @@
 # Device Authorization Flow
-
 ## Authorize
 
 ```http

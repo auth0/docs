@@ -1,6 +1,6 @@
 # Authorization Code Flow with PKCE
-
 ## Authorize
+
 ```http
 GET https://${account.namespace}/authorize?
   audience=API_IDENTIFIER&

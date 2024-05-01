@@ -1,5 +1,4 @@
 # Client Credential Flow
-
 ## Get Token
 
 ```http

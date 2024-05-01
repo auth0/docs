@@ -1,7 +1,6 @@
 <!-- markdownlint-disable MD024 MD033 -->
 
 # User Profile
-
 ## Get Token Info
 
 ```http

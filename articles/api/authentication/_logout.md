@@ -1,6 +1,6 @@
 # Logout
-
 ## Auth0 Logout
+
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "GET",
