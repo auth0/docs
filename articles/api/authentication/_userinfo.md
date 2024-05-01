@@ -1,5 +1,4 @@
 # User Profile
-
 ## Get User Info
 
 ```http

@@ -48,15 +48,15 @@ An example is the [Implicit Grant](#implicit-flow).
 
 ### mTLS Authentication
 
-Generate a certificate, either [self-signed](https://auth0.com/docs/get-started/applications/configure-mtls/configure-mtls-for-a-client#self-signed-certificates) or [certificate authority signed](https://auth0.com/docs/get-started/applications/configure-mtls/configure-mtls-for-a-client#certificate-authority-signed-certificates). Then, [set up the customer edge network](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge) that performs the mTLS handshake. 
+Generate a certificate, either [self-signed](/get-started/applications/configure-mtls/configure-mtls-for-a-client#self-signed-certificates) or [certificate authority signed](/get-started/applications/configure-mtls/configure-mtls-for-a-client#certificate-authority-signed-certificates). Then, [set up the customer edge network](/get-started/applications/configure-mtls/set-up-the-customer-edge) that performs the mTLS handshake. 
 
 Once your edge network verifies the certificate, forward the request to the Auth0 edge network with the following headers:
 
 - The Custom Domain API key as the `cname-api-key` header.
 - The client certificate as the `client-certificate` header.
-- The client certificate CA verification status as the `client-certificate-ca-verified` header. For more information, see [Forward the Request](https://auth0.com/docs/get-started/applications/configure-mtls/set-up-the-customer-edge#forward-the-request-).
+- The client certificate CA verification status as the `client-certificate-ca-verified` header. For more information, see [Forward the Request](/get-started/applications/configure-mtls/set-up-the-customer-edge#forward-the-request-).
 
-To learn more, read [Authenticate with mTLS](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-mtls). 
+To learn more, read [Authenticate with mTLS](/get-started/authentication-and-authorization-flow/authenticate-with-mtls). 
 
 ## Parameters
 
@@ -99,7 +99,7 @@ The [Authentication API Debugger](/extensions/authentication-api-debugger) is an
 
 1. At the *OAuth2 / OIDC* tab, select **OAuth2 / OIDC Login**.
 
-### Use Authentication API Debugger
+### Endpoint options
 Configure other endpoints with the following options:
 
 - Passwordless: On the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
@@ -110,7 +110,7 @@ Configure other endpoints with the following options:
 - Legacy Delegation: On the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
 - Legacy Resource Owner:  On the *OAuth2 / OIDC* tab, set the **Username** and **Password**, then select **Resource Owner Endpoint**.
 
-### Use Authentication API Debugger with authentications flows
+### Authentications flows
 
 Configure authentication flows with the following options:
 - Authorization Code Flow: On the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](/get-started/authentication-and-authorization-flow/authorization-code-flow), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.

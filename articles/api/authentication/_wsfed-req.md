@@ -1,5 +1,4 @@
 # WS-Federation
-
 ## Accept Request
 
 ```http

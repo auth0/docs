@@ -1,6 +1,6 @@
 # Resource Owner Password Flow
-
 ## Get Token
+
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded

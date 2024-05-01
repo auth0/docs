@@ -1,5 +1,4 @@
 # Authorization Code Flow
-
 ## Authorize
 
 ```http

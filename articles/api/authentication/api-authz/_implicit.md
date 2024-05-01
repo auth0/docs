@@ -1,5 +1,4 @@
 # Implicit Flow
-
 ## Authorize
 
 ```http

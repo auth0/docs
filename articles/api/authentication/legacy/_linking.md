@@ -1,5 +1,4 @@
 # Account Linking
-
 ## Link
 
 ::: warning

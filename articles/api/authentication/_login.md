@@ -1,5 +1,4 @@
 <!-- markdownlint-disable MD024 MD033 -->
-
 # Login
 
 <%= include('../../_includes/_http-method', {
