@@ -15,6 +15,7 @@ topics:
    - error pages
    - logout
    - user profiles
+public: false
 ---
 # Get Started with Auth0 Video Series
 

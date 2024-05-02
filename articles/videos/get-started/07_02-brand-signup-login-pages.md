@@ -1,7 +1,9 @@
 ---
 description: How to use Universal Login to customize your sign up and login pages. 
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Brand: Sign Up and Login Pages
 
 Learn how to use Auth0’s Universal Login feature to customize your sign up and login pages to include your brand.

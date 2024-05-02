@@ -1,7 +1,9 @@
 ---
 description: How user profiles are provisioned within an Auth0 tenant.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Provision: User Stores
 
 Learn how user profiles are provisioned within an Auth0 tenant. Users can come from a multitude of places: directly through creating an account using self sign-up, indirectly through using their favorite trusted social media platform, or collectively through a trusted enterprise directory. Auth0 makes it simple to quickly connect your tenant to multiple types of user stores. We group these users stores into three categories: database, social, and enterprise.

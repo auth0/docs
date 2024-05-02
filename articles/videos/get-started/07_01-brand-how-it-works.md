@@ -1,7 +1,9 @@
 ---
 description: Why your branding is important for your users and how it works with Auth0.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Brand: How It Works
 
 Learn how branding works with Auth0. Add your company name and logo, and choose colors for your pages.

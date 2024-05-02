@@ -1,7 +1,9 @@
 ---
 description: How to use email templates and customize error pages. 
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Brand: Emails and Error Pages
 
 Learn how to use Auth0 email templates and make changes to the reply email address, subject, redirect URL, and URL lifetime. You can configure your email provider and customize how verify emails look. Learn how to use your own error pages.

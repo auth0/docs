@@ -2,6 +2,7 @@
 description: Learn about digital identity including OAuth2, OpenID Connect, calling APIs, and more!
 classes: video-page
 image: https://cdn2.auth0.com/docs/media/articles/learn-identity/learn-identity-og-image.jpg
+public: false
 ---
 # Learn Identity
 

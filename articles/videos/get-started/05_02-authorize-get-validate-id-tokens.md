@@ -1,7 +1,9 @@
 ---
 description: How to get and validate ID Tokens before storing and using them.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Authorize: Get and Validate ID Tokens
 
 Learn how to get and validate an ID Token in JSON Web Token (JWT) format.

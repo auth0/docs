@@ -8812,91 +8812,155 @@ const redirects = [
   /* Videos */
 
   {
-    from: ['/video-series/main/videos'],
-    to: '/videos',
+    from: [
+      '/video-series/main/videos',
+      '/videos',
+  ],
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity'],
-    to: '/videos/learn-identity-series',
+    from: [
+      '/videos/learn-identity',
+      '/videos/learn-identity-series',
+    ],
+    to: '/docs',
   },
   {
     from: [
       '/videos/learn-identity/01-introduction-to-identity',
       '/videos/learn-identity-series/learn-identity-series/introduction-to-identity',
+      '/videos/learn-identity-series/introduction-to-identity',
+
     ],
-    to: '/videos/learn-identity-series/introduction-to-identity',
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity/02-oidc-and-oauth'],
-    to: '/videos/learn-identity-series/openid-connect-and-oauth2',
+    from: [
+      '/videos/learn-identity/02-oidc-and-oauth',
+      '/videos/learn-identity-series/openid-connect-and-oauth2',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity/03-web-sign-in'],
-    to: '/videos/learn-identity-series/web-sign-in',
+    from: [
+      '/videos/learn-identity/03-web-sign-in',
+      '/videos/learn-identity-series/web-sign-in',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity/04-calling-an-api'],
-    to: '/videos/learn-identity-series/calling-an-api',
+    from: [
+      '/videos/learn-identity/04-calling-an-api',
+      '/videos/learn-identity-series/calling-an-api',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity/05-desktop-and-mobile-apps'],
-    to: '/videos/learn-identity-series/desktop-and-mobile-apps',
+    from: [
+      '/videos/learn-identity/05-desktop-and-mobile-apps',
+      '/videos/learn-identity-series/desktop-and-mobile-apps',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/learn-identity/06-single-page-apps'],
-    to: '/videos/learn-identity-series/single-page-apps',
+    from: [
+      '/videos/learn-identity/06-single-page-apps',
+      '/videos/learn-identity-series/single-page-apps',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started'],
-    to: '/videos/get-started-series',
+    from: [
+      '/videos/get-started',
+      '/videos/get-started-series',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/01-architecture-your-tenant'],
-    to: '/videos/get-started-series/architect-your-tenant',
+    from: [
+      '/videos/get-started/01-architecture-your-tenant',
+      '/videos/get-started-series/architect-your-tenant',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/02-provision-user-stores'],
-    to: '/videos/get-started-series/provision-user-stores',
+    from: [
+      '/videos/get-started/02-provision-user-stores',
+      '/videos/get-started-series/provision-user-stores',
+    ],
+    to: '/docs',
+    
   },
   {
-    from: ['/videos/get-started/03-provision-import-users'],
-    to: '/videos/get-started-series/provision-import-users',
+    from: [
+      '/videos/get-started/03-provision-import-users',
+      '/videos/get-started-series/provision-import-users',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/04_01-authenticate-how-it-works'],
-    to: '/videos/get-started-series/authenticate-how-it-works',
+    from: [
+      '/videos/get-started/04_01-authenticate-how-it-works',
+      '/videos/get-started-series/authenticate-how-it-works',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/04_02-authenticate-spa-example', '/videos/get-started/04_01-authenticate-spa-example'],
-    to: '/videos/get-started-series/authenticate-spa-example',
+    from: [
+      '/videos/get-started/04_02-authenticate-spa-example', 
+      '/videos/get-started/04_01-authenticate-spa-example',
+      '/videos/get-started-series/authenticate-spa-example',
+  ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/05_01-authorize-id-tokens-access-control'],
-    to: '/videos/get-started-series/authorize-id-tokens-and-access-control',
+    from: [
+      '/videos/get-started/05_01-authorize-id-tokens-access-control',
+      '/videos/get-started-series/authorize-id-tokens-and-access-control',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/05_02-authorize-get-validate-id-tokens'],
-    to: '/videos/get-started-series/authorize-get-and-validate-id-tokens',
+    from: [
+      '/videos/get-started/05_02-authorize-get-validate-id-tokens',
+      '/videos/get-started-series/authorize-get-and-validate-id-tokens',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/06-user-profiles'],
-    to: '/videos/get-started-series/learn-user-profiles',
+    from: [
+      '/videos/get-started/06-user-profiles',
+      '/videos/get-started-series/learn-user-profiles',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/07_01-brand-how-it-works'],
-    to: '/videos/get-started-series/brand-how-it-works',
+    from: [
+      '/videos/get-started/07_01-brand-how-it-works',
+      '/videos/get-started-series/brand-how-it-works',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/07_02-brand-signup-login-pages'],
-    to: '/videos/get-started-series/brand-signup-and-login-pages',
+    from: [
+      '/videos/get-started/07_02-brand-signup-login-pages',
+      '/videos/get-started-series/brand-signup-and-login-pages',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/08-brand-emails-error-pages'],
-    to: '/videos/get-started-series/brand-emails-and-error-pages',
+    from: [
+      '/videos/get-started/08-brand-emails-error-pages',
+      '/videos/get-started-series/brand-emails-and-error-pages',
+    ],
+    to: '/docs',
   },
   {
-    from: ['/videos/get-started/10-logout'],
-    to: '/videos/get-started-series/learn-logout',
+    from: [
+      '/videos/get-started/10-logout',
+      '/videos/get-started-series/learn-logout',
+    ],
+    to: '/docs',
   },
 
 /* Forms */
