@@ -2,7 +2,9 @@
 description: What user profiles are, what they contain, and how you can use them to manage users.
 classes: video-page
 title: Explore User Profiles
+public: false
 ---
+<!-- markdownlint-disable-->
 # Explore User Profiles
 
 Learn what Auth0 User Profiles are used for and what they contain. Understand how Auth0 normalizes user profile data from various identity providers and uses metadata and root attributes. You can manage user profiles with the Auth0 Dashboard.  

@@ -1,7 +1,9 @@
 ---
 description: An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Authenticate: SPA Example
 
 See an example using the Auth0 Quickstart for a single-page application (SPA) implementation and learn how Auth0's Universal Login feature does most of the authentication work for you. Understand how security and user experience work with the authentication process to determine how to plan your application integration to Auth0. See how Single-Sign On (SSO) works between applications when you use Universal Login. 

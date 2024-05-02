@@ -1,7 +1,9 @@
 ---
 description: What ID Tokens are and how you can add custom claims to customize them and make access control decisions for your users.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Authorize: ID Tokens and Access Control
 
 Learn about Auth0 authorization via the use of ID Tokens. Understand what an ID Token is, and learn how to add custom claims to customize tokens and make access control decisions for your users.

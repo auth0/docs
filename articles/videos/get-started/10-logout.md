@@ -1,7 +1,9 @@
 ---
 description: How to configure different kinds of user logout behavior using callback URLs.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Logout
 
 Learn about different kinds of logout behavior and different session layers. Learn how to configure callback URLs in the application and tenant settings in the Dashboard.

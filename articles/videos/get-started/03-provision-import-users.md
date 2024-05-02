@@ -1,7 +1,9 @@
 ---
 description: How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Provision: Import Users
 
 Learn how Auth0 allows you to move your existing users to an Auth0 user store and why you may want to use a combination of both automatic and bulk migration methods. Learn why it's a good idea to have an API between the cloud and your legacy database and how custom database scripts work.

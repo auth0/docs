@@ -1,7 +1,9 @@
 ---
 description: How user authentication works and various ways to accomplish it with Auth0.
 classes: video-page
+public: false
 ---
+<!-- markdownlint-disable-->
 # Authenticate: How It Works
 
 Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol.   

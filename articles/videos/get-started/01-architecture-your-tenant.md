@@ -1,7 +1,9 @@
 ---
 description: What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.
 classes: video-page
+public: false 
 ---
+<!-- markdownlint-disable-->
 # Architect: Your Tenant
 
 Learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Understand why you may want more than one tenant if you have different user communities, and also how you can use more than one tenant to support your Software Development Life Cycle (SDLC). Understand the importance of tenant naming and custom domain usage best practices. Also learn how to set up additional tenant administrators and how to associate tenants with your Auth0 account.
