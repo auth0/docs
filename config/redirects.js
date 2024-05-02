@@ -8816,14 +8816,14 @@ const redirects = [
       '/video-series/main/videos',
       '/videos',
   ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity',
       '/videos/learn-identity-series',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
@@ -8832,63 +8832,63 @@ const redirects = [
       '/videos/learn-identity-series/introduction-to-identity',
 
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity/02-oidc-and-oauth',
       '/videos/learn-identity-series/openid-connect-and-oauth2',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity/03-web-sign-in',
       '/videos/learn-identity-series/web-sign-in',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity/04-calling-an-api',
       '/videos/learn-identity-series/calling-an-api',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity/05-desktop-and-mobile-apps',
       '/videos/learn-identity-series/desktop-and-mobile-apps',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/learn-identity/06-single-page-apps',
       '/videos/learn-identity-series/single-page-apps',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started',
       '/videos/get-started-series',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/01-architecture-your-tenant',
       '/videos/get-started-series/architect-your-tenant',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/02-provision-user-stores',
       '/videos/get-started-series/provision-user-stores',
     ],
-    to: '/docs/',
+    to: '/articles',
     
   },
   {
@@ -8896,14 +8896,14 @@ const redirects = [
       '/videos/get-started/03-provision-import-users',
       '/videos/get-started-series/provision-import-users',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/04_01-authenticate-how-it-works',
       '/videos/get-started-series/authenticate-how-it-works',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
@@ -8911,56 +8911,56 @@ const redirects = [
       '/videos/get-started/04_01-authenticate-spa-example',
       '/videos/get-started-series/authenticate-spa-example',
   ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/05_01-authorize-id-tokens-access-control',
       '/videos/get-started-series/authorize-id-tokens-and-access-control',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/05_02-authorize-get-validate-id-tokens',
       '/videos/get-started-series/authorize-get-and-validate-id-tokens',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/06-user-profiles',
       '/videos/get-started-series/learn-user-profiles',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/07_01-brand-how-it-works',
       '/videos/get-started-series/brand-how-it-works',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/07_02-brand-signup-login-pages',
       '/videos/get-started-series/brand-signup-and-login-pages',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/08-brand-emails-error-pages',
       '/videos/get-started-series/brand-emails-and-error-pages',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
   {
     from: [
       '/videos/get-started/10-logout',
       '/videos/get-started-series/learn-logout',
     ],
-    to: '/docs/',
+    to: '/articles',
   },
 
 /* Forms */
