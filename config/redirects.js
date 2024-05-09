@@ -7110,6 +7110,10 @@ const redirects = [
     from: ['/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-log-extensions'],
     to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-log-extensions',
   },
+  {
+    from: [`/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-to-1-hour-expiration`],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-to-1-hour-expiration',
+  },
 
   /* Professional Services */
 
