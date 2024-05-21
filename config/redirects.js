@@ -967,6 +967,10 @@ const redirects = [
     from: ['/connections/database/custom-db/error-handling'],
     to: '/authenticate/database-connections/custom-db/error-handling',
   },
+  {
+    from: [`/authenticate/database-connections/test-custom-db`],
+    to: `/authenticate/database-connections/custom-db/test-custom-database-connections`
+  },
 
   /* MICROSITES */
   {
