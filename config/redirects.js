@@ -967,6 +967,10 @@ const redirects = [
     from: ['/connections/database/custom-db/error-handling'],
     to: '/authenticate/database-connections/custom-db/error-handling',
   },
+  {
+    from: [`/authenticate/database-connections/test-custom-db`],
+    to: `/authenticate/database-connections/custom-db/test-custom-database-connections`
+  },
 
   /* MICROSITES */
   {
@@ -7165,8 +7169,9 @@ const redirects = [
     to: '/get-started/professional-services/maintain-improve',
   },
   {
-    from: ['/services/packages', '/professional-services/packages', '/troubleshoot/professional-services/packages'],
-    to: '/get-started/professional-services/packages',
+    from: ['/services/packages', '/professional-services/packages', '/troubleshoot/professional-services/packages', 
+    '/get-started/professional-services/packages'],
+    to: '/get-started/professional-services',
   },
 
   /* Rules */
