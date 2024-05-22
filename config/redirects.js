@@ -7169,8 +7169,9 @@ const redirects = [
     to: '/get-started/professional-services/maintain-improve',
   },
   {
-    from: ['/services/packages', '/professional-services/packages', '/troubleshoot/professional-services/packages'],
-    to: '/get-started/professional-services/packages',
+    from: ['/services/packages', '/professional-services/packages', '/troubleshoot/professional-services/packages', 
+    '/get-started/professional-services/packages'],
+    to: '/get-started/professional-services',
   },
 
   /* Rules */
