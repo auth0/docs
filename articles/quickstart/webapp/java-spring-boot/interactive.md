@@ -61,7 +61,7 @@ If you are using Maven:
 
 <dependencies>
     <dependency>
-        <groupId>com.okta</groupId>
+        <groupId>com.okta.spring</groupId>
         <artifactId>okta-spring-boot-starter</artifactId>
         <version>3.0.5</version>
     </dependency>
