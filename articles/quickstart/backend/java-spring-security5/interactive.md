@@ -79,7 +79,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-        <groupId>com.okta</groupId>
+        <groupId>com.okta.spring</groupId>
         <artifactId>okta-spring-boot-starter</artifactId>
         <version>3.0.5</version>
     </dependency>
