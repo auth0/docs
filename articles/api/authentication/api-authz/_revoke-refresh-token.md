@@ -61,7 +61,7 @@ If this toggle is disabled, then only the refresh token is revoked, while the gr
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.|
+| `client_assertion`| A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is the application authentication method.|
 | `client_assertion_type`| The value is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.  Required when Private Key JWT is the application authentication method.|
 | `client_secret` | The `client_secret` of your application. Required when Client Secret Basic or Client Secret Post is the application authentication method. Specifically required for Regular Web Applications **only**. |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
@@ -72,7 +72,7 @@ If this toggle is disabled, then only the refresh token is revoked, while the gr
 
 ## Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth/revoke](#post-oauth-revoke).
+For the complete error code reference for this endpoint, refer to [Errors > POST /oauth/revoke](#post-oauth-revoke).
 
 ## Learn More
 
