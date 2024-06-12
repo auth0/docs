@@ -107,6 +107,8 @@ The `messages_types` parameter is an array that can have `["sms"]`, `["voice"]`,
   }
 ```
 
+In the past, all the Management API endpoints to configure SMS where below the `/api/v2/guardian/factors/sms` route. Now the same endpoints are available in `/api/v2/guardian/factors/phone` too. We recommend you to use the `/phone` endpoints.
+
 ## Security Considerations
 
 When using any phone messaging provider, you need to be aware that attackers abusing the signup flow could cause you financial damage.
