@@ -1,4 +1,4 @@
----
+Blue---
 title: Authorization
 description:  This tutorial demonstrates how to add authorization to a Python API built with Flask.
 topics:
