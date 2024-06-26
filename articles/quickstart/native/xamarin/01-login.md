@@ -196,8 +196,7 @@ if (!loginResult.IsError)
 ```
 
 ::: note
-The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Application documentation.
-:::
+The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC 
 
 You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
