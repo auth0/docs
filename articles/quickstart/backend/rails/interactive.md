@@ -53,7 +53,7 @@ Create a Concern called `Secured` which looks for the access token in the `Autho
 
 If the token is present, the `Auth0Client.validate_token` will use the `jwt` Gem to verify the token's signature and validate the token's claims.
 
-In addition to verifying that the access token is valid, the Concern also includes a mechanism for confirming the token has the sufficient **scope** to access the requested resources. In this example we define a `validate_permissions` method that receives a block and checks the permissions by calling the `Token.validate_permissions` method from the `Auth0Client` class.
+In addition to verifying that the access token is valid, the Concern also includes a mechanism for confirming the token has the sufficient **scope** to access the requested resources. In this example, we define a `validate_permissions` method that receives a block and checks the permissions by calling the `Token.validate_permissions` method from the `Auth0Client` class.
 
 For the `/private-scoped` route, the scopes defined will be intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
 
