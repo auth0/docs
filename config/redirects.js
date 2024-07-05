@@ -8981,6 +8981,13 @@ const redirects = [
     ],
     to: '/customize/forms/nodes-and-components',
 },
+
+{
+    from: [
+      '/customize/phone/twilio-phone-providers'
+    ],
+    to: '/customize/phone-messages/configure-phone-messaging-providers/configure-twilio-as-a-phone-messaging-provider',
+  },
   
 ];
 
