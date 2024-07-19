@@ -5623,6 +5623,10 @@ const redirects = [
     from: ['/integrations/marketing'],
     to: '/customize/integrations/marketing-tool-integrations',
   },
+  {
+    from: ['/integrations/integrate-with-vercel'],
+    to: '/customize/integrations/integrate-with-vercel',
+  },
 
   /* Libraries */
 
