@@ -2422,6 +2422,51 @@ const redirects = [
     from: ['/authorization/protocols/scim'],
     to: '/authenticate/protocols/scim',
   },
+    {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/configure-inbound-scim-for-other-identity-providers-using-openid-or-saml',
+    ],
+    to: '/authenticate/protocols/scim/configure-inbound-scim-for-other-identity-providers-using-openid-or-saml',
+  },
+    {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-new-azure-ad-connections',
+    ],
+    to: '/authenticate/protocols/scim/inbound-scim-for-new-azure-ad-connections',
+  },
+      {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-older-azure-ad-connections',
+    ],
+    to: '/authenticate/protocols/scim/inbound-scim-for-older-azure-ad-connections',
+  },
+          {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/manage-an-inbound-scim-deployment-with-the-management-api',
+    ],
+    to: '/authenticate/protocols/scim/manage-an-inbound-scim-deployment-with-the-management-api',
+  },
+    },
+          {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-okta-workforce-saml-connections',
+    ],
+    to: '/authenticate/protocols/scim/inbound-scim-for-okta-workforce-saml-connections',
+  },
+      },
+          {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-azure-ad-saml-connections',
+    ],
+    to: '/authenticate/protocols/scim/inbound-scim-for-azure-ad-saml-connections',
+  },
+        },
+          {
+    from: [
+      '/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-okta-workforce-connections',
+    ],
+    to: '/authenticate/protocols/scim/inbound-scim-for-okta-workforce-connections',
+  },
 
   /* Actions */
   {
