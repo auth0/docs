@@ -2424,7 +2424,7 @@ const redirects = [
   },
   {
     from: ['/authenticate/protocols/scim/configure-inbound-scim/configure-inbound-scim-for-other-identity-providers-using-openid-or-saml'],
-    to: '/authenticate/protocols/scim/configure-inbound-scim-for-other-identity-providers-using-openid-or-saml',
+    to: '/authenticate/protocols/scim/configure-inbound-scim-for-identity-providers-using-saml-or-openid',
   },
   {
     from: ['/authenticate/protocols/scim/configure-inbound-scim/inbound-scim-for-new-azure-ad-connections'],
