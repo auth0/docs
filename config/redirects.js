@@ -1726,6 +1726,10 @@ const redirects = [
     to: '/get-started/applications/update-application-connections',
   },
   {
+    from: ['/get-started/applications/configure-mtls/set-up-resource-server-for-token-binding'],
+    to: '/get-started/applications/configure-sender-constraining/configure-resource-server-for-sender-constraining',
+  },
+  {
     from: [
       '/applications/concepts/app-types-confidential-public',
       '/applications/confidential-and-public-applications',
