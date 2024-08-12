@@ -7680,6 +7680,12 @@ const redirects = [
   },
   {
     from: [
+      '/secure/tokens/access-tokens/token-binding',
+    ],
+    to: '/get-started/applications/configure-sender-constraining',
+  },
+  {
+    from: [
       '/tokens/guides/validate-access-tokens',
       '/api-auth/tutorials/verify-access-token',
       '/tokens/guides/access-token/validate-access-token',
