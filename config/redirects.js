@@ -7679,9 +7679,7 @@ const redirects = [
     to: '/secure/tokens/access-tokens',
   },
   {
-    from: [
-      '/secure/tokens/access-tokens/token-binding',
-    ],
+    from: ['/secure/tokens/access-tokens/token-binding'],
     to: '/get-started/applications/configure-sender-constraining',
   },
   {
