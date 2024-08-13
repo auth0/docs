@@ -1,5 +1,5 @@
 # Signup
-
+<!-- markdownlint-disable MD001 MD012 MD012 -->
 ```http
 POST https://${account.namespace}/dbconnections/signup
 Content-Type: application/json
@@ -85,7 +85,7 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `client_id` | The `client_id` of your client. |
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |

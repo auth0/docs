@@ -1,5 +1,5 @@
 # Change Password
-
+<!-- markdownlint-disable MD001 MD012 MD012 -->
 ```http
 POST https://${account.namespace}/dbconnections/change_password
 Content-Type: application/json
@@ -64,7 +64,7 @@ Note: This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` | The `client_id` of your client. We strongly recommend including a Client ID so that the email template knows from which client the request was triggered. |
+| `client_id` | The `client_id` of your client.|
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
 | `organization` | The `organization_id` of the Organization associated with the user. |
