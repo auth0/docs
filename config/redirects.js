@@ -1960,6 +1960,14 @@ const redirects = [
     ],
     to: '/api/management/v2',
   },
+  {
+    from: ['/api/management/v2/blacklists/get-tokens'],
+    to: '/secure/security-guidance/data-security/denylist',
+  },
+  {
+    from: ['/api/management/v2/blacklists/post-tokens'],
+    to: '/secure/security-guidance/data-security/denylist',
+  },
 
   /* Single Sign-On */
 
