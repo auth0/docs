@@ -1953,6 +1953,14 @@ const redirects = [
     ],
     to: '/get-started/apis/create-m2m-app-test',
   },
+  {
+    from: ['/api/management/v2/blacklists/get-tokens'],
+    to: '/secure/security-guidance/data-security/denylist',
+  },
+  {
+    from: ['/api/management/v2/blacklists/post-tokens'],
+    to: '/secure/security-guidance/data-security/denylist',
+  },
 
   /* Single Sign-On */
 
