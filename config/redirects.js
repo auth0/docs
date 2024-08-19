@@ -2710,7 +2710,7 @@ const redirects = [
     to: '/api/authentication',
   },
   {
-    from: ['/apiv2', '/api/v2', '/api/management'],
+    from: ['/apiv2', '/api/v2', '/api/management','/api/management/v2/blacklists/get-tokens','/api/management/v2/blacklists/post-tokens' ],
     to: '/api/management/v2',
   },
   {
