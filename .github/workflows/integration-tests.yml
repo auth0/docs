@@ -16,9 +16,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Log start time
+        run: echo "Workflow started at: $(date)"
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5.2
+      - name: Log branch name
+        run: echo "Branch name: ${{ steps.branch-name.outputs.current_branch }}"
       - name: Wait for Tests Results
         uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
@@ -32,3 +36,5 @@ jobs:
           propagate_failure: true
           trigger_workflow: true
           wait_workflow: true
+      - name: Log workflow end
+        run: echo "Workflow ended at: $(date)"
