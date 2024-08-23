@@ -2706,6 +2706,10 @@ const redirects = [
     from: ['/api/use-auth0-apis-with-postman-collections', '/api/postman'],
     to: '/api',
   },
+  {
+    from: ['/apiv2', '/api/v2', '/api/management'],
+    to: '/api/management/v2',
+  },
 
   /* Authorization */
 
