@@ -10,7 +10,7 @@ concurrency:
 jobs:
   tests:
     name: Trigger Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-2cpu-8ram-75ssd
     steps:
       - name: Check out code
         uses: actions/checkout@v2
