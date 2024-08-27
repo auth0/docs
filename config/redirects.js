@@ -2707,7 +2707,7 @@ const redirects = [
     to: '/api',
   },
   {
-    from: ['/apiv2', '/api/v2', '/api/management'],
+    from: ['/api/management'],
     to: '/api/management/v2',
   },
 
