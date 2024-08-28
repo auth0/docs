@@ -1953,13 +1953,6 @@ const redirects = [
     ],
     to: '/get-started/apis/create-m2m-app-test',
   },
-    {
-    from: [
-      '/api/management/v2/blacklists/get-tokens',
-      '/api/management/v2/blacklists/post-tokens',
-    ],
-    to: '/api/management/v2',
-  },
 
   /* Single Sign-On */
 
@@ -2706,16 +2699,16 @@ const redirects = [
     to: '/api/authentication',
   },
   {
-    from: ['/apiv2', '/api/v2', '/api/management','/api/management/v2/blacklists/get-tokens','/api/management/v2/blacklists/post-tokens' ],
-    to: '/api/management/v2',
-  },
-  {
     from: ['/auth0-apis', '/api/info'],
     to: '/api',
   },
   {
     from: ['/api/use-auth0-apis-with-postman-collections', '/api/postman'],
     to: '/api',
+  },
+  {
+    from: ['/api/management'],
+    to: '/api/management/v2',
   },
 
   /* Authorization */
