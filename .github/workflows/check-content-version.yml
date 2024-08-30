@@ -1,0 +1,22 @@
+name: Check Content Version
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+      
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Make script executable
+      run: chmod +x scripts/check-version.sh
+      shell: bash
+      
+    - name: Run check-version.sh script
+      run: scripts/check-version.sh
+      shell: bash
