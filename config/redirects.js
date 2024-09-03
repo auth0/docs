@@ -1718,6 +1718,10 @@ const redirects = [
     to: '/get-started/applications/update-application-connections',
   },
   {
+    from: ['/get-started/applications/configure-mtls/set-up-resource-server-for-token-binding'],
+    to: '/get-started/applications/configure-sender-constraining/configure-resource-server-for-sender-constraining',
+  },
+  {
     from: [
       '/applications/update-application-connections',
       '/dashboard/guides/applications/update-app-connections',
@@ -7670,6 +7674,10 @@ const redirects = [
       '/security/tokens/access-tokens',
     ],
     to: '/secure/tokens/access-tokens',
+  },
+  {
+    from: ['/secure/tokens/access-tokens/token-binding'],
+    to: '/get-started/applications/configure-sender-constraining',
   },
   {
     from: [
