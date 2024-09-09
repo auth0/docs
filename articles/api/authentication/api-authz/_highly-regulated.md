@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 MD031 -->
 # Authorization Code Flow with Enhanced Privacy Protection
 
 ## Push Authorization Requests (PAR)
@@ -84,7 +85,7 @@ Content-Type: application/json
 ```
 
 ::: note
-Highly Regulated Identity is currently available for Enterprise customers under Limited Early Access. To learn more about this program, contact [Auth0 Support](http://support.auth0.com/). 
+To use Highly Regulated Identity features, you must have an Enterprise Plan with the Highly Regulated Identity add-on. Refer to [Auth0 Pricing](https://auth0.com/pricing) for details. 
 :::
 
 Authorization Code Flow with [Pushed Authorization Requests (PAR)](/get-started/authentication-and-authorization-flow/authorization-code-flow/authorization-code-flow-with-par) uses the `/oauth/par` endpoint to allow applications to send the authorization parameters usually sent in a `GET` request to `/authorize`. PAR uses a POST method from the backend to keep parameter values secure. The `/oauth/par` endpoint accepts all authorization parameters which can be proivided to `/authorize`. Assuming the call to the `/oauth/par` endpoint is valid, Auth0 will respond with a `redirect_uri` value that can be used as a parameter for the `/authorize` endpoint.
