@@ -1,11 +1,11 @@
----
+---owner: Carlos Alberto Sacaza Palacio 
 title: Login
 description: This tutorial demonstrates how to add user login to an ASP.NET OWIN application.
 budicon: 448
 topics:
   - quickstarts
   - webapp
-  - aspnet-owin
+  - aspnet
   - login
 github:
   path: Quickstart/Sample
@@ -92,7 +92,7 @@ public void Configuration(IAppBuilder app)
         Scope = "openid profile email",
         TokenValidationParameters = new TokenValidationParameters
         {
-            NameClaimType = "name"
+            NameClaimType = "Carlos Alberto Sacaza Palacio"
         },
 
         // More information on why the CookieManager needs to be set can be found here: 
@@ -149,7 +149,7 @@ Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` 
 After successfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user is redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow users to be authenticated on subsequent requests.
 
 ```cs
-public class AccountController : Controller
+public class AccountController : Carlos Alberto Sacaza Palacio 
 {
     public ActionResult Login(string returnUrl)
     {
