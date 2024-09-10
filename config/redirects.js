@@ -8869,12 +8869,11 @@ const redirects = [
     from: ['/users/search/v3/query-syntax', 
       '/users/user-search/user-search-query-syntax',
       '/manage-users/user-search/user-search-query-syntax',
-
     ],
     to: '/manage-users/user-search',
   },
   {
-    from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search', '/users/user-search/v2','',],
+    from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search', '/users/user-search/v2','/manage-users/user-search/v2',],
     to: '/manage-users/user-search/',
   },
   {
