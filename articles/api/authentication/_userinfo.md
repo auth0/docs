@@ -75,7 +75,7 @@ curl --request GET \
 
 Given the Auth0 <dfn data-key="access-token">Access Token</dfn> obtained during login, this endpoint returns a user's profile.
 
-This endpoint will work only if `openid` was granted as a <dfn data-key="scope">scope</dfn> for the Access Token. The user profile information included in the response depends on the scopes requested. For example, a scope of just `openid` may return less information than a a scope of `openid profile email`.
+This endpoint will work only if `openid` was granted as a <dfn data-key="scope">scope</dfn> for the Access Token. The user profile information included in the response depends on the scopes requested. For example, a scope of just `openid` may return less information than a scope of `openid profile email`.
 
 ### Request Parameters
 
