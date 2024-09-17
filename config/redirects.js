@@ -8859,7 +8859,7 @@ const redirects = [
     to: '/manage-users/user-accounts/get-user-information-on-unbounce-landing-pages',
   },
   {
-    from: ['/users/verify-emails','/users/manage/your-mom'],
+    from: ['/users/verify-emails'],
     to: '/manage-users/user-accounts/verify-emails',
   },
 
