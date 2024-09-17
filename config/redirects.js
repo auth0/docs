@@ -7141,7 +7141,7 @@ const redirects = [
   },
   
   {
-    from: ['/troubleshoot/product-lifecycle/past-migrations/migrate-actions-nodejs-16-to-nodejs-18',],
+    from: ['/troubleshoot/product-lifecycle/past-migrations/migrate-actions-nodejs-16-to-nodejs-18'],
     to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-nodejs-16-to-nodejs-18',
   },
   
