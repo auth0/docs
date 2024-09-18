@@ -8873,7 +8873,7 @@ const redirects = [
     to: '/manage-users/user-search',
   },
   {
-    from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search', '/users/user-search/v2','/manage-users/user-search/v2',],
+    from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search', '/users/user-search/v2','/manage-users/user-search/v2'],
     to: '/manage-users/user-search/',
   },
   {
