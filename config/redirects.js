@@ -2480,23 +2480,34 @@ const redirects = [
       '/actions/blueprints',
       '/actions/triggers',
       '/customize/actions/triggers',
+      '/customize/actions/flows-and-triggers',
     ],
-    to: '/customize/actions/flows-and-triggers',
+    to: '/customize/actions/explore-triggers',
   },
   {
     from: ['/actions/manage-action-versions', '/actions/manage-versions', '/customize/actions/manage-action-versions'],
     to: '/customize/actions/manage-versions',
   },
   {
-    from: ['/actions/triggers/send-phone-message', '/customize/actions/triggers/send-phone-message'],
-    to: '/customize/actions/flows-and-triggers/send-phone-message-flow',
+    from: [
+      '/actions/triggers/send-phone-message', 
+      '/customize/actions/triggers/send-phone-message',
+      '/customize/actions/flows-and-triggers/send-phone-message-flow',
+
+    ],
+    to: '/customize/actions/explore-triggers/mfa-notifications-trigger',
   },
   {
     from: [
       '/actions/triggers/send-phone-message/event-object',
       '/customize/actions/triggers/send-phone-message/event-object',
+      '/customize/actions/flows-and-triggers/send-phone-message-flow/event-object',
     ],
-    to: '/customize/actions/flows-and-triggers/send-phone-message-flow/event-object',
+    to: '/customize/actions/explore-triggers/mfa-notifications-trigger/send-phone-message-event-object',
+  },
+  {
+    from: ['/customize/actions/flows-and-triggers/send-phone-message-flow/api-object'],
+    to: '/customize/actions/explore-triggers/mfa-notifications-trigger/send-phone-message-api-object',
   },
   {
     from: ['/actions/programming-model-changes', '/customize/actions/programming-model-changes'],
@@ -2511,81 +2522,145 @@ const redirects = [
     to: '/customize/actions/limitations',
   },
   {
-    from: ['/actions/triggers/post-change-password', '/customize/actions/triggers/post-change-password'],
-    to: '/customize/actions/flows-and-triggers/post-change-password-flow',
+    from: [
+      '/actions/triggers/post-change-password', 
+      '/customize/actions/triggers/post-change-password',
+      '/customize/actions/flows-and-triggers/post-change-password-flow',
+    ],
+    to: '/customize/actions/explore-triggers/password-reset-triggers/post-change-password-trigger',
   },
   {
     from: [
       '/actions/triggers/post-change-password/event-object',
       '/customize/actions/triggers/post-change-password/event-object',
+      '/customize/actions/flows-and-triggers/post-change-password-flow/event-object',
     ],
-    to: '/customize/actions/flows-and-triggers/post-change-password-flow/event-object',
+    to: '/customize/actions/explore-triggers/password-reset-triggers/post-change-password-trigger/post-challenge-event-object',
   },
   {
-    from: ['/actions/triggers/post-user-registration', '/customize/actions/triggers/post-user-registration'],
-    to: '/customize/actions/flows-and-triggers/post-user-registration-flow',
+    from: ['/customize/actions/flows-and-triggers/post-change-password-flow/api-object'],
+    to:'/customize/actions/explore-triggers/password-reset-triggers/post-change-password-trigger/post-challenge-api-object',
+  },
+  {
+    from: [
+      '/actions/triggers/post-user-registration', 
+      '/customize/actions/triggers/post-user-registration',
+      '/customize/actions/flows-and-triggers/post-user-registration-flow',
+    ],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/post-user-registration-trigger',
   },
   {
     from: [
       '/actions/triggers/post-user-registration/event-object',
       '/customize/actions/triggers/post-user-registration/event-object',
+      '/customize/actions/flows-and-triggers/post-user-registration-flow/event-object',
     ],
-    to: '/customize/actions/flows-and-triggers/post-user-registration-flow/event-object',
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/post-user-registration-trigger/post-user-registration-event-object',
   },
   {
-    from: ['/actions/triggers/pre-user-registration', '/customize/actions/triggers/pre-user-registration'],
-    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow',
+    from: ['/customize/actions/flows-and-triggers/post-user-registration-flow/api-object'],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/post-user-registration-trigger/post-user-registration-api-object',
+  },
+  {
+    from: [
+      '/actions/triggers/pre-user-registration', 
+      '/customize/actions/triggers/pre-user-registration',
+      '/customize/actions/flows-and-triggers/pre-user-registration-flow',
+    ],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/pre-user-registration-trigger',
   },
   {
     from: [
       '/actions/triggers/pre-user-registration/event-object',
       '/customize/actions/triggers/pre-user-registration/event-object',
+      '/customize/actions/flows-and-triggers/pre-user-registration-flow/event-object',
     ],
-    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow/event-object',
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/pre-user-registration-trigger/pre-user-registration-event-object',
   },
   {
     from: [
       '/actions/triggers/pre-user-registration/api-object',
       '/customize/actions/triggers/pre-user-registration/api-object',
+      '/customize/actions/flows-and-triggers/pre-user-registration-flow/api-object',
     ],
-    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow/api-object',
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/pre-user-registration-trigger/pre-user-registration-api-object',
   },
   {
     from: ['/actions/triggers/credentials-exchange', '/customize/actions/triggers/credentials-exchange'],
     to: '/customize/actions/flows-and-triggers/machine-to-machine-flow',
   },
   {
+    from:['/customize/actions/flows-and-triggers/machine-to-machine-flow'],
+    to:'/customize/actions/explore-triggers/machine-to-machine-triggers',
+  },
+  {
     from: [
       '/actions/triggers/credentials-exchange/event-object',
       '/customize/actions/triggers/credentials-exchange/event-object',
+      '/customize/actions/flows-and-triggers/machine-to-machine-flow',
+      'customize/actions/flows-and-triggers/machine-to-machine-flow/event-object',
     ],
-    to: '/customize/actions/flows-and-triggers/machine-to-machine-flow/event-object',
+    to: '/customize/actions/explore-triggers/machine-to-machine-trigger/credentials-exchange-event-object',
+  },
+  {
+    from:['/customize/actions/flows-and-triggers/machine-to-machine-flow/api-object'],
+    to: '/customize/actions/explore-triggers/machine-to-machine-trigger/credentials-exchange-api-object',
+  },
+  {
+    from: ['/customize/actions/flows-and-triggers/password-reset'],
+    to: '/customize/actions/explore-triggers/password-reset-triggers',
+  },
+  {
+    from: ['/customize/actions/flows-and-triggers/password-reset/event-object'],
+    to: '/customize/actions/explore-triggers/password-reset-triggers/post-challenge-trigger/post-challenge-event-object',
+  },
+  {
+    from: ['/customize/actions/flows-and-triggers/password-reset/api-object'],
+    to:'/customize/actions/explore-triggers/password-reset-triggers/post-challenge-trigger/post-challenge-api-object',
   },
   {
     from: [
       '/actions/triggers/credentials-exchange/api-object',
       '/customize/actions/triggers/credentials-exchange/api-object',
     ],
-    to: '/customize/actions/flows-and-triggers/machine-to-machine-flow/api-object',
+    to: '/customize/actions/explore-triggers/machine-to-machine-trigger',
   },
   {
-    from: ['/actions/triggers/post-login', '/customize/actions/triggers/post-login'],
-    to: '/customize/actions/flows-and-triggers/login-flow',
+    from: [
+      '/actions/triggers/post-login', 
+      '/customize/actions/triggers/post-login',
+      '/customize/actions/flows-and-triggers/login-flow',
+
+    ],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/login-trigger',
   },
   {
-    from: ['/actions/triggers/post-login/event-object', '/customize/actions/triggers/post-login/event-object'],
-    to: '/customize/actions/flows-and-triggers/login-flow/event-object',
+    from: [
+      '/actions/triggers/post-login/event-object', 
+      '/customize/actions/triggers/post-login/event-object',
+      '/customize/actions/flows-and-triggers/login-flow/event-object',
+    ],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/login-trigger/post-login-event-object',
   },
   {
-    from: ['/actions/triggers/post-login/api-object', '/customize/actions/triggers/post-login/api-object'],
-    to: '/customize/actions/flows-and-triggers/login-flow/api-object',
+    from: [
+      '/actions/triggers/post-login/api-object', 
+      '/customize/actions/triggers/post-login/api-object',
+      '/customize/actions/flows-and-triggers/login-flow/api-object',
+    ],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/post-login-api-object',
   },
   {
     from: [
       '/actions/triggers/post-login/redirect-with-actions',
       '/customize/actions/triggers/post-login/redirect-with-actions',
+      '/customize/actions/flows-and-triggers/login-flow/redirect-with-actions',
     ],
-    to: '/customize/actions/flows-and-triggers/login-flow/redirect-with-actions',
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/login-trigger/redirect-with-actions',
+  },
+  {
+    from: ['/customize/actions/flows-and-triggers/login-flow/releases'],
+    to: '/customize/actions/explore-triggers/signup-and-login-triggers/login-trigger/releases',
   },
 
   /* Attack Protection */
@@ -8795,8 +8870,11 @@ const redirects = [
     to: '/manage-users/user-search',
   },
   {
-    from: ['/users/search/v3/query-syntax', '/users/user-search/user-search-query-syntax'],
-    to: '/manage-users/user-search/user-search-query-syntax',
+    from: ['/users/search/v3/query-syntax', 
+      '/users/user-search/user-search-query-syntax',
+      '/manage-users/user-search/user-search-query-syntax',
+    ],
+    to: '/manage-users/user-search',
   },
   {
     from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search', '/users/user-search/v2', '/manage-users/user-search/v2'],
