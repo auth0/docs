@@ -2590,6 +2590,10 @@ const redirects = [
     to: '/customize/actions/flows-and-triggers/machine-to-machine-flow',
   },
   {
+    from:['/customize/actions/flows-and-triggers/machine-to-machine-flow'],
+    to:'/customize/actions/explore-triggers/machine-to-machine-triggers',
+  },
+  {
     from: [
       '/actions/triggers/credentials-exchange/event-object',
       '/customize/actions/triggers/credentials-exchange/event-object',
