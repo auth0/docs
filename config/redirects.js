@@ -2591,7 +2591,7 @@ const redirects = [
   },
   {
     from:['/customize/actions/flows-and-triggers/machine-to-machine-flow'],
-    to:'/customize/actions/explore-triggers/machine-to-machine-triggers',
+    to:'/customize/actions/explore-triggers/machine-to-machine-trigger',
   },
   {
     from: [
