@@ -2582,7 +2582,6 @@ const redirects = [
     from: [
       '/actions/triggers/credentials-exchange/event-object',
       '/customize/actions/triggers/credentials-exchange/event-object',
-      '/customize/actions/flows-and-triggers/machine-to-machine-flow',
       '/customize/actions/flows-and-triggers/machine-to-machine-flow/event-object',
     ],
     to: '/customize/actions/explore-triggers/machine-to-machine-trigger/credentials-exchange-event-object',
