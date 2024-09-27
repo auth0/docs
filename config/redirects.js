@@ -8863,7 +8863,6 @@ const redirects = [
     from: [
       '/users/search/v3/query-syntax',
       '/users/user-search/user-search-query-syntax',
-      '/manage-users/user-search/user-search-query-syntax',
     ],
     to: '/manage-users/user-search',
   },
