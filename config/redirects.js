@@ -9062,6 +9062,10 @@ const redirects = [
     from: ['/customize/phone/twilio-phone-providers'],
     to: '/customize/phone-messages/configure-phone-messaging-providers/configure-twilio-as-a-phone-messaging-provider',
   },
+  {
+    from: ['/authenticate/single-sign-on/self-service-SSO'],
+    to: '/authenticate/enterprise-connections/self-service-SSO',
+  },
 ];
 
 module.exports = redirects;
