@@ -198,7 +198,7 @@ class Auth0Client
 end
 ```
 
-Next, in the `Secured` concern, define a new error constant `INSUFFICIENT_PERMISSIONS` to return a proper error message in case there was a attempt to request a resource without the right permissions. Next, update the return value of the `Auth0Client.validate_token` call and finally create a new method `validate_permissions` where to check if the token has the right permissions, or return a `403 FORBIDDEN` status code with the `INSUFFICIENT_PERMISSIONS` error message otherwise. 
+Next, in the `Secured` concern, define a new error constant `INSUFFICIENT_PERMISSIONS` to return a proper error message in case there was a attempt to request a resource without the right permissions. Next, update the return value of the `Auth0Client.validate_token` call, and finally, create a new method `validate_permissions` where to check if the token has the right permissions, or return a `403 FORBIDDEN` status code with the `INSUFFICIENT_PERMISSIONS` error message otherwise. 
 
 Apply these changes in your `Secured` concern by adding the following code: 
 
@@ -256,7 +256,7 @@ class ApplicationController < ActionController::API
 end
 ```
 
-You only ned to protect the `PrivateController` as follows:
+You only need to protect the `PrivateController` as follows:
 
 ```ruby
 class PrivateController < ApplicationController
