@@ -168,7 +168,7 @@ function (user, context, callback) {
         client_secret: client_secret,
         username: username,
         password: password
-      }}, (err, respose, body) => {
+      }}, (err, response, body) => {
         return callback(JSON.parse(body));
       });
   }

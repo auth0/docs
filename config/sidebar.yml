@@ -1436,7 +1436,7 @@ articles:
           - title: Rate Limits
             url: /policies/rate-limit-policy
             children:
-              - title: Managment API Endpoint Rate Limits
+              - title: Management API Endpoint Rate Limits
                 url: /policies/rate-limit-policy/management-api-endpoint-rate-limits
                 hidden: true
               - title: Authentication API Endpoint Rate Limits

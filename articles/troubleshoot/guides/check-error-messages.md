@@ -1,6 +1,6 @@
 ---
 title: Check Error Messages
-description: Learn how to check for error message to troublshoot issues. 
+description: Learn how to check for error message to troubleshoot issues. 
 topics:
   - error-messages
 contentType: how-to

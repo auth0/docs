@@ -113,7 +113,7 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 
 ## Manual setup part 2: Add a claim issuance policy rule
 
-1. If you're using Windows Server 2019, the Edit Claim Issuance Polcy dialog box automatically opens when you finish the Add Relying Party Trust wizard. If you're using Windows 2012 or 2016, follow these steps:
+1. If you're using Windows Server 2019, the Edit Claim Issuance Policy dialog box automatically opens when you finish the Add Relying Party Trust wizard. If you're using Windows 2012 or 2016, follow these steps:
     |  In Windows Server 2012  | In Windows Server 2016 |
     | --- | --- |
     | In the Actions panel on the right side of the console, find the Relying Party Trust you just created. Beneath it, click **Edit Claim Issuance Policy**. | In the console tree, under ADFS, click **Relying Party Trusts**. On the right side of the console, find the Relying Party Trust you just created. Right-click it and click **Edit Claim Issuance Policy**. |
