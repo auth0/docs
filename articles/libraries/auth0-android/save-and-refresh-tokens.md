@@ -111,7 +111,7 @@ private static final int RC_UNLOCK_AUTHENTICATION = 123;
 boolean available = manager.requireAuthentication(this, RC_UNLOCK_AUTHENTICATION, getString(R.string.unlock_authentication_title), getString(R.string.unlock_authentication_description));
 ```
 
-If the feature was enabled, the manager will prompt the user to authenticate using the configured Lock Screen. The result of this call will be obtained in the `onActivityResult` method of the activity passed before as first parameter. If the feature was not enabled, Lock Screen authentication will be skipped.
+If the feature was enabled, the manager will prompt the user to authenticate using the configured Lock Screen when the `getCredentials` method is called. The result of this call will be obtained in the `onActivityResult` method of the activity passed before as first parameter. If the feature was not enabled, Lock Screen authentication will be skipped.
 
 After checking that the received request code matches the one used in the configuration step, redirect the received parameters to the manager to finish the authentication. The credentials will be yield to the original callback.
 
