@@ -55,7 +55,7 @@ It is essential that you register both the cookie middleware and the OpenID Conn
 
 In the code snippet, `AuthenticationType` is set to **Auth0**. Use `AuthenticationType` in the next section to challenge the OpenID Connect middleware and start the authentication flow. `RedirectToIdentityProvider` notification event constructs the correct [logout URL](/logout).
 
-## Add login to your application {{{ data-action=code data-code="AccountController.cs#7:16" }}}
+## Add login to your application {{{ data-action=code data-code="AccountController.cs#6:15" }}}
 
 To allow users to log in to your ASP.NET OWIN application, add a `Login` action to your controller.
 
