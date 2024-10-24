@@ -3,11 +3,13 @@
 To run the sample follow these steps:
 
 1) Set the **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+
 ```text
-http://localhost:3000/login/oauth2/code/auth0
+http://localhost:3000/login/oauth2/code/okta
 ```
 
 2) Set the **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+
 ```text
 http://localhost:3000/
 ```
