@@ -6,7 +6,6 @@ language: csharp
 ```csharp
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Auth0.AspNetCore.Authentication;
 
 public class AccountController : Controller
 {
