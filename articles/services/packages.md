@@ -24,7 +24,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 </h3>
 
 * 2 days of services
-* Remote/on-site, as mutually agreed
+* Typically on-site
 * Expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
