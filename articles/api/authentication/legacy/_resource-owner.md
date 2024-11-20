@@ -65,7 +65,7 @@ request(options, function (error, response, body) {
 }) %>
 
 ::: warning
-This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password-flow). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the <dfn data-key="access-token">Access Token</dfn> and an ID Token.
