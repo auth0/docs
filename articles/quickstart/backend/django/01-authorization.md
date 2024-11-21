@@ -208,7 +208,7 @@ def requires_scope(required_scope):
 
 <%= include('../_includes/_api_endpoints') %>
 
-In the file `views.py` add `public` and `private` endpoints. Add the `@api_view` decorator to all the endpoints to indicate that the method requires authentication. Lastly, add the decorator `@permission_classes([AllowAny])` to the `public` endpoint to accept unauthenticated requests.
+In the file `views.py`, add `public` and `private` endpoints. Add the `@api_view` decorator to all the endpoints to indicate that the method requires authentication. Lastly, add the decorator `@permission_classes([AllowAny])` to the `public` endpoint to accept unauthenticated requests.
 
 ```python
 # auth0authorization/views.py
