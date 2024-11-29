@@ -31,7 +31,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 ### Install from Nuget
 
-To integrate Auth0 with ASP.NET Core you can use our SDK by installing the `Auth0.AspNetCore.Authentication` [Nuget package](https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/) to your application.
+To integrate Auth0 with ASP.NET Core, you can use our SDK by installing the `Auth0.AspNetCore.Authentication` [Nuget package](https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/) to your application.
 
 ```bash
 Install-Package Auth0.AspNetCore.Authentication
@@ -41,7 +41,7 @@ Install-Package Auth0.AspNetCore.Authentication
 
 To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `Program.cs` file and call `builder.Services.AddAuth0WebAppAuthentication()` to register the SDK's middleware.
 
-Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
+Ensure to configure `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
 
 Make sure you have enabled authentication and authorization in your `Program.cs` file.
 ## Login {{{ data-action=code data-code="AccountController.cs#7:20" }}}
@@ -57,16 +57,16 @@ After succesfully calling `HttpContext.ChallengeAsync()`, the user will be redir
 :::checkpoint-default
 
 Now that you have configured Login, run your application to verify that:
-* Navigating to your `Login` action will redirect to Auth0
+* Navigating to your `Login` action will redirect to Auth0.
 * Entering your credentials will redirect you back to your application.
 
 :::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
+* Make sure the correct application is selected.
+* Did you save after entering your URLs?
+* Make sure the domain and client ID are configured correctly.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
@@ -78,22 +78,22 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 After the middleware has successfully retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available as the `User.Claims` property on the controller.
 
-You can create a custom user profile page for displaying a user's name, email address, and profile image, by retrieving the corresponding information from the `User` and pass it to the view from inside your controller.
+You can create a custom user profile page for displaying a user's name, email address, and profile image, by retrieving the corresponding information from `User` and pass it to the view from inside your controller.
 
 ::::checkpoint
 
 :::checkpoint-default
 
 Now that you have set up your action to render the user's profile, run your application to verify that:
-* Navigating to your `Profile` action after being succesfully logged in, shows the user's profile.
+* Navigating to your `Profile` action, after being succesfully logged in, shows the user's profile.
 
 :::
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
+* Make sure the correct application is selected.
+* Did you save after entering your URLs?
+* Make sure the domain and client ID are configured correctly.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
@@ -105,10 +105,10 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 Logging out the user from your own application can be done by calling `HttpContext.SignOutAsync` with the `CookieAuthenticationDefaults.AuthenticationScheme` authentication scheme from inside your controller's action.
 
-Additionaly, If you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.SignOutAsync` with the `Auth0Constants.AuthenticationScheme` authentication scheme as well as the appropriate `authenticationProperties` that can be constructed using the `LogoutAuthenticationPropertiesBuilder`.
+Additionally, if you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.SignOutAsync` with the `Auth0Constants.AuthenticationScheme` authentication scheme as well as the appropriate `authenticationProperties` that can be constructed using the `LogoutAuthenticationPropertiesBuilder`.
 
 ::: note
-When only logging the user out from your own application but not from Auth0, ensure to return `RedirectToAction("Index", "Home")` or any other appropriate redirect.
+When only logging the user out from your own application, but not from Auth0, ensure to return `RedirectToAction("Index", "Home")` or any other appropriate redirect.
 :::
 
 ::::checkpoint
@@ -123,9 +123,9 @@ Now that you have configured Logout, run your application to verify that:
 
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
+* Make sure the correct application is selected.
+* Did you save after entering your URLs?
+* Make sure the domain and client ID are configured correctly.
 
 Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
