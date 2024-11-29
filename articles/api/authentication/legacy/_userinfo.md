@@ -92,6 +92,6 @@ This endpoint validates a <dfn data-key="json-web-token">JSON Web Token (JWT)</d
 
 ### Learn More
 
-- [User Profile Struture](/users/references/user-profile-structure)
+- [User Profile Structure](/users/references/user-profile-structure)
 
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)

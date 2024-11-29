@@ -79,7 +79,7 @@ function fetchUserProfile(accessToken, context, callback) {
 }
 ```
 
-The `user_id` property in the returned profile is required, and the `email` property is optional but highly recommended. To learn more about what attributes can be returend, see [User Profile Root Attributes](/users/updating-user-profile-root-attributes).
+The `user_id` property in the returned profile is required, and the `email` property is optional but highly recommended. To learn more about what attributes can be returned, see [User Profile Root Attributes](/users/updating-user-profile-root-attributes).
 
 You can filter, add, or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using Rules is that they apply to any connection.
 

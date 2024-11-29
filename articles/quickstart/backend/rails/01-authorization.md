@@ -256,7 +256,7 @@ class ApplicationController < ActionController::API
 end
 ```
 
-You only ned to protect the `PrivateController` as follows:
+You only need to protect the `PrivateController` as follows:
 
 ```ruby
 class PrivateController < ApplicationController
