@@ -11,13 +11,13 @@
 This feature is currently in Early Access. To request access, contact your Technical Account Manager.
 :::
 
-The backchannel login endpoint enables applications to send an authentication request to a user’s phone, or the authentication device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications). Use the backchannel login endpoint to authenticate users in the following use cases:
+The backchannel login endpoint enables applications to send an authentication request to a user’s phone, or the authentication device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications).
 
-- Users are not in front of the application that requires authentication, such as when they're telephoning a call center
-- The consumption device, or the device that helps the user consume a service, is insecure for sensitive operations e.g. web browser for financial transactions
-- The consumption device has limited interactive capability e.g. e-bicycles or e-scooters
+Use the backchannel login endpoint to authenticate users for the following use cases:
 
-It can be useful to authenticate users who are not in front of the application that requires authentication, such as users phoning a call center, or where the Consumption Device, or a device that helps the user consume a service, does not have a screen, such as a shared bicycle or scooter.
+- Users are not in front of the application that requires authentication, such as when they're telephoning a call center.
+- The consumption device, or the device that helps the user consume a service, is insecure for sensitive operations e.g. web browser for financial transactions.
+- The consumption device has limited interactive capability e.g. e-bicycles or e-scooters.
 
 ## POST /bc-authorize
 
