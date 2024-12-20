@@ -11,7 +11,13 @@
 This feature is currently in Early Access. To request access, contact your Technical Account Manager.
 :::
 
-The backchannel login endpoint enables applications to send an authentication request to a user’s phone, or the Authentication Device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications). It can be useful to authenticate users who are not in front of the application that requires authentication, such as users phoning a call center, or where the Consumption Device, or a device that helps the user consume a service, does not have a screen, such as a shared bicycle or scooter.
+The backchannel login endpoint enables applications to send an authentication request to a user’s phone, or the authentication device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications). Use the backchannel login endpoint to authenticate users in the following use cases:
+
+- Users are not in front of the application that requires authentication, such as when they're telephoning a call center
+- The consumption device, or the device that helps the user consume a service, is insecure for sensitive operations e.g. web browser for financial transactions
+- The consumption device has limited interactive capability e.g. e-bicycles or e-scooters
+
+It can be useful to authenticate users who are not in front of the application that requires authentication, such as users phoning a call center, or where the Consumption Device, or a device that helps the user consume a service, does not have a screen, such as a shared bicycle or scooter.
 
 ## POST /bc-authorize
 
@@ -35,7 +41,7 @@ curl --location 'https://[TENANT_DOMAIN]/bc-authorize' \
 | `login_hint` <br/><span class="label label-danger">Required</span> | String containing information about the user to contact for authentication. It uses the [IETF9493 standard for Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/rfc9493). Auth0 only supports the [Issuer and Identifier format](https://datatracker.ietf.org/doc/html/rfc9493#name-issuer-and-subject-identifi). For an example login hint, see the [Remarks](#remarks). |
 | `scope` <br/><span class="label label-danger">Required</span> | Space-separated list of OIDC and custom API scopes. For example: `openid read:timesheets edit:timesheets`. Include `offline_access` to get a refresh token. At a minimum, you must include the scope `openid`. |
 | `audience` <br/><span class="label label-danger">Optional</span> | Unique identifier of the audience for an issued token. If you require an access token for an API, pass the unique identifier of the target API you want to access. |
-| `request_expiry` <br/><span class="label label-danger">Optional</span> | To configure a custom expiry time in seconds for this request, pass a number between 1 and 300. If not provided, it defaults to 300. |
+| `request_expiry` <br/><span class="label label-danger">Optional</span> | To configure a custom expiry time in seconds for this request, pass a number between 1 and 300. If not provided, it defaults to 300 seconds. |
 
 ### Response Body
 
@@ -55,7 +61,7 @@ The `expires_in` value tells you how many seconds you have until the authenticat
 
 The `interval` value tells you how many seconds you must wait between poll requests.
 
-The request should be approved or rejected on the user’s Authentication Device using the Guardian SDK.
+The request should be approved or rejected on the user’s authentication device using the Guardian SDK.
 
 ### Remarks
 
