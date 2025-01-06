@@ -65,7 +65,7 @@ The request should be approved or rejected on the user’s authentication device
 
 ### Remarks
 
-- The following code sample is an example login hint: 
+The following code sample is an example login hint: 
 
   ```http
   { 
