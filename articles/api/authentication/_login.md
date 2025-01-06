@@ -4,7 +4,7 @@
   "http_badge": "badge-primary",
   "http_method": "POST",
   "path": "/bc-authorize",
-  "link": "#social"
+  "link": "#backchannel-login"
 }) %>
 
 :::note
@@ -65,7 +65,7 @@ The request should be approved or rejected on the user’s authentication device
 
 ### Remarks
 
-  - The following code sample is an example login hint: 
+- The following code sample is an example login hint: 
 
   ```http
   { 
@@ -75,13 +75,14 @@ The request should be approved or rejected on the user’s authentication device
   }
   ```
 
-  White space is not significant. Replace the `[TENANT_DOMAIN]` with your tenant domain or custom domain. Replace the `[USER ID]` with a valid `user_id` for the authorizing user returned from the [User Search APIs](https://auth0.com/docs/manage-users/user-search).
+White space is not significant. Replace the `[TENANT_DOMAIN]` with your tenant domain or custom domain. Replace the `[USER ID]` with a valid `user_id` for the authorizing user returned from the [User Search APIs](https://auth0.com/docs/manage-users/user-search).
 
-  - Include an optional parameter for application authentication in the request:
-    - Client Secret with HTTP Basic auth, in which case no parameters are required. The `client_id` and `client_secret` are passed in a header.
-    - Client Secret Post, in which case the `client_id` and `client_secret` are required.
-    - Private Key JWT, where the `client_id`, `client_assertion` and `client_assertion` type are required.
-    - mTLS, where the `client_id` parameter is required and the `client-certificate` and `client-certificate-ca-verified` headers are required.
+Include an optional parameter for application authentication in the request:
+
+- Client Secret with HTTP Basic auth, in which case no parameters are required. The `client_id` and `client_secret` are passed in a header.
+- Client Secret Post, in which case the `client_id` and `client_secret` are required.
+- Private Key JWT, where the `client_id`, `client_assertion` and `client_assertion` type are required.
+- mTLS, where the `client_id` parameter is required and the `client-certificate` and `client-certificate-ca-verified` headers are required.
 
 ## POST /oauth/token
 
@@ -154,11 +155,12 @@ Once you have exchanged an `auth_req_id` for an ID or access token, it is no lon
 
 ### Remarks
 
-- Include an optional parameter for application authentication in the request:
-    - Client Secret with HTTP Basic auth, in which case no parameters are required. The `client_id` and `client_secret` are passed in a header.
-    - Client Secret Post, in which case the `client_id` and `client_secret` are required.
-    - Private Key JWT, where the `client_id`, `client_assertion` and `client_assertion` type are required.
-    - mTLS, where the `client_id` parameter is required and the `client-certificate` and `client-certificate-ca-verified` headers are required.
+Include an optional parameter for application authentication in the request:
+
+- Client Secret with HTTP Basic auth, in which case no parameters are required. The `client_id` and `client_secret` are passed in a header.
+- Client Secret Post, in which case the `client_id` and `client_secret` are required.
+- Private Key JWT, where the `client_id`, `client_assertion` and `client_assertion` type are required.
+- mTLS, where the `client_id` parameter is required and the `client-certificate` and `client-certificate-ca-verified` headers are required.
 
 # Login
 
