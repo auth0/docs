@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD024 MD033 -->
-# Backchannel Login
+# Back-Channel Login
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "POST",
@@ -11,9 +11,9 @@
 This feature is currently in Early Access. To request access, contact your Technical Account Manager.
 :::
 
-The backchannel login endpoint enables applications to send an authentication request to a user’s phone, or the authentication device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications).
+The Back-Channel Login endpoint enables applications to send an authentication request to a user’s phone, or the authentication device, provided they have an app installed and are enrolled for [push notifications using the Guardian SDK](/secure/multi-factor-authentication/auth0-guardian#enroll-in-push-notifications).
 
-Use the backchannel login endpoint to authenticate users for the following use cases:
+Use the Back-Channel Login endpoint to authenticate users for the following use cases:
 
 - Users are not in front of the application that requires authentication, such as when they're telephoning a call center.
 - The consumption device, or the device that helps the user consume a service, is insecure for sensitive operations e.g. web browser for financial transactions.
@@ -37,11 +37,11 @@ curl --location 'https://[TENANT_DOMAIN]/bc-authorize' \
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Client ID of your application. |
-| `client_id` <br/><span class="label label-danger">Required</span> | Human-readable string displayed on both the device calling `/bc-authorize` and the user’s authentication device (e.g. phone) to ensure the user is approves the correct request. For example: `ABC-123-XYZ`. |
-| `login_hint` <br/><span class="label label-danger">Required</span> | String containing information about the user to contact for authentication. It uses the [IETF9493 standard for Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/rfc9493). Auth0 only supports the [Issuer and Identifier format](https://datatracker.ietf.org/doc/html/rfc9493#name-issuer-and-subject-identifi). For an example login hint, see the [Remarks](#remarks). |
+| `binding_message` <br/><span class="label label-danger">Required</span> | Human-readable string displayed on both the device calling `/bc-authorize` and the user’s authentication device (e.g. phone) to ensure the user is approves the correct request. For example: `ABC-123-XYZ`. |
+| `login_hint` <br/><span class="label label-danger">Required</span> | String containing information about the user to contact for authentication. It uses the [IETF9493 standard for Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/rfc9493). Auth0 only supports the [Issuer and Identifier format](https://datatracker.ietf.org/doc/html/rfc9493#name-issuer-and-subject-identifi). For an example login hint, review the [Remarks](#remarks). |
 | `scope` <br/><span class="label label-danger">Required</span> | Space-separated list of OIDC and custom API scopes. For example: `openid read:timesheets edit:timesheets`. Include `offline_access` to get a refresh token. At a minimum, you must include the scope `openid`. |
 | `audience` <br/><span class="label label-danger">Optional</span> | Unique identifier of the audience for an issued token. If you require an access token for an API, pass the unique identifier of the target API you want to access. |
-| `request_expiry` <br/><span class="label label-danger">Optional</span> | To configure a custom expiry time in seconds for this request, pass a number between 1 and 300. If not provided, it defaults to 300 seconds. |
+| `request_expiry` <br/><span class="label label-danger">Optional</span> | To configure a custom expiry time in seconds for this request, pass a number between 1 and 300. If not provided, expiry defaults to 300 seconds. |
 
 ### Response Body
 
@@ -95,7 +95,7 @@ curl --location 'https://[TENANT_DOMAIN]/oauth/token' \
 --data-urlencode 'grant_type=urn:openid:params:grant-type:ciba'
 ```
 
-To check on the status of a backchannel login flow, poll the `/oauth/token` endpoint at regular intervals by passing the following:
+To check on the status of a Back-Channel Login flow, poll the `/oauth/token` endpoint at regular intervals by passing the following:
 
 - `auth_req_id` returned from the call to `/bc-authorize`
 - `urn:openid:params:grant-type:ciba` grant type 
