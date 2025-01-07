@@ -11,6 +11,10 @@ contentType:
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_back-channel-login') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_login') %>
 </div>
 
