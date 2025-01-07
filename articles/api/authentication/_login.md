@@ -4,7 +4,7 @@
   "http_badge": "badge-primary",
   "http_method": "POST",
   "path": "/bc-authorize",
-  "link": "#backchannel-login"
+  "link": "#back-channel-login"
 }) %>
 
 :::note
