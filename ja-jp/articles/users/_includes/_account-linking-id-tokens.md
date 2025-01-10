@@ -1,0 +1,3 @@
+::: panel Account Linking ID Token Usage Deprecated
+Previously, in some cases, you could use [ID Tokens](/tokens/concepts/id-tokens) to link and unlink user accounts. This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases. The change in the unlinking of accounts is that you can no longer use an ID Token in the `Authorization` header. An Access Token must be used instead. The functionality is still available but not recommended and affected users are encouraged to migrate. See [Migration Guide: Account Linking with Access Tokens vs. ID Tokens](/migrations/guides/account-linking) for details.
+:::

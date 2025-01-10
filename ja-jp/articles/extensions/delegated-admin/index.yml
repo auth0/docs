@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: extensions/delegated-admin
+  current: v3
+  versions:
+    - v2
+    - v3
+  defaultArticles:
+    v2: index
+    v3: index

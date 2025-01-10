@@ -1,0 +1,1 @@
+Social signup is synonymous with sign in via [social authentication](/architecture-scenarios/implementation/${platform}/${platform}-authentication#social-authentication) - there’s no distinction here *per se*, as user [profile](/architecture-scenarios/implementation/${platform}/${platform}-profile-mgmt) creation happens automatically upon first social login.

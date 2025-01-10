@@ -1,0 +1,53 @@
+title: Android - Facebook Login
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.s
+image: /media/platforms/android.png
+logo_name: android
+logo: android
+alias:
+  - Android
+language:
+  - Java
+hybrid: false
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: android-facebook-login
+snippets:
+  facebook_button_permissions: native-platforms/android-facebook-login/facebook-button-permissions
+  facebook_button_config: native-platforms/android-facebook-login/facebook-button-config
+  facebook_fetch_session_token: native-platforms/android-facebook-login/facebook-fetch-session-token
+  facebook_fetch_profile: native-platforms/android-facebook-login/facebook-fetch-profile
+  facebook_app_credentials: native-platforms/android-facebook-login/facebook-app-credentials
+  facebook_install_auth0_sdk: native-platforms/android-facebook-login/facebook-install-auth0-sdk
+  facebook_token_exchange: native-platforms/android-facebook-login/facebook-token-exchange
+default_article: 00-login-facebook
+articles:
+  - 00-login-facebook
+next_steps:
+  - path: 00-login-facebook
+    list:
+    - text: Learn how to securely store tokens
+      icon: 345
+      href: "/libraries/auth0-android/save-and-refresh-tokens"
+    - text: Learn to call an API
+      icon: 345
+      href: "/quickstart/native/android/01-user-metadata"
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Learn more about the Android SDK
+      icon: 345
+      href: "/libraries/auth0-android"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-android-native-social-sample
+requirements:
+  - Android Studio 3.6.1
+  - Android SDK 25
+  - Emulator - Nexus 5X - Android 6.0
