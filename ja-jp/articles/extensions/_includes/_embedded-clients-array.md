@@ -1,0 +1,3 @@
+::: note
+The `enabled_clients` array, when used directly with the Management API v2, is a list of client IDs for which the connection is enabled. As an added convenience, the deployment extension will attempt to match entries in the `enabled_clients` array by client name and replace them with the appropriate client ID when a match is found, allowing you to specify `"my-client-name"` instead of `"my-client-id"` to refer to each application.
+:::

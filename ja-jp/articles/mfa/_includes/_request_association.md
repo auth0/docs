@@ -1,0 +1,1 @@
+Make a `POST` request to the `/mfa/associate` endpoint to enroll the user's authenticator. The Bearer Token required by this endpoint is the MFA token obtained in the previous step.

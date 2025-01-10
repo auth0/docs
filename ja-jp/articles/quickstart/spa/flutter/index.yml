@@ -1,0 +1,52 @@
+title: Flutter (Web)
+logo_name: flutter
+logo: flutter
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
+alias:
+  - flutter
+language:
+  - Dart
+framework:
+  - Flutter
+sdk:
+  name: auth0-flutter
+  url: https://www.github.com/auth0/auth0-flutter/
+  logo: flutter
+hybrid: true
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: flutter
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-flutter-samples
+  branch: main
+requirements:
+  - Flutter 3+
+  - Xcode 14+ (for iOS)
+  - Android Studio 4+ (for Android)
+next_steps:
+  - path: interactive
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about Actions
+        icon: 345
+        href: '/customize/actions'
