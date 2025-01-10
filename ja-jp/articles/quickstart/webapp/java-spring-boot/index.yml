@@ -1,0 +1,48 @@
+title: Java Spring Boot
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/spring.png
+logo_name: spring
+logo: spring
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+alias:
+  - spring boot
+  - spring-security
+seo_alias: java spring
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: true
+hidden_articles:
+  - "interactive"
+sdk:
+  name: Okta Spring Boot Starter
+  url: https://github.com/okta/okta-spring-boot/
+  logo: spring
+github:
+  org: auth0-samples
+  repo: auth0-spring-boot-login-samples
+  branch: master
+requirements:
+  - Java 17
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
