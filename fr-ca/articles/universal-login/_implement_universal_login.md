@@ -1,0 +1,1 @@
+For detailed instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts) and choose the one that best fits your chosen technologies. The Quickstart guides will walk you through all of the implementation steps.
