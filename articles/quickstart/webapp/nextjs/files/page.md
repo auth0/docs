@@ -16,9 +16,9 @@ export default async function Home() {
   // If no session, show sign-up and login buttons
   if (!session) {
     return (
-      <main className="page">
+      <main>
         <a href="/auth/login?screen_hint=signup">
-          <button className="white">Sign up</button>
+          <button>Sign up</button>
         </a>
         <a href="/auth/login">
           <button>Log in</button>
