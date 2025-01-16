@@ -1,0 +1,39 @@
+title: ASP.NET Core Blazor Server
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: dotnet-platform
+author:
+  name: Frederik Prijck
+  email: frederik.prijck@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+sdk:
+  name: auth0-aspnetcore-authentication
+  url: https://github.com/auth0/auth0-aspnetcore-authentication
+  logo: dotnet
+snippets:
+  dependencies: server-platforms/aspnet-core/dependencies
+alias:
+  - net-6
+  - net-7
+  - net-8
+seo_alias: aspnet-core-blazor-server
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - "interactive"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-blazor-server-samples
+  branch: main
+requirements:
+  - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
+sample_download_required_data:
+  - client

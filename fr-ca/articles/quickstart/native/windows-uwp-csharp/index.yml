@@ -1,0 +1,53 @@
+title: UWP
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/windows-8.png
+logo: windows
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
+hybrid: false
+alias:
+  - windows app
+  - windows
+language:
+  - C#
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+  dependencies: native-platforms/windows-uwp-csharp/dependencies
+  setup: native-platforms/windows-uwp-csharp/setup
+  use: native-platforms/windows-uwp-csharp/use
+seo_alias: windows-uwp-csharp
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-uwp-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: windows
+requirements:
+  - Microsoft Visual Studio 2017
+  - Windows 10 SDK (10.0.10586.0)
+  - Auth0.OidcClient.UWP 2.3.1
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
