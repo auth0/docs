@@ -5439,6 +5439,12 @@ const redirects = [
   },
   {
     from: [
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-nodejs-16-to-nodejs-18',
+    ],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-nodejs-16-to-nodejs-18',
+  },
+  {
+    from: [
       '/tutorials/using-auth0-to-secure-a-cli',
       '/integrations/using-auth0-to-secure-a-cli',
       '/tutorials/using-auth0-to-secure-an-api',
