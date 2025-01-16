@@ -23,7 +23,7 @@ files:
 
 # Add Login to Your Next.js Application
 
-This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js v4 SDK (beta). We recommend that you log in to follow this quickstart with examples configured for your account.
+This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js v4 SDK (Beta). We recommend that you log in to follow this quickstart with examples configured for your account.
 
 <%= include('../../_includes/_configure_auth0_interactive', {
 callback: 'http://localhost:3000/auth/callback',
