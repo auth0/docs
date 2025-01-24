@@ -73,7 +73,7 @@ The `matcher` configuration ensures that the middleware runs on all routes excep
 
 The Landing page `src/app/page.tsx` is where users interact with your app. It displays different content based on whether the users is logged in or not. 
 
-Edit the file `src/app/page.tsx` to add the `auht0.getSession()` method to determine if the user is logged in by retrieving the user session. 
+Edit the file `src/app/page.tsx` to add the `auth0.getSession()` method to determine if the user is logged in by retrieving the user session. 
 
 If there is no user session, the method returns `null` and the app displays the **Sign up** or **Log in** buttons.
 If a user sessions exists, the app displays a welcome message with the user's name and a **Log out** button. 
