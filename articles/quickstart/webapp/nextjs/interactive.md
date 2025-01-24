@@ -54,7 +54,7 @@ The SDK will read these values from the Node.js process environment and automati
 
 ## Create the Auth0 SDK Client {{{ data-action=code data-code="src/lib/auth0.ts" }}}
 
-Create a file at `src/lib.auth0.ts`. This file provides methods for handling authentication, sessions and user data. 
+Create a file at `src/lib/auth0.ts`. This file provides methods for handling authentication, sessions and user data. 
 
 Then, import the `Auth0Client` class from the SDK to create an instance and export it as `auth0`. This instance is used in your app to interact with Auth0. 
 
@@ -67,7 +67,7 @@ The Next.js Middleware allows you to run code before a request is completed.
 Create a file at `src/middleware.ts`. This file is used to enforce authentication on specific routes. 
 
 The `middleware` function intercepts incoming requests and applies Auth0's authentication logic. 
-The `matcher` configuration ensures that the middleware runs on all routes except for statis files and metadata. 
+The `matcher` configuration ensures that the middleware runs on all routes except for static files and metadata. 
 
 ## Add the Landing Page Content {{{ data-action=code data-code="src/app/page.tsx" }}}
 
