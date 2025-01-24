@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 MD012 -->
 # Logout
 ## Auth0 Logout
 
@@ -121,13 +122,13 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 | Parameter                             | Description                                                                                                                                                     |
 | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id_token_hint` (Recommended)         | Previously issued ID Token for the user. This is used to indicate which user to log out.                                                                         |
-| `logout_hint` (Optional)              | Optional `sid` (session ID) value to indicate which user to log out. Should be provided when `id_token_hint` is not available.                                                                       |
-| `post_logout_redirect_uri` (Optional) | URL to redirect the user after the logout.                                                                                                                      |
-| `client_id` (Optional)                | The `client_id` of your application.                                                                                                                            |
-| `federated` (Optional)                | Add this query string parameter to log the user out of their identity provider: `https://YOUR_DOMAIN/oidc/logout?federated`.        |
-| `state` (Optional)                    | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the`post_logout_redirect_uri`. |
-| `ui_locales` (Optional)               | Space-delimited list of locales used to constrain the language list for the request. The first locale on the list must match the enabled locale in your tenant  |
+| `id_token_hint` <br/><span class="label label-primary">Recommended</span> | Previously issued ID Token for the user. This is used to indicate which user to log out.                                                                         |
+| `logout_hint` <br/><span class="label label-primary">Optional</span> | Optional `sid` (session ID) value to indicate which user to log out. Should be provided when `id_token_hint` is not available.                                                                       |
+| `post_logout_redirect_uri` <br/><span class="label label-primary">Optional</span> | URL to redirect the user after the logout.                                                                                                                      |
+| `client_id` <br/><span class="label label-primary">Optional</span> | The `client_id` of your application.                                                                                                                            |
+| `federated` <br/><span class="label label-primary">Optional</span> | Add this query string parameter to log the user out of their identity provider: `https://YOUR_DOMAIN/oidc/logout?federated`.        |
+| `state` <br/><span class="label label-primary">Optional</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the`post_logout_redirect_uri`. |
+| `ui_locales` <br/><span class="label label-primary">Optional</span> | Space-delimited list of locales used to constrain the language list for the request. The first locale on the list must match the enabled locale in your tenant  |
 
 ### Remarks
 
