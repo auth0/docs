@@ -21,4 +21,6 @@ seo_alias: device
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - "interactive"
 show_steps: false
