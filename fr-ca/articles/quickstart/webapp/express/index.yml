@@ -1,0 +1,33 @@
+title: Express
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/node.png
+logo: javascript
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+alias:
+  - node
+  - express
+seo_alias: express
+logo_name: nodejs
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+github:
+  org: auth0-samples
+  repo: auth0-express-webapp-sample
+  branch: master
+sdk:
+  name: express-openid-connect
+  url: https://github.com/auth0/express-openid-connect
+  logo: javascript
+requirements:
+  - NodeJS 10.13+
+  - Express 4.17+
