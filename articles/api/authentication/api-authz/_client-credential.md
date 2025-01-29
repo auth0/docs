@@ -64,7 +64,7 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
-| `organizations` <br/><span class="label label-primary">Optional</span>| The organization or identifier with which you want the request to be associated. To learn more, read [Machine-to-Machine Access for Organizations](https://auth0.com/docs/manage-users/organizations/organizations-for-m2m-applications)|
+| `organization` <br/><span class="label label-primary">Optional</span>| The organization or identifier with which you want the request to be associated. To learn more, read [Machine-to-Machine Access for Organizations](https://auth0.com/docs/manage-users/organizations/organizations-for-m2m-applications)|
 
 ### Learn More
 
