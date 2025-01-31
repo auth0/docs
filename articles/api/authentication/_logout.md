@@ -175,3 +175,21 @@ Logout behavior is determined by the configuration of the SAML2 Web App addon fo
 ### Learn More
 - [Logout](/logout)
 - [Log Users Out of SAML Identity Providers](https://auth0.com/docs/authenticate/login/logout/log-users-out-of-saml-idps)
+
+## Universal Logout
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "GET",
+  "path": "oauth/global-token-revocation/connection/{ConnectionName}",
+  "link": "#logout"
+}) %>
+Use this endpoint with [Okta Workforce Identity Cloud's Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/) and OpenID Connect, or SAML enterprise connections to log users out of your applications. To learn more, read [Universal Logout](https://auth0.com/docs/authenticate/login/logout/universal-logout).
+
+### Request Parameters
+| Parameter | Description |
+| : -- | : -- |
+| `iss_sub` | Issuer URI from Okta Workforce Identity Cloud.|
+
+### Remarks
+- A request to this endpoint revokes sessions cookies and refresh tokens, but not access tokens.
+- You must authenticate at the endpoint before revoking user sessions. Review [Endpoint Authentication](https://developer.okta.com/docs/guides/oin-universal-logout-overview/#endpoint-authentication).
