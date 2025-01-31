@@ -179,7 +179,7 @@ Logout behavior is determined by the configuration of the SAML2 Web App addon fo
 ## Universal Logout
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
-  "http_method": "GET",
+  "http_method": "POST",
   "path": "oauth/global-token-revocation/connection/{ConnectionName}",
   "link": "#logout"
 }) %>
