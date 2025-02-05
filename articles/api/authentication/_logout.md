@@ -188,7 +188,7 @@ Use this endpoint with [Okta Workforce Identity Cloud's Universal Logout](https:
 ### Request Parameters
 | Parameter | Description |
 | : -- | : -- |
-| `iss_sub` | Issuer URI from Okta Workforce Identity Cloud.|
+| `subject` | `{ "format": "iss_sub",  "iss": "https://issuer.example.com/", "sub": "145234573" }` |
 
 ### Remarks
 - A request to this endpoint revokes sessions cookies and refresh tokens, but not access tokens.
