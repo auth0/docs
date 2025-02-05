@@ -176,7 +176,7 @@ Logout behavior is determined by the configuration of the SAML2 Web App addon fo
 - [Logout](/logout)
 - [Log Users Out of SAML Identity Providers](https://auth0.com/docs/authenticate/login/logout/log-users-out-of-saml-idps)
 
-## Universal Logout
+## Global Token Revocation
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "POST",
