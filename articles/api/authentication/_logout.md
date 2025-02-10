@@ -180,14 +180,14 @@ Logout behavior is determined by the configuration of the SAML2 Web App addon fo
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-primary",
   "http_method": "POST",
-  "path": "/oauth/global-token-revocation/connection/{ConnectionName}",
+  "path": "/oauth/global-token-revocation/connection/YourConnectionName",
   "link": "#logout"
 }) %>
 Use this endpoint with [Okta Workforce Identity Cloud's Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/) to log users out of your applications. To learn more, read [Universal Logout](https://auth0.com/docs/authenticate/login/logout/universal-logout).
 
 ### Request Parameters
 | Parameter | Description |
-| : -- | : -- |
+| :-- | :-- |
 | `subject` | `{ "format": "iss_sub",  "iss": "https://issuer.example.com/", "sub": "145234573" }` |
 
 ### Remarks
