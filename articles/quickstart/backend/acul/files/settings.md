@@ -1,5 +1,5 @@
 ---
-name: settings.json Sample
+name: settings.json
 language: json
 ---
     
