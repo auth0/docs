@@ -2,7 +2,7 @@
 
 ### Make a Call to Your API
 
-To make calls to your API, you need an Access Token. You can get an Access Token for testing purposes from the **Test** view in your [API settings](${manage_url}/#/apis).
+To make calls to your API, you need an Access Token. You can get an Access Token for testing purposes from the **Test** view in your <a href="$manage_url/#/apis" target="_blank">API settings</a>.
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-access-token.png)
 

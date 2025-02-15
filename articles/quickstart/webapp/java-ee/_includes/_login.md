@@ -4,10 +4,10 @@ The Java EE 8 Security API introduced the `HttpAuthenticationMechanism` interfac
 
 To authenticate with Auth0, provide custom implementations of the following interfaces:
 
-- `HttpAuthenticationMechanism`: Responsible for obtaining a user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
-- `IdentityStore`: Responsible for validating the user's credentials ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/identitystore/IdentityStore.html)).
-- `CallerPrincipal`: Represents the caller principal of the current HTTP request ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/CallerPrincipal.html)).
-- `Credential`: Represents the credential the caller will use to authenticate ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/credential/Credential.html)).
+- `HttpAuthenticationMechanism`: Responsible for obtaining a user's credentials and notifying the container of successful (or not) login status (<a href="https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html" target="_blank">JavaDoc</a>).
+- `IdentityStore`: Responsible for validating the user's credentials (<a href="https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/identitystore/IdentityStore.html" target="_blank">JavaDoc</a>).
+- `CallerPrincipal`: Represents the caller principal of the current HTTP request (<a href="https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/CallerPrincipal.html" target="_blank">JavaDoc</a>).
+- `Credential`: Represents the credential the caller will use to authenticate (<a href="https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/credential/Credential.html" target="_blank">JavaDoc</a>).
 
 First, make your Auth0 settings available to the application by creating an `@ApplicationScoped` bean to retrieve the values from the web context and make them available via getters:
 
@@ -121,11 +121,11 @@ If the `credential` is an `Auth0Credential`, the calling user is authenticated a
 
 Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK. The `AuthenticationController` is used to build the authorization URL where users will login, and handle the token exchange to authenticate users.
 
-* If your Auth0 Application is configured to use the **RS256 signing algorithm** (the default when creating a new Auth0 Application), you need to configure a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options.
+* If your Auth0 Application is configured to use the **RS256 signing algorithm** (the default when creating a new Auth0 Application), you need to configure a `JwkProvider` to fetch the public key used to verify the token's signature. See the <a href="https://github.com/auth0/jwks-rsa-java" target="_blank">jwks-rsa-java repository</a> to learn about additional configuration options.
 * If your Auth0 Application is configured to use the **HS256 signing algorithm**, there is no need to configure the `JwkProvider`.
 
 ::: note
-To learn more about the available signing algorithms, refer to the [documentation](https://auth0.com/docs/tokens/concepts/signing-algorithms).
+To learn more about the available signing algorithms, refer to the <a href="https://auth0.com/docs/tokens/concepts/signing-algorithms" target="_blank">documentation</a>.
 :::
 
 The sample below shows how to configure the `AuthenticationController` for use with the **RS256 signing algorithm**:
@@ -190,7 +190,7 @@ public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism
 
 The class overrides the `validateRequest` method, which is called on every request to our application, and is responsible for notifying the container of the authentication status.
 
-This sample uses the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code) to exchange an Authorization Code for a token during the authentication flow. If this request is to the `/callback` endpoint and contains the `code` request parameter, it does a few important things:
+This sample uses the <a href="https://auth0.com/docs/flows/concepts/auth-code" target="_blank">Authorization Code Flow</a> to exchange an Authorization Code for a token during the authentication flow. If this request is to the `/callback` endpoint and contains the `code` request parameter, it does a few important things:
 
 - Calls the `handle` method of the `AuthenticationController` to exchange the Authorization Code for an ID token and an access token.
 - Uses the ID token to create a new `Auth0Credential`.
@@ -239,7 +239,7 @@ public class LoginServlet extends HttpServlet {
 }
 ```
 
-The `LoginController` is responsible for redirecting the request to the proper authorization URL, where the user can authenticate with Auth0. It uses the `AuthenticationController` from the Auth0 Java MVC SDK to build the correct authorization URL, using the configuration values injected via `Auth0AuthenticationConfig`. By default, this sample requests the `"openid profile email"` scopes, to allow the application to retrieve basic profile information from the authenticated user. You can read more about these scopes in the [OpenID Connect Scopes](https://auth0.com/docs/scopes/current/oidc-scopes) documentation.
+The `LoginController` is responsible for redirecting the request to the proper authorization URL, where the user can authenticate with Auth0. It uses the `AuthenticationController` from the Auth0 Java MVC SDK to build the correct authorization URL, using the configuration values injected via `Auth0AuthenticationConfig`. By default, this sample requests the `"openid profile email"` scopes, to allow the application to retrieve basic profile information from the authenticated user. You can read more about these scopes in the <a href="https://auth0.com/docs/scopes/current/oidc-scopes" target="_blank">OpenID Connect Scopes</a> documentation.
 
 Once the user has entered their credentials and authorized the requested permissions, Auth0 will issue a request to the `callbackUrl`, and include a `code` query parameter which can be exchanged for an ID token and an access token. Recall that the `Auth0HttpAuthenticationMechanism` created above handles this exchange so that it can notify the application container of authentication status. This allows the Servlet that handles requests to the `/callback` path to simply forward the request on to the originally requested resource prior to logging in, or simply redirect to the home page:
 
@@ -261,7 +261,7 @@ public class CallbackServlet extends HttpServlet {
 
 ## Display user information
 
-You can use the `Auth0JwtPrincipal` to get profile information for the authenticated user. The following code sample demonstrates how to use the claims on the [ID token](https://auth0.com/docs/tokens/id-token) to set profile data as a request attribute:
+You can use the `Auth0JwtPrincipal` to get profile information for the authenticated user. The following code sample demonstrates how to use the claims on the <a href="https://auth0.com/docs/tokens/id-token" target="_blank">ID token</a> to set profile data as a request attribute:
 
 ```java
 // src/main/java/com/auth0/example/web/HomeServlet.java
@@ -370,7 +370,7 @@ public class LogoutServlet extends HttpServlet {
 
 ## Run the sample
 
-To build and run the sample, execute the `wildfly:run` Maven goal to start an embedded WildFly application server with this application deployed to it. See the [WildFly Maven Plugin](https://docs.jboss.org/wildfly/plugins/maven/latest/) documentation for more information.
+To build and run the sample, execute the `wildfly:run` Maven goal to start an embedded WildFly application server with this application deployed to it. See the <a href="https://docs.jboss.org/wildfly/plugins/maven/latest/" target="_blank">WildFly Maven Plugin</a> documentation for more information.
 
 If you are using Linux or MacOS:
 
@@ -384,7 +384,7 @@ Windows:
 mvnw.cmd clean wildfly:run
 ```
 
-Point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. 
+Point your browser to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>. Follow the **Log In** link to log in or sign up to your Auth0 tenant. 
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 

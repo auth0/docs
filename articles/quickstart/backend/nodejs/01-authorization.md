@@ -21,7 +21,7 @@ useCase: quickstart
 
 ### Install dependencies
 
-This guide shows you how to protect an Express API using the [express-oauth2-jwt-bearer](https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer) middleware. 
+This guide shows you how to protect an Express API using the <a href="https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer" target="_blank">express-oauth2-jwt-bearer</a> middleware. 
 
 First install the SDK using npm.
 

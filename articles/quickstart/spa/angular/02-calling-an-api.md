@@ -19,15 +19,15 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 :::note
-Visit the [Integrate Angular with an API Server](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#integrate-angular-with-an-api-server) section of the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into calling a protected API from Angular. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+Visit the <a href="https://developer.auth0.com/resources/guides/spa/angular/basic-authentication#integrate-angular-with-an-api-server" target="_blank">Integrate Angular with an API Server</a> section of the <a href="https://developer.auth0.com/resources/guides/spa/angular/basic-authentication" target="_blank">Angular Authentication By Example</a> guide for a deep dive into calling a protected API from Angular. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
 :::
 
 <%= include('../_includes/_calling_api_preamble_api2") %>
 
-This article builds upon [the previous chapter](/quickstart/spa/angular-next), adding the capability to automatically attach an access token to outgoing requests made using Angular's built-in `HttpClient` service.
+This article builds upon <a href="/quickstart/spa/angular-next" target="_blank">the previous chapter</a>, adding the capability to automatically attach an access token to outgoing requests made using Angular's built-in `HttpClient` service.
 
 :::note
-If you followed the [previous section where you added user log in to Angular](/quickstart/spa/angular-next#add-login-to-your-application), make sure that you log out of your application as you'll need a new access token to call APIs.
+If you followed the <a href="/quickstart/spa/angular-next#add-login-to-your-application" target="_blank">previous section where you added user log in to Angular</a>, make sure that you log out of your application as you'll need a new access token to call APIs.
 :::
 
 ## Provide the HTTP Interceptor
@@ -103,10 +103,10 @@ provideAuth0({
 ```
 
 :::note
-As Auth0 can only issue tokens for custom scopes that exist on your API, ensure that you define the scopes used above when [setting up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
+As Auth0 can only issue tokens for custom scopes that exist on your API, ensure that you define the scopes used above when <a href="https://auth0.com/docs/getting-started/set-up-api" target="_blank">setting up an API</a> with Auth0.
 :::
 
-Please [refer to the docs](https://github.com/auth0/auth0-angular/blob/main/EXAMPLES.md#configure-authhttpinterceptor-to-attach-access-tokens) for more information on the available options for the HTTP interceptor.
+Please <a href="https://github.com/auth0/auth0-angular/blob/main/EXAMPLES.md#configure-authhttpinterceptor-to-attach-access-tokens" target="_blank">refer to the docs</a> for more information on the available options for the HTTP interceptor.
 
 ## Make an API Call
 
@@ -157,7 +157,7 @@ export class UserMetadataComponent implements OnInit {
 This call succeeds because the HTTP interceptor took care of making sure the correct access token was included in the outgoing request.
 
 :::panel Checkpoint
-Your application will show an empty JSON object if you have not set any `user_metadata` for the logged-in user. To further test out this integration, head to the [Users section of the Auth0 dashboard](https://manage.auth0.com/#/users) and click on the user who is logged in. Update the `user_metadata` section with a value like `{ "theme": "dark" }` and click "Save". Refresh your Angular application and verify that it reflects the new `user_metadata`. 
+Your application will show an empty JSON object if you have not set any `user_metadata` for the logged-in user. To further test out this integration, head to the <a href="https://manage.auth0.com/#/users" target="_blank">Users section of the Auth0 dashboard</a> and click on the user who is logged in. Update the `user_metadata` section with a value like `{ "theme": "dark" }` and click "Save". Refresh your Angular application and verify that it reflects the new `user_metadata`. 
 :::
 
-Please refer to the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
+Please refer to the <a href="https://auth0.com/docs/quickstart/backend" target="_blank">Auth0 API quickstarts</a> to learn how to integrate Auth0 with your backend platform.

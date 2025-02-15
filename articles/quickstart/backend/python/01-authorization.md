@@ -35,7 +35,7 @@ six
 
 ### Create a Flask application
 
-Create a `server.py` file and initialize the [Flask](http://flask.pocoo.org/) application. Set the domain, audience and the error handling.
+Create a `server.py` file and initialize the <a href="http://flask.pocoo.org/" target="_blank">Flask</a> application. Set the domain, audience and the error handling.
 
 ```python
 # /server.py

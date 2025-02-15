@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
-> On every step, if you have a [custom domain](https://auth0.com/docs/customize/custom-domains), replace the `YOUR_AUTH0_DOMAIN` placeholder with your custom domain instead of the value from the settings page.
+> On every step, if you have a <a href="https://auth0.com/docs/customize/custom-domains" target="_blank">custom domain</a>, replace the `YOUR_AUTH0_DOMAIN` placeholder with your custom domain instead of the value from the settings page.
 
 ## 1. Configure the associated domain
 
@@ -10,7 +10,7 @@ Open `SwiftSample.xcodeproj` in Xcode and go to the settings of the app target y
 
 Next, go to the **Signing & Capabilities** tab of the app's target settings. Find the `webcredentials:YOUR_AUTH0_DOMAIN` entry under **Associated Domains**, and replace the `YOUR_AUTH0_DOMAIN` placeholder with the domain of your Auth0 application.
 
-Finally, open the settings page of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to the app's bundle identifier.
+Finally, open the settings page of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank">Apple Team ID</a>, and **App ID** to the app's bundle identifier.
 
 ## 2. Configure the Auth0 application
 

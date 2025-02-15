@@ -8,4 +8,4 @@ Run the following command within your project directory to install the Auth0 Rea
 npm install @auth0/auth0-react
 ```
 
-The SDK exposes methods and variables that help you integrate Auth0 with your React application idiomatically using [React Hooks](https://reactjs.org/docs/hooks-overview.html) or [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html).
+The SDK exposes methods and variables that help you integrate Auth0 with your React application idiomatically using <a href="https://reactjs.org/docs/hooks-overview.html" target="_blank">React Hooks</a> or <a href="https://reactjs.org/docs/higher-order-components.html" target="_blank">Higher-Order Components</a>.

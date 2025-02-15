@@ -21,7 +21,7 @@ github:
 
 # Add Login to Your Python Flask Application
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Flask](https://flask.palletsprojects.com) application using the [Authlib](https://authlib.org/) SDK.
+Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> application using the <a href="https://authlib.org/" target="_blank">Authlib</a> SDK.
 
 <%= include('../../_includes/_configure_auth0_interactive', {
 callback: 'http://localhost:3000/callback',
@@ -70,7 +70,7 @@ Import all the libraries your application needs.
 
 Load the configuration `.env` file you made in the previous step.
 
-Configure Authlib to handle your application's authentication with Auth0. To learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
+Configure Authlib to handle your application's authentication with Auth0. To learn more about the configuration options available for Authlib's OAuth `register()` method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank">their documentation.</a>
 
 ## Setup your routes {{{ data-action=code data-code="server.py#30:59" }}}
 
@@ -100,7 +100,7 @@ python3 server.py
 
 ::::checkpoint
 :::checkpoint-default
-Visit [http://localhost:3000](http://localhost:3000) to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
+Visit <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
 :::
 
 :::checkpoint-failure
@@ -109,6 +109,6 @@ If your application did not start successfully:
 * Verify the domain and Client ID imported correctly.
 * Verify your tenant configuration.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
 :::
 ::::

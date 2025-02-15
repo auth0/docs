@@ -20,11 +20,11 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add Authorization to Your Ruby on Rails API
-This tutorial performs access token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
+This tutorial performs access token validation using the  **<a href="https://github.com/jwt/ruby-jwt" target="_blank">jwt</a>** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
 
 If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
 
-To set up your first API through the Auth0 dashboard, review [our getting started guide](get-started/auth0-overview/set-up-apis).
+To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank">our getting started guide</a>.
 
 Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
@@ -90,7 +90,7 @@ Now that you have configured your application, run your application to verify th
 :::checkpoint-failure
 If your application did not start successfully:
 * Verify you added the token as the `Authorization` header
-* Ensure the token has the correct scopes. Verify with [jwt.io](https://jwt.io/).
+* Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank">jwt.io</a>.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
 :::

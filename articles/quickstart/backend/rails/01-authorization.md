@@ -21,7 +21,7 @@ useCase: quickstart
 
 ### Install dependencies
 
-This tutorial performs access token validation using the  **[jwt](https://github.com/jwt/ruby-jwt)** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
+This tutorial performs access token validation using the  **<a href="https://github.com/jwt/ruby-jwt" target="_blank">jwt</a>** Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
 
 Install the **jwt** Gem.
 

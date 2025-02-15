@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD041 -->
 
 ::: note
-**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single-Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/flows/concepts/auth-code-pkce) it uses.
+**New to Auth?** Learn <a href="/overview" target="_blank">How Auth0 works</a>, how it <a href="/architecture-scenarios/application/spa-api" target="_blank">integrates with Single-Page Applications</a> and which <a href="/flows/concepts/auth-code-pkce" target="_blank">protocol</a> it uses.
 :::
 
 <%= include('../../../_includes/_new_app') %>
