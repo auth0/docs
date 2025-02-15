@@ -18,7 +18,7 @@ github:
 
 ## Configure Auth0
 
-You will need to register your application with Auth0 in order to start authenticating users. Go to the [Applications](${manage_url}/#/applications) screen in the Auth0 dashboard, create a new **Regular Web Application**, and follow the steps below.
+You will need to register your application with Auth0 in order to start authenticating users. Go to the <a href="$manage_url/#/applications" target="_blank">Applications</a> screen in the Auth0 dashboard, create a new **Regular Web Application**, and follow the steps below.
 
 ### 1. Configure Callback URL
 
@@ -41,7 +41,7 @@ Finally, copy the following fields for your application for use in step 7:
 
 ## Integrate Auth0
 ### 4. Install Dependencies
-Your application will need the [`express-openid-connect`](https://github.com/auth0/express-openid-connect) package which is an Auth0-maintained OIDC-compliant library for Express.
+Your application will need the <a href="https://github.com/auth0/express-openid-connect" target="_blank">`express-openid-connect`</a> package which is an Auth0-maintained OIDC-compliant library for Express.
 
 ```sh
 npm install express express-openid-connect --save
@@ -54,8 +54,8 @@ The Express OpenID Connect library provides the `auth` router in order to attach
 - `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
 - `secret` - A long, random string used to encrypt the session cookie
-- `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
-- `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
+- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank">Application settings</a>
+- `clientID` - The Client ID found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank">Application settings</a>
 
 Here is an example configuration using this router:
 
@@ -80,14 +80,14 @@ app.get('/', (req, res) => {
 });
 ```
 
-For additional configuration options visit the [API documentation](https://auth0.github.io/express-openid-connect).
+For additional configuration options visit the <a href="https://auth0.github.io/express-openid-connect" target="_blank">API documentation</a>.
 
 :::note
 You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand -hex 32` on the command line.
 :::
 
 ## Login
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/login`](http://localhost:3000/login).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be <a href="http://localhost:3000/login" target="_blank">`http://localhost:3000/login`</a>.
 
 ## Display User Profile
 To display the user's profile, your application should provide a protected route.
@@ -103,15 +103,15 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ```
 
 ## Logout
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/logout`](http://localhost:3000/logout).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be <a href="http://localhost:3000/logout" target="_blank">`http://localhost:3000/logout`</a>.
 
 :::note
-For a deep dive into implementing user authentication in Express, visit the [Complete Guide to Node.js User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-nodejs-express-user-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes, and making secure calls to an API. 
+For a deep dive into implementing user authentication in Express, visit the <a href="https://auth0.com/blog/complete-guide-to-nodejs-express-user-authentication/" target="_blank">Complete Guide to Node.js User Authentication with Auth0</a>. This guide provides you with additional details, such as creating a signup button, protecting routes, and making secure calls to an API. 
 :::
 
 ## What's next?
-We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
+We put together a few examples of how to use <a href="https://github.com/auth0/express-openid-connect" target="_blank">Express OpenID Connect</a> in more advanced use cases:
 
-* [Route Customization](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-route-customization)
-* [Obtaining access tokens for external APIs](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-obtaining-access-tokens-to-call-external-apis)
-* [Require auth for specific routes](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-require-authentication-for-specific-routes)
+* <a href="https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-route-customization" target="_blank">Route Customization</a>
+* <a href="https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-obtaining-access-tokens-to-call-external-apis" target="_blank">Obtaining access tokens for external APIs</a>
+* <a href="https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-require-authentication-for-specific-routes" target="_blank">Require auth for specific routes</a>

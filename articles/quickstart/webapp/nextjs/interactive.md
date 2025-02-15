@@ -38,15 +38,15 @@ Run the following command within your project directory to install the Auth0 Nex
 npm install @auth0/nextjs-auth0@beta
 ```
 
-The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) on the backend and [React Context](https://reactjs.org/docs/context.html) with [React Hooks](https://reactjs.org/docs/hooks-overview.html) on the frontend.
+The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers" target="_blank">Route Handlers</a> on the backend and <a href="https://reactjs.org/docs/context.html" target="_blank">React Context</a> with <a href="https://reactjs.org/docs/hooks-overview.html" target="_blank">React Hooks</a> on the frontend.
 
 ## Configure the SDK {{{ data-action=code data-code=".env.local" }}}
 
-In the root directory of your project, add the file `.env.local` with the following [environment variables](https://nextjs.org/docs/basic-features/environment-variables):
+In the root directory of your project, add the file `.env.local` with the following <a href="https://nextjs.org/docs/basic-features/environment-variables" target="_blank">environment variables</a>:
 
 - `AUTH0_SECRET`: A long secret value used to encrypt the session cookie. You can generate a suitable string using `openssl rand -hex 32` on the command line.
 - `APP_BASE_URL`: The base URL of your application.
-- `AUTH0_DOMAIN`: The URL of your Auth0 tenant domain. If you are using a [Custom Domain with Auth0](https://auth0.com/docs/custom-domains), set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
+- `AUTH0_DOMAIN`: The URL of your Auth0 tenant domain. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank">Custom Domain with Auth0</a>, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
 - `AUTH0_CLIENT_ID`: Your Auth0 application's Client ID.
 - `AUTH0_CLIENT_SECRET`: Your Auth0 application's Client Secret.
 
@@ -100,7 +100,7 @@ You will see:
 ::::checkpoint
 :::checkpoint-default
 Run Your application. 
-- Verify that your Next.js application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+- Verify that your Next.js application redirects you to the <a href="https://auth0.com/universal-login" target="_blank">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
 - Once that's complete, verify that Auth0 redirects back to your application.
 :::
 :::checkpoint-failure
@@ -108,7 +108,7 @@ Sorry about that. Here's a couple of things to double check:
 * are your environment variables populated correctly?
 * make sure that "Allowed Callback URLs" is configured correctly in your tenant
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
 :::
 ::::
 

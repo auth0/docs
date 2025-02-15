@@ -20,17 +20,17 @@ files:
 
 # Add Authorization to Your Laravel Application
 
-[Auth0's Laravel SDK](https://github.com/auth0/laravel-auth0) allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) [Laravel 9 or 10](https://github.com/auth0/laravel-auth0#support-policy) application.
+<a href="https://github.com/auth0/laravel-auth0" target="_blank">Auth0s Laravel SDK</a> allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) <a href="https://github.com/auth0/laravel-auth0#support-policy" target="_blank">Laravel 9 or 10</a> application.
 
 ---
 
-**Backend applications differ from traditional web applications in that they do not handle user authentication or have a user interface. They provide an API that other applications can interact with. They accept [access tokens](https://auth0.com/docs/secure/tokens/access-tokens) from `Authorization` headers in requests to control access to routes.**
+**Backend applications differ from traditional web applications in that they do not handle user authentication or have a user interface. They provide an API that other applications can interact with. They accept <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank">access tokens</a> from `Authorization` headers in requests to control access to routes.**
 
-Separate front-end applications are usually built to interact with these types of backends. These can be anything from [single-page applications](https://auth0.com/docs/quickstart/spa) or [native or mobile apps](https://auth0.com/docs/quickstart/native) (all of which Auth0 also provides SDKs for!)
+Separate front-end applications are usually built to interact with these types of backends. These can be anything from <a href="https://auth0.com/docs/quickstart/spa" target="_blank">single-page applications</a> or <a href="https://auth0.com/docs/quickstart/native" target="_blank">native or mobile apps</a> (all of which Auth0 also provides SDKs for!)
 
 When users need to interact with your backend application, they first authenticate with Auth0 using the frontend application. The frontend application then retrieves an access token from Auth0, which it can use to make requests to your backend application on behalf of the user.
 
-As their name implies, [access tokens](https://auth0.com/docs/secure/tokens/access-tokens) are designed to address matters of access control (authorization), and do not contain information about the user. **Backend applications work exclusively with access tokens.** You can retrieve information about the user who created the token using the [Management API](https://auth0.com/docs/api/management/v2), which we will demonstrate later.
+As their name implies, <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank">access tokens</a> are designed to address matters of access control (authorization), and do not contain information about the user. **Backend applications work exclusively with access tokens.** You can retrieve information about the user who created the token using the <a href="https://auth0.com/docs/api/management/v2" target="_blank">Management API</a>, which we will demonstrate later.
 
 ## Laravel Installation
 
@@ -48,7 +48,7 @@ cd auth0-laravel-api
 
 ## SDK Installation
 
-Run the following command within your project directory to install the [Auth0 Laravel SDK](https://github.com/auth0/laravel-auth0):
+Run the following command within your project directory to install the <a href="https://github.com/auth0/laravel-auth0" target="_blank">Auth0 Laravel SDK</a>:
 
 ```shell
 composer require auth0/login:^7.8 --update-with-all-dependencies
@@ -62,7 +62,7 @@ php artisan vendor:publish --tag auth0
 
 ## SDK Configuration
 
-Run the following command from your project directory to download the [Auth0 CLI](https://github.com/auth0/auth0-cli):
+Run the following command from your project directory to download the <a href="https://github.com/auth0/auth0-cli" target="_blank">Auth0 CLI</a>:
 
 ```shell
 curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
@@ -127,7 +127,7 @@ Route::get('/private', function () {
 })->middleware('auth');
 ```
 
-You can also require the provided token to have specific [permissions](https://auth0.com/docs/manage-users/access-control/rbac) by combining this with Laravel's `can` middleware:
+You can also require the provided token to have specific <a href="https://auth0.com/docs/manage-users/access-control/rbac" target="_blank">permissions</a> by combining this with Laravel's `can` middleware:
 
 ```php
 Route::get('/scope', function () {
@@ -161,11 +161,11 @@ Route::get('/', function () {
 
 ## Retrieve User Information {{{ data-action=code data-code="routes/api.php#32:51" }}}
 
-You can retrieve information about the user who created the access token from Auth0 using the [Auth0 Management API](https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md). The SDK provides a convenient wrapper for this API, accessible through the SDK's `management()` method.
+You can retrieve information about the user who created the access token from Auth0 using the <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md" target="_blank">Auth0 Management API</a>. The SDK provides a convenient wrapper for this API, accessible through the SDK's `management()` method.
 
-**Before making Management API calls you must enable your application to communicate with the Management API.** This can be done from the [Auth0 Dashboard's API page](https://manage.auth0.com/#/apis/), choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
+**Before making Management API calls you must enable your application to communicate with the Management API.** This can be done from the <a href="https://manage.auth0.com/#/apis/" target="_blank">Auth0 Dashboards API page</a>, choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
 
-For the following example, you should grant the `read:users` scope. A list of API endpoints and the required scopes can be found in [the Management API documentation](https://auth0.com/docs/api/management/v2).
+For the following example, you should grant the `read:users` scope. A list of API endpoints and the required scopes can be found in <a href="https://auth0.com/docs/api/management/v2" target="_blank">the Management API documentation</a>.
 
 ```php
 use Auth0\Laravel\Facade\Auth0;
@@ -206,7 +206,7 @@ php artisan serve
 
 ## Retrieve a Test Token
 
-You can learn more about [retrieving access tokens here](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens). For this quickstart, however, you can simply use an access token from [your API settings' "test" view](https://manage.auth0.com/#/apis).
+You can learn more about <a href="https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens" target="_blank">retrieving access tokens here</a>. For this quickstart, however, you can simply use an access token from <a href="https://manage.auth0.com/#/apis" target="_blank">your API settings "test" view</a>.
 
 ::: note
 The `/me` route we created above will not work with a test token as there is no actual user associated with it.
@@ -249,15 +249,15 @@ Here are a couple of things to try:
 
 - Try running `php artisan optimize:clear` to clear Laravel's cache.
 - Ensure your `.auth0.app.json` and `.auth0.api.json` files are at the root of your project.
-- Ensure you have enabled your Laravel application as a Machine-to-Machine application and granted it all the necessary scopes for the `Auth0 Management API` from the [Auth0 Dashboard](https://manage.auth0.com/#/apis/).
+- Ensure you have enabled your Laravel application as a Machine-to-Machine application and granted it all the necessary scopes for the `Auth0 Management API` from the <a href="https://manage.auth0.com/#/apis/" target="_blank">Auth0 Dashboard</a>.
 
-Encountering problems? Check the SDK's [documentation](https://github.com/auth0/laravel-auth0) or our [documentation hub](https://auth0.com/docs). You should also consider visiting [the community](https://community.auth0.com) where our team and other community members can help answer your questions.
+Encountering problems? Check the SDK's <a href="https://github.com/auth0/laravel-auth0" target="_blank">documentation</a> or our <a href="https://auth0.com/docs" target="_blank">documentation hub</a>. You should also consider visiting <a href="https://community.auth0.com" target="_blank">the community</a> where our team and other community members can help answer your questions.
 
 :::
 ::::
 
 ### Additional Reading
 
-- [User Repositories and Models](https://github.com/auth0/laravel-auth0/blob/main/docs/Users.md) extends the Auth0 Laravel SDK to use custom user models, and how to store and retrieve users from a database.
-- [Hooking Events](https://github.com/auth0/laravel-auth0/blob/main/docs/Events.md) covers how to listen for events raised by the Auth0 Laravel SDK, to fully customize the behavior of your integration.
-- [Management API](https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md) support is built into the Auth0 Laravel SDK, allowing you to interact with the Management API from your Laravel application.
+- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Users.md" target="_blank">User Repositories and Models</a> extends the Auth0 Laravel SDK to use custom user models, and how to store and retrieve users from a database.
+- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Events.md" target="_blank">Hooking Events</a> covers how to listen for events raised by the Auth0 Laravel SDK, to fully customize the behavior of your integration.
+- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md" target="_blank">Management API</a> support is built into the Auth0 Laravel SDK, allowing you to interact with the Management API from your Laravel application.

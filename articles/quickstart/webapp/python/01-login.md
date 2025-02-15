@@ -20,7 +20,7 @@ github:
 
 ## Install dependencies
 
-For the purposes of this example, we'll be using the [Authlib](https://authlib.org/) OAuth library and [Flask](https://flask.palletsprojects.com/en/2.0.x/).
+For the purposes of this example, we'll be using the <a href="https://authlib.org/" target="_blank">Authlib</a> OAuth library and <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask</a>.
 
 Begin by creating a `requirements.txt` file in your project directory:
 
@@ -106,7 +106,7 @@ oauth.register(
 )
 ```
 
-You can learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
+You can learn more about the configuration options available for Authlib's OAuth `register()` method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank">their documentation.</a>
 
 ## Setup your routes
 
@@ -216,4 +216,4 @@ You're ready to run your application! From your project directory, open a shell 
 python3 server.py
 ```
 
-Your application should now be ready to open from your browser at [http://localhost:3000](http://localhost:3000).
+Your application should now be ready to open from your browser at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.

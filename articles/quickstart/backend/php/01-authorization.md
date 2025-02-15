@@ -23,11 +23,11 @@ github:
 
 ## Integrating your PHP Backend API
 
-Let's create a sample application that authorizes an Auth0-signed token with a backend API we've written in PHP. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-api-samples/) for a more robust example.
+Let's create a sample application that authorizes an Auth0-signed token with a backend API we've written in PHP. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying <a href="https://github.com/auth0-samples/auth0-php-api-samples/" target="_blank">Quickstart app on GitHub</a> for a more robust example.
 
 ### Installing HTTP Client and Messaging Factories
 
-The Auth0 PHP SDK supports many PHP-FIG standards to offer maximum interoperability with your project's architecture, but two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to "plugin" networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
+The Auth0 PHP SDK supports many PHP-FIG standards to offer maximum interoperability with your project's architecture, but two of particular importance are <a href="https://www.php-fig.org/psr/psr-17/" target="_blank">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank">PSR-18</a>. These standards allow you to "plugin" networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
 
 The most prolific networking library for PHP is Guzzle, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application:
 
@@ -88,7 +88,7 @@ $auth0 = new \Auth0\SDK\Auth0([
 
 ### Authenticating the user
 
-For this sample application, we're focusing on [authorization](https://auth0.com/intro-to-iam/authentication-vs-authorization/). There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using [Auth0's SPA.js library](https://github.com/auth0/auth0-spa-js). This approach is demonstrated in [this Quickstart app accompanying Github project](https://github.com/auth0-samples/auth0-php-api-samples/). Regardless of the approach you take, this sample application expects you to pass your Access Token to it through a request parameter or header to work.
+For this sample application, we're focusing on <a href="https://auth0.com/intro-to-iam/authentication-vs-authorization/" target="_blank">authorization</a>. There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using <a href="https://github.com/auth0/auth0-spa-js" target="_blank">Auth0s SPA.js library</a>. This approach is demonstrated in <a href="https://github.com/auth0-samples/auth0-php-api-samples/" target="_blank">this Quickstart app accompanying Github project</a>. Regardless of the approach you take, this sample application expects you to pass your Access Token to it through a request parameter or header to work.
 
 ### Authorizing an Access Token
 
@@ -157,9 +157,9 @@ echo json_encode([
 
 ### Caching
 
-This works, but in a real-world application, we'll want to use caching to ensure we don't hit our Auth0 rate limits or slow down our application with unnecessary network requests. The Auth0 PHP SDK supports a caching interface called [PSR-6](https://www.php-fig.org/psr/psr-6), which you can plug [any compatible caching library](https://packagist.org/providers/psr/cache-implementation) into for the SDK to fit in nicely with your architecture.
+This works, but in a real-world application, we'll want to use caching to ensure we don't hit our Auth0 rate limits or slow down our application with unnecessary network requests. The Auth0 PHP SDK supports a caching interface called <a href="https://www.php-fig.org/psr/psr-6" target="_blank">PSR-6</a>, which you can plug <a href="https://packagist.org/providers/psr/cache-implementation" target="_blank">any compatible caching library</a> into for the SDK to fit in nicely with your architecture.
 
-For our sample, let's use the [Symfony caching component](https://symfony.com/doc/current/components/cache.html) library. From our root project directory, issue the following shell command:
+For our sample, let's use the <a href="https://symfony.com/doc/current/components/cache.html" target="_blank">Symfony caching component</a> library. From our root project directory, issue the following shell command:
 
 ```sh
 composer require symfony/cache

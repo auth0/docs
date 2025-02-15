@@ -85,7 +85,7 @@ app.UseEndpoints(endpoints =>
 
 ### Validate scopes
 
-To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
+To make sure that an Access Token contains the correct scope, use the <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies" target="_blank">Policy-Based Authorization</a> in ASP.NET Core.
 
 Create a new authorization requirement called `HasScopeRequirement`. This requirement checks if the `scope` claim issued by your Auth0 tenant is present. If the `scope` claim exists, the requirement checks if the `scope` claim contains the requested scope.
 
@@ -144,7 +144,7 @@ builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
 ## Protect API Endpoints
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. 
+The JWT middleware integrates with the standard ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/" target="_blank">Authentication</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/" target="_blank">Authorization</a> mechanisms. 
 
 To secure an endpoint, you need to add the `[Authorize]` attribute to your controller action:
 

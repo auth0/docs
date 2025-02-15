@@ -5,7 +5,7 @@
 To integrate your Java application with Auth0, add the following dependencies:
 
 - **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-- **auth0-java-mvc-commons**: is the [Java library](https://github.com/auth0/auth0-java-mvc-common) that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
+- **auth0-java-mvc-commons**: is the <a href="https://github.com/auth0/auth0-java-mvc-common" target="_blank">Java library</a> that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the <a href="/tokens" target="_blank">Auth0 Tokens</a> that identify the user.
 
 If you are using Gradle, add them to your `build.gradle`:
 
@@ -56,7 +56,7 @@ Your Java App needs some information in order to authenticate against your Auth0
 </context-param>
 ```
 
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [library's documentation](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md).
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank">librarys documentation</a>.
 
 
 ::: panel Check populated attributes

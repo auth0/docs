@@ -1,1 +1,1 @@
-While the Lock widget provides an easy to use, fully-featured, and customizable login interface, you may want to build your own UI with a custom design. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
+While the Lock widget provides an easy to use, fully-featured, and customizable login interface, you may want to build your own UI with a custom design. To do this, use the <a href="https://github.com/auth0/auth0.js" target="_blank">auth0.js library</a>.

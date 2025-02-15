@@ -10,7 +10,7 @@ files:
 
 # Add Login to Your JavaScript Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the <a href="https://github.com/auth0/auth0-spa-js" target="_blank">Auth0 SPA SDK</a>.
 
 To use this quickstart, you’ll need to:
 
@@ -55,7 +55,7 @@ You should now be able to log in to your application.
 Run your application, and select the login button. Verify that:
 
 - you can log in or sign up using a username and password
-- your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page
+- your application redirects you to the <a href="https://auth0.com/universal-login" target="_blank">Auth0 Universal Login</a> page
 - you are redirected to Auth0 for authentication
 - Auth0 successfully redirects back to your application after authentication
 - you do not receive any errors in the console related to Auth0
@@ -68,7 +68,7 @@ Sorry about that. Here are a few things to double check:
 - make sure you saved after entering your URLs
 - make sure the Auth0 client has been correctly configured with your Auth0 domain and client ID
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a>.
 
 :::
 ::::
@@ -95,13 +95,13 @@ Sorry about that. Here are a few things to double check:
 - check that the `redirect_uri` option has been configured to your application's URL
 - if you have an `error` query parameter, inspect it to learn the cause of the error
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a>.
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="app.js#23:29" }}}
 
-Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
+Users who log in to your project will also need <a href="/logout/guides/logout-auth0" target="_blank">a way to log out</a>. The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your <a href="/api/authentication?javascript#logout" target="_blank">Auth0 logout endpoint</a>, which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
 Create a logout button in your application that calls `logout()` when selected.
 
@@ -126,15 +126,15 @@ Run your application, log in, and select the logout button. Verify that:
 Sorry about that. Here are a few things to double check:
 
 - make sure that you configured the logout URL as one of the **Allowed Logout URLS** in your application's **Settings**
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
+- inspect the <a href="https://manage.auth0.com/#/logs" target="_blank">application logs</a> for further errors
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a>.
 :::
 ::::
 
 ## Show user profile information {{{ data-action=code data-code="app.js#31:45" }}}
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
+Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="/users/concepts/overview-user-profile" target="_blank">profile information</a> associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
 
 The Auth0 SPA SDK provides user information through the `getUser()` function exposed by the Auth0 client. The Auth0 client also exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not, which you can use to determine whether to show or hide UI elements, for example. Review the code in the interactive panel to see examples of how to use these functions.
 
@@ -153,8 +153,8 @@ Sorry about that. Here are a few things to double check:
 
 - ensure that all the previous steps work without issue
 - check your code that manages the UI in response to the authentication state
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors relating to silent authentication
+- inspect the <a href="https://manage.auth0.com/#/logs" target="_blank">application logs</a> for further errors relating to silent authentication
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a>.
 :::
 ::::

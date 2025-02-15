@@ -14,7 +14,7 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD012 MD041 -->
 
-This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the [Expo Quickstart](https://auth0.com/docs/quickstart/native/react-native-expo/interactive)
+This Quickstart is for the React Native framework. To integrate Auth0 into your Expo application, please refer to the <a href="https://auth0.com/docs/quickstart/native/react-native-expo/interactive" target="_blank">Expo Quickstart</a>
 
 <%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
@@ -23,7 +23,7 @@ This Quickstart is for the React Native framework. To integrate Auth0 into your 
 In this section, you will install the React Native Auth0 module.
 
 ::: note
-Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
+Please refer to the <a href="https://facebook.github.io/react-native/" target="_blank">official documentation</a> for additional details on React Native.
 :::
 
 ### Yarn
@@ -33,7 +33,7 @@ yarn add react-native-auth0
 ```
 
 ::: note
-For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
+For further reference on yarn, check <a href="https://yarnpkg.com/en/docs" target="_blank">their official documentation</a>.
 :::
 
 ### npm
@@ -59,7 +59,7 @@ cd ios
 pod install
 ```
 
-First, you must provide a way for your users to log in. We recommend using the Auth0 hosted [login page](/hosted-pages/login).
+First, you must provide a way for your users to log in. We recommend using the Auth0 hosted <a href="/hosted-pages/login" target="_blank">login page</a>.
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
@@ -67,7 +67,7 @@ First, you must provide a way for your users to log in. We recommend using the A
 
 ### Configure Android
 
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should contain your Auth0 application settings [as configured above](#get-your-application-keys).
+Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should contain your Auth0 application settings <a href="#get-your-application-keys" target="_blank">as configured above</a>.
 
 ```groovy
 android {
@@ -98,7 +98,7 @@ In the file `ios/<YOUR PROJECT>/AppDelegate.mm` add the following:
 ```
 
 ::: note
-This file will be `ios/<YOUR PROJECT>/AppDelegate.m` on applications using the [old architecture](https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension).
+This file will be `ios/<YOUR PROJECT>/AppDelegate.m` on applications using the <a href="https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension" target="_blank">old architecture</a>.
 :::
 
 Next, add a URLScheme using your App's bundle identifier.
@@ -138,7 +138,7 @@ Note this value as you'll be using it to define the callback URLs below. If desi
 - Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
 - Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
 
-For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking).
+For additional information please read <a href="https://facebook.github.io/react-native/docs/linking" target="_blank">react native docs</a>.
 
 
 ### Configure Callback and Logout URLs
@@ -147,7 +147,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of the Auth0 domain from the settings page.
+Go to the settings page of your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank">Auth0 application</a> and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a <a href="/customize/custom-domains" target="_blank">custom domain</a>, use the value of your custom domain instead of the Auth0 domain from the settings page.
 
 #### iOS
 ```text
@@ -234,7 +234,7 @@ Add a button that calls `clearSession` when clicked. Verify that you are logged 
 
 ## Show user profile information
 
-The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access decoded user profile information about the authenticated user from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
+The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access decoded user profile information about the authenticated user from the <a href="https://auth0.com/docs/secure/tokens/id-tokens" target="_blank">ID token</a>.
 
 If a user has not been authenticated, this property will be `null`.
 
