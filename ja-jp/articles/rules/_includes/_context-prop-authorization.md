@@ -1,0 +1,3 @@
+An object containing information related to the authorization transaction with the following properties:
+
+- `roles`: an array of strings containing the names of a user's assigned <dfn data-key="role">roles</dfn>. You can see a sample use case using the `context.authorization.roles` property to add roles to tokens in [Sample Use Cases: Rules with Authorization](/authorization/concepts/sample-use-cases-rules#add-user-roles-to-tokens).

@@ -18,5 +18,7 @@ seo_alias: nginx
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 contentType: tutorial
 useCase: quickstart

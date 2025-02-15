@@ -1,0 +1,1 @@
+Get an MFA token following the steps described in the [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate) document.
