@@ -31,7 +31,7 @@ If you would rather explore a complete configuration, you can view a sample appl
 A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
 
 ::: note
-If you are following along with our sample project, set this to http://localhost:3000/callback.
+If you are following along with our sample project, set this to http://localhost:3000/.
 :::
 
 ### Configure Logout URLs
@@ -39,7 +39,7 @@ If you are following along with our sample project, set this to http://localhost
 A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
 
 ::: note
-If you are following along with our sample project, set this to http://localhost:3000/logout.
+If you are following along with our sample project, set this to http://localhost:3000/.
 :::
 
 ## Install the Express OpenID Connect SDK {{{ data-action=code data-code="server.js#3:10" }}}
@@ -71,7 +71,7 @@ You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand 
 
 ::::checkpoint
 :::checkpoint-default
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/login`](http://localhost:3000/login).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/`](http://localhost:3000/).
 :::
 :::checkpoint-failure
 Sorry about that. You should check the error details on the Auth0 login page to make sure you have entered the callback URL correctly.
@@ -87,7 +87,7 @@ Add the `requiresAuth` middleware for routes that require authentication.  Any r
 
 ::::checkpoint
 :::checkpoint-default
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/logout`](http://localhost:3000/logout).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/`](http://localhost:3000/).
 :::
 :::checkpoint-failure
 Sorry about that. You should check that you configured the logout URL correctly.
