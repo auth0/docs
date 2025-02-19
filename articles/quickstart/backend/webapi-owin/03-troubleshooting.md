@@ -39,9 +39,9 @@ A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. 
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
-In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api**.
+In the screenshot above, you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api**.
 
-So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
+So, in other words, these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
 
 ```csharp
 var keyResolver = new OpenIdConnectSigningKeyResolver("https://jerrie.auth0.com/");
@@ -62,7 +62,7 @@ For a token signed using HS256, the debugger view will look a little different:
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
-In the screenshot above you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api/hs256**.
+In the screenshot above, you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api/hs256**.
 
 In this case, the middleware needs to be configured as follows:
 
@@ -128,7 +128,7 @@ To resolve this issue, be sure that the signature algorithm with which the JWT w
 
 ## 3. Has your token expired?
 
-Each JSON Web Token is only valid until the time specified in the `exp` claim. If you and send a token which has expired, the token will be rejected:
+Each JSON Web Token is only valid until the time specified in the `exp` claim. If you send a token which has expired, the token will be rejected:
 
 ![Token Expired](/media/articles/server-apis/webapi-owin/troubleshoot-token-expired.png)
 

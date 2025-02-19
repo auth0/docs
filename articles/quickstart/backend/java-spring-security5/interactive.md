@@ -35,11 +35,11 @@ Each Auth0 API uses the API Identifier, which your application needs to validate
 
 ## Configure the sample project {{{ data-action=code data-code="application.yml#1:8" }}}
 
-The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
+The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **domain** and **API Identifier** for your API. If you download the code from this page, it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
 | Attribute | Description|
 | --- | --- |
-| `okta.oauth2.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
+| `okta.oauth2.audience` | The unique identifier for your API. If you are following the steps in this tutorial, it would be `https://quickstarts/api`. |
 | `okta.oauth2.issuer` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). 
 
 ## Install dependencies {{{ data-action=code data-code="application.yml#1:8" }}}

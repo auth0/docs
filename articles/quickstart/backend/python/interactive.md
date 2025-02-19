@@ -48,13 +48,13 @@ The validator will validate the Access Token that we pass to the resource by che
 
 We can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on [validating Access Tokens](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
 
-To create our `Auth0JWTBearerTokenValidator` we need to pass it our `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
+To create our `Auth0JWTBearerTokenValidator`, we need to pass it our `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
 
 We'll then override the class's `claims_options` to make sure the token's expiry, audience and issue claims are validated according to our requirements.
 
 ## Create a Flask application {{{ data-action=code data-code="server.py" }}}
 
-Next we'll create a Flask application with 3 API routes:
+Next, we'll create a Flask application with 3 API routes:
 
 - `/api/public` A public endpoint that requires no authentication.
 - `/api/private` A private endpoint that requires a valid Access Token JWT.
@@ -62,7 +62,7 @@ Next we'll create a Flask application with 3 API routes:
 
 The protected routes will have a `require_auth` decorator which is a `ResourceProtector` that uses the `Auth0JWTBearerTokenValidator` we created earlier.
 
-To create the `Auth0JWTBearerTokenValidator` we'll pass it our tenant's domain and the API Identifier of the API we created earlier.
+To create the `Auth0JWTBearerTokenValidator`, we'll pass it our tenant's domain and the API Identifier of the API we created earlier.
 
 The `require_auth` decorator on the `private_scoped` route accepts an additional argument `"read:messages"`, which checks the Access Token for the Permission (Scope) we created earlier.
 

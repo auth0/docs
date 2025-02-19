@@ -95,7 +95,7 @@ You should also create a new API:
 
 This produces two files in your project directory that configure the SDK.
 
-As these files contain credentials it's important to treat these as sensitive. You should ensure you do not commit these to version control. If you're using Git, you should add them to your `.gitignore` file:
+As these files contain credentials, it's important to treat these as sensitive. You should ensure you do not commit these to version control. If you're using Git, you should add them to your `.gitignore` file:
 
 ```bash
 echo ".auth0.*.json" >> .gitignore

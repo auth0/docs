@@ -20,7 +20,7 @@ useCase: quickstart
 
 ## Configure the Sample Project
 
-The sample code has an `appsettings` section in `Web.config` which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
+The sample code has an `appsettings` section in `Web.config` which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page, it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
 ```xml
 // web.config
@@ -35,14 +35,14 @@ The sample code has an `appsettings` section in `Web.config` which configures it
 
 ### Install dependencies
 
-To use Auth0 Access Tokens with ASP.NET you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
+To use Auth0 Access Tokens with ASP.NET, you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
 
 ```bash
 Install-Package Microsoft.Owin.Security.Jwt
 ```
 
 ### Verifying the token signature
-As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. To do this, add the following to the `Support/OpenIdConnectSigningKeyResolver.cs` file:
+As the OWIN JWT middleware doesn't use OpenID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. To do this, add the following to the `Support/OpenIdConnectSigningKeyResolver.cs` file:
 
 :::note
 Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As [this package is not available anymore](https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md), you will need to provide this yourself.

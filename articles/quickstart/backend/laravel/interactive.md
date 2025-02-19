@@ -40,7 +40,7 @@ As their name implies, [access tokens](https://auth0.com/docs/secure/tokens/acce
 composer create-project --prefer-dist laravel/laravel auth0-laravel-api ^9.0
 ```
 
-All the commands in this guide assume you are running them from the root of your Laravel project, directory so you should `cd` into the new project directory:
+All the commands in this guide assume you are running them from the root of your Laravel project directory, so you should `cd` into the new project directory:
 
 ```shell
 cd auth0-laravel-api
@@ -54,7 +54,7 @@ Run the following command within your project directory to install the [Auth0 La
 composer require auth0/login:^7.8 --update-with-all-dependencies
 ```
 
-Then generate an SDK configuration file for your application:
+Then, generate an SDK configuration file for your application:
 
 ```shell
 php artisan vendor:publish --tag auth0
@@ -68,7 +68,7 @@ Run the following command from your project directory to download the [Auth0 CLI
 curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
 ```
 
-Then authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
+Then, authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
 
 ```shell
 ./auth0 login
@@ -101,7 +101,7 @@ You should also create a new API:
 
 This produces two files in your project directory that configure the SDK.
 
-As these files contain credentials it's important to treat these as sensitive. You should ensure you do not commit these to version control. If you're using Git, you should add them to your `.gitignore` file:
+As these files contain credentials, it's important to treat them as sensitive. You should ensure you do not commit them to version control. If you're using Git, you should add them to your `.gitignore` file:
 
 ```bash
 echo ".auth0.*.json" >> .gitignore
@@ -163,7 +163,7 @@ Route::get('/', function () {
 
 You can retrieve information about the user who created the access token from Auth0 using the [Auth0 Management API](https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md). The SDK provides a convenient wrapper for this API, accessible through the SDK's `management()` method.
 
-**Before making Management API calls you must enable your application to communicate with the Management API.** This can be done from the [Auth0 Dashboard's API page](https://manage.auth0.com/#/apis/), choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
+**Before making Management API calls, you must enable your application to communicate with the Management API.** This can be done from the [Auth0 Dashboard's API page](https://manage.auth0.com/#/apis/), choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
 
 For the following example, you should grant the `read:users` scope. A list of API endpoints and the required scopes can be found in [the Management API documentation](https://auth0.com/docs/api/management/v2).
 
