@@ -24,15 +24,15 @@ github:
 
 # Add Login to Your Flutter Application
 
-Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the <a href="https://github.com/auth0/auth0-flutter" target="_blank">Auth0 Flutter SDK</a>.
+Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the <a href="https://github.com/auth0/auth0-flutter" target="_blank" rel="noreferrer">Auth0 Flutter SDK</a>.
 
 :::note
 The Flutter SDK currently only supports Flutter applications running on Android, iOS, or Web platforms.
 :::
 
-This quickstart assumes you already have a <a href="https://flutter.dev/" target="_blank">Flutter</a> application up and running. If not, check out the <a href="https://docs.flutter.dev/get-started/install" target="_blank">Flutter "getting started" guides</a> to get started with a simple app.
+This quickstart assumes you already have a <a href="https://flutter.dev/" target="_blank" rel="noreferrer">Flutter</a> application up and running. If not, check out the <a href="https://docs.flutter.dev/get-started/install" target="_blank" rel="noreferrer">Flutter "getting started" guides</a> to get started with a simple app.
 
-You should also be familiar with the <a href="https://docs.flutter.dev/reference/flutter-cli" target="_blank">Flutter command line tool</a>.
+You should also be familiar with the <a href="https://docs.flutter.dev/reference/flutter-cli" target="_blank" rel="noreferrer">Flutter command line tool</a>.
 
 <%= include('../_includes/_getting_started', { library: 'Flutter', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
@@ -40,12 +40,12 @@ You should also be familiar with the <a href="https://docs.flutter.dev/reference
 
 ## Add login to your application {{{ data-action="code" data-code="main_view.dart#34" }}}
 
-<a href="https://auth0.com/docs/authenticate/login/auth0-universal-login" target="_blank">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
+<a href="https://auth0.com/docs/authenticate/login/auth0-universal-login" target="_blank" rel="noreferrer">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
 
 Integrate Auth0 Universal Login in your Flutter Web app by using the `Auth0Web` class. Redirect your users to the Auth0 Universal Login page using `loginWithRedirect()`.
 
 :::note
-You will normally need to specify the `redirectUrl` parameter to `loginWithRedirect`. Omitting this will cause Auth0 to use the <a href="https://auth0.com/docs/authenticate/login/auth0-universal-login/configure-default-login-routes" target="_blank">default login route</a>, which is not configured by default.
+You will normally need to specify the `redirectUrl` parameter to `loginWithRedirect`. Omitting this will cause Auth0 to use the <a href="https://auth0.com/docs/authenticate/login/auth0-universal-login/configure-default-login-routes" target="_blank" rel="noreferrer">default login route</a>, which is not configured by default.
 :::
 
 When a user logs in, they are redirected back to your application. You are then able to access the ID and access tokens for this user by calling `onLoad` during startup and handling the credentials that are given to you:
@@ -71,16 +71,16 @@ If your application did not launch successfully:
 - Verify you saved your changes after entering your URLs
 - Make sure the domain and client ID values are imported correctly
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="main_view.dart#46"}}}
 
-To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `logout()`. <a href="https://auth0.com/docs/authenticate/login/logout" target="_blank">Read more about logging out of Auth0</a>.
+To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `logout()`. <a href="https://auth0.com/docs/authenticate/login/logout" target="_blank" rel="noreferrer">Read more about logging out of Auth0</a>.
 
 :::note
-You will normally want to specify `returnToUrl` when calling `logout`, otherwise Auth0 <a href="https://auth0.com/docs/authenticate/login/logout/redirect-users-after-logout" target="_blank">will default to the first URL in the Allowed Logout URLs list</a>.
+You will normally want to specify `returnToUrl` when calling `logout`, otherwise Auth0 <a href="https://auth0.com/docs/authenticate/login/logout/redirect-users-after-logout" target="_blank" rel="noreferrer">will default to the first URL in the Allowed Logout URLs list</a>.
 :::
 
 ::::checkpoint
@@ -94,7 +94,7 @@ If your application did not log out successfully:
 - Ensure the Allowed Logout URLs are set properly
 - Verify you saved your changes after entering your URLs
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
@@ -111,6 +111,6 @@ If your application did not return user profile information:
 
 - Verify the ID token is valid
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::

@@ -190,7 +190,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipalv=vs.110" target="_blank">ClaimsPrincipal</a>.aspx).
+On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipalv=vs.110" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.aspx).
 
 To obtain information about the user, you can query the claims. You can, for example, obtain the user's name and email address from the `name` and `email` claims:
 
@@ -203,7 +203,7 @@ if (!loginResult.IsError)
 ```
 
 ::: note
-The exact claims returned will depend on the scopes that were requested. For more information see the <a href="https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html" target="_blank">Using Scopes</a> in the Auth0 OIDC Application documentation.
+The exact claims returned will depend on the scopes that were requested. For more information see the <a href="https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html" target="_blank" rel="noreferrer">Using Scopes</a> in the Auth0 OIDC Application documentation.
 :::
 
 You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:

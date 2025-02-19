@@ -12,5 +12,5 @@ gradlew installDebug
 
 To run it from the **Android Studio IDE**:
 
-1) Open the project on <a href="https://developer.android.com/studio/index.html" target="_blank">Android Studio</a>. 
+1) Open the project on <a href="https://developer.android.com/studio/index.html" target="_blank" rel="noreferrer">Android Studio</a>. 
 2) Click the `Run` button (The green play) or select the menu option `Run | Run 'app'`, and then choose a target device.

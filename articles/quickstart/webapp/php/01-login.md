@@ -21,13 +21,13 @@ github:
 
 ## Integrate your PHP application
 
-Let's create a sample application that authenticates a user with a PHP application. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying <a href="https://github.com/auth0-samples/auth0-php-web-app/" target="_blank">Quickstart app on GitHub</a> for a more robust example.
+Let's create a sample application that authenticates a user with a PHP application. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying <a href="https://github.com/auth0-samples/auth0-php-web-app/" target="_blank" rel="noreferrer">Quickstart app on GitHub</a> for a more robust example.
 
 ### Installing HTTP Client and Messaging Factories
 
-The Auth0 PHP SDK supports many <a href="https://www.php-fig.org" target="_blank">PHP-FIG</a> standards offering interoperability options with your architecture. Two of particular importance are <a href="https://www.php-fig.org/psr/psr-17/" target="_blank">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank">PSR-18</a>. These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
+The Auth0 PHP SDK supports many <a href="https://www.php-fig.org" target="_blank" rel="noreferrer">PHP-FIG</a> standards offering interoperability options with your architecture. Two of particular importance are <a href="https://www.php-fig.org/psr/psr-17/" target="_blank" rel="noreferrer">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank" rel="noreferrer">PSR-18</a>. These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
 
-The most prolific networking library for PHP is <a href="https://guzzlephp.org" target="_blank">Guzzle</a>, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
+The most prolific networking library for PHP is <a href="https://guzzlephp.org" target="_blank" rel="noreferrer">Guzzle</a>, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
 
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
@@ -137,7 +137,7 @@ Route::add('/', function() use ($auth0) {
 });
 ```
 
-We can access all the properties of our user's profile from the `user` property response, which is an array. So, for example, we can pull the user's nickname using `$session->user<a href="https://auth0.com/docs/users/user-profile-structure" target="_blank">nickname`, or their email address from `$session->useremail`. The structure is a normalized user profile</a>, which you can learn more about <a href="https://auth0.com/docs/users/normalized-user-profiles" target="_blank">here</a>.
+We can access all the properties of our user's profile from the `user` property response, which is an array. So, for example, we can pull the user's nickname using `$session->user<a href="https://auth0.com/docs/users/user-profile-structure" target="_blank" rel="noreferrer">nickname`, or their email address from `$session->useremail`. The structure is a normalized user profile</a>, which you can learn more about <a href="https://auth0.com/docs/users/normalized-user-profiles" target="_blank" rel="noreferrer">here</a>.
 
 It's important to note that the content of the user profile will vary depending on the social provider(s) you use, so you should never assume that a particular value will always be there within your application logic. Use PHP language constructs like `isset` or null coalescence to gracefully handle a value's presence, or lack thereof, for example:
 
@@ -184,7 +184,7 @@ Route::add('/callback', function() use ($auth0) {
 
 ## Logging out
 
-Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's <a href="https://auth0.com/docs/logout" target="_blank">/logout endpoint</a> (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our / index route.
+Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's <a href="https://auth0.com/docs/logout" target="_blank" rel="noreferrer">/logout endpoint</a> (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our / index route.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -213,4 +213,4 @@ That's it! You're ready to run your new application; once again, from your proje
 php -S 127.0.0.1:3000 index.php
 ```
 
-Open your browser to <a href="https://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a> and try it out.
+Open your browser to <a href="https://127.0.0.1:3000" target="_blank" rel="noreferrer">http://127.0.0.1:3000</a> and try it out.

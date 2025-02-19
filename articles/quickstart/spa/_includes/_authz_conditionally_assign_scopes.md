@@ -4,5 +4,5 @@ By default, when you register scopes in your API settings, all the scopes are im
 If you want to handle access control, you need to create policies for deciding which users can get which scopes. 
 
 ::: note
-You can use Rules to create access policies. See the <a href="/rules" target="_blank">Rules documentation</a> to learn how to use Rules to create scope policies.
+You can use Rules to create access policies. See the <a href="/rules" target="_blank" rel="noreferrer">Rules documentation</a> to learn how to use Rules to create scope policies.
 :::

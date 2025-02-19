@@ -19,7 +19,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 
 In terms of validating a JWT, there are various things to consider:
 
-1. **Is the token well-formed?** In other words, is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, please refer to <a href="/jwt#what-is-the-json-web-token-structure-" target="_blank">this section on the structure of a JWT</a>
+1. **Is the token well-formed?** In other words, is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, please refer to <a href="/jwt#what-is-the-json-web-token-structure-" target="_blank" rel="noreferrer">this section on the structure of a JWT</a>
 
 2. **Has the token been tampered with?** The last part of a JWT is the signature. The signature is used to verify that the token was in fact signed by the sender and not altered in any way.
 
@@ -35,7 +35,7 @@ In terms of validating a JWT, there are various things to consider:
 
 ## Inspecting a token
 
-A quick way to inspect a JWT is by using the <a href="https://jwt.io/" target="_blank">JWT.io</a> website. It has a handy debugger which allows you to quickly check that a JWT is well-formed, and also inspect the values of the various claims.
+A quick way to inspect a JWT is by using the <a href="https://jwt.io/" target="_blank" rel="noreferrer">JWT.io</a> website. It has a handy debugger which allows you to quickly check that a JWT is well-formed, and also inspect the values of the various claims.
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
@@ -102,7 +102,7 @@ To resolve this issue, ensure that you send the JWT as a bearer token in the Aut
 
 ## 2. Did you configure the JWT middleware for the correct signing algorithm?
 
-Another common mistake is that your tokens are signed using the HS256 <a href="/tokens/concepts/signing-algorithms" target="_blank">signing algorithm</a>, but your middleware is configured for RS256 - or vice versa.
+Another common mistake is that your tokens are signed using the HS256 <a href="/tokens/concepts/signing-algorithms" target="_blank" rel="noreferrer">signing algorithm</a>, but your middleware is configured for RS256 - or vice versa.
 
 In the following screenshot, you can see that we get an error message that the signature validation failed. This is because the JWT middleware was configured to handle tokens signed using RS256, but instead, a token was sent which was signed using HS256.
 

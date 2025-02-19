@@ -45,7 +45,7 @@ Install-Package Microsoft.Owin.Security.Jwt
 As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. To do this, add the following to the `Support/OpenIdConnectSigningKeyResolver.cs` file:
 
 :::note
-Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md" target="_blank">this package is not available anymore</a>, you will need to provide this yourself.
+Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md" target="_blank" rel="noreferrer">this package is not available anymore</a>, you will need to provide this yourself.
 :::
 
 ```javascript

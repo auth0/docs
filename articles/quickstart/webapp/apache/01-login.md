@@ -23,9 +23,9 @@ This tutorial and seed project have been tested with the following:
 
 First, you need to install the `mod_auth_openidc` module for Apache.
 
-You can get the binaries from <a href="https://github.com/zmartzone/mod_auth_openidc/releases" target="_blank">Github</a> and install them for your OS. If your OS isn't compatible with any of the binaries, you can still <a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL" target="_blank">build it from source</a>
+You can get the binaries from <a href="https://github.com/zmartzone/mod_auth_openidc/releases" target="_blank" rel="noreferrer">Github</a> and install them for your OS. If your OS isn't compatible with any of the binaries, you can still <a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL" target="_blank" rel="noreferrer">build it from source</a>
 
-Once you've installed it, you just need to enable it for Apache (If you are using Windows, you can use <a href="https://github.com/enderandpeter/win-a2enmod#installation" target="_blank">this</a> to get `a2enmod` working on your system)
+Once you've installed it, you just need to enable it for Apache (If you are using Windows, you can use <a href="https://github.com/enderandpeter/win-a2enmod#installation" target="_blank" rel="noreferrer">this</a> to get `a2enmod` working on your system)
 
 ${snippet(meta.snippets.dependencies)}
 

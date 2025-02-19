@@ -72,8 +72,8 @@ AUTH0_CALLBACK_URL='http://localhost:3000/callback'
 ### Configure OAuth2 and OpenID Connect packages
 
 Create a file called `auth.go` in the `platform/authenticator` folder. In this package you'll create a method to 
-configure and return <a href="https://godoc.org/golang.org/x/oauth2" target="_blank">OAuth2</a> and 
-<a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank">oidc</a> clients, and another one to verify an ID Token.
+configure and return <a href="https://godoc.org/golang.org/x/oauth2" target="_blank" rel="noreferrer">OAuth2</a> and 
+<a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank" rel="noreferrer">oidc</a> clients, and another one to verify an ID Token.
 
 ```go
 // platform/authenticator/auth.go
@@ -137,7 +137,7 @@ func (a *Authenticator) VerifyIDToken(ctx context.Context, token *oauth2.Token) 
 ### Setting up your application routes
 
 Create a file called `router.go` in the `platform/router` folder. In this package you'll create a method to configure
-and return our routes using <a href="https://github.com/gin-gonic/gin" target="_blank">github.com/gin-gonic/gin</a>. You will be passing an
+and return our routes using <a href="https://github.com/gin-gonic/gin" target="_blank" rel="noreferrer">github.com/gin-gonic/gin</a>. You will be passing an
 instance of `Authenticator` to the method, so it can be used within the `login` and `callback` handlers.
 
 ```go
@@ -188,7 +188,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 ```
 
 ::: note
-The router uses the <a href="https://github.com/gin-contrib/sessions" target="_blank">github.com/gin-contrib/sessions</a> middleware to manage 
+The router uses the <a href="https://github.com/gin-contrib/sessions" target="_blank" rel="noreferrer">github.com/gin-contrib/sessions</a> middleware to manage 
 our cookie based sessions.
 :::
 
@@ -391,12 +391,12 @@ func Handler(ctx *gin.Context) {
 </div>
 ```
 
-For information about the userinfo hash, see <a href="/users/concepts/overview-user-profile" target="_blank">User Profile</a>.
+For information about the userinfo hash, see <a href="/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">User Profile</a>.
 
 ## Logging Out
 
 To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find
-more information about this in the <a href="/logout" target="_blank">logout documentation</a>.
+more information about this in the <a href="/logout" target="_blank" rel="noreferrer">logout documentation</a>.
 
 Create a file called `logout.go` in the folder `web/app/logout/logout.go`, and add the function `Handler` to redirect
 the user to Auth0's logout endpoint.
@@ -443,7 +443,7 @@ func Handler(ctx *gin.Context) {
 ```
 
 ::: note
-The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="/logout/guides/redirect-users-after-logout" target="_blank">Redirect Users After Logout</a>.
+The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="/logout/guides/redirect-users-after-logout" target="_blank" rel="noreferrer">Redirect Users After Logout</a>.
 :::
 
 Create a file called `user.js` in the folder `web/static/js`, and add the code to remove the cookie from a logged-in
@@ -458,7 +458,7 @@ $(document).ready(function () {
 ```
 
 ::: note
-This sample is using <a href="https://github.com/js-cookie/js-cookie/tree/latest#readme" target="_blank">js.cookie</a> for cookie handling. 
+This sample is using <a href="https://github.com/js-cookie/js-cookie/tree/latest#readme" target="_blank" rel="noreferrer">js.cookie</a> for cookie handling. 
 You need to add the `js.cookie.js` file to the `web/static/js` folder to use it.
 :::
 

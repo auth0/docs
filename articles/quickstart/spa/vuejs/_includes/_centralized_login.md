@@ -2,7 +2,7 @@
 
 ## Install the SDK
 
-Install the <a href="https://github.com/auth0/auth0-vue" target="_blank">Auth0 Vue SDK</a> using npm:
+Install the <a href="https://github.com/auth0/auth0-vue" target="_blank" rel="noreferrer">Auth0 Vue SDK</a> using npm:
 
 ```bash
 npm install @auth0/auth0-vue
@@ -30,7 +30,7 @@ app.use(
 app.mount('#app');
 ```
 
-The plugin will register the SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the <a href="https://v3.vuejs.org/guide/composition-api-introduction.html" target="_blank">Composition API</a> and <a href="https://vuejs.org/guide/introduction.html#options-api" target="_blank">Options API</a>.
+The plugin will register the SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the <a href="https://v3.vuejs.org/guide/composition-api-introduction.html" target="_blank" rel="noreferrer">Composition API</a> and <a href="https://vuejs.org/guide/introduction.html#options-api" target="_blank" rel="noreferrer">Options API</a>.
 
 ## Add Login to Your Application
 

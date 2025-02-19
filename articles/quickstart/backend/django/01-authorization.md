@@ -35,7 +35,7 @@ requests~=2.22.0
 
 ### Create a Django project
 
-This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the <a href="https://docs.djangoproject.com/en/2.2/intro/tutorial01/" target="_blank">Django Tutorial</a>.
+This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the <a href="https://docs.djangoproject.com/en/2.2/intro/tutorial01/" target="_blank" rel="noreferrer">Django Tutorial</a>.
 
 The sample project was created with the following commands:
 
@@ -49,7 +49,7 @@ python manage.py startapp auth0authorization
 
 You need to define a way to map the username from the Access Token payload to the Django authentication system user.
 
-Add <a href="https://docs.djangoproject.com/en/2.2/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware" target="_blank">`RemoteUserMiddleware`</a> middleware component after `AuthenticationMiddleware` to middleware list.
+Add <a href="https://docs.djangoproject.com/en/2.2/ref/middleware/#django.contrib.auth.middleware.RemoteUserMiddleware" target="_blank" rel="noreferrer">`RemoteUserMiddleware`</a> middleware component after `AuthenticationMiddleware` to middleware list.
 
 ```python
 # apiexample/settings.py
@@ -72,7 +72,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 ```
 
-Create `utils.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username. Then, the <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend.authenticate" target="_blank">authenticate</a> method from <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend" target="_blank">RemoteUserBackend</a> will create a remote user in the Django authentication system and return a User object for the username.
+Create `utils.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username. Then, the <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend.authenticate" target="_blank" rel="noreferrer">authenticate</a> method from <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend" target="_blank" rel="noreferrer">RemoteUserBackend</a> will create a remote user in the Django authentication system and return a User object for the username.
 
 ```python
 # auth0authorization/utils.py
@@ -117,7 +117,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-Configure the <a href="https://github.com/Styria-Digital/django-rest-framework-jwt/" target="_blank">Django REST Framework JWK</a> by setting the `JWT_AUTH` variable.
+Configure the <a href="https://github.com/Styria-Digital/django-rest-framework-jwt/" target="_blank" rel="noreferrer">Django REST Framework JWK</a> by setting the `JWT_AUTH` variable.
 
 Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default, those values will be retrieved from the `.env` file.
 
@@ -243,7 +243,7 @@ def private_scoped(request):
 
 In previous steps, we added methods to the `views.py` file. We need to map those methods to URLs.
 
-Django has a <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">URL dispatcher</a> that lets you map URL patterns to views.
+Django has a <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank" rel="noreferrer">URL dispatcher</a> that lets you map URL patterns to views.
 
 Create the file `urls.py` in your application folder. Add the URL patterns.
 

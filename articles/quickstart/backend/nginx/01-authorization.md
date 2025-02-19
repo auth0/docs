@@ -18,11 +18,11 @@ This tutorial and seed project have been tested with the following:
 
 ## Install the `nginx-jwt` script into your Nginx server
 
-The <a href="https://github.com/auth0/nginx-jwt" target="_blank">`nginx-jwt`</a> script is a Lua script that is designed to run on Nginx servers that have the <a href="https://github.com/openresty/lua-nginx-module#readme" target="_blank">HttpLuaModule</a> installed. But ultimately its dependencies require components available in the <a href="http://openresty.org/" target="_blank">OpenResty</a> distribution of Nginx. Therefore, it is recommended that you use **OpenResty** as your Nginx server, and these instructions make that assumption.
+The <a href="https://github.com/auth0/nginx-jwt" target="_blank" rel="noreferrer">`nginx-jwt`</a> script is a Lua script that is designed to run on Nginx servers that have the <a href="https://github.com/openresty/lua-nginx-module#readme" target="_blank" rel="noreferrer">HttpLuaModule</a> installed. But ultimately its dependencies require components available in the <a href="http://openresty.org/" target="_blank" rel="noreferrer">OpenResty</a> distribution of Nginx. Therefore, it is recommended that you use **OpenResty** as your Nginx server, and these instructions make that assumption.
 
-1. Download the latest archive package from <a href="https://github.com/auth0/nginx-jwt/releases" target="_blank">releases</a>.
+1. Download the latest archive package from <a href="https://github.com/auth0/nginx-jwt/releases" target="_blank" rel="noreferrer">releases</a>.
 1. Extract the archive and deploy its contents to a directory on your Nginx server.
-1. Specify this directory's path using ngx_lua's <a href="https://github.com/openresty/lua-nginx-module#lua_package_path" target="_blank">lua_package_path</a> directive:
+1. Specify this directory's path using ngx_lua's <a href="https://github.com/openresty/lua-nginx-module#lua_package_path" target="_blank" rel="noreferrer">lua_package_path</a> directive:
 
 ```lua
 # nginx.conf:
@@ -46,7 +46,7 @@ env JWT_SECRET;
 
 ## Secure your API
 
-Now, secure one or more locations that point to your backing service endpoints by using the <a href="https://github.com/openresty/lua-nginx-module#access_by_lua" target="_blank">access_by_lua</a> directive to call the `nginx-jwt` script's <a href="https://github.com/auth0/nginx-jwt#auth" target="_blank">`auth()`</a> function before executing any <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank">proxy_* directives</a>:
+Now, secure one or more locations that point to your backing service endpoints by using the <a href="https://github.com/openresty/lua-nginx-module#access_by_lua" target="_blank" rel="noreferrer">access_by_lua</a> directive to call the `nginx-jwt` script's <a href="https://github.com/auth0/nginx-jwt#auth" target="_blank" rel="noreferrer">`auth()`</a> function before executing any <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank" rel="noreferrer">proxy_* directives</a>:
 
 
 ```lua
@@ -64,7 +64,7 @@ server {
 }
 ```
 
-Click <a href="https://github.com/auth0/nginx-jwt#usage" target="_blank">here</a> for more usage examples.
+Click <a href="https://github.com/auth0/nginx-jwt#usage" target="_blank" rel="noreferrer">here</a> for more usage examples.
 
 
 ## Call Your API

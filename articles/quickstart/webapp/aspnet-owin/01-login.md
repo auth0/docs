@@ -37,7 +37,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 ```
 
 ::: note
-There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues" target="_blank">System.Web cookie integration issues doc</a> to learn about how to mitigate these problems
+There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues" target="_blank" rel="noreferrer">System.Web cookie integration issues doc</a> to learn about how to mitigate these problems
 :::
 
 Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware.
@@ -135,7 +135,7 @@ public void Configuration(IAppBuilder app)
 
 It is essential that you register both the cookie middleware and the OpenID Connect middleware, as they are required (in that order) for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
-In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct <a href="/logout" target="_blank">logout URL</a>.
+In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct <a href="/logout" target="_blank" rel="noreferrer">logout URL</a>.
 
 
 
