@@ -2,7 +2,7 @@
 
 To run the sample follow these steps:
 
-1. Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to the following value so it works for both Android and iOS apps:
+1. Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to the following value so it works for both Android and iOS apps:
 
 ```text
 com.auth0.samples.FlutterSample://${account.namespace}/ios/com.auth0.samples.FlutterSample/callback,com.auth0.sample://${account.namespace}/android/com.auth0.sample/callback
@@ -26,7 +26,7 @@ AUTH0_CUSTOM_SCHEME=com.auth0.sample
 </resources>
 ```
 
-4. Use the [Flutter CLI's](https://docs.flutter.dev/reference/flutter-cli) `run` command to run the app:
+4. Use the <a href="https://docs.flutter.dev/reference/flutter-cli" target="_blank" rel="noreferrer">Flutter CLIs</a> `run` command to run the app:
 
 ```sh
 flutter run

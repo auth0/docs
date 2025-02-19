@@ -14,11 +14,11 @@ github:
 
 # Add Authorization to Your Flask API Application
 
-This guide demonstrates how to integrate Auth0 with any new or existing Python API built with [Flask](https://flask.palletsprojects.com/).
+This guide demonstrates how to integrate Auth0 with any new or existing Python API built with <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer">Flask</a>.
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+Alternatively, you can read <a href="get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">our getting started guide</a> that helps you set up your first API through the Auth0 dashboard.
 
 Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the Access Token.
 
@@ -42,11 +42,11 @@ Authlib
 
 ## Create the JWT validator {{{ data-action=code data-code="validator.py" }}}
 
-We're going to use a library called [Authlib](https://github.com/lepture/authlib) to create a [ResourceProtector](https://docs.authlib.org/en/latest/flask/1/resource-server.html), which is a type of [Flask decorator](https://flask.palletsprojects.com/patterns/viewdecorators/) that protects our resources (API routes) with a given validator.
+We're going to use a library called <a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer">ResourceProtector</a>, which is a type of <a href="https://flask.palletsprojects.com/patterns/viewdecorators/" target="_blank" rel="noreferrer">Flask decorator</a> that protects our resources (API routes) with a given validator.
 
 The validator will validate the Access Token that we pass to the resource by checking that it has a valid signature and claims.
 
-We can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on [validating Access Tokens](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
+We can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on <a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens" target="_blank" rel="noreferrer">validating Access Tokens</a>.
 
 To create our `Auth0JWTBearerTokenValidator` we need to pass it our `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
 

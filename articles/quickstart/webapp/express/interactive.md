@@ -22,7 +22,7 @@ To use Auth0 services, you’ll need to have an application set up in the Auth0 
 
 Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your Applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
@@ -44,7 +44,7 @@ If you are following along with our sample project, set this to http://localhost
 
 ## Install the Express OpenID Connect SDK {{{ data-action=code data-code="server.js#3:10" }}}
 
-Your application will need the [`express-openid-connect`](https://github.com/auth0/express-openid-connect) package which is an Auth0-maintained OIDC-compliant SDK for Express.
+Your application will need the <a href="https://github.com/auth0/express-openid-connect" target="_blank" rel="noreferrer">`express-openid-connect`</a> package which is an Auth0-maintained OIDC-compliant SDK for Express.
 
 Install the Express OpenID Connect SDK by running the following commands in your terminal:
 
@@ -60,10 +60,10 @@ The Express OpenID Connect library provides the `auth` router in order to attach
 - `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
 - `secret` - A long, random string
-- `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
-- `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
+- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
+- `clientID` - The Client ID found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
 
-For additional configuration options visit the [API documentation](https://auth0.github.io/express-openid-connect).
+For additional configuration options visit the <a href="https://auth0.github.io/express-openid-connect" target="_blank" rel="noreferrer">API documentation</a>.
 
 :::note
 You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand -hex 32` on the command line.
@@ -71,12 +71,12 @@ You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand 
 
 ::::checkpoint
 :::checkpoint-default
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/`](http://localhost:3000/).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be <a href="http://localhost:3000/" target="_blank" rel="noreferrer">`http://localhost:3000/`</a>.
 :::
 :::checkpoint-failure
 Sorry about that. You should check the error details on the Auth0 login page to make sure you have entered the callback URL correctly.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
@@ -87,11 +87,12 @@ Add the `requiresAuth` middleware for routes that require authentication.  Any r
 
 ::::checkpoint
 :::checkpoint-default
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/`](http://localhost:3000/).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be <a href="http://localhost:3000/" target="_blank" rel="noreferrer">`http://localhost:3000/`</a>.
+
 :::
 :::checkpoint-failure
 Sorry about that. You should check that you configured the logout URL correctly.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::

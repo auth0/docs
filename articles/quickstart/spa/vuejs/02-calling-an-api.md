@@ -19,7 +19,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD041 -->
 
 :::note
-Visit the [Integrate Vue.js with an API Server](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server) section of the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication) guide for a deep dive into calling a protected API from Vue. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
+Visit the <a href="https://developer.auth0.com/resources/guides/spa/vue/basic-authentication#integrate-vue-js-with-an-api-server" target="_blank" rel="noreferrer">Integrate Vue.js with an API Server</a> section of the <a href="https://developer.auth0.com/resources/guides/spa/vue/basic-authentication" target="_blank" rel="noreferrer">Vue.js Authentication By Example</a> guide for a deep dive into calling a protected API from Vue. This guide allows you to set up a sample API server using a backend technology of your choice, effectively creating a full-stack application.
 :::
 
 <%= include('../_includes/_calling_api_create_api') %>

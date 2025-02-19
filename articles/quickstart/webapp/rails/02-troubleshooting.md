@@ -28,7 +28,7 @@ OmniAuth.config.full_host = lambda do |env|
 end
 ```
 
-[See this StackOverflow thread for more information](https://stackoverflow.com/a/7135029/728480). 
+<a href="https://stackoverflow.com/a/7135029/728480" target="_blank" rel="noreferrer">See this StackOverflow thread for more information</a>. 
 
 ## ActionController::InvalidAuthenticityToken
 

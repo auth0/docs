@@ -23,7 +23,7 @@ useCase: quickstart
 
 # Add Login to Your iOS or macOS Application
 
-This guide demonstrates how to add authentication and access user profile information in any iOS / macOS app using the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK.
+This guide demonstrates how to add authentication and access user profile information in any iOS / macOS app using the <a href="https://github.com/auth0/Auth0.swift" target="_blank" rel="noreferrer">Auth0.swift</a> SDK.
 
 To use this quickstart, you need to:
 * Sign up for a free Auth0 account or log in to Auth0.
@@ -37,7 +37,7 @@ To use Auth0 services, you need an application set up in the Auth0 Dashboard. Th
 
 Use the interactive selector to create a new Auth0 application or select an existing **Native** Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
+Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample app instead.
 
@@ -51,7 +51,7 @@ On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback a
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
 
-Add the following URLs to **Callback URLs** and **Logout URLs**, depending on the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+Add the following URLs to **Callback URLs** and **Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of your Auth0 tenant’s domain.
 
 #### iOS
 
@@ -82,7 +82,7 @@ This step requires a paid Apple Developer account. It is needed to use Universal
 
 #### Configure the Team ID and bundle identifier
 
-Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
 
@@ -90,17 +90,17 @@ This will add your app to your Auth0 tenant's `apple-app-site-association` file.
 
 #### Add the associated domain capability
 
-In Xcode, go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of your app's target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+In Xcode, go to the **Signing and Capabilities** <a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability" target="_blank" rel="noreferrer">tab</a> of your app's target settings, and press the **+ Capability** button. Then select **Associated Domains**.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
 
-Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+Next, add the following <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain" target="_blank" rel="noreferrer">entry</a> under **Associated Domains**:
 
 ```text
 webcredentials:${account.namespace}
 ```
 
-If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of your Auth0 tenant’s domain.
 
 ::: note
 For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
@@ -123,7 +123,7 @@ https://github.com/auth0/Auth0.swift
 Then, select the dependency rule and press **Add Package**.
 
 ::: note
-For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
+For further reference on SPM, check its <a href="https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app" target="_blank" rel="noreferrer">official documentation</a>.
 :::
 
 ### Using Cocoapods
@@ -137,7 +137,7 @@ pod 'Auth0', '~> 2.0'
 Then, run `pod install`.
 
 ::: note
-For further reference on Cocoapods, check their [official documentation](https://guides.cocoapods.org/using/getting-started.html).
+For further reference on Cocoapods, check their <a href="https://guides.cocoapods.org/using/getting-started.html" target="_blank" rel="noreferrer">official documentation</a>.
 :::
 
 ### Using Carthage
@@ -151,20 +151,20 @@ github "auth0/Auth0.swift" ~> 2.0
 Then, run `carthage bootstrap --use-xcframeworks`.
 
 ::: note
-For further reference on Carthage, check their [official documentation](https://github.com/Carthage/Carthage#getting-started).
+For further reference on Carthage, check their <a href="https://github.com/Carthage/Carthage#getting-started" target="_blank" rel="noreferrer">official documentation</a>.
 :::
 
 ## Configure the SDK {{{ data-action=code data-code="Auth0.plist" }}}
 
-The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
+The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application.
 
-- **domain**: The domain of your Auth0 tenant. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+- **domain**: The domain of your Auth0 tenant. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of your Auth0 tenant’s domain.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
 
 Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 domain and Client ID values. 
 
 ::: note
-You can also configure the SDK programmatically. Check the [README](https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically) to learn more.
+You can also configure the SDK programmatically. Check the <a href="https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically" target="_blank" rel="noreferrer">README</a> to learn more.
 :::
 
 ::::checkpoint
@@ -178,16 +178,16 @@ If your app produces errors related to the SDK:
 - Verify you saved your URL updates
 - Ensure you set the Auth0 domain and Client ID correctly
 
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Add login to your application {{{ data-action=code data-code="MainView.swift#20:31" }}}
 
-Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
+Import the `Auth0` module in the file where you want to present the login page. Then, present the <a href="/authenticate/login/auth0-universal-login" target="_blank" rel="noreferrer">Universal Login</a> page in the action of your **Login** button.
 
 ::: note
-You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos) to learn more.
+You can use async/await or Combine instead of the callback-based API. Check the <a href="https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos" target="_blank" rel="noreferrer">README</a> to learn more.
 :::
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Screenshot of the Universal Login page"></div>
@@ -195,7 +195,7 @@ You can use async/await or Combine instead of the callback-based API. Check the 
 ::::checkpoint
 :::checkpoint-default
 Press the **Login** button and verify that:
-- An [alert box](https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos) shows up asking for consent.
+- An <a href="https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos" target="_blank" rel="noreferrer">alert box</a> shows up asking for consent.
 - Choosing **Continue** opens the Universal Login page in a Safari modal.
 - You can log in or sign up using a username and password or a social provider.
 - The Safari modal closes automatically afterward.
@@ -206,13 +206,13 @@ If login fails or produces errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 domain and Client ID correctly
 
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="MainView.swift#33:44" }}}
 
-Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
+Now that you can log in to your app, you need a way to <a href="/authenticate/login/logout" target="_blank" rel="noreferrer">log out</a>. In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
 
 ::::checkpoint
 :::checkpoint-default
@@ -227,23 +227,23 @@ If logout fails or produces errors:
 - Verify you entered the correct callback URL
 - Ensure you set the Auth0 domain and Client ID correctly
 
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Access user profile information {{{ data-action=code data-code="User.swift#11:14" }}}
 
-The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their email and profile picture. You can use these details to personalize the user interface of your app.
+The `Credentials` instance you obtained after logging in includes an <a href="/secure/tokens/id-tokens" target="_blank" rel="noreferrer">ID token</a>. The ID token contains the profile information associated with the logged-in user, such as their email and profile picture. You can use these details to personalize the user interface of your app.
 
-The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID token and access the claims it contains.
+The Auth0.swift SDK includes a <a href="https://github.com/auth0/JWTDecode.swift" target="_blank" rel="noreferrer">utility</a> for decoding <a href="https://jwt.io/" target="_blank" rel="noreferrer">JWTs</a> like the ID token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID token and access the claims it contains.
 
 ::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [EXAMPLES](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
+You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the <a href="https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information" target="_blank" rel="noreferrer">EXAMPLES</a> to learn more.
 :::
 
 ::::checkpoint
 :::checkpoint-default
-Verify that you can access the `email`, `picture`, or any other [claim](/secure/tokens/id-tokens/id-token-structure) after you have logged in.
+Verify that you can access the `email`, `picture`, or any other <a href="/secure/tokens/id-tokens/id-token-structure" target="_blank" rel="noreferrer">claim</a> after you have logged in.
 :::
 
 :::checkpoint-failure
@@ -251,6 +251,6 @@ If you cannot access the user information:
 - Verify you imported the `JWTDecode` module where you invoke the `decode(jwt:)` method
 - Make sure you spelled your claims correctly
 
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community forums](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community forums</a> to get more help.
 :::
 ::::

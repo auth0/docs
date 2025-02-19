@@ -24,7 +24,7 @@ useCase: quickstart
 
 ## Create a Backend API
 
-In this section, you will modify the [ExpressJS](https://expressjs.com) that you created in part 1 so that it supports a new endpoint. This endpoint will require a valid access token to be sent in the `Authorization` header for the call to be successful.
+In this section, you will modify the <a href="https://expressjs.com" target="_blank" rel="noreferrer">ExpressJS</a> that you created in part 1 so that it supports a new endpoint. This endpoint will require a valid access token to be sent in the `Authorization` header for the call to be successful.
 
 ### Add middleware to the backend
 
@@ -43,7 +43,7 @@ const { auth } = require("express-oauth2-jwt-bearer");
 const authConfig = require("./auth_config.json");
 ```
 
-- [`express-oauth2-jwt-bearer`](https://npmjs.com/package/express-oauth2-jwt-bearer) - validates JWTs from the `authorization` header and sets the `req.auth` object
+- <a href="https://npmjs.com/package/express-oauth2-jwt-bearer" target="_blank" rel="noreferrer">`express-oauth2-jwt-bearer`</a> - validates JWTs from the `authorization` header and sets the `req.auth` object
 
 Then add a call to `auth()`, which creates the middleware needed in order to validate and parse incoming access tokens. This should go after the `require` statements but before any routes are defined in your app:
 
@@ -71,7 +71,7 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 As `auth_config.json` is served publicly, this file should **never** contain sensitive information such as passwords and client secrets.
 :::
 
-The values for `domain` and `clientId` should have already been specified as part of the [Login tutorial](/quickstarts/spa/vanillajs/01-login). They should point to the Domain and Client ID values for your Auth0 app respectively.
+The values for `domain` and `clientId` should have already been specified as part of the <a href="/quickstarts/spa/vanillajs/01-login" target="_blank" rel="noreferrer">Login tutorial</a>. They should point to the Domain and Client ID values for your Auth0 app respectively.
 
 ### Add a protected endpoint
 
@@ -266,6 +266,6 @@ const updateUI = async () => {
 };
 ```
 
-Now, open the browser in the application at [http://localhost:3000](http://localhost:3000). If the application has been stopped, run it again from the terminal using `npm run dev`.
+Now, open the browser in the application at <a href="http://localhost:3000" target="_blank" rel="noreferrer">http://localhost:3000</a>. If the application has been stopped, run it again from the terminal using `npm run dev`.
 
 When the application starts, log in. Then, press the **Call API** button to make a request to the API and put the results on the screen. You should find that the result from the server is displayed on the page.

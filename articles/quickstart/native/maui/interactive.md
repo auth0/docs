@@ -22,7 +22,7 @@ files:
 
 # Add Login to Your MAUI Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET MAUI application using the Auth0 SDKs for [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/).
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET MAUI application using the Auth0 SDKs for <a href="https://www.nuget.org/packages/Auth0.OidcClient.MAUI/" target="_blank" rel="noreferrer">MAUI</a>.
 
 ::: note
 The MAUI SDK supports Android, iOS, macOS, and Windows. Continue reading for platform-specific configuration.
@@ -35,7 +35,7 @@ The MAUI SDK supports Android, iOS, macOS, and Windows. Continue reading for pla
 
 ## Install the Auth0 SDK
 
-Auth0 provides a [MAUI](https://www.nuget.org/packages/Auth0.OidcClient.MAUI/) SDK to simplify the process of implementing Auth0 authentication in MAUI applications.
+Auth0 provides a <a href="https://www.nuget.org/packages/Auth0.OidcClient.MAUI/" target="_blank" rel="noreferrer">MAUI</a> SDK to simplify the process of implementing Auth0 authentication in MAUI applications.
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.MAUI` package.
 
@@ -130,7 +130,7 @@ Sorry about that. Here are a couple things to double-check:
 * did you save after entering your URLs?
 * make sure the domain and client ID are imported correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -162,7 +162,7 @@ Click the login button and verify that:
 Sorry about that. Here's something to double-check:
 * you called `LoginAsync` as expected
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -190,7 +190,7 @@ Sorry about that. Here are a couple things to double-check:
 * you configured the correct Logout URL
 * you called `LogoutAsync` as expected.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -198,6 +198,6 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show User Profile Information {{{ data-action="code" data-code="MainPage.xaml.cs#55-58" }}}
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
+Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
 The Auth0 SDK for MAUI provides user information through the `LoginResult.User` property.

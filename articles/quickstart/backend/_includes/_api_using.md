@@ -18,13 +18,13 @@ You can call the API from your application by passing an Access Token in the `Au
 
 If you are calling the API from a Single-Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
 
-* [Single-Page Applications](/quickstart/spa)
-* [Mobile / Native Application](/quickstart/native)
+* <a href="/quickstart/spa" target="_blank" rel="noreferrer">Single-Page Applications</a>
+* <a href="/quickstart/native" target="_blank" rel="noreferrer">Mobile / Native Application</a>
 
-If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
+If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the <a href="/api/authentication#client-credentials" target="_blank" rel="noreferrer">OAuth Client Credentials flow</a>. To do that, register a <a href="$manage_url/#/applications" target="_blank" rel="noreferrer">Machine to Machine Application</a>, and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
 
 :::note
-Read [Application Settings](https://auth0.com/docs/get-started/dashboard/application-settings) for more information on getting the Client ID and Client Secret for your machine-to-machine app.
+Read <a href="https://auth0.com/docs/get-started/dashboard/application-settings" target="_blank" rel="noreferrer">Application Settings</a> for more information on getting the Client ID and Client Secret for your machine-to-machine app.
 :::
 
 ```har
@@ -62,7 +62,7 @@ Read [Application Settings](https://auth0.com/docs/get-started/dashboard/applica
 Auth0 customers are billed based on the number of Machine to Machine Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
 :::
 
-For testing purposes, you can also get an Access Token from the **Test** tab in your [API settings](${manage_url}/#/apis).
+For testing purposes, you can also get an Access Token from the **Test** tab in your <a href="$manage_url/#/apis" target="_blank" rel="noreferrer">API settings</a>.
 
 ## Test Your API 
 

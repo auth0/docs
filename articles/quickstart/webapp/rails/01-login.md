@@ -19,7 +19,7 @@ useCase: quickstart
 
 ### Install Dependencies
 
-This tutorial uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.  Add the following dependencies to your `Gemfile`:
+This tutorial uses `omniauth-auth0`, a custom <a href="https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication" target="_blank" rel="noreferrer">OmniAuth strategy</a>, to handle the authentication flow.  Add the following dependencies to your `Gemfile`:
 
 ```ruby
 gem 'omniauth-auth0', '~> 3.0'
@@ -40,7 +40,7 @@ development:
   auth0_client_secret: <YOUR AUTH0 CLIENT SECRET>
 ```
 
-Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters) the **OmniAuth** middleware.
+Create the following initializer file `./config/initializers/auth0.rb` and <a href="https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters" target="_blank" rel="noreferrer">configure</a> the **OmniAuth** middleware.
 
 ```ruby
 # ./config/initializers/auth0.rb
@@ -106,7 +106,7 @@ end
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
 ::: warning
-To [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection), use the `link_to` or `button_to` helper methods with the `:post` method
+To <a href="https://github.com/cookpad/omniauth-rails_csrf_protection" target="_blank" rel="noreferrer">prevent forged authentication requests</a>, use the `link_to` or `button_to` helper methods with the `:post` method
 :::
 
 ```erb
@@ -115,11 +115,11 @@ To [prevent forged authentication requests](https://github.com/cookpad/omniauth-
 ```
 
 ## Add Logout to Your Application
-Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Revisit the Auth0Controller you created earlier, and finish up the logout method added there.
+Now that you can log in to your Rails application, you need <a href="https://auth0.com/docs/logout/guides/logout-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Revisit the Auth0Controller you created earlier, and finish up the logout method added there.
 
 You will need to clear out your session and then redirect the user to the Auth0 logout endpoint.
 
-To clear out all the objects stored within the session, call the `reset_session` method within the `auth0_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).  Add the following code to `./app/controllers/auth0_controller.rb`:
+To clear out all the objects stored within the session, call the `reset_session` method within the `auth0_controller/logout` method. <a href="http://api.rubyonrails.org/classes/ActionController/Base.html#M000668" target="_blank" rel="noreferrer">Learn more about reset_session here</a>.  Add the following code to `./app/controllers/auth0_controller.rb`:
 
 ```ruby
 # ./app/controllers/auth0_controller.rb
@@ -145,7 +145,7 @@ end
 ```
 
 ::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs` . See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs` . See the <a href="/logout/guides/redirect-users-after-logout" target="_blank" rel="noreferrer">logout documentation</a> for more.
 :::
 
 The user will now be able to logout of your application by visiting the `/auth/logout` endpoint.

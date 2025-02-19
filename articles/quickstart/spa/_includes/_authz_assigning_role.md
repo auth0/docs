@@ -1,6 +1,6 @@
 ## Assign a Role to a User
 
-Assigning a role to a user with Auth0 can be done with the [rules pipeline](https://auth0.com/docs/rules). After a role is assigned to a user, your application needs to know what that role is. This information can be kept in the user's ID Token and can later be used in your app.
+Assigning a role to a user with Auth0 can be done with the <a href="https://auth0.com/docs/rules" target="_blank" rel="noreferrer">rules pipeline</a>. After a role is assigned to a user, your application needs to know what that role is. This information can be kept in the user's ID Token and can later be used in your app.
 
 Navigate to the **Rules** area in your Auth0 dashboard, choose **Create Rule** and then choose **Empty Rule**.
 
@@ -40,8 +40,8 @@ function (user, context, callback) {
 }
 ```
 
-The ID Token is being augmented with an additional claim called `https://<your-domain>.com/role`. Why the `example.com` domain and not just `role`? Per the JWT spec, if you want to use any custom claims in your token, you need to be sure they are unique. [Namespacing Claims](/tokens/guides/create-namespaced-custom-claims) them to your domain ensures that the particular claim won't have collisions elsewhere.
+The ID Token is being augmented with an additional claim called `https://<your-domain>.com/role`. Why the `example.com` domain and not just `role`? Per the JWT spec, if you want to use any custom claims in your token, you need to be sure they are unique. <a href="/tokens/guides/create-namespaced-custom-claims" target="_blank" rel="noreferrer">Namespacing Claims</a> them to your domain ensures that the particular claim won't have collisions elsewhere.
 
 ::: note
-For more information on how to implement role assignment in an ID Token using rules, see the [claims documentation](api-auth/tutorials/adoption/scope-custom-claims).
+For more information on how to implement role assignment in an ID Token using rules, see the <a href="api-auth/tutorials/adoption/scope-custom-claims" target="_blank" rel="noreferrer">claims documentation</a>.
 :::

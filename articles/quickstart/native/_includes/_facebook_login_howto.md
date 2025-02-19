@@ -47,7 +47,7 @@ Now that the required artifacts have been obtained, you are ready to trade them 
 
 ### Get your application keys
 
-Go to the **Applications** section of the [Auth0 Dashboard](https://manage.auth0.com/) and select the existing application in which you enabled **Sign in with Facebook**. If you need help with this step, please check the requirements section at the top of this article.
+Go to the **Applications** section of the <a href="https://manage.auth0.com/" target="_blank" rel="noreferrer">Auth0 Dashboard</a> and select the existing application in which you enabled **Sign in with Facebook**. If you need help with this step, please check the requirements section at the top of this article.
 
 Copy the **Domain** and **Client ID** values from the application settings page. These are required by the SDK.
 

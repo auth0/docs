@@ -21,7 +21,7 @@ files:
 ---
 
 :::note
-Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/) guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
+Visit the <a href="https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/" target="_blank" rel="noreferrer">Vue.js Authentication By Example</a> guide for a deep dive into implementing user authentication in Vue. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Vue.
 :::
 
 # Add Login to Your Vue Application
@@ -29,7 +29,7 @@ Visit the [Vue.js Authentication By Example](https://developer.auth0.com/resourc
 Auth0 allows you to add authentication to almost any application type. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Vue application using the Auth0 Vue SDK.
 
 ::: warning
-This quickstart is designed for using [Auth0 Vue](https://github.com/auth0/auth0-vue) with Vue 3 applications. If you are using Vue 2, please check out the [Vue 2 Tutorial with Auth0 SPA SDK](https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md) instead or visit the [Vue.js Authentication 2 By Example](https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/v2-javascript) guide.
+This quickstart is designed for using <a href="https://github.com/auth0/auth0-vue" target="_blank" rel="noreferrer">Auth0 Vue</a> with Vue 3 applications. If you are using Vue 2, please check out the <a href="https://github.com/auth0/auth0-vue/blob/main/tutorial/vue2-login.md" target="_blank" rel="noreferrer">Vue 2 Tutorial with Auth0 SPA SDK</a> instead or visit the <a href="https://developer.auth0.com/resources/guides/spa/vue/basic-authentication/v2-javascript" target="_blank" rel="noreferrer">Vue.js Authentication 2 By Example</a> guide.
 :::
 
 To use this quickstart, you will need:
@@ -44,7 +44,7 @@ To use this quickstart, you will need:
 
 ## Install the Auth0 Vue SDK {{{ data-action=code data-code="index.js" }}}
 
-Auth0 provides a [Vue SDK](https://github.com/auth0/auth0-vue) to simplify the process of implementing Auth0 authentication and authorization in Vue 3 apps.
+Auth0 provides a <a href="https://github.com/auth0/auth0-vue" target="_blank" rel="noreferrer">Vue SDK</a> to simplify the process of implementing Auth0 authentication and authorization in Vue 3 apps.
 
 Install the Auth0 Vue SDK by running the following commands in your terminal:
 
@@ -57,11 +57,11 @@ npm install @auth0/auth0-vue
 
 For the SDK to function, you must register the plugin with your Vue application using the following properties:
 
-- `domain`: The domain of your Auth0 tenant. This value is in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
+- `domain`: The domain of your Auth0 tenant. This value is in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, set this to the value of your custom domain instead.
 - `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 - `authorizationParams.redirect_uri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. This value is in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
 
-The plugin will register the SDK using both `provide` and `app.config.globalProperties`. This enables both the [Composition API](https://vuejs.org/guide/introduction.html#composition-api) and [Options API](https://vuejs.org/guide/introduction.html#options-api).
+The plugin will register the SDK using both `provide` and `app.config.globalProperties`. This enables both the <a href="https://vuejs.org/guide/introduction.html#composition-api" target="_blank" rel="noreferrer">Composition API</a> and <a href="https://vuejs.org/guide/introduction.html#options-api" target="_blank" rel="noreferrer">Options API</a>.
 
 ::::checkpoint
 
@@ -79,7 +79,7 @@ If your application did not start successfully:
 * Save your changes after entering your URLs
 * Verify the domain and Client ID imported correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -110,14 +110,14 @@ If you were not able to log in using Auth0 Universal Login:
 * Verify you configured the correct `authorizationParams.redirect_uri`
 * Verify the domain and Client ID are set correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="logout.js" }}}
 
-Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then redirect them to the specified `logoutParams.returnTo` parameter.
+Users who log in to your project will also need a way to log out. When users log out, your application will redirect them to your <a href="https://auth0.com/docs/api/authentication?javascript#logout" target="_blank" rel="noreferrer">Auth0 logout</a> endpoint, which will then redirect them to the specified `logoutParams.returnTo` parameter.
 
 Use the `logout` function exposed on the return value of `useAuth0`, which you can access in your component's `setup` function, to log the user out of your application.
 
@@ -143,7 +143,7 @@ If you are not able to logout:
 * Verify you specified a value for `logoutParams.returnTo` when calling `logout`
 * Verify the Allowed Logout URLs in your Application Settings contains the `returnTo` value.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -151,7 +151,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show user profile information {{{ data-action=code data-code="profile.js" }}}
 
-Next, you will configure how to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
+Next, you will configure how to retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 Once the user authenticates, the SDK extracts the user's profile information and stores it in memory. The application can access the user profile with the reactive `user` property. To access this property, review your component's `setup` function and find the `userAuth0` return value.
 
 The `user` property contains sensitive information related to the user's identity. It is only available based on the user's authentication status. To prevent render errors, you should always:
@@ -176,7 +176,7 @@ If you are having issues with the `user` properties:
 * Verify you added the `isLoading` check before accessing the `isAuthenticated` property
 * Verify you added the `isAuthenticated` check before accessing the `user` property
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 
 ::::
