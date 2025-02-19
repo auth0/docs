@@ -31,7 +31,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 ### Install from Nuget
 
-To integrate Auth0 with ASP.NET Core you can use our SDK by installing the `Auth0.AspNetCore.Authentication` <a href="https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/" target="_blank">Nuget package</a> to your application.
+To integrate Auth0 with ASP.NET Core you can use our SDK by installing the `Auth0.AspNetCore.Authentication` <a href="https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/" target="_blank" rel="noreferrer">Nuget package</a> to your application.
 
 ```bash
 Install-Package Auth0.AspNetCore.Authentication
@@ -68,7 +68,7 @@ Sorry about that. Here's a couple things to double check:
 * did you save after entering your URLs?
 * make sure the domain and client ID are configured correctly
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -95,7 +95,7 @@ Sorry about that. Here's a couple things to double check:
 * did you save after entering your URLs?
 * make sure the domain and client ID are configured correctly
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -127,7 +127,7 @@ Sorry about that. Here's a couple things to double check:
 * did you save after entering your URLs?
 * make sure the domain and client ID are configured correctly
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 

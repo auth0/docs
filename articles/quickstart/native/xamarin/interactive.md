@@ -23,7 +23,7 @@ files:
 
 # Add Login to .NET Android and iOS App
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET Android and iOS application using the Auth0 SDKs for <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/" target="_blank">Android</a> and <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS" target="_blank">iOS</a>.
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET Android and iOS application using the Auth0 SDKs for <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/" target="_blank" rel="noreferrer">Android</a> and <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS" target="_blank" rel="noreferrer">iOS</a>.
 
 ::: note
 This quickstart focusses on .NET Android and iOS, as they are the next generation of `Xamarin.Android` and `Xamarin.iOS`. If you are still using `Xamarin.Android` and `Xamarin.iOS`, you can follow this guide as well as integration is identical and the SDKs are compatible.
@@ -38,7 +38,7 @@ To use this quickstart, you’ll need to:
 
 ## Install the Auth0 SDK
 
-Auth0 provides an <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/" target="_blank">Android</a> and <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS" target="_blank">iOS</a> SDK to simplify the process of implementing Auth0 authentication in .NET Android and iOS applications.
+Auth0 provides an <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/" target="_blank" rel="noreferrer">Android</a> and <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS" target="_blank" rel="noreferrer">iOS</a> SDK to simplify the process of implementing Auth0 authentication in .NET Android and iOS applications.
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.AndroidX` or `Auth0.OidcClient.iOS` package, depending on whether you are building an Android or iOS application.
 
@@ -85,7 +85,7 @@ Sorry about that. Here are a couple things to double-check:
 * did you save after entering your URLs?
 * make sure the domain and client ID are imported correctly
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -157,7 +157,7 @@ Click the login button and verify that:
 Sorry about that. Here's something to double-check:
 * you called `LoginAsync` as expected
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -185,7 +185,7 @@ Sorry about that. Here are a couple things to double-check:
 * you configured the correct Logout URL
 * you called `LogoutAsync` as expected.
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -193,7 +193,7 @@ Still having issues? Check out our <a href="https://auth0.com/docs" target="_bla
 
 ## Show User Profile Information
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank">profile information</a> associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
+Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
 The Auth0 SDK for Android and iOS provides user information through the `LoginResult.User` property.
 

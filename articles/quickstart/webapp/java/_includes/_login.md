@@ -36,7 +36,7 @@ The project contains also four servlets:
 
 ## Create the AuthenticationController
 
-To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the <a href="https://github.com/auth0/jwks-rsa-java" target="_blank">jwks-rsa-java repository</a> to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
+To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the <a href="https://github.com/auth0/jwks-rsa-java" target="_blank" rel="noreferrer">jwks-rsa-java repository</a> to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
 :::note
 The `AuthenticationController` does not store any context, and is inteded to be reused. Unneccessary creation may result in additonal resources being created which could impact performance.
@@ -73,7 +73,7 @@ class AuthenticationControllerProvider {
 
 ## Trigger Authentication
 
-To enable users to login, your application will redirect them to the <a href="https://auth0.com/docs/universal-login" target="_blank">Universal Login</a> page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
+To enable users to login, your application will redirect them to the <a href="https://auth0.com/docs/universal-login" target="_blank" rel="noreferrer">Universal Login</a> page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/LoginServlet.java
@@ -188,7 +188,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean appRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="$manage_url/#/" target="_blank">dashboard</a>.
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="$manage_url/#/" target="_blank" rel="noreferrer">dashboard</a>.
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 

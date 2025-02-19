@@ -25,19 +25,19 @@ To use Auth0 services, you need to have an application registered in the Auth0 D
 
 Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code uses to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart automatically updates for your application in the <a href="${manage_url}/#/" target="_blank">Dashboard</a>, which is where you can manage your applications in the future.
+Any settings you configure using this quickstart automatically updates for your application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
 ### Configure an API
 
-Similarly, you need to create a new Auth0 API or use an existing API that represents the project you're integrating from the <a href="${manage_url}/#/" target="_blank">Dashboard</a>. Choose a unique identifier for the API and make a note of it. You need that identifier to configure your application below.
+Similarly, you need to create a new Auth0 API or use an existing API that represents the project you're integrating from the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>. Choose a unique identifier for the API and make a note of it. You need that identifier to configure your application below.
 
 ## Install the Auth0 PHP SDK {{{ data-action=code data-code="index.php" }}}
 
-Auth0 provides a <a href="https://github.com/auth0/auth0-PHP" target="_blank">PHP SDK</a> (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
+Auth0 provides a <a href="https://github.com/auth0/auth0-PHP" target="_blank" rel="noreferrer">PHP SDK</a> (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
 
-The Auth0 PHP SDK requires <a href="https://www.php-fig.org/psr/psr-17/" target="_blank">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank">PSR-18</a> installed, compatible HTTP libraries for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
+The Auth0 PHP SDK requires <a href="https://www.php-fig.org/psr/psr-17/" target="_blank" rel="noreferrer">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank" rel="noreferrer">PSR-18</a> installed, compatible HTTP libraries for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
@@ -55,7 +55,7 @@ composer require auth0/auth0-php
 For the SDK to function properly, you must set the following properties in the Auth0 SDK during initialization:
 
 - `strategy`: The strategy helps guide the behavior of the SDK for the use case of your app. In this case, you want to set this to the constant `Auth0\SDK\Configuration\SdkConfiguration::STRATEGY_API`.
-- `domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under Application's Settings in the _Domain_ field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank">custom domain</a>, set this to the value of your custom domain instead.
+- `domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under Application's Settings in the _Domain_ field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, set this to the value of your custom domain instead.
 - `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the _Client ID_ field.
 - `clientSecret`: The secret of the Auth0 application you created earlier in this quickstart. Client secret is in the Auth0 Dashboard under your Application's Settings in the _Client Secret_ field.
 - `audience`: The identifier of the Auth0 API you registered above. This must be provided as an array.
@@ -75,7 +75,7 @@ Sorry about that. Here's a couple things to double check:
 * Did you save after entering your URLs?
 * Make sure the domain and client ID imported correctly.
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::

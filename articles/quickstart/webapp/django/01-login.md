@@ -20,7 +20,7 @@ github:
 
 ## Create application
 
-For this guide we demonstrate how to integrate Auth0 with a Python application using the <a href="https://www.djangoproject.com/" target="_blank">Django framework</a> and <a href="https://authlib.org/" target="_blank">Authlib</a>. Let's start by ensuring Django is installed on your system. From your shell, run the following command:
+For this guide we demonstrate how to integrate Auth0 with a Python application using the <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer">Django framework</a> and <a href="https://authlib.org/" target="_blank" rel="noreferrer">Authlib</a>. Let's start by ensuring Django is installed on your system. From your shell, run the following command:
 
 ```sh
 pip install django~=4.0
@@ -145,7 +145,7 @@ oauth.register(
 )
 ```
 
-You can learn more about the configuration options available for Authlib's OAuth `register()` method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank">their documentation.</a>
+You can learn more about the configuration options available for Authlib's OAuth `register()` method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank" rel="noreferrer">their documentation.</a>
 
 ## Setup your route handlers
 
@@ -269,4 +269,4 @@ python3 manage.py migrate
 python3 manage.py runserver 3000
 ```
 
-Your application should now be ready to open from your browser at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.
+Your application should now be ready to open from your browser at <a href="http://localhost:3000" target="_blank" rel="noreferrer">http://localhost:3000</a>.

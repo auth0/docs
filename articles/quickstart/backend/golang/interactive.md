@@ -18,11 +18,11 @@ files:
 <!-- markdownlint-disable MD041 MD025 -->
 
 # Add Authorization to Your Go Application
-This guide demonstrates how to integrate Auth0 with any new or existing Go API application using the <a href="https://github.com/auth0/go-jwt-middleware" target="_blank">go-jwt-middleware</a> package.
+This guide demonstrates how to integrate Auth0 with any new or existing Go API application using the <a href="https://github.com/auth0/go-jwt-middleware" target="_blank" rel="noreferrer">go-jwt-middleware</a> package.
 
 If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
 
-To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank">our getting started guide</a>.
+To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">our getting started guide</a>.
 
 Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
@@ -107,8 +107,8 @@ Now that you have configured your application, run your application to verify th
 :::checkpoint-failure
 If your application did not start successfully:
 * Verify you added the token as the `Authorization` header
-* Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank">jwt.io</a>.
+* Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank" rel="noreferrer">jwt.io</a>.
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::

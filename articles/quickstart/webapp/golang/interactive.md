@@ -55,7 +55,7 @@ go mod download
 ## Configure the environment variables {{{ data-action=code data-code=".env" }}}
 You must set the following environment variables in `.env` within the root of your project directory:
 
-- **AUTH0_DOMAIN**: The domain of your Auth0 tenant. Find your Auth0 Domain in the Auth0 Dashboard under your Application's Settings in the Domain field. For <a href="https://auth0.com/docs/custom-domains" target="_blank">custom domains</a>, set this to the value of your custom domain instead.
+- **AUTH0_DOMAIN**: The domain of your Auth0 tenant. Find your Auth0 Domain in the Auth0 Dashboard under your Application's Settings in the Domain field. For <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domains</a>, set this to the value of your custom domain instead.
 - **AUTH0_CLIENT_ID**: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 - **AUTH0_CLIENT_SECRET**: The Secret of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
 - **AUTH0_CALLBACK_URL**: The URL used by Auth0 to redirect the user after successful authentication.
@@ -65,17 +65,17 @@ You must set the following environment variables in `.env` within the root of yo
 Next, configure the OAuth2 and OpenID Connect packages.
 
 Create a file called `auth.go` in the `platform/authenticator` folder. In this package, create a method to 
-configure and return <a href="https://godoc.org/golang.org/x/oauth2" target="_blank">OAuth2</a> and 
-<a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank">OIDC</a> clients, and another one to verify an ID Token.
+configure and return <a href="https://godoc.org/golang.org/x/oauth2" target="_blank" rel="noreferrer">OAuth2</a> and 
+<a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank" rel="noreferrer">OIDC</a> clients, and another one to verify an ID Token.
 
 ## Set up your application routes {{{ data-action=code data-code="router.go" }}}
 
 Create a file called `router.go` in the `platform/router` folder. In this package, create a method to configure
-and return our routes using <a href="https://github.com/gin-gonic/gin" target="_blank">github.com/gin-gonic/gin</a>. You will be passing an
+and return our routes using <a href="https://github.com/gin-gonic/gin" target="_blank" rel="noreferrer">github.com/gin-gonic/gin</a>. You will be passing an
 instance of `Authenticator` to the method, for use with the `login` and `callback` handlers.
 
 ::: note
-The router uses the <a href="https://github.com/gin-contrib/sessions" target="_blank">github.com/gin-contrib/sessions</a> middleware to manage our cookie-based sessions.
+The router uses the <a href="https://github.com/gin-contrib/sessions" target="_blank" rel="noreferrer">github.com/gin-contrib/sessions</a> middleware to manage our cookie-based sessions.
 :::
 
 ## Add login to your application {{{ data-action=code data-code="login.go" }}}
@@ -108,13 +108,13 @@ If the ID token is valid, it will store the profile information and access token
 
 ## Display user profile information {{{ data-action=code data-code="user.go" }}}
 
-Now that your users can log in, you will likely want to be able to retrieve and use the <a href="/users/concepts/overview-user-profile" target="_blank">profile information</a> associated with authenticated users. 
+Now that your users can log in, you will likely want to be able to retrieve and use the <a href="/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. 
 
-You can access that <a href="/users/concepts/overview-user-profile" target="_blank">profile information</a>, such as their nickname or profile picture, through the `profile` that was stored in the session previously.
+You can access that <a href="/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a>, such as their nickname or profile picture, through the `profile` that was stored in the session previously.
 
 Create a handler for the `/user` endpoint in `web/app/user/user.go` and return the corresponding HTML file. As the `profile` is being passed to `ctx.HTML()`, you can access the profile information such as `picture` and `nickname` inside that same HTML file. 
 
-An example of such an HTML file could look like the example below, but you can retrieve any <a href="/users/concepts/overview-user-profile" target="_blank">profile information</a>, including custom claims.
+An example of such an HTML file could look like the example below, but you can retrieve any <a href="/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a>, including custom claims.
 
 ```html
 <!-- Save this within ./web/template/user.html -->
@@ -127,12 +127,12 @@ An example of such an HTML file could look like the example below, but you can r
 
 ## Add logout to your application {{{ data-action=code data-code="logout.go" }}}
 
-To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the <a href="/logout" target="_blank">logout documentation</a>.
+To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the <a href="/logout" target="_blank" rel="noreferrer">logout documentation</a>.
 
 Create a file called `logout.go` in the folder `web/app/logout`, and add the function `Handler` to redirect the user to Auth0's logout endpoint.
 
 ::: note
-The `returnTo` URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="/logout/guides/redirect-users-after-logout" target="_blank">Redirect Users After Logout</a>.
+The `returnTo` URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="/logout/guides/redirect-users-after-logout" target="_blank" rel="noreferrer">Redirect Users After Logout</a>.
 :::
 
 Create a file called `user.js` in the folder `web/static/js`, and add the code to remove the cookie from a logged-in
@@ -149,7 +149,7 @@ $(document).ready(function () {
 ```
 
 ::: note
-This sample is using <a href="https://github.com/js-cookie/js-cookie/tree/latest#readme" target="_blank">js.cookie</a> for cookie handling. 
+This sample is using <a href="https://github.com/js-cookie/js-cookie/tree/latest#readme" target="_blank" rel="noreferrer">js.cookie</a> for cookie handling. 
 You need to add the `js.cookie.js` file to the `web/static/js` folder to use it.
 :::
 

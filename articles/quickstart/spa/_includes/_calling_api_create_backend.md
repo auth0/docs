@@ -2,7 +2,7 @@
 
 ## Create the Backend API
 
-For this example, you'll create an <a href="https://expressjs.com/" target="_blank">Express</a> server that acts as the backend API. This API will expose an endpoint to validate incoming <a href="https://auth0.com/docs/tokens/concepts/jwts" target="_blank">JWT-formatted access tokens</a> before returning a response.
+For this example, you'll create an <a href="https://expressjs.com/" target="_blank" rel="noreferrer">Express</a> server that acts as the backend API. This API will expose an endpoint to validate incoming <a href="https://auth0.com/docs/tokens/concepts/jwts" target="_blank" rel="noreferrer">JWT-formatted access tokens</a> before returning a response.
 
 Start by installing the following packages:
 
@@ -10,9 +10,9 @@ Start by installing the following packages:
 npm install express express-oauth2-jwt-bearer npm-run-all
 ```
 
-* <a href="https://github.com/expressjs/express" target="_blank">`express`</a> - a lightweight web server for Node
-* <a href="https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer" target="_blank">`express-oauth2-jwt-bearer`</a> - middleware to validate JWT-formatted access tokens
-* <a href="https://www.npmjs.com/package/npm-run-all" target="_blank">`npm-run-all`</a> - a helper to run the SPA and backend API concurrently
+* <a href="https://github.com/expressjs/express" target="_blank" rel="noreferrer">`express`</a> - a lightweight web server for Node
+* <a href="https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer" target="_blank" rel="noreferrer">`express-oauth2-jwt-bearer`</a> - middleware to validate JWT-formatted access tokens
+* <a href="https://www.npmjs.com/package/npm-run-all" target="_blank" rel="noreferrer">`npm-run-all`</a> - a helper to run the SPA and backend API concurrently
 
 Next, create a new file `server.js` with the following code:
 

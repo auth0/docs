@@ -1,4 +1,4 @@
-First, create a rule that assigns users to either an `admin` role or a single `user` role. Go to the <a href="$manage_url/#/rules/new" target="_blank">New Rule</a> page in the Auth0 dashboard and select the **Set Roles to a User** template under **Access Control**.
+First, create a rule that assigns users to either an `admin` role or a single `user` role. Go to the <a href="$manage_url/#/rules/new" target="_blank" rel="noreferrer">New Rule</a> page in the Auth0 dashboard and select the **Set Roles to a User** template under **Access Control**.
 
 By default, this rule will assign the user an `admin` role if the user’s email contains `@example.com`. Otherwise, the user will be assigned a regular `user` role.
 

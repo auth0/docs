@@ -24,15 +24,15 @@ github:
 
 # Add Login to Your Flutter Application
 
-Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the <a href="https://github.com/auth0/auth0-flutter" target="_blank">Auth0 Flutter SDK</a>.
+Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the <a href="https://github.com/auth0/auth0-flutter" target="_blank" rel="noreferrer">Auth0 Flutter SDK</a>.
 
 :::note
 The Flutter SDK currently only supports Flutter apps for Android, iOS, and macOS.
 :::
 
-This quickstart assumes you already have a <a href="https://flutter.dev/" target="_blank">Flutter</a> app up and running. If not, check out the <a href="https://docs.flutter.dev/get-started/install" target="_blank">Flutter "getting started" guides</a> to get started with a simple app.
+This quickstart assumes you already have a <a href="https://flutter.dev/" target="_blank" rel="noreferrer">Flutter</a> app up and running. If not, check out the <a href="https://docs.flutter.dev/get-started/install" target="_blank" rel="noreferrer">Flutter "getting started" guides</a> to get started with a simple app.
 
-You should also be familiar with the <a href="https://docs.flutter.dev/reference/flutter-cli" target="_blank">Flutter command line tool</a>.
+You should also be familiar with the <a href="https://docs.flutter.dev/reference/flutter-cli" target="_blank" rel="noreferrer">Flutter command line tool</a>.
 
 <%= include('_configure_urls_interactive') %>
 
@@ -50,10 +50,10 @@ If you are not developing for the Android platform, skip this step.
 
 The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
 
-<a href="https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample/android" target="_blank">The sample</a> uses the following placeholders:
+<a href="https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample/android" target="_blank" rel="noreferrer">The sample</a> uses the following placeholders:
 
 - `auth0Domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your **Application Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
-- `auth0Scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links" target="_blank">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank">Auth0.Android SDK README</a>.
+- `auth0Scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links" target="_blank" rel="noreferrer">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK README</a>.
 
 :::note
 You do not need to declare a specific `intent-filter` for your activity because you defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values. The library handles the redirection for you.
@@ -71,7 +71,7 @@ This step requires a paid Apple Developer account. It is needed to use Universal
 
 ### Configure the Team ID and bundle identifier
 
-Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
+Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
 
@@ -79,17 +79,17 @@ This will add your app to your Auth0 tenant's `apple-app-site-association` file.
 
 ### Add the associated domain capability
 
-Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** <a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability" target="_blank">tab</a> of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** <a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability" target="_blank" rel="noreferrer">tab</a> of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
 
-Next, add the following <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain" target="_blank">entry</a> under **Associated Domains**:
+Next, add the following <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain" target="_blank" rel="noreferrer">entry</a> under **Associated Domains**:
 
 ```text
 webcredentials:${account.namespace}
 ```
 
-If you have a <a href="/customize/custom-domains" target="_blank">custom domain</a>, use this instead of the Auth0 domain from the settings page.
+If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the Auth0 domain from the settings page.
 
 ::: note
 For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
@@ -97,7 +97,7 @@ For the associated domain to work, your app must be signed with your team certif
 
 ## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:40" }}}
 
-<a href="https://auth0.com/docs/authenticate/login/auth0-universal-login" target="_blank">Universal Login</a> is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
+<a href="https://auth0.com/docs/authenticate/login/auth0-universal-login" target="_blank" rel="noreferrer">Universal Login</a> is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
 
 Integrate Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
 
@@ -124,13 +124,13 @@ If your app did not launch successfully:
 - Make sure the domain and client ID values are imported correctly
 - If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="main_view.dart#45:55"}}}
 
-To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. <a href="https://auth0.com/docs/authenticate/login/logout" target="_blank">Read more about logging out of Auth0</a>.
+To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. <a href="https://auth0.com/docs/authenticate/login/logout" target="_blank" rel="noreferrer">Read more about logging out of Auth0</a>.
 
 **Android**: if you are using a custom scheme, pass this scheme to the logout method so that the SDK can route back to your app correctly:
 
@@ -149,7 +149,7 @@ If your app did not log out successfully:
 - Ensure the Allowed Logout URLs are set properly
 - Verify you saved your changes after entering your URLs
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
@@ -166,6 +166,6 @@ If your app did not return user profile information:
 
 - Verify the access token is valid
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::

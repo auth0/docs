@@ -26,7 +26,7 @@ Auth0 allows you to add authentication and access user profile information in al
 
 If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
 
-Alternatively, you can <a href="/get-started/auth0-overview/set-up-apis" target="_blank">read our getting started guide</a>, which will help you set up your first API through the Auth0 Dashboard.
+Alternatively, you can <a href="/get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">read our getting started guide</a>, which will help you set up your first API through the Auth0 Dashboard.
 
 Note that every API in Auth0 is configured using an API Identifier; your application code will use the API Identifier as the Audience to validate the access token.
 
@@ -61,7 +61,7 @@ In some cases, the access token will not have a `sub` claim; in this case, the `
 
 ## Validate scopes {{{ data-action=code data-code="HasScopeHandler.cs" }}}
 
-To ensure that an access token contains the correct scopes, use <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies" target="_blank">Policy-Based Authorization</a> in the ASP.NET Core:
+To ensure that an access token contains the correct scopes, use <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies" target="_blank" rel="noreferrer">Policy-Based Authorization</a> in the ASP.NET Core:
 
 1. Create a new authorization requirement called `HasScopeRequirement`, which will check whether the `scope` claim issued by your Auth0 tenant is present, and if so, will check that the claim contains the requested scope.
 2. Under your `Program.cs` file's `var builder = WebApplication.CreateBuilder(args);` method, add a call to the `app.AddAuthorization` method.
@@ -70,7 +70,7 @@ To ensure that an access token contains the correct scopes, use <a href="https:/
 
 ## Protect API endpoints {{{ data-action=code data-code="ApiController.cs" }}}
 
-The JWT middleware integrates with the standard ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/" target="_blank">Authentication</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/" target="_blank">Authorization</a> mechanisms.
+The JWT middleware integrates with the standard ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/" target="_blank" rel="noreferrer">Authentication</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/" target="_blank" rel="noreferrer">Authorization</a> mechanisms.
 
 To secure an endpoint, add the `[Authorize]` attribute to your controller action (or the entire controller if you want to protect all of its actions).
 
@@ -80,8 +80,8 @@ When securing endpoints that require specific scopes, make sure that the correct
 
 The way in which you call your API depends on the type of application you are developing and the framework you are using. To learn more, read the relevant application Quickstart:
 
-* <a href="/quickstart/spa" target="_blank">Single-Page Applications</a>
-* <a href="/quickstart/native" target="_blank">Mobile / Native Application</a>
+* <a href="/quickstart/spa" target="_blank" rel="noreferrer">Single-Page Applications</a>
+* <a href="/quickstart/native" target="_blank" rel="noreferrer">Mobile / Native Application</a>
 
 ### Get an access token
 
@@ -89,10 +89,10 @@ Regardless of the type of application you are developing or the framework you ar
 
 If you are calling your API from a Single-Page Application (SPA) or a Native application, after the authorization flow completes, you will get an access token.
 
-If you are calling the API from a command-line tool or another service where a user entering credentials does not exist, use the <a href="/api/authentication#client-credentials" target="_blank">OAuth Client Credentials Flow</a>. To do so, register a <a href="$manage_url/#/applications" target="_blank">Machine-to-Machine Application</a>, and pass in the **Client ID** as the `client_id` parameter, the **Client Secret** as the `client_secret` parameter, and the API Identifier (the same value you used to configure the middleware earlier in this quickstart) as the `audience` parameter when making the following request:
+If you are calling the API from a command-line tool or another service where a user entering credentials does not exist, use the <a href="/api/authentication#client-credentials" target="_blank" rel="noreferrer">OAuth Client Credentials Flow</a>. To do so, register a <a href="$manage_url/#/applications" target="_blank" rel="noreferrer">Machine-to-Machine Application</a>, and pass in the **Client ID** as the `client_id` parameter, the **Client Secret** as the `client_secret` parameter, and the API Identifier (the same value you used to configure the middleware earlier in this quickstart) as the `audience` parameter when making the following request:
 
 :::note
-To learn more about getting the Client ID and Client Secret for your machine-to-machine application, read <a href="/get-started/dashboard/application-settings" target="_blank">Application Settings</a>.
+To learn more about getting the Client ID and Client Secret for your machine-to-machine application, read <a href="/get-started/dashboard/application-settings" target="_blank" rel="noreferrer">Application Settings</a>.
 :::
 
 ```har
@@ -159,9 +159,9 @@ Sorry about that. Here are a few things to double check:
 
 - make sure `ValidIssuer` and `ValidAudience` are configured correctly
 - make sure the token is added as the `Authorization` header
-- check that the token has the correct scopes (you can use <a href="https://jwt.io/" target="_blank">jwt.io</a> to verify)
+- check that the token has the correct scopes (you can use <a href="https://jwt.io/" target="_blank" rel="noreferrer">jwt.io</a> to verify)
 
-Still having issues? To get more help, check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a>.
+Still having issues? To get more help, check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a>.
 
 :::
 

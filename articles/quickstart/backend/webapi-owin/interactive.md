@@ -23,7 +23,7 @@ Auth0 allows you to add authorization to any kind of application. This guide dem
 
 If you have not created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API for your project. 
 
-To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank">our getting started guide</a>.
+To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">our getting started guide</a>.
 
 Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
 
@@ -57,7 +57,7 @@ The OWIN JWT middleware does not use Open ID Connect Discovery by default, so yo
 This class is then used as `TokenValidationParameters.IssuerSigningKeyResolver` while configuring the middleware in `Startup.cs`.
 
 :::note
-This custom resolver is deprecated and <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md" target="_blank">no longer available</a>. You must provider this customer resolver yourself.
+This custom resolver is deprecated and <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md" target="_blank" rel="noreferrer">no longer available</a>. You must provider this customer resolver yourself.
 :::
 
 ## Validate scopes {{{ data-action=code data-code="ScopeAuthorizeAttribute.cs" }}}
@@ -89,9 +89,9 @@ Now that you have configured your application, run your application to verify th
 If your application did not start successfully:
 * Ensure your configured the  `ValidIssuer` and `ValidAudience` values correctly
 * Verify you added the token as the `Authorization` header
-* Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank">jwt.io</a>.
+* Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank" rel="noreferrer">jwt.io</a>.
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank">community page</a> to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 

@@ -14,7 +14,7 @@ useCase: quickstart
 ---
 
 ::: panel Using Spring WebFlux?
-This tutorial uses <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html" target="_blank">Spring MVC</a>. If you are using <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-web-reactive" target="_blank">Spring WebFlux</a>, the steps to add authentication are similar, but some of the implementation details are different. Refer to the <a href="https://github.com/auth0-samples/auth0-spring-boot-login-samples/tree/master/webflux-login" target="_blank">Spring Boot WebFlux Sample Code</a> to see how to integrate Auth0 with your Spring Boot WebFlux application.
+This tutorial uses <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html" target="_blank" rel="noreferrer">Spring MVC</a>. If you are using <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#spring-web-reactive" target="_blank" rel="noreferrer">Spring WebFlux</a>, the steps to add authentication are similar, but some of the implementation details are different. Refer to the <a href="https://github.com/auth0-samples/auth0-spring-boot-login-samples/tree/master/webflux-login" target="_blank" rel="noreferrer">Spring Boot WebFlux Sample Code</a> to see how to integrate Auth0 with your Spring Boot WebFlux application.
 :::
 
 <%= include('../_includes/_getting_started', { library: 'Java Spring Security', callback: 'http://localhost:3000/login/oauth2/code/okta' }) %>
@@ -25,10 +25,10 @@ This tutorial uses <a href="https://docs.spring.io/spring/docs/current/spring-fr
 
 ### Add dependencies
 
-To integrate your Spring Boot application with Auth0, include the <a href="https://github.com/okta/okta-spring-boot/" target="_blank">Okta Spring Boot Starter</a> in your application's dependencies.
+To integrate your Spring Boot application with Auth0, include the <a href="https://github.com/okta/okta-spring-boot/" target="_blank" rel="noreferrer">Okta Spring Boot Starter</a> in your application's dependencies.
 
 :::note
-This guide uses <a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf</a> and the <a href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity" target="_blank">Spring Security integration module</a> for the view layer. If you are using a different view technology, the Spring Security configuration and components remain the same.
+This guide uses <a href="https://www.thymeleaf.org/" target="_blank" rel="noreferrer">Thymeleaf</a> and the <a href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity" target="_blank" rel="noreferrer">Spring Security integration module</a> for the view layer. If you are using a different view technology, the Spring Security configuration and components remain the same.
 :::
 
 If you're using Gradle, you can include these dependencies as shown below.
@@ -88,7 +88,7 @@ If you are using Maven:
 
 ### Configure Spring Security
 
-The Okta Spring Boot Starter makes it easy to configure your application with Auth0. The sample below uses an `application.yml` file, though you can also use properties files or any of the other <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config" target="_blank">supported externalization mechanisms</a>.
+The Okta Spring Boot Starter makes it easy to configure your application with Auth0. The sample below uses an `application.yml` file, though you can also use properties files or any of the other <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config" target="_blank" rel="noreferrer">supported externalization mechanisms</a>.
 
 
 ```yaml
@@ -108,7 +108,7 @@ server:
 
 ## Add Login to Your Application
 
-To enable user login with Auth0, create a class that will register a <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html" target="_blank">SecurityFilterChain</a>, and add the `@Configuration` annotation.
+To enable user login with Auth0, create a class that will register a <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html" target="_blank" rel="noreferrer">SecurityFilterChain</a>, and add the `@Configuration` annotation.
 
 ```java
 package com.auth0.example;
@@ -138,7 +138,7 @@ public class SecurityConfig {
 ```
 
 :::note
-You can further configure the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html" target="_blank">HttpSecurity</a> instance to require authentication on all or certain paths. For example, to require authentication on all paths except the home page:
+You can further configure the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html" target="_blank" rel="noreferrer">HttpSecurity</a> instance to require authentication on all or certain paths. For example, to require authentication on all paths except the home page:
 
 ```java
  http
@@ -190,7 +190,7 @@ public class HomeController {
 ```
 
 :::panel Checkpoint
-Add the login link to your application. When you click it, verify that your application redirects you to the <a href="https://auth0.com/universal-login" target="_blank">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
+Add the login link to your application. When you click it, verify that your application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
 
 Once that's complete, verify that Auth0 redirects you to your application and that you are logged in.
 :::
@@ -198,12 +198,12 @@ Once that's complete, verify that Auth0 redirects you to your application and th
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 :::note
-Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with <a href="https://auth0.com/docs/connections/identity-providers-social" target="_blank">social identity providers</a>. However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the <a href="https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys" target="_blank">Test Social Connections with Auth0 Developer Keys</a> document.
+Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with <a href="https://auth0.com/docs/connections/identity-providers-social" target="_blank" rel="noreferrer">social identity providers</a>. However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the <a href="https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys" target="_blank" rel="noreferrer">Test Social Connections with Auth0 Developer Keys</a> document.
 :::
 
 ## Add Logout to Your Application
 
-Now that users can log into your application, they need <a href="https://auth0.com/docs/logout/guides/logout-auth0" target="_blank">a way to log out</a>. By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can provide a `LogoutHandler` to redirect users to your <a href="https://auth0.com/docs/api/authentication?javascript#logout" target="_blank">Auth0 logout endpoint</a> (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
+Now that users can log into your application, they need <a href="https://auth0.com/docs/logout/guides/logout-auth0" target="_blank" rel="noreferrer">a way to log out</a>. By default, when logout is enabled, Spring Security will log the user out of your application and clear the session. To enable successful logout of Auth0, you can provide a `LogoutHandler` to redirect users to your <a href="https://auth0.com/docs/api/authentication?javascript#logout" target="_blank" rel="noreferrer">Auth0 logout endpoint</a> (`https://${account.namespace}/v2/logout`) and then immediately redirect them to your application.
 
 In the `SecurityConfig` class, provide a `LogoutHandler` that redirects to the Auth0 logout endpoint, and configure the `HttpSecurity` to add the logout handler:
 
@@ -277,7 +277,7 @@ Add the logout link in the view of your application. When you click it, verify t
 
 ## Show User Profile Information
 
-You can retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank">profile information</a> associated with logged-in users through the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/core/oidc/user/OidcUser.html" target="_blank">OidcUser</a> class, which can be used with the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/annotation/AuthenticationPrincipal.html" target="_blank">AuthenticationPrincipal annotation</a>.
+You can retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with logged-in users through the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/core/oidc/user/OidcUser.html" target="_blank" rel="noreferrer">OidcUser</a> class, which can be used with the <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/annotation/AuthenticationPrincipal.html" target="_blank" rel="noreferrer">AuthenticationPrincipal annotation</a>.
 
 In your controller, add the user's profile information to the model:
 
@@ -307,5 +307,5 @@ You can then use this profile information in your view, as shown below.
 ```
 
 :::panel Checkpoint
-Verify that you can display the user name or <a href="https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes" target="_blank">any other `user` property</a> after you have logged in.
+Verify that you can display the user name or <a href="https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes" target="_blank" rel="noreferrer">any other `user` property</a> after you have logged in.
 :::
