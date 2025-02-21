@@ -19,7 +19,7 @@ useCase: quickstart
 <%= include('../../../_includes/_api_auth_intro') %>
 
 ::: note
-This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to secure an API are similar, but some of the implementation details are different. Refer to the [Spring Security WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-WebFlux) to see how to integrate Auth0 with your Spring WebFlux API.
+This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to secure an API are similar, but some of the implementation details are different. Refer to the <a href="https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-WebFlux" target="_blank" rel="noreferrer">Spring Security WebFlux Sample Code</a> to see how to integrate Auth0 with your Spring WebFlux API.
 :::
 
 
@@ -45,7 +45,7 @@ okta:
 
 ## Install dependencies
 
-If you are using Gradle, you can add the required dependencies using the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/) and the [Dependency Management Plugin](https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/) to resolve dependency versions:
+If you are using Gradle, you can add the required dependencies using the <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/" target="_blank" rel="noreferrer">Spring Boot Gradle Plugin</a> and the <a href="https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/" target="_blank" rel="noreferrer">Dependency Management Plugin</a> to resolve dependency versions:
 
 ```groovy
 // build.gradle
@@ -91,7 +91,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 
 <%= include('../_includes/_api_endpoints') %>
 
-To configure the application as a Resource Server and validate the JWTs, create a class that will register a [SecurityFilterChain](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html), an instance of `SecurityFilterChain`, and add the `@Configuration` annotation.
+To configure the application as a Resource Server and validate the JWTs, create a class that will register a <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/SecurityFilterChain.html" target="_blank" rel="noreferrer">SecurityFilterChain</a>, an instance of `SecurityFilterChain`, and add the `@Configuration` annotation.
 
 The example below shows how to secure API methods using the `HttpSecurity` object provided in the `filterChain()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
 
@@ -188,7 +188,7 @@ Windows:
 gradlew.bat bootRun
 ```
 
-If you are configuring your own application using Maven and the [Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html), you can execute the `spring-boot:run` goal.
+If you are configuring your own application using Maven and the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html" target="_blank" rel="noreferrer">Spring Boot Maven Plugin</a>, you can execute the `spring-boot:run` goal.
 
 Linux or macOS:
 
@@ -202,4 +202,4 @@ Windows:
 mvn.cmd spring-boot:run
 ```
 
-The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article.
+The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the <a href="/quickstart/backend/java-spring-security5/02-using" target="_blank" rel="noreferrer">Using Your API</a> article.

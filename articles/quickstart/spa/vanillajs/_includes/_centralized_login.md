@@ -59,7 +59,7 @@ The folder structure so far should look like the following:
 
 ### Reference the SDK
 
-This article is based on the new SPA SDK available [here](https://github.com/auth0/auth0-spa-js/). You can reference the package from the CDN in the `index.html` file by placing the script tags at the very bottom of the `body` tag:
+This article is based on the new SPA SDK available <a href="https://github.com/auth0/auth0-spa-js/" target="_blank" rel="noreferrer">here</a>. You can reference the package from the CDN in the `index.html` file by placing the script tags at the very bottom of the `body` tag:
 
 ```html
 <body>
@@ -74,7 +74,7 @@ This article is based on the new SPA SDK available [here](https://github.com/aut
 
 ### Configure credentials
 
-Create an `auth_config.json` in the root of the project. The values from `domain` and `clientId` should be populated from your [Auth0 application settings](${manage_url}/#/applications/${account.clientId}/settings) as configured [above](#get-your-application-keys).
+Create an `auth_config.json` in the root of the project. The values from `domain` and `clientId` should be populated from your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Auth0 application settings</a> as configured <a href="#get-your-application-keys" target="_blank" rel="noreferrer">above</a>.
 
 ```json
 {
@@ -89,7 +89,7 @@ As `auth_config.json` is served publicly, this file should **never** contain sen
 
 ## Create the server
 
-In this section you will create a basic web server using [ExpressJS](https://expressjs.com). This will be used to serve our HTML page, along with any assets that it requires (JavaScript, CSS, etc).
+In this section you will create a basic web server using <a href="https://expressjs.com" target="_blank" rel="noreferrer">ExpressJS</a>. This will be used to serve our HTML page, along with any assets that it requires (JavaScript, CSS, etc).
 
 Run the following command in the same folder as the `index.html` file you created earlier:
 
@@ -107,7 +107,7 @@ In the terminal, install the dependencies that are necessary to get the server u
 npm install express
 ```
 
-Also install [`nodemon`](https://npmjs.org/package/nodemon) so that our server can be restarted on any code changes:
+Also install <a href="https://npmjs.org/package/nodemon" target="_blank" rel="noreferrer">`nodemon`</a> so that our server can be restarted on any code changes:
 
 ```bash
 npm install -D nodemon
@@ -211,7 +211,7 @@ window.onload = async () => {
 }
 ```
 
-Now go and access it at [http://localhost:3000](http://localhost:3000). You should see the welcome message and both authentication buttons disabled. Note however that some browsers cache the page sources. When checking each step results you should perform a full page refresh ignoring the cache. This can be achieved by using the `CMD+SHIFT+R` keys on OSX and `CTRL+SHIFT+R` keys on Windows.
+Now go and access it at <a href="http://localhost:3000" target="_blank" rel="noreferrer">http://localhost:3000</a>. You should see the welcome message and both authentication buttons disabled. Note however that some browsers cache the page sources. When checking each step results you should perform a full page refresh ignoring the cache. This can be achieved by using the `CMD+SHIFT+R` keys on OSX and `CTRL+SHIFT+R` keys on Windows.
 
 <%= include('../../_includes/_silent-auth-social-idp') %>
 
@@ -244,7 +244,7 @@ const updateUI = async () => {
 
 ## Log In to the Application
 
-Authentication is achieved through a redirect to the Auth0 [Universal Login Page](https://auth0.com/docs/hosted-pages/login). Once the user signs up or logs in, the result will be passed to your app's redirect URI, which is provided with the authorization request.
+Authentication is achieved through a redirect to the Auth0 <a href="https://auth0.com/docs/hosted-pages/login" target="_blank" rel="noreferrer">Universal Login Page</a>. Once the user signs up or logs in, the result will be passed to your app's redirect URI, which is provided with the authorization request.
 
 Inside the `app.js` file, provide a `login` function that calls `auth0Client.loginWithRedirect()` to perform the login step. The `login` function is called by the **Log in** button previously defined in the HTML page. In this sample, you will redirect the user back to the same page they are now. You can obtain that value from `window.location.origin` property:
 

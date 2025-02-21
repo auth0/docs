@@ -20,16 +20,16 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD041 -->
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login chapter](/quickstart/native/android)
+Before you continue with this tutorial, make sure that you have completed the <a href="/quickstart/native/android" target="_blank" rel="noreferrer">Login chapter</a>
 :::
 
 As an example of using the SDK to call APIs that may require custom scopes and audiences, we will demonstrate these settings by reading and updating user profile information.
 
 ## Read User Metadata
 
-In [the previous chapter](/quickstart/native/android/00-login#show-user-profile-information), you saw how to access [basic user profile information](https://auth0.com/docs/users/user-profiles) using the `/userinfo` endpoint. This profile information may not include everything about a user that you might need. For example, in order to access the user's metadata, you must make an API call to the Management API using the user ID and the access token. With the Android SDK, this is done using the `UsersAPIClient` object.
+In <a href="/quickstart/native/android/00-login#show-user-profile-information" target="_blank" rel="noreferrer">the previous chapter</a>, you saw how to access <a href="https://auth0.com/docs/users/user-profiles" target="_blank" rel="noreferrer">basic user profile information</a> using the `/userinfo` endpoint. This profile information may not include everything about a user that you might need. For example, in order to access the user's metadata, you must make an API call to the Management API using the user ID and the access token. With the Android SDK, this is done using the `UsersAPIClient` object.
 
-To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `openid profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the [Auth0 Management API](https://auth0.com/docs/api), which happens to include the User Info audience as well.
+To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `openid profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the <a href="https://auth0.com/docs/api" target="_blank" rel="noreferrer">Auth0 Management API</a>, which happens to include the User Info audience as well.
 
 Find the code in your project that initializes the `WebAuthProvider` class, and make the following changes if necessary:
 
@@ -47,15 +47,15 @@ WebAuthProvider.login(account)
 ```
 
 :::note
-In the case of the Auth0 Management API, the `read:current_user` and `update:current_user_metadata` scopes let you get an access token that can retrieve user details and update the user's information. In the case of your APIs, you'll define custom [API scopes](https://auth0.com/docs/scopes/current/api-scopes) to implement access control, and you'll identify them in the calls that your client applications make to that API.
+In the case of the Auth0 Management API, the `read:current_user` and `update:current_user_metadata` scopes let you get an access token that can retrieve user details and update the user's information. In the case of your APIs, you'll define custom <a href="https://auth0.com/docs/scopes/current/api-scopes" target="_blank" rel="noreferrer">API scopes</a> to implement access control, and you'll identify them in the calls that your client applications make to that API.
 
-In addition, in the case of the Auth0 Management API, the audience is `https://${account.namespace}/api/v2/`. In the case of your APIs, you create an _Identifier_ value that serves as the _Audience_ value whenever you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
+In addition, in the case of the Auth0 Management API, the audience is `https://${account.namespace}/api/v2/`. In the case of your APIs, you create an _Identifier_ value that serves as the _Audience_ value whenever you <a href="https://auth0.com/docs/getting-started/set-up-api" target="_blank" rel="noreferrer">set up an API</a> with Auth0.
 :::
 
 Once you have a `UserProfile` instance (retrieved by calling `userInfo` from the previous chapter), get the user's ID and then use the `UsersAPIClient` to get the full profile for the user in another `UserProfile` instance. This profile will include all of the previous user profile information, as well as additional fields such as `user_metadata` and `app_metadata`.
 
 :::note
-Fields such as `user_metadata` and `app_metadata` are not available on the user profile that is returned by calling `userInfo`, as these fields are [proprietary fields to Auth0](https://auth0.com/docs/users/normalized-user-profiles) and not part of the OIDC spec. You must call the [Auth0 Management API](https://auth0.com/docs/users/manage-user-metadata#management-api) to get these fields, which is what you are doing by using the `UsersAPIClient` in the snippet below.
+Fields such as `user_metadata` and `app_metadata` are not available on the user profile that is returned by calling `userInfo`, as these fields are <a href="https://auth0.com/docs/users/normalized-user-profiles" target="_blank" rel="noreferrer">proprietary fields to Auth0</a> and not part of the OIDC spec. You must call the <a href="https://auth0.com/docs/users/manage-user-metadata#management-api" target="_blank" rel="noreferrer">Auth0 Management API</a> to get these fields, which is what you are doing by using the `UsersAPIClient` in the snippet below.
 :::
 
 The metadata can then be retrieved by using the `getUserMetadata` method on the `UserProfile` object.
@@ -83,7 +83,7 @@ fun getUserMetadata(userId: String, accessToken: String) {
 ```
 
 :::note
-At this stage, if you are logging in as a brand new user, they are unlikely to have a "country" field inside their metadata. You can [read more about how user metadata](https://auth0.com/docs/users/manage-user-metadata) is managed on our Docs site.
+At this stage, if you are logging in as a brand new user, they are unlikely to have a "country" field inside their metadata. You can <a href="https://auth0.com/docs/users/manage-user-metadata" target="_blank" rel="noreferrer">read more about how user metadata</a> is managed on our Docs site.
 :::
 
 :::panel Checkpoint
@@ -123,5 +123,5 @@ fun patchUserMetadata(userId: String, accessToken: String) {
 :::panel Checkpoint
 Add the above code to your application at the point where you already get the basic user profile, and observe that the `onSuccess` callback is executed. Then, re-run the code to _read_ the user metadata, and you should see that a value for "country" is now returned.
 
-You can also see the updated metadata in the [Auth0 Dashboard](https://manage.auth0.com) by [inspecting the user](https://auth0.com/docs/users/manage-users-using-the-dashboard) and looking at the metadata collection in your web browser.
+You can also see the updated metadata in the <a href="https://manage.auth0.com" target="_blank" rel="noreferrer">Auth0 Dashboard</a> by <a href="https://auth0.com/docs/users/manage-users-using-the-dashboard" target="_blank" rel="noreferrer">inspecting the user</a> and looking at the metadata collection in your web browser.
 :::
