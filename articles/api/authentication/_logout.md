@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 MD012 -->
 # Logout
 ## Auth0 Logout
 
@@ -121,13 +122,13 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 | Parameter                             | Description                                                                                                                                                     |
 | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id_token_hint` (Recommended)         | Previously issued ID Token for the user. This is used to indicate which user to log out.                                                                         |
-| `logout_hint` (Optional)              | Optional `sid` (session ID) value to indicate which user to log out. Should be provided when `id_token_hint` is not available.                                                                       |
-| `post_logout_redirect_uri` (Optional) | URL to redirect the user after the logout.                                                                                                                      |
-| `client_id` (Optional)                | The `client_id` of your application.                                                                                                                            |
-| `federated` (Optional)                | Add this query string parameter to log the user out of their identity provider: `https://YOUR_DOMAIN/oidc/logout?federated`.        |
-| `state` (Optional)                    | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the`post_logout_redirect_uri`. |
-| `ui_locales` (Optional)               | Space-delimited list of locales used to constrain the language list for the request. The first locale on the list must match the enabled locale in your tenant  |
+| `id_token_hint` <br/><span class="label label-primary">Recommended</span> | Previously issued ID Token for the user. This is used to indicate which user to log out.                                                                         |
+| `logout_hint` <br/><span class="label label-primary">Optional</span> | Optional `sid` (session ID) value to indicate which user to log out. Should be provided when `id_token_hint` is not available.                                                                       |
+| `post_logout_redirect_uri` <br/><span class="label label-primary">Optional</span> | URL to redirect the user after the logout.                                                                                                                      |
+| `client_id` <br/><span class="label label-primary">Optional</span> | The `client_id` of your application.                                                                                                                            |
+| `federated` <br/><span class="label label-primary">Optional</span> | Add this query string parameter to log the user out of their identity provider: `https://YOUR_DOMAIN/oidc/logout?federated`.        |
+| `state` <br/><span class="label label-primary">Optional</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the`post_logout_redirect_uri`. |
+| `ui_locales` <br/><span class="label label-primary">Optional</span> | Space-delimited list of locales used to constrain the language list for the request. The first locale on the list must match the enabled locale in your tenant  |
 
 ### Remarks
 
@@ -174,3 +175,22 @@ Logout behavior is determined by the configuration of the SAML2 Web App addon fo
 ### Learn More
 - [Logout](/logout)
 - [Log Users Out of SAML Identity Providers](https://auth0.com/docs/authenticate/login/logout/log-users-out-of-saml-idps)
+
+## Global Token Revocation
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
+  "http_method": "POST",
+  "path": "/oauth/global-token-revocation/connection/YourConnectionName",
+  "link": "#logout"
+}) %>
+
+Use this endpoint with the [Okta Workforce Identity Cloud Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/) to log users out of your applications. To learn more, read [Universal Logout](https://auth0.com/docs/authenticate/login/logout/universal-logout).
+
+### Request Parameters
+| Parameter | Description |
+| :-- | :-- |
+| `subject` | `{ "format": "iss_sub",  "iss": "https://issuer.example.com/", "sub": "145234573" }` |
+
+### Remarks
+- A request to this endpoint revokes sessions cookies and refresh tokens, but not access tokens.
+- You must authenticate at the endpoint before revoking user sessions. Review [Endpoint Authentication](https://developer.okta.com/docs/guides/oin-universal-logout-overview/#endpoint-authentication).

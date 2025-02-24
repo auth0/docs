@@ -47,7 +47,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-csharp/universal-login.png)
 
-This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in <a href="/universal-login#simple-customization" target="_blank" rel="noreferrer">this document</a>.
 
 ## Handle Authentication Tokens
 
@@ -78,7 +78,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
+On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipalv=vs.110" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.aspx).
 
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 

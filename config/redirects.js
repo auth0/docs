@@ -5439,6 +5439,12 @@ const redirects = [
   },
   {
     from: [
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-nodejs-16-to-nodejs-18',
+    ],
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-nodejs-16-to-nodejs-18',
+  },
+  {
+    from: [
       '/tutorials/using-auth0-to-secure-a-cli',
       '/integrations/using-auth0-to-secure-a-cli',
       '/tutorials/using-auth0-to-secure-an-api',
@@ -9065,6 +9071,37 @@ const redirects = [
     from: ['/authenticate/single-sign-on/self-service-SSO'],
     to: '/authenticate/enterprise-connections/self-service-SSO',
   },
+  
+  {
+	from: [
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/branding-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/client-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/organization-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/prompt-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/screen-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/tenant-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/transaction-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/untrusted-data-settings',
+	  '/customize/login-pages/advanced-customizations/getting-started/context-data/user-settings',
+	  '/customize/login-pages/advanced-customizations/screens',
+	  '/customize/login-pages/advanced-customizations/screens/signup-id',
+	  '/customize/login-pages/advanced-customizations/screens/signup-password',
+	  '/customize/login-pages/advanced-customizations/screens/login-id',
+	  '/customize/login-pages/advanced-customizations/screens/login-password',
+	  '/customize/login-pages/advanced-customizations/screens/login-passwordless-email-code',
+	  '/customize/login-pages/advanced-customizations/screens/login-passwordless-sms-otp',
+	  '/customize/login-pages/advanced-customizations/screens/passkey-enrollment',
+	  '/customize/login-pages/advanced-customizations/screens/passkey-enrollment-local',
+	  '/customize/login-pages/advanced-customizations/screens/phone-identifier-enrollment',
+	  '/customize/login-pages/advanced-customizations/screens/phone-identifier-challenge',
+	  '/customize/login-pages/advanced-customizations/screens/email-identifier-challenge',
+	  '/customize/login-pages/advanced-customizations/screens/interstitial-captcha',
+	  '/customize/login-pages/advanced-customizations/getting-started/sdk-quickstart/auth0-acul-js-sdk-shared-properties',
+	],
+	to: '/customize/login-pages/advanced-customizations',
+  },
+  
 ];
 
 module.exports = redirects;
