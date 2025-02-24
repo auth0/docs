@@ -1,0 +1,57 @@
+title: Expo
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/react.png
+logo_name: expo
+logo: expo
+alias:
+  - reactnative
+  - react native
+  - react native ios
+  - react native android
+author:
+  name: Poovamraj Thanganadar Thiagarajan
+  email: poovamraj.thanganadarthigarajan@okta.com
+  community: false
+language:
+  - Javascript
+framework:
+  - React Native
+  - Expo
+hybrid: true
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: react-native
+default_article: 00-login
+hidden_articles:
+  - interactive
+articles:
+  - 00-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-react-native-sample
+sdk:
+  name: react-native-auth0
+  url: https://github.com/auth0/react-native-auth0
+  logo: expo
+requirements:
+  - React Native 0.62.2
+  - NodeJS 10.16
+  - Expo SDK 41
+next_steps:
+  - path: 00-login
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

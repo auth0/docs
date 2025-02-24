@@ -1,0 +1,3 @@
+In some multi-application scenarios, where Single Logout is desired (a user logging out of one application needs to be logged out of other applications), an application can be set up to periodically poll Auth0 using `checkSession()` to see if a session exists. If the session does not exist, you can then log the user out of the application. The same polling method can be used to implement silent authentication for a <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> scenario.
+
+The poll interval between checks to `checkSession()` should be at least 15 minutes between calls to avoid any issues in the future with rate limiting of this call.

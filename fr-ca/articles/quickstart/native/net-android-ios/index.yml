@@ -1,0 +1,53 @@
+title: .NET Android and iOS
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/xamarin.png
+logo: dotnet
+author:
+  name: Frederik Prijck
+  email: frederik.prijck@auth0.com
+  community: false
+language:
+  - C#
+framework:
+  - net-android-ios
+hybrid: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+  dependencies: native-platforms/xamarin/dependencies
+  setup: native-platforms/xamarin/setup
+seo_alias: xamarin
+default_article: 01-login
+hidden_articles:
+  - interactive
+articles:
+  - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-xamarin-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: xamarin
+requirements:
+  - Visual Studio 2022+ or Visual Studio for Mac
+  - Xamarin for Visual Studio
+  - .NET6+
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

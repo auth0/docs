@@ -1,0 +1,39 @@
+title: Next.js
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/nginx-plus.png
+logo: nextjs
+alias:
+  - next
+  - nextjs
+  - next.js
+language:
+  - Javascript
+framework:
+  - Next.js
+author:
+  name: Rita Zerrizuela
+  email: rita.zerrizuela@auth0.com
+  community: false
+
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: nextjs
+show_releases: true
+show_steps: true
+requirements:
+  - Next.js 13.4+
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+sdk:
+  name: nextjs-auth0
+  url: https://github.com/auth0/nextjs-auth0/
+  logo: nextjs
+github:
+  org: auth0-samples
+  repo: auth0-nextjs-samples
+  branch: main
