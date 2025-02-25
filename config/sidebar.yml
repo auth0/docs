@@ -1475,20 +1475,20 @@ articles:
     forceFullReload: true
     url: 'https://auth0.com/blog/'
 apis:
-  - title: overview
+  - title: Overview
     url: /api
-  - title: testingWithPostman
+  - title: Testing with Postman
     url: /api/use-auth0-apis-with-postman-collections
     hidden: true 
-  - title: authenticationApi
+  - title: Authentication API
     url: /api/authentication
     external: true
     forceFullReload: true
-  - title: changesInManagementApiV2
+  - title: Changes in Management API v2
     url: /api/management-api-changes-v1-to-v2
     forceFullReload: true
     hidden: true 
-  - title: managementApiExplorer
+  - title: Management API Explorer
     url: /api/management/v2/
     forceFullReload: true
     external: true
