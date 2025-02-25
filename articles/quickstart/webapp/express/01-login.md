@@ -18,7 +18,7 @@ github:
 
 ## Configure Auth0
 
-You will need to register your application with Auth0 in order to start authenticating users. Go to the <a href="$manage_url/#/applications" target="_blank" rel="noreferrer">Applications</a> screen in the Auth0 dashboard, create a new **Regular Web Application**, and follow the steps below.
+You will need to register your application with Auth0 in order to start authenticating users. Go to the <a href="${manage_url}/#/applications" target="_blank" rel="noreferrer">Applications</a> screen in the Auth0 dashboard, create a new **Regular Web Application**, and follow the steps below.
 
 ### 1. Configure Callback URL
 
@@ -54,8 +54,8 @@ The Express OpenID Connect library provides the `auth` router in order to attach
 - `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
 - `secret` - A long, random string used to encrypt the session cookie
-- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
-- `clientID` - The Client ID found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
+- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application settings</a>
+- `clientID` - The Client ID found in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application settings</a>
 
 Here is an example configuration using this router:
 
