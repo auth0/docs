@@ -21,7 +21,7 @@ sample_download_required_data:
 ## Install and configure the OpenID Connect middleware
 
 ::: note
-  This quickstart uses OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently using OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
+  This quickstart uses OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently using OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/" target="_blank" rel="noreferrer">OWIN documentation</a> to enable it in your application.
 :::
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware, so install the `Microsoft.Owin.Security.OpenIdConnect` NuGet package first:
