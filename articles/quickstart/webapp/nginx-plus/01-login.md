@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 
 ## Install and Enable `nginx-plus-module-njs` Module
 
-First, you need to install the nginx-plus-module-njs module for NGINX Plus. Follow the <a href="https://www.nginx.com/products/nginx/dynamic-modules/" target="_blank" rel="noreferrer">dynamic module installation guide</a> to install packages in your host OS. 
+First, you need to install the nginx-plus-module-njs module for NGINX Plus. Follow the <a href="https://docs.nginx.com/nginx/admin-guide/dynamic-modules/nginscript" target="_blank" rel="noreferrer">dynamic module installation guide</a> to install packages in your host OS.
 For Linux distributions that use `yum` package manager install as follows:
 
 ```bash

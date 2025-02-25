@@ -148,7 +148,7 @@ Route::get('/', function () {
 
 ## User Management{{{ data-action=code data-code="routes/web.php#26:43" }}}
 
-You can update user information using the <a href="https://github.com/auth0/laravel-auth0/blob/main/Management.md" target="_blank" rel="noreferrer">Auth0 Management API</a>. All Management endpoints are accessible through the SDK's `management()` method.
+You can update user information using the <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md" target="_blank" rel="noreferrer">Auth0 Management API</a>. All Management endpoints are accessible through the SDK's `management()` method.
 
 **Before making Management API calls you must enable your application to communicate with the Management API.** This can be done from the <a href="https://manage.auth0.com/#/apis/" target="_blank" rel="noreferrer">Auth0 Dashboards API page</a>, choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
 

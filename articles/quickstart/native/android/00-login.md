@@ -59,7 +59,7 @@ android {
 ```
 
 ::: panel Sync Project with Gradle Files
-Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check <a href="http://tools.android.com/tech-docs/new-build-system/user-guide" target="_blank" rel="noreferrer">their official documentation</a>.
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check <a href="https://developer.android.com/build/gradle-build-overview" target="_blank" rel="noreferrer">their official documentation</a>.
 :::
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
