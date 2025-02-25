@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * NGINX Plus R24
 :::
 
-**Please follow the steps below to configure your application using <a href="https://www.nginx.com/products/nginx/" target="_blank" rel="noreferrer">NGINX Plus</a> to work with Auth0 and Open ID Connect.**
+**Please follow the steps below to configure your application using <a href="https://www.nginx.com/products/nginx/" target="_blank" rel="noreferrer">**NGINX Plus**</a> to work with Auth0 and Open ID Connect.**
 
 ## Install and Enable `nginx-plus-module-njs` Module
 
