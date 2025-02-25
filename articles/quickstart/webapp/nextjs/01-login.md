@@ -50,7 +50,7 @@ The SDK will read these values from the Node.js process environment and automati
 
 ### Add the dynamic API route handler
 
-Create a file at `app/api/auth/<a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments" target="_blank" rel="noreferrer">auth0/route.js`. This is your Route Handler file with a Dynamic Route Segment</a>.
+Create a file at `app/api/auth/[auth0]/route.js`. This is your Route Handler file with a <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments" target="_blank" rel="noreferrer">Dynamic Route Segment</a>.
 
 Then, import the `handleAuth` method from the SDK and call it from the `GET` export.
 
