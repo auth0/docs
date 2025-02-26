@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: scopes
+  current: current
+  versions:
+    - legacy
+    - current
+  defaultArticles:
+    legacy: index
+    current: index

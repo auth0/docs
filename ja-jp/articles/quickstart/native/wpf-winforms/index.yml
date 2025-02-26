@@ -1,0 +1,61 @@
+title: WPF / Winforms
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: dotnet-platform
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
+hybrid: false
+language:
+  - Javascript
+  - C#
+framework:
+  - WPF
+  - WinForms
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+  dependencies: native-platforms/wpf-winforms/dependencies
+  setup: native-platforms/wpf-winforms/setup
+  use: native-platforms/wpf-winforms/use
+alias:
+  - wpf
+  - wiforms
+  - rich-client-application
+  - rich-client
+seo_alias: wpf-winforms
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - "interactive"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-WinFormsWPF-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: windows
+requirements:
+  - Microsoft Visual Studio 2022
+  - .NET Framework 4.6.2
+  - .NET 6
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
