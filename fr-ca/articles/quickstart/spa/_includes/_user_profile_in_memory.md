@@ -1,1 +1,0 @@
-The service includes a local `userProfile` member that caches the profile information you requested with the `getProfile` call. 

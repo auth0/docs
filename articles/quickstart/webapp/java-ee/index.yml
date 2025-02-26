@@ -21,8 +21,6 @@ useCase: quickstart
 seo_alias: java ee
 articles:
   - 01-login
-hidden_articles:
-  - interactive
 default_article: 01-login
 show_steps: true
 github:
