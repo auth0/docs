@@ -10,7 +10,7 @@ Auth0 makes it easy for your app to implement the Device Authorization flow usin
 
 **Before beginning this tutorial:**
 
-* Check <a href="#limitations" target="_blank" rel="noreferrer">limitations</a> to be sure the Device Authorization flow is suitable for your implementation.
+* Check [limitations](#limitations) to be sure the Device Authorization flow is suitable for your implementation.
 
 * <a href="/dashboard/guides/applications/register-app-native" target="_blank" rel="noreferrer">Register the Application with Auth0</a>. 
   * Select an **Application Type** of **Native**.
@@ -28,17 +28,17 @@ Auth0 makes it easy for your app to implement the Device Authorization flow usin
 
 ## Steps
 
-1. <a href="#request-device-code" target="_blank" rel="noreferrer">Request device code</a> (Device Flow): Request a device code that the user can use to authorize the device.
-2. <a href="#request-device-activation" target="_blank" rel="noreferrer">Request device activation</a> (Device Flow): Request that the user authorize the device using their laptop or smartphone.
-3. <a href="#request-tokens" target="_blank" rel="noreferrer">Request Tokens</a> (Device Flow): Poll the token endpoint to request a token.
-4. <a href="#user-authorization" target="_blank" rel="noreferrer">User authorization</a> (Browser Flow): The user authorizes the device, so the device can receive tokens.
-5. <a href="#receive-tokens" target="_blank" rel="noreferrer">Receive Tokens</a> (Device Flow): After the user successfully authorizes the device, receive tokens.
-6. <a href="#call-your-api" target="_blank" rel="noreferrer">Call your API</a> (Device Flow): Use the retrieved Access Token to call your API.
-7. <a href="#refresh-tokens" target="_blank" rel="noreferrer">Refresh Tokens</a> (Device Flow): Use a Refresh Token to request new tokens when the existing ones expire.
+1. [Request device code](#request-device-code) (Device Flow): Request a device code that the user can use to authorize the device.
+2. [Request device activation](#request-device-activation) (Device Flow): Request that the user authorize the device using their laptop or smartphone.
+3. [Request Tokens](#request-tokens) (Device Flow): Poll the token endpoint to request a token.
+4. [User authorization](#user-authorization) (Browser Flow): The user authorizes the device, so the device can receive tokens.
+5. [Receive Tokens](#receive-tokens) (Device Flow): After the user successfully authorizes the device, receive tokens.
+6. [Call your API](#call-your-api) (Device Flow): Use the retrieved Access Token to call your API.
+7. [Refresh Tokens](#refresh-tokens) (Device Flow): Use a Refresh Token to request new tokens when the existing ones expire.
 
-Optional: <a href="#sample-use-cases" target="_blank" rel="noreferrer">Explore Sample Use Cases</a>
+Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-Optional: <a href="#troubleshooting" target="_blank" rel="noreferrer">Troubleshooting</a>
+Optional: [Troubleshooting](#troubleshooting)
 
 <%= include('./request-device-code') %>
 
