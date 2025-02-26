@@ -1,1 +1,0 @@
-Calls to the Management API are subject to [Auth0 Rate Limiting policy](/policies/rate-limits). You must take this into consideration, and to assist, Auth0 generally recommends use of the appropriate [Auth0 SDK](/libraries) for your development environment rather than calling our APIs directly. 

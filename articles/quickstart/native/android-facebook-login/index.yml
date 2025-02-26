@@ -28,8 +28,6 @@ snippets:
 default_article: 00-login-facebook
 articles:
   - 00-login-facebook
-hidden_articles:
-  - interactive
 next_steps:
   - path: 00-login-facebook
     list:
