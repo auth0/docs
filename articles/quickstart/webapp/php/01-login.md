@@ -27,7 +27,7 @@ Let's create a sample application that authenticates a user with a PHP applicati
 
 The Auth0 PHP SDK supports many <a href="https://www.php-fig.org" target="_blank" rel="noreferrer">PHP-FIG</a> standards offering interoperability options with your architecture. Two of particular importance are <a href="https://www.php-fig.org/psr/psr-17/" target="_blank" rel="noreferrer">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank" rel="noreferrer">PSR-18</a>. These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
 
-The most prolific networking library for PHP is <a href="https://guzzlephp.org" target="_blank" rel="noreferrer">Guzzle</a>, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
+The most prolific networking library for PHP is <a href="https://docs.guzzlephp.org/" target="_blank" rel="noreferrer">Guzzle</a>, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
 
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle

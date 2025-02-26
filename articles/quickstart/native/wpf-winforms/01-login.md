@@ -82,7 +82,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipalv=vs.110" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.aspx).
+On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.
 
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 

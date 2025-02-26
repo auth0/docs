@@ -1,10 +1,10 @@
-To run the sample first set the **Allowed Callback URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>:
+To run the sample first set the **Allowed Callback URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>:
 
   ```text
 myapp://callback
   ```
 
-Set the **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>:
+Set the **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>:
 
   ```text
 myapp://callback

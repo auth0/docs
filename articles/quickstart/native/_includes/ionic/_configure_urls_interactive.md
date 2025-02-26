@@ -34,10 +34,10 @@ If you are following along with our sample project, set this to `YOUR_PACKAGE_ID
 
 ### Configure Allowed Origins
 
-To be able to make requests from your native application to Auth0, set the following **Allowed Origins** in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>.
+To be able to make requests from your native application to Auth0, set the following **Allowed Origins** in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>.
 
 ::: note
 If you are following along with our sample project, set this to `capacitor://localhost, http://localhost` for iOS and Android respectively.
 :::
 
-Lastly, be sure that the **Application Type** for your application is set to **Native** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>.
+Lastly, be sure that the **Application Type** for your application is set to **Native** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>.

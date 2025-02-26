@@ -107,7 +107,7 @@ To make your endpoint return a JSON, you can use a Java record. The member varia
 
 ## Create the API controller {{{ data-action=code data-code="APIController.java" }}}
 
-Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the <a href="/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server" target="_blank" rel="noreferrer">Protect API Endpoints</a> section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
+Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
 
 ## Run the application {{{ data-action=code data-code="APIController.java" }}}
 

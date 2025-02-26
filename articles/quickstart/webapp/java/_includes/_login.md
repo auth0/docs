@@ -188,7 +188,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean appRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="$manage_url/#/" target="_blank" rel="noreferrer">dashboard</a>.
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">dashboard</a>.
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 

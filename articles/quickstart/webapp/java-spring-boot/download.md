@@ -2,12 +2,12 @@
 
 To run the sample follow these steps:
 
-1) Set the **Allowed Callback URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to:
+1) Set the **Allowed Callback URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to:
 ```text
 http://localhost:3000/login/oauth2/code/auth0
 ```
 
-2) Set the **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to:
+2) Set the **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to:
 ```text
 http://localhost:3000/
 ```

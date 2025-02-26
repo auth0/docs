@@ -2,7 +2,7 @@
 
 A callback URL is a URL in your application where Auth0 redirects the user after they have been authenticated. Auth0 adds parameters to the callback URL, including a token. 
 
-Callback URLs can be manipulated by attackers. For security, add your application's URL to the **Allowed Callback URLs** field in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>. 
+Callback URLs can be manipulated by attackers. For security, add your application's URL to the **Allowed Callback URLs** field in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>. 
 
 If you do not add your application's URL to the list of Allowed Callback URLs, your users will see a mismatch error when they try to log in.
 

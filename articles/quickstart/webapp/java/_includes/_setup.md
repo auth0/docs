@@ -56,7 +56,7 @@ Your Java App needs some information in order to authenticate against your Auth0
 </context-param>
 ```
 
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">librarys documentation</a>.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">library's documentation</a>.
 
 
 ::: panel Check populated attributes

@@ -1,12 +1,12 @@
 <!-- markdownlint-disable MD041 -->
 
-To run the sample first set the **Callback URL** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to
+To run the sample first set the **Callback URL** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to
 
 ```text
 demo://${account.namespace}/android/com.auth0.androidsample/callback
 ```
 
-To run the sample first set the **Logout URL** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to
+To run the sample first set the **Logout URL** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to
 
 ```text
 demo://${account.namespace}/android/com.auth0.androidsample/callback

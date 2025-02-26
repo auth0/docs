@@ -82,7 +82,7 @@ This step requires a paid Apple Developer account. It is needed to use Universal
 
 #### Configure the Team ID and bundle identifier
 
-Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
 
@@ -156,7 +156,7 @@ For further reference on Carthage, check their <a href="https://github.com/Carth
 
 ## Configure the SDK {{{ data-action=code data-code="Auth0.plist" }}}
 
-The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application.
+The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application.
 
 - **domain**: The domain of your Auth0 tenant. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of your Auth0 tenant’s domain.
 - **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.

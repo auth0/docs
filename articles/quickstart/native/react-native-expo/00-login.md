@@ -111,7 +111,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-Go to the settings page of your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Auth0 application</a> and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use the value of your custom domain instead of the Auth0 domain from the settings page.
+Go to the settings page of your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Auth0 application</a> and add the corresponding URL to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application. If you are using a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use the value of your custom domain instead of the Auth0 domain from the settings page.
 
 #### iOS
 ```text

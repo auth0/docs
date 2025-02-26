@@ -59,7 +59,7 @@ android {
 ```
 
 ::: panel Sync Project with Gradle Files
-Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check <a href="http://tools.android.com/tech-docs/new-build-system/user-guide" target="_blank" rel="noreferrer">their official documentation</a>.
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check <a href="https://developer.android.com/build/gradle-build-overview" target="_blank" rel="noreferrer">their official documentation</a>.
 :::
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use <a href="https://developer.android.com/guide/topics/resources/string-resource.html" target="_blank" rel="noreferrer">String Resources</a>, such as `@string/com_auth0_domain`, to define the values.
 :::
 
-Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="$manage_url/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
+Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
 ```kotlin
 private fun loginWithBrowser() {

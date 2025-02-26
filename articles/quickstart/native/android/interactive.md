@@ -91,7 +91,7 @@ For more information about using Gradle, check the <a href="https://gradle.org/g
 
 In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials.
 
-Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="$manage_url/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
+Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
 
 After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 

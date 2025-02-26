@@ -33,7 +33,7 @@ On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback a
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
 
-Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the value from the settings page.
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the value from the settings page.
 
 #### iOS
 
@@ -140,7 +140,7 @@ For further reference on Carthage, check their <a href="https://github.com/Carth
 
 ## Configure the SDK
 
-The Auth0.swift SDK needs the **Client ID** and **domain** of the Auth0 application to communicate with Auth0. You can find these details in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application. If you are using a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use the value of your custom domain instead of the value from the settings page.
+The Auth0.swift SDK needs the **Client ID** and **domain** of the Auth0 application to communicate with Auth0. You can find these details in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application. If you are using a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use the value of your custom domain instead of the value from the settings page.
 
 <% if(typeof hideDashboardScreenshot === 'undefined' || hideDashboardScreenshot !== true) { %>
 ![Screenshot of the Auth0 application settings page](/media/articles/dashboard/client_settings.png)

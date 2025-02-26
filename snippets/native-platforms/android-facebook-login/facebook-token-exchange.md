@@ -51,7 +51,7 @@ private void exchangeTokens(@NonNull String sessionToken, @NonNull String userPr
 
 ::: note
 It's a good practice to keep all the values that you know won't change as constants at the top of the class. The sample makes use of constants for the subject token type, the Facebook permissions, and the Auth0 scopes. 
-You can read more about Auth0 scopes in the dedicated [article](/scopes/current/oidc-scopes).
+You can read more about Auth0 scopes in the dedicated <a href="/scopes/current/oidc-scopes" target="_blank" rel="noreferrer">article</a>.
 :::
 
 

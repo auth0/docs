@@ -53,7 +53,7 @@ cd apiexample
 
 ## Create the JWT validator {{{ data-action=code data-code="apiexample/validator.py" }}}
 
-You're going to use a library called <a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer">ResourceProtector</a>, which is a type of <a href="https://docs.djangoproject.com/en/4.0/topics/http/decorators/" target="_blank" rel="noreferrer">Django view decorator</a> that protects your resources (API views) with a given validator.
+You're going to use a library called <a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer">ResourceProtector</a>, which is a type of <a href="https://docs.djangoproject.com/en/5.1/topics/http/decorators/" target="_blank" rel="noreferrer">Django view decorator</a> that protects your resources (API views) with a given validator.
 
 The validator will verify the Access Token that you pass to the resource by checking that it has a valid signature and claims.
 

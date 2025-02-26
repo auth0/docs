@@ -5,7 +5,7 @@
 ::: note
 You can also embed the login dialog directly in your application using the <a href="/lock" target="_blank" rel="noreferrer">Lock widget</a>. If you use this method, some features, such as single sign-on, will not be accessible. 
 <% if (typeof embeddedLoginLink == 'string') { %>
-To learn how to embed the Lock widget in your application, follow the <a href="$embeddedLoginLink" target="_blank" rel="noreferrer">Embedded Login sample</a>.
+To learn how to embed the Lock widget in your application, follow the <a href="${embeddedLoginLink}" target="_blank" rel="noreferrer">Embedded Login sample</a>.
 <% } %>
 :::
 

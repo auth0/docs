@@ -40,7 +40,7 @@ The SDK exports `AuthModule`, a module that contains all the services required f
 
 The `AuthModule.forRoot` function takes the following configuration:
 
-- `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's <a href="http://localhost:3000/docs/custom-domains" target="_blank" rel="noreferrer">custom domains feature</a>.
+- `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domains feature</a>.
 - `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
 - `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.

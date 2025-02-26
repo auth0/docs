@@ -2,7 +2,7 @@
 
 To run the sample follow these steps:
 
-1. Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> to the following value so it works for both Android and iOS apps:
+1. Set the **Allowed Callback URLs** and **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to the following value so it works for both Android and iOS apps:
 
 ```text
 com.auth0.samples.FlutterSample://${account.namespace}/ios/com.auth0.samples.FlutterSample/callback,com.auth0.sample://${account.namespace}/android/com.auth0.sample/callback
