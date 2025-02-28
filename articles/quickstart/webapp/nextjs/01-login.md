@@ -23,7 +23,7 @@ useCase: quickstart
 Run the following command within your project directory to install the Auth0 Next.js SDK:
 
 ```sh
-npm install @auth0/nextjs-auth0
+npm install @auth0/nextjs-auth0@3
 ```
 
 The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers" target="_blank" rel="noreferrer">Route Handlers</a> on the backend and <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noreferrer">React Context</a> with <a href="https://reactjs.org/docs/hooks-overview.html" target="_blank" rel="noreferrer">React Hooks</a> on the frontend.
