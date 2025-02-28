@@ -48,6 +48,8 @@ Auth0 invokes the callback and logout URLs to redirect users back to your app. A
 ::: note
 On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
 
+Whenever possible, Auth0 recommends using Universal Links as a secure way to link directly to content within your app. Custom URL schemes can be subject to [client impersonation attacks](https://datatracker.ietf.org/doc/html/rfc8252#section-8.6).
+
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
 
