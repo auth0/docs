@@ -21,7 +21,7 @@ files:
 
 ## Add dependencies
 
-Use `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.
+Use `omniauth-auth0`, a custom <a href="https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication" target="_blank" rel="noreferrer">OmniAuth strategy</a>, to handle the authentication flow.
 
 Add the following dependencies to your `Gemfile`:
 
@@ -38,7 +38,7 @@ Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, c
 
 ## Configure OmniAuth middleware {{{ data-action=code data-code="auth0.rb" }}}
 
-Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters) the **OmniAuth** middleware with the configuration file you created in the previous step.
+Create the following initializer file `./config/initializers/auth0.rb` and <a href="https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters" target="_blank" rel="noreferrer">configure</a> the **OmniAuth** middleware with the configuration file you created in the previous step.
 
 Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 application.
 
@@ -50,7 +50,7 @@ Run the command: `rails generate controller auth0 callback failure logout --skip
 
 Inside the callback method, assign the hash of user information - returned as `request.env['omniauth.auth']` - to the active session.
 
-To configure logout, clear all the objects stored within the session by calling the `reset_session` method within the `logout` action. Then, redirect to the Auth0 logout endpoint. To learn more about `reset_session`, read[Ruby on Rails ActionController documentation](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+To configure logout, clear all the objects stored within the session by calling the `reset_session` method within the `logout` action. Then, redirect to the Auth0 logout endpoint. To learn more about `reset_session`, read<a href="http://api.rubyonrails.org/classes/ActionController/Base.html#M000668" target="_blank" rel="noreferrer">Ruby on Rails ActionController documentation</a>.
 
 ## Configure routes {{{ data-action=code data-code="routes.rb" }}}
 
@@ -66,7 +66,7 @@ Run your application to verify it continues to work as intended and you aren't r
 ::: checkpoint-failure
 Sorry about that. Please double-check that the previous steps completed without error.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
@@ -75,7 +75,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
 ::: warning
-To [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection), use the `link_to` or `button_to` helper methods with the `:post` method
+To <a href="https://github.com/cookpad/omniauth-rails_csrf_protection" target="_blank" rel="noreferrer">prevent forged authentication requests</a>, use the `link_to` or `button_to` helper methods with the `:post` method
 :::
 
 ```erb
@@ -94,15 +94,15 @@ Sorry about that. Here are a couple of things you can check:
 - Ensure that the correct URLs have been set in your Auth0 application as per the first step in this quickstart
 - Check that all the required gems installed correctly
 - Check that the routes have been set up and the Auth0 configuration has been set up in your app
-- [Check the logs](https://manage.auth0.com/#/logs) for any other errors or messages that may have prevented login from working
+- <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">Check the logs</a> for any other errors or messages that may have prevented login from working
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Add logout to your application
 
-Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Log out a user by redirecting to the `auth/logout` action, which redirects them to the Auth0 logout endpoint.
+Now that you can log in to your Rails application, you need <a href="https://auth0.com/docs/logout/guides/logout-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Log out a user by redirecting to the `auth/logout` action, which redirects them to the Auth0 logout endpoint.
 
 :::note
 To test this after the previous step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.
@@ -123,15 +123,15 @@ Sorry about that. Here are a couple of things you can check:
 
 - Ensure that the correct URLs have been set in your Auth0 client as per the first step in this quickstart
 - Check that the routes have been set up and the Auth0 configuration has been set up in your app
-- [Check the logs](https://manage.auth0.com/#/logs) for any other errors or messages that may have prevented login from working
+- <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">Check the logs</a> for any other errors or messages that may have prevented login from working
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
 ## Show user profile information {{{ data-action=code data-code="secured.rb" }}}
 
-To display the user's profile, your application should provide a protected route. You can use a [Concern](https://guides.rubyonrails.org/getting_started.html#using-concerns) to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
+To display the user's profile, your application should provide a protected route. You can use a <a href="https://guides.rubyonrails.org/getting_started.html#using-concerns" target="_blank" rel="noreferrer">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
 Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]` as in the following example:
 

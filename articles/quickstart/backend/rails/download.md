@@ -5,7 +5,7 @@ bundle install
 rails s --port 3010
 ```
 
-The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:
+The sample includes a <a href="https://www.docker.com" target="_blank" rel="noreferrer">Docker</a> image ready to run with the following command:
 
 ```bash
 # In Linux / macOS

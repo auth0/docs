@@ -15,11 +15,11 @@ github:
 
 # Add Authorization to Your Django API Application
 
-This guide demonstrates how to integrate Auth0 with any new or existing Python API built with [Django](https://www.djangoproject.com/).
+This guide demonstrates how to integrate Auth0 with any new or existing Python API built with <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer">Django</a>.
 
 If you haven't created an API in your Auth0 Dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
 
-Alternatively, you can read our [getting started guide](/get-started/auth0-overview/set-up-apis), which will help you set up your first API through the Auth0 Dashboard.
+Alternatively, you can read our <a href="/get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">getting started guide</a>, which will help you set up your first API through the Auth0 Dashboard.
 
 Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the Access Token.
 
@@ -53,11 +53,11 @@ cd apiexample
 
 ## Create the JWT validator {{{ data-action=code data-code="apiexample/validator.py" }}}
 
-You're going to use a library called [Authlib](https://github.com/lepture/authlib) to create a [ResourceProtector](https://docs.authlib.org/en/latest/flask/1/resource-server.html), which is a type of [Django view decorator](https://docs.djangoproject.com/en/4.0/topics/http/decorators/) that protects your resources (API views) with a given validator.
+You're going to use a library called <a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer">ResourceProtector</a>, which is a type of <a href="https://docs.djangoproject.com/en/4.0/topics/http/decorators/" target="_blank" rel="noreferrer">Django view decorator</a> that protects your resources (API views) with a given validator.
 
 The validator will verify the Access Token that you pass to the resource by checking that it has a valid signature and claims.
 
-You can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on [validating Access Tokens](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
+You can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on <a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens" target="_blank" rel="noreferrer">validating Access Tokens</a>.
 
 To create your `Auth0JWTBearerTokenValidator`, you need to pass it your `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
 
@@ -81,7 +81,7 @@ The `require_auth` decorator on the `private_scoped` route accepts an additional
 
 ## Add URL mappings {{{ data-action=code data-code="apiexample/urls.py#8:10" }}}
 
-In previous steps, you added methods to the `views.py` file. You need to map those methods to URLs using Django's [URL dispatcher](https://docs.djangoproject.com/en/4.0/topics/http/urls/), which lets you map URL patterns to views.
+In previous steps, you added methods to the `views.py` file. You need to map those methods to URLs using Django's <a href="https://docs.djangoproject.com/en/4.0/topics/http/urls/" target="_blank" rel="noreferrer">URL dispatcher</a>, which lets you map URL patterns to views.
 
 Add the URL patterns to `apiexample/urls.py`:
 

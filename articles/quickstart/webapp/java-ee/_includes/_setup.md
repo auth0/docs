@@ -6,7 +6,7 @@ To integrate your Java EE application with Auth0, add the following dependencies
 
 - **javax.javaee-api**: The Java EE 8 API necessary to write applications using Java EE 8. The actual implementation is provided by the application container, so it does not need to be included in the WAR file.
 - **javax.security.enterprise**: The Java EE 8 Security API that enables handling security concerns in an EE application. Like the `javax.javaee-api` dependency, the implementation is provided by the application container, so is not included in the WAR file.
-- **auth0-java-mvc-commons**: The [Auth0 Java MVC SDK](https://github.com/auth0/auth0-java-mvc-common) allows you to use Auth0 with Java for server-side MVC web applications. It generates the Authorize URL that your application needs to call in order to authenticate a user using Auth0.
+- **auth0-java-mvc-commons**: The <a href="https://github.com/auth0/auth0-java-mvc-common" target="_blank" rel="noreferrer">Auth0 Java MVC SDK</a> allows you to use Auth0 with Java for server-side MVC web applications. It generates the Authorize URL that your application needs to call in order to authenticate a user using Auth0.
 
 If you are using Maven, add these dependencies to your `pom.xml`:
 
@@ -45,7 +45,7 @@ implementation 'com.auth0:mvc-auth-commons:1.+'
 ### Configure your Java EE application
 
 ::: note
-The sample that accompanies this tutorial is written using JSP and tested with the [WildFly](https://wildfly.org/) application server. You may need to adjust some of the steps if you working with a different application container or technologies.
+The sample that accompanies this tutorial is written using JSP and tested with the <a href="https://wildfly.org/" target="_blank" rel="noreferrer">WildFly</a> application server. You may need to adjust some of the steps if you working with a different application container or technologies.
 :::
 
 Your Java EE application needs some information in order to authenticate users with your Auth0 application. The deployment descriptor `web.xml` file can be used to store this information, though you could store them in a different secured location. The required information is:
@@ -76,7 +76,7 @@ Your Java EE application needs some information in order to authenticate users w
 </env-entry>
 ```
 
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the library.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">README</a> of the library.
 
 ::: panel Check populated attributes
 If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.

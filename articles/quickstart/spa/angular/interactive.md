@@ -12,12 +12,12 @@ github:
 ---
 
 :::note
-Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
+Visit the <a href="https://developer.auth0.com/resources/guides/spa/angular/basic-authentication" target="_blank" rel="noreferrer">Angular Authentication By Example</a> guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
 :::
 
 # Add Login to Your Angular Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the <a href="https://github.com/auth0/auth0-angular" target="_blank" rel="noreferrer">Auth0 Angular SDK</a>.
 
 To use this quickstart, you’ll need to:
 
@@ -33,7 +33,7 @@ To use this quickstart, you’ll need to:
 
 ## Install the Auth0 Angular SDK
 
-Auth0 provides an [Angular SDK](https://github.com/auth0/auth0-angular) to simplify the process of implementing Auth0 authentication and authorization in Angular applications.
+Auth0 provides an <a href="https://github.com/auth0/auth0-angular" target="_blank" rel="noreferrer">Angular SDK</a> to simplify the process of implementing Auth0 authentication and authorization in Angular applications.
 
 Install the Auth0 Angular SDK by running the following command in your terminal:
 
@@ -70,7 +70,7 @@ You should now be able to log in to your application.
 Run your application, and select the login button. Verify that:
 
 - you can log in or sign up using a username and password.
-- your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page.
+- your application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page.
 - you are redirected to Auth0 for authentication.
 - Auth0 successfully redirects back to your application after authentication.
 - you do not receive any errors in the console related to Auth0.
@@ -83,14 +83,14 @@ Sorry about that. Here are a few things to double check:
 - make sure you configured the correct `authorizationParams.redirect_uri`
 - make sure you added the `LoginButtonComponent` button to the module's declarations
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a>.
 
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="logout-button.ts#19:25" }}}
 
-Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The SDK provides a `logout()` method on the `AuthService` class that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
+Users who log in to your project will also need <a href="/logout/guides/logout-auth0" target="_blank" rel="noreferrer">a way to log out</a>. The SDK provides a `logout()` method on the `AuthService` class that you can use to log a user out of your app. When users log out, they will be redirected to your <a href="/api/authentication?javascript#logout" target="_blank" rel="noreferrer">Auth0 logout endpoint</a>, which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
 
 Create a logout button in your application that calls `logout()` when selected.
 
@@ -117,9 +117,9 @@ Sorry about that. Here are a few things to double check:
 
 - make sure that you configured the logout URL as one of the **Allowed Logout URLS** in your application's **Settings**
 - check that you added the `LogoutButtonComponent` to the module's declarations 
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
+- inspect the <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">application logs</a> for further errors
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a>.
 
 :::
 
@@ -127,7 +127,7 @@ Still having issues? To get more help, check out our [documentation](/) or visit
 
 ## Show user profile information {{{ data-action=code data-code="user-profile.ts" }}}
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
+Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
 
 The Auth0 Angular SDK provides user information through the `user$` observable exposed by the `AuthService` class. Because the `user$` observable contains sensitive information and artifacts related to the user's identity, its availability depends on the user's authentication status. Fortunately, the `user$` observable is configured to only emit values once the `isAuthenticated$` observable is true, so there is no need to manually check the authentication state before accessing the user profile data.
 
@@ -154,7 +154,7 @@ Sorry about that. Here are a few things to double check:
 - make sure you are trying to access an existing property such as `user.name`
 - make sure you added the `UserProfileComponent` component to the correct module's declarations
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+Still having issues? To get more help, check out our <a href="/" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a>.
 :::
 
 ::::
