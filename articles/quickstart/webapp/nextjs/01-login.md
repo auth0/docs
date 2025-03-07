@@ -23,7 +23,7 @@ useCase: quickstart
 Run the following command within your project directory to install the Auth0 Next.js SDK:
 
 ```sh
-npm install @auth0/nextjs-auth0
+npm i @auth0/nextjs-auth0
 ```
 
 The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers" target="_blank" rel="noreferrer">Route Handlers</a> on the backend and <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noreferrer">React Context</a> with <a href="https://reactjs.org/docs/hooks-overview.html" target="_blank" rel="noreferrer">React Hooks</a> on the frontend.
@@ -48,71 +48,118 @@ AUTH0_CLIENT_SECRET='${account.clientSecret}'
 
 The SDK will read these values from the Node.js process environment and automatically configure itself.
 
-### Add the dynamic API route handler
+### Create the Auth0 SDK Client
 
-Create a file at `app/api/auth/<a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments" target="_blank" rel="noreferrer">auth0/route.js`. This is your Route Handler file with a Dynamic Route Segment</a>.
+Create a file at `src/lib/auth0.ts`. This file provides methods for handling authentication, sessions and user data.
 
-Then, import the `handleAuth` method from the SDK and call it from the `GET` export.
+Then, import the Auth0Client class from the SDK to create an instance and export it as auth0. This instance is used in your app to interact with Auth0.
 
 ```javascript
-// app/api/auth/[auth0]/route.js
-import { handleAuth } from '@auth0/nextjs-auth0';
+// src/lib/auth0.ts
+import { Auth0Client } from "@auth0/nextjs-auth0/server";
 
-export const GET = handleAuth();
+export const auth0 = new Auth0Client();
 ```
 
-This creates the following routes:
-
-- `/api/auth/login`: The route used to perform login with Auth0.
-- `/api/auth/logout`: The route used to log the user out.
-- `/api/auth/callback`: The route Auth0 will redirect the user to after a successful login.
-- `/api/auth/me`: The route to fetch the user profile from.
+### Add the Authentication Middleware
 
 ::: note
-This QuickStart targets the Next.js <a href="https://nextjs.org/docs/app" target="_blank" rel="noreferrer">App Router</a>. If you're using the <a href="https://nextjs.org/docs/pages" target="_blank" rel="noreferrer">Pages Router</a>, check out the example in the SDK's <a href="https://github.com/auth0/nextjs-auth0#page-router" target="_blank" rel="noreferrer">README</a>.
+The Next.js Middleware allows you to run code before a request is completed.
 :::
 
-### Add the `UserProvider` component
+Create a file at `src/middleware.ts`. This file is used to enforce authentication on specific routes.
 
-On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required" target="_blank" rel="noreferrer">Root Layout component</a> and wrap the `<body>` tag with a `UserProvider` in the file `app/layout.jsx`. 
+The `middleware` function intercepts incoming requests and applies Auth0's authentication logic. The `matcher` configuration ensures that the middleware runs on all routes except for static files and metadata.
 
-Create the file `app/layout.jsx` as follows:
+```javascript
+// src/middleware.ts
+import type { NextRequest } from "next/server";
+import { auth0 } from "./lib/auth0";
 
-```jsx
-// app/layout.jsx
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+export async function middleware(request: NextRequest) {
+  return await auth0.middleware(request);
+}
 
-export default function RootLayout({ children }) {
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     */
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
+};
+```
+
+### Add the Landing Page Content
+
+The Landing page `src/app/page.tsx` is where users interact with your app. It displays different content based on whether the users is logged in or not.
+
+Edit the file `src/app/page.tsx` to add the `auth0.getSession()` method to determine if the user is logged in by retrieving the user session.
+
+If there is no user session, the method returns `null` and the app displays the **Sign up** or **Log in** buttons. If a user sessions exists, the app displays a welcome message with the user's name and a **Log out** button.
+
+```javascript
+// src/app/page.tsx
+import { auth0 } from "@/lib/auth0";
+import './globals.css';
+
+export default async function Home() {
+  // Fetch the user session
+  const session = await auth0.getSession();
+
+  // If no session, show sign-up and login buttons
+  if (!session) {
+    return (
+      <main>
+        <a href="/auth/login?screen_hint=signup">
+          <button>Sign up</button>
+        </a>
+        <a href="/auth/login">
+          <button>Log in</button>
+        </a>
+      </main>
+    );
+  }
+
+  // If session exists, show a welcome message and logout button
   return (
-    <html lang="en">
-    <UserProvider>
-      <body>{children}</body>
-    </UserProvider>
-    </html>
+    <main>
+      <h1>Welcome, {session.user.name}!</h1>
+      <p>
+        <a href="/auth/logout">
+          <button>Log out</button>
+        </a>
+      </p>
+    </main>
   );
 }
 ```
-
-The authentication state exposed by `UserProvider` can be accessed in any Client Component using the `useUser()` hook.
-
-:::panel Checkpoint
-Now that you have added the dynamic route and `UserProvider`, run your application to verify that your application is not throwing any errors related to Auth0.
+::: note
+The Logout functionality is already included in the file src/app/page.tsx. When the user selects the Log out button, they are redirected to the Auth0 logout endpoint, which clears their session and redirects back to your app.
 :::
 
-## Add Login to Your Application
+### Run the Sample
 
-Users can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link that points to the login route using an **anchor tag**. Clicking it redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
+Run this command to start your Next.js development server:
 
-:::note
-Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform <a href="https://nextjs.org/docs/api-reference/next/link" target="_blank" rel="noreferrer">client-side transitions between pages</a>. As the link points to an API route and not to a page, you should keep it as an anchor tag.
-:::
-
-```html
-<a href="/api/auth/login">Login</a>
+```sh
+npm run dev
 ```
+Visit the url `http://localhost:3000` in your browser.
+
+You will see:
+
+A **Sign up** and **Log in** button if the user is not authenticated.
+A welcome message and a **Log out** button if the user is authenticated.
 
 :::panel Checkpoint
-Add the login link to your application. When you click it, verify that your Next.js application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
+
+Run your application.
+
+Verify that your Next.js application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
 
 Once that's complete, verify that Auth0 redirects back to your application.
 :::
@@ -121,17 +168,6 @@ Once that's complete, verify that Auth0 redirects back to your application.
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 
-## Add Logout to Your Application
-
-Now that you can log in to your Next.js application, you need <a href="https://auth0.com/docs/logout/log-users-out-of-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your <a href="https://auth0.com/docs/api/authentication?javascript#logout" target="_blank" rel="noreferrer">Auth0 logout endpoint</a> (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
-
-```html
-<a href="/api/auth/logout">Logout</a>
-```
-
-:::panel Checkpoint
-Add the logout link to your application. When you click it, verify that your Next.js application redirects you to the address you specified as one of the "Allowed Logout URLs" in the "Settings".
-:::
 
 ## Show User Profile Information
 
