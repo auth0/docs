@@ -74,7 +74,7 @@ This article is based on the new SPA SDK available <a href="https://github.com/a
 
 ### Configure credentials
 
-Create an `auth_config.json` in the root of the project. The values from `domain` and `clientId` should be populated from your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Auth0 application settings</a> as configured <a href="#get-your-application-keys" target="_blank" rel="noreferrer">above</a>.
+Create an `auth_config.json` in the root of the project. The values from `domain` and `clientId` should be populated from your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Auth0 application settings</a> as configured <a href="#get-your-application-keys" target="_blank" rel="noreferrer">above</a>.
 
 ```json
 {

@@ -60,8 +60,8 @@ The Express OpenID Connect library provides the `auth` router in order to attach
 - `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
 - `secret` - A long, random string
-- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
-- `clientID` - The Client ID found in your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application settings</a>
+- `issuerBaseURL`  - The Domain as a secure URL found in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application settings</a>
+- `clientID` - The Client ID found in your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application settings</a>
 
 For additional configuration options visit the <a href="https://auth0.github.io/express-openid-connect" target="_blank" rel="noreferrer">API documentation</a>.
 

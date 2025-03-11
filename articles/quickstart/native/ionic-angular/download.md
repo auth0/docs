@@ -2,19 +2,19 @@
 
 To run the sample follow these steps:
 
-1) Add the following URL to **Allowed Callback URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>
+1) Add the following URL to **Allowed Callback URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>
 
 ```text
 com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 ```
 
-2) Add the following URL to **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>
+2) Add the following URL to **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>
 
 ```text
 com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 ```
 
-3) Add the following to **Allowed Origins (CORS)** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>
+3) Add the following to **Allowed Origins (CORS)** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>
 
 ```text
 capacitor://localhost, http://localhost

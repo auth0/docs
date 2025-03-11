@@ -66,7 +66,7 @@ If you are using Maven, add them to your `pom.xml`:
 
 Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
 
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">librarys documentation</a>.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">library's documentation</a>.
 
 
 ::: panel Check populated attributes
@@ -149,7 +149,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean appRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="$manage_url/#/" target="_blank" rel="noreferrer">dashboard</a>.
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">dashboard</a>.
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 

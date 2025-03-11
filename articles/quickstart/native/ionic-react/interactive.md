@@ -36,11 +36,11 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 
 ## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" }}}
 
-Under the hood, the Auth0 React SDK uses <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noreferrer">React Context</a> to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` you can import from the SDK.
+Under the hood, the Auth0 React SDK uses <a href="https://react.dev/reference/react/useContext" target="_blank" rel="noreferrer">React Context</a> to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` you can import from the SDK.
 
 The `Auth0Provider` component takes the following props:
 
-- `domain`: The `domain` value present under the **Settings** of the application you created in your Auth0 Dashboard, or your custom domain if using Auth0's <a href="http://localhost:3000/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>.
+- `domain`: The `domain` value present under the **Settings** of the application you created in your Auth0 Dashboard, or your custom domain if using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>.
 - `clientId`: The Client ID value present under the **Settings** of the application you created in your Auth0 Dashboard.
 - `useRefreshTokens`: To use auth0-react with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-react with Ionic on Android and iOS, it's required to disable the iframe fallback.

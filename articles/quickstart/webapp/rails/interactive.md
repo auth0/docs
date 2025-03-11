@@ -131,7 +131,7 @@ Still having issues? Check out our <a href="https://auth0.com/docs" target="_bla
 
 ## Show user profile information {{{ data-action=code data-code="secured.rb" }}}
 
-To display the user's profile, your application should provide a protected route. You can use a <a href="https://guides.rubyonrails.org/getting_started.html#using-concerns" target="_blank" rel="noreferrer">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
+To display the user's profile, your application should provide a protected route. You can use a <a href="https://api.rubyonrails.org/classes/ActiveSupport/Concern.html" target="_blank" rel="noreferrer">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
 Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]` as in the following example:
 
