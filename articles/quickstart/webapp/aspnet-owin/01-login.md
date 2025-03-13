@@ -21,7 +21,7 @@ sample_download_required_data:
 ## Install and configure the OpenID Connect middleware
 
 ::: note
-  This quickstart uses OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently using OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
+  This quickstart uses OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently using OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/" target="_blank" rel="noreferrer">OWIN documentation</a> to enable it in your application.
 :::
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the OWIN OpenID Connect middleware, so install the `Microsoft.Owin.Security.OpenIdConnect` NuGet package first:
@@ -37,7 +37,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 ```
 
 ::: note
-There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to learn about how to mitigate these problems
+There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues" target="_blank" rel="noreferrer">System.Web cookie integration issues doc</a> to learn about how to mitigate these problems
 :::
 
 Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware.
@@ -135,7 +135,7 @@ public void Configuration(IAppBuilder app)
 
 It is essential that you register both the cookie middleware and the OpenID Connect middleware, as they are required (in that order) for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
-In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct [logout URL](/logout).
+In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct <a href="/logout" target="_blank" rel="noreferrer">logout URL</a>.
 
 
 

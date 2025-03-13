@@ -69,7 +69,7 @@ router.isReady().then(() => {
 
 The `createAuth0` plugin takes the following props:
 
-- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 - `useRefreshTokens`: To use auth0-vue with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-vue with Ionic on Android and iOS, it's required to disable the iframe fallback.
@@ -231,7 +231,7 @@ Add the `LogoutButton` component to your application. When you click it, verify 
 
 ## Show User Profile Information
 
-The Auth0 Vue SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` composable. Take this `UserProfile` component as an example of how to use it:
+The Auth0 Vue SDK helps you retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` composable. Take this `UserProfile` component as an example of how to use it:
 
 ```html
 <template>
@@ -267,5 +267,5 @@ export default defineComponent({
 The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors, use the `isAuthenticated` property from `useAuth0()` to check if Auth0 has authenticated the user before Vue renders any component that consumes the `user` property. Ensure that the SDK has completed loading before accessing the `isAuthenticated` property, by checking that `isLoading` is `false`.
 
 :::panel Checkpoint
-Add the `UserProfile` component to your application, and verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
+Add the `UserProfile` component to your application, and verify that you can display the `user.name` or <a href="https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes" target="_blank" rel="noreferrer">any other `user` property</a> within a component correctly after you have logged in.
 :::

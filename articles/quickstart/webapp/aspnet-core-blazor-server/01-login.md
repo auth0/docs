@@ -24,13 +24,13 @@ useCase: quickstart
 
 The Callback URL of your application is the URL where Auth0 will redirect to after the user has authenticated in order for the SDK to complete the authentication process.
 
-You will need to add this URL to the list of Allowed URLs for your application in your [Application Settings](${manage_url}/#/applications), this URL will mostly take the format `https://YOUR_APPLICATION_URL/callback`.
+You will need to add this URL to the list of Allowed URLs for your application in your <a href="${manage_url}/#/applications" target="_blank" rel="noreferrer">Application Settings</a>, this URL will mostly take the format `https://YOUR_APPLICATION_URL/callback`.
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Integrate Auth0
 
-[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, security, and the most complete array of features. This guide uses Universal Login to provide a way for your users to log in to your Blazor Server application.
+<a href="/hosted-pages/login" target="_blank" rel="noreferrer">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, security, and the most complete array of features. This guide uses Universal Login to provide a way for your users to log in to your Blazor Server application.
 
 ### Install dependencies
 
@@ -157,4 +157,4 @@ public class LogoutModel : PageModel
 
 We put together a few examples of how to use the SDK in more advanced use cases:
 
-- [Configuring Scopes](https://github.com/auth0/auth0-aspnetcore-authentication/blob/main/EXAMPLES.md#blazor-server)
+- <a href="https://github.com/auth0/auth0-aspnetcore-authentication/blob/main/EXAMPLES.md#blazor-server" target="_blank" rel="noreferrer">Configuring Scopes</a>

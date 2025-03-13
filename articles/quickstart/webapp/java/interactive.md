@@ -34,7 +34,7 @@ Auth0 allows you to quickly add authentication and gain access to user profile i
 To integrate your Java application with Auth0, add the following dependencies:
 
 - **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-- **auth0-java-mvc-commons**: is the [Java library](https://github.com/auth0/auth0-java-mvc-common) that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
+- **auth0-java-mvc-commons**: is the <a href="https://github.com/auth0/auth0-java-mvc-common" target="_blank" rel="noreferrer">Java library</a> that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the <a href="/tokens" target="_blank" rel="noreferrer">Auth0 Tokens</a> that identify the user.
 
 If you are using Gradle, add them to your `build.gradle`:
 
@@ -66,7 +66,7 @@ If you are using Maven, add them to your `pom.xml`:
 
 Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
 
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [library's documentation](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md).
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">library's documentation</a>.
 
 
 ::: panel Check populated attributes
@@ -111,7 +111,7 @@ The project contains also four servlets:
   
 ## Create the AuthenticationController {{{ data-action=code data-code="AuthenticationControllerProvider.java#6-32 }}}
 
-To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
+To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the <a href="https://github.com/auth0/jwks-rsa-java" target="_blank" rel="noreferrer">jwks-rsa-java repository</a> to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
 :::note
 The `AuthenticationController` does not store any context, and is inteded to be reused. Unneccessary creation may result in additonal resources being created which could impact performance.
@@ -119,7 +119,7 @@ The `AuthenticationController` does not store any context, and is inteded to be 
 
 ## Login Redirection {{{ data-action=code data-code="LoginServlet.java#21:23" }}}
 
-To enable users to log in, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 application.
+To enable users to log in, your application will redirect them to the <a href="https://auth0.com/docs/universal-login" target="_blank" rel="noreferrer">Universal Login</a> page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 application.
 
 ## Handling the tokens {{{ data-action=code data-code="CallbackServlet.java#16:37" }}}
 
@@ -149,7 +149,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 ./gradlew clean appRun
 ```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">dashboard</a>.
 
 ![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 

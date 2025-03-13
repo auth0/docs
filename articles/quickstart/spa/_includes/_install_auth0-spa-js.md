@@ -2,11 +2,11 @@
 
 ## Integrate Auth0 in your Application
 
-Use the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js) library to integrate Auth0 into your application. You can either install the library as a dependency in your application, or load it from CDN.
+Use the <a href="https://github.com/auth0/auth0-spa-js" target="_blank" rel="noreferrer">Auth0 SPA SDK</a> library to integrate Auth0 into your application. You can either install the library as a dependency in your application, or load it from CDN.
 
 ### Install as a dependency
 
-You can install the Auth0 SPA SDK as a dependency of your application, useful if you're using a build system such as [Webpack](https://webpack.js.org/). You can do this using `npm` or `yarn`.
+You can install the Auth0 SPA SDK as a dependency of your application, useful if you're using a build system such as <a href="https://webpack.js.org/" target="_blank" rel="noreferrer">Webpack</a>. You can do this using `npm` or `yarn`.
 
 ```bash
 # installation with npm

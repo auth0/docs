@@ -31,7 +31,7 @@ If you are following along with the sample project you downloaded from the top o
 
 ### Install Dependencies
 
-The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any <a href="/identityproviders" target="_blank" rel="noreferrer">Auth0 supported identity provider</a>.
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` package, depending on whether you are building a WPF or Windows Forms application:
 
@@ -47,7 +47,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/universal-login.png)
 
-This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in <a href="/universal-login#simple-customization" target="_blank" rel="noreferrer">this document</a>.
 
 ## Handle Authentication Tokens
 
@@ -82,7 +82,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
+On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.
 
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 

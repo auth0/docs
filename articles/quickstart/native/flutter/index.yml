@@ -39,7 +39,7 @@ requirements:
   - iOS 13+ and Xcode 14+ (for iOS)
   - macOS 11+ and Xcode 14+ (for macOS)
 next_steps:
-  - path: interactive
+  - path: 01-login
     list:
       - text: Configure other identity providers
         icon: 345

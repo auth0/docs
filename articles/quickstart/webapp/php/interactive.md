@@ -29,7 +29,7 @@ To use Auth0 services, you’ll need to have an application set up in the Auth0 
 
 Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your Applications in the future.
 
 If you would rather explore a complete configuration, you can view a sample application instead.
 
@@ -59,9 +59,9 @@ If you are following along with our sample project, set this to http://localhost
 
 ## Install the Auth0 PHP SDK {{{ data-action=code data-code="index.php" }}}
 
-Auth0 provides a [PHP SDK](https://github.com/auth0/auth0-PHP) (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
+Auth0 provides a <a href="https://github.com/auth0/auth0-PHP" target="_blank" rel="noreferrer">PHP SDK</a> (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
 
-The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
+The Auth0 PHP SDK requires <a href="https://www.php-fig.org/psr/psr-17/" target="_blank" rel="noreferrer">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank" rel="noreferrer">PSR-18</a> compatible HTTP libraries to be installed for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
 
 ```bash
 cd <your-project-directory>
@@ -80,7 +80,7 @@ Create a new file in your application called `index.php`, and copy in the code f
 
 For the SDK to function properly, you must set the following properties in the Auth0 SDK during initialization:
 
-- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
+- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, you should set this to the value of your custom domain instead.
 - `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 - `clientSecret`: The secret of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
 - `redirectUri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
@@ -101,7 +101,7 @@ Sorry about that. Here's a couple things to double check:
 * Did you save after entering your URLs?
 * Make sure the domain and client ID imported correctly.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
@@ -138,14 +138,14 @@ Click the login link and verify that:
 Sorry about that. Here's a couple things to double check:
 * You configured the correct `redirectUri`.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::
 
 ## Add logout to your application {{{ data-action=code data-code="logout.php" }}}
 
-Users who log in to your project will also need a way to log out. We will handle a logout button using the SDK’s `logout()` method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?http#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
+Users who log in to your project will also need a way to log out. We will handle a logout button using the SDK’s `logout()` method. When users log out, they will be redirected to your <a href="https://auth0.com/docs/api/authentication?http#logout" target="_blank" rel="noreferrer">Auth0 logout</a> endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
 
 Create a new file in your application called `logout.php` for handling the process, and copy in the code from the interactive panel, which contains the logic needed for logout. Then, update your `index.php` file to include the logout button.
 
@@ -162,7 +162,7 @@ Run your application and click the logout button, verify that:
 Sorry about that. Here's a couple things to double check:
 * You configured the correct Logout URL.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 
@@ -170,7 +170,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show User Profile Information {{{ data-action=code data-code="profile.php" }}}
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
+Now that your users can log in and log out, you will likely want to be able to retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
 The Auth0 PHP SDK provides user information through the `getCredentials()` method. Review the `profile.php` code in the interactive panel to see an example of how to use it.
 
@@ -188,7 +188,7 @@ Verify that:
 Sorry about that. Here's a couple things to double check:
 * You created the `profile.php` file and are logged in.
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
 :::
 ::::

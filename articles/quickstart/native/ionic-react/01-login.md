@@ -29,7 +29,7 @@ useCase: quickstart
 
 ### Configure the `Auth0Provider` component
 
-Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/docs/context.html) to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` that you can import from the SDK.
+Under the hood, the Auth0 React SDK uses <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noreferrer">React Context</a> to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` that you can import from the SDK.
 
 Open `src/index.tsx` and wrap the `App` component in the `Auth0Provider` component.
 
@@ -58,7 +58,7 @@ root.render(
 
 The `Auth0Provider` component takes the following props:
 
-- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 - `useRefreshTokens`: To use auth0-react with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-react with Ionic on Android and iOS, it's required to disable the iframe fallback.
@@ -198,7 +198,7 @@ Add the `LogoutButton` component to your application. When you click it, verify 
 
 ## Show User Profile Information
 
-The Auth0 React SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` hook. Take this `Profile` component as an example of how to use it:
+The Auth0 React SDK helps you retrieve the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` hook. Take this `Profile` component as an example of how to use it:
 
 ```js
 import { useAuth0 } from '@auth0/auth0-react';
@@ -224,5 +224,5 @@ export default Profile;
 The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors, use the `isAuthenticated` property from `useAuth0()` to check if Auth0 has authenticated the user before React renders any component that consumes the `user` property. Ensure that the SDK has completed loading before accessing the `isAuthenticated` property, by checking that `isLoading` is `false`.
 
 :::panel Checkpoint
-Add the `Profile` component to your application, and verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
+Add the `Profile` component to your application, and verify that you can display the `user.name` or <a href="https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes" target="_blank" rel="noreferrer">any other `user` property</a> within a component correctly after you have logged in.
 :::

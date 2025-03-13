@@ -31,7 +31,7 @@ Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available 
 
 ## Install the Auth0 Android SDK
 
-Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
+Add the <a href="https://github.com/auth0/Auth0.Android" target="_blank" rel="noreferrer">Auth0 Android</a> SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
 
 ### Add Auth0 to Gradle
 
@@ -59,13 +59,13 @@ android {
 ```
 
 ::: panel Sync Project with Gradle Files
-Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check <a href="https://developer.android.com/build/gradle-build-overview" target="_blank" rel="noreferrer">their official documentation</a>.
 :::
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
 
 ::: note
-We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK readme](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
+We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links" target="_blank" rel="noreferrer">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK readme</a>.
 :::
 
 To add the manifest placeholders, add the next line:
@@ -102,12 +102,12 @@ Finally, ensure that the `android.permissions.INTERNET` permission is specified 
 Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.
 
 ::: note
-For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
+For more information about using Gradle, check the <a href="https://gradle.org/getting-started-android-build/" target="_blank" rel="noreferrer">Gradle official documentation</a>.
 :::
 
 ## Add Login to your App
 
-[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+<a href="/hosted-pages/login" target="_blank" rel="noreferrer">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials:
 
@@ -133,10 +133,10 @@ class MainActivity : AppCompatActivity() {
 ```
 
 :::note
-We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values.
+We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use <a href="https://developer.android.com/guide/topics/resources/string-resource.html" target="_blank" rel="noreferrer">String Resources</a>, such as `@string/com_auth0_domain`, to define the values.
 :::
 
-Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/). Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
+Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
 ```kotlin
 private fun loginWithBrowser() {
@@ -165,7 +165,7 @@ private fun loginWithBrowser() {
 After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
 :::note
-There are many options to customize the authentication with the `WebAuthProvider` builder. You can read about them in the [Auth0 SDK for Android documentation](/libraries/auth0-android).
+There are many options to customize the authentication with the `WebAuthProvider` builder. You can read about them in the <a href="/libraries/auth0-android" target="_blank" rel="noreferrer">Auth0 SDK for Android documentation</a>.
 
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/android/login-android.png" alt="Universal Login" />
@@ -173,7 +173,7 @@ There are many options to customize the authentication with the `WebAuthProvider
 :::
 
 :::panel Checkpoint
-Add a button to your application that calls `loginWithBrowser`. When you click it, verify that your Android application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+Add a button to your application that calls `loginWithBrowser`. When you click it, verify that your Android application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
 
 Once that's complete, verify that Auth0 redirects back to your app.
 :::
@@ -208,7 +208,7 @@ Add a button to your app that calls `logout` and logs the user out of your appli
 
 ## Show User Profile Information
 
-Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
+Use the `AuthenticationAPIClient` class to <a href="https://auth0.com/docs/users/user-profiles#user-profile-management-api-access" target="_blank" rel="noreferrer">retrieve the users profile from Auth0</a>. This requires:
 
 - The access token as received during the login phase
 - The `profile` scope to be included when `WebAuthProvider.login` is called

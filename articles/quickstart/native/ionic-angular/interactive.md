@@ -24,7 +24,7 @@ files:
 
 # Add Login to Your Ionic Angular with Capacitor Application
 
-Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
+Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (Angular) & Capacitor application using the <a href="https://github.com/auth0/auth0-angular" target="_blank" rel="noreferrer">Auth0 Angular SDK</a>.
 
 <%= include('../_includes/ionic/_article_intro') %>
 
@@ -40,7 +40,7 @@ The SDK exports `AuthModule`, a module that contains all the services required f
 
 The `AuthModule.forRoot` function takes the following configuration:
 
-- `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's [custom domains feature](http://localhost:3000/docs/custom-domains).
+- `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domains feature</a>.
 - `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
 - `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.
@@ -58,7 +58,7 @@ Sorry about that. Here's a couple things to double check:
 * did you save after entering your URLs?
 * make sure the domain and Client ID imported correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 :::
 ::::
 
@@ -84,7 +84,7 @@ Sorry about that. Here's a couple things to double check:
 
 <%= include('../_includes/ionic/_handle_callback_intro') %>
 
-Note that the `appUrlOpen` event callback is wrapped in `ngZone.run`. Changes to observables that occur when `handleRedirectCallback` runs are picked up by the Angular app. To learn more, read [Using Angular with Capacitor](https://capacitorjs.com/docs/guides/angular). Otherwise, the screen doesn't update to show the authenticated state after log in.
+Note that the `appUrlOpen` event callback is wrapped in `ngZone.run`. Changes to observables that occur when `handleRedirectCallback` runs are picked up by the Angular app. To learn more, read <a href="https://capacitorjs.com/docs/guides/angular" target="_blank" rel="noreferrer">Using Angular with Capacitor</a>. Otherwise, the screen doesn't update to show the authenticated state after log in.
 
 <%= include('../_includes/ionic/_note_custom_schemes') %>
 
@@ -96,8 +96,8 @@ Add the `appUrlOpen` to your application's `App` component and log in. The brows
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 
-* check that the custom URL scheme is registered for your chosen platform. On iOS, [define a custom URL scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app), or add an [intent filter with your custom scheme](https://developer.android.com/training/app-links/deep-linking) for Android
-* if the event fires but you receive an error, check the [logs in your Auth0 Dashboard](https://manage.auth0.com/#/logs) for the error code
+* check that the custom URL scheme is registered for your chosen platform. On iOS, <a href="https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app" target="_blank" rel="noreferrer">define a custom URL scheme</a>, or add an <a href="https://developer.android.com/training/app-links/deep-linking" target="_blank" rel="noreferrer">intent filter with your custom scheme</a> for Android
+* if the event fires but you receive an error, check the <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">logs in your Auth0 Dashboard</a> for the error code
 :::
 ::::
 
@@ -119,7 +119,7 @@ Sorry about that. Here's a couple things to double check:
 
 ## Show the user profile {{{ data-action=code data-code="user-profile.ts" }}}
 
-The Auth0 SDK retrieves the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` property exposed by `AuthService`.
+The Auth0 SDK retrieves the <a href="https://auth0.com/docs/users/concepts/overview-user-profile" target="_blank" rel="noreferrer">profile information</a> associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` property exposed by `AuthService`.
 
 ::::checkpoint
 :::checkpoint-default
