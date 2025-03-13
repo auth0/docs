@@ -35,14 +35,31 @@ locale: en-US
 
 ## Register and configure the authentication module {{{ data-action="code" data-code="app.module.ts" }}}
 
+The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. This module should be registered with your application and be configured with your Auth0 domain and Client ID.
 
-<p>The SDK exports <code>AuthModule</code>, a module that contains all the services required for the SDK to function. This module should be registered with your application and be configured with your Auth0 domain and Client ID.</p><p>The <code>AuthModule.forRoot</code> function takes the following configuration:</p><ul><li><p><code>domain</code>: The <code>domain</code> value present under the <b>Settings </b>of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0&#39;s <a data-contentfulid="UYjAbgxX33g81azZ6VHWc-en-US">custom domains feature</a>.</p></li><li><p><code>clientId</code>: The Client ID value present under the <b>Settings </b>of the application you created in the Auth0 Dashboard.</p></li><li><p><code>useRefreshTokens</code>: To use auth0-angular with Ionic on Android and iOS, it&#39;s required to enable refresh tokens.</p></li><li><p><code>useRefreshTokensFallback</code>: To use auth0-angular with Ionic on Android and iOS, it&#39;s required to disable the iframe fallback.</p></li><li><p><code>authorizationParams.redirect_uri</code>: The URL to redirect your users after they authenticate with Auth0.</p></li></ul><p><div class="alert-container" severity="warning"><p>To persist authentication after closing and reopening the application, you may want to set <code>cacheLocation</code> to <code>localstorage</code> when configuring the SDK, but please be aware of <a href="/docs/libraries/auth0-single-page-app-sdk#change-storage-options">the risks of storing tokens in localstorage</a>. Also, localstorage should be treated as <b>transient</b> in Capacitor app as the data might be recovered unexpectedly in certain circumstances. Please read the <a href="https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb">guidance on storage in the Capacitor docs</a>.</p><p>Additionally, the SDK has the ability to <a href="https://github.com/auth0/auth0-spa-js/blob/master/EXAMPLES.md#creating-a-custom-cache">use a custom cache implementation</a> to store tokens, if you have a requirement to use a more secure and persistent storage mechanism.</p><p><b>Note</b> that we recommend <b>against</b> using <a href="https://capacitorjs.com/docs/apis/storage">Capacitor&#39;s Storage plugin</a> to store tokens, as this is backed by <a href="https://developer.apple.com/documentation/foundation/userdefaults">UserDefaults</a> and <a href="https://developer.android.com/reference/android/content/SharedPreferences">SharedPreferences</a> on iOS and Android respectively. Data stored using these APIs is not encrypted, not secure, and could also be synced to the cloud.</p></div></p><p><div class="checkpoint">Ionic & Capacitor (Angular) - Step 4 - Register and configure the authentication module <div class="checkpoint-default"><p>Now that you have configured your app with the Auth0 Angular SDK, run your application to verify that the SDK is initializing without error, and that your application runs as it did before.</p></div>
+The `AuthModule.forRoot` function takes the following configuration:
 
-  <div class="checkpoint-success"></div>
+- `domain`: The `domain` value present under the **Settings** of the application you created in the Auth0 Dashboard, or your custom domain if you are using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domains feature</a>.
+- `clientId`: The Client ID value present under the **Settings** of the application you created in the Auth0 Dashboard.
+- `useRefreshTokens`: To use auth0-angular with Ionic on Android and iOS, it's required to enable refresh tokens.
+- `useRefreshTokensFallback`: To use auth0-angular with Ionic on Android and iOS, it's required to disable the iframe fallback.
+- `authorizationParams.redirect_uri`: The URL to redirect your users after they authenticate with Auth0.
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>ensure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and Client ID imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+<%= include('../_includes/ionic/_note_storage') %>
 
-  </div></p>
+::::checkpoint
+:::checkpoint-default
+Now that you have configured your app with the Auth0 Angular SDK, run your application to verify that the SDK is initializing without error, and that your application runs as it did before.
+:::
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* ensure the correct application is selected
+* did you save after entering your URLs?
+* make sure the domain and Client ID imported correctly
+
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
+:::
+::::
 
 ## Add login to your application {{{ data-action="code" data-code="login-button.ts" }}}
 

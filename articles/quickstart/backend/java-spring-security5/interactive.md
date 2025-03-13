@@ -114,8 +114,7 @@ locale: en-US
 
 ## Create the API controller {{{ data-action="code" data-code="APIController.java" }}}
 
-
-<p>Create a new class named <code>APIController</code> to handle requests to the endpoints. The <code>APIController</code> has three routes as defined in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/interactive#configure-the-resource-server">Protect API Endpoints</a> section. For this example, allow all origins through <code>@CrossOrigin</code> annotation. Real applications should configure <code>CORS</code> for their use case.</p>
+Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
 
 ## Run the application {{{ data-action="code" data-code="APIController.java" }}}
 

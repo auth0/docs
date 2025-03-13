@@ -30,8 +30,17 @@ locale: en-US
 
 ## Create the JWT validator {{{ data-action="code" data-code="apiexample/validator.py" }}}
 
+You're going to use a library called <a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer">ResourceProtector</a>, which is a type of <a href="https://docs.djangoproject.com/en/5.1/topics/http/decorators/" target="_blank" rel="noreferrer">Django view decorator</a> that protects your resources (API views) with a given validator.
 
-<p>You will use a library called <a href="https://github.com/lepture/authlib">Authlib</a> to create a <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html">ResourceProtector</a>, which is a type of <a href="https://docs.djangoproject.com/en/4.0/topics/http/decorators/">Django view decorator</a> that protects your resources (API views) with a given validator.</p><p>The validator will verify the Access Token that you pass to the resource by checking that it has a valid signature and claims.</p><p>You can use AuthLib&#39;s <code>JWTBearerTokenValidator</code> validator with a few tweaks to make sure it conforms to our requirements for <a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens">validating Access Tokens</a>.</p><p>To create your <code>Auth0JWTBearerTokenValidator</code>, you need to pass it to your <code>domain</code> and <code>audience</code> (API Identifier). It will then get the public key required to verify the token&#39;s signature and pass it to the <code>JWTBearerTokenValidator</code> class.</p><p>You&#39;ll then override the class&#39;s <code>claims_options</code> to make sure the token&#39;s <code>expiry</code>, <code>audience</code>, and <code>issue</code> claims are validated according to our requirements.</p><p>Create the file <code>apiexample/validator.py</code> using the code from the interactive panel.</p>
+The validator will verify the Access Token that you pass to the resource by checking that it has a valid signature and claims.
+
+You can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on <a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens" target="_blank" rel="noreferrer">validating Access Tokens</a>.
+
+To create your `Auth0JWTBearerTokenValidator`, you need to pass it your `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
+
+You'll then override the class's `claims_options` to make sure the token's `expiry`, `audience`, and `issue` claims are validated according to our requirements.
+
+Create the file `apiexample/validator.py` using the code from the interactive panel.
 
 ## Create the API views {{{ data-action="code" data-code="apiexample/views.py" }}}
 

@@ -24,8 +24,13 @@ locale: en-US
 
 ## Install the Auth0 Next.js v4 SDK
 
+Run the following command within your project directory to install the Auth0 Next.js SDK:
 
-<p>Run the following command within your project directory to install the Auth0 Next.js SDK:</p><p><code>npm i @auth0/nextjs-auth0</code></p><p>The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers">Route Handlers</a> on the backend and <a href="https://reactjs.org/docs/context.html">React Context</a> with <a href="https://reactjs.org/docs/hooks-overview.html">React Hooks</a> on the frontend.</p>
+```sh
+npm i @auth0/nextjs-auth0
+```
+
+The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers" target="_blank" rel="noreferrer">Route Handlers</a> on the backend and <a href="https://react.dev/reference/react/useContext" target="_blank" rel="noreferrer">React Context</a> with <a href="https://react.dev/reference/react/hooks" target="_blank" rel="noreferrer">React Hooks</a> on the frontend.
 
 ## Configure the SDK {{{ data-action="code" data-code=".env.local" }}}
 

@@ -14,9 +14,15 @@ locale: en-US
 ---
 
 # Add Authorization to Your Ruby on Rails API
+This tutorial performs access token validation using the  <a href="https://github.com/jwt/ruby-jwt" target="_blank" rel="noreferrer">**jwt**</a> Gem within a custom `Auth0Client` class. A Concern called `Secured` is used to authorize endpoints which require authentication through an incoming access token.
 
+If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.
 
-<p>This tutorial performs access token validation using the <a href="https://github.com/jwt/ruby-jwt"><b>jwt</b></a> Gem within a custom <code>Auth0Client</code> class. A Concern called <code>Secured</code> is used to authorize endpoints which require authentication through an incoming access token.</p><p>If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API for your project.</p><p>To set up your first API through the Auth0 dashboard, review <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis">our getting started guide</a>.</p><p>Each Auth0 API uses the API Identifier, which your application needs to validate the access token.</p><p><div class="alert-container" severity="default"><p><b>New to Auth0?</b> Learn <a href="https://auth0.com/docs/overview">how Auth0 works</a> and read about <a href="https://auth0.com/docs/api-auth">implementing API authentication and authorization</a> using the OAuth 2.0 framework.</p></div></p><p></p>
+To set up your first API through the Auth0 dashboard, review <a href="get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">our getting started guide</a>.
+
+Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
+
+<%= include('../../../_includes/_api_auth_intro') %>
 
 ## Define permissions
 

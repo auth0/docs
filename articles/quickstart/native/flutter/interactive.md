@@ -39,8 +39,37 @@ com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback</code></
 
 ## Configure iOS/macOS
 
+If you are not developing for the iOS or macOS platforms, skip this step.
 
-<p>If you are not developing for the iOS or macOS platforms, skip this step.</p><p><div class="alert-container" severity="warning"><p>This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.</p></div></p><h3>Configure the Team ID and bundle identifier</h3><p>Go to the <a href="https://manage.auth0.com/#/applications/{yourClientId}/settings">settings page</a> of your Auth0 application, scroll to the end, and open <b>Advanced Settings &gt; Device Settings</b>. In the <b>iOS</b> section, set <b>Team ID</b> to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/">Apple Team ID</a>, and <b>App ID</b> to your app&#39;s bundle identifier.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7wetuICumueyqt6dbB32ro/df8658dff11b699ac94c578ff3dd2d8a/IOS_Settings_-_English.png" alt="" /><p>This will add your app to your Auth0 tenant&#39;s <code>apple-app-site-association</code> file.</p><h3>Add the associated domain capability</h3><p>Open your app in Xcode by running <code>open ios/Runner.xcworkspace</code> (or <code>open macos/Runner.xcworkspace</code> for macOS). Go to the <b>Signing and Capabilities</b> <a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability">tab</a> of the <b>Runner</b> target settings, and press the <b>+ Capability</b> button. Then select <b>Associated Domains</b>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/3GO76kXynaieKs5CSj3UTp/1cc577b56d00bc3bad877e31b848c1ec/ios-xcode-capabilities.png" alt="" /><p>Next, add the following <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain">entry</a> under <b>Associated Domains</b>:</p><p><code>webcredentials:${account.namespace}</code></p><p><div class="alert-container" severity="default"><p>For the associated domain to work, your app must be signed with your team certificate <b>even when building for the iOS simulator</b>. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.</p></div></p>
+::: warning
+This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
+:::
+
+### Configure the Team ID and bundle identifier
+
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+
+This will add your app to your Auth0 tenant's `apple-app-site-association` file.
+
+### Add the associated domain capability
+
+Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** <a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability" target="_blank" rel="noreferrer">tab</a> of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+
+<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
+
+Next, add the following <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain" target="_blank" rel="noreferrer">entry</a> under **Associated Domains**:
+
+```text
+webcredentials:${account.namespace}
+```
+
+If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the Auth0 domain from the settings page.
+
+::: note
+For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
+:::
 
 ## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:40" }}}
 

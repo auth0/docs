@@ -53,7 +53,9 @@ pod install
 ## Integrate Auth0 in your application
 
 
-<p>First, you must provide a way for your users to log in. We recommend using the Auth0-hosted <a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-en-US">login page</a>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/3ZRDXpjlUXEcQpXq6Q00L1/789d583affd1f09621dc59ae49b4060c/login-ios.png" alt="An example Universal Login screen for an iOS app" /><h3>Configure Android</h3><p>Open the <code>build.gradle</code> file in your application directory (typically at <code>android/app/build.gradle</code>) and add the following manifest placeholders. The value for <code>auth0Domain</code> should contain your Auth0 application settings as configured above.</p><p><pre><code class="language-groovy">android {
+### Configure Android
+
+Open the `build.gradle` file in your application directory (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should contain your Auth0 application settings [as configured above](#get-your-application-keys).
 
     defaultConfig {
 

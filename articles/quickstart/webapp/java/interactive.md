@@ -67,9 +67,21 @@ compile 'com.auth0:mvc-auth-commons:1.+'W
 
 ## Configure your Java application {{{ data-action="code" data-code="web.xml" }}}
 
+Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
 
-<p>Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file <code>src/main/webapp/WEB-INF/web.xml</code>, but you could store them anywhere else.</p><p>This information will be used to configure the <b>auth0-java-mvc-commons</b> library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md">library&#39;s documentation</a>.</p><h3>Check populated attributes</h3><p>If you downloaded this sample using the <b>Download Sample</b> button, the <code>domain</code>, <code>clientId</code> and <code>clientSecret</code> attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.</p><h3>Project structure</h3><p>The example project, which can be downloaded using the <b>Download Sample</b> button, has the following structure:</p><p><pre><code>- src
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer">library's documentation</a>.
 
+
+::: panel Check populated attributes
+If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
+:::
+
+### Project structure
+
+The example project, which can be downloaded using the **Download Sample** button, has the following structure:
+
+```text
+- src
 -- main
 
 ---- java
@@ -130,14 +142,24 @@ compile 'com.auth0:mvc-auth-commons:1.+'W
 
 ## Handle logout {{{ data-action="code" data-code="LogoutServlet.java#13:30" }}}
 
+To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
 
-<p>To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the <code>LogoutServlet</code> of our sample application.</p><p>First, we clear the session by calling <code>request.getSession().invalidate()</code>. We then construct the logout URL, being sure to include the <code>returnTo</code> query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.</p>
+First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
 
-## Run the sample
+## Run the sample {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
 
+To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
 
-<p>To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:</p><p><pre><code class="language-bash">./gradlew clean app
+```bash
+./gradlew clean appRun
+```
 
-</code></pre>
+After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource <a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer">http://localhost:3000/portal/home</a> and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">dashboard</a>.
 
-</p><p>After a few seconds, the application will be accessible on <code>http://localhost:3000/</code>. Try to access the protected resource <a href="http://localhost:3000/portal/home">http://localhost:3000/portal/home</a> and note how you&#39;re redirected by the <code>Auth0Filter</code> to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the <a href="https://manage.auth0.com/#/">dashboard</a>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/b7697bfa1bc83a1072c2de2f15cec93c/Login_Screen_-_English.png" alt="" /><p>After a successful authentication, you&#39;ll be able to see the home page contents.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/FzK3jxfSGoeIDYQamxnJl/6b608e39ff39e044644193cfd2ee0f69/java-step-9-2.png" alt="" /><p>Log out by clicking the <b>logout</b> button at the top right of the home page.</p>
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
+
+After a successful authentication, you'll be able to see the home page contents.
+
+![Display Token](/media/articles/java/display-token.png)
+
+Log out by clicking the **logout** button at the top right of the home page.

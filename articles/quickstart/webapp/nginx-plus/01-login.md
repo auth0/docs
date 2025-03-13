@@ -19,11 +19,11 @@ This tutorial and seed project have been tested with the following:
 * NGINX Plus R24
 :::
 
-**Please follow the steps below to configure your application using <a href="https://www.nginx.com/products/nginx/" target="_blank" rel="noreferrer">NGINX Plus</a> to work with Auth0 and Open ID Connect.**
+**Please follow the steps below to configure your application using <a href="https://www.nginx.com/products/nginx/" target="_blank" rel="noreferrer">**NGINX Plus**</a> to work with Auth0 and Open ID Connect.**
 
 ## Install and Enable `nginx-plus-module-njs` Module
 
-First, you need to install the nginx-plus-module-njs module for NGINX Plus. Follow the <a href="https://www.nginx.com/products/nginx/dynamic-modules/" target="_blank" rel="noreferrer">dynamic module installation guide</a> to install packages in your host OS. 
+First, you need to install the nginx-plus-module-njs module for NGINX Plus. Follow the <a href="https://docs.nginx.com/nginx/admin-guide/dynamic-modules/nginscript" target="_blank" rel="noreferrer">dynamic module installation guide</a> to install packages in your host OS.
 For Linux distributions that use `yum` package manager install as follows:
 
 ```bash

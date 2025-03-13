@@ -96,6 +96,7 @@ gem 'omniauth-rails_csrf_protection', '~&gt; 1.0' # prevents forged authenticati
 
 ## Show user profile information {{{ data-action="code" data-code="routes.rb" }}}
 
+To display the user's profile, your application should provide a protected route. You can use a <a href="https://api.rubyonrails.org/classes/ActiveSupport/Concern.html" target="_blank" rel="noreferrer">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
 <p>To display the user&#39;s profile, your application should provide a protected route. You can use a <a href="https://guides.rubyonrails.org/getting_started.html#using-concerns">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.</p><p>Once you have a Concern, include it in any controller that requires a logged-in user. You can then access the user from the session <code>session[:userinfo]</code> as in the following example:</p><p><pre><code class="language-ruby">class DashboardController &lt; ApplicationController
 

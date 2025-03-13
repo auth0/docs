@@ -36,7 +36,7 @@ requirements:
   - Xcode 14+ (for iOS)
   - Android Studio 4+ (for Android)
 next_steps:
-  - path: interactive
+  - path: 01-login
     list:
       - text: Configure other identity providers
         icon: 345

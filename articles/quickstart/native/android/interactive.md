@@ -55,16 +55,77 @@ locale: en-US
 
   </div></p>
 
-## Add logout to your application {{{ data-action="code" data-code="MainActivity.kt#40:52" }}}
+- `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, you should set this to the value of your custom domain instead.
+- `com_auth0_client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
 
+Ensure that the `AndroidManifest.xml` file specifies the `android.permissions.INTERNET` permission:
 
-<p>Use <code>WebAuthProvider</code> to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.</p><p>Add a <code>logout</code> method to your app to remove the user&#39;s session and log them out of the app. Here, you can pass the scheme value that was used in the <code>auth0Scheme</code> manifest placeholder as part of the initial configuration.</p><p>Use the <code>WebAuthProvider</code> class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.</p><p><div class="checkpoint">Android Quickstart Step 6 Checkpoint <div class="checkpoint-default"><p>Add a button to your app that calls <code>logout</code> and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.</p></div>
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
-  <div class="checkpoint-success"></div>
+Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.
 
-  <div class="checkpoint-failure"><p>If your application did not logout successfully:</p><ul><li><p>Ensure the Allowed Logout URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+::: note
+For more information about using Gradle, check the <a href="https://gradle.org/getting-started-android-build/" target="_blank" rel="noreferrer">Gradle official documentation</a>.
+:::
 
-  </div></p>
+## Add login to your application {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
+
+<a href="/hosted-pages/login" target="_blank" rel="noreferrer">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+
+In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials.
+
+Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
+
+After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
+
+::::checkpoint
+
+:::checkpoint-default
+
+Add a button to your application that calls `loginWithBrowser`. When you click it, verify that your Android application redirects you to the <a href="https://auth0.com/universal-login" target="_blank" rel="noreferrer">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.
+
+Once that's complete, verify that Auth0 redirects back to your app.
+
+:::
+
+:::checkpoint-failure
+
+If your application did not launch successfully:
+* Ensure you set the Allowed Callback URLs are correct
+* Verify you saved your changes after entering your URLs
+* Make sure the domain and cliend ID values imported correctly
+
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
+
+:::
+::::
+
+## Add logout to your application {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
+
+Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
+
+Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
+
+Use the `WebAuthProvider` class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.
+::::checkpoint
+
+:::checkpoint-default
+
+Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.
+
+:::
+
+:::checkpoint-failure
+If your application did not logout successfully:
+* Ensure the Allowed Logout URLs are set properly
+* Verify you saved your changes after entering your URLs
+
+Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
+
+:::
+::::
 
 ## Show user profile information {{{ data-action="code" data-code="MainActivity.kt#54:70" }}}
 
