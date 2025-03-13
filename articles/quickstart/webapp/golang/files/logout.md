@@ -2,7 +2,7 @@
 name: logout.go
 language: go
 ---
-
+    
 ```go
 // Save this file in ./web/app/logout/logout.go
 

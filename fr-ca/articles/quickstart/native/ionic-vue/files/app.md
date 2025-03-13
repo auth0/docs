@@ -1,9 +1,9 @@
 ---
 name: App.vue
-language: html
+language: javascript
 ---
-
-```html
+    
+```javascript
 <template>
   <ion-app>
     <ion-router-outlet />

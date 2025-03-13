@@ -1,160 +1,139 @@
 ---
-title: Add Login to your Java Servlet application
-description: This tutorial demonstrates how to add user login to a Java Servlet application.
-interactive: true
+title: Java Servletアプリケーションにログインを追加する
+description: このガイドは、新規または既存のJava ServletアプリケーションにAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/web
-  - files/authentication-controller-provider
-  - files/login-servlet
-  - files/callback-servlet
-  - files/home-servlet
-  - files/logout-servlet
-topics:
-  - quickstarts
-  - webapp
-  - login
-  - java
+ - files/web
+ - files/AuthenticationControllerProvider
+ - files/LoginServlet
+ - files/CallbackServlet
+ - files/HomeServlet
+ - files/LogoutServlet
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login
+locale: ja-JP
 ---
 
-# Add Login to Your Java Servlet Application
+# Java Servletアプリケーションにログインを追加する
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Java Servlet application.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/callback',
-  returnTo: 'http://localhost:3000/login'
-}) %>
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドは、新規または既存のJava ServletアプリケーションにAuth0を統合する方法を説明します。</p><p></p>
 
-## Integrate Auth0 in your application
+## Auth0を構成する
 
-### Setup dependencies
 
-To integrate your Java application with Auth0, add the following dependencies:
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/logout</code>に設定してください。</p></div></p>
 
-- **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-- **auth0-java-mvc-commons**: is the [Java library](https://github.com/auth0/auth0-java-mvc-common) that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
+## Auth0をアプリケーションに統合する
 
-If you are using Gradle, add them to your `build.gradle`:
 
-```java
-// build.gradle
+<h3>依存関係をセットアップする</h3><p>Auth0でJavaアプリケーションを統合するには、以下の依存関係を追加します：</p><ul><li><p><b>javax.servlet-api</b></p><p>：Java Servletsの作成を許可するライブラリーです。TomcatやGrettyのようなサーバー依存関係を追加する必要があります。どれを追加するかは自己判断です。詳細はサンプルコードをご覧ください。</p></li><li><p><b>auth0-java-mvc-commons</b>：サーバー側のMVC Webアプリ用にJavaでAuth0の使用を許可する<a href="https://github.com/auth0/auth0-java-mvc-common">Javaライブラリー</a>です。ユーザーを識別する<a href="https://auth0.com/docs/tokens">Auth0トークン</a>を最後に取得する過程で受け取った結果を認証、検証するために呼び出す必要のある認可URLを生成します。</p></li></ul><p>Gradleを使用している場合は、<code>build.gradle</code>に追加します：</p><p><pre><code>// build.gradle
+
+
 
 compile 'javax.servlet:javax.servlet-api:3.1.0'
-compile 'com.auth0:mvc-auth-commons:1.+'
-```
 
-If you are using Maven, add them to your `pom.xml`:
+compile 'com.auth0:mvc-auth-commons:1.+'W
 
-```xml
-<!-- pom.xml -->
+</code></pre>
 
-<dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>mvc-auth-commons</artifactId>
-  <version>[1.0, 2.0)</version>
-</dependency>
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.1.0</version>
-</dependency>
-```
-
-## Configure your Java application {{{ data-action=code data-code="web.xml#6:14" }}}
-
-Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
-
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [library's documentation](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md).
+</p><p>Mavenを使用している場合は、<code>pom.xml</code>に追加します：</p><p><pre><code>&lt;!-- pom.xml --&gt;
 
 
-::: panel Check populated attributes
-If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
-:::
 
-### Project structure
+&lt;dependency&gt;
 
-The example project, which can be downloaded using the **Download Sample** button, has the following structure:
+  &lt;groupId&gt;com.auth0&lt;/groupId&gt;
 
-```text
-- src
+  &lt;artifactId&gt;mvc-auth-commons&lt;/artifactId&gt;
+
+  &lt;version&gt;[1.0, 2.0)&lt;/version&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+
+  &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+
+  &lt;version&gt;3.1.0&lt;/version&gt;
+
+&lt;/dependency&gt;
+
+</code></pre>
+
+</p>
+
+## Javaアプリケーションを構成する {{{ data-action="code" data-code="web.xml" }}}
+
+
+<p>Javaアプリは、Auth0アカウントに対して認証するために、いくつかの情報を必要とします。サンプルではこの情報をデプロイメント記述子ファイル（<code>src/main/webapp/WEB-INF/web.xml</code>）から読み取っていますが、任意の場所に保存できます。</p><p>この情報は<b>auth0-java-mvc-commons</b>ライブラリーを構成するために使用され、ユーザーがアプリケーションにログインすることを可能にします。ライブラリーや各構成オプションの詳細情報については、<a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md">ライブラリーのドキュメント</a>をご覧ください。</p><h3>入力された属性をチェックする</h3><p>このサンプルを<b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードした場合は、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>属性が自動的に入力されます。特にアカウントに複数のAuth0アプリケーションがある場合は、値が正しいことを確認してください。</p><h3>プロジェクト構造</h3><p><b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードできるサンプルプロジェクトは以下の構造になっています：</p><p><pre><code>- src
+
 -- main
+
 ---- java
+
 ------ com
+
 -------- auth0
+
 ---------- example
+
 ------------ Auth0Filter.java
+
 ------------ AuthenticationControllerProvider.java
+
 ------------ HomeServlet.java
+
 ------------ CallbackServlet.java
+
 ------------ LoginServlet.java
+
 ------------ LogoutServlet.java
+
 ---- webapp
+
 ------ WEB-INF
+
 -------- jsp
+
 ---------- home.jsp
+
 -------- web.xml
+
 - build.gradle
-```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated with the user after a successful login and provide the option to logout.
+</code></pre>
 
-The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
+</p><p>プロジェクトには単一のJSPがあります：<code>home.jsp</code>は、ログイン成功後にユーザーに関連付けられたトークンを表示し、ログアウトオプションを提供します。</p><p>プロジェクトはWebFilterを含みます：<code>Auth0Filter.java</code>は、保護された<code>/portal/*</code>パスへのユーザーアクセスを付与する前に、既存のトークンを確認します。トークンが存在しない場合、要求は<code>LoginServlet</code>へリダイレクトされます。</p><p>プロジェクトにはサーブレットも4つあります：</p><ul><li><p><code>LoginServlet.java</code>：ユーザーがログインしようとした時に発動します。<code>client_id</code>パラメーターと<code>domain</code>パラメーターを使って有効な認可URLを作成し、ユーザーをリダイレクトします。</p></li><li><p><code>CallbackServlet.java</code>：Callback URLへの要求をキャッチし、データを処理して資格情報を取得するサーブレットです。資格情報はログイン成功後、要求のHttpSessionに保存されます。</p></li><li><p><code>HomeServlet.java</code>：以前保存されたトークンを読み取り、<code>home.jsp</code>リソースで表示するサーブレットです。</p></li><li><p><code>LogoutServlet.java</code>：ユーザーがログアウトリンクをクリックすると発動します。ユーザーセッションを無効化し、<code>LoginServlet</code>でハンドリングされたログインページにユーザーをリダイレクトします。</p></li><li><p><code>AuthenticationControllerProvider.java</code>：<code>AuthenticationController</code>の単一インスタンスを作成・管理するためのものです。</p></li></ul><p></p>
 
-The project contains also four servlets:
-- `LoginServlet.java`: Invoked when the user attempts to log in. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
-- `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
-- `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
-- `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
-- `AuthenticationControllerProvider`: Responsible to create and manage a single instance of the `AuthenticationController`
-  
-## Create the AuthenticationController {{{ data-action=code data-code="AuthenticationControllerProvider.java#6-32 }}}
+## AuthenticationControllerを作成する {{{ data-action="code" data-code="AuthenticationControllerProvider.java#5:26" }}}
 
-To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
-:::note
-The `AuthenticationController` does not store any context, and is inteded to be reused. Unneccessary creation may result in additonal resources being created which could impact performance.
-:::
+<p>ユーザー認証を可能にするために、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>を使って<code>auth0-java-mvc-commons</code> SDKから提供された<code>AuthenticationController</code>のインスタンスを作成します。サンプルでは、RS256非対称署名アルゴリズムを使って署名したトークンで使用するためのコンポーネントの構成方法が紹介されています。トークンの署名を検証するために使用された公開鍵を取得する<code>JwkProvider</code>が指定されています。その他の構成オプションについての詳細は、<a href="https://github.com/auth0/jwks-rsa-java">jwks-rsa-javaレポジトリ</a>をご覧ください。HS256を使用している場合は、<code>JwkProvider</code>を構成する必要はありません。</p><p><div class="alert-container" severity="default"><p><code>AuthenticationController</code>はコンテキストを一切保存せず、再使用を意図しています。不必要な作成はリソースの追加作成を招き、パフォーマンスに影響が出る可能性があります。</p></div></p>
 
-## Login Redirection {{{ data-action=code data-code="LoginServlet.java#21:23" }}}
+## ログインにリダイレクトする {{{ data-action="code" data-code="LoginServlet.java#21:23" }}}
 
-To enable users to log in, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 application.
 
-## Handling the tokens {{{ data-action=code data-code="CallbackServlet.java#16:37" }}}
+<p>アプリケーションは、ユーザーがログインできるように、<a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-ja-JP">ユニバーサルログイン</a>ページへリダイレクトします。<code>AuthenticationController</code>インスタンスを使うと、<code>buildAuthorizeUrl(HttpServletRequest request</code>、<code>HttpServletResponse response</code>、<code>String redirectUrl)</code>メソッドを呼び出すことでリダイレクトURLを生成できます。リダイレクトURLは、Auth0アプリケーションの<b>［Allowed Callback URLs（許可されているコールバックURL）］</b>に追加されたURLである必要があります。</p>
 
-After the user logs in, the result will be received in our `CallbackServlet` via either a GET or POST HTTP request. Because we are using the Authorization Code Flow (the default), a GET request will be sent. If you have configured the library for the Implicit Flow, a POST request will be sent instead.
+## トークンの処理 {{{ data-action="code" data-code="CallbackServlet.java#16:37" }}}
 
-The request holds the call context that the library previously set by generating the Authorize URL with the `AuthenticationController`. When passed to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to save the credentials somewhere to access them later. You can use the `HttpSession` of the request by using the `SessionsUtils` class included in the library.
 
-::: note
-It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
-:::
+<p>ユーザーがログインした後、結果はGET要求またはPOST HTTP要求経由で<code>CallbackServlet</code>で受信されます。（初期設定として）Authorization Code Flowを使用しているため、GET要求が送信されます。ライブラリーを暗黙フロー用に構成している場合は、代わりにPOST要求が送信されます。</p><p>認可URLを<code>AuthenticationController</code>で生成することにより、要求はライブラリーで以前設定した呼び出しコンテキストを保持します。コントローラーに渡されると、有効な<code>Tokens</code>インスタンスまたは不具合を特定するExceptionが返ってきます。呼び出しに成功した場合、後でアクセスするために資格情報をどこかに保存しておく必要があります。ライブラリーに含まれる<code>SessionsUtils</code>クラスを使って、要求の<code>HttpSession</code>を使用できます。</p><p><div class="alert-container" severity="default"><p>トークンを要求した時刻と受け取った<code>expiresIn</code>値は保存することを推奨します。そうすることで、次回トークンを使用する時に、すでに有効期限が切れているか、または引き続き有効かを確認できます。このサンプルでは検証をスキップします。</p></div></p>
 
-## Display the home page {{{ data-action=code data-code="HomeServlet.java#4:14" }}}
+## ホームページを表示する {{{ data-action="code" data-code="HomeServlet.java#4:14" }}}
 
-Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeServlet` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code.
 
-## Handle logout {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+<p>ユーザーは認証される（トークンが存在する）と、<code>Auth0Filter</code>によって保護されたリソースへのアクセスを許可されます。<code>HomeServlet</code>で要求セッションからトークンが取得され、<code>userId</code>属性として設定されることで、JSPコードから使用できるようになります。</p>
 
-To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
+## ログアウトを処理する {{{ data-action="code" data-code="LogoutServlet.java#13:30" }}}
 
-First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
 
-## Run the sample {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+<p>ログアウトを適切に処理するには、セッションを消去し、ユーザーをAuth0からログアウトさせる必要があります。この処理は、サンプルアプリケーションの<code>LogoutServlet</code>で行われます。</p><p>まず、<code>request.getSession().invalidate()</code>を呼び出してセッションを消去します。それから、<code>returnTo</code>クエリパラメーターを含めることを念頭に置きつつ、ログアウトURLを構築します。ユーザーはログアウト後にこのURLにリダイレクトされます。最後にレスポンスをログアウトURLにリダイレクトします。</p>
 
-To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
+## サンプルを実行する
 
-```bash
-./gradlew clean appRun
-```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
-
-![Auth0 Universal Login](/media/quickstarts/universal-login.png)
-
-After a successful authentication, you'll be able to see the home page contents.
-
-![Display Token](/media/articles/java/display-token.png)
-
-Log out by clicking the **logout** button at the top right of the home page.
+<p>ターミナルからサンプルを実行するには、ディレクトリをプロジェクトのルートフォルダーに変更して以下のラインを実行します：</p><p><code>./gradlew clean app</code></p><p>数秒後、アプリケーションが<code>http://localhost:3000/</code>でアクセスできるようになります。保護されたリソース（<a href="http://localhost:3000/portal/home">http://localhost:3000/portal/home</a>）にアクセスしてみて、<code>Auth0Filter</code>によるAuth0ログインページへのリダイレクト方法を観察します。ウィジェット が、<a href="https://manage.auth0.com/#/">Dashboard</a>でこのアプリケーションに定義したソーシャル接続とデータベース接続をすべて表示します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/1012d2df62dd58a943f75092452f91d2/Login_Screen_-_Japanese.png" alt="null" /><p>認証成功後、ホームページのコンテンツを見られるようになります。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/FzK3jxfSGoeIDYQamxnJl/6b608e39ff39e044644193cfd2ee0f69/java-step-9-2.png" alt="null" /><p>ホームページ右上の<b>［logout（ログアウト）］</b>ボタン をクリックしてログアウトします。</p>

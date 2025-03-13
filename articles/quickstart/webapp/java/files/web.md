@@ -1,8 +1,9 @@
 ---
 name: web.xml
-language: xml
+language: 
 ---
-```xml
+    
+```
 <context-param>
     <param-name>com.auth0.domain</param-name>
     <param-value>${account.namespace}</param-value>
@@ -15,6 +16,6 @@ language: xml
 
 <context-param>
     <param-name>com.auth0.clientSecret</param-name>
-    <param-value>YOUR_CLIENT_SECRET</param-value>
+    <param-value>${account.clientSecret}</param-value>
 </context-param>
 ```

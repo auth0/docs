@@ -1,147 +1,98 @@
 ---
-title: Add Login to your Django application
-description: This tutorial demonstrates how to add user login to a Django application.
-topics:
-  - quickstarts
-  - webapp
-  - django
-  - login
-github:
-  path: 01-Login
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Djangoアプリケーションにログインを追加する
+description: このガイドでは、Python DjangoアプリケーションにAuthlib SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/index
-  - files/settings
-  - files/urls
-  - files/views
+ - files/webappexample/templates/index
+ - files/webappexample/settings
+ - files/webappexample/urls
+ - files/webappexample/views
+github:
+  path: https://github.com/auth0-samples/auth0-django-web-app/tree/master/01-Login
+locale: ja-JP
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Djangoアプリケーションにログインを追加する
 
-# Add Login to Your Django Application
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Django](https://www.djangoproject.com/) application using the [Authlib](https://authlib.org/) SDK.
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドでは、Python <a href="https://www.djangoproject.com/">Django</a>アプリケーションに<a href="https://authlib.org/">Authlib</a> SDKを使ってAuth0を統合する方法を説明します。</p><p></p>
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000/callback',
-returnTo: 'http://localhost:3000'
-}) %>
+## Auth0を構成する
 
-## Install dependencies
 
-For this integration, you will add several library dependencies, such as Authlib. Create a `requirements.txt` file in your project directory, and include the following:
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
-```python
-# 📁 requirements.txt -----
+## 依存関係をインストールする
 
-authlib ~= 1.0
+
+<p>この統合では、さまざまなライブラリー依存関係（Authlibなど）を追加します。プロジェクトディレクトリに<code>requirements.txt</code>ファイルを作成し、以下を含めます：</p><p><pre><code>authlib ~= 1.0
+
 django ~= 4.0
+
 python-dotenv ~= 0.19
+
 requests ~= 2.27
-```
 
-Run the following command from your shell to make these dependencies available:
+</code></pre>
 
-```sh
-pip install -r requirements.txt
-```
+</p><p>シェルから以下のコマンドを実行し、依存関係が利用できるようにします：</p><p><code>pip install -r requirements.txt</code></p>
 
-## Configure your `.env` file
+## .envファイルを構成する
 
-Next, create an `.env` file in your project directory. This file will hold your client keys and other configuration details.
 
-```ini
-# 📁 .env -----
+<p>次に、プロジェクトのディレクトリに<code>.env</code>ファイルを作成します。このファイルにはクライアントキーやその他の構成情報が含まれます。</p><p><pre><code>AUTH0_CLIENT_ID=${account.clientId}
 
-AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_CLIENT_SECRET=${account.clientSecret}
+
 AUTH0_DOMAIN=${account.namespace}
-```
 
-## Create an application
+</code></pre>
 
-If you already have a Django application setup, skip to the next step. For a new application project, run the following command:   
+</p>
 
-```sh
-django-admin startproject webappexample
-```
+## アプリケーションを作成する
 
-Change to the new project folder:
 
-```sh
-cd webappexample
-```
+<p>セットアップ済みのDjangoアプリケーションがある場合は、次の手順へスキップしてください。新しいアプリケーションプロジェクトには、次のコマンドを実行します：</p><p><code>django-admin startproject webappexample</code></p><p>新しいプロジェクトフォルダに変更します：</p><p><code>cd webappexample</code></p>
 
-## Update `settings.py` {{{ data-action=code data-code="webappexample/settings.py" }}}
+## settings.pyを更新する {{{ data-action="code" data-code="webappexample/settings.py" }}}
 
-Open the `webappexample/settings.py` file to review the `.env` values.
 
-At the top of the file, add the `os` and `dotenv` imports.
+<p><code>webappexample/settings.py</code>ファイルを開いて<code>.env</code>値を確認します。</p><p>ファイルの上部に<code>os</code>インポートと<code>dotenv</code>インポートを追加します。</p><p>次に、<code>BASE_DIR</code>定義の下に<code>TEMPLATE_DIR</code>変数を追加します。</p><p>次に<code>TEMPLATES</code>変数を見付けて<code>DIRS</code>値を更新し、当社の<code>TEMPLATE_DIR</code>ストリングを追加します。これにより、後の手順で作成するテンプレートファイルのパスが定義されます。この配列のすべてのコンテンツは同じにしておいてください。</p><p>ファイルの最後にAuth0の構成を読み込むコードを追加します。</p>
 
-Next, beneath the `BASE_DIR` definition, add the `TEMPLATE_DIR` variable.
+## アプリケーションをセットアップする {{{ data-action="code" data-code="webappexample/views.py#1:18" }}}
 
-Next, find the `TEMPLATES` variable and update the `DIRS` value to add our `TEMPLATE_DIR` string. This determines the path of the template files, which you will create in a future step.
-Keep any other content of this array the same.
 
-At the end of this file, add the code to load the Auth0 config.
+<p>アプリケーションの作成を始めるには、IDEで<code>webappexample/views.py</code>ファイルを開きます。</p><p>アプリケーションに必要なすべてのライブラリーをインポートします。</p><p>Auth0でアプリケーションの認証を処理するために、Authlibを構成できるようになりました。</p><p>AuthlibのOAuth<code>register()</code>メソッドで使用できる構成オプションの詳細については、<a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in">Authlibのドキュメント</a></p>
 
-## Setup your application {{{ data-action=code data-code="webappexample/views.py#1:18" }}}
+## ルートハンドラーをセットアップする {{{ data-action="code" data-code="webappexample/views.py#20:52" }}}
 
-To begin creating your application, open the `webappexample/views.py` file in your IDE.
 
-Import all the libraries your application needs.
+<p>この例では、アプリケーションにlogin、callback、logout、indexの4つのルートを追加します。</p><ul><li><p><code>login</code> - アプリへの訪問者は<code>/login</code>ルートを訪ねる時、Auth0に到達して認証フローを開始します。</p></li><li><p><code>callback</code> - ユーザーはAuth0でログインを完了した後、<code>/callback</code>ルートでアプリケーションに戻ります。このルートはユーザーのためにセッションを保存し、戻ってきた時に再度ログインする必要性を回避します。</p></li><li><p><code>logout</code> - <code>/logout</code>ルートは、ユーザーをアプリケーションからサインアウトさせます。アプリのユーザーセッションを消去し、Auth0ログアウトエンドポイントにリダイレクトして、セッションがもう保存されていないことを保証します。その後、アプリケーションは、ユーザーをホームルートにリダイレクトします。</p></li><li><p><code>index</code> - ホームルートは認証されたユーザーの詳細を表示したり、訪問者のサインインを許可したりします。</p></li></ul><p></p>
 
-Now you can configure Authlib to handle your application's authentication with Auth0.
+## ルートを登録する {{{ data-action="code" data-code="webappexample/urls.py" }}}
 
-Learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
 
-## Setup your route handlers {{{ data-action=code data-code="webappexample/views.py#21:57" }}}
+<p><code>webappexample/urls.py</code>ファイルのコンテンツを右のコードに置き換えて、新規ルートに接続します。</p><p>これにより<code>/login</code>、<code>/callback</code>、<code>/logout</code>、<code>/</code>のルートが正しいハンドラーへルートされます。</p>
 
-In this example, you will add four routes for your application: the login, callback, logout, and index routes.
+## テンプレートを追加する {{{ data-action="code" data-code="webappexample/templates/index.html" }}}
 
-- `login` - When visitors to your app visit the `/login` route, they will reach Auth0 to begin the authentication flow.
-- `callback` - After your users finish logging in with Auth0, they will return to your application at the `/callback` route. This route saves the session for the user and bypasses the need for them to login again when they return.
-- `logout` - +The `/logout` route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.
-- `index` - The home route will render an authenticated user's details or allow visitors to sign in.
 
-## Register your routes {{{ data-action=code data-code="webappexample/urls.py" }}}
- 
-Replace the contents of your `webappexample/urls.py` file with the code on the right to connect to these new routes.
+<p>次に、ホームページルートで使用するテンプレートファイルを作成します。</p><p><code>templates</code>と名付けた<code>webappexample</code>フォルダー内に新しいサブディレクトリを作成し、<code>index.html</code>ファイルを作成します。</p><p><code>index.html</code>ファイルにはテンプレートコードが含まれており、ログインした際にユーザー情報を表示したり、ログアウトした際にログインボタンを表示したりします。</p>
 
-This will route the `/login`, `/callback`, `/logout` and `/` routes to the correct handlers.
+## アプリケーションを実行する
 
-## Add templates {{{ data-action=code data-code="webappexample/templates/index.html" }}}
 
-Next, you will create a template file used in the home page route.
+<p>アプリケーションを実行する準備ができました。プロジェクトディレクトリからシェルを開き、以下を使用します：</p><p><pre><code>python3 manage.py migrate
 
-Create a new sub-directory within the `webappexample` folder named `templates`, and create a `index.html` file.
-
-The `index.html` file will contain template code to display the user's info if logged in or present them with a login button if logged out. 
-
-## Run your application
-
-You're ready to run your application! From your project directory, open a shell and use:
-
-```sh
-python3 manage.py migrate
 python3 manage.py runserver 3000
-```
 
-Your application should now be ready to open from your browser at [http://localhost:3000](http://localhost:3000).
+</code></pre>
 
-::::checkpoint
-:::checkpoint-default
-Visit [http://localhost:3000](http://localhost:3000) to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
-:::
+</p><p>アプリケーションは、<a href="http://localhost:3000">http://localhost:3000</a>でブラウザーから開けるようになっています。</p><p><div class="checkpoint">Django - 手順10 - アプリケーションを実行する - チェックポイント <div class="checkpoint-default"><p><a href="http://localhost:3000/">http://localhost:3000</a>を訪問して、確認します。ログインのためにAuth0へルートするログインボタンがあり、ログイン後アプリケーションに戻るとプロファイル情報を確認できます。</p></div>
 
-:::checkpoint-failure
-If your application did not start successfully:
-* Verify any errors in the console.
-* Verify the domain and Client ID imported correctly.
-* Verify your tenant configuration.
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify any errors in the console.</p></li><li><p>Verify the domain and Client ID imported correctly.</p></li><li><p>Verify your tenant configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

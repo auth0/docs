@@ -1,76 +1,53 @@
 ---
-title: Add authorization to an Express.js API application
-description: This tutorial demonstrates how to add authorization to an Express.js API.
-topics:
-- quickstart
-- backend
-- express
-github:
-  path: 01-Authorization-RS256
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Ajouter une autorisation à votre application API Express.js
+description: Ce guide explique comment intégrer Auth0 à n’importe quelle application API Express.js, nouvelle ou existante, en utilisant le package express-oauth2-jwt-bearer .
+interactive:  true
 files:
-- files/server
+ - files/server
+github:
+  path: https://github.com/auth0-samples/auth0-express-api-samples/tree/master/01-Authorization-RS256
+locale: fr-CA
 ---
 
-<!-- markdownlint-disable MD041 MD025 -->
+# Ajouter une autorisation à votre application API Express.js
 
-# Add Authorization to Your Express.js API Application
-This guide demonstrates how to integrate Auth0 with any new or existing Express.js API application using the `express-oauth2-jwt-bearer` package.
 
-If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing project API.
+<p>Ce guide explique comment intégrer Auth0 à n’importe quelle application API Express.js, nouvelle ou existante, en utilisant le package <code>express-oauth2-jwt-bearer</code> .</p><p>Si vous n’avez pas encore créé d’API dans votre Auth0 Dashboard, utilisez le sélecteur interactif pour créer une nouvelle API Auth0 ou sélectionner une API existante pour votre projet.</p><p>Pour configurer votre première API via Auth0 Dashboard, consultez <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis">notre guide de démarrage</a>. Chaque API Auth0 utilise l’identificateur API, dont votre application a besoin pour valider le jeton d’accès.</p><p><div class="alert-container" severity="default"><p><b>Vous ne connaissez pas Auth0?</b> Découvrez <a href="https://auth0.com/docs/overview">Auth0</a> et <a href="https://auth0.com/docs/api-auth">l’implémentation de l’authentification et de l’autorisation d’API</a> en utilisant le cadre d’applications OAuth 2.0.</p></div></p><p></p>
 
-To set up your first API through the Auth0 dashboard, review [our getting started guide](get-started/auth0-overview/set-up-apis).
-Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
+## Définir les autorisations
 
-<!-- markdownlint-disable MD041 MD002 -->
 
-<%= include('../../../_includes/_api_auth_intro') %>
+<p>Les autorisations vous permettent de définir comment les ressources peuvent être accessibles au nom de l’utilisateur avec un jeton d’accès en particulier. Par exemple, vous pouvez choisir d’accorder un accès en lecture à la ressource <code>messages</code> si les utilisateurs ont le niveau d’accès gestionnaire et un accès en écriture à cette ressource s’ils ont le niveau d’accès administrateur.</p><p>Vous pouvez définir les autorisations autorisées dans la vue <b>Permissions (Autorisations)</b> de la section <a href="https://manage.auth0.com/#/apis">APIs (API)</a> d&#39;Auth0 Dashboard.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/5EnGfdqLVZ8fuIxbUn7gm1/41998b8778fe7ad02b23131643b5ba95/Quickstarts_API_-_Permissions.png" alt="null" /><p><div class="alert-container" severity="default"><p>Cet exemple utilise la permission <code>read:messages</code>.</p></div></p>
 
-## Define permissions
-<%= include('../_includes/_api_scopes_access_resources') %>
+## Installer les dépendances
 
-## Install dependencies
 
-First, install the SDK with `npm`.
+<p>Tout d’abord, installez la trousse SDK avec <code>npm</code>.</p><p><pre><code class="language-powershell">npm install --save express-oauth2-jwt-bearer
 
-```bash
-npm install --save express-oauth2-jwt-bearer
-```
+</code></pre>
 
-## Configure the middleware {{{ data-action=code data-code="server.js#1:10" }}}
+</p>
 
-Configure `express-oauth2-jwt-bearer` with your Domain and API Identifier.
+## Configurer le logiciel médiateur {{{ data-action="code" data-code="server.js#1:10" }}}
 
-The `checkJwt` middleware shown to the right checks if the user's access token included in the request is valid. If the token is not valid, the user gets a 401 Authorization error when they try to access the endpoints.
 
-The middleware does not check if the token has sufficient scope to access the requested resources.
+<p>Configurez <code>express-oauth2-jwt-bearer</code> avec votre domaine et votre identificateur API.</p><p>Le logiciel médiateur <code>checkJwt</code> présenté à droite vérifie si le jeton d’accès de l’utilisateur inclus dans la demande est valide. Si le jeton n’est pas valide, l’utilisateur reçoit une erreur 401 Authorization (Autorisation 401) lorsqu’il tente d’accéder aux points de terminaison.</p><p>Le logiciel médiateur ne vérifie pas si le jeton dispose d’une permission suffisante pour accéder aux ressources demandées.</p>
 
-## Protect API endpoints {{{ data-action=code data-code="server.js#12:32" }}}
+## Protéger les points de terminaison des API {{{ data-action="code" data-code="server.js#12:32" }}}
 
-To protect an individual route by requiring a valid JWT, configure the route with the `checkJwt` middleware constructed from `express-oauth2-jwt-bearer`.
 
-You can configure individual routes to look for a particular scope. To achieve that, set up another middleware with the `requiresScope` method. Provide the required scopes and apply the middleware to any routes you want to add authorization to.
+<p>Pour protéger une route individuelle en exigeant un JWT valide, configurez la route avec le logiciel médiateur <code>checkJwt</code> développé à partir de <code>express-oauth2-jwt-bearer</code>.</p><p>Vous pouvez configurer des routes individuelles pour qu’elles recherchent une permission particulière. Pour ce faire, configurez un autre logiciel médiateur avec la méthode <code>requiresScope</code>. Fournissez les permissions requises et appliquez le logiciel médiateur à toutes les routes auxquelles vous souhaitez ajouter une autorisation.</p><p>Transmettez les logiciels médiateurs <code>checkJwt</code> et <code>requiredScopes</code> à la route que vous souhaitez protéger.</p><p>Dans cette configuration, seuls les jetons d’accès avec la permission <code>read:messages</code> peuvent accéder au point de terminaison.</p><h3>Faire un appel à votre API</h3><p>Pour appeler votre API, vous avez besoin d’un jeton d’accès. Vous pouvez obtenir un jeton d’accès à des fins de test dans la vue <b>Test</b> de vos <a href="https://manage.auth0.com/#/apis">API settings (Paramètres API)</a>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/5HUMcKGXoNOvdJNXFI73oi/46c9a2dff462708e855bc1073e601f80/Tokens_-_French.png" alt="null" /><p>Fournir le Jeton d’accès comme un en-tête <code>Authorization</code> dans vos demandes.</p><p><pre><code>curl --request GET \
 
-Pass the `checkJwt` and `requiredScopes` middlewares to the route you want to protect.
+  --url http://${account.namespace}/api_path \
 
-In this configuration, only access tokens with the `read:messages` scope can access the endpoint.
+  --header 'authorization: Bearer YOUR_ACCESS_TOKEN_HERE'
 
-<%= include('../_includes/_call_api') %>
+</code></pre>
 
-::::checkpoint
-:::checkpoint-default
-Now that you have configured your application, run your application to verify that:
-* `GET /api/public` is available for non-authenticated requests.
-* `GET /api/private` is available for authenticated requests.
-* `GET /api/private-scoped` is available for authenticated requests containing an access token with the `read:messages` scope.
-:::
+</p><p><div class="checkpoint">API Node JS - Étape 4 - Point de contrôle <div class="checkpoint-default"><p>Maintenant que vous avez configuré votre application, exécutez-la pour vérifier que :</p><ul><li><p><code>GET /api/public</code>est disponible pour les demandes non authentifiées.</p></li><li><p><code>GET /api/private </code>est disponible pour les demandes authentifiées.</p></li><li><p><code>GET /api/private-scoped </code>est disponible pour les demandes authentifiées contenant un jeton d’accès avec la permission <code>read:messages </code>.</p></li></ul><p></p></div>
 
-:::checkpoint-failure
-If your application did not start successfully:
-* Verify you added the token as the `Authorization` header
-* Ensure the token has the correct scopes. Verify with [jwt.io](https://jwt.io/).
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify you added the token as the <code>Authorization</code> header</p></li><li><p>Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/">jwt.io</a>.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

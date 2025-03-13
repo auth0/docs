@@ -1,174 +1,78 @@
 ---
-title: Add Login to your Android App
-description: This quickstart demonstrates how to add user login to an Android application using Auth0.
-seo_alias: android
-interactive: true
+title: Androidアプリケーションにログインを追加する
+description: このガイドでは、AndroidアプリケーションにAuth0 Android SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/build
-  - files/strings
-  - files/main
+ - files/build
+ - files/strings
+ - files/MainActivity
 github:
-  path: 00-Login-Kt
+  path: https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Login-Kt
+locale: ja-JP
 ---
 
-# Add Login to Your Android Application
+# Androidアプリケーションにログインを追加する
 
-<!-- markdownlint-disable MD002 MD041 -->
 
-<!-- markdownlint-disable MD002 MD034 MD041 -->
+<p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Auth0を構成する
 
-To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
-### Configure an application
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに認証を構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0によって認証後のユーザーをダイレクトするアプリケーションURLです。この値を設定していない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>demo://{yourDomain}/android/YOUR_APP_PACKAGE_NAME/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0によってログアウト後のユーザーをリダイレクトするアプリケーションURLです。この値を設定していない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>demo://{yourDomain}/android/YOUR_APP_PACKAGE_NAME/callback</code>に設定してください。</p></div></p>
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+## Auth0 Android SDKをインストールする {{{ data-action="code" data-code="build.gradle#18:18" }}}
 
-If you would rather explore a complete configuration, you can view a sample application instead.
 
-### Configure callback URLs
+<p><a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a> SDKをプロジェクトに追加します。ライブラリーはAuth0のAuthentication APIとManagement APIに要求を行います。</p><p>アプリの<code>build.gradle</code>依存関係セクションで、以下を追加します。</p><p><pre><code class="language-javascript">implementation 'com.auth0.android:auth0:2. '
 
-A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.
+</code></pre>
 
-::: note
-If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
-:::
+</p><p>AndroidとKotlinのプラグインのそれぞれに対して、Java 8+バイトコードをターゲットにするようにします。</p>
 
-### Configure logout URLs
+## マニフェストのプレースホルダーを追加する {{{ data-action="code" data-code="build.gradle#10:12" }}}
 
-A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.
 
-::: note
-If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
-:::
+<p>SDKにはマニフェストのプレースホルダーが必要です。Auth0は内部でプレースホルダーを使用して、認証のCallback URLを捉える<code>intent-filter</code>を定義します。Auth0テナントのドメインとCallback URLスキームを設定する必要があります。</p><p>アクティビティーに特別な<code>intent-filter</code>を宣言する必要はありません。これは、マニフェストのプレースホルダーをAuth0<b>ドメイン</b>と<b>スキーム</b>の値で定義したため、ライブラリーがリダイレクトを処理します。</p><p><div class="alert-container" severity="default"><p>ここでは、<code>auth0Scheme</code>に<code>demo</code>の値を使用したため、カスタムURLスキームをログイン後にAuth0がリダイレクトするURLに使用することができます。<a href="https://auth0.com/docs/applications/enable-android-app-links">Androidアプリのリンク</a>を使用したい場合は、<code>https</code>を使用する方法もあります。この値の設定に関する詳細情報は、<a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking">Auth0.Android SDKのREADME</a>をお読みください。</p></div></p>
 
-## Install the Auth0 Android SDK {{{ data-action=code data-code="build.gradle#18" }}}
+## アプリケーションを構成する {{{ data-action="code" data-code="strings.xml#2:3" }}}
 
-Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
 
-In your app's `build.gradle` dependencies section, add the following:
+<p>SDKが正しく機能するためには、次のプロパティを<code>strings.xml</code>で設定しなければなりません：</p><ul><li><p><code>com_auth0_domain</code>：Auth0テナントのドメインです。通常、Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Domain（ドメイン）］フィールドで確認できます。<a href="https://auth0.com/docs/custom-domains">カスタムドメイン</a>を使用している場合は、その値を代わりに設定してください。</p></li><li><p><code>com_auth0_client_id</code>：このクイックスタートで前にセットアップしたAuth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Client ID（クライアントID）］フィールドで確認できます。</p></li></ul><p><code>AndroidManifest.xml</code>ファイルが<code>android.permissions.INTERNET</code>のアクセス許可を指定していることを確認します。</p><p><pre><code class="language-javascript">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
 
-```groovy
-implementation 'com.auth0.android:auth0:2.+'
-```
+</code></pre>
 
-Ensure you target Java 8+ byte code for Android and Kotlin plugins respectively.
+</p><p>Android Studio内で<b>Sync Project with Gradle Files</b>を実行するか、コマンドラインから<code>./gradlew clean assembleDebug</code>を実行します。</p><p><div class="alert-container" severity="default"><p>Gradleの使用に関する詳細は、<a href="https://gradle.org/getting-started-android-build/">Gradleの公式のドキュメンテーション</a>を確認してください。</p></div></p>
 
-## Add manifest placeholders {{{ data-action=code data-code="build.gradle#10:12" }}}
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="MainActivity.kt#6:38" }}}
 
-The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.
 
-You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
+<p>アプリケーションに認証をセットアップするには、<a href="https://auth0.com/docs/hosted-pages/login">ユニバーサルログイン</a>が最も手軽な方法です。最良のエクスペリエンス、高い安全性、幅広い機能を活用するためにも、ユニバーサルログインの使用をお勧めします。</p><p><code>onCreate</code>メソッドで、<code>Auth0</code>クラスの新しいインスタンスを作成し、ユーザー資格情報を保持します。</p><p><code>loginWithBrowser</code>メソッドを作成し、<code>WebAuthProvider</code>クラスを使用して、<a href="https://manage.auth0.com/#/">Auth0 Dashboard</a>のアプリケーションで有効にした接続で認証します。ここでは、初期設定の一部として<code>auth0Scheme</code>マニフェストのプレースホルダーで使用されたスキーム値を渡すことができます。</p><p><code>WebAuthProvider#start</code>関数を呼び出した後、ブラウザーが起動し、ログインページが表示されます。ユーザーが認証を行うと、Callback URLが呼び出されます。Callback URLには、認証プロセスの最終結果が含まれています。</p><p><div class="checkpoint">Androidクイックスタート手順5「チェックポイント」 <div class="checkpoint-default"><p><code>loginWithBrowser</code>を呼び出すアプリケーションにボタンを追加します。このボタンをクリックすると、Androidアプリケーションによって<a href="https://auth0.com/universal-login">Auth0ユニバーサルログイン</a>ページにリダイレクトされ、ユーザー名とパスワードまたはソーシャルプロバイダーを使ってログインまたはサインアップできるようになったことを確認します。</p><p>完了したら、Auth0がアプリにリダイレクトで戻されることを確認します。</p></div>
 
-::: note
-We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
-:::
+  <div class="checkpoint-success"></div>
 
-## Configure your application {{{ data-action=code data-code="strings.xml#2:3" }}}
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Ensure you set the Allowed Callback URLs are correct</p></li><li><p>Verify you saved your changes after entering your URLs</p></li><li><p>Make sure the domain and cliend ID values imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-For the SDK to function properly, you must set the following properties in `strings.xml`:
+  </div></p>
 
-- `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
-- `com_auth0_client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="MainActivity.kt#40:52" }}}
 
-Ensure that the `AndroidManifest.xml` file specifies the `android.permissions.INTERNET` permission:
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
+<p><code>WebAuthProvider</code>を使用して、認証時にブラウザーで設定されたクッキーを削除すると、ユーザーは次回の認証試行時に、資格情報を再入力するよう求められます。</p><p><code>logout</code>メソッドをアプリに追加してユーザーのセッションを削除し、アプリからログアウトします。ここでは、初期設定の一部として<code>auth0Scheme</code>マニフェストのプレースホルダーで使用されたスキーム値を渡すことができます。</p><p><code>WebAuthProvider</code>クラスを使用して、ログアウトを実装します。この呼び出しによってブラウザーが開き、ユーザーはログアウトエンドポイントに移動されます。ユーザーがログアウトをキャンセルする場合は、ユーザーを前のURLにリダイレクトすることを検討してください。</p><p><div class="checkpoint">Androidクイックスタート手順6「チェックポイント」 <div class="checkpoint-default"><p><code>logout</code>を呼び出し、ユーザーをアプリケーションからログアウトするアプリにボタンを追加します。このボタンをクリックすると、Androidアプリがユーザーをログアウトページにリダイレクトしてからもう一度リダイレクトで戻すこと、そして、アプリケーションにログインしていないことを確認します。</p></div>
 
-Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.
+  <div class="checkpoint-success"></div>
 
-::: note
-For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
-:::
+  <div class="checkpoint-failure"><p>If your application did not logout successfully:</p><ul><li><p>Ensure the Allowed Logout URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-## Add login to your application {{{ data-action=code data-code="MainActivity.kt#6:38" }}}
+  </div></p>
 
-[Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="MainActivity.kt#54:70" }}}
 
-In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials.
 
-Create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/). Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
+<p><code>AuthenticationAPIClient</code>クラスを使用して、<a href="https://auth0.com/docs/users/user-profiles#user-profile-management-api-access">Auth0からユーザーのプロファイルを取得します</a>。これには以下のものが必要です。</p><ul><li><p>ログインフェーズから返されるアクセストークン</p></li><li><p><code>WebAuthProvider.login</code>に<code>profile</code>スコープが含まれる必要がある</p></li></ul><p>ユーザーのメールアドレスを取得する必要がある場合は、<code>email</code>スコープを指定する必要があります。</p><p><div class="alert-container" severity="default"><p>このクイックスタートで、上のログイン手順中にデフォルトで<code>openid profile email</code>スコープが設定されます。</p></div></p><p>以下に、ユーザーのプロファイルを取得して画面上に表示するために使用できる関数を示します。</p><p><div class="checkpoint">Androidクイックスタート手順7「チェックポイント」 <div class="checkpoint-default"><p>ログイン後に<code>showUserProfile</code>関数を呼び出します。<code>onSuccess</code>コールバックがユーザーのプロファイル情報を返すことを確認します。</p></div>
 
-After you call the `WebAuthProvider#start` function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
+  <div class="checkpoint-failure"><p>If your application did not return user profile information:</p><ul><li><p>Verify the <code>accessToken</code> is valid</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-default
-
-Add a button to your application that calls `loginWithBrowser`. When you click it, verify that your Android application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
-
-Once that's complete, verify that Auth0 redirects back to your app.
-
-:::
-
-:::checkpoint-failure
-
-If your application did not launch successfully:
-* Ensure you set the Allowed Callback URLs are correct
-* Verify you saved your changes after entering your URLs
-* Make sure the domain and cliend ID values imported correctly
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
-
-## Add logout to your application {{{ data-action=code data-code="MainActivity.kt#40:52" }}}
-
-Use `WebAuthProvider` to remove the cookie set by the browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
-
-Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration.
-
-Use the `WebAuthProvider` class to implement logout. This call opens the browser and navigates the user to the logout endpoint. If the user cancels the logout, consider redirected the user to their previous URL.
-::::checkpoint
-
-:::checkpoint-default
-
-Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.
-
-:::
-
-:::checkpoint-failure
-If your application did not logout successfully:
-* Ensure the Allowed Logout URLs are set properly
-* Verify you saved your changes after entering your URLs
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
-
-## Show user profile information {{{ data-action=code data-code="MainActivity.kt#54:70" }}}
-
-Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
-
-- The access token returned from the login phase
-- The `WebAuthProvider.login` must contain the `profile` scope
-
-You must specify the `email` scope if you need to retreive the user's email address.
-
-:::note
-This quickstart sets the `openid profile email` scopes by default during the login step above.
-:::
-
-The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
-
-::::checkpoint
-
-:::checkpoint-default
-Call the `showUserProfile` function after login. Verify the `onSuccess` callback returns the user's profile information. 
-
-:::
-
-:::checkpoint-failure
-If your application did not return user profile information:
-* Verify the `accessToken` is valid
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
+  </div></p>

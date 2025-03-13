@@ -1,69 +1,54 @@
 ---
-title: Add Authorization to a Flask API application
-description: This tutorial demonstrates how to add authorization to a Python API built with Flask.
-interactive: true
+title: Ajouter une autorisation à votre application API Flask
+description: Ce guide explique comment intégrer Auth0 à n’importe quelle API Python, nouvelle ou ancienne, développée avec Flask.
+interactive:  true
 files:
-  - files/validator
-  - files/server
+ - files/validator
+ - files/server
 github:
-  - path: 00-Starter-Seed
-  - branch: pyvnext-rewrite
+  path: https://github.com/auth0-samples/auth0-python-api-samples/tree/master/00-Starter-Seed
+locale: fr-CA
 ---
 
-<!-- markdownlint-disable MD041 MD002 MD025 -->
+# Ajouter une autorisation à votre application API Flask
 
-# Add Authorization to Your Flask API Application
 
-This guide demonstrates how to integrate Auth0 with any new or existing Python API built with [Flask](https://flask.palletsprojects.com/).
+<p>Ce guide explique comment intégrer Auth0 à n’importe quelle API Python, nouvelle ou ancienne, développée avec <a href="https://flask.palletsprojects.com/">Flask</a>.</p><p>Si vous n’avez pas encore créé d’API dans votre Auth0 Dashboard, vous pouvez utiliser le sélecteur interactif pour créer une nouvelle API Auth0 ou sélectionner une API existante qui représente le projet avec lequel vous souhaitez vous intégrer.</p><p>Vous pouvez également lire <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis">notre guide de démarrage</a> qui vous aide à configurer votre première API via Auth0 Dashboard.</p><p>Toute API dans Auth0 est configurée à l’aide d’un identificateur d’API que votre code d’application utilisera comme Audience (Public) pour valider le jeton d’accès.</p><p><div class="alert-container" severity="default"><p><b>Vous ne connaissez pas Auth0?</b> Découvrez <a href="https://auth0.com/docs/overview">Auth0</a> et <a href="https://auth0.com/docs/api-auth">l’implémentation de l’authentification et de l’autorisation d’API</a> en utilisant le cadre d’applications OAuth 2.0.</p></div></p><p></p>
 
-If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
+## Définir les autorisations
 
-Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
 
-Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the Access Token.
+<p>Les autorisations vous permettent de définir comment les ressources peuvent être accessibles au nom de l’utilisateur avec un jeton d’accès en particulier. Par exemple, vous pouvez choisir d’accorder un accès en lecture à la ressource <code>messages</code> si les utilisateurs ont le niveau d’accès gestionnaire et un accès en écriture à cette ressource s’ils ont le niveau d’accès administrateur.</p><p>Vous pouvez définir les autorisations autorisées dans la vue <b>Permissions (Autorisations)</b> de la section <a href="https://manage.auth0.com/#/apis">APIs (API)</a> d&#39;Auth0 Dashboard.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/677a3405b2853f5fdf9e42f6e83ceba7/Quickstarts_API_-_French.png" alt="Auth0 Dashboard> Applications > APIs (API) > [Specific API (API précise)] > Onglet Permissions (Autorisations)" /><p><div class="alert-container" severity="default"><p>Cet exemple utilise la permission <code>read:messages</code>.</p></div></p>
 
-<%= include('../../../_includes/_api_auth_intro') %>
+## Installer des dépendances
 
-## Define permissions
-<%= include('../_includes/_api_scopes_access_resources') %>
 
-# Configure Flask to Use Auth0
+<p>Ajoutez les dépendances suivantes à votre fichier <code>requirements.txt</code> :</p><p><pre><code class="language-powershell"># /requirements.txt
 
-## Install dependencies
 
-Add the following dependencies to your `requirements.txt`:
 
-```python
-# /requirements.txt
+    flask
 
-flask
-Authlib
-```
+    Authlib
 
-## Create the JWT validator {{{ data-action=code data-code="validator.py" }}}
+</code></pre>
 
-We're going to use a library called [Authlib](https://github.com/lepture/authlib) to create a [ResourceProtector](https://docs.authlib.org/en/latest/flask/1/resource-server.html), which is a type of [Flask decorator](https://flask.palletsprojects.com/patterns/viewdecorators/) that protects our resources (API routes) with a given validator.
+</p>
 
-The validator will validate the Access Token that we pass to the resource by checking that it has a valid signature and claims.
+## Créer le validateur JWT {{{ data-action="code" data-code="validator.py" }}}
 
-We can use AuthLib's `JWTBearerTokenValidator` validator with a few tweaks to make sure it conforms to our requirements on [validating Access Tokens](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
 
-To create our `Auth0JWTBearerTokenValidator` we need to pass it our `domain` and `audience` (API Identifier). It will then get the public key required to verify the token's signature and pass it to the `JWTBearerTokenValidator` class.
+<p>Nous allons utiliser une bibliothèque appelée <a href="https://github.com/lepture/authlib">Authlib</a> pour créer un <a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html">ResourceProtector</a>, qui est un type de <a href="https://flask.palletsprojects.com/patterns/viewdecorators/">Flask decorator</a> qui protège nos ressources (routes API) avec un validateur donné.</p><p>Le validateur validera le jeton d’accès que nous transmettons à la ressource en vérifiant qu’il a une signature et des demandes valides.</p><p>Nous pouvons utiliser le validateur <code>JWTBearerTokenValidator</code> d’AuthLib avec quelques ajustements pour nous assurer qu’il est conforme à nos exigences de <a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens">validation des jetons d’accès</a>.</p><p>Pour créer notre <code>Auth0JWTBearerTokenValidator</code>, nous devons lui transmettre notre <code>domain</code> et notre <code>audience</code> (Identificateur API). Il obtiendra alors la clé publique nécessaire pour vérifier la signature du jeton et la transmettra à la classe <code>JWTBearerTokenValidator</code>.</p><p>Nous remplacerons ensuite les <code>claims_options</code> de la classe pour nous assurer que les demandes d’échéance, de public et d’émission du jeton sont validées selon nos exigences.</p>
 
-We'll then override the class's `claims_options` to make sure the token's expiry, audience and issue claims are validated according to our requirements.
+## Créer une application Flask {{{ data-action="code" data-code="server.py" }}}
 
-## Create a Flask application {{{ data-action=code data-code="server.py" }}}
 
-Next we'll create a Flask application with 3 API routes:
+<p>Ensuite, nous allons créer une application Flask avec 3 routes API :</p><ul><li><p><code>/api/public </code>Un point de terminaison public qui ne nécessite aucune authentification.</p></li><li><p><code>/api/private </code>Un point de terminaison privé qui nécessite un jeton d’accès JWT valide.</p></li><li><p><code>/api/private-scoped </code>Un point de terminaison privé qui nécessite un jeton d’accès JWT valide contenant la <code>scope</code> donnée.</p></li></ul><p>Les routes protégées auront un décorateur <code>require_auth</code>, qui est un <code>ResourceProtector</code> qui utilise le <code>Auth0JWTBearerTokenValidator</code> que nous avons créé précédemment.</p><p>Pour créer <code>Auth0JWTBearerTokenValidator</code>, nous devons lui transmettre le domaine de notre locataire et l’identificateur de l’API que nous avons créée précédemment.</p><p>Le decorator <code>require_auth</code> sur la route <code>private_scoped</code> prend en charge un argument supplémentaire <code>&quot;read:messages&quot;</code>, qui vérifie la permission du jeton d’accès que nous avons créé précédemment.</p><h3>Faire un appel à votre API</h3><p>Pour appeler votre API, vous avez besoin d’un jeton d’accès. Vous pouvez obtenir un jeton d’accès à des fins de test dans la vue <b>Test</b> dans vos <a href="https://manage.auth0.com/#/apis">API settings (Paramètres API)</a>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/6jeVBuypOGX5qMRXeJn5ow/8aa621c6d95e3f21115493a19ab05f7a/Quickstart_Example_App_-_API.png" alt="Auth0 Dashboard> Applications > API > [API specifique] > Onglet Test" /><p>Fournir le jeton d’accès comme un en-tête <code>Authorization</code> dans vos demandes.</p><p><pre><code>curl --request GET \
 
-- `/api/public` A public endpoint that requires no authentication.
-- `/api/private` A private endpoint that requires a valid Access Token JWT.
-- `/api/private-scoped` A private endpoint that requires a valid Access Token JWT that contains the given `scope`.
+  --url http://${account.namespace}/api_path \
 
-The protected routes will have a `require_auth` decorator which is a `ResourceProtector` that uses the `Auth0JWTBearerTokenValidator` we created earlier.
+  --header 'authorization: Bearer YOUR_ACCESS_TOKEN_HERE'
 
-To create the `Auth0JWTBearerTokenValidator` we'll pass it our tenant's domain and the API Identifier of the API we created earlier.
+</code></pre>
 
-The `require_auth` decorator on the `private_scoped` route accepts an additional argument `"read:messages"`, which checks the Access Token for the Permission (Scope) we created earlier.
-
-<%= include('../_includes/_call_api') %>
+</p>

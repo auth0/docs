@@ -1,256 +1,106 @@
 ---
-title: Add Login to your iOS or macOS app
-description: This guide demonstrates how to add authentication and gain access to user profile information in any iOS / macOS app using the Auth0.swift SDK.
-interactive: true
+title: iOSまたはmacOSアプリケーションにログインを追加する
+description: このガイドは、iOSやmacOSアプリにAuth0.swift SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/Auth0
-  - files/MainView
-  - files/ProfileView
-  - files/User
-seo_alias: swift
-budicon: 448
-topics:
-  - quickstarts
-  - native
-  - ios
-  - macos
-  - swift
+ - files/Auth0
+ - files/MainView
+ - files/ProfileView
+ - files/User
 github:
-  path: Sample-01
-contentType: tutorial
-useCase: quickstart
+  path: https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/Sample-01
+locale: ja-JP
 ---
 
-# Add Login to Your iOS or macOS Application
+# iOSまたはmacOSアプリケーションにログインを追加する
 
-This guide demonstrates how to add authentication and access user profile information in any iOS / macOS app using the [Auth0.swift](https://github.com/auth0/Auth0.swift) SDK.
 
-To use this quickstart, you need to:
-* Sign up for a free Auth0 account or log in to Auth0.
-* Have an existing iOS / macOS app that you want to integrate. Alternatively, you can view or download a sample app after logging in.
+<p>このガイドは、<a href="https://github.com/auth0/Auth0.swift">Auth0.swift</a> SDKを使って、iOSやmacOSアプリで認証の追加とユーザプロファイル情報へのにアクセスを行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>統合したいiOSまたはmacOSのアプリを準備します。または、ログインした後に、サンプルアプリを表示してダウンロードすることもできます。</p></li></ul><p></p><p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Auth0を構成する
 
-To use Auth0 services, you need an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the app you are developing.
 
-### Configure an Auth0 application
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションが必要です。Auth0アプリケーションは、開発中のアプリに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>Auth0アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、既存の<b>ネイティブ</b>のAuth0アプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のAuth0アプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリをご覧ください。</p><h3>Callback URLとログアウトURLを構成する</h3><p>Auth0はリダイレクトでユーザーをアプリに戻すため、Callback URLとログアウトURLを呼び出します。Auth0は、ユーザーを認証した後にCallback URLを呼び出し、セッションのクッキーを削除した後にログアウトURLを呼び出します。Callback URLとログインURLを設定しないと、ユーザーはアプリにログインやログアウトが行えなくなり、アプリにエラーが発生します。</p><p><div class="alert-container" severity="default"><p>iOS 17.4以降とmacOS 14.4以降では、ユニバーサルリンクをCallback URLおよびログアウトURLとして使用できます。有効になっている場合、古いバージョンのiOS/macOSでは、Auth0.swiftはフォールバックとしてカスタムURLスキームを使用します。</p><p><b>この機能にはXcode 15.3以降と有料のApple Developerアカウントが必要です。</b></p></div></p><p>アプリのプラットフォームに応じて、以下の<b>Callback URL</b>と<b>ログアウトURL</b>を追加してください。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>がある場合は、Auth0テナントのドメインに代わってそちらを使用します。</p><h4>iOS</h4><p><pre><code>https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
 
-Use the interactive selector to create a new Auth0 application or select an existing **Native** Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.
-
-Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
-
-If you would rather explore a complete configuration, you can view a sample app instead.
-
-### Configure callback and logout URLs
-
-Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.
-
-::: note
-On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
-
-**This feature requires Xcode 15.3+ and a paid Apple Developer account**.
-:::
-
-Add the following URLs to **Callback URLs** and **Logout URLs**, depending on the platform of your app. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
-
-#### iOS
-
-```text
-https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
-```
 
-#### macOS
+</code></pre>
 
-```text
-https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
+</p><h4>macOS</h4><p><pre><code>https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
+
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
-```
 
-For example, if your iOS bundle identifier was `com.example.MyApp` and your Auth0 domain was `example.us.auth0.com`, then this value would be:
+</code></pre>
 
-```text
-https://example.us.auth0.com/ios/com.example.MyApp/callback,
+</p><p>たとえば、iOSのバンドル識別子が<code>com.example.MyApp</code>でAuth0ドメインが<code>example.us.auth0.com</code>の場合には、次の値になります：</p><p><pre><code>https://example.us.auth0.com/ios/com.example.MyApp/callback,
+
 com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
-```
 
-### Configure the associated domain
+</code></pre>
 
-::: warning
-This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
-:::
+</p><h3>関連ドメインを構成する</h3><p><div class="alert-container" severity="warning"><p>この手順では有料のApple Developerアカウントが必要になります。Callback URLおよびログアウトURLとしてユニバーサルリンクを使用する必要があります。代わりにカスタムURLスキームを使用する場合はこの手順をスキップしてください。</p></div></p><h4>チームIDとバンドル識別子を構成する</h4><p>Auth0アプリケーションの<a href="https://manage.auth0.com/dashboard/us/#/applications/">設定ページ</a>に移動して最後までスクロールし、 <b>［Advanced Settings（詳細設定）］&gt;［Device Settings（デバイス設定）］</b>を開きます。<b>［iOS］</b>セクションで<b>［Team ID（チームID）］</b>に<a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/">Apple Team ID</a>を、<b>［App ID（アプリID）］</b>にアプリのバンドルIDを設定します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/62v9bB3bUVMw9XLND5lcMI/1b20d248b400f75e1bf1174a7d0d0ba0/IOS_Settings_-_Japanese.png" alt="Auth0 Dashboard> ［Applications（アプリケーション）］ > ［Applications（アプリケーション）］ > ［Native App（ネイティブアプリ）］ > ［Settings（設定）］タブ > ［Advanced Settings（詳細設定）］ > ［Device Settings（デバイス設定）］タブ" /><p>これで、アプリがAuth0テナントの<code>apple-app-site-association</code>ファイルに追加されます。</p><h4>関連ドメインの機能を追加する</h4><p>Xcodeで、アプリのターゲット設定の<b>［Signing &amp; Capabilities（署名と機能）］</b><a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability">タブ</a>に移動し、<b>［+ Capability（＋機能）］</b>ボタンを押します。それから<b>［Associated Domains（関連ドメイン）］</b>を選択します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/72eVE104zKB5Q4NPnx6MCa/66c81ee64f104583bd00b9916778f989/ios-xcode-capabilities.png" alt="［Xcode］> ［Signing & Capabilities（署名と機能）］タブ > ［Add New（新規追加）］ > ［Associated Domains（関連ドメイン）］" /><p>次に、以下の <a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain">エントリー</a>を<b>［Associated Domains（関連ドメイン）］</b>の下に追加します：</p><p><pre><code>webcredentials:labs-fundtraining.us.auth0.com
 
-#### Configure the Team ID and bundle identifier
+</code></pre>
 
-Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+</p><p><a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>がある場合は、Auth0テナントのドメインではなくそちらを使用してください。</p><p><div class="alert-container" severity="default"><p>関連ドメインが動作するためには、<b>iOSシミュレーター用に構築されている場合でも</b>、アプリが自分のチーム証明書で署名されている必要があります。Apple Teamには必ず、Auth0アプリケーションの設定ページで構成されたチームIDのものを使用してください。</p></div></p>
 
-<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+## SDKをインストールする
 
-This will add your app to your Auth0 tenant's `apple-app-site-association` file.
 
-#### Add the associated domain capability
+<h3>Swift Package Managerを使用する</h3><p>Xcodeで以下のメニュー項目を開きます：</p><p><b>［File（ファイル）］ &gt; ［Add Package Dependencies...（パッケージの依存関係を追加する...）］</b></p><p><b>［Search or Enter Package URL（パッケージURLを検索または入力）］</b>検索ボックスに次のURLを入力します：</p><p><pre><code>https://github.com/auth0/Auth0.swift
 
-In Xcode, go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of your app's target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+</code></pre>
 
-<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
+</p><p>それから依存ルールを選択して<b>［Add Package（パッケージを追加）］</b>を押します。</p><p><div class="alert-container" severity="default"><p>SPMの詳細については、<a href="https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app">公式ドキュメント</a>を確認してください。</p></div></p><h3>CocoaPodsを使用する</h3><p>以下のラインを<code>Podfile</code>に追加します：</p><p><pre><code class="language-ruby">pod 'Auth0', '~&gt; 2.0'
 
-Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+</code></pre>
 
-```text
-webcredentials:${account.namespace}
-```
+</p><p>それから<code>pod install</code>を実行します。</p><p><div class="alert-container" severity="default"><p>CocoaPodsの詳細は、<a href="https://guides.cocoapods.org/using/getting-started.html">公式ドキュメント</a>を確認してください。</p></div></p><h3>Carthageを使用する</h3><p>以下のラインを<code>Cartfile</code>に追加します：</p><p><pre><code class="language-swift">github &quot;auth0/Auth0.swift&quot; ~&gt; 2.0
 
-If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
+</code></pre>
 
-::: note
-For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
-:::
+</p><p>それから<code>carthage bootstrap --use-xcframeworks</code>を実行します。</p><p><div class="alert-container" severity="default"><p>Carthageの詳細については、<a href="https://github.com/Carthage/Carthage#getting-started">公式ドキュメント</a>を確認してください。</p><p></p></div></p>
 
-## Install the SDK
+## SDKを構成する {{{ data-action="code" data-code="Auth0.plist" }}}
 
-### Using the Swift Package Manager
 
-Open the following menu item in Xcode:
+<p>Auth0.swiftのSDKにはAuth0<b>domain</b>と<b>Client ID</b>が必要です。これらの値はAuth0アプリケーションの<a href="https://manage.auth0.com/dashboard/us/#/applications/">設定ページ</a>で確認できます</p><ul><li><p><b>domain</b>：Auth0テナントのドメインです。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>がある場合は、Auth0テナントのドメインではなくそちらを使用してください。</p></li><li><p><b>クライアントID</b>：このクイックスタートで前にセットアップした、Auth0アプリケーションの英数字からなる一意のIDです。</p></li></ul><p>Auth0ドメインとクライアントIDの値を含むアプリバンドルに<code>Auth0.plist</code>という名前の<code>plist</code>ファイルを作成します。</p><p><div class="alert-container" severity="default"><p>SDKはプログラムコードによって構成することも可能です。詳細は<a href="https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically">README</a>をご覧ください。</p></div></p><p><div class="checkpoint">iOS Swiftクイックスタート - 手順3「チェックポイント」 <div class="checkpoint-default"><p>Auth0.swift SDKの構成を完了しました。アプリを実行して、SDKに関連したエラーを出していないことを確認します。</p></div>
 
-**File > Add Package Dependencies...**
+  <div class="checkpoint-success"></div>
 
-In the **Search or Enter Package URL** search box enter this URL:
+  <div class="checkpoint-failure"><p>If your app produces errors related to the SDK:</p><ul><li><p>Make sure you selected the correct Auth0 application</p></li><li><p>Verify you saved your URL updates</p></li><li><p>Ensure you set the Auth0 domain and Client ID correctly</p></li></ul><p>Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-```text
-https://github.com/auth0/Auth0.swift
-```
+  </div></p><p></p>
 
-Then, select the dependency rule and press **Add Package**.
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="MainView.swift#20:31" }}}
 
-::: note
-For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
-:::
 
-### Using Cocoapods
+<p>ログインページを提示したいファイルに<code>Auth0</code>モジュールをインポートします。それから<b>ログイン</b>ボタンのアクションで<a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-ja-JP">ユニバーサルログイン</a>ページを提示します。</p><p><div class="alert-container" severity="default"><p>コールバックに基づいたAPIの代わりにasync/awaitまたはCombineを使用できます。詳細は<a href="https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos">README</a>をご覧ください。</p></div></p><img src="//images.ctfassets.net/cdy7uua7fh8z/3ZRDXpjlUXEcQpXq6Q00L1/4b6b596983b5f7d257975a5efcc1cafa/login-ios_japanese.png" alt="iOSアプリのユニバーサルログイン画面の例" /><p><div class="checkpoint">iOS Swiftクイックスタート - 手順4「チェックポイント」 <div class="checkpoint-default"><p><b>ログイン</b>ボタンを押して次の点を確認します：</p><ul><li><p><a href="https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos">アラートボックス</a>が表示され、同意を求める。</p></li><li><p><b>［Continue（続行）］</b>を選択するとSafariモーダルでユニバーサルログインページが開く。</p></li><li><p>ユーザー名とパスワード、またはソーシャルプロバイダーを使って、ログインまたはサインアップできる。</p></li><li><p>その後、Safariモーダルが自動的に閉じる。</p></li></ul><p></p></div>
 
-Add the following line to your `Podfile`:
+  <div class="checkpoint-success"></div>
 
-```ruby
-pod 'Auth0', '~> 2.0'
-```
+  <div class="checkpoint-failure"><p>If login fails or produces errors:</p><ul><li><p>Verify you entered the correct callback URL</p></li><li><p>Ensure you set the Auth0 domain and Client ID correctly</p></li></ul><p>Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Then, run `pod install`.
+  </div></p><p></p>
 
-::: note
-For further reference on Cocoapods, check their [official documentation](https://guides.cocoapods.org/using/getting-started.html).
-:::
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="MainView.swift#34:45" }}}
 
-### Using Carthage
 
-Add the following line to your `Cartfile`:
+<p>アプリにログインできるようになったら、<a href="https://auth0.com/docs/authenticate/login/logout">ログアウト</a>する方法が必要です。<b>ログアウト</b>ボタンのアクションで<code>clearSession()</code>メソッドを呼び出し、ユニバーサルログインセッションのクッキーを消去します。</p><p><div class="checkpoint">iOS Swiftクイックスタート - 手順5「チェックポイント」 <div class="checkpoint-default"><p><b>ログアウト</b>ボタンを押して次の点を確認します：</p><ul><li><p>アラートボックスが表示され、同意を求める。</p></li><li><p><b>［Continue（続行）］</b>を選択するとSafariモーダルでページが開く。</p></li><li><p>その直後にSafariモーダルが自動的に閉じる。</p></li></ul><p></p></div>
 
-```text
-github "auth0/Auth0.swift" ~> 2.0
-```
+  <div class="checkpoint-success"></div>
 
-Then, run `carthage bootstrap --use-xcframeworks`.
+  <div class="checkpoint-failure"><p>If logout fails or produces errors:</p><ul><li><p>Verify you entered the correct callback URL</p></li><li><p>Ensure you set the Auth0 domain and Client ID correctly</p></li></ul><p>Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::: note
-For further reference on Carthage, check their [official documentation](https://github.com/Carthage/Carthage#getting-started).
-:::
+  </div></p>
 
-## Configure the SDK {{{ data-action=code data-code="Auth0.plist" }}}
+## ユーザープロファイル情報にアクセスする {{{ data-action="code" data-code="User.swift#11:14" }}}
 
-The Auth0.swift SDK needs your Auth0 **domain** and **Client ID**. You can find these values in the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application.
 
-- **domain**: The domain of your Auth0 tenant. If you have a [custom domain](/customize/custom-domains), use this instead of your Auth0 tenant’s domain.
-- **Client ID**: The alphanumeric, unique ID of the Auth0 application you set up earlier in this quickstart.
+<p>ログイン後に得る<code>Credentials</code>インスタンスには<a data-contentfulid="7eGepxAjz89d1F7i1aP4ch-ja-JP">IDトークン</a>が含まれます。IDトークンは、ログインしたユーザーに関連するプロファイル情報（メールアドレスやプロフィール写真など）を含みます。これらの詳細情報はアプリのユーザーインターフェイスをパーソナライズするために使用できます。</p><p>Auth0.swiftのSDKには、IDトークンのような<a href="https://jwt.io/">JWT</a>をデコードするための<a href="https://github.com/auth0/JWTDecode.swift">ユーティリティ</a>が含まれています。ユーザープロファイル情報にアクセスしたいファイルへ<code>JWTDecode</code>モジュールをインポートすることで開始します。それから、<code>decode(jwt:)</code>メソッドを使ってIDトークンをデコードし、そこに含まれるクレームにアクセスします。</p><p><div class="alert-container" severity="default"><p>最新のユーザー情報は<code>userInfo(withAccessToken:)</code>メソッドで取得できます。詳細は<a href="https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information">EXAMPLES</a>をご覧ください。</p></div></p><p><div class="checkpoint">iOS Swiftクイックスタート - 手順6「チェックポイント」 <div class="checkpoint-default"><p>ログイン後に<code>email</code>、<code>picture</code>、その他すべての<a data-contentfulid="2dKoj5wVle1Wz3mWrrQ2Dr">クレーム</a>にアクセスできることを確認します。</p></div>
 
-Create a `plist` file named `Auth0.plist` in your app bundle containing the Auth0 domain and Client ID values. 
+  <div class="checkpoint-success"></div>
 
-::: note
-You can also configure the SDK programmatically. Check the [README](https://github.com/auth0/Auth0.swift#configure-client-id-and-domain-programmatically) to learn more.
-:::
+  <div class="checkpoint-failure"><p>If you cannot access the user information:</p><ul><li><p>Verify you imported the <code>JWTDecode</code> module where you invoke the <code>decode(jwt:)</code> method</p></li><li><p>Make sure you spelled your claims correctly</p></li></ul><p>Still having issues? Check out our <a href="https://github.com/auth0/Auth0.swift#documentation">documentation</a> or visit our <a href="https://community.auth0.com/">community forums</a> to get more help.</p></div>
 
-::::checkpoint
-:::checkpoint-default
-You configured the Auth0.swift SDK. Run your app to verify that it is not producing any errors related to the SDK.
-:::
-
-:::checkpoint-failure
-If your app produces errors related to the SDK:
-- Make sure you selected the correct Auth0 application
-- Verify you saved your URL updates
-- Ensure you set the Auth0 domain and Client ID correctly
-
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Add login to your application {{{ data-action=code data-code="MainView.swift#20:31" }}}
-
-Import the `Auth0` module in the file where you want to present the login page. Then, present the [Universal Login](/authenticate/login/auth0-universal-login) page in the action of your **Login** button.
-
-::: note
-You can use async/await or Combine instead of the callback-based API. Check the [README](https://github.com/auth0/Auth0.swift#web-auth-login-ios--macos) to learn more.
-:::
-
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Screenshot of the Universal Login page"></div>
-
-::::checkpoint
-:::checkpoint-default
-Press the **Login** button and verify that:
-- An [alert box](https://github.com/auth0/Auth0.swift#sso-alert-box-ios--macos) shows up asking for consent.
-- Choosing **Continue** opens the Universal Login page in a Safari modal.
-- You can log in or sign up using a username and password or a social provider.
-- The Safari modal closes automatically afterward.
-:::
-
-:::checkpoint-failure
-If login fails or produces errors:
-- Verify you entered the correct callback URL
-- Ensure you set the Auth0 domain and Client ID correctly
-
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Add logout to your application {{{ data-action=code data-code="MainView.swift#33:44" }}}
-
-Now that you can log in to your app, you need a way to [log out](/authenticate/login/logout). In the action of your **Logout** button, call the `clearSession()` method to clear the Universal Login session cookie.
-
-::::checkpoint
-:::checkpoint-default
-Press the **Logout** button and verify that:
-- An alert box shows up asking for consent.
-- Choosing **Continue** opens a page in a Safari modal.
-- The Safari modal closes automatically soon after.
-:::
-
-:::checkpoint-failure
-If logout fails or produces errors:
-- Verify you entered the correct callback URL
-- Ensure you set the Auth0 domain and Client ID correctly
-
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Access user profile information {{{ data-action=code data-code="User.swift#11:14" }}}
-
-The `Credentials` instance you obtained after logging in includes an [ID token](/secure/tokens/id-tokens). The ID token contains the profile information associated with the logged-in user, such as their email and profile picture. You can use these details to personalize the user interface of your app.
-
-The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swift) for decoding [JWTs](https://jwt.io/) like the ID token. Start by importing the `JWTDecode` module in the file where you want to access the user profile information. Then, use the `decode(jwt:)` method to decode the ID token and access the claims it contains.
-
-::: note
-You can retrieve the latest user information with the `userInfo(withAccessToken:)` method. Check the [EXAMPLES](https://github.com/auth0/Auth0.swift/blob/master/EXAMPLES.md#retrieve-user-information) to learn more.
-:::
-
-::::checkpoint
-:::checkpoint-default
-Verify that you can access the `email`, `picture`, or any other [claim](/secure/tokens/id-tokens/id-token-structure) after you have logged in.
-:::
-
-:::checkpoint-failure
-If you cannot access the user information:
-- Verify you imported the `JWTDecode` module where you invoke the `decode(jwt:)` method
-- Make sure you spelled your claims correctly
-
-Still having issues? Check out our [documentation](https://github.com/auth0/Auth0.swift#documentation) or visit our [community forums](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>

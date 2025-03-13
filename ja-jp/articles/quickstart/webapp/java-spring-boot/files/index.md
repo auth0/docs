@@ -2,6 +2,7 @@
 name: index.html
 language: html
 ---
+    
 ```html
 <!-- src/main/resources/templates/index.html -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">

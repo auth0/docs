@@ -2,7 +2,7 @@
 name: isAuthenticated.go
 language: go
 ---
-
+    
 ```go
 // Save this file in ./platform/middleware/isAuthenticated.go
 

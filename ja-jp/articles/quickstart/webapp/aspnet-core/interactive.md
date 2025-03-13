@@ -1,134 +1,60 @@
 ---
-title: Add Login to your ASP.NET MVC application
-description: This tutorial demonstrates how to add user login to an ASP.NET Core application.
-budicon: 448
-topics:
-  - quickstarts
-  - webapp
-  - aspnet-core
-  - login
-github:
-  path: Quickstart/Sample
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: ASP.NET MVCアプリケーションにログインを追加する
+description: このガイドは、新規または既存のASP.NET MVCアプリケーションにAuth0.AspNetCore.Authentication SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/program
-  - files/appsettings
-  - files/account.controller
+ - files/Program
+ - files/appsettings
+ - files/AccountController
+github:
+  path: https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Quickstart/Sample
+locale: ja-JP
 ---
 
-# Add Login to Your ASP.NET MVC Application
+# ASP.NET MVCアプリケーションにログインを追加する
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET MVC application using the **Auth0.AspNetCore.Authentication** SDK. 
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/callback',
-  returnTo: 'http://localhost:3000'
-}) %>
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドは、新規または既存のASP.NET MVCアプリケーションに<b>Auth0.AspNetCore.Authentication</b> SDKを使ってAuth0を統合する方法を説明します。</p><p></p>
 
-## Install and Configure the SDK {{{ data-action=code data-code="Program.cs" }}}
+## Auth0を構成する
 
-### Install from Nuget
 
-To integrate Auth0 with ASP.NET Core you can use our SDK by installing the `Auth0.AspNetCore.Authentication` [Nuget package](https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/) to your application.
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p><p></p></div></p>
 
-```bash
-Install-Package Auth0.AspNetCore.Authentication
-```
+## SDKをインストールして構成する {{{ data-action="code" data-code="Program.cs" }}}
 
-### Configure the middleware
 
-To enable authentication in your ASP.NET Core application, use the middleware provided by the SDK. Go to the `Program.cs` file and call `builder.Services.AddAuth0WebAppAuthentication()` to register the SDK's middleware.
+<h3>Nugetからインストールする</h3><p>Auth0をASP.NET Coreと統合するには、<code>Auth0.AspNetCore.Authentication</code><a href="https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/">Nugetパッケージ</a>をアプリケーションにインストールすることでSDKを使用できます。</p><p></p><h3>ミドルウェアを構成する</h3><p>ASP.NET Coreアプリケーションで認証を可能にするには、SDKが提供するミドルウェアを使います。<code>Program.cs</code>ファイルに移動して<code>builder.Services.AddAuth0WebAppAuthentication()</code>を呼び出し、SDKのミドルウェアを登録します。</p><p><code>Domain</code>と<code>ClientId</code>は必ず構成してください。SDKがどのAuth0テナントとアプリケーションを使用すべきかを認識するために必要となるフィールドです。</p><p>認証と認可が<code>Program.cs</code>ファイルで有効になったことを確認します。</p>
 
-Ensure to configure the `Domain` and `ClientId`, these are required fields to ensure the SDK knows which Auth0 tenant and application it should use.
+## ログイン {{{ data-action="code" data-code="AccountController.cs" }}}
 
-Make sure you have enabled authentication and authorization in your `Program.cs` file.
-## Login {{{ data-action=code data-code="AccountController.cs#7:20" }}}
 
-To allow users to login to your ASP.NET MVC application, add a `Login` action to your controller.
+<p>ユーザーによるASP.NET MVCアプリケーションへのログインを許可するには、コントローラーに<code>Login</code>アクションを追加します。</p><p><code>HttpContext.ChallengeAsync()</code>を呼び出し、<code>Auth0Constants.AuthenticationScheme</code>を認証スキームとして渡します。これによりSDKが内部に登録しているOIDC認証ハンドラーが発動されます。関連する<code>authenticationProperties</code>も必ず指定してください。構築は<code>LoginAuthenticationPropertiesBuilder</code>で行えます。</p><p><code>HttpContext.ChallengeAsync()</code>の呼び出し成功後、ユーザーはAuth0にリダイレクトされます。その後アプリケーションにリダイレクトで戻された際に、OIDCミドルウェアとクッキーミドルウェアの両方にサインインしています。これにより、ユーザーは後続の要求でも認証されるようになります。</p><p><div class="checkpoint">ASP.NET MWC手順3「チェックポイント」 <div class="checkpoint-default"><p>Loginの構成が完了したら、アプリケーションを実行して次の点を確認します：</p><ul><li><p><code>Login</code>アクションに移動すると、Auth0にリダイレクトされる。</p></li><li><p>資格情報を入力すると、リダイレクトでアプリケーションに戻る。</p></li></ul><p></p></div>
 
-Call `HttpContext.ChallengeAsync()` and pass `Auth0Constants.AuthenticationScheme` as the authentication scheme. This will invoke the OIDC authentication handler that our SDK registers internally. Be sure to also specify the corresponding `authenticationProperties`, which you can construct using the `LoginAuthenticationPropertiesBuilder`.
+  <div class="checkpoint-success"></div>
 
-After succesfully calling `HttpContext.ChallengeAsync()`, the user will be redirected to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
+  </div></p>
 
-:::checkpoint-default
+## ユーザープロファイルを表示する
 
-Now that you have configured Login, run your application to verify that:
-* Navigating to your `Login` action will redirect to Auth0
-* Entering your credentials will redirect you back to your application.
 
-:::
+<p>ミドルウェアはAuth0からトークンを取得すると、IDトークンからユーザー情報とクレームを抽出し、コントローラーで<code>User.Claims</code>プロパティとして利用できるようにします。</p><p>ユーザーの名前、メールアドレス、プロファイル画像を表示するカスタムユーザープロファイルを作成するには、<code>User</code>から関連する情報を取得し、コントローラー内からビューに渡します。</p><p><div class="checkpoint">ASP.NET MWC手順4「チェックポイント」 <div class="checkpoint-default"><p>ユーザープロファイルを表示するようアクションをセットアップし終えたら、アプリケーションを実行して次の点を確認します：</p><ul><li><p>ログイン成功後に<code>Profile</code>アクションに移動すると、ユーザープロファイルが表示される。</p></li></ul><p></p></div>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::
+  </div></p>
 
-::::
+## ログアウト
 
-## Display User Profile {{{ data-action=code data-code="AccountController.cs#23:33" }}}
 
-After the middleware has successfully retrieved the tokens from Auth0, it will extract the user's information and claims from the ID Token and makes them available as the `User.Claims` property on the controller.
+<p>コントローラーのアクション内から<code>HttpContext.SignOutAsync</code>を<code>CookieAuthenticationDefaults.AuthenticationScheme</code>認証スキームで呼び出すと、ユーザーをアプリケーションからログアウトさせられます。</p><p>さらに、ユーザーをAuth0からもログアウトさせたい場合は（これによりシングルサインオンに依拠している他のアプリケーションからもログアウトさせる可能性があります）、<code>HttpContext.SignOutAsync</code>を<code>Auth0Constants.AuthenticationScheme</code>認証スキームで呼び出します。また、<code>LogoutAuthenticationPropertiesBuilder</code>を使って構築できる適切な<code>authenticationProperties</code>も同じ認証スキームで呼び出します。</p><p></p><p><div class="checkpoint">ASP.NET MWC手順5「チェックポイント」 <div class="checkpoint-default"><p>Logoutの構成が完了したら、アプリケーションを実行して次の点を確認します：</p><ul><li><p><code>Logout</code>アクションに移動すると、ユーザーが確実にログアウトする。</p></li><li><p>Auth0からもログアウトすると、Auth0にリダイレクトされ、即座にアプリケーションにリダイレクトで戻される。</p></li></ul><p></p></div>
 
-You can create a custom user profile page for displaying a user's name, email address, and profile image, by retrieving the corresponding information from the `User` and pass it to the view from inside your controller.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-default
-
-Now that you have set up your action to render the user's profile, run your application to verify that:
-* Navigating to your `Profile` action after being succesfully logged in, shows the user's profile.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
-
-## Logout {{{ data-action=code data-code="AccountController.cs#36:52" }}}
-
-Logging out the user from your own application can be done by calling `HttpContext.SignOutAsync` with the `CookieAuthenticationDefaults.AuthenticationScheme` authentication scheme from inside your controller's action.
-
-Additionaly, If you also want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign On), call `HttpContext.SignOutAsync` with the `Auth0Constants.AuthenticationScheme` authentication scheme as well as the appropriate `authenticationProperties` that can be constructed using the `LogoutAuthenticationPropertiesBuilder`.
-
-::: note
-When only logging the user out from your own application but not from Auth0, ensure to return `RedirectToAction("Index", "Home")` or any other appropriate redirect.
-:::
-
-::::checkpoint
-
-:::checkpoint-default
-
-Now that you have configured Logout, run your application to verify that:
-* Navigating to your `Logout` action will ensure the user is logged out.
-* When also logging out from Auth0, you should be redirected to Auth0 and instantly redirected back to your own application.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
+  </div></p>

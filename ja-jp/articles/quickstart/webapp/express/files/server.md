@@ -2,9 +2,7 @@
 name: server.js
 language: javascript
 ---
-
-<!-- markdownlint-disable MD041 -->
-
+    
 ```javascript
 const express = require('express');
 const { auth, requiresAuth } = require('express-openid-connect');

@@ -1,147 +1,98 @@
 ---
-title: Add Login to your Django application
-description: This tutorial demonstrates how to add user login to a Django application.
-topics:
-  - quickstarts
-  - webapp
-  - django
-  - login
-github:
-  path: 01-Login
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Ajouter une fonctionnalité de connexion à votre application Django
+description: Ce guide explique comment intégrer Auth0 à une application Python Django, à l’aide du SDK Authlib.
+interactive:  true
 files:
-  - files/index
-  - files/settings
-  - files/urls
-  - files/views
+ - files/webappexample/templates/index
+ - files/webappexample/settings
+ - files/webappexample/urls
+ - files/webappexample/views
+github:
+  path: https://github.com/auth0-samples/auth0-django-web-app/tree/master/01-Login
+locale: fr-CA
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Ajouter une fonctionnalité de connexion à votre application Django
 
-# Add Login to Your Django Application
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Django](https://www.djangoproject.com/) application using the [Authlib](https://authlib.org/) SDK.
+<p>Auth0 vous permet d’ajouter l’authentification et de pouvoir accéder aux informations relatives au profil de l’utilisateur dans votre application. Ce guide explique comment intégrer Auth0 à une application Python <a href="https://www.djangoproject.com/">Django</a>, à l’aide du SDK <a href="https://authlib.org/">Authlib</a>.</p><p></p>
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000/callback',
-returnTo: 'http://localhost:3000'
-}) %>
+## Configurer Auth0
 
-## Install dependencies
 
-For this integration, you will add several library dependencies, such as Authlib. Create a `requirements.txt` file in your project directory, and include the following:
+<p>Pour utiliser les services Auth0, vous devez avoir une application installée dans Auth0 Dashboard. L’application Auth0 est l’endroit où vous allez configurer le fonctionnement de l’authentification pour le projet que vous développez.</p><h3>Configurer une application</h3><p>Utilisez le sélecteur interactif pour créer une nouvelle application Auth0 ou sélectionner une application existante qui représente le projet avec lequel vous souhaitez effectuer l’intégration. Dans Auth0, il est attribué à chaque application un identifiant client unique alphanumérique que votre code d’application utilisera pour appeler les API Auth0 au moyen de la trousse SDK.</p><p>Tous les paramètres que vous configurez à l’aide de ce démarrage rapide seront automatiquement mis à jour pour votre application dans le <a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>, où vous pourrez gérer vos applications à l’avenir.</p><p>Si vous préférez examiner une configuration complète, vous pouvez consulter un exemple d’application.</p><h3>Configuration des callback URL</h3><p>Une callback URL est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne seront pas redirigés vers votre application après s’être connectés.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code><code>/callback</code>.</p></div></p><h3>Configurer les URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne pourront pas se déconnecter de votre application et recevront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p>
 
-```python
-# 📁 requirements.txt -----
+## Installer les dépendances
 
-authlib ~= 1.0
+
+<p>Pour cette intégration, vous ajouterez plusieurs dépendances de bibliothèque, telles qu’Authlib. Créez un fichier <code>requirements.txt</code> dans votre répertoire de projet et incluez ce qui suit :</p><p><pre><code>authlib ~= 1.0
+
 django ~= 4.0
+
 python-dotenv ~= 0.19
+
 requests ~= 2.27
-```
 
-Run the following command from your shell to make these dependencies available:
+</code></pre>
 
-```sh
-pip install -r requirements.txt
-```
+</p><p>Exécutez la commande suivante depuis votre interface système pour accéder à ces dépendances :</p><p><code>pip install -r requirements.txt</code></p>
 
-## Configure your `.env` file
+## Configurer votre fichier .env
 
-Next, create an `.env` file in your project directory. This file will hold your client keys and other configuration details.
 
-```ini
-# 📁 .env -----
+<p>Ensuite, créez un fichier <code>.env</code> dans votre répertoire de projet. Ce fichier contiendra les clés de vos clients et d’autres détails de configuration.</p><p><pre><code>AUTH0_CLIENT_ID=${account.clientId}
 
-AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_CLIENT_SECRET=${account.clientSecret}
+
 AUTH0_DOMAIN=${account.namespace}
-```
 
-## Create an application
+</code></pre>
 
-If you already have a Django application setup, skip to the next step. For a new application project, run the following command:   
+</p>
 
-```sh
-django-admin startproject webappexample
-```
+## Création d’une application
 
-Change to the new project folder:
 
-```sh
-cd webappexample
-```
+<p>Si vous avez déjà une application Django installée, passez à l’étape suivante. Pour un nouveau projet d’application, exécutez la commande suivante :</p><p><code>django-admin startproject webappexample</code></p><p>Passez au nouveau dossier du projet :</p><p><code>cd webappexample</code></p>
 
-## Update `settings.py` {{{ data-action=code data-code="webappexample/settings.py" }}}
+## Mettre à jour settings.py {{{ data-action="code" data-code="webappexample/settings.py" }}}
 
-Open the `webappexample/settings.py` file to review the `.env` values.
 
-At the top of the file, add the `os` and `dotenv` imports.
+<p>Ouvrez le fichier <code>webappexample/settings.py</code> pour examiner les valeurs <code>.env</code>.</p><p>En haut du fichier, ajoutez les imports <code>os</code> et <code>dotenv</code>.</p><p>Ensuite, sous la définition <code>BASE_DIR</code> , ajoutez la variable <code>TEMPLATE_DIR</code>.</p><p>Ensuite, trouvez la variable <code>TEMPLATES</code> et mettez à jour la valeur <code>DIRS</code> pour y ajouter notre chaîne <code>TEMPLATE_DIR</code>. Cette action détermine le chemin des fichiers modèles, que vous créerez à une étape future. Conservez tout autre contenu de ce tableau inchangé.</p><p>À la fin de ce fichier, ajoutez le code pour charger la configuration d’Auth0.</p>
 
-Next, beneath the `BASE_DIR` definition, add the `TEMPLATE_DIR` variable.
+## Configurer votre application {{{ data-action="code" data-code="webappexample/views.py#1:18" }}}
 
-Next, find the `TEMPLATES` variable and update the `DIRS` value to add our `TEMPLATE_DIR` string. This determines the path of the template files, which you will create in a future step.
-Keep any other content of this array the same.
 
-At the end of this file, add the code to load the Auth0 config.
+<p>Pour commencer à créer votre application, ouvrez le fichier <code>webappexample/views.py</code> dans votre IDE.</p><p>Importez toutes les bibliothèques nécessaires à votre application.</p><p>Vous pouvez maintenant configurer Authlib pour gérer l’authentification de votre application avec Auth0.</p><p>Apprenez-en davantage lsur es options de configuration possibles pour la méthode <code>register()</code> d’Authlib OAuth dans <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in">leur documentation.</a></p>
 
-## Setup your application {{{ data-action=code data-code="webappexample/views.py#1:18" }}}
+## Configurer vos gestionnaires de route {{{ data-action="code" data-code="webappexample/views.py#20:52" }}}
 
-To begin creating your application, open the `webappexample/views.py` file in your IDE.
 
-Import all the libraries your application needs.
+<p>Dans cet exemple, vous allez ajouter quatre routes pour votre application : les routes de connexion, de rappel, de déconnexion et d’index.</p><ul><li><p><code>login</code> – Lorsque les visiteurs de votre application se rendent sur la route <code>/login</code> ils seront redirigés vers Auth0 pour commencer le processus d’authentification.</p></li><li><p><code>callback</code> – Après la connexion de vos utilisateurs à Auth0, ceux-ci reviendront à votre application à la route <code>/callback</code>. Cette route enregistre la session des utilisateurs et leur évite d&#39;avoir à se connecter à nouveau lorsqu’ils reviennent.</p></li><li><p><code>logout</code> – La route <code>/logout</code> permet aux utilisateurs de se déconnecter de votre application. Cette route efface la session de l’utilisateur dans votre application et redirige vers le point de terminaison de déconnexion d’Auth0 pour s’assurer que la session n’est plus enregistrée. Ensuite, l’application redirige l’utilisateur vers votre route d’accueil.</p></li><li><p><code>index</code> – La route d’accueil affichera les détails de l’utilisateur authentifié ou permettra aux visiteurs de se connecter.</p></li></ul><p></p>
 
-Now you can configure Authlib to handle your application's authentication with Auth0.
+## Enregistrer vos routes {{{ data-action="code" data-code="webappexample/urls.py" }}}
 
-Learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
 
-## Setup your route handlers {{{ data-action=code data-code="webappexample/views.py#21:57" }}}
+<p>Remplacez le contenu de votre fichier <code>webappexample/urls.py</code> par le code à droite pour vous connecter à ces nouvelles routes.</p><p>Cela dirigera les routes <code>/login</code>, <code>/callback</code>, <code>/logout</code> et <code>/</code> vers les gestionnaires appropriés.</p>
 
-In this example, you will add four routes for your application: the login, callback, logout, and index routes.
+## Ajouter des modèles {{{ data-action="code" data-code="webappexample/templates/index.html" }}}
 
-- `login` - When visitors to your app visit the `/login` route, they will reach Auth0 to begin the authentication flow.
-- `callback` - After your users finish logging in with Auth0, they will return to your application at the `/callback` route. This route saves the session for the user and bypasses the need for them to login again when they return.
-- `logout` - +The `/logout` route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.
-- `index` - The home route will render an authenticated user's details or allow visitors to sign in.
 
-## Register your routes {{{ data-action=code data-code="webappexample/urls.py" }}}
- 
-Replace the contents of your `webappexample/urls.py` file with the code on the right to connect to these new routes.
+<p>Vous allez ensuite créer un fichier modèle utilisé dans la route de la page d’accueil.</p><p>Créez un nouveau sous-répertoire dans le dossier <code>webappexample</code> nommé <code>templates</code>, et créez un fichier <code>index.html</code> .</p><p>Le fichier <code>index.html</code> contiendra un code modèle pour afficher les informations de l’utilisateur s’il est connecté, ou pour lui présenter un bouton de connexion s’il ne l’est pas.</p>
 
-This will route the `/login`, `/callback`, `/logout` and `/` routes to the correct handlers.
+## Lancer votre application
 
-## Add templates {{{ data-action=code data-code="webappexample/templates/index.html" }}}
 
-Next, you will create a template file used in the home page route.
+<p>Vous êtes prêts pour lancer votre application! À partir de votre répertoire de projet, ouvrez un interface et utilisez :</p><p><pre><code>python3 manage.py migrate
 
-Create a new sub-directory within the `webappexample` folder named `templates`, and create a `index.html` file.
-
-The `index.html` file will contain template code to display the user's info if logged in or present them with a login button if logged out. 
-
-## Run your application
-
-You're ready to run your application! From your project directory, open a shell and use:
-
-```sh
-python3 manage.py migrate
 python3 manage.py runserver 3000
-```
 
-Your application should now be ready to open from your browser at [http://localhost:3000](http://localhost:3000).
+</code></pre>
 
-::::checkpoint
-:::checkpoint-default
-Visit [http://localhost:3000](http://localhost:3000) to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
-:::
+</p><p>Votre application devrait maintenant être prête à s’ouvrir à partir de votre navigateur à l’adresse <a href="http://localhost:3000">http://localhost:3000</a>.</p><p><div class="checkpoint">Django – Étape 10 – Lancer votre application – Point de contrôle <div class="checkpoint-default"><p>Visitez <a href="http://localhost:3000/">http://localhost:3000</a> pour des raisons de vérification. Un bouton de connexion devrait vous permettre de vous connecter à Auth0, puis de revenir à votre application pour consulter les informations relatives à votre profil.</p></div>
 
-:::checkpoint-failure
-If your application did not start successfully:
-* Verify any errors in the console.
-* Verify the domain and Client ID imported correctly.
-* Verify your tenant configuration.
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify any errors in the console.</p></li><li><p>Verify the domain and Client ID imported correctly.</p></li><li><p>Verify your tenant configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

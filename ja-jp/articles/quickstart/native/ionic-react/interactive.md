@@ -1,137 +1,89 @@
 ---
-title: Add login to your Ionic React with Capacitor app
-default: true
-description: This tutorial demonstrates how to add user login with Auth0 to an Ionic React & Capacitor application.
-budicon: 448
-topics:
-  - quickstarts
-  - native
-  - ionic
-  - react
-  - capacitor
-github:
-  path: react
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Capacitorを用いたIonic React アプリにログインを追加する
+description: このガイドは、Ionic（React）とCapacitorのアプリケーションにAuth0 React SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/index
-  - files/login-button
-  - files/logout-button
-  - files/app
-  - files/user-profile
+ - files/index
+ - files/login-button
+ - files/logout-button
+ - files/app
+ - files/user-profile
+github:
+  path: https://github.com/auth0-samples/auth0-ionic-samples/tree/main/react
+locale: ja-JP
 ---
 
-# Add login to your Ionic React with Capacitor app
+# Capacitorを用いたIonic React アプリにログインを追加する
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with an Ionic (React) & Capacitor application using the [Auth0 React SDK](https://github.com/auth0/auth0-react).
 
-<%= include('../_includes/ionic/_article_intro') %>
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドは、Ionic（React）とCapacitorのアプリケーションに<a href="https://github.com/auth0/auth0-react">Auth0 React SDK</a>を使ってAuth0を統合する方法を説明します。</p><p></p>
 
-<%= include('../_includes/ionic/_configure_urls_interactive') %>
+## 使用を開始する
 
-<%= include('../../_includes/_auth0-react-install.md') %>
 
-<%= include('../_includes/ionic/_install_plugins') %>
+<p>このクイックスタートは、<a href="https://ionicframework.com/">Ionic</a>アプリケーションが<a href="https://capacitorjs.com/">Capacitor</a>を使ってすでに実行されていることを前提としています。そうでない場合には、<a href="https://capacitorjs.com/docs/getting-started/with-ionic">IonicフレームワークでCapacitorを使用する</a>ガイドを参照しながら簡単なアプリから始めるか、<a href="https://github.com/auth0-samples/auth0-ionic-samples">サンプリアプリ</a>を複製してください。</p><p>また、<a href="https://capacitorjs.com/docs/basics/workflow">Capacitorの開発ワークフロー</a>を理解しておく必要もあります。</p>
 
-## Configure the `Auth0Provider` component {{{ data-action=code data-code="index.tsx" }}}
+## Auth0を構成する
 
-Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/docs/context.html) to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` you can import from the SDK.
 
-The `Auth0Provider` component takes the following props:
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><p><div class="alert-container" severity="default"><p>以下の説明では、「<code>YOUR_PACKAGE_ID</code>」を実際のアプリケーションのパッケージIDに置き換えてください。これは、<code>capacitor.config.ts</code>ファイルの<code>appId</code>フィールドで見つけて構成することができます。詳細については、<a href="https://capacitorjs.com/docs/config#schema">Capacitorの構成スキーマ</a>を参照してください。</p></div></p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合には、次の値に設定します：</p><p><code>YOUR_PACKAGE_ID://{yourTenant}.auth0.com/capacitor/YOUR_PACKAGE_ID/callback</code></p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合には、次の値に設定します：</p><p><code>YOUR_PACKAGE_ID://{yourTenant}.auth0.com/capacitor/YOUR_PACKAGE_ID/callback</code></p></div></p><h3>許可されているオリジンを構成する</h3><p>ネイティブアプリケーションからAuth0へ要求を送信できるようにするには、<a href="https://manage.auth0.com/dashboard/#/applications/%7ByourClientId%7D/settings">アプリケーションの設定</a>で次の<b>許可されているオリジン</b>を設定します。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合、capacitorにiOSとAndroidでそれぞれ<code>capacitor://localhost, http://localhost</code>を設定します。</p></div></p><p>最後に、アプリケーションの<b>［Application Type（アプリケーションタイプ）］</b>が<b>［Native（ネイティブ）］</b>になっていることを<a href="https://manage.auth0.com/dashboard/#/applications/%7ByourClientId%7D/settings">アプリケーションの設定</a>で必ず確認してください。</p>
 
-- `domain`: The `domain` value present under the **Settings** of the application you created in your Auth0 Dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains).
-- `clientId`: The Client ID value present under the **Settings** of the application you created in your Auth0 Dashboard.
-- `useRefreshTokens`: To use auth0-react with Ionic on Android and iOS, it's required to enable refresh tokens.
-- `useRefreshTokensFallback`: To use auth0-react with Ionic on Android and iOS, it's required to disable the iframe fallback.
-- `authorizationParams.redirect_uri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+## Auth0 React SDKをインストールする
 
-<%= include('../_includes/ionic/_note_storage') %>
 
-:::: checkpoint
-:::checkpoint-default
-Add the `Auth0Provider` component in a way that wraps your `App` component, then run your application to verify that the SDK is initializing correctly and your application is not throwing any errors related to Auth0.
-:::
+<p>プロジェクトディレクトリで次のコマンドを実行して、Auth0 React SDKをインストールします：</p><p><code>npm install @auth0/auth0-react</code></p><p>SDKは、慣用的に<a href="https://reactjs.org/docs/hooks-overview.html">React Hooks</a>や<a href="https://reactjs.org/docs/higher-order-components.html">高階コンポーネント（HOC）</a>を使用して、Auth0をReactアプリケーションに統合しやすくするメソッドや変数を公開しています。</p><h3>Capacitorプラグインをインストールする</h3><p>このクイックスタートとサンプルでは、Capacitorの公式プラグインをいくつか使用しています。次のコマンドを使用して、これらをアプリにインストールします：</p><p><code>npm install @capacitor/browser @capacitor/app</code></p><ul><li><p><a href="https://capacitorjs.com/docs/apis/browser"><code>@capacitor/browser</code></a>：デバイスのシステムブラウザーと対話できるようになり、Auth0の認可エンドポイントへのURLを開くために使用されます。</p></li><li><p><a href="https://capacitorjs.com/docs/apis/app"><code>@capacitor/app</code></a>：高レベルのアプリイベントを受け取れるようになるため、Auth0からのコールバックを扱うのに便利です。</p></li></ul><p><div class="alert-container" severity="default"><p>iOSのCapacitorのBrowserプラグインは<a href="https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller"><code>SFSafariViewController</code></a>を使用し、iOS 11以降ではデバイス上のSafariとクッキーを共有しません。つまり、これらのデバイスでは<a data-contentfulid="4f8xlBFWPeXbF5hUlmp8RJ">SSO</a>が機能しません。SSOが必要な場合には、<a href="https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession">ASWebAuthenticationSession</a>を使用する互換のプラグインを使用してください。</p></div></p>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+## Auth0Providerコンポーネントを構成する {{{ data-action="code" data-code="index.tsx" }}}
 
-- ensure the correct application is selected
-- did you save after entering your URLs?
-- make sure the domain and Client ID imported correctly
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+<p>内部では、Auth0 React SDKは<a href="https://reactjs.org/docs/context.html">React Context</a>を使用して、ユーザーの認証状態を管理します。Auth0をReactアプリに統合する1つの方法として、SDKからインポート可能な<code>Auth0Provider</code>でルートコンポーネントをラップすることができます。</p><p><code>Auth0Provider</code>コンポーネントは以下のプロパティを使用します。</p><ul><li><p><code>domain</code>：Auth0 Dashboardで作成したアプリケーションの<b>設定</b>にある<code>domain</code>値、またはAuth0の<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン機能</a>を使用する場合のカスタムドメインです。</p></li><li><p><code>clientId</code>：Auth0 Dashboardで作成したアプリケーションの<b>設定</b>にあるクライアントID値です。</p></li><li><p><code>useRefreshTokens</code>：AndroidまたはiOSでauth0-reactをIonicと使用するには、リフレッシュトークンを有効にする必要があります。</p></li><li><p><code>useRefreshTokensFallback</code>：AndroidまたはiOSでauth0-reactをIonicと使用するには、iframeのフォールバックを無効にする必要があります。</p></li><li><p><code>authorizationParams.redirect_uri</code>：Auth0で認証した後に、ユーザーをリダイレクトするURLです。</p></li></ul><p><div class="alert-container" severity="warning"><p>アプリケーションの閉開後に認証を継続するには、SDKを構成する際に<code>cacheLocation</code>を<code>localstorage</code>に設定することをお勧めします。ただし、<a href="/docs/libraries/auth0-single-page-app-sdk#change-storage-options">localstorageにトークンを保管するリスク</a>を理解してください。また、状況によってはlocalstorageのデータが思いがけず復元される可能性もあるため、Capacitorアプリ内では<b>一次的</b>なものとして扱ってください。<a href="https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb">Capacitorドキュメントに記載のストレージに関するガイド</a>をお読みください。</p><p>さらに、より安全で永続的なストレージの仕組みが要件である場合、SDKを使用すると、<a href="https://github.com/auth0/auth0-spa-js/blob/master/EXAMPLES.md#creating-a-custom-cache">カスタムのキャッシュを実装</a>してトークンを保管することができます。</p><p><b>注意</b>：<a href="https://capacitorjs.com/docs/apis/storage">CapacitorのStorageプラグイン</a>は、iOSでは<a href="https://developer.apple.com/documentation/foundation/userdefaults">UserDefaults</a>、Androidでは<a href="https://developer.android.com/reference/android/content/SharedPreferences">SharedPreferences</a>によってバックアップされるため、トークンの保管に使用<b>しない</b>ことをお勧めします。これらのAPIを使って保管されたデータは暗号化されません。セキュリティで保護されることもなく、クラウドと同期される可能性があります。</p></div></p><p><div class="checkpoint">Ionic と Capacitor（React）- 手順4 - Auth0Providerコンポーネントを構成する <div class="checkpoint-default"><p><code>Auth0Provider</code>コンポーネントが<code>App</code>コンポーネントをラップするようにして追加してから、アプリケーションを実行し、SDKが正しく初期化されていること、そして、アプリケーションがAuth0に関連したエラーを投入していないことを確認します。</p></div>
 
-## Add login to your application {{{ data-action=code data-code="login-button.tsx" }}}
+  <div class="checkpoint-success"></div>
 
-<%= include('../_includes/ionic/_add_login_intro') %>
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>ensure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and Client ID imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
-::: checkpoint-default
-The `loginWithRedirect` function tells the SDK to initiate the login flow, using the `Browser.open` function to open the login URL with the platform's system browser component by setting the `openUrl` parameter. This provides a way for your user to log in to your application. Users redirect to the login page at Auth0 and do not receive any errors.
-:::
+  </div></p>
 
-::: checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="login-button.tsx" }}}
 
-- ensure that there are no errors in the browser's console window at the point of login
-- ensure the domain and Client ID are correct according to your Auth0 application in the dashboard
-- if you are redirected to Auth0 and receive an error page, check the "technical details" section at the bottom for the reason for the failure
-  :::
-  ::::
 
-## Handle the login callback {{{ data-action=code data-code="app.tsx" }}}
+<p>Capacitorアプリケーションでは、<a href="https://capacitorjs.com/docs/apis/browser">CapacitorのBrowserプラグイン</a>によって、Auth0の<a href="https://auth0.com/universal-login">ユニバーサルログインページ</a>にリダイレクトされます。<code>loginWithRedirect</code>関数の<code>openUrl</code>パラメーターに<code>Browser.open</code>の使用を設定し、デバイスのシステムブラウザーコンポーネント（iOSでは<a href="https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller">SFSafariViewController</a>、Androidでは<a href="https://developer.chrome.com/docs/android/custom-tabs">Chrome Custom Tabs</a>）でURLが開くようにします。</p><p><div class="alert-container" severity="default"><p>SDKの<code>loginWithRedirect</code>メソッドは、デフォルトで<code>window.location.href</code>を使用して、ユーザーのデバイスにあるデフォルトのブラウザーアプリケーションでログインページを開きます。プラットフォームに適切なシステムブラウザーコンポーネントは使用しません。ユーザーが認証でアプリケーションを離れるため、ユーザーエクスペリエンスとしては最適ではありません。</p></div></p><p><div class="checkpoint">IonicとCapacitor（React）- 手順5 - アプリケーションにログインを追加する <div class="checkpoint-default"><p><code>loginWithRedirect</code>関数は、SDKにログインフローを開始するように指示します。<code>openUrl</code>パラメーターにログインURLを設定して、<code>Browser.open</code>関数を呼び出し、プラットフォームのシステムブラウザーコンポーネントでログインURLを開きます。これは、ユーザーがアプリケーションにログインする方法を提供します。ユーザーはAuth0のログインページにリダイレクトされ、エラーは一切受け取りません。</p></div>
 
-<%= include('../_includes/ionic/_handle_callback_intro') %>
+  <div class="checkpoint-success"></div>
 
-<%= include('../_includes/ionic/_note_custom_schemes') %>
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>ensure that there are no errors in the browser&#39;s console window at the point of login</p></li><li><p>ensure the domain and Client ID are correct according to your Auth0 application in the dashboard</p></li><li><p>if you are redirected to Auth0 and receive an error page, check the &quot;technical details&quot; section at the bottom for the reason for the failure</p></li></ul><p></p></div>
 
-::::checkpoint
-:::checkpoint-default
-Add the `appUrlOpen` to your application's `App` component and log in. The browser window should close once the user authenticates and logs in to your app.
-:::
+  </div></p>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+## ログインコールバックを処理する {{{ data-action="code" data-code="app.tsx" }}}
 
-- check that the custom URL scheme is registered for your chosen platform. On iOS, [define a custom URL scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app), or add an [intent filter with your custom scheme](https://developer.android.com/training/app-links/deep-linking) on Android
-- if the event fires but you receive an error, check the [logs in your Auth0 Dashboard](https://manage.auth0.com/#/logs) for the reason for the error
-  :::
-  ::::
 
-## Add logout to your application {{{ data-action=code data-code="logout-button.tsx" }}}
+<p>ユーザーがユニバーサルログインページでログインすると、カスタムURLスキームを使ったURLでアプリにリダイレクトされます。<code>appUrlOpen</code>イベントがアプリ内で処理されなければなりません。Auth0 SDKの<code>handleRedirectCallback</code>メソッドを呼び出すと、認証状態を初期化することができます。</p><p>このメソッドは、Auth0からのリダイレクトでのみ使用することができます。正常に機能していることを確認するには、URL内の<code>code</code>と<code>state</code>パラメーターを確認します。</p><p>このイベントが発生した際に、<code>Browser.close()</code>メソッドがブラウザーを閉じるようにします。</p><p><div class="alert-container" severity="default"><p>以下の説明では、カスタムURLスキームを使用して、アプリケーション内でコールバックを処理することを前提にしています。このためには、<code>YOUR_PACKAGE_ID</code>を選択したプラットのURLスキームで置き換えて登録します。詳細については、iOSには「<a href="https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app">カスタムURLスキームを定義する</a>」、Androidには「<a href="https://developer.android.com/training/app-links/deep-linking">アプリコンテンツ用のディープリンクを作成する</a>」をお読みください。</p></div></p><p><div class="checkpoint">IonicとCapacitor（React）- 手順6 - ログインコールバックを処理する <div class="checkpoint-default"><p>アプリケーションの<code>App</code>コンポーネントに<code>appUrlOpen</code>を追加して、ログインします。ユーザーが認証して、アプリにログインすると、ブラウザーのウィンドウが閉じます。</p></div>
 
-<%= include('../_includes/ionic/_add_logout_intro.md') %>
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
-:::checkpoint-default
-Provide a way for your users to log out of your application. Verify that you redirect to Auth0 and then to the address you specified in the `returnTo` parameter. Check that you are no longer logged in to your application.
-:::
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>check that the custom URL scheme is registered for your chosen platform. On iOS, <a href="https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app">define a custom URL scheme</a>, or add an <a href="https://developer.android.com/training/app-links/deep-linking">intent filter with your custom scheme</a> on Android</p></li><li><p>if the event fires but you receive an error, check the <a href="https://manage.auth0.com/#/logs">logs in your Auth0 Dashboard</a> for the reason for the error</p></li></ul><p></p></div>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+  </div></p>
 
-- check that the URL you provided to in the `returnTo` parameter is registered as an allowed callback URL in your Auth0 Dashboard
-  :::
-  ::::
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="logout-button.tsx" }}}
 
-## Show the user profile {{{ data-action=code data-code="user-profile.tsx" }}}
 
-The Auth0 React SDK retrieves the [user's profile](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` hook.
+<p>ユーザーがログインできるようになりました。今度は、<a href="https://auth0.com/docs/logout/guides/logout-auth0">ログアウトする方法</a>を構成する必要があります。ユーザーをAuth0のログアウトエンドポイントにリダイレクトし、ブラウザー内のセッションをクリアする必要があります。他の場合と同様に、ユーザーがアプリから離れることでユーザーエクスペリエンスが損なわれないように、CapacitorのBrowserプラグインがリダイレクトを処理するようにします。</p><p>Auth0 SDKを使用してIonicとCapacitorで実現するには、以下を行います。</p><ul><li><p>アプリについて、ログアウト後にAuth0のリダイレクト先となるURLを構築します。これは、登録済みのカスタムスキームとAuth0ドメインを使ったURLです。これを、Auth0 Dashboardの<b>［Allowed Logout URLs（許可されているログアウトURL）］</b>の構成に追加します。</p></li><li><p><code>logout</code>を呼び出し、<code>logoutParams.returnTo</code>パラメーターにリダイレクト先のURLを渡して、SDKからログアウトします。</p></li><li><p>CapacitorのBrowserプラグインを使用して<code>Browser.open</code>でURLを開くコールバックに、<code>openUrl</code>パラメーターを設定します。</p></li></ul><p><div class="alert-container" severity="default"><p>ログインの手順と同様に、<code>logout</code>を呼び出す際に<code>openUrl</code>を設定しないと、SDKがユーザーをログアウトURLにリダイレクトするのに、デバイスのデフォルトのブラウザーアプリケーションが使用されるため、ユーザーエクスペリエンスとしては最適ではありません。</p></div></p><p><div class="checkpoint">IonicとCapacitor（React）- 手順7 - アプリケーションにログアウトを追加する <div class="checkpoint-default"><p>ユーザーがアプリケーションからログアウトする方法を提供します。Auth0にリダイレクトしてから、<code>returnTo</code>パラメーターで指定したアドレスへ移動することを確認します。アプリケーションにログインしていないことを確認します。</p></div>
 
-Initializing the SDK is asynchronous, and you should guard the user profile by checking the `isLoading` and `user` properties. Once `isLoading` is `false` and `user` has a value, the user profile can be used.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
-:::checkpoint-default
-Provide a way for your users to see their user profile details within the app and verify you are able to retrieve and see your profile information on screen once you have logged in.
-:::
+  <div class="checkpoint-failure"></div>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
+  </div></p>
 
-- check that you are only reading the user's profile when `isLoading` is `false`
-- check that `user` resolves to an object and is not `undefined`
-  :::
-  ::::
+## ユーザープロファイルを表示する {{{ data-action="code" data-code="user-profile.tsx" }}}
+
+
+<p>Auth0 React SDKは必要な任意のコンポーネントについて、名前やプロフィール写真など、ログイン済みのユーザーに関連付けられた<a data-contentfulid="2ClGWANGeRoTkg5Ax2gOVK-ja-JP">ユーザープロファイル</a>を取得し、ユーザーインターフェイスをパーソナライズします。プロファイル情報は、<code>useAuth0()</code>フックが公開する<code>user</code>プロパティを介して使用することができます。</p><p>SDKの初期化は非同期に行われます。<code>isLoading</code>と<code>user</code>プロパティを確認して、ユーザープロファイルを保護する必要があります。<code>isLoading</code>が<code>false</code>になり、<code>user</code>が値を持つと、ユーザープロファイルを利用することができます。</p><p><div class="checkpoint">Ionic と Capacitor（React）- 手順8 - ユーザープロファイルを表示する <div class="checkpoint-default"><p>ユーザーがアプリ内でユーザープロファイルの詳細を表示できる手段を提供し、ログインした後に自分のプロファイル情報を取得して画面に表示できることを確認します。</p></div>
+
+  <div class="checkpoint-success"></div>
+
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>check that you are only reading the user&#39;s profile when <code>isLoading</code> is <code>false</code></p></li><li><p>check that <code>user</code> resolves to an object and is not <code>undefined</code></p></li></ul><p></p></div>
+
+  </div></p>

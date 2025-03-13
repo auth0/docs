@@ -1,171 +1,76 @@
 ---
-title: Add login to your Flutter app
-default: true
-description: This tutorial demonstrates how to add user login with Auth0 to an Android, iOS, or macOS Flutter app using the Auth0 Flutter SDK
-budicon: 448
-topics:
-  - quickstarts
-  - native
-  - flutter
-  - dart
-  - ios
-  - macos
-  - android
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Flutterアプリケーションにログインを追加する
+description: このガイドでは、FlutterアプリにAuth0 Flutter SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/build
-  - files/main
-  - files/profile
+ - files/app/build
+ - files/main_view
+ - files/profile_view
 github:
-  path: sample
+  path: https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample
+locale: ja-JP
 ---
 
-# Add Login to Your Flutter Application
+# Flutterアプリケーションにログインを追加する
 
-Auth0 allows you to quickly add authentication and access user profile information in your app. This guide demonstrates how to integrate Auth0 with a Flutter app using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
 
-:::note
-The Flutter SDK currently only supports Flutter apps for Android, iOS, and macOS.
-:::
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスできます。このガイドでは、Flutterアプリに<a href="https://github.com/auth0/auth0-flutter">Auth0 Flutter SDK</a>を使ってAuth0を統合する方法を説明します。</p><p><div class="alert-container" severity="default"><p>Flutter SDKは現在、Android、iOS、macOS版のFlutterアプリのみに対応しています。</p></div></p><p>このクイックスタートでは、すでに<a href="https://flutter.dev/">Flutter</a>アプリが問題なく作動しているものとします。そうでない場合は、<a href="https://docs.flutter.dev/get-started/install">Flutter「入門」ガイド</a>をチェックして、シンプルなアプリの始め方をご確認ください。</p><p><a href="https://docs.flutter.dev/reference/flutter-cli">Flutterコマンドラインツール</a>の知識も必要になります。</p><p></p>
 
-This quickstart assumes you already have a [Flutter](https://flutter.dev/) app up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
+## Auth0を構成する
 
-You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
 
-<%= include('_configure_urls_interactive') %>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>Auth0アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、既存の<b>ネイティブ</b>のAuth0アプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリをご覧ください。</p><h3>Callback URLとログアウトURLを構成する</h3><p>Callback URLとログアウトURLは、ユーザーをアプリにリダイレクトで戻すために、Auth0が呼び出すURLです。 Auth0は、ユーザーを認証した後にCallback URLを呼び出し、セッションのクッキーを削除した後にログアウトURLを呼び出します。Callback URLとログアウトURLを設定しないと、ユーザーはアプリにログインやログアウトが行えなくなり、エラーが発生します。</p><p>プラットフォームに合わせて、Callback URLとログアウトURLに以下の値を設定します。</p><p><div class="alert-container" severity="default"><p>Androidでは、<code>SCHEME</code>プレースホルダーの値は<code>https</code>や他のカスタムスキームでも構いません。<code>https</code>スキームでは、<a href="https://auth0.com/docs/get-started/applications/enable-android-app-links-support">Androidアプリリンク</a>を有効にする必要があります。</p><p>iOS 17.4以降とmacOS 14.4以降では、ユニバーサルリンク（<code>https</code>スキーム）をCallback URLとログアウトURLに使うことができます。有効にすると、SDKは、iOS/macOSの古いバージョンではカスタムURLスキームにフォールバックして、アプリの<a href="https://developer.apple.com/documentation/appstoreconnectapi/bundle_ids">バンドル識別子</a>を使用します。<b>この機能にはXcode 15.3以降と有料のApple Developerアカウントが必要です</b>。</p></div></p><h4>Android</h4><p><code>SCHEME://{yourDomain}/android/YOUR_PACKAGE_NAME/callback</code></p><h4>iOS</h4><p><code>https://{yourDomain}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
 
-## Install the Auth0 Flutter SDK
+YOUR_BUNDLE_IDENTIFIER://{yourDomain}/ios/YOUR_BUNDLE_IDENTIFIER/callback</code></p><h4>macOS</h4><p><code>https://{yourDomain}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
 
-Add the Auth0 Flutter SDK into the project:
+YOUR_BUNDLE_IDENTIFIER://{yourDomain}/macos/YOUR_BUNDLE_IDENTIFIER/callback</code></p><p>たとえば、iOSのバンドル識別子が<code>com.example.MyApp</code>でAuth0ドメインが<code>example.us.auth0.com</code>の場合には、次の値になります：</p><p><code>https://example.us.auth0.com/ios/com.example.MyApp/callback,
 
-```shell
-flutter pub add auth0_flutter
-```
+com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback</code></p>
 
-## Configure Android {{{ data-action=code data-code="app/build.gradle#11" }}}
+## Auth0 Flutter SDKをインストールする
 
-If you are not developing for the Android platform, skip this step.
 
-The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set the Auth0 tenant domain and the callback URL scheme.
+<p>Auth0 Flutter SDKをプロジェクトに追加します：</p><p><code>flutter pub add auth0_flutter</code></p>
 
-[The sample](https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample/android) uses the following placeholders:
+## Androidを構成する
 
-- `auth0Domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under your **Application Settings** in the Domain field. If you are using a custom domain, you should set this to the value of your custom domain instead.
-- `auth0Scheme`: The scheme to use. Can be a custom scheme, or `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK README](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
 
-:::note
-You do not need to declare a specific `intent-filter` for your activity because you defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values. The library handles the redirection for you.
-:::
+<p>Androidプラットフォームが開発対象でない場合には、この手順をスキップしてください。</p><p>SDKにはマニフェストのプレースホルダーが必要です。Auth0は内部でプレースホルダーを使用して、認証のCallback URLを捉える<code>intent-filter</code>を定義します。Auth0テナントのドメインとCallback URLスキームを設定する必要があります。</p><p><a href="https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample/android">サンプル</a>では、次のプレースホルダーを使用します：</p><ul><li><p><code>auth0Domain</code>：Auth0テナントのドメインです。通常、Auth0 Dashboardにある<b>アプリケーションの設定</b>の<b>［Domain（ドメイン）］</b>フィールドで確認できます。カスタムドメインを使用している場合には、この値をカスタムドメインの値に設定してください。</p></li><li><p><code>auth0Scheme</code>：使用するスキームです。カスタムスキーム、または、<a href="https://auth0.com/docs/applications/enable-android-app-links">Androidアプリリンク</a>を利用したい場合はhttpsになります。この値の設定に関する詳細情報は、<a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking">Auth0.Android SDK README</a>をお読みください。</p></li></ul><p><div class="alert-container" severity="default"><p>アクティビティーに特別な<code>intent-filter</code>を宣言する必要はありません。これは、マニフェストのプレースホルダーをAuth0<b>ドメイン</b>と<b>スキーム</b>の値で定義したからです。リダイレクトはライブラリーによって処理されます。</p></div></p><p>Android Studio内で<b>Sync Project with Gradle Files</b>を実行し、変更内容を適用します。</p>
 
-Run **Sync Project with Gradle Files** inside Android Studio to apply your changes.
+## iOS/macOSを構成する
 
-## Configure iOS/macOS
 
-If you are not developing for the iOS or macOS platforms, skip this step.
+<p>iOSまたはmacOSプラットフォームが開発対象でない場合には、この手順をスキップしてください。</p><p><div class="alert-container" severity="warning"><p>この手順では、有料のApple Developerアカウントが必要です。Callback URLおよびログアウトURLとしてユニバーサルリンクを使用する必要があります。代わりにカスタムのURLスキームを使用する場合はこの手順をスキップしてください。</p></div></p><h3>チームIDとバンドル識別子を構成する</h3><p>Auth0アプリケーションの<a href="https://manage.auth0.com/#/applications/%7ByourClientId%7D/settings">設定ページ</a>に移動して最後までスクロールし、 <b>［Advanced Settings（詳細設定）］&gt;［Device Settings（デバイス設定）］</b>を開きます。<b>［iOS］</b>セクションで<b>［Team ID（チームID）］</b>に<a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/">Apple Team ID</a>を、<b>［App ID（アプリID）］</b>にアプリのバンドル識別子を設定します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7wetuICumueyqt6dbB32ro/34a7981c2cee8a14cdcd01e75df1e50c/IOS_Settings_-_Japanese.png" alt="null" /><p>これで、アプリがAuth0テナントの<code>apple-app-site-association</code>ファイルに追加されます。</p><h3>関連ドメインの機能を追加する</h3><p><code>open ios/Runner.xcworkspace</code>（macOSの場合には<code>open macos/Runner.xcworkspace</code>）を実行し、Xcodeでアプリを開きます。<b>Runner</b>ターゲット設定の<b>［Signing &amp; Capabilities（署名と機能）］</b><a href="https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability">タブ</a>に移動し、<b>［+ Capability（＋機能）］</b>ボタンを押します。それから<b>［Associated Domains（関連ドメイン）］</b>を選択します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/3GO76kXynaieKs5CSj3UTp/1cc577b56d00bc3bad877e31b848c1ec/ios-xcode-capabilities.png" alt="null" /><p>次に、以下の<a href="https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain">エントリー</a>を<b>［Associated Domains（関連ドメイン）］</b>の下に追加します。</p><p><code>webcredentials:{yourDomain}</code></p><p><a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>がある場合は、Auth0ドメインの代わりに、設定ページにあるカスタムドメインを使用してください。</p><p><div class="alert-container" severity="default"><p>関連ドメインが動作するためには、<b>iOSシミュレーター用に構築されている場合でも</b>、アプリが自分のチーム証明書で署名されている必要があります。Apple Teamには必ず、Auth0アプリケーションの設定ページで構成されたチームIDのものを使用してください。</p></div></p>
 
-::: warning
-This step requires a paid Apple Developer account. It is needed to use Universal Links as callback and logout URLs. Skip this step to use a custom URL scheme instead.
-:::
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="main_view.dart#29:40" }}}
 
-### Configure the Team ID and bundle identifier
 
-Go to the [settings page](${manage_url}/#/applications/${account.clientId}/settings) of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your [Apple Team ID](https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/), and **App ID** to your app's bundle identifier.
+<p>アプリに認証をセットアップするには、<a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-ja-JP">ユニバーサルログイン</a>が最も手軽な方法です。最良のエクスペリエンス、高い安全性、幅広い機能を活用するためにも、ユニバーサルログインの使用をお勧めします。</p><p><code>Auth0</code>クラスを使用して、Auth0のユニバーサルログインをFlutterアプリに統合します。<code>webAuthentication().login()</code>を使用して、ユーザーをAuth0のユニバーサルログインページにリダイレクトします。これは<code>Future</code>であるため、ユーザートークンの取得を待ち合わせる必要があります。</p><p><b>Android</b>：カスタムスキームを使用している場合には、このスキームをログインメソッドに渡して、SDKが適切にログインページへ誘導してから戻せるようにします：</p><p><code>await auth0.webAuthentication(scheme: &#39;YOUR CUSTOM SCHEME&#39;).login();</code></p><p>ユーザーがログインすると、アプリへリダイレクトされます。その後、このユーザーのIDとアクセストークンにアクセスできるようになります。</p><p><div class="checkpoint">Flutter - 手順5 - アプリケーションにログインを追加する <div class="checkpoint-default"><p><code>webAuthentication().login()</code>を呼び出してアプリにユーザーをログインするボタンをアプリに追加します。認証のためにAuth0へリダイレクトされてから、アプリケーションに戻されることを確認します。</p><p><code>login</code>を呼び出した結果、トークンにアクセスできることを確認します</p></div>
 
-<p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
+  <div class="checkpoint-success"></div>
 
-This will add your app to your Auth0 tenant's `apple-app-site-association` file.
+  <div class="checkpoint-failure"><p>If your app did not launch successfully:</p><ul><li><p>Ensure you set the Allowed Callback URLs are correct</p></li><li><p>Verify you saved your changes after entering your URLs</p></li><li><p>Make sure the domain and client ID values are imported correctly</p></li><li><p>If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-### Add the associated domain capability
+  </div></p>
 
-Open your app in Xcode by running `open ios/Runner.xcworkspace` (or `open macos/Runner.xcworkspace` for macOS). Go to the **Signing and Capabilities** [tab](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app#Add-a-capability) of the **Runner** target settings, and press the **+ Capability** button. Then select **Associated Domains**.
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="main_view.dart#45:55" }}}
 
-<p><img src="/media/articles/native-platforms/ios-swift/ios-xcode-capabilities.png" alt="Screenshot of the capabilities library inside Xcode"></p>
 
-Next, add the following [entry](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain#Define-a-service-and-its-associated-domain) under **Associated Domains**:
+<p>ユーザーをログアウトさせるには、Auth0 Flutter SDKの<code>webAuthentication().logout()</code>を呼び出してログインセッションをクリアし、ユーザーをAuth0のログアウトエンドポイントにリダイレクトします。<a data-contentfulid="5sl85ipAFaf8i4CH9wD6VA-ja-JP">Auth0からのログアウトについて詳しい情報をお読みください</a>。</p><p><b>Android</b>：カスタムスキームを使用している場合には、このスキームをログアウトメソッドに渡して、SDKがアプリを適切に戻せるようにします：</p><p><code>await auth0.webAuthentication(scheme: &#39;YOUR CUSTOM SCHEME&#39;).logout();</code></p><p><div class="checkpoint">Flutter - 手順6 - アプリケーションにログアウトを追加する <div class="checkpoint-default"><p>アプリに<code>webAuthentication().logout()</code>を呼び出して、ユーザーをアプリからログアウトさせるボタンを追加します。ボタンを選択し、Flutterアプリからログアウトエンドポイントにリダイレクトされ、再び戻されることを確認してください。アプリケーションにはログインされていないはずです。</p></div>
 
-```text
-webcredentials:${account.namespace}
-```
+  <div class="checkpoint-success"></div>
 
-If you have a [custom domain](/customize/custom-domains), use this instead of the Auth0 domain from the settings page.
+  <div class="checkpoint-failure"><p>If your app did not log out successfully:</p><ul><li><p>Ensure the Allowed Logout URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::: note
-For the associated domain to work, your app must be signed with your team certificate **even when building for the iOS simulator**. Make sure you are using the Apple Team whose Team ID is configured in the settings page of your Auth0 application.
-:::
+  </div></p>
 
-## Add login to your application {{{ data-action="code" data-code="main_view.dart#29:40" }}}
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="profile_view.dart" }}}
 
-[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your app. We recommend using it for the best experience, best security, and the fullest array of features.
 
-Integrate Auth0 Universal Login in your Flutter app by using the `Auth0` class. Redirect your users to the Auth0 Universal Login page using `webAuthentication().login()`. This is a `Future` and must be awaited for you to retrieve the user's tokens.
+<p><code>webAuthentication().login()</code>を呼び出すと、ユーザープロファイルが自動的にユーザープロファイルプロパティを取得します。ログイン手順から返されたオブジェクトには、すべてのユーザープロファイルプロパティのある<code>user</code>プロパティが含まれ、これらはIDトークンをデコードすることで入力されます。</p><p><div class="checkpoint">Flutter - 手順7 - ユーザープロファイル情報を表示する <div class="checkpoint-default"><p>ログインして、結果の<code>user</code>プロパティを調査します。<code>email</code>や<code>name</code>など、現在のユーザーのプロファイル情報を確認します。</p></div>
 
-**Android**: if you are using a custom scheme, pass this scheme to the login method so that the SDK can route to the login page and back again correctly:
+  <div class="checkpoint-success"></div>
 
-```dart
-await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').login();
-```
+  <div class="checkpoint-failure"><p>If your app did not return user profile information:</p><ul><li><p>Verify the access token is valid</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-When a user logs in, they are redirected back to your app. Then, you are able to access the ID and access tokens for this user.
-
-::::checkpoint
-:::checkpoint-default
-Add a button to your app that calls `webAuthentication().login()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication and then back to your app.
-
-Verify that you can get access to the tokens on the result of calling `login`.
-:::
-
-:::checkpoint-failure
-If your app did not launch successfully:
-
-- Ensure you set the Allowed Callback URLs are correct
-- Verify you saved your changes after entering your URLs
-- Make sure the domain and client ID values are imported correctly
-- If using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Add logout to your application {{{ data-action=code data-code="main_view.dart#45:55"}}}
-
-To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `webAuthentication().logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
-
-**Android**: if you are using a custom scheme, pass this scheme to the logout method so that the SDK can route back to your app correctly:
-
-```
-await auth0.webAuthentication(scheme: 'YOUR CUSTOM SCHEME').logout();
-```
-
-::::checkpoint
-:::checkpoint-default
-Add a button to your app that calls `webAuthentication().logout()` and logs the user out of your app. When you select it, verify that your Flutter app redirects you to the logout endpoint and back again. You should not be logged in to your app.
-:::
-
-:::checkpoint-failure
-If your app did not log out successfully:
-
-- Ensure the Allowed Logout URLs are set properly
-- Verify you saved your changes after entering your URLs
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Show user profile information {{{ data-action="code" data-code="profile_view.dart" }}}
-
-The user profile automatically retrieves user profile properties for you when you call `webAuthentication().login()`. The returned object from the login step contains a `user` property with all the user profile properties, which populates by decoding the ID token.
-
-::::checkpoint
-:::checkpoint-default
-Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
-:::
-:::checkpoint-failure
-If your app did not return user profile information:
-
-- Verify the access token is valid
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>

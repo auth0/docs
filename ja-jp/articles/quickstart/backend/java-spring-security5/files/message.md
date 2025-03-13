@@ -1,11 +1,11 @@
 ---
 name: Message.java
-language: java
+language: powershell
 ---
-```java
-/**
- * Simple domain object for our API to return a message.
- */
-public record Message(String message) {}
-
+    
+```powershell
+    /**
+     * Simple domain object for our API to return a message.
+     */
+    public record Message(String message) {}
 ```

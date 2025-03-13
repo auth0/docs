@@ -1,9 +1,9 @@
 ---
 name: Profile.razor
-language: csharp
+language: 
 ---
-
-```csharp
+    
+```
 @page "/Profile"
 @attribute [Authorize]
 

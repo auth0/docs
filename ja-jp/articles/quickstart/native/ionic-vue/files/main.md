@@ -2,7 +2,7 @@
 name: main.ts
 language: javascript
 ---
-
+    
 ```javascript
 import { createApp } from "vue";
 import App from "./App.vue";

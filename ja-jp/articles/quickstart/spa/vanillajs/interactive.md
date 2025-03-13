@@ -1,160 +1,78 @@
 ---
-title: Add login to your JavaScript App
-description: 'Auth0 allows you to add authentication to your JavaScript application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing JavaScript application using the Auth0 SPA SDK.'
-interactive: true
-github:
-  path: 01-Login
+title: JavaScriptアプリケーションにログインを追加する
+description: このガイドは、単純なJavaScriptを使用するシングルページアプリケーション（SPA）にAuth0 SPA SDKを使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。
+interactive:  true
 files:
-  - files/app
+ - files/app
+github:
+  path: https://github.com/auth0-samples/auth0-javascript-samples/tree/master/01-Login
+locale: ja-JP
 ---
 
-# Add Login to Your JavaScript Application
+# JavaScriptアプリケーションにログインを追加する
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in a Single-Page Application (SPA) that uses plain JavaScript, using the [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js).
 
-To use this quickstart, you’ll need to:
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加することができます。このガイドは、単純なJavaScriptを使用するシングルページアプリケーション（SPA）に<a href="https://github.com/auth0/auth0-spa-js">Auth0 SPA SDK</a>を使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>統合したいプロジェクトを用意します。または、ログインした後に、サンプルアプリケーションを表示してダウンロードすることもできます。</p></li></ul><p><div class="alert-container" severity="default"><p>このクイックスタートでは、ReactやAngularなどのフレームワークを使用しているのでなく、単純なJavaScriptアプリケーションにAuth0を追加しているものとします。</p></div></p><p></p><p></p>
 
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+## Auth0を構成する
 
-:::note
-This quickstart assumes you are adding Auth0 to a plain JavaScript application, as opposed to using a framework such as React or Angular.
-:::
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000',
-returnTo: 'http://localhost:3000',
-webOriginUrl: 'http://localhost:3000',
-showWebOriginInfo: true
-}) %>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadでセットアップしたアプリケーションが必要です。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p><h3>Allowed Web Origins（許可されているWebオリジン）を構成する</h3><p>［Allowed Web Origin（許可されているWebオリジン）］とは、認証フローにアクセスすることを許可して欲しいURLです。これにはプロジェクトのURLが含まれている必要があります。適切に設定されていない場合、プロジェクトが認証トークンを暗黙でリフレッシュできず、ユーザーがアプリケーションを再び訪問した時、またはページを再読み込みした時にログアウトした状態になってしまいます。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
-## Add the Auth0 SPA SDK
+## Auth0 SPA SDKを追加する
 
-Auth0 provides a SPA SDK (auth0-spa-js) to simplify the process of implementing Auth0 authentication and authorization in JavaScript applications. You can install the Auth0 SPA SDK as an NPM package or from the CDN. For the purpose of this quickstart, we will use the CDN. Include this script tag on your HTML page:
 
-```html
-<script src="${auth0spajs_urlv2}"></script>
-```
+<p>JavaScriptアプリで、Auth0の認証・認可を手軽に実装できるように、Auth0はSPA SDK（auth0-spa-js）を提供しています。Auth0 SPA SDKはNPMパッケージとして、またはCDNからインストールすることができます。このクイックスタートの目的上、CDNを使用します。HTMLページにこのスクリプトタグを含めます。</p><p><pre><code class="language-javascript">&lt;script src=&quot;https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js&quot;&gt;&lt;/script&gt;
 
-## Create the Auth0 client {{{ data-action=code data-code="app.js#1:7" }}}
+</code></pre>
 
-Create a new instance of the Auth0 client provided by the Auth0 SPA SDK and provide the Auth0 application details you created earlier in this quickstart.
+</p>
 
-If a user has previously logged in, the client will refresh the authentication state on page load; the user will still be logged in once the page is refreshed.
+## Auth0クライアントを作成する {{{ data-action="code" data-code="app.js#1:7" }}}
 
-## Add login to your application {{{ data-action=code data-code="app.js#8:14" }}}
 
-Now that you have configured your Auth0 Application, added the Auth0 SPA SDK, and created the Auth0 client, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+<p>Auth0 SPA SDKで提供されているAuth0クライアントの新規インスタンスを作成し、このクイックスタートで前に作成したAuth0アプリケーションの詳細を提供します。</p><p>ユーザーが以前にログインしている場合、クライアントはページの読み込み時に認証状態を更新します。ページが更新されても、ユーザーはこれまでと変わらずログインされます。</p>
 
-Create a login button in your application that calls `loginWithRedirect()` when selected.
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="app.js#8:14" }}}
 
-::::checkpoint
-::: checkpoint-default
-You should now be able to log in to your application.
 
-Run your application, and select the login button. Verify that:
+<p>Auth0アプリケーションの構成、Auth0 SPA SDKの追加、Auth0クライアントの作成が完了したら、プロジェクトのためにログインをセットアップする必要があります。これを実現するには、SDKの<code>loginWithRedirect()</code>メソッドを使用して、ユーザーをAuth0のユニバーサルログインページにリダイレクトします。ここでAuth0はユーザーを認証することができます。ユーザーが認証に成功すると、このクイックスタートで前にセットアップしたCallback URLへリダイレクトされます。</p><p>アプリケーションで選択時に<code>loginWithRedirect()</code>を呼び出すログインボタンを作成します。</p><p><div class="checkpoint">Javascriptクイックスタート手順4「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションにログインできるようになります。</p><p>アプリケーションを実行し、ログインボタンを選択します。以下の点を確認します：</p><ul><li><p>ユーザー名とパスワードを使って、ログインまたはサインアップできる</p></li><li><p>アプリケーションによって<a href="https://auth0.com/universal-login">Auth0ユニバーサルログイン</a>ページにリダイレクトされる</p></li><li><p>認証用にAuth0にリダイレクトされる</p></li><li><p>認証した後、Auth0はユーザーをアプリケーションにリダイレクトで戻す</p></li><li><p>コンソールでAuth0に関連したエラーを受け取らない</p></li></ul><p></p></div>
 
-- you can log in or sign up using a username and password
-- your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page
-- you are redirected to Auth0 for authentication
-- Auth0 successfully redirects back to your application after authentication
-- you do not receive any errors in the console related to Auth0
-:::
+  <div class="checkpoint-success"></div>
 
-:::checkpoint-failure
-Sorry about that. Here are a few things to double check:
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure that the correct application is selected</p></li><li><p>make sure you saved after entering your URLs</p></li><li><p>make sure the Auth0 client has been correctly configured with your Auth0 domain and client ID</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-- make sure that the correct application is selected
-- make sure you saved after entering your URLs
-- make sure the Auth0 client has been correctly configured with your Auth0 domain and client ID
+  </div></p>
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+## Auth0からのコールバックを処理する {{{ data-action="code" data-code="app.js#16:21" }}}
 
-:::
-::::
 
-## Handle the callback from Auth0 {{{ data-action=code data-code="app.js#16:21" }}}
+<p>ブラウザーでアプリケーションプロセスへとリダイレクトで戻されると、アプリケーションはAuth0からのコールバックを検出した場合にのみ、Auth0クライアントで<code>handleRedirectCallback()</code>関数を呼び出します。これを実行する1つの方法は、<code>code</code>と<code>state</code>のクエリパラメーターが検出されたときに、<code>handleRedirectCallback()</code>のみを呼び出すことです。</p><p>コールバックの処理に成功すると、パラメーターはURLから削除されます。これによって、次回ページが読み込まれても、コールバックハンドラーがトリガーされることはありません。</p><p><div class="checkpoint">Javascriptクイックスタート手順5「チェックポイント」 <div class="checkpoint-default"><p>Auth0からのコールバックが正しく処理されます。</p><p>アプリケーションを実行し、ログインボタンをもう一度選択します。以下の点を確認します：</p><ul><li><p>認証した後、Auth0はアプリケーションにリダイレクトで戻される。</p></li><li><p>クエリパラメータがURLから削除される。</p></li></ul><p></p></div>
 
-When the browser is redirected back to your application process, your application should call the `handleRedirectCallback()` function on the Auth0 client only when it detects a callback from Auth0. One way to do this is to only call `handleRedirectCallback()` when `code` and `state` query parameters are detected.
+  <div class="checkpoint-success"></div>
 
-If handling the callback was successful, the parameters should be removed from the URL so the callback handler will not be triggered the next time the page loads.
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>check that the <code>redirect_uri</code> option has been configured to your application&#39;s URL</p></li><li><p>if you have an <code>error</code> query parameter, inspect it to learn the cause of the error</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-::::checkpoint
-::: checkpoint-default
-Your callback from Auth0 should now be properly handled.
+  </div></p>
 
-Run your application, and select the login button again. Verify that:
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="app.js#23:29" }}}
 
-- Auth0 successfully redirects back to your application after authentication.
-- the query parameters are removed from the URL.
-:::
 
-::: checkpoint-failure
-Sorry about that. Here are a few things to double check:
+<p>プロジェクトにログインしたユーザーには、<a href="https://auth0.com/docs/logout/guides/logout-auth0">ログアウトする方法</a>も必要です。Auth0クライアントには、アプリからユーザーをログアウトするのに使用できる<code>logout()</code>メソッドが用意されています。ユーザーはログアウトすると、<a href="https://auth0.com/docs/api/authentication?javascript#logout">Auth0ログアウトエンドポイント</a>にリダイレクトされてから、即座に、アプリケーションとこのクイックスタートで先ほどセットアップしたログアウトURLへとリダイレクトで戻されます。</p><p>アプリケーションで選択時に<code>logout()</code>を呼び出すログアウトボタンを作成します。</p><p><div class="alert-container" severity="default"><p>SDKによって<code>isAuthenticated()</code>関数が公開されることで、ユーザーが認証されているかどうかを確認することができます。<code>isAuthenticated()</code>関数の値に基づいて、条件付きでログインボタンとログアウトボタンを表示することができます。または、シングルボタンを使って、ログインとログアウトの両方のボタンと条件付きレンダリングを組み合わせることができます。</p></div></p><p><div class="checkpoint">javascriptクイックスタート手順6「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションからログアウトできるようになります。</p><p>アプリケーションを実行し、ログインし、ログアウトボタンを選択します。以下の点を確認します：</p><ul><li><p>Auth0のログアウトエンドポイントにリダイレクトされている。</p></li><li><p>Auth0がアプリケーションと正しいログアウトURLへのリダイレクトで戻される。</p></li><li><p>アプリケーションにログインしていない。</p></li><li><p>コンソールでAuth0に関連したエラーを受け取らない。</p></li></ul><p></p></div>
 
-- check that the `redirect_uri` option has been configured to your application's URL
-- if you have an `error` query parameter, inspect it to learn the cause of the error
+  <div class="checkpoint-success"></div>
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure that you configured the logout URL as one of the <b>Allowed Logout URLS </b>in your application&#39;s <b>Settings</b></p></li><li><p>inspect the <a href="https://manage.auth0.com/#/logs">application logs</a> for further errors</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-## Add logout to your application {{{ data-action=code data-code="app.js#23:29" }}}
+  </div></p>
 
-Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The Auth0 client provides a `logout()` method that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="app.js#31:45" }}}
 
-Create a logout button in your application that calls `logout()` when selected.
 
-:::note
-The SDK exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not. You can render the login and logout buttons conditionally based on the value of the `isAuthenticated()` function. Alternatively, you can use a single button to combine both login and logout buttons as well as their conditional rendering.
-:::
+<p>ユーザーがログインやログアウトできるようになったら、認証済みのユーザーに関連付けられた<a href="https://auth0.com/docs/users/concepts/overview-user-profile">プロファイル情報</a>を取得できるようにしたいと考えるはずです。たとえば、ログインしたユーザーの名前やプロフィール写真を表示することで、ユーザーインターフェイスをパーソナライズできるようになりたいかもしれません。</p><p>Auth0 SPA SDKは、Auth0クライアントによって公開された<code>getUser()</code>関数を介してユーザー情報を提供します。Auth0クライアントは、ユーザーが認証されているかどうかを確認することができる<code>isAuthenticated()</code>関数も公開します。これを使って、たとえば、UI要素を表示・非表示にするかを判断することができます。インタラクティブパネルでコードを確認し、これらの関数の使用方法の例をチェックします。</p><p><div class="checkpoint">Javascriptクイックスタート手順7「チェックポイント」 <div class="checkpoint-default"><p>ユーザープロファイル情報を表示することができるようになります。</p><p>アプリケーションを実行して次の点を確認します：</p><ul><li><p>ログイン後にユーザー情報が正しく表示される。</p></li><li><p>ログアウト後にユーザー情報が表示されない。</p></li></ul><p></p></div>
 
-::::checkpoint
-::: checkpoint-default
-You should now be able to log out of your application.
+  <div class="checkpoint-success"></div>
 
-Run your application, log in, and select the logout button. Verify that:
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>ensure that all the previous steps work without issue</p></li><li><p>check your code that manages the UI in response to the authentication state</p></li><li><p>inspect the <a href="https://manage.auth0.com/#/logs">application logs</a> for further errors relating to silent authentication</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-- you are redirected to Auth0's logout endpoint.
-- Auth0 successfully redirects back to your application and the correct logout URL.
-- you are no longer logged in to your application.
-- you do not receive any errors in the console related to Auth0.
-
-:::
-
-::: checkpoint-failure
-Sorry about that. Here are a few things to double check:
-
-- make sure that you configured the logout URL as one of the **Allowed Logout URLS** in your application's **Settings**
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
-
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
-:::
-::::
-
-## Show user profile information {{{ data-action=code data-code="app.js#31:45" }}}
-
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
-
-The Auth0 SPA SDK provides user information through the `getUser()` function exposed by the Auth0 client. The Auth0 client also exposes an `isAuthenticated()` function that allows you to check whether a user is authenticated or not, which you can use to determine whether to show or hide UI elements, for example. Review the code in the interactive panel to see examples of how to use these functions.
-
-::::checkpoint
-::: checkpoint-default
-You should now be able to view user profile information.
-
-Run your application, and verify that:
-
-- user information displays correctly after you have logged in.
-- user information does not display after you have logged out.
-:::
-
-::: checkpoint-failure
-Sorry about that. Here are a few things to double check:
-
-- ensure that all the previous steps work without issue
-- check your code that manages the UI in response to the authentication state
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors relating to silent authentication
-
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
-:::
-::::
+  </div></p>

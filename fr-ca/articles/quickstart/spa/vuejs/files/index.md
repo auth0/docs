@@ -2,7 +2,7 @@
 name: index.js
 language: javascript
 ---
-
+    
 ```javascript
 import { createAuth0 } from '@auth0/auth0-vue';
 

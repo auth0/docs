@@ -1,160 +1,139 @@
 ---
-title: Add Login to your Java Servlet application
-description: This tutorial demonstrates how to add user login to a Java Servlet application.
-interactive: true
+title: Ajouter une fonctionnalité de connexion à votre Application Java Servlet
+description: Ce guide explique comment intégrer Auth0 à n’importe quelle application Java Servlet, nouvelle ou ancienne.
+interactive:  true
 files:
-  - files/web
-  - files/authentication-controller-provider
-  - files/login-servlet
-  - files/callback-servlet
-  - files/home-servlet
-  - files/logout-servlet
-topics:
-  - quickstarts
-  - webapp
-  - login
-  - java
+ - files/web
+ - files/AuthenticationControllerProvider
+ - files/LoginServlet
+ - files/CallbackServlet
+ - files/HomeServlet
+ - files/LogoutServlet
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login
+locale: fr-CA
 ---
 
-# Add Login to Your Java Servlet Application
+# Ajouter une fonctionnalité de connexion à votre Application Java Servlet
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Java Servlet application.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/callback',
-  returnTo: 'http://localhost:3000/login'
-}) %>
+<p>Auth0 vous permet d’ajouter rapidement l’authentification et de pouvoir accéder aux informations relatives au profil de l’utilisateur dans votre application. Ce guide explique comment intégrer Auth0 à n’importe quelle application Java Servlet, nouvelle ou ancienne.</p><p></p>
 
-## Integrate Auth0 in your application
+## Configurer Auth0
 
-### Setup dependencies
 
-To integrate your Java application with Auth0, add the following dependencies:
+<p>Pour utiliser les services Auth0, vous devez avoir une application installée dans Auth0 Dashboard. L’application Auth0 est l’endroit où vous allez configurer le fonctionnement de l’authentification pour le projet que vous développez.</p><h3>Configurer une application</h3><p>Utilisez le sélecteur interactif pour créer une nouvelle application Auth0 ou sélectionner une application existante qui représente le projet avec lequel vous souhaitez effectuer l’intégration. Dans Auth0, il est attribué à chaque application un identifiant client unique alphanumérique que votre code d’application utilisera pour appeler les API Auth0 via la trousse SDK.</p><p>Tous les paramètres que vous configurez à l’aide de ce guide rapide seront automatiquement mis à jour pour votre application dans le <a href="https://manage.auth0.com/#/">Dashboard</a>, qui est l’endroit où vous pourrez gérer vos applications à l’avenir.</p><p>Si vous préférez explorer une configuration complète, vous pouvez plutôt consulter une application faisant office d’exemple.</p><h3>Configuration des callback URL</h3><p>Une callback URL est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne seront pas redirigés vers votre application après s’être connectés.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code><code>/callback</code>.</p></div></p><h3>Configurer les URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après  leur déconnexion. Si elle n’est pas définie, les utilisateurs ne pourront pas se déconnecter de votre application et recevront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000/logout</code>.</p></div></p>
 
-- **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-- **auth0-java-mvc-commons**: is the [Java library](https://github.com/auth0/auth0-java-mvc-common) that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
+## Intégrer Auth0 dans votre application
 
-If you are using Gradle, add them to your `build.gradle`:
 
-```java
-// build.gradle
+<h3>Régler les dépendances.</h3><p>Pour intégrer votre application Java avec Auth0, ajoutez les dépendances suivantes :</p><ul><li><p><b>javax.servlet-api</b></p><p>: est la bibliothèque qui vous permet de créer des servlets Java. Vous devez ensuite ajouter une dépendance de serveur comme Tomcat ou Gretty, selon votre choix. Consultez notre code d’exemple pour plus d’informations.</p></li><li><p><b>auth0-java-mvc-commons</b> : est la <a href="https://github.com/auth0/auth0-java-mvc-common">bibliothèque Java</a> qui vous permet d’utiliser Auth0 avec Java pour des applications Web MVC côté serveur. Il génère l’URL d’autorisation que vous devez appeler pour authentifier et valide le résultat reçu au retour afin d’obtenir finalement les <a href="https://auth0.com/docs/tokens">Jetons Auth0</a> qui identifient l’utilisateur.</p></li></ul><p>Si vous utilisez Gradle, ajoutez-les à votre fichier <code>build.gradle</code> :</p><p><pre><code>// build.gradle
+
+
 
 compile 'javax.servlet:javax.servlet-api:3.1.0'
-compile 'com.auth0:mvc-auth-commons:1.+'
-```
 
-If you are using Maven, add them to your `pom.xml`:
+compile 'com.auth0:mvc-auth-commons:1.+'W
 
-```xml
-<!-- pom.xml -->
+</code></pre>
 
-<dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>mvc-auth-commons</artifactId>
-  <version>[1.0, 2.0)</version>
-</dependency>
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.1.0</version>
-</dependency>
-```
-
-## Configure your Java application {{{ data-action=code data-code="web.xml#6:14" }}}
-
-Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else.
-
-This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [library's documentation](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md).
+</p><p>Si vous utilisez Maven, ajoutez-les à votre fichier <code>pom.xml</code> :</p><p><pre><code>&lt;!-- pom.xml --&gt;
 
 
-::: panel Check populated attributes
-If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
-:::
 
-### Project structure
+&lt;dependency&gt;
 
-The example project, which can be downloaded using the **Download Sample** button, has the following structure:
+  &lt;groupId&gt;com.auth0&lt;/groupId&gt;
 
-```text
-- src
+  &lt;artifactId&gt;mvc-auth-commons&lt;/artifactId&gt;
+
+  &lt;version&gt;[1.0, 2.0)&lt;/version&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+
+  &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+
+  &lt;version&gt;3.1.0&lt;/version&gt;
+
+&lt;/dependency&gt;
+
+</code></pre>
+
+</p>
+
+## Configurer votre application Java {{{ data-action="code" data-code="web.xml" }}}
+
+
+<p>Votre application Java a besoin de certaines informations pour s’authentifier auprès de votre compte Auth0. Les exemples lisent ces informations à partir du fichier descripteur de déploiement <code>src/main/webapp/WEB-INF/web.xml</code>, mais vous pouvez les stocker ailleurs.</p><p>Ces informations seront utilisées pour configurer la bibliothèque <b>auth0-java-mvc-commons</b> afin de permettre aux utilisateurs de se connecter à votre application. Pour en savoir plus sur la bibliothèque, y compris ses différentes options de configuration, consultez la <a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md">documentation de la bibliothèque</a>.</p><h3>Vérifier les attributs remplis</h3><p>Si vous avez téléchargé cet exemple en utilisant le bouton <b>Download Sample (Télécharger l’exemple)</b>, les attributs <code>domain</code>, <code>clientId</code> et <code>clientSecret</code> seront remplis pour vous. Vous devez vérifier que les valeurs sont correctes, surtout si vous avez plusieurs applications Auth0 dans votre compte.</p><h3>Structure du projet</h3><p>Le projet faisant office d’exemple, qui peut être téléchargé en utilisant le bouton <b>Download Sample (Télécharger l’exemple)</b> a la structure suivante :</p><p><pre><code>- src
+
 -- main
+
 ---- java
+
 ------ com
+
 -------- auth0
+
 ---------- example
+
 ------------ Auth0Filter.java
+
 ------------ AuthenticationControllerProvider.java
+
 ------------ HomeServlet.java
+
 ------------ CallbackServlet.java
+
 ------------ LoginServlet.java
+
 ------------ LogoutServlet.java
+
 ---- webapp
+
 ------ WEB-INF
+
 -------- jsp
+
 ---------- home.jsp
+
 -------- web.xml
+
 - build.gradle
-```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated with the user after a successful login and provide the option to logout.
+</code></pre>
 
-The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
+</p><p>Le projet contient un seul JSP : <code>home.jsp</code> qui affichera les jetons associés à l’utilisateur après une connexion réussie et proposera l’option de déconnexion.</p><p>Le projet contient un WebFilter : le <code>Auth0Filter.java</code> qui vérifiera l’existence de jetons avant de donner à l’utilisateur accès à notre chemin protégé <code>/portal/*</code> . Si les jetons n’existent pas, la requête sera redirigée vers <code>LoginServlet</code>.</p><p>Le projet contient également quatre servlets :</p><ul><li><p><code>LoginServlet.java</code>: Appelé lorsque l’utilisateur essaie de se connecter. Le servlet utilise les paramètres <code>client_id</code> et <code>domain</code> pour créer une URL d’autorisation valide et y redirige l’utilisateur.</p></li><li><p><code>CallbackServlet.java</code> : Le servlet enregistre les requêtes adressées à notre callback URL et traite les données pour obtenir les identifiants. Après une connexion réussie, les identifiants sont ensuite enregistrés dans la HttpSession de la requête.</p></li><li><p><code>HomeServlet.java</code>: Le servlet lit les jetons précédemment enregistrés et les affiche sur la ressource <code>home.jsp</code>.</p></li><li><p><code>LogoutServlet.java</code>: Appelé lorsque l’utilisateur clique sur le lien de déconnexion. Le servlet invalide la session de l’utilisateur et redirige l’utilisateur vers la page de connexion, gérée par <code>LoginServlet</code>.</p></li><li><p><code>AuthenticationControllerProvider.java</code> : Responsable de la création et de la gestion d’une seule instance de <code>AuthenticationController</code></p></li></ul><p></p>
 
-The project contains also four servlets:
-- `LoginServlet.java`: Invoked when the user attempts to log in. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
-- `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
-- `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
-- `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
-- `AuthenticationControllerProvider`: Responsible to create and manage a single instance of the `AuthenticationController`
-  
-## Create the AuthenticationController {{{ data-action=code data-code="AuthenticationControllerProvider.java#6-32 }}}
+## Créer l’AuthenticationController {{{ data-action="code" data-code="AuthenticationControllerProvider.java#5:26" }}}
 
-To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
-:::note
-The `AuthenticationController` does not store any context, and is inteded to be reused. Unneccessary creation may result in additonal resources being created which could impact performance.
-:::
+<p>Pour permettre aux utilisateurs de s’authentifier, créez une instance de l’<code>AuthenticationController</code> fournie par la trousse SDK <code>auth0-java-mvc-commons</code> en utilisant le <code>domain</code>, <code>clientId</code>, et <code>clientSecret</code>.  L’exemple présente comment configurer le composant pour l’utiliser avec des jetons signés à l’aide de l’algorithme de signature asymétrique RS256, en précisant un <code>JwkProvider</code> pour récupérer la clé publique utilisée pour vérifier la signature du jeton. Consultez le <a href="https://github.com/auth0/jwks-rsa-java">référentiel jwks-rsa-java</a> pour en savoir plus sur les options de configuration supplémentaires. Si vous utilisez HS256, il n’est pas nécessaire de configurer <code>JwkProvider</code>.</p><p><div class="alert-container" severity="default"><p><code>AuthenticationController</code> ne stocke aucun contexte et est destiné à être réutilisé. Une création inutile peut entraîner la génération de ressources supplémentaires, ce qui peut avoir une incidence sur les performances.</p></div></p>
 
-## Login Redirection {{{ data-action=code data-code="LoginServlet.java#21:23" }}}
+## Redirection de connexion {{{ data-action="code" data-code="LoginServlet.java#21:23" }}}
 
-To enable users to log in, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 application.
 
-## Handling the tokens {{{ data-action=code data-code="CallbackServlet.java#16:37" }}}
+<p>Pour permettre aux utilisateurs de se connecter, votre application les redirigera vers la page de <a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-fr-CA">Universal Login[connexion universelle]</a>. En utilisant l’instance <code>AuthenticationController</code> , vous pouvez générer l’URL de redirection en appelant la méthode <code>buildAuthorizeUrl(HttpServletRequest request</code>, <code>HttpServletResponse response</code>, <code>String redirectUrl)</code>  L’URL de redirection doit être celle qui a été ajoutée aux <b>Allowed Callback URLs (Callback URL autorisées)</b> de votre application Auth0.</p>
 
-After the user logs in, the result will be received in our `CallbackServlet` via either a GET or POST HTTP request. Because we are using the Authorization Code Flow (the default), a GET request will be sent. If you have configured the library for the Implicit Flow, a POST request will be sent instead.
+## Gérer les jetons {{{ data-action="code" data-code="CallbackServlet.java#16:37" }}}
 
-The request holds the call context that the library previously set by generating the Authorize URL with the `AuthenticationController`. When passed to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to save the credentials somewhere to access them later. You can use the `HttpSession` of the request by using the `SessionsUtils` class included in the library.
 
-::: note
-It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
-:::
+<p>Après que l’utilisateur s’est connecté, le résultat sera reçu dans notre<code>CallbackServlet</code> via une requête HTTP GET ou POST. Comme nous utilisons le flux de code d’autorisation (par défaut), une requête GET sera envoyée. Si vous avez configuré la bibliothèque pour le flux implicite, une requête POST sera plutôt envoyée.</p><p>La requête contient le contexte d’appel que la bibliothèque a précédemment défini en générant l’URL d’autorisation avec <code>AuthenticationController</code>. Lorsqu’il est passé au contrôleur, vous recevez soit une instance de <code>Tokens</code> valide soit une Exception indiquant ce qui a mal tourné. En cas d’appel réussi, vous devez enregistrer les identifiants afin de pouvoir y accéder ultérieurement. Vous pouvez utiliser <code>HttpSession</code> de la requête en utilisant la classe <code>SessionsUtils</code> comprise dans la bibliothèque.</p><p><div class="alert-container" severity="default"><p>Il est recommandé d’enregistrer le moment où nous avons demandé les jetons ainsi que la valeur <code>expiresIn</code> reçue, afin que la prochaine fois que nous utiliserons le jeton, nous puissions vérifier s’il a déjà expiré ou s’il est encore valide. Pour les besoins de cet exemple, nous ignorerons cette validation.</p></div></p>
 
-## Display the home page {{{ data-action=code data-code="HomeServlet.java#4:14" }}}
+##  Afficher la page d’accueil {{{ data-action="code" data-code="HomeServlet.java#4:14" }}}
 
-Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeServlet` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code.
 
-## Handle logout {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+<p>Maintenant que l’utilisateur est authentifié (les jetons existent), <code>Auth0Filter</code> leur permettra d’accéder à nos ressources protégées. Dans le <code>HomeServlet</code> nous obtenons les jetons de la session de la requête et les définissons comme l’attribut <code>userId</code> afin qu’ils puissent être utilisés dans le code JSP.</p>
 
-To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
+## Gérer la déconnexion {{{ data-action="code" data-code="LogoutServlet.java#13:30" }}}
 
-First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
 
-## Run the sample {{{ data-action=code data-code="LogoutServlet.java#13:30" }}}
+<p>Pour gérer adéquatement la déconnexion, nous devons effacer la session et déconnecter l’utilisateur d’Auth0. Cette opération est gérée dans <code>LogoutServlet</code> de notre exemple d’application.</p><p>Tout d’abord, nous effaçons la session en appelant <code>request.getSession().invalidate()</code>. Nous générons ensuite l’URL de déconnexion, en veillant à inclure le paramètre de requête <code>returnTo</code> qui est l’endroit où l’utilisateur sera redirigé après la déconnexion. Enfin, nous redirigeons la réponse vers notre URL de déconnexion.</p>
 
-To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
+## Exécuter l’exemple
 
-```bash
-./gradlew clean appRun
-```
 
-After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
-
-![Auth0 Universal Login](/media/quickstarts/universal-login.png)
-
-After a successful authentication, you'll be able to see the home page contents.
-
-![Display Token](/media/articles/java/display-token.png)
-
-Log out by clicking the **logout** button at the top right of the home page.
+<p>Pour exécuter l’exemple à partir d’un terminal, changez de répertoire en dossier racine de projet et exécutez la ligne suivante :</p><p><code>./gradlew clean app</code></p><p>Après quelques secondes, l’application sera accessible sur <code>http://localhost:3000/</code>. Essayez d’accéder à la ressource protégée <a href="http://localhost:3000/portal/home">http://localhost:3000/portal/home</a> et notez comment vous êtes redirigé par <code>Auth0Filter</code> vers la page de connexion Auth0. Le widget affiche toutes les connexions vis réseau social et de base de données que vous avez définies pour cette application dans <a href="https://manage.auth0.com/#/">dashboard</a>.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/215ad0b724c138290b0b217edb5ddf96/Login_Screen_-_French.png" alt="null" /><p>Vous serez en mesure de voir le contenu de la page d’accueil après une authentification réussie.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/FzK3jxfSGoeIDYQamxnJl/6b608e39ff39e044644193cfd2ee0f69/java-step-9-2.png" alt="null" /><p>Déconnectez-vous en cliquant sur le bouton <b>logout (déconnexion)</b> en haut à droite de la page d’accueil.</p>

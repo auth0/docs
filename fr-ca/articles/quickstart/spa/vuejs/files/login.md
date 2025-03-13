@@ -1,9 +1,9 @@
 ---
 name: login.js
-language: html
+language: javascript
 ---
-
-```html
+    
+```javascript
 <template>
   <div>
     <button @click="login">Log in</button>

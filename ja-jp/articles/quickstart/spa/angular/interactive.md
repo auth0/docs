@@ -1,160 +1,66 @@
 ---
-title: Add Login to your Angular Application
-description: "Auth0 allows you to add authentication to your Angular application and gain access to user profile information. This guide demonstrates common snippets used to integrate Auth0 with any new or existing Angular application using the Auth0 Angular SDK."
-interactive: true
+title: Angularアプリケーションにログインを追加する
+description: このガイドは、AngularアプリケーションにAuth0 Angular SDKを使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。
+interactive:  true
 files:
-  - files/index
-  - files/login
-  - files/logout
-  - files/profile
+ - files/main
+ - files/login-button
+ - files/logout-button
+ - files/user-profile
 github:
-  path: Sample-01
+  path: https://github.com/auth0-samples/auth0-angular-samples/tree/main/Sample-01
+locale: ja-JP
 ---
 
-:::note
-Visit the [Angular Authentication By Example](https://developer.auth0.com/resources/guides/spa/angular/basic-authentication) guide for a deep dive into implementing user authentication in Angular. This guide provides additional details on how to create a sign-up button, add route guards, and call a protected API from Angular.
-:::
+# Angularアプリケーションにログインを追加する
 
-# Add Login to Your Angular Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any Angular application using the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular).
+<p><div class="alert-container" severity="default"><p>Angularでユーザー認証を実装するための詳しい情報については、「<a href="https://developer.auth0.com/resources/guides/spa/angular/basic-authentication">例を挙げて説明するAngular認証ガイド</a>」を参照してください。このガイドでは、サインアップボタンを作成する方法、ルートガードを追加する方法、そして保護されたAPIをAngularから呼び出す方法が詳しく説明されています。</p></div></p><p>Auth0を使用すると、アプリケーションに手軽に認証を追加することができます。このガイドは、Angularアプリケーションに<a href="https://github.com/auth0/auth0-angular">Auth0 Angular SDK</a>を使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>統合したいAngularプロジェクトを用意します。または、ログインした後に、サンプルアプリケーションを表示してダウンロードすることもできます。</p></li></ul><p></p><p></p>
 
-To use this quickstart, you’ll need to:
+## Auth0を構成する
 
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working Angular project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:4200',
-  returnTo: 'http://localhost:4200',
-  webOriginUrl: 'http://localhost:4200',
-  showWebOriginInfo: true
-}) %>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:4200</code>に設定してください。</p><p></p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:4200</code>に設定してください。</p><p></p></div></p><h3>Allowed Web Origins（許可されているWebオリジン）を構成する</h3><p>［Allowed Web Origin（許可されているWebオリジン）］とは、認証フローにアクセスすることを許可して欲しいURLです。これにはプロジェクトのURLが含まれている必要があります。適切に設定されていない場合、プロジェクトが認証トークンを暗黙でリフレッシュできず、ユーザーがアプリケーションを再び訪問した時、またはページを再読み込みした時にログアウトした状態になってしまいます。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:4200</code>に設定してください。</p><p></p></div></p>
 
-## Install the Auth0 Angular SDK
+## Auth0 Angular SDKをインストールする
 
-Auth0 provides an [Angular SDK](https://github.com/auth0/auth0-angular) to simplify the process of implementing Auth0 authentication and authorization in Angular applications.
 
-Install the Auth0 Angular SDK by running the following command in your terminal:
+<p>Angularアプリで、Auth0の認証・認可を手軽に実装できるように、Auth0は<a href="https://github.com/auth0/auth0-angular">Angular SDK</a>を提供しています。</p><p>ターミナルで以下のコマンドを実行してAuth0 Angular SDKをインストールします：</p><p><code>npm install @auth0/auth0-angular</code></p><p>SDKはモジュールや認証サービスなど、Auth0をAngularアプリケーションに慣用的に統合しやすくする種類をいくつか公開しています。</p>
 
-```bash
-npm install @auth0/auth0-angular
-```
+## Auth0を登録・提供する {{{ data-action="code" data-code="main.ts#7:13" }}}
 
-The SDK exposes several types that help integrate Auth0 in an Angular application idiomatically, including a module and an authentication service.
 
-## Register and providing Auth0 {{{ data-action="code" data-code="main.ts#7:13" }}}
+<p>SDKは、SDKが機能するために必要なすべてのサービスを含んだprovide関数である、<code>provideAuth0</code>をエクスポートします。これをアプリケーションで登録するには、以下のようにします。</p><ol><li><p><code>main.ts</code>ファイルを開きます。</p></li><li><p><code>@auth0/auth0-angular</code>パッケージから<code>provideAuth0</code>関数をインポートします。</p></li><li><p><code>provideAuth0</code>を<code>bootstrapApplication</code>内の<code>providers</code>に追加することで、アプリケーションに追加します。</p></li><li><p><code>AuthService</code>を<code>AppComponent</code>に注入します。</p></li></ol><p><code>provideAuth0</code>関数は<code>domain</code>プロパティと<code>clientId</code>プロパティを取ります。これらのプロパティの値は、Auth0で登録したシングルページアプリケーション（SPA）の<b>［Settings（設定）］</b>にある<b>Domain（ドメイン）</b>と<b>Client ID（クライアントID）</b>の値に対応します。その上に、<code>authorizationParams.redirect_uri</code>を構成します。これによって、認証に成功した後、Auth0はユーザーを特定のURLにリダイレクトで戻すことができます。</p><p><div class="alert-container" severity="default"><p><a href="https://auth0.com/docs/custom-domains">Auth0を使用したカスタムドメイン</a>では、ドメインプロパティの値は［Settings（設定）］タブに反映された値でなく、カスタムドメインの値になります。</p></div></p>
 
-The SDK exports `provideAuth0`, which is a provide function that contains all the services required for the SDK to function. To register this with your application:
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="login-button.ts#11:13" }}}
 
-1. Open the `main.ts` file.
-2. Import the `provideAuth0` function from the `@auth0/auth0-angular` package.
-3. Add `provideAuth0` to the application by adding it to the `providers` inside `bootstrapApplication`.
-4. Inject `AuthService` into `AppComponent`.
 
-The `provideAuth0` function takes the properties `domain` and `clientId`; the values of these properties correspond to the **Domain** and **Client ID** values that you can find under **Settings** in the Single-Page Application (SPA) that you registered with Auth0. On top of that, we configure `authorizationParams.redirect_uri`, which allows Auth0 to redirect the user back to the specific URL after successfully authenticating.
+<p>Auth0アプリケーションとAuth0 Angular SDKの構成が完了したら、プロジェクトのためにログインをセットアップする必要があります。これを実現するには、<code>AuthService</code>クラスからSDKの<code>loginWithRedirect()</code>メソッドを使用して、ユーザーをAuth0のユニバーサルログインページにリダイレクトします。そこでAuth0はユーザーを認証することができます。ユーザーが認証に成功すると、アプリケーション、およびこのクイックスタートで前にセットアップしたCallback URLへリダイレクトされます。</p><p>アプリケーションで選択時に<code>loginWithRedirect()</code>を呼び出すログインボタンを作成します。</p><p><div class="checkpoint">Angular手順4「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションにログインできるようになります。</p><p>アプリケーションを実行し、ログインボタンを選択します。以下の点を確認します：</p><ul><li><p>ユーザー名とパスワードを使って、ログインまたはサインアップできる。</p></li><li><p>アプリケーションによって<a href="https://auth0.com/universal-login">Auth0ユニバーサルログイン</a>ページにリダイレクトされる。</p></li><li><p>認証用にAuth0にリダイレクトされる。</p></li><li><p>認証した後、Auth0はアプリケーションにリダイレクトで戻される。</p></li><li><p>コンソールでAuth0に関連したエラーを受け取らない。</p></li></ul><p></p></div>
 
-<%= include('../_includes/_auth_note_custom_domains') %>
+  <div class="checkpoint-success"></div>
 
-## Add login to your application {{{ data-action=code data-code="login-button.ts#11:13" }}}
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure you configured the correct <code>authorizationParams.redirect_uri</code></p></li><li><p>make sure you added the<code>LoginButtonComponent</code> button to the module&#39;s declarations</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-Now that you have configured your Auth0 Application and the Auth0 Angular SDK, you need to set up login for your project. To do this, you will use the SDK’s `loginWithRedirect()` method from the `AuthService` class to redirect users to the Auth0 Universal Login page where Auth0 can authenticate them. After a user successfully authenticates, they will be redirected to your application and the callback URL you set up earlier in this quickstart.
+  </div></p>
 
-Create a login button in your application that calls `loginWithRedirect()` when selected.
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="logout-button.ts#19:25" }}}
 
-::::checkpoint
 
-:::checkpoint-default
-You should now be able to log in to your application.
+<p>プロジェクトにログインしたユーザーには、<a href="https://auth0.com/docs/logout/guides/logout-auth0">ログアウトする方法</a>も必要です。SDKには、<code>AuthService</code>クラスでアプリからユーザーをログアウトするのに使用できる<code>logout()</code>メソッドが用意されています。ユーザーはログアウトすると、<a href="https://auth0.com/docs/api/authentication?javascript#logout">Auth0ログアウトエンドポイント</a>にリダイレクトされてから、即座に、アプリケーションとこのクイックスタートで先ほどセットアップしたログアウトURLへとリダイレクトで戻されます。</p><p>アプリケーションで選択時に<code>logout()</code>を呼び出すログアウトボタンを作成します。</p><p><div class="alert-container" severity="default"><p>SDKによって<code>AuthService</code>クラスで<code>isAuthenticated$</code> Observableが公開されることで、ユーザーが認証されているかどうかを確認することができます。<code>isAuthenticated$</code> Observableの値に基づいて、条件付きでログインボタンとログアウトボタンを作成することができます。または、シングルボタンを使って、ログインとログアウトの両方のボタンと条件付きレンダリングを組み合わせることができます。</p></div></p><p><div class="checkpoint">Angular手順5「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションからログアウトできるようになります。</p><p>アプリケーションを実行し、ログインし、ログアウトボタンを選択します。以下の点を確認します：</p><ul><li><p>Auth0のログアウトエンドポイントにリダイレクトされている。</p></li><li><p>Auth0がアプリケーションと正しいログアウトURLへのリダイレクトで戻される。</p></li><li><p>アプリケーションにログインしていない。</p></li><li><p>コンソールでAuth0に関連したエラーを受け取らない。</p></li></ul><p></p></div>
 
-Run your application, and select the login button. Verify that:
+  <div class="checkpoint-success"></div>
 
-- you can log in or sign up using a username and password.
-- your application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page.
-- you are redirected to Auth0 for authentication.
-- Auth0 successfully redirects back to your application after authentication.
-- you do not receive any errors in the console related to Auth0.
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure that you configured the logout URL as one of the <b>Allowed Logout URLS </b>in your application&#39;s <b>Settings</b></p></li><li><p>check that you added the <code>LogoutButtonComponent</code> to the module&#39;s declarations</p></li><li><p>inspect the <a href="https://manage.auth0.com/#/logs">application logs</a> for further errors</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-:::
+  </div></p>
 
-:::checkpoint-failure
-Sorry about that. Here are a few things to double check:
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="user-profile.ts" }}}
 
-- make sure you configured the correct `authorizationParams.redirect_uri`
-- make sure you added the `LoginButtonComponent` button to the module's declarations
 
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
+<p>ユーザーがログインやログアウトできるようになったら、認証済みのユーザーに関連付けられた<a href="https://auth0.com/docs/users/concepts/overview-user-profile">プロファイル情報</a>を取得できるようにしたいと考えるはずです。たとえば、ログインしたユーザーの名前やプロフィール写真を表示することで、ユーザーインターフェイスをパーソナライズできるようになりたいかもしれません。</p><p>Auth0 Angular SDKは、<code>AuthService</code>クラスによって公開された<code>user$</code> Observableを介してユーザー情報を提供します。<code>user$</code> Observableにはユーザーのアイデンティティに関する機密情報とアーティファクトが含まれるため、この方法が使用できるかはユーザーの認証ステータスによります。幸い、<code>user$</code> Observableは、<code>isAuthenticated$</code> Observableがtrueである場合にのみ値を出力するよう構成されています。そのため、ユーザープロファイルデータにアクセスする前に、認証状態を手動で確認する必要はありません。</p><p>SDKは、<code>AuthService</code>クラスでユーザーが認証されているかどうかを確認することができる<code>isAuthenticated$</code> Observableも公開します。これを使って、たとえば、UI要素を表示・非表示にするかを判断することができます。</p><p>インタラクティブパネルで<code>UserProfileComponent</code>コードを確認し、これらの関数の使用方法の例をチェックします。</p><p><div class="checkpoint">Angular手順6「チェックポイント」 <div class="checkpoint-default"><p>ユーザープロファイル情報を表示することができるようになります。</p><p>アプリケーションを実行して次の点を確認します：</p><ul><li><p>ログイン後にユーザー情報が正しく表示される。</p></li><li><p>ログアウト後にユーザー情報が表示されない。</p></li></ul><p></p></div>
 
-:::
-::::
+  <div class="checkpoint-success"></div>
 
-## Add logout to your application {{{ data-action=code data-code="logout-button.ts#19:25" }}}
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure you are logged in</p></li><li><p>make sure you are trying to access an existing property such as <code>user.name</code></p></li><li><p>make sure you added the <code>UserProfileComponent</code> component to the correct module&#39;s declarations</p></li></ul><p>Still having issues? To get more help, check out our <a href="https://auth0.com/docs/">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
 
-Users who log in to your project will also need [a way to log out](/logout/guides/logout-auth0). The SDK provides a `logout()` method on the `AuthService` class that you can use to log a user out of your app. When users log out, they will be redirected to your [Auth0 logout endpoint](/api/authentication?javascript#logout), which will then immediately redirect them to your application and the logout URL you set up earlier in this quickstart.
-
-Create a logout button in your application that calls `logout()` when selected.
-
-:::note
-The SDK exposes an `isAuthenticated$` observable on the `AuthService` class that allows you to check whether a user is authenticated or not. You can render the login and logout buttons conditionally based on the value of the `isAuthenticated$` observable. Alternatively, you can use a single button to combine both login and logout buttons as well as their conditional rendering.
-:::
-
-::::checkpoint
-
-:::checkpoint-default
-You should now be able to log out of your application.
-
-Run your application, log in, and select the logout button. Verify that:
-
-- you are redirected to Auth0's logout endpoint.
-- Auth0 successfully redirects back to your application and the correct logout URL.
-- you are no longer logged in to your application.
-- you do not receive any errors in the console related to Auth0.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a few things to double check:
-
-- make sure that you configured the logout URL as one of the **Allowed Logout URLS** in your application's **Settings**
-- check that you added the `LogoutButtonComponent` to the module's declarations 
-- inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
-
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
-
-:::
-
-::::
-
-## Show user profile information {{{ data-action=code data-code="user-profile.ts" }}}
-
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to personalize the user interface by displaying a logged-in user’s name or profile picture.
-
-The Auth0 Angular SDK provides user information through the `user$` observable exposed by the `AuthService` class. Because the `user$` observable contains sensitive information and artifacts related to the user's identity, its availability depends on the user's authentication status. Fortunately, the `user$` observable is configured to only emit values once the `isAuthenticated$` observable is true, so there is no need to manually check the authentication state before accessing the user profile data.
-
-The SDK also exposes an `isAuthenticated$` observable on the `AuthService` class that allows you to check whether a user is authenticated or not, which you can use to determine whether to show or hide UI elements, for example.
-
-Review the `UserProfileComponent` code in the interactive panel to see examples of how to use these functions.
-
-::::checkpoint
-
-:::checkpoint-default
-You should now be able to view user profile information.
-
-Run your application, and verify that:
-
-- user information displays correctly after you have logged in.
-- user information does not display after you have logged out.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a few things to double check:
-
-- make sure you are logged in
-- make sure you are trying to access an existing property such as `user.name`
-- make sure you added the `UserProfileComponent` component to the correct module's declarations
-
-Still having issues? To get more help, check out our [documentation](/) or visit our [community page](https://community.auth0.com).
-:::
-
-::::
+  </div></p>

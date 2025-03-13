@@ -1,9 +1,9 @@
 ---
 name: logout.js
-language: html
+language: javascript
 ---
-
-```html
+    
+```javascript
 <template>
   <div>
     <button @click="logout">Log out</button>

@@ -1,194 +1,88 @@
 ---
-title: Add Login to your PHP application
-description: "Auth0 allows you to add authentication to your PHP application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing PHP application using the Auth0 PHP SDK."
-interactive: true
+title: Ajouter une connexion à votre application PHP
+description: Ce guide explique comment intégrer Auth0, ajouter l’authentification et afficher les informations de profil utilisateur dans n’importe quelle application PHP à l’aide de la trousse SDK Auth0 PHP.
+interactive:  true
 files:
-  - files/index
-  - files/login
-  - files/logout
-  - files/profile
-  - files/router
-  - files/callback
+ - files/index
+ - files/login
+ - files/logout
+ - files/profile
+ - files/router
+ - files/callback
 github:
-  path: app
+  path: https://github.com/auth0-samples/auth0-php-web-app/tree/main/app
+locale: fr-CA
 ---
 
-# Add Login to Your PHP Application
+# Ajouter une connexion à votre application PHP
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any PHP application using the Auth0 PHP SDK.
 
-To use this quickstart, you’ll need to:
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working PHP project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+<p>Auth0 vous permet d’ajouter rapidement l’authentification à presque tous les types d’application. Ce guide explique comment intégrer Auth0, ajouter l’authentification et afficher les informations de profil utilisateur dans n’importe quelle application PHP à l’aide de la trousse SDK Auth0 PHP.</p><p>Pour utiliser ce guide rapide, vous devez :</p><ul><li><p>Vous inscrire à un compte Auth0 gratuit ou vous connecter à Auth0.</p></li><li><p>Disposer d’un projet PHP fonctionnel avec lequel vous souhaitez vous intégrer. Vous pouvez également consulter ou télécharger une application faisant office d’exemple lorsque vous vous connectez.</p></li></ul><p></p><p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Configurer Auth0
 
-To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
 
-### Configure an application
+<p>Pour utiliser les services Auth0, vous devez avoir une application installée dans Auth0 Dashboard. L’application Auth0 est l’endroit où vous allez configurer le fonctionnement de l’authentification pour le projet que vous développez.</p><h3>Configurer une application</h3><p>Utilisez le sélecteur interactif pour créer une nouvelle application Auth0 ou sélectionner une application existante qui représente le projet avec lequel vous souhaitez vous intégrer. Dans Auth0, il est attribué à chaque application un identificateur client unique alphanumérique que votre code d’application utilisera pour appeler les API Auth0 via la trousse SDK.</p><p>Tous les paramètres que vous configurez à l’aide de ce guide rapide seront automatiquement mis à jour pour votre application dans le <a href="https://manage.auth0.com/#/">Dashboard</a>, qui vous permettra de gérer vos applications.</p><p>Si vous préférez explorer une configuration complète, vous pouvez plutôt consulter une application faisant office d’exemple.</p><h3>Configuration des Callback URL</h3><p>Une Callback URL est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne seront pas redirigés vers votre application après s’être connectés.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre projet à titre d’exemple, définissez ceci sur <code>http://localhost:3000/callback</code>.</p></div></p><h3>Configuration des URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur déconnexion. Si elle n’est pas définie, les utilisateurs ne pourront pas se déconnecter de votre application et recevront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre projet à titre d’exemple, définissez ceci sur <code>http://localhost:3000</code>.</p><p></p></div></p><h3>Configurer Allowed Web Origins (Origines Web autorisées)</h3><p>Une origine Web autorisée est une URL que vous souhaitez autoriser à accéder à votre flux d’authentification.  Elle doit contenir l’URL de votre projet. Si elle n’est pas configurée adéquatement, votre projet ne pourra pas actualiser silencieusement les jetons d’authentification, ce qui entraînera la déconnexion de vos utilisateurs la prochaine fois qu&#39;ils visiteront votre application ou lors de l’actualisation d’une page.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre projet à titre d’exemple, définissez ceci sur <code>http://localhost:3000</code>.</p><p></p></div></p>
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+## Installer la trousse SDK Auth0 PHP {{{ data-action="code" data-code="index.php" }}}
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+<p>Auth0 fournit une trousse <a href="https://github.com/auth0/auth0-PHP">SDK PHP</a> (Auth0-PHP) pour simplifier le processus de mise en œuvre de l’authentification et de l’autorisation Auth0 dans les applications PHP.</p><p>La trousse SDK Auth0 PHP nécessite l’installation des bibliothèques HTTP compatibles <a href="https://www.php-fig.org/psr/psr-17/">PSR-17</a> et <a href="https://www.php-fig.org/psr/psr-18/">PSR-18</a> pour la gestion des requêtes réseau. Si vous ne disposez pas de bibliothèques, vous pouvez installer des choix fiables en exécutant les commandes suivantes dans votre terminal :</p><p><pre><code class="language-powershell">cd &lt;your-project-directory&gt;
 
-### Configure Callback URLs
-
-A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000/callback.
-:::
-
-### Configure Logout URLs
-
-A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000.
-:::
-
-### Configure Allowed Web Origins
-
-An Allowed Web Origin is a URL that you want to be allowed to access to your authentication flow. This must contain the URL of your project. If not properly set, your project will be unable to silently refresh authentication tokens, so your users will be logged out the next time they visit your application or refresh a page.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000.
-:::
-
-## Install the Auth0 PHP SDK {{{ data-action=code data-code="index.php" }}}
-
-Auth0 provides a [PHP SDK](https://github.com/auth0/auth0-PHP) (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
-
-The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP libraries to be installed for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
-
-```bash
-cd <your-project-directory>
 composer require symfony/http-client nyholm/psr7
-```
 
-Now install the Auth0 PHP SDK by running the following command in your terminal:
+</code></pre>
 
-```bash
-composer require auth0/auth0-php
-```
+</p><p>Installez maintenant la trousse SDK PHP Auth0 en exécutant la commande suivante dans votre terminal :</p><p><pre><code class="language-powershell">composer require auth0/auth0-php
 
-### Configure the Auth0 SDK
+</code></pre>
 
-Create a new file in your application called `index.php`, and copy in the code from the interactive panel to the right under the <b>index.php</b> tab.
+</p><h3>Configurer la trousse SDK Auth0</h3><p>Créez un nouveau fichier dans votre application, appelé <code>index.php</code>, et copiez le code du panneau interactif à droite sous l’onglet <b>index.php</b>.</p><p>Pour que la trousse SDK fonctionne correctement, vous devez définir les propriétés suivantes dans la trousse SDK Auth0 lors de l’initialisation :</p><ul><li><p><code>domain</code> : Le domaine de votre locataire Auth0. En général, vous le trouvez dans Auth0 Dashboard sous vos paramètres d’application dans le champ Domain (Domaine). Si vous utilisez un <a href="https://auth0.com/docs/custom-domains">domaine personnalisé</a>, définissez-le plutôt sur la valeur de votre domaine personnalisé.</p></li><li><p><code>clientId</code>: L’identificateur de l’application Auth0 que vous avez configurée précédemment dans ce guide rapide. Vous pouvez le trouver dans Auth0 Dashboard, dans la rubrique des paramètres de votre application, dans le champ Client ID (ID client).</p></li><li><p><code>clientSecret</code>: Le secret de l’application Auth0 que vous avez configurée précédemment dans ce guide rapide. Vous pouvez le trouver dans Auth0 Dashboard, dans la rubrique des paramètres de votre application, dans le champ Client Secret (Secret client).</p></li><li><p><code>redirectUri</code>: L’URL dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Cela correspond à la Callback URL que vous avez configurée précédemment dans ce guide rapide. Vous pouvez également trouver cette valeur dans Auth0 Dashboard, dans la rubrique des paramètres de votre application, dans le champ Callback URLs (Callback URL). Assurez-vous que ce que vous saisissez dans votre code correspond à ce que vous avez configuré précédemment, au cas contraire, vos utilisateurs verront une erreur.</p></li><li><p><code>cookieSecret</code>: Valeur secrète longue utilisée pour chiffrer le témoin de session. Vous pouvez générer une chaîne appropriée en exécutant <code>openssl rand -hex 32</code> dans votre terminal.</p></li></ul><p><div class="checkpoint">PHP - Étape 2 - Point de contrôle <div class="checkpoint-default"><p>Votre trousse SDK Auth0 devrait maintenant être correctement configuré. Exécutez votre application pour vérifier que :</p><ul><li><p>La trousse SDK est initialisée correctement.</p></li><li><p>Votre application ne génère aucune erreur liée à Auth0.</p></li></ul><p></p></div>
 
-For the SDK to function properly, you must set the following properties in the Auth0 SDK during initialization:
+  <div class="checkpoint-success"></div>
 
-- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
-- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- `clientSecret`: The secret of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
-- `redirectUri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
-- `cookieSecret`: A long secret value used to encrypt the session cookie. You can generate a suitable string by running `openssl rand -hex 32` in your terminal.
+  <div class="checkpoint-failure"></div>
 
-::::checkpoint
-:::checkpoint-default
+  </div></p>
 
-Your Auth0 SDK should now be properly configured. Run your application to verify that:
-- The SDK is initializing correctly.
-- Your application is not throwing any errors related to Auth0.
+## Créer des routes {{{ data-action="code" data-code="router.php" }}}
 
-:::
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* Make sure the correct application is selected.
-* Did you save after entering your URLs?
-* Make sure the domain and client ID imported correctly.
+<p>Installez maintenant une bibliothèque de routage, pour aider à diriger les requêtes entrantes vers votre application. Cette étape n’est pas obligatoire, mais elle simplifie la structure de l’application pour les besoins de ce guide rapide.</p><p><pre><code class="language-powershell">composer require steampixel/simple-php-router
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+</code></pre>
 
-:::
-::::
+</p><p>Créez un nouveau fichier dans votre application, appelé <code>router.php</code>, pour définir nos routes, et copiez le code du panneau interactif à droite.</p>
 
-## Create routes {{{ data-action=code data-code="router.php" }}}
+## Ajouter une fonctionnalité de connexion à votre application {{{ data-action="code" data-code="login.php" }}}
 
-Now install a routing library, to help direct incoming requests to your application. This isn't a required step, but simplifies our application structure for the purposes of this quickstart.
 
-```bash
-composer require steampixel/simple-php-router
-```
+<p>À présent que vous avez configuré votre application Auth0 et la trousse SDK PHP Auth0, vous devez configurer la connexion pour votre projet. Pour ce faire, vous utiliserez la méthode <code>login()</code> de la trousse SDK pour créer un bouton de connexion qui redirige les utilisateurs vers la page de connexion universelle Auth0. Une fois un utilisateur authentifié avec succès, il est redirigé vers la Callback URL que vous avez configurée précédemment dans ce guide rapide.</p><p>Créez un nouveau fichier dans votre application, appelé <code>login.php</code>, pour gérer le processus de connexion, et copiez le code du panneau interactif à droite, qui contient la logique nécessaire à la connexion.</p><p><div class="checkpoint">PHP - Étape 4 - Point de contrôle <div class="checkpoint-default"><p>Vous devez désormais pouvoir vous connecter ou vous inscrire en utilisant un nom d’utilisateur et un mot de passe.</p><p>Cliquez sur le lien de connexion et vérifiez que :</p><ul><li><p>Votre application vous redirige vers la page Connexion universelle Auth0.</p></li><li><p>Vous pouvez vous connecter ou vous inscrire.</p></li><li><p>Auth0 vous redirige vers votre application en utilisant la valeur de <code>redirectUri</code> que vous avez utilisée pour configurer la trousse SDK.</p></li></ul><p></p></div>
 
-Create a new file in your application called `router.php` to define our routes, and copy in the code from the interactive panel to the right.
+  <div class="checkpoint-success"></div>
 
-## Add login to your application {{{ data-action=code data-code="login.php" }}}
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>You configured the correct <code>redirectUri</code>.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Now that you have configured your Auth0 Application and the Auth0 PHP SDK, you need to set up login for your project. To do this, you will use the SDK’s `login()` method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+  </div></p>
 
-Create a new file in your application called `login.php` to handle logging process, and copy in the code from the interactive panel to the right, which contains the logic needed for login.
+## Ajouter une fonctionnalité de déconnexion à votre application {{{ data-action="code" data-code="logout.php" }}}
 
-::::checkpoint
-:::checkpoint-default
 
-You should now be able to log in or sign up using a username and password.
+<p>Les utilisateurs qui se connectent à votre projet auront également besoin d’un moyen de se déconnecter. Nous allons gérer un bouton de déconnexion à l’aide de la méthode <code>logout()</code> de la trousse SDK. Lorsque les utilisateurs se déconnecteront, ils seront redirigés vers votre point de terminaison <a href="https://auth0.com/docs/api/authentication?http#logout">Auth0 logout</a> qui par la suite les redirigera immédiatement vers l’URL de déconnexion que vous avez configurée précédemment dans ce guide rapide.</p><p>Créez un nouveau fichier dans votre application, appelé <code>logout.php</code>, pour gérer le processus, et copiez le code du panneau interactif, qui contient la logique nécessaire à la déconnexion. Ensuite, mettez à jour votre fichier <code>index.php</code> pour y intégrer le nouveau bouton de déconnexion.</p><p><div class="checkpoint">PHP - Section 5 - Point de contrôle <div class="checkpoint-default"><p>Exécutez votre application et cliquez sur le bouton de déconnexion, vérifiez que :</p><ul><li><p>Votre application vous redirige vers l’adresse que vous avez spécifiée comme l’une des URL de déconnexion autorisées dans les paramètres de votre application.</p></li><li><p>Vous n’êtes plus connecté à votre application.</p></li></ul><p></p></div>
 
-Click the login link and verify that:
-* Your application redirects you to the Auth0 Universal Login page.
-* You can log in or sign up.
-* Auth0 redirects you back to your application using the value of the `redirectUri` you used to configure the SDK.
+  <div class="checkpoint-success"></div>
 
-:::
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>You configured the correct Logout URL.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* You configured the correct `redirectUri`.
+  </div></p>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+## Afficher les informations du profil utilisateur {{{ data-action="code" data-code="profile.php" }}}
 
-:::
-::::
 
-## Add logout to your application {{{ data-action=code data-code="logout.php" }}}
+<p>Vu que vos utilisateurs peuvent désormais se connecter et se déconnecter, vous voudrez probablement pouvoir récupérer les <a href="https://auth0.com/docs/users/concepts/overview-user-profile">informations de profil</a> associées aux utilisateurs authentifiés. Par exemple, vous voudrez peut-être pouvoir afficher le nom ou la photo de profil d’un utilisateur connecté dans votre projet.</p><p>Le SDK PHP Auth0 fournit des informations sur les utilisateurs via la méthode <code>getCredentials()</code>. Examinez le code <code>profile.php</code> dans le panneau interactif pour voir un exemple de la façon de l’utiliser.</p><p>Étant donné que la méthode contient des informations sensibles liées à l’identité de l’utilisateur, sa disponibilité dépend du statut d’authentification de l’utilisateur. Pour éviter les erreurs de rendu, vous devez toujours vérifier si la méthode <code>getCredentials()</code> renvoie un <code>object</code> ou <code>null</code> pour déterminer si Auth0 a authentifié l’utilisateur avant que votre application ne consomme les résultats.</p><p><div class="checkpoint">PHP - Étape 6 - Point de contrôle <div class="checkpoint-default"><p>Verifiez que :</p><ul><li><p>vous pouvez afficher le <code>nickname</code> ou toute autre propriété de l’utilisateur adéquatement, après vous être connecté.</p></li></ul><p></p></div>
 
-Users who log in to your project will also need a way to log out. We will handle a logout button using the SDK’s `logout()` method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?http#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
+  <div class="checkpoint-success"></div>
 
-Create a new file in your application called `logout.php` for handling the process, and copy in the code from the interactive panel, which contains the logic needed for logout. Then, update your `index.php` file to include the logout button.
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>You created the <code>profile.php</code> file and are logged in.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
-:::checkpoint-default
-
-Run your application and click the logout button, verify that:
-* Your application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings.
-* You are no longer logged in to your application.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* You configured the correct Logout URL.
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
-
-## Show User Profile Information {{{ data-action=code data-code="profile.php" }}}
-
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
-
-The Auth0 PHP SDK provides user information through the `getCredentials()` method. Review the `profile.php` code in the interactive panel to see an example of how to use it.
-
-Because the method contains sensitive information related to the user's identity, its availability depends on the user's authentication status. To prevent render errors, you should always check if the `getCredentials()` method returns an `object` or `null` to determine whether Auth0 has authenticated the user before your application consumes the results.
-
-::::checkpoint
-:::checkpoint-default
-
-Verify that:
-* You can display the `nickname` or any other user property correctly after you have logged in.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* You created the `profile.php` file and are logged in.
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-::::
+  </div></p>

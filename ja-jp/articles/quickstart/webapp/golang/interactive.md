@@ -1,183 +1,79 @@
 ---
-title: Add Login to your Go web application
-description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
-budicon: 448
-topics:
-  - quickstarts
-  - webapp
-  - login
-  - golang
-github:
-  path: 01-Login
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Goアプリケーションにログインを追加する
+description: このガイドは、新規または既存のGo WebアプリケーションにAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/auth
-  - files/callback
-  - files/env
-  - files/go-mod
-  - files/isAuthenticated
-  - files/login
-  - files/logout
-  - files/main
-  - files/router
-  - files/user
+ - files/auth
+ - files/callback
+ - files/env
+ - files/go
+ - files/isAuthenticated
+ - files/login
+ - files/logout
+ - files/main
+ - files/router
+ - files/user
+github:
+  path: https://github.com/auth0-samples/auth0-golang-web-app/tree/master/01-Login
+locale: ja-JP
 ---
 
-# Add Login to Your Go Application
+# Goアプリケーションにログインを追加する
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing Go web application.
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/callback',
-  returnTo: 'http://localhost:3000'
-}) %>
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができますこのガイドは、新規または既存のGo WebアプリケーションにAuth0を統合する方法を説明します。</p><p></p>
 
-## Install dependencies {{{ data-action=code data-code="go.mod" }}}
+## Auth0を構成する
 
-Create a `go.mod` file to list all the dependencies in your application. 
 
-To integrate Auth0 in a Go application, add the`coreos/go-oidc/v3` and `x/oauth2` packages. 
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
-In addition to the OIDC and OAuth2 packages, add`joho/godotenv`, `gin-gonic/gin` and `gin-contrib/sessions`.
+## 依存関係をインストールする {{{ data-action="code" data-code="go.mod" }}}
 
-::: note
-This example uses `gin` for routing, but you can use whichever router you want.
-:::
 
-Save the `go.mod` file with the necessary dependencies and install them using the following command in your terminal:
+<p><code>go.mod</code>ファイルを作成して、アプリケーションの依存関係をすべてリストします。</p><p>GoアプリケーションでAuth0を統合するには、<code>coreos/go-oidc/v3</code>パッケージと<code>x/oauth2</code>パッケージを追加します。</p><p>OIDCパッケージとOAuth2パッケージに加え、<code>joho/godotenv</code>、<code>gin-gonic/gin</code>、<code>gin-contrib/sessions</code>を追加します。</p><p><div class="alert-container" severity="default"><p>この例ではルーティングに<code>gin</code>を使用しますが、お好きなルーターを使用できます。</p></div></p><p><code>go.mod</code>ファイルを必要な依存関係で保存し、ターミナルで次のコマンドを使ってインストールします：</p><p><code>go mod download</code></p>
 
-```shell
-go mod download
-```
+## 環境変数を構成する {{{ data-action="code" data-code=".env" }}}
 
-## Configure the environment variables {{{ data-action=code data-code=".env" }}}
-You must set the following environment variables in `.env` within the root of your project directory:
 
-- **AUTH0_DOMAIN**: The domain of your Auth0 tenant. Find your Auth0 Domain in the Auth0 Dashboard under your Application's Settings in the Domain field. For [custom domains](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
-- **AUTH0_CLIENT_ID**: The ID of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- **AUTH0_CLIENT_SECRET**: The Secret of the Auth0 Application you set up earlier in this quickstart. Find this in the Auth0 Dashboard under your Application's Settings in the Client Secret field.
-- **AUTH0_CALLBACK_URL**: The URL used by Auth0 to redirect the user after successful authentication.
+<p>プロジェクトディレクトリのルート内の<code>.env</code>で以下の環境変数を設定してください：</p><ul><li><p><b>AUTH0_DOMAIN</b>：Auth0テナントのドメインです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Domain（ドメイン）］フィールドで確認してください。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>を使用する場合は、この値をカスタムドメインの値に設定してください。</p></li><li><p><b>AUTH0_CLIENT_ID</b>：このクイックスタートで前にセットアップしたAuth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Client ID（クライアントID）］フィールドで確認してください。</p></li><li><p><b>AUTH0_CLIENT_SECRET</b>：このクイックスタートで前にセットアップしたAuth0アプリケーションのシークレットです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Client Secret（クライアントシークレット）］フィールドで確認してください。</p></li><li><p><b>AUTH0_CALLBACK_URL</b>：認証成功後にユーザーをリダイレクトするためにAuth0が使用するURLです。</p></li></ul><p></p>
 
-## Configure OAuth2 and OpenID Connect packages {{{ data-action=code data-code="auth.go" }}}
+## OAuth2パッケージとOpenID Connectパッケージを構成する {{{ data-action="code" data-code="auth.go" }}}
 
-Next, configure the OAuth2 and OpenID Connect packages.
 
-Create a file called `auth.go` in the `platform/authenticator` folder. In this package, create a method to 
-configure and return [OAuth2](https://godoc.org/golang.org/x/oauth2) and 
-[OIDC](https://godoc.org/github.com/coreos/go-oidc) clients, and another one to verify an ID Token.
+<p>次にOAuth2パッケージとOpenID Connectパッケージを構成します。</p><p><code>platform/authenticator</code>フォルダーに<code>auth.go</code>という名前のファイルを作成します。このパッケージ内で、<a href="https://godoc.org/golang.org/x/oauth2">OAuth2</a>クライアントと<a href="https://godoc.org/github.com/coreos/go-oidc">OIDC</a>クライアントを構成してリターンするメソッドを作成し、IDトークンを検証するもう1つのメソッドを作成します。</p>
 
-## Set up your application routes {{{ data-action=code data-code="router.go" }}}
+## アプリケーションルートをセットアップする {{{ data-action="code" data-code="router.go" }}}
 
-Create a file called `router.go` in the `platform/router` folder. In this package, create a method to configure
-and return our routes using [github.com/gin-gonic/gin](https://github.com/gin-gonic/gin). You will be passing an
-instance of `Authenticator` to the method, for use with the `login` and `callback` handlers.
 
-::: note
-The router uses the [github.com/gin-contrib/sessions](https://github.com/gin-contrib/sessions) middleware to manage our cookie-based sessions.
-:::
+<p><code>platform/router</code>フォルダーに<code>router.go</code>という名前のファイルを作成します。このパッケージで、<a href="https://github.com/gin-gonic/gin">github.com/gin-gonic/gin</a>を使ってルートを構成、リターンするメソッドを作成します。<code>login</code>ハンドラーと<code>callback</code>ハンドラーで使用するために、<code>Authenticator</code>のインスタンスをメソッドに渡すことになります。</p><p></p>
 
-## Add login to your application {{{ data-action=code data-code="login.go" }}}
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="login.go" }}}
 
-For the user to authenticate themselves, we need to create a handler function to handle the `/login` route.
 
-Create a file called `login.go` in the `web/app/login` folder, and add a `Handler` function. Upon executing the handler, the user will be redirected to Auth0 where they can enter their credentials.
+<p>ユーザーが自分で認証するには、<code>/login</code>ルートを処理するハンドラー関数を作成する必要があります。</p><p><code>web/app/login</code>フォルダーに<code>login.go</code>という名前のファイルを作成し、<code>Handler</code>関数を追加します。ハンドラーの実行時にユーザーはAuth0へリダイレクトされ、資格情報を入力できるようになります。</p><p><code>/login</code>ルートを呼び出すには、<code>web/template</code>ディレクトリにある<code>home.html</code>テンプレートに<code>/login</code>へのリンクを追加します。</p><p></p>
 
-To call the `/login` route, add a link to `/login` in the `home.html` template located in the `web/template` directory.
+## 認証コールバックを処理する {{{ data-action="code" data-code="callback.go" }}}
 
-```html
-<!-- Save this within ./web/template/home.html -->
 
-<div>
-    <h3>Auth0 Example</h3>
-    <p>Zero friction identity infrastructure, built for developers</p>
-    <a href="/login">SignIn</a>
-</div>
-```
+<p>ユーザーはAuth0ユニバーサルログインページを使って認証すると、 <code>/callback</code>ルートでアプリに戻ります。</p><p><code>web/app/callback</code>フォルダーに<code>callback.go</code>という名前のファイルを作成し、<code>Handler</code>関数を追加します。</p><p>このハンドラーはAuth0によって提供された<code>code</code>クエリ文字列を受け取り、IDトークンおよびアクセストークンと交換します。</p><p>IDトークンが有効である場合、セッションにプロファイル情報とアクセストークンが保存されます。プロファイル情報はIDトークンに含まれるクレームに基づいています。セッションストレージは、必要に応じてアプリケーションがこの情報にアクセスすることを許可します。</p>
 
-## Handle authentication callback {{{ data-action=code data-code="callback.go" }}}
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="user.go" }}}
 
-Once users have authenticated using Auth0's Universal Login Page, they will return to the app at the `/callback` route.
 
-Create a file called `callback.go` in the `web/app/callback` folder, and add a `Handler` function.
+<p>ユーザーがログインできるようになったら、認証済みのユーザーに関連付けられた<a data-contentfulid="2ClGWANGeRoTkg5Ax2gOVK-ja-JP">プロファイル情報</a>を取得し、使用できるようにしたいと考えるはずです。</p><p>ニックネームやプロフィール写真といったプロファイル情報は、前のセッションで保存された<code>profile</code>からアクセスできます。</p><p><code>web/app/user/user.go</code>で<code>/user</code>エンドポイント用のハンドラーを作成し、対応するHTMLファイルを返します。<code>profile</code>が<code>ctx.HTML()</code>に渡されているため、同じHTMLファイル内の<code>picture</code>や<code>nickname</code>といったプロファイル情報にアクセスできます。</p><p>このようなHTMLファイルは以下の例のように見えることがありますが、カスタムクレームを含め、いかなるプロファイル情報も取得できます。</p><p></p>
 
-This handler will take the `code` query string, provided by Auth0, and exchange it for an ID token and an access token.
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="logout.go" }}}
 
-If the ID token is valid, it will store the profile information and access token in the session. The profile information is based on the claims contained in the ID token. Session storage allows the application to access that information as needed.
 
-## Display user profile information {{{ data-action=code data-code="user.go" }}}
+<p>ユーザーをログアウトさせるには、セッションのデータを消去し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトします。詳細は<a href="https://auth0.com/docs/logout">ログアウトドキュメント</a>をご覧ください。</p><p><code>web/app/logout</code>フォルダーに<code>logout.go</code>という名前のファイルを作成し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトするために<code>Handler</code>関数を追加します。</p><p><code>returnTo</code> URLは、アプリケーションの設定セクションで［Allowed Logout URLs（許可されているログアウトURL）］のリストに載っていなければなりません。詳細は「<a href="https://auth0.com/docs/logout/guides/redirect-users-after-logout">ログアウト後にユーザーをリダイレクトする</a>」をご覧ください。</p><p><code>web/static/js</code>フォルダーに<code>user.js</code>という名前のファイルを作成し、ログインしたユーザーからクッキーを削除するためのコードを追加します。</p><p></p><p></p>
 
-Now that your users can log in, you will likely want to be able to retrieve and use the [profile information](/users/concepts/overview-user-profile) associated with authenticated users. 
+## ルートを保護する {{{ data-action="code" data-code="isAuthenticated.go" }}}
 
-You can access that [profile information](/users/concepts/overview-user-profile), such as their nickname or profile picture, through the `profile` that was stored in the session previously.
 
-Create a handler for the `/user` endpoint in `web/app/user/user.go` and return the corresponding HTML file. As the `profile` is being passed to `ctx.HTML()`, you can access the profile information such as `picture` and `nickname` inside that same HTML file. 
+<p>推奨プラクティスでは、認証されたユーザーだけが特定のルートにアクセスできるようにするべきです。認証されていないユーザーが保護されたルートにアクセスしようとした場合、アプリケーションによってリダイレクトされる必要があります。</p><p>この場合、HTTPの要求に接続するミドルウェアを実装します。ミドルウェアの関数は、要求がエンドポイントハンドラーにルートされるべきか、ブロックされるべきかを決定します。</p><p><code>platform/middleware</code>に<code>isAuthenticated.go</code>という名前のファイルを作成し、<code>profile</code>セッションキーに基づいてユーザーが認証されているかいないかをチェックする関数を追加します。認証されていないユーザーは、ミドルウェアがアプリケーションのルートへリダイレクトします。</p><p>ミドルウェアを作成すると、ルーターに追加することで、認証を必要とするすべてのルートにセットアップできます。</p><p></p>
 
-An example of such an HTML file could look like the example below, but you can retrieve any [profile information](/users/concepts/overview-user-profile), including custom claims.
+## アプリケーションを仕上げる {{{ data-action="code" data-code="main.go" }}}
 
-```html
-<!-- Save this within ./web/template/user.html -->
 
-<div>
-    <img class="avatar" src="{{ .picture }}"/>
-    <h2>Welcome {{.nickname}}</h2>
-</div>
-```
-
-## Add logout to your application {{{ data-action=code data-code="logout.go" }}}
-
-To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
-
-Create a file called `logout.go` in the folder `web/app/logout`, and add the function `Handler` to redirect the user to Auth0's logout endpoint.
-
-::: note
-The `returnTo` URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see [Redirect Users After Logout](/logout/guides/redirect-users-after-logout).
-:::
-
-Create a file called `user.js` in the folder `web/static/js`, and add the code to remove the cookie from a logged-in
-user.
-
-```js
-// Save this within ./web/static/js/user.js
-
-$(document).ready(function () {
-    $('.btn-logout').click(function (e) {
-        Cookies.remove('auth-session');
-    });
-});
-```
-
-::: note
-This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) for cookie handling. 
-You need to add the `js.cookie.js` file to the `web/static/js` folder to use it.
-:::
-
-## Protect routes {{{ data-action=code data-code="isAuthenticated.go" }}}
-
-Recommended practice dictates certain routes are accessible only to authenticated users. When unauthenticated users try accessing protected routes, your application should redirect them.
-
-In this case, you will implement middleware to hook into the HTTP request. The middleware function determines if the request should route to the endpoint handler or block the request.
-
-Create a file called `isAuthenticated.go` in `platform/middleware` and add a function that checks if the user is authenticated or not based on the `profile` session key. If the user is not authenticated, the middleware will redirect the user to the root of the application.
-
-With the middleware created, we can set it up for any route that needs authentication by adding it to the router.
-
-```go
-// This goes within ./platform/router/router.go
-
-router.GET("/user", middleware.IsAuthenticated, user.Handler)
-```
-
-## Serve your application {{{ data-action=code data-code="main.go" }}}
-
-With both the authenticator and router configured, we can wire things up using our
-application's entry point. Inside `main.go`, create an instance of the authenticator and the router, which gets passed the authenticator instance.
-
-If you are using a `.env` file, you must call `godotenv.Load()` at the very beginning of the `main()` function.
-
-Serve your application by using the following command in your terminal:
-
-```shell
-go run main.go
-```
+<p>鑑別工具とルーターの構成が完了したら、アプリケーションのエントリーポイントを使って全体を結び付けます。<code>main.go</code>内で、鑑別工具とルーターのインスタンスを作成すると鑑別工具インスタンスが渡されます。</p><p><code>.env</code>ファイルを使用している場合は、<code>main()</code>関数の冒頭で<code>godotenv.Load()</code>を呼び出さなくてはなりません。</p><p>ターミナルで次のコマンドを使いアプリケーションを仕上げます：</p><p><code>go run main.go</code></p>

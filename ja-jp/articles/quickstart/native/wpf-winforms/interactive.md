@@ -1,155 +1,81 @@
 ---
-title: Add login to your WinForms and WPF application
-default: true
-description: This tutorial demonstrates how to add user login with Auth0 to a WPF and WinForms application.
-budicon: 448
-topics:
-  - quickstarts
-  - native
-  - windows
-  - wpf
-  - winforms
-github:
-    path: Quickstart/00-Starter-Seed
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: WPFまたはWinFormsアプリケーションにログインを追加する
+description: このチュートリアルは、Auth0を使用して、WPFやWinFormsアプリケーションにユーザーログインを追加する方法について説明します。
+interactive:  true
 files:
-  - files/mainwindow
+ - files/MainWindow.xaml
+github:
+  path: https://github.com/auth0-samples/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed
+locale: ja-JP
 ---
 
-# Add Login to Your WPF Or WinForms Application
+# WPFまたはWinFormsアプリケーションにログインを追加する
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any WPF and WinForms application using the Auth0 SDKs for [WPF](https://www.nuget.org/packages/Auth0.OidcClient.WPF/) and [WinForms](https://www.nuget.org/packages/Auth0.OidcClient.WinForms).
 
-To use this quickstart, you’ll need to:
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加することができます。このガイドは、WPFやWinFormsアプリケーションに<a href="https://www.nuget.org/packages/Auth0.OidcClient.WPF/">WPF</a>または<a href="https://www.nuget.org/packages/Auth0.OidcClient.WinForms">WinForms</a>用のAuth0 SDKを使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>統合したいWPFまたはWinFormsプロジェクトを用意します。または、ログインした後に、サンプルアプリケーションを表示してダウンロードすることもできます。</p></li></ul><p></p><p></p>
 
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working WPF or WinForms project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+## Auth0を構成する
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://' + account.namespace + ':4200/mobile',
-  returnTo: 'http://' + account.namespace + ':4200/mobile'
-}) %>
 
-## Install the Auth0 SDK
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://{yourDomain}:4200/mobile</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://{yourDomain}:4200/mobile</code>に設定してください。</p></div></p>
 
-Auth0 provides a [WPF](https://www.nuget.org/packages/Auth0.OidcClient.WPF/) and [WinForms](https://www.nuget.org/packages/Auth0.OidcClient.WinForms) SDK to simplify the process of implementing Auth0 authentication in WPF and WinForms applications.
+## Auth0 SDKをインストールする
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` package, depending on whether you are building a WPF or Windows Forms application.
 
-Alternatively, you can use the Nuget Package Manager Console (`Install-Package`) or the `dotnet` CLI (`dotnet add`).
+<p>WPFおよびWinFormsアプリケーションで、Auth0認証が手軽に実装できるように、Auth0は<a href="https://www.nuget.org/packages/Auth0.OidcClient.WPF/">WPF</a>と<a href="https://www.nuget.org/packages/Auth0.OidcClient.WinForms">WinForms</a>のSDKを提供しています。</p><p>NuGetパッケージマネージャー（［Tools（ツール）］ -&gt; ［Library Package Manager（ライブラリーパッケージマネージャー）］ -&gt; ［Package Manager Console（パッケージマネージャーコンソール）］) を使用して、WPFまたはWindows Formsアプリケーションのどちらをビルドするかに応じて、<code>Auth0.OidcClient.WPF</code>または<code>Auth0.OidcClient.WinForms</code>パッケージをインストールします。</p><p>NuGetパッケージマネージャーコンソール（<code>Install-Package</code>）や<code>dotnet</code> CLI（<code>dotnet add</code>）を代わりに使用することもできます。</p><p><pre><code>Install-Package Auth0.OidcClient.WPF
 
-```ps
-Install-Package Auth0.OidcClient.WPF
 Install-Package Auth0.OidcClient.WinForms
-```
-```
-dotnet add Auth0.OidcClient.WPF
+
+</code></pre>
+
+</p><p><pre><code>dotnet add Auth0.OidcClient.WPF
+
 dotnet add Auth0.OidcClient.WinForms
-```
 
-## Instantiate the Auth0Client {{{ data-action="code" data-code="MainWindow.xaml.cs#13:22" }}}
+</code></pre>
 
-To integrate Auth0 into your application, instantiate an instance of the Auth0Client class, passing an instance of Auth0ClientOptions that contains your Auth0 Domain and Client ID.
+</p>
 
-By default, the SDK will leverage [WebView2](https://learn.microsoft.com/en-us/microsoft-edge/webview2/) for .NET6 and above, while relying on the older WebView on applications using any version that predates .NET6.
+## Auth0Clientをインスタンス化する {{{ data-action="code" data-code="MainWindow.xaml.cs#13:22" }}}
 
-::::checkpoint
 
-:::checkpoint-default
+<p>Auth0をアプリケーションに統合するには、Auth0ドメインとクライアントIDを含むAuth0ClientOptionsのインスタンスを渡して、Auth0Clientクラスをインスタンス化します。</p><p>SDKは初期設定で、.NET6以降には<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/">WebView2</a>を利用し、.NET6より前のバージョンを使用するアプリケーションは古いWebViewに依存します。</p><p><div class="checkpoint">WPF/WinFormsクイックスタート - 手順3「チェックポイント」 <div class="checkpoint-default"><p><code>Auth0Client</code>が適切にインスタンス化されました。アプリケーションを実行して次の点を確認します：</p><ul><li><p><code>Auth0Client</code>が正しくインスタンス化されている。</p></li><li><p>アプリケーションがAuth0に関連したエラーを投入していない。</p></li></ul><p></p></div>
 
-Your `Auth0Client` should now be properly instantiated. Run your application to verify that:
-- the `Auth0Client` is instantiated correctly
-- your application is not throwing any errors related to Auth0
+  <div class="checkpoint-success"></div>
 
-:::
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are imported correctly
+  </div></p>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="MainWindow.xaml.cs#24:35" }}}
 
-:::
-::::
 
-## Add login to your application {{{ data-action="code" data-code="MainWindow.xaml.cs#24:35" }}}
+<p>Auth0アプリケーションとAuth0 SDKの構成が完了したら、プロジェクトのためにログインをセットアップする必要があります。これを実現するには、SDKの<code>LoginAsync()</code>メソッドを使用して、ユーザーをAuth0のユニバーサルログインページにリダイレクトするログインボタンを作成します。ユーザーが認証に成功すると、このクイックスタートで前にセットアップしたCallback URLへリダイレクトされます。</p><p>エラーがなければ、<code>LoginAsync()</code>が返す<code>LoginResult</code>で<code>User</code>、<code>IdentityToken</code>、<code>AccessToken</code>、<code>RefreshToken</code>にアクセスすることができます。</p><p><div class="checkpoint">WPF/WinFormsクイックスタート - 手順4「チェックポイント」 <div class="checkpoint-default"><p>ユーザー名とパスワードを使ってログインやサインアップができるようになりました。</p><p>ログインボタンをクリックして次の点を確認します：</p><ul><li><p>WPFまたはWinFormsアプリケーションによってAuth0ユニバーサルログインページにリダイレクトされる。</p></li><li><p>ログインまたはサインアップできる。</p></li><li><p>Auth0によってアプリケーションにリダイレクトされる。</p></li></ul><p></p></div>
 
-Now that you have configured your Auth0 Application and the Auth0 SDK, you need to set up login for your project. To do this, you will use the SDK’s `LoginAsync()` method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+  <div class="checkpoint-success"></div>
 
-If there isn't any error, you can access the `User`, `IdentityToken`, `AccessToken` and `RefreshToken` on the `LoginResult` returned from `LoginAsync()`.
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s something to double-check:</p><ul><li><p>you called <code>LoginAsync</code> as expected</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
+  </div></p>
 
-:::checkpoint-default
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="MainWindow.xaml.cs#37:40" }}}
 
-You should now be able to log in or sign up using a username and password.
 
-Click the login button and verify that:
-* your WPF or WinForms Application redirects you to the Auth0 Universal Login page
-* you can log in or sign up
-* Auth0 redirects you to your application.
+<p>プロジェクトにログインしたユーザーには、ログアウトする方法も必要です。SDKの<code>LogoutAsync()</code>メソッドを使用してログアウトボタンを作成します。ユーザーはログアウトすると、Auth0ログアウトエンドポイントにリダイレクトされてから、即座に、このクイックスタートで先ほどセットアップしたログアウトURLにリダイレクトで戻されます。</p><p><div class="checkpoint">WPF/WinFormsクイックスタート - 手順5「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションを実行してログアウトボタンをクリックし、次の点を確認します：</p><ul><li><p>WPFまたはWinFormsアプリケーションによって、アプリケーションの設定で［Allowed Logout URLs（許可されているログアウトURL）］の1つに指定したアドレスへリダイレクトされる。</p></li><li><p>アプリケーションにログインしていない。</p></li></ul><p></p></div>
 
-:::
+  <div class="checkpoint-success"></div>
 
-:::checkpoint-failure
-Sorry about that. Here's something to double-check:
-* you called `LoginAsync` as expected
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>you configured the correct Logout URL</p></li><li><p>you called <code>LogoutAsync</code> as expected.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+  </div></p>
 
-:::
-::::
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="MainWindow.xaml.cs#30:33" }}}
 
-## Add logout to your application {{{ data-action="code" data-code="MainWindow.xaml.cs#37:40" }}}
 
-Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s `LogoutAsync()` method. When users log out, they will be redirected to your Auth0 logout endpoint, which will then immediately redirect them back to the logout URL you set up earlier in this quickstart.
+<p>ユーザーがログインやログアウトできるようになったら、認証済のユーザーに関連付けられた<a data-contentfulid="2ClGWANGeRoTkg5Ax2gOVK-ja-JP">プロファイル情報</a>を取得できるようにしたいと考えるはずです。たとえば、ログインしたユーザーの名前やプロフィール写真をプロジェクトに表示したいかもしれません。</p><p>WPF・WinForms用のAuth0 SDKでは、<code>LoginResult.User</code>プロパティを通じてユーザー情報を提供します。</p><p><div class="checkpoint">WPF/WinFormsクイックスタート - 手順6「チェックポイント」 <div class="checkpoint-default"><p>ログイン後にユーザーの名前やその他のユーザープロパティが表示されることを確認してください。</p></div>
 
-::::checkpoint
+  <div class="checkpoint-success"></div>
 
-:::checkpoint-default
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>the <code>LoginResult.IsError</code> is false</p></li><li><p>if the <code>LoginResult.IsError</code> isn&#39;t false, be sure to check <code>LoginResult.Error</code> for details.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Run your application and click the logout button, verify that:
-* your WPF or WinForms application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings
-* you are no longer logged in to your application
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* you configured the correct Logout URL
-* you called `LogoutAsync` as expected.
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
-
-## Show User Profile Information {{{ data-action=code data-code="MainWindow.xaml.js#30:33" }}}
-
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
-
-The Auth0 SDK for WPF and WinForms provides user information through the `LoginResult.User` property.
-
-::::checkpoint
-
-:::checkpoint-default
-
-Verify that:
-* you can display the user's name or any other user property after you have logged in
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* the `LoginResult.IsError` is false
-* if the `LoginResult.IsError` isn't false, be sure to check `LoginResult.Error` for details.
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-
-::::
+  </div></p>

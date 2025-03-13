@@ -1,11 +1,12 @@
 ---
 name: application.yml
-language: yaml
+language: javascript
 ---
-```yaml
+    
+```javascript
 okta:
   oauth2:
     issuer: https://${account.namespace}/
     client-id: ${account.clientId}
-    client-secret: YOUR_CLIENT_SECRET
+    client-secret: ${account.clientSecret}
 ```

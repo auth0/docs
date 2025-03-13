@@ -1,208 +1,163 @@
 ---
-title: Add login to your .NET Android or iOS application
-default: true
-description: This tutorial demonstrates how to add user login with Auth0 to a .NET Android or iOS application.
-budicon: 448
-topics:
-  - quickstarts
-  - native
-  - xamarin
-  - dotnet
-  - android
-  - ios
-github:
-  path: Quickstart/01-Login
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Ajouter une connexion à votre application .NET Android ou iOS
+description: Ce tutoriel explique comment ajouter une connexion utilisateur avec Auth0 à une application .NET Android ou iOS
+interactive:  true
 files:
-  - files/main-activity
-  - files/app-delegate
-  - files/my-view-controller
+ - files/MainActivity
+ - files/AppDelegate
+ - files/MyViewController
+github:
+  path: https://github.com/auth0-samples/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login
+locale: fr-CA
 ---
 
-# Add Login to Your .NET Android and iOS Application
+# Ajouter une connexion à votre application .NET Android ou iOS
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any .NET Android and iOS application using the Auth0 SDKs for [Android](https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/) and [iOS](https://www.nuget.org/packages/Auth0.OidcClient.iOS).
 
-::: note
-This quickstart focusses on .NET Android and iOS, as they are the next generation of `Xamarin.Android` and `Xamarin.iOS`. If you are still using `Xamarin.Android` and `Xamarin.iOS`, you can follow this guide as well as integration is identical and the SDKs are compatible.
-:::
+<p>Auth0 vous permet d’ajouter rapidement l’authentification à presque tous les types d’application. Ce guide explique comment intégrer Auth0, ajouter l’authentification et afficher les informations de profil utilisateur dans n’importe quelle application .NET Android et iOS à l’aide des SDK Auth0 <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/">Android</a> et <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS">iOS</a>.</p><p><div class="alert-container" severity="default"><p>Ce guide de démarrage couvre .NET Android et iOS, les futures générations de <code>Xamarin.Android</code> et de <code>Xamarin.iOS</code>. Si vous utilisez encore <code>Xamarin.Android</code> et <code>Xamarin.iOS</code>, vous pouvez suivre ce guide, car l’intégration est identique et les SDK sont compatibles.</p></div></p><p>Pour utiliser ce guide rapide, vous devez:</p><ul><li><p>Vous inscrire à un compte Auth0 gratuit ou vous connecter à Auth0.</p></li><li><p>Avoir un projet Android ou iOS fonctionnel utilisant .NET 6 (ou une version ultérieure) avec lequel vous souhaitez vous intégrer. Vous pouvez également consulter ou télécharger une application faisant office d’exemple lorsque vous vous connectez.</p></li></ul><p></p><p></p>
 
-To use this quickstart, you’ll need to:
+## Configuration d'Auth0
 
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working Android or iOS project using .NET 6 (or above) that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
 
-<%= include('_configure_urls_interactive') %>
+<p>Pour utiliser les services Auth0, vous devez avoir une application installée dans Auth0 Dashboard. Vous allez configurer l’authentification pour votre projet dans l&#39;application Auth0.</p><h3>Configurer une application</h3><p>Utilisez le sélecteur interactif pour créer une nouvelle application «Application native», ou sélectionnez une application existante qui représente le projet avec lequel vous souhaitez vous intégrer. Dans Auth0, il est attribué à chaque application un identificateur client unique alphanumérique que votre code d’application utilisera pour appeler les API Auth0 via le SDK.</p><p>Tous les paramètres que vous configurez à l’aide de ce guide rapide seront automatiquement mis à jour pour votre application dans le <a href="https://manage.auth0.com/#/">Dashboard</a>, où vous pourrez gérer vos applications à l’avenir.</p><p>Si vous préférez explorer une configuration complète, consultez plutôt un exemple d&#39;application.</p><h3>Configuration des Callback URL</h3><p>Une Callback URL est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne seront pas redirigés vers votre application après s’être connectés.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez l’une des URL suivantes selon votre plateforme :</p><ul><li><p><b>Android</b> : <code>YOUR_PACKAGE_NAME://{yourDomain}/android/YOUR_PACKAGE_NAME/callback</code></p></li><li><p><b>iOS</b> : <code>YOUR_BUNDLE_ID://{yourDomain}/ios/YOUR_BUNDLE_ID/callback</code></p></li></ul><p></p></div></p><h3>Configurer des URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur déconnexion. Si elle n’est pas définie, les utilisateurs ne pourront pas se déconnecter de votre application et recevront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez l’une des URL suivantes selon votre plateforme :</p><ul><li><p><b>Android</b> : <code>YOUR_PACKAGE_NAME://{yourDomain}/android/YOUR_PACKAGE_NAME/callback</code></p></li><li><p><b>iOS</b> : <code>YOUR_BUNDLE_ID://{yourDomain}/ios/YOUR_BUNDLE_ID/callback</code></p></li></ul><p></p></div></p><p>Enfin, assurez-vous que <b>Application Type (Type d’application)</b> de votre application est défini sur <b>Native</b> dans les <a href="https://manage.auth0.com/#/applications/">Application Settings (Paramètres de l’application)</a>.</p>
 
-## Install the Auth0 SDK
+## Installer le SDK Auth0
 
-Auth0 provides an [Android](https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/) and [iOS](https://www.nuget.org/packages/Auth0.OidcClient.iOS) SDK to simplify the process of implementing Auth0 authentication in .NET Android and iOS applications.
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.AndroidX` or `Auth0.OidcClient.iOS` package, depending on whether you are building an Android or iOS application.
+<p>Auth0 propose une trousse SDK <a href="https://www.nuget.org/packages/Auth0.OidcClient.AndroidX/">Android</a> et <a href="https://www.nuget.org/packages/Auth0.OidcClient.iOS">iOS</a> pour simplifier le processus d’implémentation de l’authentification Auth0 dans les applications .NET Android et iOS.</p><p>Utilisez le gestionnaire de packages NuGet (Tools (Outils) -&gt; Library Package Manager (Gestionnaire de packages de bibliothèque) -&gt; Package Manager Console (Console du gestionnaire de packages)) pour installer le <code>Auth0.OidcClient.AndroidX</code> ou <code>Auth0.OidcClient.iOS</code> , pour développer une application Android ou iOS.</p><p>Sinon, vous pouvez utiliser la Package Manager Console (Console du gestionnaire de packages) NuGet (<code>Install-Package</code>) ou l&#39;interface de ligne de commande <code>dotnet</code> (<code>dotnet add</code>).</p><p><pre><code>Install-Package Auth0.OidcClient.AndroidX
 
-Alternatively, you can use the Nuget Package Manager Console (`Install-Package`) or the `dotnet` CLI (`dotnet add`).
-
-```ps
-Install-Package Auth0.OidcClient.AndroidX
 Install-Package Auth0.OidcClient.iOS
-```
-```
-dotnet add Auth0.OidcClient.AndroidX
+
+</code></pre>
+
+</p><p><pre><code>dotnet add Auth0.OidcClient.AndroidX
+
 dotnet add Auth0.OidcClient.iOS
-```
 
-## Instantiate the Auth0Client
+</code></pre>
 
-To integrate Auth0 into your application, instantiate an instance of the `Auth0Client` class, passing an instance of `Auth0ClientOptions` that contains your Auth0 Domain and Client ID.
+</p>
 
-```csharp
-using Auth0.OidcClient;
+## Instancier Auth0Client
 
-var client = new Auth0Client(new Auth0ClientOptions
-{
-    Domain = "${account.namespace}",
-    ClientId = "${account.namespace}"
+
+<p>Pour intégrer Auth0 dans votre application, instanciez une instance de la classe <code>Auth0Client</code> en passant une instance de <code>Auth0ClientOptions</code> qui contient votre domaine Auth0 et votre identificateur client.</p><p><pre><code class="language-csharp">using Auth0.OidcClient;
+
+
+
+var client = new Auth0Client(new Auth0ClientOptions {
+
+  Domain = &quot;${account.namespace}&quot;,
+
+  ClientId = &quot;${account.clientId}&quot;
+
 }, this);
-```
 
-By default, the SDK will leverage Chrome Custom Tabs for Android and ASWebAuthenticationSession for iOS.
+</code></pre>
 
-::::checkpoint
+</p><p>Par défaut, la trousse SDK utilisera les onglets personnalisés Chrome pour Android et ASWebAuthenticationSession pour iOS.</p><p><div class="checkpoint">Guixe rapide .NET Android/iOS - Étape 3 - Point de contrôle <div class="checkpoint-default"><p>Votre <code>Auth0Client</code> devrait maintenant être correctement instancié. Exécutez votre application pour vérifier que :</p><ul><li><p>L’<code>Auth0Client </code>est instancié correctement dans <code>Activity</code> (Android) ou <code>UIViewController</code>(iOS).</p></li><li><p>Votre application ne génère aucune erreur liée à Auth0.</p></li></ul><p></p></div>
 
-:::checkpoint-default
+  <div class="checkpoint-success"></div>
 
-Your `Auth0Client` should now be properly instantiated. Run your application to verify that:
-- the `Auth0Client` is instantiated correctly in the `Activity` (Android) or `UIViewController` (iOS)
-- your application is not throwing any errors related to Auth0
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::
+  </div></p>
 
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are imported correctly
+## Configurer Android {{{ data-action="code" data-code="MainActivity.cs#2:9" }}}
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
-:::
-::::
+<p>Une fois un utilisateur authentifié avec succès, il est redirigé vers la Callback URL que vous avez configurée précédemment dans ce guide rapide.</p><p>Pour gérer la fonction Callback sur les appareils Android, vous devez enregistrer une intention qui gère cette Callback URL. Une façon simple de le faire est d’enregistrer l’intention sur la même activité à partir de laquelle vous avez appelé la méthode LoginAsync pour instancier le flux d’authentification.</p><p>Assurez-vous de remplacer <code>YOUR_ANDROID_PACKAGE_NAME</code> dans l’exemple de code par le nom réel du package de votre application, comme <code>com.mycompany.myapplication</code>, et de vous assurer que tout le texte des champs <code>DataScheme</code>, <code>DataHost</code>et <code>DataPathPrefix</code> est en majuscules. De plus, définissez <code>LaunchMode = LaunchMode.SingleTask</code> pour l’activité; sinon, le système créera une nouvelle instance de l’activité chaque fois que la Callback URL est appelée.</p><p>De plus, vous devez gérer l’intention dans l’événement <code>OnNewIntent</code> dans votre classe <code>Activity</code>. Vous devez notifier le client OIDC Auth0 pour terminer le flux d’authentification en appelant la méthode <code>Send</code> du singleton <code>ActivityMediator</code>, en transférant l’URL qui a été envoyée.</p><p><pre><code class="language-csharp">protected override void OnNewIntent(Intent intent)
 
-## Configure Android {{{ data-action="code" data-code="MainActivity.cs#2-9,14-18" }}}
+    {
 
-After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+        base.OnNewIntent(intent);
 
-To handle the callback on Android devices, you need to register an intent that handles this callback URL. An easy way to do this is to register the intent on the same activity from which you called the LoginAsync method to instantiate the authentication flow.
+        ActivityMediator.Instance.Send(intent.DataString);
 
-Ensure to replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample with the actual Package Name for your application, such as com.mycompany.myapplication, and ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case. Also, set `LaunchMode = LaunchMode.SingleTask` for the Activity, otherwise the system will create a new instance of the activity every time the Callback URL gets called.
+    }
 
-Additionally, you need to handle the intent in the `OnNewIntent` event in your `Activity` class. You need to notify the Auth0 OIDC Client to finish the authentication flow by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL that was sent in.
+</code></pre>
 
-## Configure iOS {{{ data-action="code" data-code="AppDelegate.cs#6-11" }}}
+</p>
 
-After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+## Configurer iOS {{{ data-action="code" data-code="AppDelegate.cs#6:11" }}}
 
-To handle the callback on iOS devices:
 
-- Open your application's `Info.plist` file in Visual Studio, and go to the **Advanced** tab.
-- Under **URL Types**, click the **Add URL Type** button
-- Set the **Identifier** as Auth0, the **URL Schemes** the same as your application's Bundle Identifier, and the **Role** as None
+<p>Après qu’un utilisateur s’est authentifié avec succès, il est redirigé vers la Callback URL de rappel que vous avez configurée précédemment dans ce guide rapide.</p><p>Pour gérer le callback (rappel) sur les appareils iOS :</p><ol><li><p>Ouvrez le fichier <code>Info.plist</code> de votre application dans Visual Studio, puis accédez à l’onglet <b>Advanced (Avancé) </b>.</p></li><li><p>Sous <b>URL Types (Types d&#39;URL)</b>, cliquez sur le bouton <b>Add URL Type (Ajouter le type d’URL)</b>.</p></li><li><p>Définissez <b>Identifier (Identificateur)</b> sur Auth0, les <b>URL Schemes (Schémas d’URL)</b> identiques à <code>Bundle Identifier (Identificateur du bundle)</code> de votre application et le <b>Role (Rôle)</b> sur <code>None (Aucun)</code>.</p></li></ol><p>Voici un exemple de la représentation XML de votre fichier <code>Info.plist</code> après avoir ajouté le type d’URL :</p><p><pre><code class="language-xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
 
-This is an example of the XML representation of your `info.plist` file after you have added the URL Type:
+&lt;array&gt;
 
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>Auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>YOUR_BUNDLE_IDENTIFIER</string>
-        </array>
-    </dict>
-</array>
-```
+ &lt;dict&gt;
 
-Additionally, you need to handle the Callback URL in the `OpenUrl` event in your `AppDelegate` class. You need to notify the Auth0 OIDC Client to finish the authentication flow by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL that was sent in.
+ &lt;key&gt;CFBundleTypeRole&lt;/key&gt;
 
-## Add login to your application 
+ &lt;string&gt;None&lt;/string&gt;
 
-Now that you have configured your Auth0 Application and the Auth0 SDK, you need to set up login for your project. To do this, you will use the SDK’s `LoginAsync()` method to create a login button that redirects users to the Auth0 Universal Login page. 
+ &lt;key&gt;CFBundleURLName&lt;/key&gt;
 
-```csharp
-var loginResult = await client.LoginAsync();
-```
+ &lt;string&gt;Auth0&lt;/string&gt;
 
-If there isn't any error, you can access the `User`, `IdentityToken`, `AccessToken` and `RefreshToken` on the `LoginResult` returned from `LoginAsync()`.
+ &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
 
-::::checkpoint
+ &lt;array&gt;
 
-:::checkpoint-default
+ &lt;string&gt;YOUR_BUNDLE_IDENTIFIER&lt;/string&gt;
 
-You should now be able to log in or sign up using a username and password.
+ &lt;/array&gt;
 
-Click the login button and verify that:
-* your Android or iOS application redirects you to the Auth0 Universal Login page
-* you can log in or sign up
-* Auth0 redirects you to your application.
+ &lt;/dict&gt;
 
-:::
+&lt;/array&gt;
 
-:::checkpoint-failure
-Sorry about that. Here's something to double-check:
-* you called `LoginAsync` as expected
+</code></pre>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+</p><p>De plus, vous devez gérer la Callback URL dans l’événement <code>OpenUrl</code> dans votre classe <code>AppDelegate</code>. Vous devez notifier le client OIDC Auth0 pour terminer le flux d’authentification en appelant la méthode <code>Send</code> du singleton <code>ActivityMediator</code>, en transmettant l’URL qui a été envoyée.</p>
 
-:::
-::::
+## Ajouter une fonctionnalité de connexion à votre application
 
-## Add logout to your application
 
-Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s `LogoutAsync()` method. When users log out, they will be redirected to your Auth0 logout endpoint, which will then immediately redirect them back to the logout URL you set up earlier in this quickstart.
+<p>À présent que vous avez configuré votre application Auth0 et la trousse SDK Auth0, vous devez configurer la connexion pour votre projet. Pour ce faire, vous utiliserez la méthode <code>LoginAsync()</code> de la trousse SDK pour créer un bouton de connexion qui redirige les utilisateurs vers la page de connexion universelle Auth0.</p><p><pre><code class="language-csharp">var loginResult = await client.LoginAsync();
 
-```csharp
-await client.LogoutAsync();
-```
+</code></pre>
 
-::::checkpoint
+</p><p>S’il n’y a pas d’erreur, vous pourrez accéder à <code>User</code>, <code>IdentityToken</code>, <code>AccessToken</code> et <code>RefreshToken</code> dans le <code>LoginResult</code> renvoyé par <code>LoginAsync()</code>.</p><p><div class="checkpoint">Guide rapide .NET Android/iOS - Étape 6 - Point de contrôle <div class="checkpoint-default"><p>Vous devez désormais pouvoir vous connecter ou vous inscrire en utilisant un nom d’utilisateur et un mot de passe.</p><p>Appuyez sur le bouton de connexion et vérifiez que :</p><ul><li><p>Votre application Android ou iOS vous redirige vers la page de connexion universelle d’Auth0.</p></li><li><p>Vous pouvez vous connecter ou vous inscrire.</p></li><li><p>Auth0 vous redirige vers votre application.</p></li></ul><p></p></div>
 
-:::checkpoint-default
+  <div class="checkpoint-success"></div>
 
-Run your application and click the logout button, verify that:
-* your Android or iOS application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings
-* you are no longer logged in to your application
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s something to double-check:</p><ul><li><p>you called <code>LoginAsync</code> as expected</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::
+  </div></p>
 
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* you configured the correct Logout URL
-* you called `LogoutAsync` as expected.
+## Ajouter une fonctionnalité de déconnexion à votre application
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 
-:::
+<p>Les utilisateurs qui se connectent à votre projet auront également besoin d’un moyen de se déconnecter. Créez un bouton de déconnexion en utilisant la méthode <code>LogoutAsync()</code> de la trousse SDK. Lorsque les utilisateurs se déconnecteront, ils seront redirigés vers votre point de terminaison de déconnexion Auth0, qui par la suite les redirigera immédiatement vers l’URL de déconnexion que vous avez configurée précédemment dans ce guide rapide.</p><p><pre><code class="language-csharp">await client.LogoutAsync();
 
-::::
+</code></pre>
 
-## Show User Profile Information
+</p><p><div class="checkpoint">Guide rapide .NET Android/iOS - Étape 7 - Point de contrôle <div class="checkpoint-default"><p>Exécutez votre application et cliquez sur le bouton de déconnexion. Vérifiez que :</p><ul><li><p>Votre application Android ou iOS vous redirige vers l’adresse que vous avez spécifiée comme l’une des URL de déconnexion autorisées dans les paramètres de votre application.</p></li><li><p>Vous n’êtes plus connecté à votre application.</p></li></ul><p></p></div>
 
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
+  <div class="checkpoint-success"></div>
 
-The Auth0 SDK for Android and iOS provides user information through the `LoginResult.User` property.
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>you configured the correct Logout URL</p></li><li><p>you called <code>LogoutAsync</code> as expected.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-```csharp
-if (loginResult.IsError == false)
-{
-    var user = loginResult.User;
-    var name = user.FindFirst(c => c.Type == "name")?.Value;
-    var email = user.FindFirst(c => c.Type == "email")?.Value;
-    var picture = user.FindFirst(c => c.Type == "picture")?.Value;
+  </div></p>
+
+## Afficher les informations du profil utilisateur
+
+
+<p>Vu que vos utilisateurs peuvent désormais se connecter et se déconnecter, vous voudrez probablement pouvoir récupérer les <a data-contentfulid="2ClGWANGeRoTkg5Ax2gOVK-fr-CA">informations de profil</a> associées aux utilisateurs authentifiés. Par exemple, vous voudrez peut-être afficher le nom ou la photo de profil d’un utilisateur connecté dans votre projet.</p><p>La trousse SDK Auth0 pour Android et iOS fournit des informations sur l’utilisateur via la propriété <code>LoginResult.User</code>.</p><p><pre><code class="language-swift">if loginResult.IsError == false {
+
+  var user = loginResult.User
+
+  var name = user.FindFirst(c =&gt; c.Type == &quot;name&quot;)?.Value
+
+  var email = user.FindFirst(c =&gt; c.Type == &quot;email&quot;)?.Value
+
+  var picture = user.FindFirst(c =&gt; c.Type == &quot;picture&quot;)?.Value
+
 }
-```
+
+</code></pre>
+
+</p>

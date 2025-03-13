@@ -1,158 +1,73 @@
 ---
-title: Add Login to your React App
-description: "Auth0 allows you to add authentication to your React application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing React application using the Auth0 React SDK."
-interactive: true
+title: Reactアプリケーションにログインを追加する
+description: このガイドは、新規または既存のReactアプリケーションにAuth0 React SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-  - files/index
-  - files/login
-  - files/logout
-  - files/profile
+ - files/index
+ - files/login
+ - files/logout
+ - files/profile
 github:
-  path: Sample-01
+  path: https://github.com/auth0-samples/auth0-react-samples/tree/master/Sample-01
+locale: ja-JP
 ---
 
-:::note
-Visit the [React Authentication By Example](https://developer.auth0.com/resources/guides/spa/react/basic-authentication) guide for a deep dive into implementing user authentication in React. This guide provides additional details on how to create a sign-up button, add route guards using React Router, and call a protected API from React.
-:::
+# Reactアプリケーションにログインを追加する
 
-# Add Login to Your React Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any React application using the Auth0 React SDK.
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加することができます。このガイドは、ReactアプリケーションにAuth0 React SDKを使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>統合したいReactアプリケーションを用意します。または、ログインした後に、サンプルアプリケーションを表示してダウンロードすることもできます。</p></li></ul><p><div class="alert-container" severity="default"><p>Reactでユーザー認証を実装するための詳しい情報については、<a href="https://developer.auth0.com/resources/guides/spa/react/basic-authentication">例を挙げて説明するReact認証ガイド</a>を参照してください。このガイドでは、サインアップボタンを作成する方法、React Routerを使用してルートガードを追加する方法、そして保護されたAPIをReactから呼び出す方法が詳しく説明されています。</p></div></p><p></p>
 
-To use this quickstart, you’ll need to:
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working React project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+## Auth0を構成する
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000',
-  returnTo: 'http://localhost:3000',
-  webOriginUrl: 'http://localhost:3000',
-  showWebOriginInfo: true
-}) %>
 
-## Install the Auth0 React SDK {{{ data-action=code data-code="index.js#13:22" }}}
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p><h3>Allowed Web Origins（許可されているWebオリジン）を構成する</h3><p>Allowed Web Origin（許可されているWebオリジン）とは、認証フローへのアクセスを許可されるURLです。これにはプロジェクトのURLが含まれている必要があります。適切に設定されていない場合、プロジェクトが認証トークンを暗黙でリフレッシュできず、ユーザーがアプリケーションを再び訪問した時、またはページを再読み込みした時にログアウトした状態になってしまいます。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
-Auth0 provides a [React SDK](https://github.com/auth0/auth0-react) (auth0-react.js) to simplify the process of implementing Auth0 authentication and authorization in React apps.
+## Auth0 React SDKをインストールする {{{ data-action="code" data-code="index.js" }}}
 
-Install the Auth0 React SDK by running the following commands in your terminal:
 
-```bash
-cd <your-project-directory>
+<p>Reactアプリで、Auth0の認証・認可を手軽に実装できるように、Auth0は<a href="https://github.com/auth0/auth0-react">React SDK</a>（auth0-react.js）を提供しています。</p><p>ターミナルで以下のコマンドを実行してAuth0 React SDKをインストールします：</p><p><pre><code>cd &lt;your-project-directory&gt;
+
 npm install @auth0/auth0-react
-```
 
-### Configure the Auth0Provider component
+</code></pre>
 
-For the SDK to function properly, you must set the following properties in the Auth0Provider component:
+</p><h3>Auth0Providerコンポーネントを構成する</h3><p>SDKが正しく機能するためには、次のプロパティをAuth0Providerコンポーネントで設定しなければなりません：</p><ul><li><p><code>domain</code>：Auth0テナントのドメインです。通常、Auth0 Dashboardにあるアプリケーションの設定の［Domain（ドメイン）］フィールドで確認できます。<a href="https://auth0.com/docs/custom-domains">カスタムドメイン</a>を使用している場合は、その値を代わりに設定してください。</p></li><li><p><code>clientId</code>：このクイックスタートで前にセットアップした、Auth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの設定の［Client ID（クライアントID）］フィールドで確認できます。</p></li><li><p><code>authorizationParams.redirect_uri</code>：ユーザー認証の後、Auth0にユーザーをリダイレクトして欲しいアプリケーション内URLです。このクイックスタートで前にセットアップしたCallback URLと呼応します。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Callback URLs（コールバックURL）］フィールドでもこの値を確認できます。コードに入力した値と前にセットアップした値は必ず一致させてください。異なった場合はユーザーにエラーが表示されます。</p></li></ul><p><div class="checkpoint">Reactクイックスタート - 手順2「チェックポイント」 <div class="checkpoint-default"><p>Auth0Providerコンポーネントが適切に構成されました。アプリケーションを実行して次の点を検証します：</p><ul><li><p>SDKが正しく初期化している。</p></li><li><p>アプリケーションがAuth0に関連したエラーを投入していない。</p></li></ul><p></p></div>
 
-- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
-- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
-- `authorizationParams.redirect_uri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-default
+  </div></p>
 
-Your Auth0Provider component should now be properly configured. Run your application to verify that:
-- the SDK is initializing correctly
-- your application is not throwing any errors related to Auth0
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="login.js" }}}
 
-:::
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID imported correctly
+<p>Auth0アプリケーションとAuth0 React SDKの構成が完了したら、プロジェクトのためにログインをセットアップする必要があります。これを実現するには、SDKのloginWithRedirect()メソッドを使用して、ユーザをAuth0のユニバーサルログインページにリダイレクトするログインボタンを作成します。ユーザーが認証に成功すると、このクイックスタートで前にセットアップしたCallback URLへリダイレクトされます。</p><p><div class="alert-container" severity="default"><p>このガイドでは<code>useAuth0()</code>のカスタムReactフックに焦点を当てています。クラスコンポーネントを使用している場合は、<a href="https://github.com/auth0/auth0-react/blob/master/EXAMPLES.md#use-with-a-class-component"><code>withAuth0()</code>を使用したこちらのサンプル</a>を確認してください。</p></div></p><p>ログインボタンコンポーネントのためにアプリケーションで<code>login.js</code>という名前の新規ファイルを作成し、インタラクティブパネルから右へとコードにコピーします。これにはログインに必要なロジックが含まれています。それから<code>index.js</code>ファイルを更新して新しいログインボタンを含めます。</p><p><div class="checkpoint">Reactクイックスタート - 手順3「チェックポイント」 <div class="checkpoint-default"><p>ユーザー名とパスワードを使ってログインやサインアップができるようになりました。</p><p>ログインボタンをクリックして次の点を検証します：</p><ul><li><p>ReactアプリケーションによってAuth0ユニバーサルログインページにリダイレクトされる。</p></li><li><p>ログインまたはサインアップできる。</p></li><li><p>Auth0が、<code>Auth0Provider</code>を構成するために使った<code>authorizationParams.redirect_uri</code>の値を使用し、アプリケーションへリダイレクトする。</p></li></ul><p></p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+  <div class="checkpoint-success"></div>
 
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>you configured the correct <code>authorizationParams.redirect_uri</code></p></li><li><p>you added the Login button to the <code>index.js</code> file</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-## Add login to your application {{{ data-action=code data-code="login.js#4:7" }}}
+  </div></p>
 
-Now that you have configured your Auth0 Application and the Auth0 React SDK, you need to set up login for your project. To do this, you will use the SDK’s loginWithRedirect() method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="logout.js" }}}
 
-<%= include('../../_includes/_auth0-react-classes-info.md') %>
 
-Create a new file in your application called `login.js` for the login button component, and copy in the code from the interactive panel to the right, which contains the logic needed for login. Then, update your `index.js` file to include the new login button.
+<p>プロジェクトにログインしたユーザーには、ログアウトする方法も必要です。SDKのlogout()メソッドを使用してログアウトボタンを作成します。ユーザーはログアウトすると、<a href="https://auth0.com/docs/api/authentication?javascript#logout">Auth0ログアウト</a>エンドポイントにリダイレクトされてから、即座に、このクイックスタートで先ほどセットアップしたログアウトURLにリダイレクトで戻されます。</p><p>ログアウトボタンコンポーネントのためにアプリケーションで<code>logout.js</code>という名前の新規ファイルを作成し、インタラクティブパネルからコードにコピーします。これにはログアウトに必要なロジックが含まれています。それから<code>index.js</code>ファイルを更新して新しいログアウトボタンを含めます。</p><p><div class="checkpoint">Reactクイックスタート - 手順4「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションを実行してログアウトボタンをクリックし、次の点を検証します：</p><ul><li><p>Reactアプリケーションによって、アプリケーションの設定で［Allowed Logout URLs（許可されているログアウトURL）］の一つに指定したアドレスへリダイレクトされる。</p></li><li><p>アプリケーションにログインしていない。</p></li></ul><p></p></div>
 
-::::checkpoint
+  <div class="checkpoint-success"></div>
 
-:::checkpoint-default
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>you configured the correct Logout URL</p></li><li><p>you added the Logout button to the <code>index.js</code> file</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-You should now be able to log in or sign up using a username and password.
+  </div></p>
 
-Click the login button and verify that:
-* your React Application redirects you to the Auth0 Universal Login page
-* you can log in or sign up
-* Auth0 redirects you to your application using the value of the `authorizationParams.redirect_uri` you used to configure the `Auth0Provider`
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="profile.js" }}}
 
-:::
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* you configured the correct `authorizationParams.redirect_uri`
-* you added the Login button to the `index.js` file
+<p>ユーザーがログインやログアウトできるようになったら、認証済のユーザーに関連付けられた<a href="https://auth0.com/docs/users/concepts/overview-user-profile">プロファイル情報</a>を取得できるようにしたいと考えるはずです。たとえば、ログインしたユーザーの名前やプロファイル画像をプロジェクトに表示できるようになりたいかもしれません。</p><p>React用のAuth0 SDKでは、<code>user</code>プロパティを通じてユーザー情報を提供します。インタラクティブパネルで<code>profile.js</code>コードを確認し、使用方法の例をチェックします。</p><p><code>user</code>プロパティにはユーザーのアイデンティティに関する機密情報が含まれるため、この方法が使用できるかはユーザーの認証ステータスによります。エラーを防ぐため、常に以下を行ってください：</p><ul><li><p>Reactが<code>user</code>プロパティを使用するコンポーネントを呼び出す前に、<code>isAuthenticated</code>プロパティを使用してAuth0がユーザーを認証したかどうかを定義する。</p></li><li><p><code>isAuthenticated</code>プロパティにアクセスする前に、<code>isLoading</code>がfalseであることをチェックして、SDKの読み込みが完了したことを確認する。</p></li></ul><img src="//images.ctfassets.net/cdy7uua7fh8z/5Lp4Zahxd2v6wSJmy9JaM4/717068d1dafc0637c4dad2cdcf5a29a5/Login_Screen_-_Japanese.png" alt="null" /><p><div class="checkpoint">Reactクイックスタート - 手順5「チェックポイント」 <div class="checkpoint-default"><p>以下の点を確認します：</p><ul><li><p>ログイン後、コンポーネント内の<code>user.name </code>やその他のユーザープロパティをすべて正しく表示できる。</p></li></ul><p></p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+  <div class="checkpoint-success"></div>
 
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>you added the <code>isLoading</code> check before accessing the <code>isAuthenticated</code> property</p></li><li><p>you added the <code>Profile</code> component to the <code>index.js</code> file</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-## Add logout to your application {{{ data-action=code data-code="logout.js#10:18" }}}
-
-Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s logout() method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
-
-Create a new file in your application called `logout.js` for the logout button component, and copy in the code from the interactive panel, which contains the logic needed for logout. Then, update your `index.js` file to include the logout button.
-
-::::checkpoint
-
-:::checkpoint-default
-
-Run your application and click the logout button, verify that:
-* your React application redirects you to the address you specified as one of the Allowed Logout URLs in your Application Settings
-* you are no longer logged in to your application
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* you configured the correct Logout URL
-* you added the Logout button to the `index.js` file 
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
-
-## Show User Profile Information {{{ data-action=code data-code="profile.js#11:26" }}}
-
-Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
-
-The Auth0 React SDK provides user information through the `user` property. Review the `profile.js` code in the interactive panel to see an example of how to use it.
-
-Because the `user` property contains sensitive information related to the user's identity, its availability depends on the user's authentication status. To prevent render errors, you should always:
-- use the `isAuthenticated` property to determine whether Auth0 has authenticated the user before React renders any component that consumes the `user` property.
-- ensure that the SDK has finished loading by checking that `isLoading` is false before accessing the `isAuthenticated` property.
-
-::::checkpoint
-
-:::checkpoint-default
-
-Verify that:
-* you can display the `user.name` or any other user property within a component correctly after you have logged in
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* you added the `isLoading` check before accessing the `isAuthenticated` property
-* you added the `Profile` component to the `index.js` file 
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-
-::::
+  </div></p>

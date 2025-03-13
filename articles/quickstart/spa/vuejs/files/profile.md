@@ -1,9 +1,9 @@
 ---
 name: profile.js
-language: html
+language: javascript
 ---
-
-```html
+    
+```javascript
 <template>
   <div v-if="isLoading">Loading ...</div>
   <div v-else>

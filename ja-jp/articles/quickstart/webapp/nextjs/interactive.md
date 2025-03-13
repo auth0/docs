@@ -1,172 +1,71 @@
 ---
-title: Add Login to your Next.js application
-description: This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js SDK.
-topics:
-  - quickstarts
-  - webapp
-  - nextjs
-  - login
-github:
-  path: Sample-01
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Next.jsアプリケーションにログインを追加する
+description: このガイドは、新規または既存のNext.jsアプリケーションにAuth0 Next.js SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
- - files/auth
- - files/env
- - files/layout
- - files/login
- - files/logout
- - files/profile-client
- - files/profile-server
+ - files/.env
+ - files/src/lib/auth0
+ - files/src/middleware
+ - files/src/app/page
+github:
+  path: https://github.com/auth0-samples/auth0-nextjs-samples/tree/main/Sample-01
+locale: ja-JP
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Next.jsアプリケーションにログインを追加する
 
-# Add Login to Your Next.js Application
 
-This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js SDK. We recommend that you log in to follow this quickstart with examples configured for your account.
+<p>このガイドは、新規または既存のNext.jsアプリケーションにAuth0 Next.js SDKを使ってAuth0を統合する方法を説明します。アカウント用に構成された例を参考にして、このクイックスタートに従うことをお勧めします。</p><p></p>
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000/api/auth/callback',
-returnTo: 'http://localhost:3000'
-}) %>
+## Auth0を構成する
 
-## Install the Auth0 Next.js SDK
 
-Run the following command within your project directory to install the Auth0 Next.js SDK:
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻されません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/auth/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p><p></p></div></p>
 
-```sh
-npm install @auth0/nextjs-auth0
-```
+## Auth0 Next.js SDKをインストールする
 
-The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) on the backend and [React Context](https://reactjs.org/docs/context.html) with [React Hooks](https://reactjs.org/docs/hooks-overview.html) on the frontend.
 
-## Configure the SDK {{{ data-action=code data-code=".env.local" }}}
+<p>プロジェクトディレクトリで次のコマンドを実行して、Auth0 Next.js SDKをインストールします：</p><p><code>npm install @auth0/nextjs-auth0</code></p><p>SDKは、Auth0をNext.jsアプリケーションに統合するのに役立つメソッドと変数を公開します。この際、バックエンドでは<a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers">ルートハンドラー</a>を、フロントエンドでは<a href="https://reactjs.org/docs/hooks-overview.html">Reactフック</a>が付いた<a href="https://reactjs.org/docs/context.html">Reactコンテキスト</a>を使用します。</p>
 
-In the root directory of your project, add the file `.env.local` with the following [environment variables](https://nextjs.org/docs/basic-features/environment-variables):
+## SDKを構成する {{{ data-action="code" data-code=".env.local" }}}
 
-- `AUTH0_SECRET`: A long secret value used to encrypt the session cookie. You can generate a suitable string using `openssl rand -hex 32` on the command line.
-- `AUTH0_BASE_URL`: The base URL of your application.
-- `AUTH0_ISSUER_BASE_URL`: The URL of your Auth0 tenant domain. If you are using a [Custom Domain with Auth0](https://auth0.com/docs/custom-domains), set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
-- `AUTH0_CLIENT_ID`: Your Auth0 application's Client ID.
-- `AUTH0_CLIENT_SECRET`: Your Auth0 application's Client Secret.
 
-The SDK will read these values from the Node.js process environment and automatically configure itself.
+<p>プロジェクトのルートディレクトリで、<code>.env.local</code>ファイルを追加し、以下の<a href="https://nextjs.org/docs/basic-features/environment-variables">変数環境</a>を設定します：</p><ul><li><p><code>AUTH0_SECRET</code>：セッションクッキーの暗号化に使用する長いシークレット値です。適した文字列は、コマンドラインの<code>openssl rand -hex 32</code>で生成できます。</p></li><li><p><code>AUTH0_BASE_URL</code>：アプリケーションのベースURLです。</p></li><li><p><code>AUTH0_ISSUER_BASE_URL</code>：Auth0テナントドメインのURLです。<a href="https://auth0.com/docs/custom-domains">Auth0を使用したカスタムドメイン</a>では、この値を［Settings（設定）］タブに反映された値でなく、カスタムドメインの値に設定します。</p></li><li><p><code>AUTH0_CLIENT_ID</code>：Auth0アプリケーションのクライアントIDです。</p></li><li><p><code>AUTH0_CLIENT_SECRET</code>：Auth0アプリケーションのクライアントシークレットです。</p></li></ul><p>SDKは、Node.jsプロセス環境からこれらの値を読み取り、自動構成します。</p>
 
-## Add the dynamic Route Handler {{{ data-action=code data-code="app/api/auth/[auth0]/route.js" }}}
+## 動的ルートハンドラーを追加する {{{ data-action="code" data-code="src/lib/auth0.ts" }}}
 
-::: note
-This QuickStart targets the Next.js [App Router](https://nextjs.org/docs/app). If you're using the [Pages Router](https://nextjs.org/docs/pages), check out the example in the SDK's [README](https://github.com/auth0/nextjs-auth0#page-router).
-:::
 
-Create a file at `app/api/auth/[auth0]/route.js`. This is your Route Handler file with a [Dynamic Route Segment](https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments).
+<p><div class="alert-container" severity="default"><p>このクイックスタートは、Next.js<a href="https://nextjs.org/docs/app">アプリルーター</a>を取り扱います。<a href="https://nextjs.org/docs/pages">ページルーター</a>を使用している場合は、SDKの<a href="https://github.com/auth0/nextjs-auth0#page-router">README</a>の例を確認してください。</p></div></p><p><code>app/api/auth/[auth0]/route.js</code>でファイルを作成します。これは、<a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments">動的ルートセグメント</a>を持つルートハンドラーです。</p><p>次に、SDKから<code>handleAuth</code>メソッドをインポートし、<code>GET</code>エクスポートから呼び出します。これで、以下のルートが作成されます。</p><ul><li><p><code>/api/auth/login</code>：Auth0でログインを実行するために使用されるルートです。</p></li><li><p><code>/api/auth/logout</code>：ユーザーをログアウトするために使用されるルートです。</p></li><li><p><code>/api/auth/callback</code>：ログインに成功した後、Auth0がユーザーをリダイレクトするルートです。</p></li><li><p><code>/api/auth/me</code>：ユーザープロファイルを取得するためのルートです。</p></li></ul><p></p>
 
-Then, import the `handleAuth` method from the SDK and call it from the `GET` export. This creates the following routes:
+## UserProviderコンポーネントを追加する {{{ data-action="code" data-code="src/middleware.ts" }}}
 
-- `/api/auth/login`: The route used to perform login with Auth0.
-- `/api/auth/logout`: The route used to log the user out.
-- `/api/auth/callback`: The route Auth0 will redirect the user to after a successful login.
-- `/api/auth/me`: The route to fetch the user profile from.
 
-## Add the `UserProvider` component {{{ data-action=code data-code="app/layout.jsx" }}}
+<p>フロントエンド側では、SDKはReact Contextを使用して、ユーザーの認証状態を管理します。その状態をすべてのページで使用できるようにするには、<a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required">Root Layoutコンポーネント</a>を上書きし、<code>app/layout.jsx</code>ファイルで<code>&lt;body&gt;</code>タグを<code>UserProvider</code>でラップする必要があります。</p><p><code>UserProvider</code>によって公開された認証状態は、<code>useUser()</code>フックを使って任意のクライアントコンポーネントでアクセスすることができます。</p><p><div class="checkpoint">Next.js手順5「チェックポイント」 <div class="checkpoint-default"><p>ルートハンドラーと<code>UserProvider</code>を追加したら、アプリケーションを実行してAuth0に関連したエラーを投入していないか確認します。</p></div>
 
-On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [Root Layout component](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required) and wrap the `<body>` tag with a `UserProvider` in the file `app/layout.jsx`.
+  <div class="checkpoint-success"></div>
 
-The authentication state exposed by `UserProvider` can be accessed in any Client Component using the `useUser()` hook.
+  <div class="checkpoint-failure"></div>
 
-::::checkpoint
-:::checkpoint-default
-Now that you have added the route handler and `UserProvider`, run your application to verify that your application is not throwing any errors related to Auth0.
-:::
-:::checkpoint-failure
-Sorry about that. Here's a couple of things to double check:
-* Are your environment variables populated correctly?
-* did you put the `app/api/auth/[auth0]/route.js` and `app/layout.jsx` files in the correct folder?
-* make sure the domain and client ID are configured correctly
+  </div></p>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="src/app/page.tsx" }}}
 
-## Add Login to Your Application {{{ data-action=code data-code="app/login.jsx" }}}
 
-Users can now log in to your application by visiting the `/api/auth/login` route handler provided by the SDK. Add a link that points to the login route using an **anchor tag**. Clicking it redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
+<p>ユーザーはSDKによって提供された<code>/api/auth/login</code>ルートハンドラーを訪れることで、アプリケーションにログインできるようになりました。<b>アンカータグ</b>を使ってログインルートを指すリンクをクリックします。クリックするとユーザーはAuth0ユニバーサルログインページにリダイレクトされ、そこで、Auth0はユーザーを認証することができます。認証に成功したら、Auth0はユーザーをアプリケーションにリダイレクトで戻します。</p><p><div class="alert-container" severity="default"><p>次のリンティング ルールでは、アンカータグでなく<code>Link</code>コンポーネントを使用することを提案する場合があります。<code>Link</code>コンポーネントは、<a href="https://nextjs.org/docs/api-reference/next/link">クライアント側のページ間の移行</a>を実施するためのものです。リンクはページでなくAPIルートを指すため、アンカータグとして維持する必要があります。</p></div></p><p><div class="checkpoint">Next.js手順6「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションにログインリンクを追加する</p><ul><li><p>ログインリンクをクリックすると、Next.jsアプリケーションによって<a href="https://auth0.com/universal-login">Auth0ユニバーサルログイン</a>ページにリダイレクトされ、ユーザー名とパスワードまたはソーシャルプロバイダーを使ってログインまたはサインアップできるようになったことを確認します。</p></li><li><p>完了したら、Auth0がアプリケーションにリダイレクトで戻されることを確認します。</p></li></ul><p></p></div>
 
-:::note
-Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform [client-side transitions between pages](https://nextjs.org/docs/api-reference/next/link). As the link points to an API route and not to a page, you should keep it as an anchor tag.
-:::
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
-:::checkpoint-default
-Add the login link to your application. 
-- When you click it, verify that your Next.js application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
-- Once that's complete, verify that Auth0 redirects back to your application.
-:::
-:::checkpoint-failure
-Sorry about that. Here's a couple of things to double check:
-* are your environment variables populated correctly?
-* make sure that "Allowed Callback URLs" is configured correctly in your tenant
+  <div class="checkpoint-failure"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/1012d2df62dd58a943f75092452f91d2/Login_Screen_-_Japanese.png" alt="null" /><p><div class="alert-container" severity="default"><p>Auth0は、Googleソーシャルプロバイダーを新しいテナントでデフォルトで有効にし、<a href="https://auth0.com/docs/connections/identity-providers-social">ソーシャルIDプロバイダー</a>でログインテストを実施するための開発者キーを提供します。ただし、これらの開発者キーにはいくつかの制限が設けられており、これによってアプリケーションが異なる動作をする場合があります。この動作の様子と修正方法については、「<a href="https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys">Auth0開発者キーを使ってソーシャル接続をテストする</a>」ドキュメントを参照してください。</p></div></p>
 
-![Auth0 Universal Login](/media/quickstarts/universal-login.png)
+## アプリケーションにログアウトを追加する
 
-<%= include('../_includes/_auth_note_dev_keys') %>
 
-## Add Logout to Your Application {{{ data-action=code data-code="app/logout.jsx" }}}
+<p>Next.jsアプリケーションにログインできるようになったら、<a href="https://auth0.com/docs/logout/log-users-out-of-auth0">ログアウトする方法</a>が必要です。<code>/api/auth/logout</code> APIルートを指すリンクを追加します。クリックするとユーザーは、<a href="https://auth0.com/docs/api/authentication?javascript#logout">Auth0ログアウトエンドポイント</a>（<code>https://YOUR_DOMAIN/v2/logout</code>）にリダイレクトされ、即座にアプリケーションにリダイレクトで戻ります。</p><p><div class="checkpoint">Next.js手順7「チェックポイント」 <div class="checkpoint-default"><p>アプリケーションにログアウトリンクを追加します。クリックすると、 Next.jsアプリケーションによって、［Settings（設定）］で［Allowed Logout URLs（許可されているログアウトURL）］の1つに指定されているアドレスへリダイレクトされます。</p></div>
 
-Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). Add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
-:::checkpoint-default
-Add the logout link to your application. When you click it, verify that your Next.js application redirects you to the address you specified as one of the "Allowed Logout URLs" in the "Settings".
-:::
-:::checkpoint-failure
-Sorry about that. Here's a couple of things to double check:
-* are your environment variables populated correctly?
-* make sure that "Allowed Logout URLs" is configured correctly in your tenant
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple of things to double check:</p><ul><li><p>are your environment variables populated correctly?</p></li><li><p>make sure that &quot;Allowed Callback URLs&quot; is configured correctly in your tenant</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Show User Profile Information from a Client Component{{{ data-action=code data-code="app/profile-client/page.jsx" }}}
-
-The Auth0 Next.js SDK helps you retrieve the [profile information](https://auth0.com/docs/users/user-profiles) associated with the logged-in user, such as their name or profile picture, to personalize the user interface.
-
-The profile information is available through the `user` property exposed by the `useUser()` hook. Take this [Client Component](https://nextjs.org/docs/getting-started/react-essentials#client-components) `ProfileClient` as an example of how to use it.
-
-::::checkpoint
-:::checkpoint-default
-Verify that you can display the `user.name` or [any other](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) `user` property within a component correctly after you have logged in.
-:::
-:::checkpoint-failure
-Sorry about that. Here's a couple of things to double check:
-* are your environment variables populated correctly?
-* make sure the SDK has finished loading using the `loading` property
-* make sure there are no errors in the `error` property or the console
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Show User Profile Information from a Server Component{{{ data-action=code data-code="app/profile-server/page.jsx" }}}
-
-The profile information is available through the `user` property exposed by the `getSession` function. Take this [Server Component](https://nextjs.org/docs/getting-started/react-essentials#server-components) `ProfileServer` as an example of how to use it.
-
-::::checkpoint
-:::checkpoint-default
-Verify that you can display the `user.name` or [any other](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) `user` property within a component correctly after you have logged in.
-:::
-:::checkpoint-failure
-Sorry about that. Here's a couple of things to double check:
-* are your environment variables populated correctly?
-* make sure you have successfully logged in through the `/api/auth/login` handler.
-* make sure there are no errors in the console
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>

@@ -1,114 +1,93 @@
 ---
-title: Add login to your Python Flask app
-description: This tutorial demonstrates how to add user login to a Python web application built with the Flask framework and Authlib OAuth library.
-interactive: true
+title: Python Flaskアプリケーションにログインを追加する
+description: このガイドでは、Python FlaskアプリケーションにAuthlib SDKを使ってAuth0を統合する方法を説明します。
+interactive:  true
 files:
-- files/server
-- files/home
-contentType: tutorial
-useCase: quickstart
-topics:
-  - quickstarts
-  - webapp
-  - login
-  - python
-  - flask
+ - files/server
+ - files/templates/home
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-python-web-app/tree/master/01-Login
+locale: ja-JP
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Python Flaskアプリケーションにログインを追加する
 
-# Add Login to Your Python Flask Application
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python [Flask](https://flask.palletsprojects.com) application using the [Authlib](https://authlib.org/) SDK.
+<p>Auth0を使用すると、アプリケーションに認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドでは、Python <a href="https://flask.palletsprojects.com/">Flask</a>アプリケーションに<a href="https://authlib.org/">Authlib</a> SDKを使ってAuth0を統合する方法を説明します。</p><p></p>
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000/callback',
-returnTo: 'http://localhost:3000'
-}) %>
+## Auth0を構成する
 
-## Install dependencies
 
-Create a `requirements.txt` file in your project directory:
+<p>Auth0のサービスを利用するには、Auth0 Dashboadでセットアップしたアプリケーションが必要です。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p><p></p></div></p>
 
-```python
-# 📁 requirements.txt -----
+## 依存関係をインストールする
 
-flask>=2.0.3
-python-dotenv>=0.19.2
-authlib>=1.0
-requests>=2.27.1
-```
 
-Run the following command from your shell to enable these dependencies in your project:
+<p>プロジェクトディレクトリに<code>requirements.txt</code>ファイルを作成します：</p><p><pre><code class="language-powershell"># 📁 requirements.txt -----
 
-```sh
-pip install -r requirements.txt
-```
 
-## Configure your `.env` file
 
-Next, create an `.env` file in your project directory. This file will hold your client keys and other configuration details.
+flask&gt;=2.0.3
 
-```ini
-# 📁 .env -----
+python-dotenv&gt;=0.19.2
+
+authlib&gt;=1.0
+
+requests&gt;=2.27.1
+
+</code></pre>
+
+</p><p>シェルから以下のコマンドを実行し、プロジェクトで依存関係が利用できるようにします：</p><p><pre><code class="language-powershell">pip install -r requirements.txt
+
+</code></pre>
+
+</p>
+
+## .envファイルを構成する
+
+
+<p>次に、プロジェクトのディレクトリに<code>.env</code>ファイルを作成します。このファイルにはクライアントキーやその他の構成情報が含まれます。</p><p><pre><code># 📁 .env -----
+
+
 
 AUTH0_CLIENT_ID=${account.clientId}
+
 AUTH0_CLIENT_SECRET=${account.clientSecret}
+
 AUTH0_DOMAIN=${account.namespace}
+
 APP_SECRET_KEY=
-```
 
-- Generate a string for `APP_SECRET_KEY` using `openssl rand -hex 32` from your shell.
+</code></pre>
 
-## Setup your application {{{ data-action=code data-code="server.py#1:27" }}}
+</p><ul><li><p>シェルから<code>openssl rand -hex 32</code>を使って、<code>APP_SECRET_KEY</code>の文字列を生成します。</p></li></ul><p></p>
 
-Next, set up your application. Create a `server.py` file in your project directory - this file will contain your application logic.
+## アプリケーションをセットアップする {{{ data-action="code" data-code="templates/home.html" }}}
 
-Import all the libraries your application needs.
 
-Load the configuration `.env` file you made in the previous step.
+<p>次に、アプリケーションをセットアップします。プロジェクトディレクトリで<code>server.py</code>ファイルを作成します。このファイルにはアプリケーションロジックが含まれます。</p><p>アプリケーションに必要なすべてのライブラリーをインポートします。</p><p>前の手順で作成した構成<code>.env</code>ファイルを読み込みます。</p><p>Auth0でアプリケーションの認証を処理するためにAuthlibを構成します。AuthlibのOAuth <code>register()</code>メソッドで使用できる構成オプションの詳細については、<a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in">Authlibのドキュメント</a></p>
 
-Configure Authlib to handle your application's authentication with Auth0. To learn more about the configuration options available for Authlib's OAuth `register()` method from [their documentation.](https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in)
+## ルートをセットアップする {{{ data-action="code" data-code="server.py" }}}
 
-## Setup your routes {{{ data-action=code data-code="server.py#30:59" }}}
 
-In this example, you will add four routes to the application: login, callback, logout, and home.
+<p>この例では、アプリケーションにlogin、callback、logout、homeの4つのルートを追加します。</p><p>アプリ訪問者が<code>/login</code>ルートにアクセスすると、アプリケーションはユーザーをAuth0ログインページに遷移します。</p><p>ユーザーがAuth0でログインした後、アプリケーションはユーザーを<code>/callback</code>ルートに遷移します。このルートはユーザーのためにセッションを保存し、戻ってきた時に再度ログインする必要性を回避します。</p><p><code>/logout</code>ルートは、ユーザーをアプリケーションからサインアウトさせます。アプリのユーザーセッションを消去し、Auth0ログアウトエンドポイントにリダイレクトして、セッションがもう保存されていないことを保証します。その後、アプリケーションはユーザーをホームルートにリダイレクトします。</p><p><code>/</code>ホームルートは認証されたユーザーの詳細を表示したり、訪問者のサインインを許可したりします。</p>
 
-When visitors to your app visit the `/login` route, your application will route them to the Auth0 login page.
+## テンプレートを追加する
 
-After your users log in with Auth0, your application will route them to the `/callback` route. This route saves the session for the user and bypasses the need for them to login again when they return.
 
-The `/logout` route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.
+<p>次に、（<code>render_template()</code>の呼び出し中に）ホームルートで使用されるテンプレートファイルを作成します。</p><p><code>templates</code>という名前のプロジェクトフォルダーに新しいサブディレクトリを作成し、ディレクトリに<code>home.html</code>を作成します。コンテンツを右から対象ファイルに貼り付けます。</p>
 
-Your `/ ` home route either renders an authenticated user's details or  allows visitors to sign in.
+## アプリケーションを実行する
 
-## Add templates {{{ data-action=code data-code="templates/home.html" }}}
 
-Next, create the template file used in the home route (during `render_template()` calls).
+<p>アプリケーションを実行するには、プロジェクトディレクトリのルートに移動し、ターミナルを開きます。次のコマンドを実行します：</p><p><pre><code class="language-python">python3 server.py
 
-Create a new sub-directory in your project folder named `templates`, and create `home.html`  in the directory. Paste the content from the right into that file.
+</code></pre>
 
-## Run your application
+</p><p><div class="checkpoint">Python手順7「チェックポイント」 <div class="checkpoint-default"><p>検証するには<a href="http://localhost:3000/">http://localhost:3000</a>を訪問します。ログインのためにAuth0へルートするログインボタンがあり、ログイン後アプリケーションに戻るとプロファイル情報を確認できます。</p></div>
 
-To run your application, navigate to the root of your project directory and open a terminal. Run the following command:
+  <div class="checkpoint-success"></div>
 
-```sh
-python3 server.py
-```
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify any errors in the console.</p></li><li><p>Verify the domain and Client ID imported correctly.</p></li><li><p>Verify your tenant configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com">community page</a> to get more help</p><p></p></div>
 
-::::checkpoint
-:::checkpoint-default
-Visit [http://localhost:3000](http://localhost:3000) to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
-:::
-
-:::checkpoint-failure
-If your application did not start successfully:
-* Verify any errors in the console.
-* Verify the domain and Client ID imported correctly.
-* Verify your tenant configuration.
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>

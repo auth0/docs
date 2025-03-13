@@ -2,9 +2,7 @@
 name: main.go
 language: go
 ---
-
-<!-- markdownlint-disable MD041 -->
-
+    
 ```go
 package main
 
@@ -66,5 +64,4 @@ func main() {
 		log.Fatalf("There was an error with the http server: %v", err)
 	}
 }
-
 ```

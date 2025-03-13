@@ -1,161 +1,132 @@
 ---
 title: Add Login to Your Ruby on Rails Application
-description: This tutorial demonstrates how to add user login to a Ruby on Rails application using OmniAuth.
-interactive: true
+description: This tutorial demonstrates how to add user login to a Ruby on Rails application.
+interactive:  true
 files:
-  - files/config
-  - files/initializer
-  - files/controller
-  - files/routes
-  - files/concern
+ - files/config/auth0
+ - files/auth0
+ - files/auth0_controller
+ - files/routes
+ - files/secured
+github:
+  path: https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/sample
+locale: en-US
 ---
 
 # Add Login to Your Ruby on Rails Application
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/auth/auth0/callback',
-  returnTo: 'http://localhost:3000',
-  webOriginUrl: 'http://localhost:3000',
-  showWebOriginInfo: true
-}) %>
+
+<p></p><p></p>
+
+## Configure Auth0
+
+
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/auth/auth0/callback</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p><h3>Configure Allowed Web Origins</h3><p>An Allowed Web Origin is a URL that you want to be allowed to access to your authentication flow. This must contain the URL of your project. If not properly set, your project will be unable to silently refresh authentication tokens, so your users will be logged out the next time they visit your application or refresh a page.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p>
 
 ## Add dependencies
 
-Use `omniauth-auth0`, a custom <a href="https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication" target="_blank" rel="noreferrer">OmniAuth strategy</a>, to handle the authentication flow.
 
-Add the following dependencies to your `Gemfile`:
+<p>Use <code>omniauth-auth0</code>, a custom <a href="https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication">OmniAuth strategy</a>, to handle the authentication flow.</p><p>Add the following dependencies to your <code>Gemfile</code>:</p><p><pre><code class="language-ruby">gem 'omniauth-auth0', '~&gt; 3.0'
 
-```ruby
-gem 'omniauth-auth0', '~> 3.0'
-gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
-```
+gem 'omniauth-rails_csrf_protection', '~&gt; 1.0' # prevents forged authentication requests
 
-Once your gems are added, install the gems with `bundle install`.
+</code></pre>
 
-## Configure the SDK {{{ data-action=code data-code="auth0.yml" }}}
+</p><p>Once your gems are added, install the gems with <code>bundle install</code>.</p>
 
-Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret values located in your Auth0 Dashboard under application **Settings**.
+## Configure the SDK {{{ data-action="code" data-code="config/auth0.yml" }}}
 
-## Configure OmniAuth middleware {{{ data-action=code data-code="auth0.rb" }}}
 
-Create the following initializer file `./config/initializers/auth0.rb` and <a href="https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters" target="_blank" rel="noreferrer">configure</a> the **OmniAuth** middleware with the configuration file you created in the previous step.
+<p>Create a configuration file <code>./config/auth0.yml</code> to specify your Auth0 domain, client ID, and client secret values located in your Auth0 Dashboard under application <b>Settings</b>.</p>
 
-Ensure that `callback_path` matches the value given in the "Allowed Callback URLs" setting in your Auth0 application.
+## Configure the OmniAuth middleware {{{ data-action="code" data-code="auth0.rb" }}}
 
-## Add an Auth0 controller {{{ data-action=code data-code="auth0_controller.rb" }}}
 
-Create an Auth0 controller to handle the authentication callback, `logout` action, and methods for constructing the logout URL.
+<p>Create the following initializer file <code>./config/initializers/auth0.rb</code> and <a href="https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#send-additional-authentication-parameters">configure</a> the <b>OmniAuth</b> middleware with the configuration file you created in the previous step.</p><p>Ensure that <code>callback_path</code> matches the value given in the &quot;Allowed Callback URLs&quot; setting in your Auth0 application.</p>
 
-Run the command: `rails generate controller auth0 callback failure logout --skip-assets --skip-helper --skip-routes --skip-template-engine`. 
+## Add an Auth0 controller {{{ data-action="code" data-code="auth0_controller.rb" }}}
 
-Inside the callback method, assign the hash of user information - returned as `request.env['omniauth.auth']` - to the active session.
 
-To configure logout, clear all the objects stored within the session by calling the `reset_session` method within the `logout` action. Then, redirect to the Auth0 logout endpoint. To learn more about `reset_session`, read<a href="http://api.rubyonrails.org/classes/ActionController/Base.html#M000668" target="_blank" rel="noreferrer">Ruby on Rails ActionController documentation</a>.
+<p>Create an Auth0 controller to handle the authentication callback, <code>logout</code> action, and methods for constructing the logout URL.</p><p>Run the command: <code>rails generate controller auth0 callback failure logout --skip-assets --skip-helper --skip-routes --skip-template-engine</code>.</p><p>Inside the callback method, assign the hash of user information - returned as <code>request.env[&#39;omniauth.auth&#39;]</code> - to the active session.</p><p>To configure logout, clear all the objects stored within the session by calling the <code>reset_session</code> method within the <code>logout</code> action. Then, redirect to the Auth0 logout endpoint. To learn more about <code>reset_session</code>, read <a href="http://api.rubyonrails.org/classes/ActionController/Base.html#M000668">Ruby on Rails ActionController documentation</a>.</p>
 
-## Configure routes {{{ data-action=code data-code="routes.rb" }}}
+## Configure routes {{{ data-action="code" data-code="routes.rb" }}}
 
-Add these routes to your `./config/routes.rb` file.
 
-Routes must be in place so Rails knows how to route the various Auth0 callback URLs to the Auth0 controller you created in the previous step.
+<p>Add these routes to your <code>./config/routes.rb</code> file.</p><p>Routes must be in place so Rails knows how to route the various Auth0 callback URLs to the Auth0 controller you created in the previous step.</p><p><div class="checkpoint">Ruby on Rails Quickstart - Step 6 Checkpoint <div class="checkpoint-default"><p>Run your application to verify it continues to work as intended and you aren&#39;t receive any errors relating to Auth0.</p></div>
 
-::::checkpoint
-::: checkpoint-default
-Run your application to verify it continues to work as intended and you aren't receive any errors relating to Auth0.
-:::
+  <div class="checkpoint-success"></div>
 
-::: checkpoint-failure
-Sorry about that. Please double-check that the previous steps completed without error.
+  <div class="checkpoint-failure"><p>Sorry about that. Please double-check that the previous steps completed without error.</p><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-:::
-::::
+  </div></p>
 
 ## Add login to your application
 
-A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
-::: warning
-To <a href="https://github.com/cookpad/omniauth-rails_csrf_protection" target="_blank" rel="noreferrer">prevent forged authentication requests</a>, use the `link_to` or `button_to` helper methods with the `:post` method
-:::
+<p>A user can now log into your application by visiting the <code>/auth/auth0</code> endpoint.</p><p><div class="alert-container" severity="warning"><p>To <a href="https://github.com/cookpad/omniauth-rails_csrf_protection">prevent forged authentication requests</a>, use the <code>link_to</code> or <code>button_to</code> helper methods with the <code>:post</code> method.</p></div></p><p><pre><code class="language-ruby">&lt;!-- Place a login button anywhere on your application --&gt;
 
-```erb
-<!-- Place a login button anywhere on your application -->
-${"<%= button_to 'Login', '/auth/auth0', method: :post %>"}
-```
+\${ "<\%= button_to 'Login', '/auth/auth0', method: :post %>" }
 
-::::checkpoint
-::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/auth0` endpoint when selected. Observe that you redirect to Auth0 to log in, and then back to your app after successful authentication.
-:::
+</code></pre>
 
-::: checkpoint-failure
-Sorry about that. Here are a couple of things you can check:
+</p><p><div class="checkpoint">Ruby on Rails Quickstart - Step 7 Checkpoint <div class="checkpoint-default"><p>Add a button to your application that redirects the user to the <code>/auth/auth0</code> endpoint when selected. Observe that you redirect to Auth0 to log in, and then back to your app after successful authentication.</p></div>
 
-- Ensure that the correct URLs have been set in your Auth0 application as per the first step in this quickstart
-- Check that all the required gems installed correctly
-- Check that the routes have been set up and the Auth0 configuration has been set up in your app
-- <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">Check the logs</a> for any other errors or messages that may have prevented login from working
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things you can check:</p><ul><li><p>Ensure that the correct URLs have been set in your Auth0 application as per the first step in this quickstart</p></li><li><p>Check that all the required gems installed correctly</p></li><li><p>Check that the routes have been set up and the Auth0 configuration has been set up in your app</p></li><li><p><a href="https://manage.auth0.com/#/logs">Check the logs</a> for any other errors or messages that may have prevented login from working</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>
 
 ## Add logout to your application
 
-Now that you can log in to your Rails application, you need <a href="https://auth0.com/docs/logout/guides/logout-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Log out a user by redirecting to the `auth/logout` action, which redirects them to the Auth0 logout endpoint.
 
-:::note
-To test this after the previous step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.
-:::
+<p>Now that you can log in to your Rails application, you need <a data-contentfulid="FhVnaWoVSOQXM0Uxq1nre-en-US">a way to log out</a>. Log out a user by redirecting to the <code>auth/logout</code> action, which redirects them to the Auth0 logout endpoint.</p><p><div class="alert-container" severity="default"><p>To test this after the previous step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.</p></div></p><p><pre><code class="language-ruby">&lt;!-- Place a logout button anywhere on your application --&gt;
 
-```erb
-<!-- Place a logout button anywhere on your application -->
-${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
-```
+\${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
 
-::::checkpoint
-::: checkpoint-default
-Add a button to your application that redirects the user to the `/auth/logout` endpoint when selected. Verify that you redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.
-:::
+</code></pre>
 
-::: checkpoint-failure
-Sorry about that. Here are a couple of things you can check:
+</p><p><div class="checkpoint">Ruby on Rails Quickstart - Step 8 Checkpoint <div class="checkpoint-default"><p>Add a button to your application that redirects the user to the <code>/auth/logout</code> endpoint when selected. Verify that you redirect to Auth0 and then quickly back to your application, and that you are no longer logged in.</p></div>
 
-- Ensure that the correct URLs have been set in your Auth0 client as per the first step in this quickstart
-- Check that the routes have been set up and the Auth0 configuration has been set up in your app
-- <a href="https://manage.auth0.com/#/logs" target="_blank" rel="noreferrer">Check the logs</a> for any other errors or messages that may have prevented login from working
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things you can check:</p><ul><li><p>Ensure that the correct URLs have been set in your Auth0 client as per the first step in this quickstart</p></li><li><p>Check that the routes have been set up and the Auth0 configuration has been set up in your app</p></li><li><p><a href="https://manage.auth0.com/#/logs">Check the logs</a> for any other errors or messages that may have prevented login from working</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-## Show user profile information {{{ data-action=code data-code="secured.rb" }}}
+  </div></p>
 
-To display the user's profile, your application should provide a protected route. You can use a <a href="https://guides.rubyonrails.org/getting_started.html#using-concerns" target="_blank" rel="noreferrer">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
+## Show user profile information {{{ data-action="code" data-code="routes.rb" }}}
 
-Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]` as in the following example:
 
-```ruby
-class DashboardController < ApplicationController
+<p>To display the user&#39;s profile, your application should provide a protected route. You can use a <a href="https://guides.rubyonrails.org/getting_started.html#using-concerns">Concern</a> to control access to routes that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.</p><p>Once you have a Concern, include it in any controller that requires a logged-in user. You can then access the user from the session <code>session[:userinfo]</code> as in the following example:</p><p><pre><code class="language-ruby">class DashboardController &lt; ApplicationController
+
   include Secured
 
+
+
   def show
+
     @user = session[:userinfo]
+
   end
+
 end
-```
 
-Once the user loads from the session, use it to display information in your frontend:
+</code></pre>
 
-```erb
-<div>
-  <p>Normalized User Profile:${"<%= JSON.pretty_generate(@user[:info])%>"}</p>
-  <p>Full User Profile:${"<%= JSON.pretty_generate(@user[:extra][:raw_info])%>"}</p>
-</div>
-```
+</p><p>Once the user loads from the session, use it to display information in your frontend:</p><p><pre><code class="language-xml">&lt;div&gt;
 
-::::checkpoint
-::: checkpoint-default
-Add the `Secured` concern to your app and then include it in the controller that requires an authenticated user to access it. Verify that an authenticated user has access to actions within that controller and that unauthenticated users are redirected to Auth0 for authentication.
-:::
-::::
+  &lt;p&gt;Normalized User Profile:\${"<%= JSON.pretty_generate(@user[:info])%>"}&lt;/p&gt;
+
+  &lt;p&gt;Full User Profile:\${"<%= JSON.pretty_generate(@user[:extra][:raw_info])%>"}&lt;/p&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+
+</p><p><div class="checkpoint">Ruby on Rails Quickstart - Step 9 Checkpoint <div class="checkpoint-default"><p>Add the <code>Secured</code> concern to your app and then include it in the controller that requires an authenticated user to access it. Verify that an authenticated user has access to actions within that controller and that unauthenticated users are redirected to Auth0 for authentication.</p></div>
+
+  <div class="checkpoint-success"></div>
+
+  <div class="checkpoint-failure"></div>
+
+  </div></p>

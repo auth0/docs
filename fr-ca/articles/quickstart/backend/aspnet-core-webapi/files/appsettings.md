@@ -2,7 +2,7 @@
 name: appsettings.json
 language: json
 ---
-
+    
 ```json
 {
   "Auth0": {

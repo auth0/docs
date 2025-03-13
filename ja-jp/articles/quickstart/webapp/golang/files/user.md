@@ -2,7 +2,7 @@
 name: user.go
 language: go
 ---
-
+    
 ```go
 // Save this file in ./web/app/user/user.go
 

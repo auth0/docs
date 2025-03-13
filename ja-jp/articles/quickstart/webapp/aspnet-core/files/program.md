@@ -1,9 +1,9 @@
 ---
 name: Program.cs
-language: csharp
+language: javascript
 ---
-
-```csharp
+    
+```javascript
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuth0WebAppAuthentication(options =>

@@ -2,7 +2,7 @@
 name: MainView.swift
 language: swift
 ---
-
+    
 ```swift
 import SwiftUI
 import Auth0

@@ -1,97 +1,48 @@
 ---
-title: Add Login to your Express App
-description: "Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK."
-interactive: true
+title: Expressアプリケーションにログインを追加する
+description: このガイドは、Node.js ExpressアプリケーションにExpress OpenID Connect SDKを使ってAuth0を統合し、ユーザーのログイン、ログアウト、およびプロファイルを追加する方法を説明します。
+interactive:  true
 files:
-- files/server
+ - files/server
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-express-webapp-sample/tree/master/01-Login
+locale: ja-JP
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Expressアプリケーションにログインを追加する
 
-# Add Login to Your Express Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK.
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加することができます。このガイドは、Node.js ExpressアプリケーションにExpress OpenID Connect SDKを使ってAuth0を統合し、ユーザーのログイン、ログアウト、およびプロファイルを追加する方法を説明します。</p><p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Auth0を構成する
 
-To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
 
-### Configure an application
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/logout</code>に設定してください。</p></div></p>
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+## ExpressのOpenID Connect SDKをインストールする {{{ data-action="code" data-code="server.js#2:16" }}}
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+<p>アプリケーションには、Auth0がメンテナンスするOIDC準拠のExpress向けSDKである<a href="https://github.com/auth0/express-openid-connect"><code>express-openid-connect</code></a>パッケージが必要です。</p><p>ターミナルで以下のコマンドを実行してExpress OpenID Connect SDKをインストールします：</p><p><pre><code class="language-bash">cd &lt;your-project-directory&gt;
 
-### Configure Callback URLs
-
-A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000/callback.
-:::
-
-### Configure Logout URLs
-
-A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000/logout.
-:::
-
-## Install the Express OpenID Connect SDK {{{ data-action=code data-code="server.js#3:10" }}}
-
-Your application will need the [`express-openid-connect`](https://github.com/auth0/express-openid-connect) package which is an Auth0-maintained OIDC-compliant SDK for Express.
-
-Install the Express OpenID Connect SDK by running the following commands in your terminal:
-
-```bash
-cd <your-project-directory>
 npm install express-openid-connect
-```
 
-### Configure Router
-The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application. You will need to configure the router with the following configuration keys:
+</code></pre>
 
-- `authRequired` - Controls whether authentication is required for all routes
-- `auth0Logout` - Uses Auth0 logout feature
-- `baseURL` - The URL where the application is served
-- `secret` - A long, random string
-- `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
-- `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
+</p><h3>ルーターを構成する</h3><p>Express OpenID Connect SDKライブラリーは、認証ルートをアプリケーションに結びつけるために、<code>auth</code>ルーターを提供します。以下の構成キーでルーターを構成する必要があります：</p><ul><li><p><code>authRequired</code> - すべてのルートに対して認証が必要かを制御します。</p></li><li><p><code>auth0Logout</code> - Auth0ログアウト機能を使います。</p></li><li><p><code>baseURL</code> - アプリケーションが作動するURLです。</p></li><li><p><code>secret</code> - 長くて無作為な文字列です。</p></li><li><p><code>issuerBaseURL</code> - 安全なURLとしてのドメインで、<a href="https://manage.auth0.com/#/applications/%7ByourClientId%7D/settings">アプリケーションの設定</a>で確認できます。</p></li><li><p><code>clientID</code> - <a href="https://manage.auth0.com/#/applications/%7ByourClientId%7D/settings">アプリケーションの設定</a>で確認できるクライアントIDです。</p></li></ul><p>その他の構成オプションについては、<a href="https://auth0.github.io/express-openid-connect">APIドキュメント</a>をご覧ください。</p><p><div class="alert-container" severity="default"><p><code>LONG_RANDOM_STRING</code>に適した文字列は、コマンドラインの<code>openssl rand -hex 32</code>で生成できます。</p></div></p><p><div class="checkpoint">Express - 手順2 - ExpressのOpenID Connect SDKをインストールする - チェックポイント <div class="checkpoint-default"><p>ユーザーはライブラリーによって提供された<code>/login</code>ルートを訪れることで、アプリケーションにログインできるようになりました。プロジェクトを<code>localhost:3000</code>で実行している場合のリンクは、<a href="http://localhost:3000/login"><code>http://localhost:3000/login</code></a>です。</p></div>
 
-For additional configuration options visit the [API documentation](https://auth0.github.io/express-openid-connect).
+  <div class="checkpoint-success"></div>
 
-:::note
-You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand -hex 32` on the command line.
-:::
+  <div class="checkpoint-failure"><p>Sorry about that. You should check the error details on the Auth0 login page to make sure you have entered the callback URL correctly.</p><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
-:::checkpoint-default
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/login`](http://localhost:3000/login).
-:::
-:::checkpoint-failure
-Sorry about that. You should check the error details on the Auth0 login page to make sure you have entered the callback URL correctly.
+  </div></p>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+## ユーザープロファイルを表示する {{{ data-action="code" data-code="server.js#25:28" }}}
 
-## Display User Profile {{{ data-action=code data-code="server.js#29:32" }}}
-To display the user's profile, your application should provide a protected route.
 
-Add the `requiresAuth` middleware for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
+<p>ユーザーのプロファイルを表示するには、アプリケーションに保護されたルートがなければなりません。</p><p>認証を必要とするルートに<code>requiresAuth</code>ミドルウェアを追加してください。このミドルウェアを使用するすべてのルートは有効なユーザーセッションをチェックし、ない場合にはユーザーをログインへリダイレクトします。</p><p><div class="checkpoint">Express - 手順3 - ユーザープロファイルを表示する - チェックポイント <div class="checkpoint-default"><p>ユーザーはライブラリーによって提供された<code>/logout</code>ルートを訪れることで、アプリケーションからログアウトできます。プロジェクトを<code>localhost:3000</code>で実行している場合のリンクは、<a href="http://localhost:3000/logout"><code>http://localhost:3000/logout</code></a>です。</p></div>
 
-::::checkpoint
-:::checkpoint-default
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/logout`](http://localhost:3000/logout).
-:::
-:::checkpoint-failure
-Sorry about that. You should check that you configured the logout URL correctly.
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. You should check that you configured the logout URL correctly.</p><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

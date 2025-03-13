@@ -2,7 +2,7 @@
 name: app.js
 language: javascript
 ---
-
+    
 ```javascript
 auth0.createAuth0Client({
   domain: "${account.namespace}",

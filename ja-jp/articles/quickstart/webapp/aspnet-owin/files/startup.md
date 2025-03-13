@@ -2,7 +2,7 @@
 name: Startup.cs
 language: csharp
 ---
-
+    
 ```csharp
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
@@ -79,5 +79,4 @@ public void Configuration(IAppBuilder app)
         }
     });
 }
-```
 ```

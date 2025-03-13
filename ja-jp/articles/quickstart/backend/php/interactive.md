@@ -1,109 +1,66 @@
 ---
-title: Add endpoint authorization to your PHP application
-description: "Auth0 allows you to add token-based endpoint authorization to your PHP application quickly and to protect your routes. This guide demonstrates how to integrate Auth0 with any new or existing PHP application using the Auth0 PHP SDK."
-interactive: true
+title: PHPアプリケーションに認可を追加する
+description: このガイドは、Auth0 PHP SDKを使ってAuth0を統合し、トークンベースの認可の追加とアプリケーションルートの保護を行う方法について説明します。
+interactive:  true
 files:
-  - files/index
-  - files/router
+ - files/index
+ - files/router
 github:
-  path: app
+  path: https://github.com/auth0-samples/auth0-php-api-samples/tree/main/app
+locale: ja-JP
 ---
 
-# Add Authorization to Your PHP Application
+# PHPアプリケーションに認可を追加する
 
-Auth0 allows you to add token-based endpoint authorization to almost any application type quickly. This guide demonstrates how to integrate Auth0, add token-based authorization, and protect application routes using the Auth0 PHP SDK.
 
-To use this quickstart, you’ll need to:
-- Sign up for a free Auth0 account or log in to Auth0.
-- Have a working PHP project that you want to integrate with Auth0. Alternatively, you can view or download a sample application after logging in.
+<p>Auth0を使用すると、アプリケーションに手軽にトークンベースのエンドポイント認可を追加することができます。このガイドは、Auth0 PHP SDKを使ってAuth0を統合し、トークンベースの認可の追加とアプリケーションルートの保護を行う方法について説明します。</p><p>このクイックスタートを使用するには、以下の手順に従います：</p><ul><li><p>Auth0の無料アカウントにサインアップするか、Auth0にログインします。</p></li><li><p>Auth0に統合したいPHPプロジェクトを用意します。または、ログインした後に、サンプルアプリケーションを表示してダウンロードすることもできます。</p></li></ul><p></p><p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Auth0を構成する
 
-To use Auth0 services, you need to have an application registered in the Auth0 Dashboard. The Auth0 application is where you configure how you want authentication to work for your project.
 
-### Configure an application
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに登録済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>代わりに完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>APIを構成する</h3><p>同様に、Auth0 APIを新規作成するか、<a href="https://manage.auth0.com/#/">Dashboard</a>から統合するプロジェクトを表す既存のAPIを使用する必要があります。APIに一意の識別子を選択して記録します。以下のアプリケーションを構成するには、その識別子が必要です。</p>
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code uses to call Auth0 APIs through the SDK.
+## Auth0 PHP SDKをインストールする {{{ data-action="code" data-code="index.php" }}}
 
-Any settings you configure using this quickstart automatically updates for your application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+<p>PHPアプリで、Auth0の認証・認可を手軽に実装できるように、Auth0は<a href="https://github.com/auth0/auth0-PHP">PHP SDK</a>（Auth0-PHP）を提供しています。</p><p>Auth0 PHP SDKでは、ネットワーク要求を管理するために、<a href="https://www.php-fig.org/psr/psr-17/">PSR-17</a>と<a href="https://www.php-fig.org/psr/psr-18/">PSR-18</a>対応HTTPライブラリーをインストールする必要があります。ライブラリーがない場合は、ターミナルで以下のコマンドを実行して、信頼できる選択肢をインストールすることができます：</p><p><pre><code class="language-powershell">cd &lt;your-project-directory&gt;
 
-### Configure an API
+    composer require symfony/http-client nyholm/psr7
 
-Similarly, you need to create a new Auth0 API or use an existing API that represents the project you're integrating from the <a href="${manage_url}/#/">Dashboard</a>. Choose a unique identifier for the API and make a note of it. You need that identifier to configure your application below.
+</code></pre>
 
-## Install the Auth0 PHP SDK {{{ data-action=code data-code="index.php" }}}
+</p><p>ターミナルで以下のコマンドを実行してAuth0 PHP SDKをインストールします：</p><p><pre><code class="language-powershell">composer require auth0/auth0-php
 
-Auth0 provides a [PHP SDK](https://github.com/auth0/auth0-PHP) (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.
+</code></pre>
 
-The Auth0 PHP SDK requires [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) installed, compatible HTTP libraries for managing network requests. If you don't have libraries available, you can install reliable choices by running the following commands in your terminal:
+</p><h3>Auth0 SDKを構成する</h3><p>SDKが正しく機能するためには、次のプロパティを初期化中にAuth0 SDKで設定しなければなりません：</p><ul><li><p><code>strategy</code>：アプリのユースケースでSDKの動作を導くのに役立ちます。この場合は、以下の定数に設定します。</p><p><code>Auth0\SDK\Configuration\SdkConfiguration::STRATEGY_API</code></p></li><li><p>domain：Auth0テナントのドメインです。通常、Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Domain（ドメイン）］フィールドで確認できます。カスタムドメインを使用している場合は、この値をカスタムドメインの値に設定してください。</p></li><li><p>clientId：このクイックスタートで前にセットアップした、Auth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Client ID（クライアントID）］フィールドで確認できます。</p></li><li><p>clientSecret：このクイックスタートで前にセットアップしたAuth0アプリケーションのシークレットです。Auth0 Dashboardにあるアプリケーションの［Settings（設定）］の［Client Secret（クライアントシークレット）］フィールドにあります。</p></li><li><p>audience：上で登録したAuth0 APIの識別子です。配列として指定されている必要があります。</p></li></ul><p><div class="checkpoint">PHP API手順2「チェックポイント」 <div class="checkpoint-default"><p>Auth0 SDKが正しく構成されました。アプリケーションを実行して次の点を確認します：</p><ul><li><p>SDKが正しく初期化している。</p></li><li><p>アプリケーションがAuth0に関連したエラーを投入していない。</p></li></ul><p></p></div>
 
-```bash
-cd <your-project-directory>
-composer require symfony/http-client nyholm/psr7
-```
+  <div class="checkpoint-success"></div>
 
-Now, install the Auth0 PHP SDK by running the following command in your terminal:
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>Make sure the correct application is selected.</p></li><li><p>Did you save after entering your URLs?</p></li><li><p>Make sure the domain and client ID imported correctly.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-```bash
-composer require auth0/auth0-php
-```
+  </div></p>
 
-### Configure the Auth0 SDK {{{ data-action=code data-code="index.php#7:16" }}}
+## ベアラートークンをリッスンする {{{ data-action="code" data-code="index.php#20:23" }}}
 
-For the SDK to function properly, you must set the following properties in the Auth0 SDK during initialization:
 
-- `strategy`: The strategy helps guide the behavior of the SDK for the use case of your app. In this case, you want to set this to the constant `Auth0\SDK\Configuration\SdkConfiguration::STRATEGY_API`.
-- `domain`: The domain of your Auth0 tenant. Generally, you find this in the Auth0 Dashboard under Application's Settings in the _Domain_ field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
-- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the _Client ID_ field.
-- `clientSecret`: The secret of the Auth0 application you created earlier in this quickstart. Client secret is in the Auth0 Dashboard under your Application's Settings in the _Client Secret_ field.
-- `audience`: The identifier of the Auth0 API you registered above. This must be provided as an array.
+<p>次に、ベアラートークンを取得し処理するためにアプリケーションを拡張します。ベアラートークンはAPIに提供されるアクセストークンで、ユーザーに代わってクライアントからリクエストされます。アクセストークンは、アプリケーションでルートへのアクセスを承認または拒否します。これは、エンドポイント認可と呼ばれます。</p><p>リクエストからアクセストークンを取得する最も簡単な方法は、PHP SDKの<code>getBearerToken()</code>メソッドを使用するものです。このメソッドは、GETパラメーター、POST本文、リクエストヘッダー、および他のソースからトークンを取得します。この場合、PHP SDKは<code>token</code>パラメーターのGETリクエスト、またはHTTP <code>Authorization</code>ヘッダーから渡されたトークンを処理します。</p>
 
-::::checkpoint
-:::checkpoint-default
+## ルートを作成・構成する {{{ data-action="code" data-code="router.php" }}}
 
-Your Auth0 SDK is now properly configured. Run your application to verify that:
-- The SDK is initializing correctly.
-- Your application is not throwing any errors related to Auth0.
 
-:::
+<p>次に、受信リクエストをアプリケーションにダイレクトするために、ルーティングライブラリーをインストールします。これは必須手順ではありませんが、本クイックスタートの目的上、アプリケーション構造が簡略化されます。</p><p><pre><code class="language-powershell">composer require steampixel/simple-php-router
 
-:::checkpoint-failure
-Sorry about that. Here's a couple things to double check:
-* Make sure the correct application is selected.
-* Did you save after entering your URLs?
-* Make sure the domain and client ID imported correctly.
+</code></pre>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+</p><p>アプリケーションで<code>router.php</code>と呼ばれる新規ファイルを作成し、ルートを定義します。<b>router.php</b>タブにある、右のインタラクティブパネルからコードをコピーします。</p>
 
-:::
-::::
+## エンドポイント認可を構成する {{{ data-action="code" data-code="router.php#21:31" }}}
 
-## Listen for bearer tokens {{{ data-action=code data-code="index.php#20:23" }}}
 
-Next, expand your application to retrieve and process bearer tokens. Bearer tokens are access tokens provided to your API with requests from clients on a users' behalf. Access tokens approve or deny access to routes in your application. This is referred to as endpoint authorization.
+<p>Auth0アプリケーションとAuth0 PHP SDKを構成し、アプリケーションでリクエストからベアラートークンを取得したら、次の手順はプロジェクトにエンドポイント認可をセットアップすることです。上で実装した<code>getBearerToken()</code>メソッドは、リクエストのアクセスに関する詳細を含む<code>Token</code>クラスを返します。</p><p><code>getBearerToken()</code>メソッドは受信リクエストを自動的に検証・確認するため、アプリケーションはメソッドの応答を評価することで、アクセストークンの詳細を判定します。応答がnullの場合、提供される有効なトークンはありません。そうでない場合は、応答の内容を検査し、リクエストの詳細を確認してください。</p><p>右のインタラクティブパネルで、応答がnullであるかどうかをチェックし、<code>/api/private</code>ルートへのアクセスをフィルターすることができます。</p>
 
-The easiest way to retrieve access tokens from a request is using the PHP SDK's `getBearerToken()` method. This method fetches tokens from GET parameters, POST bodies, request headers, and other sources. In this case, the PHP SDK processes tokens passed from GET requests in the `token` parameter or from the HTTP `Authorization` header.
+## スコープで認可する {{{ data-action="code" data-code="router.php#33:48" }}}
 
-## Create and configure routes {{{ data-action=code data-code="router.php" }}}
 
-Now, install a routing library to help direct incoming requests to your application. This isn't a required step, but simplifies the application structure for the purposes of this quickstart.
-
-```bash
-composer require steampixel/simple-php-router
-```
-
-Create a new file in your application called `router.php` to define the routes. Copy in the code from the interactive panel to the right under the <b>router.php</b> tab.
-
-## Configue endpoint authorization {{{ data-action=code data-code="router.php#21:31" }}}
-
-Now that you have configured your Auth0 application, the Auth0 PHP SDK, and you application retrieves bearer tokens from requests, the next step is to set up endpoint authorization for your project. The `getBearerToken()` method you implemented above returns a `Token` class that includes details on the request's access.
-
-Since the `getBearerToken()` method automatically validates and verifies the incoming request, your application determines the details of the access token by evaluating the method's response. When the response is null, no valid token has been provided. Otherwise, inspect the contents of the response to learn more about the request.
-
-In the interactive panel to the right, you can see a check if the response is null or not to filter access to your `/api/private` route.
-
-## Authorize with scopes {{{ data-action=code data-code="router.php#33:48" }}}
-
-In some cases, you may want to filter access to a specific route based on the requested scopes in an access token. As shown in the interactive panel on the right, evaluate the contents of the 'scope' property from the `getBearerToken()` method's response to check the scopes granted by the access token.
+<p>アクセストークンで要求されたスコープに基づいて、特定のルートへのアクセスをフィルターしたい場合もあるでしょう。右のインタラクティブパネルに示すように、<code>getBearerToken()</code>メソッドの応答から&#39;scope&#39;プロパティのコンテンツを評価し、アクセストークンで付与されたスコープをチェックします。</p>

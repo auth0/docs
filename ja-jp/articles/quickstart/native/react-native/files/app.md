@@ -2,9 +2,7 @@
 name: app.js
 language: javascript
 ---
-
-<!-- markdownlint-disable MD041 -->
-
+    
 ```javascript
 import React from 'react';
 import {Button, Text, View, StyleSheet} from 'react-native';

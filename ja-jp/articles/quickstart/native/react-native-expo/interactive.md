@@ -1,189 +1,92 @@
 ---
-title: Add Login to your React Native App
-description: This quickstart demonstrates how to add user login to an React Native application using Auth0.
-seo_alias: react-native
-interactive: true
+title: Expoアプリケーションにログインを追加する
+description: このガイドでは、ExpoアプリケーションにAuth0 React Native SDKを使ってAuth0を統合し、認証の追加とユーザープロファイル情報の表示を行う方法について説明します。
+interactive:  true
 files:
-  - files/app-json
-  - files/app
+ - files/App
+ - files/app
 github:
-  path: 00-Login
-topics: 
-  - quickstarts 
-  - native 
-  - react-native
+  path: https://github.com/auth0-samples/auth0-react-native-sample/tree/master/00-Login
+locale: ja-JP
 ---
 
-# Add Login to Your React Native Application
+# Expoアプリケーションにログインを追加する
 
-<!-- markdownlint-disable MD002 MD012 MD041 -->
 
-This Quickstart is for the Expo framework. To integrate Auth0 into your React Native application, please refer to the [React Native Quickstart](https://auth0.com/docs/quickstart/native/react-native/interactive)
+<p>このクイックスタートは、Expoフレームワーク用です。React NativeアプリケーションにAuth0を統合するには、「<a data-contentfulid="1wLtNQQy4UsKwDEEhJkGeJ-ja-JP">React Nativeクイックスタート</a>」を参照してください。</p><p><div class="alert-container" severity="warning"><p>このSDKは「Expo Go」アプリと互換性がありません。互換性があるのはカスタム開発クライアントとEASビルドのみです。</p></div></p><p></p>
 
-::: warning
-This SDK is not compatible with "Expo Go" app. It is compatible only with Custom Dev Client and EAS builds.
-:::
+## Auth0を構成する
 
-## Configure Auth0 {{{ data-action=configure }}}
 
-To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに認証を構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLとログアウトURLを構成する</h3><p>Auth0はCallback URLとログアウトURLを呼び出して、ユーザーをアプリケーションにリダイレクトで戻します。Auth0は、ユーザーを認証した後にCallback URLを呼び出し、セッションのクッキーを削除した後にログアウトURLを呼び出します。Callback URLとログアウトURLを設定しないと、ユーザーはアプリにログインやログアウトが行えなくなり、アプリケーションにエラーが発生します。</p><p>アプリのプラットフォームに合わせて、対応するURLを<b>Callback URL</b>と<b>ログアウトURL</b>に追加します。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>を使っている場合は、Auth0テナントのドメインではなく、カスタムドメインの値を使用してください。</p><h4>iOS</h4><p><code>BUNDLE_IDENTIFIER.auth0://{yourDomain}/ios/BUNDLE_IDENTIFIER/callback</code></p><h4>Android</h4><p><code>PACKAGE_NAME.auth0://{yourDomain}/android/PACKAGE_NAME/callback</code></p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合には、次の値を使用します：</p><ul><li><p>iOS：<code>com.auth0samples.auth0://{yourDomain}/ios/com.auth0samples/callback</code></p></li><li><p>Android：<code>com.auth0samples.auth0://{yourDomain}/android/com.auth0samples/callback</code></p></li></ul><p></p></div></p>
 
-### Configure an application
+## 依存関係をインストールする
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+<p>このセクションでは、React Native Auth0モジュールをインストールする方法について説明します。</p><p><div class="alert-container" severity="default"><p>React Nativeの追加情報については、<a href="https://facebook.github.io/react-native/">公式ドキュメント</a>を参照してください。</p></div></p><h3>Yarn</h3><p><code>yarn add react-native-auth0</code></p><p><div class="alert-container" severity="default"><p><code>yarn</code>の詳細については、<a href="https://yarnpkg.com/en/docs">公式ドキュメント</a>を確認してください。</p></div></p><h3>npm</h3><p><code>npm install react-native-auth0 --save</code></p>
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+## Auth0構成プラグインをセットアップする {{{ data-action="code" data-code="app.json#10:15" }}}
 
-### Configure callback and logout URLs
 
-Auth0 invokes the callback and logout URLs to redirect users back to your application. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and logout URLs, users will not be able to log in and out of the app, and your application will produce an error.
+<p>Auth0パッケージはカスタムネイティブコードを実行し、これはビルド時に構成しておく必要があります。これを実現するには、<a href="https://docs.expo.dev/guides/config-plugins/">Expo構成プラグイン</a>を使用します。</p><p><code>react-native-auth0</code>プラグインが<a href="https://docs.expo.dev/workflow/configuration/">Expo構成</a>に追加されます。</p>
 
-Add the corresponding URL to **Callback URLs** and **Logout URLs**, according to your app's platform. If you are using a [custom domain](/customize/custom-domains), use the value of your custom domain instead of your Auth0 tenant’s domain.
+## ネイティブソースコードを生成する {{{ data-action="code" data-code="app.json#31:36" }}}
 
-#### iOS
-```text
-BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
-```
 
-#### Android
-```text
-PACKAGE_NAME.auth0://${account.namespace}/android/PACKAGE_NAME/callback
-```
+<p>上記の構成を設定するには、ネイティブコードを生成する必要があります。これを行うには、次のコマンドを実行します：</p><p><code>expo prebuild</code></p><p>Expoの構成に存在しない場合には、<a href="https://github.com/expo/fyi/blob/main/android-package.md">Androidパッケージ</a>と<a href="https://github.com/expo/fyi/blob/main/bundle-identifier.md">iOSバンドル識別子</a>の提供が促されます。</p><p><pre><code>? What would you like your Android package name to be? &gt; com.auth0samples # or your desired package name
 
-::: note
-If you are following along with our sample project, set this
-- for iOS - `com.auth0samples.auth0://${account.namespace}/ios/com.auth0samples/callback`
-- for Android - `com.auth0samples.auth0://${account.namespace}/android/com.auth0samples/callback`
-:::
 
-## Install dependencies 
 
-In this section, you will learn how to install the React Native Auth0 module.
+? What would you like your iOS bundle identifier to be? &gt; com.auth0samples # or your desired bundle identifier
 
-::: note
-Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
-:::
+</code></pre>
 
-### Yarn
+</p><p>これらの値は、Callback URLとログアウトURLの設定に使用されます。</p><p></p>
 
-```bash
-yarn add react-native-auth0
-```
+## Auth0Providerコンポーネントを構成する {{{ data-action="code" data-code="App.js#46:48" }}}
 
-::: note
-For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
-:::
 
-### npm
+<p><code>useAuth0</code>フックはReact Contextに依存して状態を管理します。このコンテキストは<code>Auth0Provider</code>コンポーネントが提供します。</p><p><code>react-native-auth0</code>パッケージから<code>useAuth0</code>フックと<code>Auth0Provider</code>コンポーネントをインポートします：</p><p><pre><code class="language-javascript">import {useAuth0, Auth0Provider} from 'react-native-auth0';
 
-```bash
-npm install react-native-auth0 --save
-```
+</code></pre>
 
-## Setup Auth0 Config Plugin {{{ data-action=code data-code="app.json#10:15"}}}
+</p><p>SDKが正しく機能するためには、アプリケーションを<code>Auth0Provider</code>コンポーネントでラップし、次のプロパティを設定しなければなりません：</p><ul><li><p><code>domain</code>：Auth0テナントのドメインです。通常、Auth0 Dashboardにある<b>アプリケーションの設定</b>の<b>［Domain（ドメイン）］</b>フィールドで確認できます。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>を使用している場合には、この値をカスタムドメインの値に設定してください。</p></li><li><p><code>clientId</code>：このクイックスタートで前にセットアップした、Auth0アプリケーションのクライアントIDです。これは、Auth0 Dashboardにある<b>アプリケーションの設定</b>の<b>［Client ID（クライアントID）］</b>フィールドで確認できます。</p></li></ul><p><div class="checkpoint">Expo - 手順5 - Auth0Providerコンポーネントを構成する <div class="checkpoint-default"><p><code>Auth0Provider</code>コンポーネントが構成されました。アプリケーションを実行して次の点を確認します：</p><ul><li><p>SDKが正しく初期化している</p></li><li><p>アプリケーションがAuth0に関連したエラーを投入していない</p></li></ul><p></p></div>
 
-The Auth0 package runs custom native code that must be configured at build time. Use [Expo Config Plugin](https://docs.expo.dev/guides/config-plugins/) to achieve this.
+  <div class="checkpoint-success"></div>
 
-The `react-native-auth0` plugin will be added in the [Expo config](https://docs.expo.dev/workflow/configuration/)
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>ensure your domain and client ID values are correct</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p><p></p></div>
 
-## Generate Native Source Code {{{ data-action=code data-code="app.json#31:36"}}}
+  </div></p>
 
-You must generate the native code for the above configuration to be set. To do this, run the following command:
+## アプリケーションにログインを追加する {{{ data-action="code" data-code="App.js#8:14" }}}
 
-```bash
-expo prebuild
-```
 
-You will be prompted to provide the [Android package](https://github.com/expo/fyi/blob/main/android-package.md) and [iOS bundle identifier](https://github.com/expo/fyi/blob/main/bundle-identifier.md) if they are not already present in the Expo config. 
+<p>ユーザーを認証するには、<code>useAuth0</code>フックが提供する<code>authorize</code>メソッドを呼び出します。これは、認証のためにユーザーをAuth0の<a data-contentfulid="67MpEy8zCywwI8YMkn5jy1-ja-JP">ユニバーサルログイン</a>ページへリダイレクトし、アプリへ戻します。</p><p>ユーザーのログインが成功したことを確認するには、フックの提供する<code>user</code>プロパティが<code>null</code>でないことを確認してください。</p><p><div class="checkpoint">Expo - 手順6 - アプリケーションにログインを追加する <div class="checkpoint-default"><p>クリックで<code>authorize</code>を呼び出すボタンコンポーネントを追加します。ログインページにリダイレクトされてから、アプリケーションに戻されることを確認します。</p></div>
 
-```bash
-? What would you like your Android package name to be? > com.auth0samples # or your desired package name
+  <div class="checkpoint-success"></div>
 
-? What would you like your iOS bundle identifier to be? > com.auth0samples # or your desired bundle identifier
-```
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>ensure you set the Allowed Callback URLs are correct</p></li><li><p>verify you saved your changes after entering your URLs</p></li><li><p>make sure the domain and client ID values are imported correctly</p></li><li><p>if using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-These values are used to set the callback and logout URLs.
+  </div></p>
 
-## Configure the Auth0Provider component {{{ data-action=code data-code="App.js#41:43"}}}
+## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="App.js#16:22" }}}
 
-The `useAuth0` hook relies on a React Context to provide state management. This context is provided by the `Auth0Provider` component.
 
-Import the `useAuth0` hook and `Auth0Provider` component from the `react-native-auth0` package:
+<p>ユーザーをログアウトさせるには、<code>clearSession</code>を呼び出して、ユーザーをAuth0のログアウトエンドポイントにリダイレクトします。そうすると、ユーザーのセッションが認可サーバーから削除され、ユーザーがアプリケーションからログアウトされます。</p><p><div class="checkpoint">Expo - 手順7 - アプリケーションにログアウトを追加する <div class="checkpoint-default"><p><code>clearSession</code>を呼び出すログアウトボタンを追加して、Auth0のログアウトエンドポイントにリダイレクトされ、再び戻されることを確認してください。アプリケーションにはログインされていないはずです。</p></div>
 
-```js
-import {useAuth0, Auth0Provider} from 'react-native-auth0';
-```
+  <div class="checkpoint-success"></div>
 
-For the SDK to function properly, you must wrap your application in the `Auth0Provider` component, and set the following properties:
+  <div class="checkpoint-failure"><p>If your application did not log out successfully:</p><ul><li><p>ensure the Allowed Logout URLs are set properly</p></li><li><p>verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
-- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+  </div></p>
 
-::::checkpoint
-:::checkpoint-default
-Your `Auth0Provider` component should now be properly configured. Run your application to verify that:
-- the SDK is initializing correctly
-- your application is not throwing any errors related to Auth0
-:::
-:::checkpoint-failure
-If your application did not launch successfully:
-- make sure the correct application is selected
-- did you save after entering your URLs?
-- ensure your domain and client ID values are correct
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+## ユーザープロファイル情報を表示する {{{ data-action="code" data-code="App.js#32:34" }}}
 
-## Add login to your application {{{ data-action=code data-code="App.js#8:14" }}}
 
-Authenticate the user by calling the `authorize` method provided by the `useAuth0` hook. This redirects the user to the Auth0 [Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) page for authentication, then back to your app.
+<p><code>useAuth0</code>フックは、認証済みユーザーの情報を含む<code>user</code>オブジェクトを公開します。これを使用すれば、認証済みユーザーについてデコードされたユーザープロファイル情報に、<a href="https://auth0.com/docs/secure/tokens/id-tokens">IDトークン</a>からアクセスできます。</p><p>ユーザーが認証されていない場合、このプロパティは<code>null</code>になります。</p><p><div class="checkpoint">Expo - 手順8 - ユーザープロファイル情報を表示する <div class="checkpoint-default"><p>ログインして、結果の<code>user</code>プロパティを調査します。<code>email</code>や<code>name</code>など、現在のユーザーのプロファイル情報を確認します。</p></div>
 
-For confirmation that the user was logged in successfully, check that the `user` property provided by the hook is not `null`.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
-:::checkpoint-default
-Add a button component that calls `authorize` when clicked. Verify that you are redirected to the login page and then back to your application.
-:::
-:::checkpoint-failure
-If your application did not launch successfully:
+  <div class="checkpoint-failure"></div>
 
-- ensure you set the Allowed Callback URLs are correct
-- verify you saved your changes after entering your URLs
-- make sure the domain and client ID values are imported correctly
-- if using Android, ensure that the manifest placeholders have been set up correctly, otherwise the redirect back to your app may not work
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Add logout to your application {{{ data-action=code data-code="App.js#16:22" }}}
-
-To log the user out, redirect them to the Auth0 logout endpoint by calling `clearSession`. This will remove their session from the authorization server and log the user out of the application.
-
-::::checkpoint
-:::checkpoint-default
-Add a logout button that calls `clearSession` and observe that you are redirected to the Auth0 logout endpoint and back again. You should no longer be logged in to your application.
-:::
-:::checkpoint-failure
-If your application did not log out successfully:
-
-- ensure the Allowed Logout URLs are set properly
-- verify you saved your changes after entering your URLs
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
-
-## Show user profile information {{{ data-action=code data-code="App.js#32:34" }}}
-
-The `useAuth0` hook exposes a `user` object that contains information about the authenticated user. You can use this to access user profile information about the authenticated user that has been decoded from the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
-
-If a user has not been authenticated, this property will be `null`.
-
-::::checkpoint
-:::checkpoint-default
-Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
-:::
-::::
+  </div></p>

@@ -1,8 +1,9 @@
 ---
 name: application.yml
-language: yaml
+language: 
 ---
-```yaml
+    
+```
 okta:
   oauth2:
     # Replace with the domain of your Auth0 tenant.

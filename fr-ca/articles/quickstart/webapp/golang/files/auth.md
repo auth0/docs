@@ -2,7 +2,7 @@
 name: auth.go
 language: go
 ---
-
+    
 ```go
 // Save this file in ./platform/authenticator/auth.go
 

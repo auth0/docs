@@ -1,8 +1,9 @@
 ---
 name: build.gradle
-language: groovy
+language: javascript
 ---
-```groovy
+    
+```javascript
 apply plugin: 'com.android.application'
 
 android {

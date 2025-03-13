@@ -1,156 +1,129 @@
 ---
-title: Spring Boot API
-description: Secure your API using the Okta Spring Boot Starter
-interactive: true
-alias:
-  - spring security
-  - spring
-topics:
-  - quickstart
-  - backend
-  - spring
+title: Add Authorization to Your Spring Boot Application
+description: This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
+interactive:  true
 files:
-  - files/application
-  - files/security-config
-  - files/message
-  - files/api-controller
+ - files/application
+ - files/SecurityConfig
+ - files/Message
+ - files/APIController
 github:
-  path: 01-Authorization-MVC
+  path: https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-MVC
+locale: en-US
 ---
 
 # Add Authorization to Your Spring Boot Application
 
-Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.
 
-If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.
-
-Review <a href="get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">our getting started guide</a> to set up your first API through the Auth0 dashboard.
-
-Each Auth0 API uses the API Identifier, which your application needs to validate the access token.
-
-<%= include('../../../_includes/_api_auth_intro') %>
+<p>Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.</p><p>If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.</p><p>Review <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis">our getting started guide</a> to set up your first API through the Auth0 dashboard.</p><p>Each Auth0 API uses the API Identifier, which your application needs to validate the access token.</p><p><div class="alert-container" severity="default"><p><b>New to Auth0?</b> Learn <a href="https://auth0.com/docs/overview">how Auth0 works</a> and read about <a href="https://auth0.com/docs/api-auth">implementing API authentication and authorization</a> using the OAuth 2.0 framework.</p></div></p><p></p>
 
 ## Define permissions
-<%= include('../_includes/_api_scopes_access_resources') %>
-
-## Configure the sample project {{{ data-action=code data-code="application.yml#1:8" }}}
-
-The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
-
-| Attribute | Description|
-| --- | --- |
-| `okta.oauth2.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
-| `okta.oauth2.issuer` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). 
-
-## Install dependencies {{{ data-action=code data-code="application.yml#1:8" }}}
-
-If you are using Gradle, you can add the required dependencies using the <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/" target="_blank" rel="noreferrer">Spring Boot Gradle Plugin</a> and the <a href="https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/" target="_blank" rel="noreferrer">Dependency Management Plugin</a> to resolve dependency versions:
-
-```groovy
-// build.gradle
-
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.1.5'
-    id 'io.spring.dependency-management' version '1.1.3'
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.okta.spring:okta-spring-boot-starter:3.0.5'
-}
-```
-
-If you are using Maven, add the Spring dependencies to your `pom.xml` file:
-
-```xml
-// pom.xml
-
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.5</version>
-    <relativePath/>
-</parent>
-
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.okta.spring</groupId>
-        <artifactId>okta-spring-boot-starter</artifactId>
-        <version>3.0.5</version>
-    </dependency>
-</dependencies>
-```
 
 
-## Configure the resource server {{{ data-action=code data-code="SecurityConfig.java" }}}
+<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and a write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/dashboard/us/dev-1-2s2aq0/apis">APIs</a> section.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p><div class="alert-container" severity="default"><p>This example uses the <code>read:messages</code> scope.</p></div></p>
 
-To configure the application as a Resource Server and validate the JWTs, create a class that will provide an instance of `SecurityFilterChain`, and add the `@Configuration` annotation.
+## Configure the sample project {{{ data-action="code" data-code="application.yml#1:6" }}}
 
-### Protect API endpoints
 
-<%= include('../_includes/_api_endpoints') %>
+<p>The sample project uses a <code>/src/main/resources/application.yml</code> file, which configures it to use the correct Auth0 <b>domain</b> and <b>API Identifier</b> for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.</p><p></p>
 
-The example below shows how to secure API methods using the `HttpSecurity` object provided in the `filterChain()` method of the `SecurityConfig` class. Route matchers restrict access based on the level of authorization required.
+## Install dependencies {{{ data-action="code" data-code="application.yml#1:6" }}}
 
-::: note
-By default, Spring Security creates a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This scope enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
-:::
 
-## Create the Domain Object {{{ data-action=code data-code="Message.java#1:11" }}}
+<p>If you are using Gradle, you can add the required dependencies using the <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/">Spring Boot Gradle Plugin</a> and the <a href="https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/">Dependency Management Plugin</a> to resolve dependency versions:</p><p><pre><code>// build.gradle
 
-To make your endpoint return a JSON, you can use a Java record. The member variables of this object is serialized into the key value for your JSON. Create a new record named `Message` as an example domain object to return during the API calls.
 
-## Create the API controller {{{ data-action=code data-code="APIController.java" }}}
 
-Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the <a href="/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server" target="_blank" rel="noreferrer">Protect API Endpoints</a> section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
+    plugins {
 
-## Run the application {{{ data-action=code data-code="APIController.java" }}}
+        id 'java'
 
-To build and run the sample project, execute the `bootRun` Gradle task.
+        id 'org.springframework.boot'
 
-Linux or macOS:
+        version '3.1.5'
 
-```bash
-./gradlew bootRun
-```
+        id 'io.spring.dependency-management'
 
-Windows:
+        version '1.1.3'
 
-```bash
-gradlew.bat bootRun
-```
+    }
 
-If you are configuring your own application using Maven and the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html" target="_blank" rel="noreferrer">Spring Boot Maven Plugin</a>, you can execute the `spring-boot:run` goal.
 
-Linux or macOS:
 
-```bash
-mvn spring-boot:run
-```
+    dependencies {
 
-Windows:
+        implementation 'org.springframework.boot:spring-boot-starter-web'
 
-```bash
-mvn.cmd spring-boot:run
-```
+        implementation 'com.okta.spring:okta-spring-boot-starter:3.0.5'
 
-::::checkpoint
+    }
 
-:::checkpoint-default
+</code></pre>
 
-The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the <a href="/quickstart/backend/java-spring-security5/02-using" target="_blank" rel="noreferrer">Using Your API</a> article.
-:::
+</p><p>If you are using Maven, add the Spring dependencies to your <code>pom.xml</code> file:</p><p><pre><code class="language-xml">// pom.xml
 
-:::checkpoint-failure
-If your application did not launch successfully:
-* Use the <a href="/quickstart/backend/java-spring-security5/03-troubleshooting" target="_blank" rel="noreferrer">Troubleshooting</a> section to check your configuration.
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
 
-:::
-::::
+&lt;parent&gt;
+
+ &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+
+ &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+
+ &lt;version&gt;3.1.5&lt;/version&gt;
+
+ &lt;relativePath/&gt;
+
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+
+ &lt;dependency&gt;
+
+ &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+
+ &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+
+ &lt;/dependency&gt;
+
+ &lt;dependency&gt;
+
+ &lt;groupId&gt;com.okta.spring&lt;/groupId&gt;
+
+ &lt;artifactId&gt;okta-spring-boot-starter&lt;/artifactId&gt;
+
+ &lt;version&gt;3.0.5&lt;/version&gt;
+
+ &lt;/dependency&gt;
+
+&lt;/dependencies&gt;
+
+</code></pre>
+
+</p>
+
+## Configure the resource server {{{ data-action="code" data-code="SecurityConfig.java" }}}
+
+
+<p>To configure the application as a Resource Server and validate the JWTs, create a class that will provide an instance of <code>SecurityFilterChain</code>, and add the <code>@Configuration</code> annotation.</p><h3>Protect API endpoints</h3><p>The routes shown below are available for the following requests:</p><ul><li><p><code>GET /api/public</code>: available for non-authenticated requests</p></li><li><p><code>GET /api/private</code>: available for authenticated requests containing an access token with no additional scopes</p></li><li><p><code>GET /api/private-scoped</code>: available for authenticated requests containing an access token with the <code>read:messages </code>scope granted</p></li></ul><p>The example below shows how to secure API methods using the <code>HttpSecurity</code> object provided in the <code>filterChain()</code> method of the <code>SecurityConfig</code> class. Route matchers restrict access based on the level of authorization required.</p><p><div class="alert-container" severity="default"><p>By default, Spring Security creates a <code>GrantedAuthority</code> for each scope in the <code>scope</code> claim of the JWT. This scope enables using the <code>hasAuthority(&quot;SCOPE_read:messages&quot;)</code> method to restrict access to a valid JWT that contains the <code>read:messages</code> scope.</p></div></p>
+
+## Create the Domain Object {{{ data-action="code" data-code="Message.java#1:4" }}}
+
+
+<p>To make your endpoint return a JSON, you can use a Java record. The member variables of this object is serialized into the key value for your JSON. Create a new record named <code>Message</code> as an example domain object to return during the API calls.</p>
+
+## Create the API controller {{{ data-action="code" data-code="APIController.java" }}}
+
+
+<p>Create a new class named <code>APIController</code> to handle requests to the endpoints. The <code>APIController</code> has three routes as defined in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/interactive#configure-the-resource-server">Protect API Endpoints</a> section. For this example, allow all origins through <code>@CrossOrigin</code> annotation. Real applications should configure <code>CORS</code> for their use case.</p>
+
+## Run the application {{{ data-action="code" data-code="APIController.java" }}}
+
+
+<p>To build and run the sample project, execute the <code>bootRun</code> Gradle task.</p><p>Linux or macOS:</p><p><code>./gradlew bootRun</code></p><p>Windows:</p><p><code>gradlew.bat bootRun</code></p><p>If you are configuring your own application using Maven and the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html">Spring Boot Maven Plugin</a>, you can execute the <code>spring-boot:run</code> goal.</p><p>Linux or macOS:</p><p><code>mvn spring-boot:run</code></p><p>Windows:</p><p><code>mvn.cmd spring-boot:run</code></p><p><code></code><div class="checkpoint">Spring Boot API Step 7 Checkpoint <div class="checkpoint-default"><p>The sample application will be available at <code>http://localhost:3010/</code>. Read about how to test and use your API in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/02-using">Using Your API</a> article.</p></div>
+
+  <div class="checkpoint-success"></div>
+
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Use the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/03-troubleshooting">Troubleshooting</a> section to check your configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

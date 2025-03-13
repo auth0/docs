@@ -1,116 +1,77 @@
 ---
-title: Add login to your Flutter app
-default: true
-description: This tutorial demonstrates how to add user login with Auth0 to a Flutter Web application using the Auth0 Flutter SDK
-budicon: 448
-topics:
-  - quickstarts
-  - flutter
-  - dart
-  - spa
-  - web
-  - browser
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Ajouter une fonctionnalité de connexion à votre application Flutter
+description: Ce guide explique comment intégrer Auth0 à une application Flutter à l’aide de la trousse SDK Flutter Auth0.
+interactive:  true
 files:
-  - files/main
-  - files/profile
+ - files/main_view
+ - files/profile_view
 github:
-  path: sample
+  path: https://github.com/auth0-samples/auth0-flutter-samples/tree/main/sample
+locale: fr-CA
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Ajouter une fonctionnalité de connexion à votre application Flutter
 
-# Add Login to Your Flutter Application
 
-Auth0 allows you to quickly add authentication and access user profile information in your application. This guide demonstrates how to integrate Auth0 with a Flutter application using the [Auth0 Flutter SDK](https://github.com/auth0/auth0-flutter).
+<p>Auth0 vous permet d’ajouter rapidement l’authentification et d’accéder aux informations relatives au profil de l’utilisateur dans votre application. Ce guide explique comment intégrer Auth0 à une application Flutter à l’aide de la trousse <a href="https://github.com/auth0/auth0-flutter">SDK Flutter Auth0</a>.</p><p><div class="alert-container" severity="default"><p>La trousse SDK Flutter ne prend actuellement en charge que les applications Flutter s’exécutant sur les plateformes Android, iOS ou Web.</p></div></p><p>Ce guide rapide suppose que vous avez déjà une application <a href="https://flutter.dev/">Flutter</a> installée et active. Si ce n’est pas le cas, consultez les <a href="https://docs.flutter.dev/get-started/install">guides « Getting started » (Premiers pas) de Flutter</a> pour commencer avec une application simple.</p><p>Vous devez également être familiarisé avec <a href="https://docs.flutter.dev/reference/flutter-cli">Flutter command line tool (Outil de ligne de commande Flutter)</a>.</p><p></p>
 
-:::note
-The Flutter SDK currently only supports Flutter applications running on Android, iOS, or Web platforms.
-:::
+## Configurer Auth0
 
-This quickstart assumes you already have a [Flutter](https://flutter.dev/) application up and running. If not, check out the [Flutter "getting started" guides](https://docs.flutter.dev/get-started/install) to get started with a simple app.
 
-You should also be familiar with the [Flutter command line tool](https://docs.flutter.dev/reference/flutter-cli).
+<p>Lorsque vous vous êtes inscrit à Auth0, une nouvelle application a été créée pour vous, ou vous auriez pu en créer une nouvelle. Vous aurez besoin de quelques détails sur cette application pour communiquer avec Auth0. Vous pouvez obtenir ces détails dans la section <a href="https://manage.auth0.com/#/applications">Application Settings (Paramètres d’application)</a> d&#39;Auth0 Dashboard.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/6SC7KnyzCyO8cwXQfril1X/7f204d6b4eb87562043e7f1083aca651/My_App_-_Settings_-_French.png" alt="null" /><p><div class="alert-container" severity="default"><p>Si vous utilisez l’application par défaut avec une application native ou une application à page unique, veillez à mettre à jour la <b>méthode d’authentification du point de terminaison des jetons</b> en la réglant sur <code>None</code> et à définir le <b>type d’application</b> sur <code>SPA</code> ou <code>Native</code>.</p></div></p><p>Les informations suivantes sont nécessaires :</p><ul><li><p><b>Domaine</b></p></li><li><p><b>Identificateur client</b></p></li></ul><p><div class="alert-container" severity="default"><p>Si vous téléchargez l’exemple en haut de cette page, les détails sont renseignés pour vous.</p></div></p><h3>Configurer les Callback URL</h3><p>Une Callback URL est une URL intégrée dans votre application vers laquelle Auth0 redirige l’utilisateur après qu’il se soit authentifié. La Callback URL de votre application doit être ajoutée au champ <b>Allowed Callback URLs (Callback URLs autorisées)</b> dans les <a href="https://manage.auth0.com/#/applications">Application Settings (Paramètres d’application)</a>. Si ce champ n’est pas défini, les utilisateurs ne pourront pas se connecter à l’application et obtiendront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez l’exemple de projet que vous avez téléchargé en haut de cette page, vous devez définir la <b>Callback URL autorisée</b> sur <code>http://localhost:3000</code>.</p></div></p><h3>Configurer les URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle Auth0 peut se rediriger une fois que l’utilisateur a été déconnecté du serveur d’autorisations. Cette URL est spécifiée dans le paramètre de requête <code>returnTo</code>. L’URL de déconnexion de votre application doit être ajoutée au champ <b>Allowed Logout URLs (URL de déconnexions autorisées)</b> dans les <a href="https://manage.auth0.com/#/applications">Application Settings (Paramètres d’application)</a>. Si ce champ n’est pas défini, les utilisateurs ne pourront pas se déconnecter de l’application et obtiendront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez l’exemple de projet que vous avez téléchargé en haut de cette page, l’URL de déconnexion que vous devez ajouter au champ <b>Allowed Logout URLs (URL de déconnexions autorisées)</b> est <code>http://localhost:3000</code>.</p></div></p><h3>Configurer Allowed Web Origins (Origines Web autorisées)</h3><p>Vous devez ajouter l’URL de votre application au champ <b>Allowed Web Origins (Origines Web autorisées)</b> dans vos <a href="https://manage.auth0.com/#/applications/%7ByourClientId%7D/settings">Application Settings (Paramètres d’application)</a>. Si vous n’enregistrez pas l’URL de votre application ici, l’application ne pourra pas actualiser silencieusement les jetons d’authentification et vos utilisateurs seront déconnectés la prochaine fois qu’ils visiteront l’application ou qu’ils actualiseront la page.</p><p><div class="alert-container" severity="default"><p>Si vous suivez l’exemple de projet que vous avez téléchargé en haut de cette page, vous devez définir l’option <b>Allowed Web Origins (Origines Web autorisées)</b> sur <code>http://localhost:3000</code>.</p></div></p><p></p>
 
-<%= include('../_includes/_getting_started', { library: 'Flutter', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
+## Installer la trousse SDK Flutter Auth0
 
-<%= include('_install_sdk') %>
 
-## Add login to your application {{{ data-action="code" data-code="main_view.dart#34" }}}
+<p>Ajoutez la trousse SDK Flutter Auth0 au projet :</p><p><pre><code class="language-javascript">flutter pub add auth0_flutter
 
-[Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security, and the fullest array of features.
+</code></pre>
 
-Integrate Auth0 Universal Login in your Flutter Web app by using the `Auth0Web` class. Redirect your users to the Auth0 Universal Login page using `loginWithRedirect()`.
+</p><p>Ajoutez la balise de script suivante à votre page <code>index.html</code> :</p><p><pre><code class="language-javascript">&lt;script src=&quot;https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js&quot; defer&gt;&lt;/script&gt;
 
-:::note
-You will normally need to specify the `redirectUrl` parameter to `loginWithRedirect`. Omitting this will cause Auth0 to use the [default login route](https://auth0.com/docs/authenticate/login/auth0-universal-login/configure-default-login-routes), which is not configured by default.
-:::
+</code></pre>
 
-When a user logs in, they are redirected back to your application. You are then able to access the ID and access tokens for this user by calling `onLoad` during startup and handling the credentials that are given to you:
+</p>
 
-```dart
-auth0.onLoad().then((final credentials) => setState(() {
+## Ajouter une fonctionnalité de connexion à votre application {{{ data-action="code" data-code="main_view.dart" }}}
+
+
+<p>La <a href="https://auth0.com/docs/authenticate/login/auth0-universal-login">connexion universelle</a> est le moyen le plus simple de mettre en place l’authentification dans votre application. Nous recommandons de l’utiliser pour une meilleure expérience, une meilleure sécurité et un plus grand nombre de fonctionnalités.</p><p>Intégrez la connexion universelle Auth0 dans votre application Flutter (Web) en utilisant la classe <code>Auth0Web</code>. Redirigez vos utilisateurs vers la page de connexion universelle Auth0 en utilisant <code>loginWithRedirect()</code>.</p><p><div class="alert-container" severity="default"><p>Vous devrez normalement définir le paramètre <code>redirectUrl</code> sur <code>loginWithRedirect</code>. Si ce paramètre n’est pas spécifié, Auth0 utilisera la <a href="https://auth0.com/docs/authenticate/login/auth0-universal-login/configure-default-login-routes">route de connexion par défaut</a>, qui n’est pas configurée par défaut.</p></div></p><p>Lorsqu’un utilisateur se connecte, il est redirigé vers votre application. Vous pouvez alors accéder à l’identificateur et aux jetons d’accès de cet utilisateur en appelant <code>onLoad</code> lors du démarrage et en gérant les informations d’identification qui vous sont communiquées :</p><p><pre><code class="language-javascript">auth0.onLoad().then((final credentials) =&gt; setState(() {
+
     // Handle or store credentials here
+
     _credentials = credentials;
+
   }));
-```
 
-::::checkpoint
-:::checkpoint-default
-Add a button to your app that calls `loginWithRedirect()` and logs the user into your app. Verify that you are redirected to Auth0 for authentication and then back to your application.
+</code></pre>
 
-Verify that you can access `credentials` as a result of calling `onLoad` and that you're able to access the ID and access tokens.
-:::
+</p><p><div class="checkpoint">Flutter (Web) - Étape 3 - Point de contrôle <div class="checkpoint-default"><p>Ajoutez un bouton à votre application qui appelle <code>loginWithRedirect()</code> et connecte l’utilisateur à votre application. Vérifiez que vous êtes redirigé vers Auth0 pour l’authentification, puis vers votre application.</p><p>Vérifiez que vous pouvez accéder aux <code>credentials</code> après avoir appelé <code>onLoad</code> et que vous pouvez accéder à l’identificateur et aux jetons d’accès.</p></div>
 
-:::checkpoint-failure
-If your application did not launch successfully:
+  <div class="checkpoint-success"></div>
 
-- Ensure the Allowed Callback URLs are set properly
-- Verify you saved your changes after entering your URLs
-- Make sure the domain and client ID values are imported correctly
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Ensure the Allowed Callback URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li><li><p>Make sure the domain and client ID values are imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>
 
-## Add logout to your application {{{ data-action=code data-code="main_view.dart#46"}}}
+## Ajouter une fonctionnalité de déconnexion à votre application
 
-To log users out, redirect them to the Auth0 logout endpoint to clear their login session by calling the Auth0 Flutter SDK `logout()`. [Read more about logging out of Auth0](https://auth0.com/docs/authenticate/login/logout).
 
-:::note
-You will normally want to specify `returnToUrl` when calling `logout`, otherwise Auth0 [will default to the first URL in the Allowed Logout URLs list](https://auth0.com/docs/authenticate/login/logout/redirect-users-after-logout).
-:::
+<p>Pour déconnecter les utilisateurs, redirigez-les vers le point de terminaison Auth0 pour effacer leur session de connexion en appelant la trousse SDK Flutter Auth0 <code>logout()</code>. <a href="https://auth0.com/docs/authenticate/login/logout">En savoir plus sur la déconnexion d’Auth0.</a></p><p><div class="alert-container" severity="default"><p>Vous devez normalement spécifier <code>returnToUrl</code> lorsque vous appelez <code>logout</code>, sinon Auth0 <a href="https://auth0.com/docs/authenticate/login/logout/redirect-users-after-logout">utilisera par défaut la première URL de la liste Allowed Logout URLs (URL de déconnexion autorisées)</a>.</p></div></p><p><div class="checkpoint">Flutter (Web) - Étape 4 - Point de contrôle <div class="checkpoint-default"><p>Ajoutez un bouton à votre application qui appelle <code>logout()</code> et déconnecte l’utilisateur de votre application. Lorsque vous le sélectionnez, vérifiez que votre application Flutter vous redirige vers le point de terminaison de déconnexion et vice-versa. Vous ne devriez pas être connecté à votre application.</p></div>
 
-::::checkpoint
-:::checkpoint-default
-Add a button to your app that calls `logout()` and logs the user out of your application. When you select it, verify that your Flutter app redirects you to the logout endpoint and back again. You should not be logged in to your application.
-:::
+  <div class="checkpoint-success"></div>
 
-:::checkpoint-failure
-If your application did not log out successfully:
+  <div class="checkpoint-failure"><p>If your application did not log out successfully:</p><ul><li><p>Ensure the Allowed Logout URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-- Ensure the Allowed Logout URLs are set properly
-- Verify you saved your changes after entering your URLs
+  </div></p>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+## Afficher les informations du profil utilisateur {{{ data-action="code" data-code="profile_view.dart" }}}
 
-## Show user profile information {{{ data-action="code" data-code="profile_view.dart" }}}
 
-The user profile automatically retrieves user profile properties for you when the page loads, and can be accessed and stored by calling `onLoad` during application startup. The returned object from `onLoad` contains a `user` property with all the user profile properties. This is internally populated by decoding the ID token.
+<p>Le profil utilisateur récupère automatiquement les propriétés du profil utilisateur lors du chargement de la page. Il est possible d’y accéder et de les stocker en appelant <code>onLoad</code> lors du démarrage de l’application. L’objet retourné à partir de <code>onLoad</code> contient une propriété <code>user</code> avec toutes les propriétés du profil utilisateur. Cette propriété est alimentée en interne par le décodage du jeton d’identification.</p><p><div class="checkpoint">Flutter (Web) - Étape 5 - Point de contrôle <div class="checkpoint-default"><p>Connectez-vous et inspectez la propriété <code>user</code> par rapport au résultat. Vérifiez les informations de profil utilisateur actuel, telles que son <code>email</code> ou <code>name</code>.</p></div>
 
-::::checkpoint
-:::checkpoint-default
-Log in and inspect the `user` property on the result. Verify the current user's profile information, such as `email` or `name`.
-:::
-:::checkpoint-failure
-If your application did not return user profile information:
+  <div class="checkpoint-success"></div>
 
-- Verify the ID token is valid
+  <div class="checkpoint-failure"><p>If your application did not return user profile information:</p><ul><li><p>Verify the ID token is valid</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-:::
-::::
+  </div></p>

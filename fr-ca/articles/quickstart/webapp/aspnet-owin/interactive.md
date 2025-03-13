@@ -1,141 +1,71 @@
 ---
-title: Add Login to your ASP.NET Owin application
-description: This tutorial demonstrates how to add user login to an ASP.NET Owin application.
-budicon: 448
-topics:
-  - quickstarts
-  - webapp
-  - aspnet-owin
-  - login
-github:
-  path: Quickstart/Sample
-contentType: tutorial
-useCase: quickstart
-interactive: true
+title: Ajouter une fonctionnalité de connexion à votre application ASP.NET OWIN
+description: Ce guide explique comment intégrer Auth0 à n’importe quelle application ASP.NET OWIN, nouvelle ou ancienne, à l’aide du package NuGet Microsoft.Owin.Security.OpenIdConnect.
+interactive:  true
 files:
-  - files/web.config
-  - files/startup
-  - files/account.controller
+ - files/Web
+ - files/Startup
+ - files/AccountController
+github:
+  path: https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Quickstart/Sample
+locale: fr-CA
 ---
 
-# Add login to your ASP.NET Owin application
+# Ajouter une fonctionnalité de connexion à votre application ASP.NET OWIN
 
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET OWIN application using the `Microsoft.Owin.Security.OpenIdConnect` Nuget package. 
 
-<%= include('../../_includes/_configure_auth0_interactive', { 
-  callback: 'http://localhost:3000/callback',
-  returnTo: 'http://localhost:3000'
-}) %>
+<p>Auth0 vous permet d’ajouter rapidement l’authentification et de pouvoir accéder aux informations relatives au profil utilisateur dans votre application. Ce guide explique comment intégrer Auth0 à n’importe quelle application ASP.NET OWIN, nouvelle ou ancienne, à l’aide du package NuGet <code>Microsoft.Owin.Security.OpenIdConnect</code>.</p><p></p>
 
-## Configure the project {{{ data-action=code data-code="Web.config#1:7" }}}
+## Configuration d’Auth0
 
-### Install from Nuget
 
-To integrate Auth0 with ASP.NET OWIN, you can use the `Microsoft.Owin.Security.OpenIdConnect` and `Microsoft.Owin.Security.Cookies` Nuget packages.
+<p>Pour utiliser les services Auth0, vous devez avoir une application configurées dans Auth0 Dashboard. L’application Auth0 est l’endroit où vous allez configurer le fonctionnement de l’authentification pour le projet que vous développez.</p><h3>Configurer une application</h3><p>Utilisez le sélecteur interactif pour créer une nouvelle application Auth0 ou sélectionner une application existante qui représente le projet avec lequel vous souhaitez effectuer l&#39;intégration. Dans Auth0, il est attribué à chaque application un identifiant client unique alphanumérique que votre code d’application utilisera pour appeler les API Auth0 au moyen de la trousse SDK.</p><p>Tous les paramètres que vous configurez à l’aide de ce guide rapide seront automatiquement mis à jour pour votre application dans le <a href="https://manage.auth0.com/#/">Dashboard</a>, qui est l’endroit où vous pourrez gérer vos applications à l’avenir.</p><p>Si vous préférez explorer une configuration complète, vous pouvez plutôt consulter une application faisant office d’exemple.</p><h3>Configuration des callback URL</h3><p>Une callback URL est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne seront pas redirigés vers votre application après s’être connectés.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code><code>/callback</code>.</p></div></p><h3>Configurer les URL de déconnexion</h3><p>Une URL de déconnexion est une URL intégrée dans votre application vers laquelle vous souhaitez qu’Auth0 redirige les utilisateurs après leur authentification. Si elle n’est pas définie, les utilisateurs ne pourront pas se déconnecter de votre application et recevront un message d’erreur.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p>
 
-```bash
-Install-Package Microsoft.Owin.Security.OpenIdConnect
+## Configurer le projet {{{ data-action="code" data-code="Web.config" }}}
+
+
+<h3>Installer à partir de Nuget</h3><p>Pour intégrer Auth0 avec ASP.NET OWIN, vous pouvez utiliser les packages Nuget <code>Microsoft.Owin.Security.OpenIdConnect</code> et <code>Microsoft.Owin.Security.Cookies</code> .</p><p><pre><code>Install-Package Microsoft.Owin.Security.OpenIdConnect
+
 Install-Package Microsoft.Owin.Security.Cookies
-```
 
-:::note
-Issues occur when configuring the OWIN cookie middleware and System.Web cookies at the same time. To learn more, read [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to mitigate these problems.
-:::
+</code></pre>
 
-### Configure the credentials
-For the SDK to function properly, set the following properties in `Web.config`:
-- `auth0:Domain`: The domain of your Auth0 tenant. You can find this in the Auth0 Dashboard under your application's **Settings** in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), set this to the value of your custom domain instead.
-- `auth0:ClientId`: The ID of the Auth0 application you created in Auth0 Dashboard. You can find this in the Auth0 Dashboard under your application's **Settings** in the Client ID field.
+</p><p><div class="alert-container" severity="default"><p>Des problèmes surviennent lorsque vous configurez l’intergiciel de témoin OWIN et les témoins System.Web en même temps. Pour en savoir plus, consultez <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues">la documentation sur les problèmes d’intégration des témoins System.Web</a> afin d’atténuer ces problèmes.</p></div></p><h3>Configurer les identifiants</h3><p>Pour que la trousse SDK fonctionne adéquatement, définissez les propriétés suivantes dans <code>Web.config</code> :</p><ul><li><p><code>auth0:Domain</code> : Le domaine de votre locataire Auth0. Celui-ci figure dans Auth0 Dashboard, dans les <b>Settings (Paramètres) </b>de votre application du champ Domaine. Si vous utilisez un <a href="https://auth0.com/docs/custom-domains">domaine personnalisé</a>, définisse-le plutôt sur la valeur de votre domaine personnalisé.</p></li><li><p><code>auth0:ClientId</code>: L’ID de l’application Auth0 que vous avez créée dans Auth0 Dashboard. Celui-ci figure dans Auth0 Dashboard, dans les <b>Settings (Paramètres) </b>de votre application du champ ID client.</p></li></ul><p></p>
 
-## Configure the middleware {{{ data-action=code data-code="Startup.cs#9:13" }}}
+## Configurer l’intergiciel {{{ data-action="code" data-code="Startup.cs#18:74" }}}
 
-To enable authentication in your ASP.NET OWIN application, go to the `Configuration` method of your `Startup` class and configure the cookie and OIDC middleware.
 
-It is essential that you register both the cookie middleware and the OpenID Connect middleware as both are required (in that order) for authentication to work. The OpenID Connect middleware handles the authentication with Auth0. Once users have authenticated, their identity is stored in the cookie middleware.
+<p>Pour activer l’authentification dans votre application ASP.NET OWIN, rendez-vous à la méthode de configuration de votre classe de démarrage et configurez le témoin, ainsi que l’intergiciel OIDC.</p><p>Il est essentiel d’enregistrer à la fois l’intergiciel de témoin et l’intergiciel OpenID Connect, vu que les deux sont nécessaires (dans cet ordre) pour que l’authentification fonctionnne. L’intergiciel OpenID Connect gère l’authentification avec Auth0. Une fois que les utilisateurs se sont authentifiés, leur identité est sauvegardée dans l’intergiciel de témoin.</p><p>Dans l’extrait de code, AuthenticationType est défini sur <b>Auth0</b>. Utilisez AuthenticationType dans la section suivante pour adresser un défi à l’intergiciel OpenID Connect et commencer le flux d’authentification. L’événement de notification RedirectToIdentityProvider génère la bonne <a data-contentfulid="5sl85ipAFaf8i4CH9wD6VA-fr-CA">URL de déconnexion</a>.</p>
 
-In the code snippet, `AuthenticationType` is set to **Auth0**. Use `AuthenticationType` in the next section to challenge the OpenID Connect middleware and start the authentication flow. `RedirectToIdentityProvider` notification event constructs the correct [logout URL](/logout).
+## Ajouter une fonctionnalité de connexion à votre application {{{ data-action="code" data-code="AccountController.cs#7:16" }}}
 
-## Add login to your application {{{ data-action=code data-code="AccountController.cs#6:15" }}}
 
-To allow users to log in to your ASP.NET OWIN application, add a `Login` action to your controller.
+<p>Pour permettre aux utilisateurs de se connecter à votre application ASP.NET OWIN, ajoutez une action de <code>Login</code> à votre contrôleur.</p><p>Appelez <code>HttpContext.GetOwinContext().Authentication.Challenge</code> et passez <code>&quot;Auth0&quot;</code> comme schéma d’authentification. Cette action fait appel au gestionnaire d’authentification OIDC qui a été enregistré plus tôt. Veillez à préciser les <code>AuthenticationProperties</code>correspondantes, y compris un <code>RedirectUri</code>.</p><p>Après avoir appelé avec succès <code>HttpContext.GetOwinContext().Authentication.Challenge</code>, l’utilisateur est redirigé vers Auth0 et est connecté à la fois à l’intergiciel OIDC et à l’intergiciel de témoin après avoir été redirigé vers votre application. Cela permettra aux utilisateurs d’être authentifiés pour les requêtes suivantes.</p><p><div class="checkpoint">ASP.NET (OWIN) – Étape 4 – Point de contrôle <div class="checkpoint-default"><p>Maintenant que vous avez configuré la fonction de déconnexion, lancez votre application pour vérifier que :</p><ul><li><p>Naviguer vers votre fonctionnalité de <code>Login</code> vous redirigera vers Auth0.</p></li><li><p>Saisir vos identifiants vous redirigera vers votre application.</p></li></ul><p></p></div>
 
-Call `HttpContext.GetOwinContext().Authentication.Challenge` and pass `"Auth0"` as the authentication scheme. This invokes the OIDC authentication handler that was registered earlier. Be sure to specify the corresponding `AuthenticationProperties`, including a `RedirectUri`.
+  <div class="checkpoint-success"></div>
 
-After successfully calling `HttpContext.GetOwinContext().Authentication.Challenge`, the user redirects to Auth0 and signed in to both the OIDC middleware and the cookie middleware upon being redirected back to your application. This will allow the users to be authenticated on subsequent requests.
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-::::checkpoint
+  </div></p>
 
-:::checkpoint-default
+## Ajouter une fonctionnalité de déconnexion à votre application {{{ data-action="code" data-code="AccountController.cs#34:39" }}}
 
-Now that you have configured Login, run your application to verify that:
-* Navigating to your `Login` action will redirect to Auth0
-* Entering your credentials will redirect you back to your application.
 
-:::
+<p>À partir de l’action de votre contrôleur, appelez <code>HttpContext.GetOwinContext().Authentication.SignOut</code> avec le schéma d’authentification <code>CookieAuthenticationDefaults.AuthenticationType</code> pour déconnecter l’utilisateur de votre application.</p><p>De plus, si vous souhaitez déconnecter l’utilisateur d’Auth0 (cette action pourrait également le déconnecter d’autres applications qui dépendent de l’authentification unique), appelez <code>HttpContext.GetOwinContext().Authentication.SignOut</code> avec le schéma d’authentification <code>&quot;Auth0&quot;</code>.</p><p><div class="checkpoint">ASP.NET (OWIN) – Étape 5 – Point de contrôle <div class="checkpoint-default"><p>Maintenant que vous avez configuré la fonction de déconnexion, lancez votre application pour vérifier que :</p><ul><li><p>Naviguer vers votre fonctionnalité de <code>Logout</code> garantit que l’utilisateur est déconnecté.</p></li><li><p>Lors de la déconnexion, vous êtes redirigé vers Auth0 puis immédiatement renvoyé vers votre application pendant la déconnexion.</p></li></ul><p></p></div>
 
-:::checkpoint-failure
-Sorry about that. Here are a couple of things to double-check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::
+  </div></p>
 
-::::
+## Afficher les informations du profil utilisateur {{{ data-action="code" data-code="AccountController.cs#18:32" }}}
 
-## Add logout to your application {{{ data-action=code data-code="AccountController.cs#34:39" }}}
 
-From your controller's action, call `HttpContext.GetOwinContext().Authentication.SignOut` with the `CookieAuthenticationDefaults.AuthenticationType` authentication scheme to log the user out of your application.
+<p>Après que l’intergiciel a réussi à récupérer les jetons d’Auth0, il extraira les informations et les demandes de l’utilisateur à partir du jeton d’ID et les met à disposition en tant que <code>ClaimsIdentity</code>. Accédez aux informations extraites en utilisant la propriété <code>User</code> dans le contrôleur.</p><p>Pour créer un profil utilisateur, récupérez le nom, le courriel et l’image de profil de l’utilisateur à partir de <code>User</code> et visualisez-les à partir de votre contrôleur.</p><p><div class="checkpoint">ASP.NET (OWIN) – Étape 6 – Point de contrôle <div class="checkpoint-default"><p>Maintenant que vous avez configuré votre action pour afficher le profil de l’utilisateur, lancez votre application pour vérifier que :</p><ul><li><p>Naviguer vers votre action <code>Profile</code> après vous être connecté avec succès affiche le profil de l’utilisateur.</p></li></ul><p></p></div>
 
-Additionally, if you want to log the user out from Auth0 (this *might* also log them out of other applications that rely on Single Sign-On), call `HttpContext.GetOwinContext().Authentication.SignOut` with the `"Auth0"` authentication scheme.
+  <div class="checkpoint-success"></div>
 
-::::checkpoint
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>make sure the domain and client ID are configured correctly</p></li><li><p>Did you set <code>openid profile email</code> as the scope?</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-:::checkpoint-default
-
-Now that you have configured Logout, run your application to verify that:
-* Navigating to your `Logout` action ensures the user is logged out.
-* During logout, you redirect to Auth0 and instantly redirect back to your application during log out.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a couple of things to double-check:
-* make sure the correct application is selected
-* did you save after entering your URLs?
-* make sure the domain and client ID are configured correctly
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
-
-## Show user profile information {{{ data-action=code data-code="AccountController.cs#18:32" }}}
-
-After the middleware successfully retrieves the tokens from Auth0, it extracts the user's information and claims from the ID token and makes them available as `ClaimsIdentity`. Access the extracted information by using the `User` property on the controller.
-
-To create a user profile, retrieve a user's name, email address, and profile image from the `User` and pass it to the view from inside your controller.
-
-::::checkpoint
-
-:::checkpoint-default
-
-Now that you have set up your action to render the user's profile, run your application to verify that:
-* Navigating to your `Profile` action after being successfully logged in, shows the user's profile.
-
-:::
-
-:::checkpoint-failure
-Sorry about that. Here are a couple things to double-check:
-* make sure the correct application is selected
-* make sure the domain and client ID are configured correctly
-* Did you set `openid profile email` as the scope?
-
-Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
-
-:::
-
-::::
+  </div></p>
