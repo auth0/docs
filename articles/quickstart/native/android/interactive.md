@@ -1,74 +1,59 @@
 ---
-title: Add Login to your Android App
-description: This quickstart demonstrates how to add user login to an Android application using Auth0.
-seo_alias: android
-interactive: true
+title: Add Login to Your Android Application
+description: This guide demonstrates how to integrate Auth0 with a Android application using the Auth0 Android SDK.
+interactive:  true
 files:
-  - files/build
-  - files/strings
-  - files/main
+ - files/build
+ - files/strings
+ - files/MainActivity
 github:
-  path: 00-Login-Kt
+  path: https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Login-Kt
+locale: en-US
 ---
 
 # Add Login to Your Android Application
 
-<!-- markdownlint-disable MD002 MD041 -->
 
-<!-- markdownlint-disable MD002 MD034 MD041 -->
+<p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Configure Auth0
 
-To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.
-### Configure an application
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+<p>To use Auth0 services, you need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure authentication in your project.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure callback URLs</h3><p>A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>demo://{yourDomain}/android/YOUR_APP_PACKAGE_NAME/callback</code>.</p></div></p><h3>Configure logout URLs</h3><p>A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>demo://{yourDomain}/android/YOUR_APP_PACKAGE_NAME/callback</code></p></div></p>
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your Applications in the future.
+## Install the Auth0 Android SDK {{{ data-action="code" data-code="build.gradle#18:18" }}}
 
-If you would rather explore a complete configuration, you can view a sample application instead.
 
-### Configure callback URLs
+<p>Add the <a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a> SDK into your project. The library will make requests to the Auth0&#39;s Authentication and Management APIs.</p><p>In your app&#39;s <code>build.gradle</code> dependencies section, add the following:</p><p><pre><code class="language-javascript">implementation 'com.auth0.android:auth0:2. '
 
-A callback URL is the application URL that Auth0 will direct your users to once they have authenticated. If you do not set this value, Auth0 will not return users to your application after they log in.
+</code></pre>
 
-::: note
-If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
-:::
+</p><p>Ensure you target Java 8+ byte code for Android and Kotlin plugins respectively.</p>
 
-### Configure logout URLs
+## Add manifest placeholders {{{ data-action="code" data-code="build.gradle#10:12" }}}
 
-A logout URL is the application URL Auth0 will redirect your users to once they log out. If you do not set this value, users will not be able to log out from your application and will receive an error.
 
-::: note
-If you are following along with our sample project, set this to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
-:::
+<p>The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an <code>intent-filter</code>, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.</p><p>You do not need to declare a specific <code>intent-filter</code> for your activity, because you have defined the manifest placeholders with your Auth0 <b>Domain</b> and <b>Scheme</b> values and the library will handle the redirection for you.</p><p><div class="alert-container" severity="default"><p>We&#39;ve used a value of <code>demo</code> for <code>auth0Scheme</code> here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is <code>https</code> if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking">Auth0.Android SDK README</a>.</p></div></p>
 
-## Install the Auth0 Android SDK {{{ data-action=code data-code="build.gradle#18" }}}
+## Configure your application {{{ data-action="code" data-code="strings.xml#2:3" }}}
 
-Add the <a href="https://github.com/auth0/Auth0.Android" target="_blank" rel="noreferrer">Auth0 Android</a> SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
 
-In your app's `build.gradle` dependencies section, add the following:
+<p>For the SDK to function properly, you must set the following properties in <code>strings.xml</code>:</p><ul><li><p><code>com_auth0_domain</code>: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application&#39;s Settings in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains">custom domain</a>, you should set this to the value of your custom domain instead.</p></li><li><p><code>com_auth0_client_id</code>: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application&#39;s Settings in the Client ID field.</p></li></ul><p>Ensure that the <code>AndroidManifest.xml</code> file specifies the <code>android.permissions.INTERNET</code> permission:</p><p><pre><code class="language-javascript">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
 
-```groovy
-implementation 'com.auth0.android:auth0:2.+'
-```
+</code></pre>
 
-Ensure you target Java 8+ byte code for Android and Kotlin plugins respectively.
+</p><p>Run <b>Sync Project with Gradle Files</b> inside Android Studio or execute <code>./gradlew clean assembleDebug</code> from the command line.</p><p><div class="alert-container" severity="default"><p>For more information about using Gradle, check the <a href="https://gradle.org/getting-started-android-build/">Gradle official documentation</a>.</p></div></p>
 
-## Add manifest placeholders {{{ data-action=code data-code="build.gradle#10:12" }}}
+## Add login to your application {{{ data-action="code" data-code="MainActivity.kt#6:38" }}}
 
-The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an `intent-filter`, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.
 
-You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
+<p><a href="https://auth0.com/docs/hosted-pages/login">Universal Login</a> is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.</p><p>In the <code>onCreate</code> method, create a new instance of the <code>Auth0</code> class to hold user credentials.</p><p>Create a <code>loginWithBrowser</code> method and use the <code>WebAuthProvider</code> class to authenticate with any connection you enabled on your application in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>. Here, you can pass the scheme value that was used in the <code>auth0Scheme</code> manifest placeholder as part of the initial configuration.</p><p>After you call the <code>WebAuthProvider#start</code> function, the browser launches and shows the login page. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.</p><p><div class="checkpoint">Android Quickstart step 5 checkpoint <div class="checkpoint-default"><p>Add a button to your application that calls <code>loginWithBrowser</code>. When you click it, verify that your Android application redirects you to the <a href="https://auth0.com/universal-login">Auth0 Universal Login</a> page and that you can now log in or sign up using a username and password or a social provider.</p><p>Once that&#39;s complete, verify that Auth0 redirects back to your app.</p></div>
 
-::: note
-We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links" target="_blank" rel="noreferrer">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK README</a>.
-:::
+  <div class="checkpoint-success"></div>
 
-## Configure your application {{{ data-action=code data-code="strings.xml#2:3" }}}
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Ensure you set the Allowed Callback URLs are correct</p></li><li><p>Verify you saved your changes after entering your URLs</p></li><li><p>Make sure the domain and cliend ID values imported correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-For the SDK to function properly, you must set the following properties in `strings.xml`:
+  </div></p>
 
 - `com_auth0_domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, you should set this to the value of your custom domain instead.
 - `com_auth0_client_id`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
@@ -142,33 +127,13 @@ Still having issues? Check out our <a href="https://auth0.com/docs" target="_bla
 :::
 ::::
 
-## Show user profile information {{{ data-action=code data-code="MainActivity.kt#54:70" }}}
+## Show user profile information {{{ data-action="code" data-code="MainActivity.kt#54:70" }}}
 
-Use the `AuthenticationAPIClient` class to <a href="https://auth0.com/docs/users/user-profiles#user-profile-management-api-access" target="_blank" rel="noreferrer">retrieve the users profile from Auth0</a>. This requires:
 
-- The access token returned from the login phase
-- The `WebAuthProvider.login` must contain the `profile` scope
+<p>Use the <code>AuthenticationAPIClient</code> class to <a href="https://auth0.com/docs/users/user-profiles#user-profile-management-api-access">retrieve the user&#39;s profile from Auth0</a>. This requires:</p><ul><li><p>The access token returned from the login phase</p></li><li><p>The <code>WebAuthProvider.login </code>must contain the <code>profile </code>scope</p></li></ul><p>You must specify the <code>email</code> scope if you need to retrieve the user&#39;s email address.</p><p><div class="alert-container" severity="default"><p>This quickstart sets the <code>openid profile email</code> scopes by default during the login step above.</p></div></p><p>The following demonstrates a function that can be used to retrieve the user&#39;s profile and show it on the screen:</p><p><div class="checkpoint">Android Quickstart step 7 checkpoint <div class="checkpoint-default"><p>Call the <code>showUserProfile</code> function after login. Verify the <code>onSuccess</code> callback returns the user&#39;s profile information.</p></div>
 
-You must specify the `email` scope if you need to retreive the user's email address.
+  <div class="checkpoint-success"></div>
 
-:::note
-This quickstart sets the `openid profile email` scopes by default during the login step above.
-:::
+  <div class="checkpoint-failure"><p>If your application did not return user profile information:</p><ul><li><p>Verify the <code>accessToken</code> is valid</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
 
-The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
-
-::::checkpoint
-
-:::checkpoint-default
-Call the `showUserProfile` function after login. Verify the `onSuccess` callback returns the user's profile information. 
-
-:::
-
-:::checkpoint-failure
-If your application did not return user profile information:
-* Verify the `accessToken` is valid
-
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-
-:::
-::::
+  </div></p>

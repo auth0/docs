@@ -1,263 +1,225 @@
 ---
-title: Add Authorization to a Laravel Application
-description: Auth0's Laravel SDK allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new or existing Laravel 9 or 10 application.
-topics:
-  - quickstart
-  - backend
-  - laravel
-  - authorization
-  - php
-  - laravel
-contentType: tutorial
-useCase: quickstart
-default: true
-github:
-  path: app
-interactive: true
+title: Add Authorization to Your Laravel Application
+description: This guide demonstrates how to integrate Auth0 with a new (or existing) Laravel 9 or 10 application.
+interactive:  true
 files:
-  - files/api
+ - files/routes/api
+github:
+  path: https://github.com/auth0-samples/laravel/tree/7.x/sample
+locale: en-US
 ---
 
 # Add Authorization to Your Laravel Application
 
-<a href="https://github.com/auth0/laravel-auth0" target="_blank" rel="noreferrer">Auth0s Laravel SDK</a> allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) <a href="https://github.com/auth0/laravel-auth0#support-policy" target="_blank" rel="noreferrer">Laravel 9 or 10</a> application.
 
----
-
-**Backend applications differ from traditional web applications in that they do not handle user authentication or have a user interface. They provide an API that other applications can interact with. They accept <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank" rel="noreferrer">access tokens</a> from `Authorization` headers in requests to control access to routes.**
-
-Separate front-end applications are usually built to interact with these types of backends. These can be anything from <a href="https://auth0.com/docs/quickstart/spa" target="_blank" rel="noreferrer">single-page applications</a> or <a href="https://auth0.com/docs/quickstart/native" target="_blank" rel="noreferrer">native or mobile apps</a> (all of which Auth0 also provides SDKs for!)
-
-When users need to interact with your backend application, they first authenticate with Auth0 using the frontend application. The frontend application then retrieves an access token from Auth0, which it can use to make requests to your backend application on behalf of the user.
-
-As their name implies, <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank" rel="noreferrer">access tokens</a> are designed to address matters of access control (authorization), and do not contain information about the user. **Backend applications work exclusively with access tokens.** You can retrieve information about the user who created the token using the <a href="https://auth0.com/docs/api/management/v2" target="_blank" rel="noreferrer">Management API</a>, which we will demonstrate later.
+<p><a href="https://github.com/auth0/laravel-auth0">Auth0&#39;s Laravel SDK</a> allows you to quickly add token-based authorization and route access control to your Laravel application. This guide demonstrates how to integrate Auth0 with a new (or existing) <a href="https://github.com/auth0/laravel-auth0#support-policy">Laravel 9 or 10</a> application.</p><hr/><p><b>Backend applications differ from traditional web applications in that they do not handle user authentication or have a user interface. They provide an API that other applications can interact with. They accept </b><a href="https://auth0.com/docs/secure/tokens/access-tokens"><b>access tokens</b></a><b> from </b><b><code>Authorization</code></b><b> headers in requests to control access to routes.</b></p><p>Separate front-end applications are usually built to interact with these types of backends. These can be anything from <a href="https://auth0.com/docs/quickstart/spa">single-page applications</a> or <a href="https://auth0.com/docs/quickstart/native">native or mobile apps</a> (all of which Auth0 also provides SDKs for!)</p><p>When users need to interact with your backend application, they first authenticate with Auth0 using the frontend application. The frontend application then retrieves an access token from Auth0, which it can use to make requests to your backend application on behalf of the user.</p><p>As their name implies, <a href="https://auth0.com/docs/secure/tokens/access-tokens">access tokens</a> are designed to address matters of access control (authorization), and do not contain information about the user. <b>Backend applications work exclusively with access tokens.</b> You can retrieve information about the user who created the token using the <a href="https://auth0.com/docs/api/management/v2">Management API</a>, which we will demonstrate later.</p><p></p>
 
 ## Laravel Installation
 
-**If you do not already have a Laravel application set up**, open a shell to a suitable directory for a new project and run the following command:
 
-```shell
-composer create-project --prefer-dist laravel/laravel auth0-laravel-api ^9.0
-```
+<p><b>If you do not already have a Laravel application set up</b>, open a shell to a suitable directory for a new project and run the following command:</p><p><pre><code class="language-bash">composer create-project --prefer-dist laravel/laravel auth0-laravel-api ^9.0
 
-All the commands in this guide assume you are running them from the root of your Laravel project, directory so you should `cd` into the new project directory:
+</code></pre>
 
-```shell
-cd auth0-laravel-api
-```
+</p><p>All the commands in this guide assume you are running them from the root of your Laravel project, directory so you should <code>cd</code> into the new project directory:</p><p><pre><code class="language-bash">cd auth0-laravel-api
+
+</code></pre>
+
+</p>
 
 ## SDK Installation
 
-Run the following command within your project directory to install the <a href="https://github.com/auth0/laravel-auth0" target="_blank" rel="noreferrer">Auth0 Laravel SDK</a>:
 
-```shell
-composer require auth0/login:^7.8 --update-with-all-dependencies
-```
+<p>Run the following command within your project directory to install the <a href="https://github.com/auth0/laravel-auth0">Auth0 Laravel SDK</a>:</p><p><pre><code class="language-bash">composer require auth0/login:^7.8 --update-with-all-dependencies
 
-Then generate an SDK configuration file for your application:
+</code></pre>
 
-```shell
-php artisan vendor:publish --tag auth0
-```
+</p><p>Then generate an SDK configuration file for your application:</p><p><pre><code class="language-bash">php artisan vendor:publish --tag auth0
+
+</code></pre>
+
+</p>
 
 ## SDK Configuration
 
-Run the following command from your project directory to download the <a href="https://github.com/auth0/auth0-cli" target="_blank" rel="noreferrer">Auth0 CLI</a>:
 
-```shell
-curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
-```
+<p>Run the following command from your project directory to download the <a href="https://github.com/auth0/auth0-cli">Auth0 CLI</a>:</p><p><pre><code class="language-bash">curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
 
-Then authenticate the CLI with your Auth0 account, choosing "as a user" when prompted:
+</code></pre>
 
-```shell
-./auth0 login
-```
+</p><p>Then authenticate the CLI with your Auth0 account, choosing &quot;as a user&quot; when prompted:</p><p><pre><code class="language-bash">./auth0 login
 
-Next, create a new application with Auth0:
+</code></pre>
 
-```shell
-./auth0 apps create \
-  --name "My Laravel Backend" \
-  --type "regular" \
-  --auth-method "post" \
-  --callbacks "http://localhost:8000/callback" \
-  --logout-urls "http://localhost:8000" \
-  --reveal-secrets \
-  --no-input \
-  --json > .auth0.app.json
-```
+</p><p>Next, create a new application with Auth0:</p><p><pre><code class="language-bash">./auth0 apps create \
 
-You should also create a new API:
+--name &quot;My Laravel Backend&quot; \
 
-```shell
-./auth0 apis create \
-  --name "My Laravel Backend API" \
-  --identifier "https://github.com/auth0/laravel-auth0" \
-  --offline-access \
-  --no-input \
-  --json > .auth0.api.json
-```
+--type &quot;regular&quot; \
 
-This produces two files in your project directory that configure the SDK.
+--auth-method &quot;post&quot; \
 
-As these files contain credentials it's important to treat these as sensitive. You should ensure you do not commit these to version control. If you're using Git, you should add them to your `.gitignore` file:
+--callbacks &quot;http://localhost:8000/callback&quot; \
 
-```bash
-echo ".auth0.*.json" >> .gitignore
-```
+--logout-urls &quot;http://localhost:8000&quot; \
 
-## Access Control {{{ data-action=code data-code="routes/api.php#6:16" }}}
+--reveal-secrets \
 
-The SDK automatically registers its authorization guard with your Laravel application for use with the `api` middleware, which by default Laravel applies to all routes in your application's `routes/api.php` file.
+--no-input \
 
-::: warning
-For the SDK to work as expected without additional configuration, **you should define your routes in the `routes/api.php` file.**
-:::
+--json &gt; .auth0.app.json
 
-You can use the Auth0 SDK's authorization guard to restrict access to your application's routes.
+</code></pre>
 
-To reject requests that do not contain a valid access token in the `Authorization` header, you can use Laravel's `auth` middleware:
+</p><p>You should also create a new API:</p><p><pre><code class="language-bash">./auth0 apis create \
 
-```php
-Route::get('/private', function () {
-  return response()->json([
-    'message' => 'Your token is valid; you are authorized.',
-  ]);
-})->middleware('auth');
-```
+--name &quot;My Laravel Backend API&quot; \
 
-You can also require the provided token to have specific <a href="https://auth0.com/docs/manage-users/access-control/rbac" target="_blank" rel="noreferrer">permissions</a> by combining this with Laravel's `can` middleware:
+--identifier &quot;https://github.com/auth0/laravel-auth0&quot; \
 
-```php
-Route::get('/scope', function () {
-    return response()->json([
-      'message' => 'Your token is valid and has the `read:messages` permission; you are authorized.',
-    ]);
-})->middleware('auth')->can('read:messages');
-```
+--offline-access \
 
-## Token Information {{{ data-action=code data-code="routes/api.php#18:30" }}}
+--no-input \
 
-Information about the provided access token is available through Laravel's `Auth` Facade, or the `auth()` helper function.
+--json &gt; .auth0.api.json
 
-For example, to retrieve the user's identifier and email address:
+</code></pre>
 
-```php
-Route::get('/', function () {
-  if (! auth()->check()) {
-    return response()->json([
-      'message' => 'You did not provide a valid token.',
-    ]);
-  }
+</p><p>This produces two files in your project directory that configure the SDK.</p><p>As these files contain credentials it&#39;s important to treat these as sensitive. You should ensure you do not commit these to version control. If you&#39;re using Git, you should add them to your <code>.gitignore</code> file:</p><p><pre><code class="language-bash">echo &quot;.auth0.*.json&quot; &gt;&gt; .gitignore
 
-  return response()->json([
-    'message' => 'Your token is valid; you are authorized.',
-    'id' => auth()->id(),
-    'token' => auth()?->user()?->getAttributes(),
-  ]);
+</code></pre>
+
+</p>
+
+## Access Control {{{ data-action="code" data-code="routes/api.php#6:16" }}}
+
+
+<p>The SDK automatically registers its authorization guard with your Laravel application for use with the <code>api</code> middleware, which by default Laravel applies to all routes in your application&#39;s <code>routes/api.php</code> file.</p><p><div class="alert-container" severity="warning"><p>For the SDK to work as expected without additional configuration, <b>you should define your routes in the </b><b><code>routes/api.php</code></b><b> file.</b></p></div></p><p>You can use the Auth0 SDK&#39;s authorization guard to restrict access to your application&#39;s routes.</p><p>To reject requests that do not contain a valid access token in the <code>Authorization</code> header, you can use Laravel&#39;s <code>auth</code> middleware:</p><p><pre><code class="language-php">Route::get('/private', function () {
+
+ return response()-&gt;json([
+
+ 'message' \=&gt; 'Your token is valid; you are authorized.',
+
+ ]);
+
+})-&gt;middleware('auth');
+
+</code></pre>
+
+</p><p>You can also require the provided token to have specific <a href="https://auth0.com/docs/manage-users/access-control/rbac">permissions</a> by combining this with Laravel&#39;s <code>can</code> middleware:</p><p><pre><code class="language-php">Route::get('/scope', function () {
+
+ return response()-&gt;json([
+
+ 'message' =&gt; 'Your token is valid and has the `read:messages` permission; you are authorized.',
+
+ ]);
+
+})-&gt;middleware('auth')-&gt;can('read:messages');
+
+</code></pre>
+
+</p>
+
+## Token Information {{{ data-action="code" data-code="routes/api.php#18:30" }}}
+
+
+<p>Information about the provided access token is available through Laravel&#39;s <code>Auth</code> Facade, or the <code>auth()</code> helper function.</p><p>For example, to retrieve the user&#39;s identifier and email address:</p><p><pre><code class="language-php">Route::get('/', function () {
+
+ if (! auth()-&gt;check()) {
+
+ return response()-&gt;json([
+
+ 'message' =&gt; 'You did not provide a valid token.',
+
+ ]);
+
+ }
+
+
+
+ return response()-&gt;json([
+
+ 'message' =&gt; 'Your token is valid; you are authorized.',
+
+ 'id' =&gt; auth()-&gt;id(),
+
+ 'token' =&gt; auth()?-&gt;user()?-&gt;getAttributes(),
+
+ ]);
+
 });
-```
 
-## Retrieve User Information {{{ data-action=code data-code="routes/api.php#32:51" }}}
+</code></pre>
 
-You can retrieve information about the user who created the access token from Auth0 using the <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md" target="_blank" rel="noreferrer">Auth0 Management API</a>. The SDK provides a convenient wrapper for this API, accessible through the SDK's `management()` method.
+</p>
 
-**Before making Management API calls you must enable your application to communicate with the Management API.** This can be done from the <a href="https://manage.auth0.com/#/apis/" target="_blank" rel="noreferrer">Auth0 Dashboards API page</a>, choosing `Auth0 Management API`, and selecting the 'Machine to Machine Applications' tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.
+## Retrieve User Information {{{ data-action="code" data-code="routes/api.php#32:51" }}}
 
-For the following example, you should grant the `read:users` scope. A list of API endpoints and the required scopes can be found in <a href="https://auth0.com/docs/api/management/v2" target="_blank" rel="noreferrer">the Management API documentation</a>.
 
-```php
-use Auth0\Laravel\Facade\Auth0;
+<p>You can retrieve information about the user who created the access token from Auth0 using the <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md">Auth0 Management API</a>. The SDK provides a convenient wrapper for this API, accessible through the SDK&#39;s <code>management()</code> method.</p><p><b>Before making Management API calls you must enable your application to communicate with the Management API.</b> This can be done from the <a href="https://manage.auth0.com/#/apis/">Auth0 Dashboard&#39;s API page</a>, choosing <code>Auth0 Management API</code>, and selecting the &#39;Machine to Machine Applications&#39; tab. Authorize your Laravel application, and then click the down arrow to choose the scopes you wish to grant.</p><p>For the following example, you should grant the <code>read:users</code> scope. A list of API endpoints and the required scopes can be found in <a href="https://auth0.com/docs/api/management/v2">the Management API documentation</a>.</p><p><pre><code class="language-php">use Auth0\Laravel\Facade\Auth0;
+
+
 
 Route::get('/me', function () {
-  $user = auth()->id();
-  $profile = cache()->get($user);
 
-  if (null === $profile) {
-    $endpoint = Auth0::management()->users();
-    $profile = $endpoint->get($user);
-    $profile = Auth0::json($profile);
+ $user = auth()-&gt;id();
 
-    cache()->put($user, $profile, 120);
-  }
+ $profile = cache()-&gt;get($user);
 
-  $name = $profile['name'] ?? 'Unknown';
-  $email = $profile['email'] ?? 'Unknown';
 
-  return response()->json([
-    'name' => $name,
-    'email' => $email,
-  ]);
-})->middleware('auth');
-```
 
-::: note
-**You should cache user information in your application for brief periods.** This reduces the number of requests your application makes to Auth0, and improves performance. You should avoid storing user information in your application for long periods as this can lead to stale data. You should also avoid storing user information beyond the user's identifier in persistent databases.
-:::
+ if (null === $profile) {
+
+ $endpoint = Auth0::management()-&gt;users();
+
+ $profile = $endpoint-&gt;get($user);
+
+ $profile = Auth0::json($profile);
+
+
+
+ cache()-&gt;put($user, $profile, 120);
+
+ }
+
+
+
+ $name = $profile['name'] ?? 'Unknown';
+
+ $email = $profile['email'] ?? 'Unknown';
+
+
+
+ return response()-&gt;json([
+
+ 'name' =&gt; $name,
+
+ 'email' =&gt; $email,
+
+ ]);
+
+})-&gt;middleware('auth');
+
+</code></pre>
+
+</p><p><div class="alert-container" severity="default"><p><b>You should cache user information in your application for brief periods.</b> This reduces the number of requests your application makes to Auth0, and improves performance. You should avoid storing user information in your application for long periods as this can lead to stale data. You should also avoid storing user information beyond the user&#39;s identifier in persistent databases.</p></div></p>
 
 ## Run the Application
 
-You are now ready to start your Laravel application, so it can accept requests:
 
-```shell
-php artisan serve
-```
+<p>You are now ready to start your Laravel application, so it can accept requests:</p><p><pre><code class="language-php">php artisan serve
+
+</code></pre>
+
+</p>
 
 ## Retrieve a Test Token
 
-You can learn more about <a href="https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens" target="_blank" rel="noreferrer">retrieving access tokens here</a>. For this quickstart, however, you can simply use an access token from <a href="https://manage.auth0.com/#/apis" target="_blank" rel="noreferrer">your API settings "test" view</a>.
 
-::: note
-The `/me` route we created above will not work with a test token as there is no actual user associated with it.
-:::
+<p>You can learn more about <a href="https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens">retrieving access tokens here</a>. For this quickstart, however, you can simply use an access token from <a href="https://manage.auth0.com/#/apis">your API settings&#39; &quot;test&quot; view</a>.</p><p><div class="alert-container" severity="default"><p>The <code>/me</code> route we created above will not work with a test token as there is no actual user associated with it.</p></div></p><p><div class="checkpoint">Laravel Quickstart Step 8 Checkpoint <div class="checkpoint-default"><p>Open a shell and try issuing requests to your application.</p><p>Begin by requesting the public route:</p><p><code>curl --request GET \ --url http://localhost:8000/api \ --header &#39;Accept: application/json&#39;</code></p><p>Next, use your access token in an <code>Authorization</code> header to request a protected route:</p><p><code>curl --request GET \ --url http://localhost:8000/api/private \ --header &#39;Accept: application/json&#39; \ --header &#39;Authorization: Bearer YOUR_ACCESS_TOKEN&#39;</code></p><p>Finally, try requesting the scope-protected route, which will only succeed if the access token has the <code>read:messages</code> scope granted:</p><p><code>curl --request GET \ --url http://localhost:8000/api/scope \ --header &#39;Accept: application/json&#39; \ --header &#39;Authorization: Bearer YOUR_ACCESS_TOKEN&#39;</code></p></div>
 
-::::checkpoint
-:::checkpoint-default
-Open a shell and try issuing requests to your application.
+  <div class="checkpoint-success"></div>
 
-Begin by requesting the public route:
+  <div class="checkpoint-failure"><p>Here are a couple of things to try:</p><ul><li><p>Try running <code>php artisan optimize:clear</code> to clear Laravel&#39;s cache.</p></li><li><p>Ensure your <code>.auth0.app.json</code> and <code>.auth0.api.json</code> files are at the root of your project.</p></li><li><p>Ensure you have enabled your Laravel application as a Machine-to-Machine application and granted it all the necessary scopes for the <code>Auth0 Management API</code> from the <a href="https://manage.auth0.com/#/apis/">Auth0 Dashboard</a>.</p></li></ul><p>Encountering problems? Check the SDK&#39;s <a href="https://github.com/auth0/laravel-auth0">documentation</a> or our <a href="https://auth0.com/docs">documentation hub</a>. You should also consider visiting <a href="https://community.auth0.com/">the community</a> where our team and other community members can help answer your questions.</p></div>
 
-```shell
-curl --request GET \
-  --url http://localhost:8000/api \
-  --header 'Accept: application/json'
-```
-
-Next, use your access token in an `Authorization` header to request a protected route:
-
-```shell
-curl --request GET \
-  --url http://localhost:8000/api/private \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
-```
-
-Finally, try requesting the scope-protected route, which will only succeed if the access token has the `read:messages` scope granted:
-
-```shell
-curl --request GET \
-  --url http://localhost:8000/api/scope \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
-```
-
-:::
-
-:::checkpoint-failure
-Here are a couple of things to try:
-
-- Try running `php artisan optimize:clear` to clear Laravel's cache.
-- Ensure your `.auth0.app.json` and `.auth0.api.json` files are at the root of your project.
-- Ensure you have enabled your Laravel application as a Machine-to-Machine application and granted it all the necessary scopes for the `Auth0 Management API` from the <a href="https://manage.auth0.com/#/apis/" target="_blank" rel="noreferrer">Auth0 Dashboard</a>.
-
-Encountering problems? Check the SDK's <a href="https://github.com/auth0/laravel-auth0" target="_blank" rel="noreferrer">documentation</a> or our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation hub</a>. You should also consider visiting <a href="https://community.auth0.com" target="_blank" rel="noreferrer">the community</a> where our team and other community members can help answer your questions.
-
-:::
-::::
-
-### Additional Reading
-
-- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Users.md" target="_blank" rel="noreferrer">User Repositories and Models</a> extends the Auth0 Laravel SDK to use custom user models, and how to store and retrieve users from a database.
-- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Events.md" target="_blank" rel="noreferrer">Hooking Events</a> covers how to listen for events raised by the Auth0 Laravel SDK, to fully customize the behavior of your integration.
-- <a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md" target="_blank" rel="noreferrer">Management API</a> support is built into the Auth0 Laravel SDK, allowing you to interact with the Management API from your Laravel application.
+  </div></p><h3>Additional Reading</h3><ul><li><p><a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Users.md">User Repositories and Models</a> extends the Auth0 Laravel SDK to use custom user models, and how to store and retrieve users from a database.</p></li><li><p><a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Events.md">Hooking Events</a> covers how to listen for events raised by the Auth0 Laravel SDK, to fully customize the behavior of your integration.</p></li><li><p><a href="https://github.com/auth0/laravel-auth0/blob/main/docs/Management.md">Management API</a> support is built into the Auth0 Laravel SDK, allowing you to interact with the Management API from your Laravel application.</p></li></ul><p></p>

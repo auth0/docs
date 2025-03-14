@@ -1,55 +1,29 @@
 ---
-title: Add Login to your Express App
-description: "Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK."
-interactive: true
+title: Add Login to your Express Application
+description: This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK.
+interactive:  true
 files:
-- files/server
+ - files/server
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-express-webapp-sample/tree/master/01-Login
+locale: en-US
 ---
 
-<!-- markdownlint-disable MD025 MD034 -->
+# Add Login to your Express Application
 
-# Add Login to Your Express Application
 
-Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK.
+<p>Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add user login, logout, and profile to a Node.js Express application using the Express OpenID Connect SDK.</p><p></p>
 
-## Configure Auth0 {{{ data-action=configure }}}
+## Configure Auth0
 
-To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
 
-### Configure an application
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/</code>.</p></div></p>
 
-Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+## Install the Express OpenID Connect SDK {{{ data-action="code" data-code="server.js#2:16" }}}
 
-Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your Applications in the future.
 
-If you would rather explore a complete configuration, you can view a sample application instead.
+<p>Your application will need the <a href="https://github.com/auth0/express-openid-connect"><code>express-openid-connect</code></a> package which is an Auth0-maintained OIDC-compliant SDK for Express.</p><p>Install the Express OpenID Connect SDK by running the following commands in your terminal:</p><p><pre><code class="language-bash">cd &lt;your-project-directory&gt;
 
-### Configure Callback URLs
-
-A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000/.
-:::
-
-### Configure Logout URLs
-
-A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
-
-::: note
-If you are following along with our sample project, set this to http://localhost:3000/.
-:::
-
-## Install the Express OpenID Connect SDK {{{ data-action=code data-code="server.js#3:10" }}}
-
-Your application will need the <a href="https://github.com/auth0/express-openid-connect" target="_blank" rel="noreferrer">`express-openid-connect`</a> package which is an Auth0-maintained OIDC-compliant SDK for Express.
-
-Install the Express OpenID Connect SDK by running the following commands in your terminal:
-
-```bash
-cd <your-project-directory>
 npm install express-openid-connect
 ```
 
@@ -80,19 +54,13 @@ Still having issues? Check out our <a href="https://auth0.com/docs" target="_bla
 :::
 ::::
 
-## Display User Profile {{{ data-action=code data-code="server.js#29:32" }}}
-To display the user's profile, your application should provide a protected route.
+## Display User Profile {{{ data-action="code" data-code="server.js#25:28" }}}
 
-Add the `requiresAuth` middleware for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
 
-::::checkpoint
-:::checkpoint-default
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be <a href="http://localhost:3000/" target="_blank" rel="noreferrer">`http://localhost:3000/`</a>.
+<p>To display the user&#39;s profile, your application should provide a protected route.</p><p>Add the <code>requiresAuth</code> middleware for routes that require authentication. Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.</p><p><div class="checkpoint">Express - Step 3 - Display User Profile - Checkpoint <div class="checkpoint-default"><p>A user can log out of your application by visiting the <code>/logout</code> route provided by the library. If you are running your project on <code>localhost:3000</code>, that link would be <a href="http://localhost:3000/logout"><code>http://localhost:3000/logout</code></a>.</p></div>
 
-:::
-:::checkpoint-failure
-Sorry about that. You should check that you configured the logout URL correctly.
+  <div class="checkpoint-success"></div>
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-:::
-::::
+  <div class="checkpoint-failure"><p>Sorry about that. You should check that you configured the logout URL correctly.</p><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+
+  </div></p>

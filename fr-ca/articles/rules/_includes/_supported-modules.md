@@ -1,0 +1,1 @@
+Rules run in a JavaScript sandbox. The sandbox supports the ECMAScript 6 language and a large number of Node.js (version 8+) modules. For a list of supported sandbox modules, check out [Can I require: Auth0 Extensibility](https://auth0-extensions.github.io/canirequire/).

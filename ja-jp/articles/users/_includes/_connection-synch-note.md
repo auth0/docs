@@ -1,0 +1,3 @@
+::: note
+Rather than storing profile-related information in `user_metadata`, you can edit these user attributes on the normalized user profile. If you want to be able to edit these attributes, you must [configure your connection sync with Auth0](/dashboard/guides/connections/configure-connection-sync) so that user attributes will be updated from the identity provider only on user profile creation. Root attributes will then be available to be [edited individually](/api/management/guides/users/update-root-attributes-users) or [by bulk import](/api/management/guides/users/update-root-attributes-users) using the Management API.
+:::
