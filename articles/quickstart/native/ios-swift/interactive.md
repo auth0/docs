@@ -20,20 +20,46 @@ locale: en-US
 ## Configure Auth0
 
 
-<p>To use Auth0 services, you need an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the app you are developing.</p><h3>Configure an Auth0 application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing <b>Native</b> Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample app instead.</p><h3>Configure callback and logout URLs</h3><p>Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.</p><p><div class="alert-container" severity="default"><p>On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.</p><p><b>This feature requires Xcode 15.3+ and a paid Apple Developer account.</b></p></div></p><p>Add the following URLs to <b>Callback URLs</b> and <b>Logout URLs</b>, depending on the platform of your app. If you have a <a data-contentfulid="UYjAbgxX33g81azZ6VHWc-en-US">custom domain</a>, use this instead of your Auth0 tenant’s domain.</p><h4>iOS</h4><p><pre><code>https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
+<p>To use Auth0 services, you need an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the app you are developing.</p><h3>Configure an Auth0 application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing <b>Native</b> Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample app instead.</p><h3>Configure callback and logout URLs</h3><p>Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.</p><p><div class="alert-container" severity="default"><p>On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.</p><p><b>This feature requires Xcode 15.3+ and a paid Apple Developer account.</b></p></div></p><p>Add the following URLs to <b>Callback URLs</b> and <b>Logout URLs</b>, depending on the platform of your app. If you have a <a data-contentfulid="UYjAbgxX33g81azZ6VHWc-en-US">custom domain</a>, use this instead of your Auth0 tenant’s domain.</p>
 
+Use the interactive selector to create a new Auth0 application or select an existing **Native** Auth0 application. Auth0 assigns every application an alphanumeric, unique Client ID that your app uses to call Auth0 APIs through the SDK.
+
+Any settings you configure using this quickstart automatically update your Auth0 application in the <a href="${manage_url}/#/" target="_blank" rel="noreferrer">Dashboard</a>, which is where you can manage your applications in the future.
+
+If you would rather explore a complete configuration, you can view a sample app instead.
+
+### Configure callback and logout URLs
+
+Auth0 invokes the callback and logout URLs to redirect users back to your app. Auth0 invokes the callback URL after authenticating the user and the logout URL after removing the session cookie. If you do not set the callback and login URLs, users will not be able to log in and out of the app, and your app will produce an error.
+
+::: note
+On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links as callback and logout URLs. When enabled, Auth0.swift will fall back to using a custom URL scheme on older iOS / macOS versions.
+
+Whenever possible, Auth0 recommends using Universal Links as a secure way to link directly to content within your app. Custom URL schemes can be subject to [client impersonation attacks](https://datatracker.ietf.org/doc/html/rfc8252#section-8.6).
+
+**This feature requires Xcode 15.3+ and a paid Apple Developer account**.
+:::
+
+Add the following URLs to **Callback URLs** and **Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of your Auth0 tenant’s domain.
+
+#### iOS
+
+```text
+https://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
+```
 
-</code></pre>
+#### macOS
 
-</p><h4>macOS</h4><p><pre><code>https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
-
+```text
+https://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback,
 YOUR_BUNDLE_IDENTIFIER://${account.namespace}/macos/YOUR_BUNDLE_IDENTIFIER/callback
+```
 
-</code></pre>
+For example, if your iOS bundle identifier was `com.example.MyApp` and your Auth0 domain was `example.us.auth0.com`, then this value would be:
 
-</p><p>For example, if your iOS bundle identifier was <code>com.example.MyApp</code> and your Auth0 domain was <code>example.us.auth0.com</code>, then this value would be:</p><p><pre><code>https://example.us.auth0.com/ios/com.example.MyApp/callback,
-
+```text
+https://example.us.auth0.com/ios/com.example.MyApp/callback,
 com.example.MyApp://example.us.auth0.com/ios/com.example.MyApp/callback
 ```
 

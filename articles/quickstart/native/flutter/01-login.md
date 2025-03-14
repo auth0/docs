@@ -49,6 +49,9 @@ Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" ta
 On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. `https` schemes require enabling <a href="https://auth0.com/docs/get-started/applications/enable-android-app-links-support" target="_blank" rel="noreferrer">Android App Links</a>.
 
 On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links (`https` scheme) as callback and logout URLs. When enabled, the SDK will fall back to using a custom URL scheme on older iOS / macOS versions –your app's <a href="https://developer.apple.com/documentation/appstoreconnectapi/bundle_ids" target="_blank" rel="noreferrer">bundle identifier</a>.
+
+Whenever possible, Auth0 recommends using Universal Links as a secure way to link directly to content within your iOS app. Custom URL schemes can be subject to [client impersonation attacks](https://datatracker.ietf.org/doc/html/rfc8252#section-8.6).
+
 **This feature requires Xcode 15.3+ and a paid Apple Developer account**.
 :::
 
