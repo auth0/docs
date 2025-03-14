@@ -26,9 +26,9 @@ useCase: quickstart
 ```python
 # /requirements.txt
 
-flask
+flask==2.3.3
 python-dotenv
-python-jose
+pyjwt
 flask-cors
 six
 ```
@@ -46,7 +46,7 @@ from functools import wraps
 
 from flask import Flask, request, jsonify, _request_ctx_stack
 from flask_cors import cross_origin
-from jose import jwt
+import jwt
 
 AUTH0_DOMAIN = '${account.namespace}'
 API_AUDIENCE = YOUR_API_AUDIENCE
@@ -112,21 +112,15 @@ def requires_auth(f):
         jsonurl = urlopen("https://"+AUTH0_DOMAIN+"/.well-known/jwks.json")
         jwks = json.loads(jsonurl.read())
         unverified_header = jwt.get_unverified_header(token)
-        rsa_key = {}
+        public_key = None
         for key in jwks["keys"]:
             if key["kid"] == unverified_header["kid"]:
-                rsa_key = {
-                    "kty": key["kty"],
-                    "kid": key["kid"],
-                    "use": key["use"],
-                    "n": key["n"],
-                    "e": key["e"]
-                }
-        if rsa_key:
+                public_key = jwt.algorithms.RSAAlgorithm.from_jwk(json.dumps(jwk))
+        if public_key:
             try:
                 payload = jwt.decode(
                     token,
-                    rsa_key,
+                    public_key,
                     algorithms=ALGORITHMS,
                     audience=API_AUDIENCE,
                     issuer="https://"+AUTH0_DOMAIN+"/"
@@ -134,11 +128,16 @@ def requires_auth(f):
             except jwt.ExpiredSignatureError:
                 raise AuthError({"code": "token_expired",
                                 "description": "token is expired"}, 401)
-            except jwt.JWTClaimsError:
-                raise AuthError({"code": "invalid_claims",
+            except jwt.InvalidAudienceError:
+                raise AuthError({"code": "invalid_audience",
                                 "description":
-                                    "incorrect claims,"
-                                    "please check the audience and issuer"}, 401)
+                                    "incorrect audience,"
+                                    " please check the audience"}, 401)
+            except jwt.InvalidIssuerError
+                raise AuthError({"code": "invalid_issuer",
+                                "description":
+                                    "incorrect issuer,"
+                                    " please check the issuer"}, 401)
             except Exception:
                 raise AuthError({"code": "invalid_header",
                                 "description":
@@ -165,7 +164,7 @@ def requires_scope(required_scope):
         required_scope (str): The scope required to access the resource
     """
     token = get_token_auth_header()
-    unverified_claims = jwt.get_unverified_claims(token)
+    unverified_claims = jwt.decode(token, options={"verify_signature": False})
     if unverified_claims.get("scope"):
             token_scopes = unverified_claims["scope"].split()
             for token_scope in token_scopes:
