@@ -58,7 +58,7 @@ root.render(
 
 The `Auth0Provider` component takes the following props:
 
-- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's <a href="http://localhost:3000/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domains feature</a>
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 - `useRefreshTokens`: To use auth0-react with Ionic on Android and iOS, it's required to enable refresh tokens.
 - `useRefreshTokensFallback`: To use auth0-react with Ionic on Android and iOS, it's required to disable the iframe fallback.

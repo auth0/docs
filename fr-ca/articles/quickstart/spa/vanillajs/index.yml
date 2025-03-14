@@ -1,0 +1,63 @@
+title: JavaScript
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/html5.png
+logo: javascript
+language:
+  - JavaScript
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+show_releases: true
+sdk:
+  name: auth0-spa-js
+  url: https://github.com/auth0/auth0-spa-js
+  logo: javascript
+snippets:
+  dependencies: application-platforms/vanillajs/dependencies
+  setup: application-platforms/vanillajs/setup
+  use: application-platforms/vanillajs/use
+alias:
+  - vanilla
+  - vanillajs
+  - spa
+  - single-page-app
+  - html5
+  - backendless
+  - javascript-app
+seo_alias: vanillajs
+default_article: 01-login
+hidden_articles:
+  - interactive
+articles:
+  - 01-login
+  - 02-calling-an-api
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-javascript-samples
+  branch: master
+next_steps:
+  - path: 01-login
+    list:
+      - text: 'Part 2: Calling an API using an access token'
+        icon: 345
+        href: '/quickstart/spa/vanillajs/02-calling-an-api'
+  - path: 02-calling-an-api
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

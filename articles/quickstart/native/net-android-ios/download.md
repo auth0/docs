@@ -1,10 +1,10 @@
-To run the sample first set the **Allowed Callback URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> so it works for both Android and iOS apps:
+To run the sample first set the **Allowed Callback URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> so it works for both Android and iOS apps:
 
   ```text
 com.auth0.quickstart://${account.namespace}/android/com.auth0.quickstart/callback com.auth0.iossample://${account.namespace}/ios/com.auth0.iossample/callback
   ```
 
-Set the **Allowed Logout URLs** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> so it works for both Android and iOS apps:
+Set the **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> so it works for both Android and iOS apps:
 
   ```text
 com.auth0.quickstart://${account.namespace}/android/com.auth0.quickstart/callback com.auth0.iossample://${account.namespace}/ios/com.auth0.iossample/callback

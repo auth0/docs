@@ -34,4 +34,4 @@ If you are following along with our sample project, set this to one of the follo
 **iOS**: `YOUR_BUNDLE_ID://${account.namespace}/ios/YOUR_BUNDLE_ID/callback`
 :::
 
-Lastly, be sure that the **Application Type** for your application is set to **Native** in the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a>.
+Lastly, be sure that the **Application Type** for your application is set to **Native** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a>.

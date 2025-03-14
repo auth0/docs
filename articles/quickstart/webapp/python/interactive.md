@@ -1,114 +1,93 @@
 ---
-title: Add login to your Python Flask app
-description: This tutorial demonstrates how to add user login to a Python web application built with the Flask framework and Authlib OAuth library.
-interactive: true
+title: Add Login to Your Python Flask Application
+description: This guide demonstrates how to integrate Auth0 with a Python Flask application using the Authlib SDK.
+interactive:  true
 files:
-- files/server
-- files/home
-contentType: tutorial
-useCase: quickstart
-topics:
-  - quickstarts
-  - webapp
-  - login
-  - python
-  - flask
+ - files/server
+ - files/templates/home
 github:
-  path: 01-Login
+  path: https://github.com/auth0-samples/auth0-python-web-app/tree/master/01-Login
+locale: en-US
 ---
-
-<!-- markdownlint-disable MD025 MD034 -->
 
 # Add Login to Your Python Flask Application
 
-Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python <a href="https://flask.palletsprojects.com" target="_blank" rel="noreferrer">Flask</a> application using the <a href="https://authlib.org/" target="_blank" rel="noreferrer">Authlib</a> SDK.
 
-<%= include('../../_includes/_configure_auth0_interactive', {
-callback: 'http://localhost:3000/callback',
-returnTo: 'http://localhost:3000'
-}) %>
+<p>Auth0 allows you to add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with a Python <a href="https://flask.palletsprojects.com/">Flask</a> application using the <a href="https://authlib.org/">Authlib</a> SDK.</p><p></p>
+
+## Configure Auth0
+
+
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/callback</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p><p></p></div></p>
 
 ## Install dependencies
 
-Create a `requirements.txt` file in your project directory:
 
-```python
-# 📁 requirements.txt -----
+<p>Create a <code>requirements.txt</code> file in your project directory:</p><p><pre><code class="language-powershell"># 📁 requirements.txt -----
 
-flask>=2.0.3
-python-dotenv>=0.19.2
-authlib>=1.0
-requests>=2.27.1
-```
 
-Run the following command from your shell to enable these dependencies in your project:
 
-```sh
-pip install -r requirements.txt
-```
+flask&gt;=2.0.3
 
-## Configure your `.env` file
+python-dotenv&gt;=0.19.2
 
-Next, create an `.env` file in your project directory. This file will hold your client keys and other configuration details.
+authlib&gt;=1.0
 
-```ini
-# 📁 .env -----
+requests&gt;=2.27.1
+
+</code></pre>
+
+</p><p>Run the following command from your shell to enable these dependencies in your project:</p><p><pre><code class="language-powershell">pip install -r requirements.txt
+
+</code></pre>
+
+</p>
+
+## Configure your .env file
+
+
+<p>Next, create an <code>.env</code> file in your project directory. This file will hold your client keys and other configuration details.</p><p><pre><code># 📁 .env -----
+
+
 
 AUTH0_CLIENT_ID=${account.clientId}
+
 AUTH0_CLIENT_SECRET=${account.clientSecret}
+
 AUTH0_DOMAIN=${account.namespace}
+
 APP_SECRET_KEY=
-```
 
-- Generate a string for `APP_SECRET_KEY` using `openssl rand -hex 32` from your shell.
+</code></pre>
 
-## Setup your application {{{ data-action=code data-code="server.py#1:27" }}}
+</p><ul><li><p>Generate a string for <code>APP_SECRET_KEY </code>using <code>openssl rand -hex 32 </code>from your shell.</p></li></ul><p></p>
 
-Next, set up your application. Create a `server.py` file in your project directory - this file will contain your application logic.
+## Setup your application {{{ data-action="code" data-code="templates/home.html" }}}
 
-Import all the libraries your application needs.
 
-Load the configuration `.env` file you made in the previous step.
+<p>Next, set up your application. Create a <code>server.py</code> file in your project directory - this file will contain your application logic.</p><p>Import all the libraries your application needs.</p><p>Load the configuration <code>.env</code> file you made in the previous step.</p><p>Configure Authlib to handle your application&#39;s authentication with Auth0. To learn more about the configuration options available for Authlib&#39;s OAuth <code>register()</code> method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in">their documentation.</a></p>
 
-Configure Authlib to handle your application's authentication with Auth0. To learn more about the configuration options available for Authlib's OAuth `register()` method from <a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank" rel="noreferrer">their documentation.</a>
+## Setup your routes {{{ data-action="code" data-code="server.py" }}}
 
-## Setup your routes {{{ data-action=code data-code="server.py#30:59" }}}
 
-In this example, you will add four routes to the application: login, callback, logout, and home.
+<p>In this example, you will add four routes to the application: login, callback, logout, and home.</p><p>When visitors to your app visit the <code>/login</code> route, your application will route them to the Auth0 login page.</p><p>After your users log in with Auth0, your application will route them to the <code>/callback</code> route. This route saves the session for the user and bypasses the need for them to login again when they return.</p><p>The <code>/logout</code> route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.</p><p>Your <code>/ </code>home route either renders an authenticated user&#39;s details or allows visitors to sign in.</p>
 
-When visitors to your app visit the `/login` route, your application will route them to the Auth0 login page.
+## Add templates
 
-After your users log in with Auth0, your application will route them to the `/callback` route. This route saves the session for the user and bypasses the need for them to login again when they return.
 
-The `/logout` route signs users out from your application. This route clears the user session in your app and redirects to the Auth0 logout endpoint to ensure the session is no longer saved. Then, the application redirects the user to your home route.
-
-Your `/ ` home route either renders an authenticated user's details or  allows visitors to sign in.
-
-## Add templates {{{ data-action=code data-code="templates/home.html" }}}
-
-Next, create the template file used in the home route (during `render_template()` calls).
-
-Create a new sub-directory in your project folder named `templates`, and create `home.html`  in the directory. Paste the content from the right into that file.
+<p>Next, create the template file used in the home route (during <code>render_template()</code> calls).</p><p>Create a new sub-directory in your project folder named <code>templates</code>, and create <code>home.html</code> in the directory. Paste the content from the right into that file.</p>
 
 ## Run your application
 
-To run your application, navigate to the root of your project directory and open a terminal. Run the following command:
 
-```sh
-python3 server.py
-```
+<p>To run your application, navigate to the root of your project directory and open a terminal. Run the following command:</p><p><pre><code class="language-python">python3 server.py
 
-::::checkpoint
-:::checkpoint-default
-Visit <a href="http://localhost:3000" target="_blank" rel="noreferrer">http://localhost:3000</a> to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.
-:::
+</code></pre>
 
-:::checkpoint-failure
-If your application did not start successfully:
-* Verify any errors in the console.
-* Verify the domain and Client ID imported correctly.
-* Verify your tenant configuration.
+</p><p><div class="checkpoint">Python Step 7 Checkpoint <div class="checkpoint-default"><p>Visit <a href="http://localhost:3000/">http://localhost:3000</a> to verify. You should find a login button routing to Auth0 for login, then back to your application to see your profile information.</p></div>
 
-Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" rel="noreferrer">documentation</a> or visit our <a href="https://community.auth0.com" target="_blank" rel="noreferrer">community page</a> to get more help.
-:::
-::::
+  <div class="checkpoint-success"></div>
+
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify any errors in the console.</p></li><li><p>Verify the domain and Client ID imported correctly.</p></li><li><p>Verify your tenant configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com">community page</a> to get more help</p><p></p></div>
+
+  </div></p>

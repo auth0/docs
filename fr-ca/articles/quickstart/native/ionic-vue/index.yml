@@ -1,0 +1,55 @@
+title: Ionic & Capacitor (Vue)
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/ionic.jpeg
+logo_name: ionic
+logo: ionic
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
+alias:
+  - ionic
+  - vue
+  - capacitor
+  - auth0-vue
+language:
+  - Typescript
+framework:
+  - Ionic
+  - Capacitor
+  - Vue
+hybrid: true
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: ionic-vue
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ionic-samples
+  branch: main
+requirements:
+  - Node & Npm (LTS)
+  - XCode 12+ (for iOS)
+  - Android Studio 4+ (for Android)
+next_steps:
+  - path: 01-login
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

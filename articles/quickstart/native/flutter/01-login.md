@@ -43,7 +43,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the app and will get an error.
 
-Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the Auth0 domain from the settings page.
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the Auth0 domain from the settings page.
 
 ::: note
 On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. `https` schemes require enabling <a href="https://auth0.com/docs/get-started/applications/enable-android-app-links-support" target="_blank" rel="noreferrer">Android App Links</a>.
@@ -134,7 +134,7 @@ This step requires a paid Apple Developer account. It is needed to use Universal
 
 #### Configure the Team ID and bundle identifier
 
-Go to the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application, scroll to the end, and open **Advanced Settings > Device Settings**. In the **iOS** section, set **Team ID** to your <a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/" target="_blank" rel="noreferrer">Apple Team ID</a>, and **App ID** to your app's bundle identifier.
 
 <p><img src="/media/articles/native-platforms/ios-swift/ios-device-settings.png" alt="Screenshot of the iOS section inside the Auth0 application settings page"></p>
 

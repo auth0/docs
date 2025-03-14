@@ -1,80 +1,53 @@
 ---
-title: Add Authorization to an ASP.NET Core Web API application
+title: Add Authorization to Your ASP.NET Core Web API Application
 description: This tutorial demonstrates how to add authorization to an ASP.NET Core Web API application using the standard JWT middleware.
-budicon: 500
-topics:
-    - quickstart
-    - backend
-    - aspnetcore
-    - web-api
-github:
-    path: Quickstart/01-Authorization
-contentType: tutorial
-useCase: quickstart
-interactive: true
+interactive:  true
 files:
-  - files/appsettings
-  - files/configure-middleware
-  - files/has-scope-handler
-  - files/has-scope-requirement
-  - files/api-controller
+ - files/appsettings
+ - files/Program
+ - files/HasScopeHandler
+ - files/HasScopeRequirement
+ - files/ApiController
+github:
+  path: https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart/01-Authorization
+locale: en-US
 ---
 
 # Add Authorization to Your ASP.NET Core Web API Application
 
-Auth0 allows you to add authentication and access user profile information in almost any application type quickly. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
 
-If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
-
-Alternatively, you can <a href="/get-started/auth0-overview/set-up-apis" target="_blank" rel="noreferrer">read our getting started guide</a>, which will help you set up your first API through the Auth0 Dashboard.
-
-Note that every API in Auth0 is configured using an API Identifier; your application code will use the API Identifier as the Audience to validate the access token.
-
-<!-- markdownlint-disable MD041 MD002 -->
-
-<%= include('../../../_includes/_api_auth_intro') %>
+<p>Auth0 allows you to add authentication and access user profile information in almost any application type quickly. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the <code>Microsoft.AspNetCore.Authentication.JwtBearer</code> package.</p><p>If you haven&#39;t created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.</p><p>Alternatively, you can <a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-en-US">read our getting started guide</a>, which will help you set up your first API through the Auth0 Dashboard.</p><p>Note that every API in Auth0 is configured using an API Identifier; your application code will use the API Identifier as the Audience to validate the access token.</p><p><div class="alert-container" severity="default"><p><b>New to Auth0?</b> Learn <a data-contentfulid="43RIpZkDhzyy40WfzZvz4y-en-US">how Auth0 works</a> and read about <a data-contentfulid="6eZFaxxcNpFYwyEI05AXXA-en-US">implementing API authentication and authorization</a> using the OAuth 2.0 framework.</p></div></p><p></p><p></p>
 
 ## Define permissions
-<%= include('../_includes/_api_scopes_access_resources') %>
+
+
+<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and grant write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/#/apis">APIs</a> section. The following example uses the <code>read:messages</code> scope.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p></p>
 
 ## Install dependencies
 
-To allow your application to validate access tokens, add a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer` Nuget package:
 
-```text
-Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
-```
+<p>To allow your application to validate access tokens, add a reference to the <code>Microsoft.AspNetCore.Authentication.JwtBearer</code> NuGet package:</p><p><pre><code class="language-powershell">Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
-## Configure the middleware {{{ data-action=code data-code="Startup.cs" }}}
+</code></pre>
 
-Set up the authentication middleware by configuring it in your application's `Program.cs` file:
+</p>
 
-1. Register the authentication services by making a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default scheme.
- 
-2. Register the JWT Bearer authentication scheme by making a call to the `AddJwtBearer` method. Configure your Auth0 domain as the authority and your Auth0 API Identifier as the audience, and be sure that your Auth0 domain and API Identifier are set in your application's **appsettings.json** file. 
+## Configure the middleware {{{ data-action="code" data-code="Program.cs" }}}
 
-:::note
-In some cases, the access token will not have a `sub` claim; in this case, the `User.Identity.Name` will be `null`. If you want to map a different claim to `User.Identity.Name`, add it to `options.TokenValidationParameters` within the `AddJwtBearer()` call.
-:::
 
-3. Add the authentication and authorization middleware to the middleware pipeline by adding calls to the `UseAuthentication` and `UseAuthorization` methods under the `var app = builder.Build();` method.
+<p>Set up the authentication middleware by configuring it in your application&#39;s <code>Program.cs</code> file:</p><ol><li><p>Register the authentication services by making a call to the <code>AddAuthentication</code> method. Configure <code>JwtBearerDefaults.AuthenticationScheme</code> as the default scheme.</p></li><li><p>Register the JWT Bearer authentication scheme by making a call to the <code>AddJwtBearer</code> method. Configure your Auth0 domain as the authority and your Auth0 API Identifier as the audience, and be sure that your Auth0 domain and API Identifier are set in your application&#39;s <b>appsettings.json</b> file.
 
-## Validate scopes {{{ data-action=code data-code="HasScopeHandler.cs" }}}
+<div class="alert-container" severity="default"><p>In some cases, the access token will not have a <code>sub</code> claim; in this case, the <code>User.Identity.Name</code> will be <code>null</code>. If you want to map a different claim to <code>User.Identity.Name</code>, add it to <code>options.TokenValidationParameters</code> within the <code>AddJwtBearer()</code> call.</p></div></p></li><li><p>Add the authentication and authorization middleware to the middleware pipeline by adding calls to the <code>UseAuthentication </code>and <code>UseAuthorization </code>methods under the <code>var app = builder.Build(); </code>method.</p></li></ol><p></p><p></p>
 
-To ensure that an access token contains the correct scopes, use <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies" target="_blank" rel="noreferrer">Policy-Based Authorization</a> in the ASP.NET Core:
+## Validate scopes {{{ data-action="code" data-code="HasScopeHandler.cs" }}}
 
-1. Create a new authorization requirement called `HasScopeRequirement`, which will check whether the `scope` claim issued by your Auth0 tenant is present, and if so, will check that the claim contains the requested scope.
-2. Under your `Program.cs` file's `var builder = WebApplication.CreateBuilder(args);` method, add a call to the `app.AddAuthorization` method.
-3. Add policies for scopes by calling `AddPolicy` for each scope.
-4. Register a singleton for the `HasScopeHandler` class.
 
-## Protect API endpoints {{{ data-action=code data-code="ApiController.cs" }}}
+<p>To ensure that an access token contains the correct scopes, use <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies">Policy-Based Authorization</a> in the ASP.NET Core:</p><ol><li><p>Create a new authorization requirement called <code>HasScopeRequirement</code>, which will check whether the <code>scope </code>claim issued by your Auth0 tenant is present, and if so, will check that the claim contains the requested scope.</p></li><li><p>Under your <code>Program.cs </code>file&#39;s <code>var builder = WebApplication.CreateBuilder(args); </code>method, add a call to the <code>app.AddAuthorization </code>method.</p></li><li><p>Add policies for scopes by calling <code>AddPolicy </code>for each scope.</p></li><li><p>Register a singleton for the <code>HasScopeHandler </code>class.</p></li></ol><p></p>
 
-The JWT middleware integrates with the standard ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/" target="_blank" rel="noreferrer">Authentication</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/" target="_blank" rel="noreferrer">Authorization</a> mechanisms.
+## Protect API endpoints {{{ data-action="code" data-code="ApiController.cs" }}}
 
-To secure an endpoint, add the `[Authorize]` attribute to your controller action (or the entire controller if you want to protect all of its actions).
 
-When securing endpoints that require specific scopes, make sure that the correct scope is present in the `access_token`. To do so, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter.
+<p>The JWT middleware integrates with the standard ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/">Authentication</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/">Authorization</a> mechanisms.</p><p>To secure an endpoint, add the <code>[Authorize]</code> attribute to your controller action (or the entire controller if you want to protect all of its actions).</p><p>When securing endpoints that require specific scopes, make sure that the correct scope is present in the <code>access_token</code>. To do so, add the <code>Authorize</code> attribute to the <code>Scoped</code> action and pass <code>read:messages</code> as the <code>policy</code> parameter.</p>
 
 ## Call your API
 
@@ -89,7 +62,7 @@ Regardless of the type of application you are developing or the framework you ar
 
 If you are calling your API from a Single-Page Application (SPA) or a Native application, after the authorization flow completes, you will get an access token.
 
-If you are calling the API from a command-line tool or another service where a user entering credentials does not exist, use the <a href="/api/authentication#client-credentials" target="_blank" rel="noreferrer">OAuth Client Credentials Flow</a>. To do so, register a <a href="$manage_url/#/applications" target="_blank" rel="noreferrer">Machine-to-Machine Application</a>, and pass in the **Client ID** as the `client_id` parameter, the **Client Secret** as the `client_secret` parameter, and the API Identifier (the same value you used to configure the middleware earlier in this quickstart) as the `audience` parameter when making the following request:
+If you are calling the API from a command-line tool or another service where a user entering credentials does not exist, use the <a href="/api/authentication#client-credentials" target="_blank" rel="noreferrer">OAuth Client Credentials Flow</a>. To do so, register a <a href="${manage_url}/#/applications" target="_blank" rel="noreferrer">Machine-to-Machine Application</a>, and pass in the **Client ID** as the `client_id` parameter, the **Client Secret** as the `client_secret` parameter, and the API Identifier (the same value you used to configure the middleware earlier in this quickstart) as the `audience` parameter when making the following request:
 
 :::note
 To learn more about getting the Client ID and Client Secret for your machine-to-machine application, read <a href="/get-started/dashboard/application-settings" target="_blank" rel="noreferrer">Application Settings</a>.

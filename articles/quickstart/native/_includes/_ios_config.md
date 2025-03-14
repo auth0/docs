@@ -2,7 +2,7 @@
 
 ## Add Auth0 Credentials
 
-You will need some details about this application to communicate with Auth0. You can get these details from the <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Application Settings</a> in the Auth0 dashboard.
+You will need some details about this application to communicate with Auth0. You can get these details from the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> in the Auth0 dashboard.
 
 You need the following information: 
 * **Client ID**
@@ -55,7 +55,7 @@ In your application's `Info.plist` file, register your iOS Bundle identifier as 
 If your `Info.plist` file is not in the format shown above, you can right-click `Info.plist` in Xcode and select **Open As** > **Source Code**.
 :::
 
-Go to your <a href="$manage_url/#/applications/$account.clientId/settings" target="_blank" rel="noreferrer">Dashboard Settings</a> and make sure that the **Allowed Callback URLs** field contains the following callback URL:
+Go to your <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Dashboard Settings</a> and make sure that the **Allowed Callback URLs** field contains the following callback URL:
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
