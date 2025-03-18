@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
       - name: Get branch name
         id: branch-name
-        uses: tj-actions/branch-names@v5.2
+        uses: tj-actions/branch-names@v7.0.7
       - name: Wait for Tests Results
         uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
