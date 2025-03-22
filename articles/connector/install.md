@@ -21,21 +21,13 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
       <li>
         <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
           <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
-          Auth0 Active Directory/LDAP Connector for Windows
-          <small class="download-version"></small>
+          Auth0 Active Directory/LDAP Connector for Windows - <small class="download-version"></small><br />
         </a>
-        <span class="hash"></span>
+        <span class="checksum"></span>
       </li>
     </ul>
   </div>
-
-<script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url);
-    $('.download-version').text('Current version: ' + data.version);
-    $('.hash').text('Checksum (SHA1): ' + data.checksum);
-  })
-</script>
+</div>
 
 ## Run the installer
 
@@ -95,3 +87,26 @@ If Test 3 fails, check the privileges of the username in the target directory.
 Test 4: Attempts to establish a connection to the Auth0 server.
 
 If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+setTimeout(function() {
+  $(document).ready(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      var dhLink = $('.download-link');
+      if(dhLink) { 
+        dhLink.attr('href', data.url); 
+      }
+      var dhVersion = $('.download-version');
+      if(dhVersion) { 
+        dhVersion.text('Current version: ' + data.version);
+      }
+      var dhChecksum = $('.checksum');
+      if(dhChecksum) { 
+        dhChecksum.text('Checksum (SHA1): ' + data.checksum);
+      }
+    });
+  });
+}, 500);
+//# sourceURL=test2.js
+</script>
