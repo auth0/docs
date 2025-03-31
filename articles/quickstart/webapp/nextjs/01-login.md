@@ -135,7 +135,7 @@ To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0
 
 ## Add Login to Your Application
 
-Users can now log in to your application at `/api/auth/login` route provided by the SDK. Use an **anchor tag** to add a link to the login route to redirect your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 redirects your users back to your application.
+Users can now log in to your application at `/auth/login` route provided by the SDK. Use an **anchor tag** to add a link to the login route to redirect your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 redirects your users back to your application.
 
 ```html
 <a href="/auth/login">Login</a>
