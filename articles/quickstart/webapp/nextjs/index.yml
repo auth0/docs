@@ -11,8 +11,8 @@ language:
 framework:
   - Next.js
 author:
-  name: Rita Zerrizuela
-  email: rita.zerrizuela@auth0.com
+  name: Carlos Fung
+  email: carlos.fung@auth0.com
   community: false
 
 topics:
@@ -23,7 +23,7 @@ seo_alias: nextjs
 show_releases: true
 show_steps: true
 requirements:
-  - Next.js 13.4+
+  - Next.js 15.2.4+
 default_article: 01-login
 articles:
   - 01-login
