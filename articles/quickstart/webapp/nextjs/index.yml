@@ -11,8 +11,8 @@ language:
 framework:
   - Next.js
 author:
-  name: Carlos Fung
-  email: carlos.fung@auth0.com
+  name: Rita Zerrizuela
+  email: rita.zerrizuelag@auth0.com
   community: false
 
 topics:
