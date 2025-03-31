@@ -44,15 +44,16 @@ AUTH0_SCOPE='openid profile email read:shows'
 ```
 
 - `AUTH0_SECRET`: A long secret value used to encrypt the session cookie. You can generate a suitable string using `openssl rand -hex 32` on the command line.
-- `APP_BASE_URL`: The base URL of your application.
-- `AUTH0_DOMAIN`: The URL of your Auth0 tenant domain. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domain with Auth0</a>, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
-- `AUTH0_CLIENT_ID`: Your Auth0 application's Client ID.
-- `AUTH0_CLIENT_SECRET`: Your Auth0 application's Client Secret.
+- `APP_BASE_URL`: The base URL of your application
+- `AUTH0_DOMAIN`: The URL of your Auth0 tenant domain
+- `AUTH0_CLIENT_ID`: Your Auth0 application's Client ID
+- `AUTH0_CLIENT_SECRET`: Your Auth0 application's Client Secret
 
 The SDK will read these values from the Node.js process environment and configure itself automatically.
 
 ::: note
 Manually add the values for `AUTH0_AUDIENCE` and `AUTH_SCOPE` to the file `lib/auth0.js`.  These values are not configured automatically.
+If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domain with Auth0</a>, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
 :::
 
 ### Create the Auth0 SDK Client
@@ -121,27 +122,27 @@ export const GET = async function shows() {
 };
 ```
 
-Upon execution the following routes for your customers are available:
+Upon execution, the following routes for your customers are available:
 
-- `/auth/login`: The route to perform login with Auth0.
-- `/auth/logout`: The route to log the user out.
-- `/auth/callback`: The route Auth0 will redirect the user to after a successful login.
-- `/auth/profile`: The route to fetch the user profile.
-- `/auth/access-token`: The route to verify the user's session and return an access token (which automatically refreshes if a refresh token is available).
-- `/auth/backchannell-logout`: The route to receive a logout_token when a configured Back-Channel Logout initiator occurs.
+- `/auth/login`: The route to perform login with Auth0
+- `/auth/logout`: The route to log the user out
+- `/auth/callback`: The route Auth0 will redirect the user to after a successful login
+- `/auth/profile`: The route to fetch the user profile
+- `/auth/access-token`: The route to verify the user's session and return an access token (which automatically refreshes if a refresh token is available)
+- `/auth/backchannell-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
 
 To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0-stable-support-for-nextjs-app-router/" target="_blank" rel="noreferrer"> Add the dynamic API route</a>.
 
 ## Add Login to Your Application
 
-Users can now log in to your application at `/api/auth/login` route provided by the SDK. Use an **anchor tag** to add a link to the login route, the route redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 redirects your users back to your application.
+Users can now log in to your application at `/api/auth/login` route provided by the SDK. Use an **anchor tag** to add a link to the login route to redirect your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 redirects your users back to your application.
 
 ```html
 <a href="/auth/login">Login</a>
 ```
 
 :::note
-Next suggest using <a href="https://nextjs.org/docs/api-reference/next/link" target="_blank" rel="noreferrer">Link</a> components instead of anchor tags, but since these are API routes and not pages, anchor tags are needed.
+Next.js suggest using <a href="https://nextjs.org/docs/api-reference/next/link" target="_blank" rel="noreferrer">Link</a> components instead of anchor tags, but since these are API routes and not pages, anchor tags are needed.
 :::
 
 :::panel Checkpoint
