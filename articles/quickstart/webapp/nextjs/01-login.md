@@ -122,7 +122,7 @@ export const GET = async function shows() {
 };
 ```
 
-Upon execution, the following routes for your customers are available:
+Upon execution, the following routes are available:
 
 - `/auth/login`: The route to perform login with Auth0
 - `/auth/logout`: The route to log the user out
@@ -142,7 +142,7 @@ Users can now log in to your application at `/auth/login` route provided by the 
 ```
 
 :::note
-Next.js suggest using <a href="https://nextjs.org/docs/api-reference/next/link" target="_blank" rel="noreferrer">Link</a> components instead of anchor tags, but since these are API routes and not pages, anchor tags are needed.
+Next.js suggests using <a href="https://nextjs.org/docs/api-reference/next/link" target="_blank" rel="noreferrer">Link</a> components instead of anchor tags, but since these are API routes and not pages, anchor tags are needed.
 :::
 
 :::panel Checkpoint
