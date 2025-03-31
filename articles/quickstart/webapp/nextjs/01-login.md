@@ -53,7 +53,7 @@ The SDK will read these values from the Node.js process environment and configur
 
 ::: note
 Manually add the values for `AUTH0_AUDIENCE` and `AUTH_SCOPE` to the file `lib/auth0.js`.  These values are not configured automatically.
-If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domain with Auth0</a>, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.
+If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" rel="noreferrer">Custom Domain with Auth0</a>, set `AUTH0_DOMAIN` to the value of your Custom Domain instead of the value reflected in the application "Settings" tab.
 :::
 
 ### Create the Auth0 SDK Client
@@ -129,7 +129,7 @@ Upon execution, the following routes are available:
 - `/auth/callback`: The route Auth0 will redirect the user to after a successful login
 - `/auth/profile`: The route to fetch the user profile
 - `/auth/access-token`: The route to verify the user's session and return an access token (which automatically refreshes if a refresh token is available)
-- `/auth/backchannell-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
+- `/auth/backchannel-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
 
 To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0-stable-support-for-nextjs-app-router/" target="_blank" rel="noreferrer"> Add the dynamic API route</a>.
 
