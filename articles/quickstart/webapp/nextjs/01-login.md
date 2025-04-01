@@ -134,7 +134,7 @@ Upon execution, the following routes are available:
 To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0-stable-support-for-nextjs-app-router/" target="_blank" rel="noreferrer"> Add the dynamic API route</a>.
 
 :::note
-The `/auth/access-token` route is enabled by default. If your clients do not need access tokens, you can disable the route by editing the file `lib/auth0.js` and adding `enableAccessTokenEndpoint = false` to the instance of the Auth0 client. :::
+The `/auth/access-token` route is enabled by default. If your clients do not need access tokens, you can disable the route by editing the file `lib/auth0.js` and setting `enableAccessTokenEndpoint` to `false` in the instance of the Auth0 client. :::
 
 ## Add Login to Your Application
 
