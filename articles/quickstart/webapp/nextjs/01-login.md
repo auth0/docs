@@ -128,10 +128,13 @@ Upon execution, the following routes are available:
 - `/auth/logout`: The route to log the user out
 - `/auth/callback`: The route Auth0 will redirect the user to after a successful login
 - `/auth/profile`: The route to fetch the user profile
-- `/auth/access-token`: The route to verify the user's session and return an access token (which automatically refreshes if a refresh token is available)
+- `/auth/access-token`: The route to verify the user's session and return an <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank" rel="noreferrer">access token</a> (which automatically refreshes if a refresh token is available)
 - `/auth/backchannel-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
 
 To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0-stable-support-for-nextjs-app-router/" target="_blank" rel="noreferrer"> Add the dynamic API route</a>.
+
+:::note
+The `/auth/access-token` route is enabled by default. If your clients do not need access tokens, you can disable the route by editing the file `lib/auth0.js` and adding `enableAccessTokenEndpoint = false` to the instance of the Auth0 client. :::
 
 ## Add Login to Your Application
 
