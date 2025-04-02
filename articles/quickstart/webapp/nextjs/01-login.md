@@ -84,45 +84,7 @@ export const auth0 = new Auth0Client({
 });
 ```
 
-
-### Add the dynamic API route handler
-
-Create a file at `app/api/shows/route.js`. This is your route Handler file using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments" target="_blank" rel="noreferrer">Dynamic Route Segment</a>. The file declares a `GET` export to call the `shows()` method from the SDK to create the API routes. import the `handleAuth` method from the SDK and call it from the `GET` export.
-
-```javascript
-// app/api/shows/route.js
-import { NextResponse } from 'next/server';
-import { auth0 } from '../../../lib/auth0';
-
-export const GET = async function shows() {
-  try {
-    const session = await auth0.getSession();
-
-    if (!session) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const res = new NextResponse();
-    const { token: accessToken } = await auth0.getAccessToken();
-    const apiPort = process.env.API_PORT || 3001;
-    const response = await fetch(`http://localhost:${apiPort}/api/shows`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    });
-    const shows = await response.json();
-
-    return NextResponse.json(shows, res);
-  } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: error.status || 500 });
-  }
-};
-```
-
-Upon execution, the following routes are available:
+The SDK auto-configures the following routes:
 
 - `/auth/login`: The route to perform login with Auth0
 - `/auth/logout`: The route to log the user out
@@ -243,7 +205,44 @@ export default async function ProfileServer() {
 
 :::panel Checkpoint
 Verify that you can display the `user.name` or <a href="https://auth0.com/docs/users/user-profile-structure#user-profile-attributes" target="_blank" rel="noreferrer">any other</a> `user` property within a component correctly after you have logged in.
-:::                                              
+:::
+
+### Create custom routes using the dynamic API route handler
+
+Create the file at `app/api/shows/route.js`. This is your route Handler file using <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments" target="_blank" rel="noreferrer">Dynamic Route Segment</a>. The file declares a `GET` export to call the `shows()` method from the SDK to create custom API routes. import the `handleAuth` method from the SDK and call it from the `GET` export.
+
+```javascript
+// app/api/shows/route.js
+import { NextResponse } from 'next/server';
+import { auth0 } from '../../../lib/auth0';
+
+export const GET = async function shows() {
+  try {
+    const session = await auth0.getSession();
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Not authenticated' },
+        { status: 401 }
+      );
+    }
+
+    const res = new NextResponse();
+    const { token: accessToken } = await auth0.getAccessToken();
+    const apiPort = process.env.API_PORT || 3001;
+    const response = await fetch(`http://localhost:${apiPort}/api/shows`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+    const shows = await response.json();
+
+    return NextResponse.json(shows, res);
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: error.status || 500 });
+  }
+};
+```                                              
 
 ## What's next?
 
