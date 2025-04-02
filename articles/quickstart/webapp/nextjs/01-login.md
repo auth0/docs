@@ -149,11 +149,6 @@ The profile information is available through the `user` property exposed by the 
 
 ```jsx
 'use client';
-import React from 'react';
-import { Row, Col } from 'reactstrap';
-import { useUser } from '@auth0/nextjs-auth0';
-import Loading from '../../components/Loading';
-import Highlight from '../../components/Highlight';
 
 export default function Profile() {
   const { user, isLoading } = useUser();
