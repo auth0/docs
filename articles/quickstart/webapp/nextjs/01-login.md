@@ -200,32 +200,25 @@ export default function Profile() {
       {isLoading && <Loading />}
       {user && (
         <>
-          <Row className="align-items-center profile-header mb-5 text-center text-md-left" data-testid="profile">
-            <Col md={2}>
+          {isLoading && <p>Loading...</p>}
+          {user && (
+            <div data-testid="profile" style={{ textAlign: "center" }}>
               <img
                 src={user.picture}
                 alt="Profile"
-                className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-                decode="async"
+                style={{ borderRadius: "50%", width: "80px", height: "80px" }}
                 data-testid="profile-picture"
               />
-            </Col>
-            <Col md>
               <h2 data-testid="profile-name">{user.name}</h2>
-              <p className="lead text-muted" data-testid="profile-email">
-                {user.email}
-              </p>
-            </Col>
-          </Row>
-          <Row data-testid="profile-json">
-            <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
-          </Row>
+              <p data-testid="profile-email">{user.email}</p>
+              <pre data-testid="profile-json">{JSON.stringify(user, null, 2)}</pre>
+            </div>
+          )}
         </>
       )}
     </>
   );
 }
-
 ```
 
 The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors:
