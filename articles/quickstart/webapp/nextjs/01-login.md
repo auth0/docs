@@ -93,10 +93,8 @@ The SDK auto-configures the following routes:
 - `/auth/access-token`: The route to verify the user's session and return an <a href="https://auth0.com/docs/secure/tokens/access-tokens" target="_blank" rel="noreferrer">access token</a> (which automatically refreshes if a refresh token is available)
 - `/auth/backchannel-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
 
-To learn more about routing in Auth0, read <a href="https://auth0.com/blog/auth0-stable-support-for-nextjs-app-router/" target="_blank" rel="noreferrer"> Add the dynamic API route</a>.
-
 :::note
-The `/auth/access-token` route is enabled by default. If your clients do not need access tokens, you can disable the route by editing the file `lib/auth0.js` and setting `enableAccessTokenEndpoint` to `false` in the instance of the Auth0 client. :::
+The `/auth/access-token` route is enabled by default, but is only neccessary when the access token is needed on the client-side. If this isn't something you need, you can disable this endpoint by setting `enableAccessTokenEndpoint` to `false`. :::
 
 ## Add Login to Your Application
 
@@ -154,24 +152,18 @@ export default function Profile() {
   const { user, isLoading } = useUser();
   return (
     <>
-      {isLoading && <Loading />}
+      {isLoading && <p>Loading...</p>}
       {user && (
-        <>
-          {isLoading && <p>Loading...</p>}
-          {user && (
-            <div data-testid="profile" style={{ textAlign: "center" }}>
-              <img
-                src={user.picture}
-                alt="Profile"
-                style={{ borderRadius: "50%", width: "80px", height: "80px" }}
-                data-testid="profile-picture"
-              />
-              <h2 data-testid="profile-name">{user.name}</h2>
-              <p data-testid="profile-email">{user.email}</p>
-              <pre data-testid="profile-json">{JSON.stringify(user, null, 2)}</pre>
-            </div>
-          )}
-        </>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src={user.picture}
+            alt="Profile"
+            style={{ borderRadius: "50%", width: "80px", height: "80px" }}
+          />
+          <h2>{user.name}</h2>
+          <p>{user.email}</p>
+          <pre>{JSON.stringify(user, null, 2)}</pre>
+        </div>
       )}
     </>
   );
