@@ -94,7 +94,8 @@ The SDK auto-configures the following routes:
 - `/auth/backchannel-logout`: The route to receive a `logout_token` when a configured Back-Channel Logout initiator occurs
 
 :::note
-The `/auth/access-token` route is enabled by default, but is only neccessary when the access token is needed on the client-side. If this isn't something you need, you can disable this endpoint by setting `enableAccessTokenEndpoint` to `false`. :::
+The `/auth/access-token` route is enabled by default, but is only neccessary when the access token is needed on the client-side. If this isn't something you need, you can disable this endpoint by setting `enableAccessTokenEndpoint` to `false`. 
+:::
 
 ## Add Login to Your Application
 
