@@ -84,7 +84,37 @@ export const auth0 = new Auth0Client({
 });
 ```
 
-The SDK auto-configures the following routes:
+### Add the Authentication Middleware
+
+The Next.js Middleware allows you to run code before a request is completed.
+Create a `middleware.ts` file. This file is used to enforce authentication on specific routes.
+
+```javascript
+import type { NextRequest } from "next/server";
+import { auth0 } from "./lib/auth0";
+
+export async function middleware(request: NextRequest) {
+  return await auth0.middleware(request);
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     */
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
+};
+```
+
+The `middleware` function intercepts incoming requests and applies Auth0's authentication logic. The `matcher` configuration ensures that the middleware runs on all routes except for static files and metadata.
+
+#### Auto-configured routes
+
+Using the SDK's middleware auto-configures the following routes:
 
 - `/auth/login`: The route to perform login with Auth0
 - `/auth/logout`: The route to log the user out
