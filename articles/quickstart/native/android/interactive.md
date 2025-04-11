@@ -24,7 +24,7 @@ locale: en-US
 ## Install the Auth0 Android SDK {{{ data-action="code" data-code="build.gradle#18:18" }}}
 
 
-<p>Add the <a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a> SDK into your project. The library will make requests to the Auth0&#39;s Authentication and Management APIs.</p><p>In your app&#39;s <code>build.gradle</code> dependencies section, add the following:</p><p><pre><code class="language-javascript">implementation 'com.auth0.android:auth0:2. '
+<p>Add the <a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a> SDK into your project. The library will make requests to the Auth0&#39;s Authentication and Management APIs.</p><p>In your app&#39;s <code>build.gradle</code> dependencies section, add the following:</p><p><pre><code class="language-javascript">implementation 'com.auth0.android:auth0:2.+'
 
 </code></pre>
 
@@ -33,7 +33,7 @@ locale: en-US
 ## Add manifest placeholders {{{ data-action="code" data-code="build.gradle#10:12" }}}
 
 
-<p>The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an <code>intent-filter</code>, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.</p><p>You do not need to declare a specific <code>intent-filter</code> for your activity, because you have defined the manifest placeholders with your Auth0 <b>Domain</b> and <b>Scheme</b> values and the library will handle the redirection for you.</p><p><div class="alert-container" severity="default"><p>We&#39;ve used a value of <code>demo</code> for <code>auth0Scheme</code> here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is <code>https</code> if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking">Auth0.Android SDK README</a>.</p></div></p>
+<p>The SDK requires manifest placeholders. Auth0 uses placeholders internally to define an <code>intent-filter</code>, which captures the authentication callback URL. You must set Auth0 tenant domain and the callback URL scheme.</p><p>You do not need to declare a specific <code>intent-filter</code> for your activity, because you have defined the manifest placeholders with your Auth0 <b>Domain</b> and <b>Scheme</b> values and the library will handle the redirection for you.</p><p><div class="alert-container" severity="default"><p>We&#39;ve used a value of <code>demo</code> for <code>auth0Scheme</code> here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. Whenever possible, Auth0 recommends using <a href="https://auth0.com/docs/applications/enable-android-app-links"> Android App Links</a> with <code> https </code> as a secure way to link directly to content within your app. Custom URL schemes can be subject to <a href="https://datatracker.ietf.org/doc/html/rfc8252#section-8.6">client impersonation attacks</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK readme</a>.</p></div></p>
 
 ## Configure your application {{{ data-action="code" data-code="strings.xml#2:3" }}}
 
