@@ -46,7 +46,7 @@ If the callback and logout URLs are not set, users will be unable to log in and 
 Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">settings page</a> of your Auth0 application and add the following URLs to **Allowed Callback URLs** and **Allowed Logout URLs**, depending on the platform of your app. If you have a <a href="/customize/custom-domains" target="_blank" rel="noreferrer">custom domain</a>, use this instead of the Auth0 domain from the settings page.
 
 ::: note
-On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. `https` schemes require enabling <a href="https://auth0.com/docs/get-started/applications/enable-android-app-links-support" target="_blank" rel="noreferrer">Android App Links</a>.
+On Android, the value of the `SCHEME` placeholder can be `https` or some other custom scheme. Whenever possible, Auth0 recommends using <a href="https://auth0.com/docs/applications/enable-android-app-links"> Android App Links</a> with `https` as a secure way to link directly to content within your app. Custom URL schemes can be subject to <a href="https://datatracker.ietf.org/doc/html/rfc8252#section-8.6">client impersonation attacks</a>.
 
 On iOS 17.4+ and macOS 14.4+ it is possible to use Universal Links (`https` scheme) as callback and logout URLs. When enabled, the SDK will fall back to using a custom URL scheme on older iOS / macOS versions –your app's <a href="https://developer.apple.com/documentation/appstoreconnectapi/bundle_ids" target="_blank" rel="noreferrer">bundle identifier</a>.
 
