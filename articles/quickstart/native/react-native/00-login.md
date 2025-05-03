@@ -84,8 +84,29 @@ At runtime, the `applicationId` value will automatically update with your applic
 :::
 
 ### Configure iOS
+#### AppDelegate Setup (Choose Based on Architecture)
 
-In the file `ios/<YOUR PROJECT>/AppDelegate.mm` add the following:
+If You're Using (Swift - `ios/<YOUR PROJECT>/AppDelegat.swift`) update the following:
+
+```swift
+
+class AppDelegate: RCTAppDelegate {
+  // ... your existing code ...
+  // update bundleURL method -> add return
+  override func bundleURL() -> URL? {
+    #if DEBUG
+      return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+    #else
+      return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+    #endif
+  }
+  // add the below method
+  override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return Auth0.resumeAuth(url, options: options)
+  }
+}
+```
+If You're Using (Objective-C++ - `ios/<YOUR PROJECT>/AppDelegate.mm`) add the following:
 
 ```objc
 #import <React/RCTLinkingManager.h>
