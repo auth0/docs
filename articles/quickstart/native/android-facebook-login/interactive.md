@@ -10,14 +10,14 @@ files:
  - files/exchangeTokens
  - files/performLogin
 github:
-  path: https://github.com/auth0-samples/auth0-android-native-social-sample/tree/master/00-login-facebook
+  path: 00-login-facebook
 locale: en-US
 ---
 
 # Android - Facebook Login
 
 
-<p>This tutorial demonstrates how to add user login to an Android application using native Facebook Login. We recommend that you log in to follow this quickstart with examples configured for your account.</p><h2>System requirements </h2><ul><li><p>Android Studio 3.6.1</p></li><li><p>Android SDK 25</p></li><li><p>Emulator - Nexus 5X - Android 6.0</p></li></ul><p>This tutorial describes how to implement login with the <a href="https://developers.facebook.com/docs/">Facebook SDK</a>.​</p><h2>Before You Start</h2><ul><li><p>Install and configure the <a href="https://developers.facebook.com/docs/facebook-login/">Facebook Login SDK</a>. You’ll also go through the process of creating a Facebook app in <a href="https://developers.facebook.com/">https://developers.facebook.com</a>. <b>When you finish this step, you should have a mobile app running with Facebook Login integrated.</b></p></li></ul><p>Configure your Auth0 application in the dashboard to use Facebook Native Sign In. See <a href="https://auth0.com/docs/connections/nativesocial/facebook">Add Facebook Login to Native Apps</a>. <b>When you finish this step, your application will be able to implement Facebook Native Login.</b></p><p><b></b></p>
+<p>This tutorial demonstrates how to add user login to an Android application using native Facebook Login. We recommend that you log in to follow this quickstart with examples configured for your account.</p><h2>System requirements </h2><ul><li><p>Android Studio 3.6.1</p></li><li><p>Android SDK 25</p></li><li><p>Emulator - Nexus 5X - Android 6.0</p></li></ul><p>This tutorial describes how to implement login with the <a href="https://developers.facebook.com/docs/" target="_blank" rel="noreferrer noopener">Facebook SDK</a>.​</p><h2>Before You Start</h2><ul><li><p>Install and configure the <a href="https://developers.facebook.com/docs/facebook-login/" target="_blank" rel="noreferrer noopener">Facebook Login SDK</a>. You’ll also go through the process of creating a Facebook app in <a href="https://developers.facebook.com/" target="_blank" rel="noreferrer noopener">https://developers.facebook.com</a>. <b>When you finish this step, you should have a mobile app running with Facebook Login integrated.</b></p></li></ul><p>Configure your Auth0 application in the dashboard to use Facebook Native Sign In. See <a href="https://auth0.com/docs/connections/nativesocial/facebook" target="_blank" >Add Facebook Login to Native Apps</a>. <b>When you finish this step, your application will be able to implement Facebook Native Login.</b></p><p><b></b></p>
 
 ## Request Facebook permissions
 
@@ -52,7 +52,7 @@ locale: en-US
 ## Integrate Auth0
 
 
-<p>Now that the required artifacts have been obtained, you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. But first, you must set up the Auth0 SDK to make that last request.</p><h3>Get your application keys</h3><ol><li><p>Go to the <b>Applications</b> section of the <a href="https://manage.auth0.com/">Auth0 Dashboard</a> and select the existing application in which you enabled <b>Sign in with Facebook</b>. If you need help with this step, please check the requirements section at the top of this article.</p></li><li><p>Copy the <b>Domain</b> and <b>Client ID</b> values from the application settings page. These are required by the SDK.</p></li><li><p>Create two new resources in your Android application&#39;s strings.xml file to store them. The name of the keys must match the ones used below:
+<p>Now that the required artifacts have been obtained, you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. But first, you must set up the Auth0 SDK to make that last request.</p><h3>Get your application keys</h3><ol><li><p>Go to the <b>Applications</b> section of the <a href="https://manage.auth0.com/" target="_blank" rel="noreferrer noopener">Auth0 Dashboard</a> and select the existing application in which you enabled <b>Sign in with Facebook</b>. If you need help with this step, please check the requirements section at the top of this article.</p></li><li><p>Copy the <b>Domain</b> and <b>Client ID</b> values from the application settings page. These are required by the SDK.</p></li><li><p>Create two new resources in your Android application&#39;s strings.xml file to store them. The name of the keys must match the ones used below:
 
 <pre><code>&lt;resources&gt;
 
@@ -88,7 +88,7 @@ locale: en-US
 
 </code></pre>
 
-</p><p>However, if you do plan to support Web Authentication, head over <a href="https://auth0.com/docs/libraries/auth0-android#authentication-via-universal-login">here</a> to learn how to declare the Manifest Placeholders.</p>
+</p><p>However, if you do plan to support Web Authentication, head over <a href="https://auth0.com/docs/libraries/auth0-android#authentication-via-universal-login" target="_blank" >here</a> to learn how to declare the Manifest Placeholders.</p>
 
 ## Exchange the received data for Auth0 tokens {{{ data-action="code" data-code="exchangeTokens" }}}
 

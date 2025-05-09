@@ -3,40 +3,38 @@ title: Device Authorization Flow
 description: This tutorial demonstrates how to call your API from an input-constrained device using the Device Authorization Flow.
 interactive:  true
 
-github:
-  path: https://auth0.github.io/device-flow-playground/
 locale: en-US
 ---
 
 # Device Authorization Flow
 
 
-<p>This tutorial demonstrates how to call your API from an input-constrained device using the <a data-contentfulid="5o0Q0sUAtzV8S0YFfXblat-en-US">Device Authorization Flow</a>. We recommend that you log in to follow this quickstart with examples configured for your account.</p><p>For an interactive experience, you can use the <a href="https://auth0.github.io/device-flow-playground/">Device Flow Playground</a>.</p><h2>Prerequisites</h2><ul><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-en-US">Register a Native Application</a>.</p></li><li><p>Ensure the <b>OIDC Conformant</b> toggle is enabled. For more information, read <a data-contentfulid="5X6PoWErJuO1unXQymQsu3-en-US">OIDC-Conformant Authentication</a>.</p></li><li><p>Add <b>Device Code</b> to the Application&#39;s grant types. For more information, read <a data-contentfulid="16N6CjkAtEzcGypwOkPItT-en-US">Update Grant Types</a>.</p></li><li><p>Add <b>Refresh Token</b> to the Application’s grant types if you want to enable <a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-en-US">Refresh Tokens</a>.</p></li><li><p><a data-contentfulid="1Ye7SV0H0QbFUqZ9SsxJxl-en-US">Configure and enable at least one connection</a> for the application.</p></li><li><p><a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-en-US">Register your API with Auth0</a>.</p><ul><li><p>Enable <b>Allow Offline Access</b> if you are using refresh tokens. For more information, read <a data-contentfulid="302dVhVAcFGQAMcUS8ymHS-en-US">API Settings</a>.</p></li></ul></li><li><p><a data-contentfulid="31DLcdiccXFyevXAtvjX5d-en-US">Configure Device User Code Settings</a> to define the character set, format, and length of your randomly-generated user code.</p></li></ul><p></p>
+<p>This tutorial demonstrates how to call your API from an input-constrained device using the <a data-contentfulid="5o0Q0sUAtzV8S0YFfXblat-en-US">Device Authorization Flow</a>. We recommend that you log in to follow this quickstart with examples configured for your account.</p><p>For an interactive experience, you can use the <a href="https://auth0.github.io/device-flow-playground/" target="_blank" rel="noreferrer noopener">Device Flow Playground</a>.</p><h2>Prerequisites</h2><ul><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-en-US">Register a Native Application</a>.</p></li><li><p>Ensure the <b>OIDC Conformant</b> toggle is enabled. For more information, read <a data-contentfulid="5X6PoWErJuO1unXQymQsu3-en-US">OIDC-Conformant Authentication</a>.</p></li><li><p>Add <b>Device Code</b> to the Application&#39;s grant types. For more information, read <a data-contentfulid="16N6CjkAtEzcGypwOkPItT-en-US">Update Grant Types</a>.</p></li><li><p>Add <b>Refresh Token</b> to the Application’s grant types if you want to enable <a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-en-US">Refresh Tokens</a>.</p></li><li><p><a data-contentfulid="1Ye7SV0H0QbFUqZ9SsxJxl-en-US">Configure and enable at least one connection</a> for the application.</p></li><li><p><a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-en-US">Register your API with Auth0</a>.</p><ul><li><p>Enable <b>Allow Offline Access</b> if you are using refresh tokens. For more information, read <a data-contentfulid="302dVhVAcFGQAMcUS8ymHS-en-US">API Settings</a>.</p></li></ul></li><li><p><a data-contentfulid="31DLcdiccXFyevXAtvjX5d-en-US">Configure Device User Code Settings</a> to define the character set, format, and length of your randomly-generated user code.</p></li></ul><p></p>
 
 ## Request device code
 
 
-<p>When the user starts the device application and wants to authorize it, your application must request a device code from the Auth0 Authentication API to associate with the user session.</p><p>To get the device code, your application must call the Authentication API Device Authorization Flow <a href="/docs/api/authentication#-post-oauth-device-code-">Authorize endpoint</a>:</p><p><pre style="display: none;"></pre>
+<p>When the user starts the device application and wants to authorize it, your application must request a device code from the Auth0 Authentication API to associate with the user session.</p><p>To get the device code, your application must call the Authentication API Device Authorization Flow <a href="/docs/api/authentication#-post-oauth-device-code-" target="_self" >Authorize endpoint</a>:</p><p><pre style="display: none;"></pre>
 
 <div class="code-picker">
 
-  <div class="languages-bar"><ul><li class="active"><a href="#99a547449c4c49328fe8ae3a203a7907_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#99a547449c4c49328fe8ae3a203a7907_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
+  <div class="languages-bar"><ul><li class="active"><a href="#bc63989c02514515ba3d4fbbd8ea33ec_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#bc63989c02514515ba3d4fbbd8ea33ec_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
 
 
 
   <!-- Tab panes -->
 
-  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="99a547449c4c49328fe8ae3a203a7907_shell"><pre><code class="language-text no-lines">curl --request post \
+  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="bc63989c02514515ba3d4fbbd8ea33ec_shell"><pre><code class="language-text no-lines">curl --request post \
 
   --url 'https://${account.namespace}/oauth/device/code' \
 
-  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/device/code&quot;);
+  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/device/code&quot;);
 
 var request = new RestRequest(Method.POST);
 
 request.AddHeader(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
 
-IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_go"><pre><code class="language-go no-lines">package main
+IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_go"><pre><code class="language-go no-lines">package main
 
 
 
@@ -84,11 +82,11 @@ func main() {
 
 
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/device/code&quot;)
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/device/code&quot;)
 
   .header(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;)
 
-  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
+  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
 
 
 
@@ -112,7 +110,7 @@ axios.request(options).then(function (response) {
 
   console.error(error);
 
-});</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
+});</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
 
 
 
@@ -152,7 +150,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 
                                             }];
 
-[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_php"><pre><code class="language-php no-lines">$curl = curl_init();
+[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_php"><pre><code class="language-php no-lines">$curl = curl_init();
 
 
 
@@ -200,7 +198,7 @@ if ($err) {
 
   echo $response;
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_python"><pre><code class="language-python no-lines">import http.client
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_python"><pre><code class="language-python no-lines">import http.client
 
 
 
@@ -222,7 +220,7 @@ data = res.read()
 
 
 
-print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_ruby"><pre><code class="language-ruby no-lines">require 'uri'
+print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_ruby"><pre><code class="language-ruby no-lines">require 'uri'
 
 require 'net/http'
 
@@ -250,7 +248,7 @@ request[&quot;content-type&quot;] = 'application/x-www-form-urlencoded'
 
 response = http.request(request)
 
-puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="99a547449c4c49328fe8ae3a203a7907_swift"><pre><code class="language-swift no-lines">import Foundation
+puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="bc63989c02514515ba3d4fbbd8ea33ec_swift"><pre><code class="language-swift no-lines">import Foundation
 
 
 
@@ -327,7 +325,7 @@ dataTask.resume()</code></pre></div></div></div>
 ## Poll the token endpoint
 
 
-<p>While your device application waits for the user to activate it, it should call the Authentication API <a href="/docs/api/authentication#-post-oauth-token-">POST /oauth/token endpoint</a> intermittently and handle the response appropriately.</p><p><div class="alert-container" severity="default"><p>Ensure your device application waits for the length of the <code>interval</code> (in seconds) or until it receives a successful response, whichever is longer, to avoid network latency issues.</p></div></p><p><pre><code>curl --request POST \ 
+<p>While your device application waits for the user to activate it, it should call the Authentication API <a href="/docs/api/authentication#-post-oauth-token-" target="_self" >POST /oauth/token endpoint</a> intermittently and handle the response appropriately.</p><p><div class="alert-container" severity="default"><p>Ensure your device application waits for the length of the <code>interval</code> (in seconds) or until it receives a successful response, whichever is longer, to avoid network latency issues.</p></div></p><p><pre><code>curl --request POST \ 
 
 --url 'https://${account.namespace}/oauth/token' \ 
 
@@ -367,7 +365,7 @@ dataTask.resume()</code></pre></div></div></div>
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="warning"><p>You should validate your tokens before saving them. To learn how, read <a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-en-US"><b>Validate Access Tokens</b></a> and <a data-contentfulid="1O5WNRhzrz1R0n4xFQtM8j-en-US"><b>Validate ID Tokens</b></a>.</p></div></p><p><a data-contentfulid="48OqDR4wWZTFo8FZw7tSMj-en-US">Access tokens</a> are used to call the Authentication API <a href="/docs/api/authentication#get-user-info">Get User Info endpoint</a> (if your device application requested the <code>openid</code> scope) or the API that was specified by the <code>audience</code> parameter. If you are calling your own API, your device application must <a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-en-US">verify the access token</a> before using it.</p><p><a data-contentfulid="7eGepxAjz89d1F7i1aP4ch-en-US">ID tokens</a> contain user information that must be <a href="/docs/tokens/id-tokens#id-token-payload">decoded and extracted</a>. The Authentication API only returns an <code>id_token</code> if your device application requested the <code>openid</code> scope.</p><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-en-US">Refresh tokens</a> are used to obtain a new access token or ID token after the previous one has expired. The Authentication API only returns a <code>refresh_token</code> if the <b>Allow Offline Access</b> setting is enabled for the API specified by the <code>audience</code> parameter, and your device application requested the <code>offline_access</code> scope.</p>
+</p><p><div class="alert-container" severity="warning"><p>You should validate your tokens before saving them. To learn how, read <a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-en-US"><b>Validate Access Tokens</b></a> and <a data-contentfulid="1O5WNRhzrz1R0n4xFQtM8j-en-US"><b>Validate ID Tokens</b></a>.</p></div></p><p><a data-contentfulid="48OqDR4wWZTFo8FZw7tSMj-en-US">Access tokens</a> are used to call the Authentication API <a href="/docs/api/authentication#get-user-info" target="_self" >Get User Info endpoint</a> (if your device application requested the <code>openid</code> scope) or the API that was specified by the <code>audience</code> parameter. If you are calling your own API, your device application must <a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-en-US">verify the access token</a> before using it.</p><p><a data-contentfulid="7eGepxAjz89d1F7i1aP4ch-en-US">ID tokens</a> contain user information that must be <a href="/docs/tokens/id-tokens#id-token-payload" target="_self" >decoded and extracted</a>. The Authentication API only returns an <code>id_token</code> if your device application requested the <code>openid</code> scope.</p><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-en-US">Refresh tokens</a> are used to obtain a new access token or ID token after the previous one has expired. The Authentication API only returns a <code>refresh_token</code> if the <b>Allow Offline Access</b> setting is enabled for the API specified by the <code>audience</code> parameter, and your device application requested the <code>offline_access</code> scope.</p>
 
 ## Call your API
 
@@ -387,7 +385,7 @@ dataTask.resume()</code></pre></div></div></div>
 ## Refresh tokens
 
 
-<p>To get a new access token for a user, your device application can call the Authentication API <a href="/docs/api/authentication#-post-oauth-token-">POST /oauth/token endpoint</a> with the <code>refresh_token</code> parameter.</p><p><pre><code>curl --request POST \
+<p>To get a new access token for a user, your device application can call the Authentication API <a href="/docs/api/authentication#-post-oauth-token-" target="_self" >POST /oauth/token endpoint</a> with the <code>refresh_token</code> parameter.</p><p><pre><code>curl --request POST \
 
   --url 'https://${account.namespace}/oauth/token' \
 
@@ -419,7 +417,7 @@ dataTask.resume()</code></pre></div></div></div>
 
 </code></pre>
 
-</p><p>To learn more about refresh tokens, read <a href="https://auth0.com/docs/secure/tokens/refresh-tokens">Refresh Tokens</a>.</p>
+</p><p>To learn more about refresh tokens, read <a href="https://auth0.com/docs/secure/tokens/refresh-tokens" target="_blank" >Refresh Tokens</a>.</p>
 
 ## Troubleshooting
 
@@ -553,9 +551,9 @@ dataTask.resume()</code></pre></div></div></div>
 ## Sample implementations
 
 
-<p>Refer to the samples below to learn how to implement this flow in real-world applications.</p><ul><li><p><a href="https://auth0.github.io/device-flow-playground/">Device Authorization Playground</a></p></li><li><p><a href="https://github.com/pushpabrol/auth0-device-flow-appletv">AppleTV (Swift)</a>: Simple application that shows how Auth0 can be used with the Device Authorization Flow from an AppleTV.</p></li><li><p><a href="https://gist.github.com/panva/652c61e7d847e0ed99926c324fa91b36">CLI (Node.js)</a>: Sample implementation of a CLI that uses the Device Authorization Flow instead of the Authorization Code Flow. The major difference is that your CLI does not need to host a webserver and listen on a port.</p></li></ul><p></p>
+<p>Refer to the samples below to learn how to implement this flow in real-world applications.</p><ul><li><p><a href="https://auth0.github.io/device-flow-playground/" target="_blank" rel="noreferrer noopener">Device Authorization Playground</a></p></li><li><p><a href="https://github.com/pushpabrol/auth0-device-flow-appletv" target="_blank" rel="noreferrer noopener">AppleTV (Swift)</a>: Simple application that shows how Auth0 can be used with the Device Authorization Flow from an AppleTV.</p></li><li><p><a href="https://gist.github.com/panva/652c61e7d847e0ed99926c324fa91b36" target="_blank" rel="noreferrer noopener">CLI (Node.js)</a>: Sample implementation of a CLI that uses the Device Authorization Flow instead of the Authorization Code Flow. The major difference is that your CLI does not need to host a webserver and listen on a port.</p></li></ul><p></p>
 
 ## Limitations
 
 
-<p>To use the Device Authorization Flow, a device application must:</p><ul><li><p>Support Server Name Indication (SNI)</p></li><li><p>Be a <a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-en-US">Native Application</a></p></li><li><p>Have the <a href="/docs/secure/application-credentials#application-authentication-methods">Authentication Method</a> set to <b>None</b></p></li><li><p>Be <a href="/docs/dashboard/reference/settings-application#oauth">OIDC-conformant</a></p></li><li><p>Not be created through <a data-contentfulid="4j9m9maYJHkXDgcqaijdWZ-en-US">Dynamic Client Registration</a></p></li></ul><p>In addition, the Device Authorization Flow does not allow:</p><ul><li><p><a data-contentfulid="3rAo4RBG7KOC6hpe0WLi1u-en-US">Social Connections</a> using <a data-contentfulid="3R5dpsFZe4Hnk90zDjYIoi-en-US">Auth0 developer keys</a> unless you are using <a data-contentfulid="E0ZVoNC39TumW12W7LanM-en-US">New Universal Login Experience</a></p></li><li><p>Query string parameters to be accessed from a hosted login page or Actions.</p></li></ul><p></p>
+<p>To use the Device Authorization Flow, a device application must:</p><ul><li><p>Support Server Name Indication (SNI)</p></li><li><p>Be a <a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-en-US">Native Application</a></p></li><li><p>Have the <a href="/docs/secure/application-credentials#application-authentication-methods" target="_self" >Authentication Method</a> set to <b>None</b></p></li><li><p>Be <a href="/docs/dashboard/reference/settings-application#oauth" target="_self" >OIDC-conformant</a></p></li><li><p>Not be created through <a data-contentfulid="4j9m9maYJHkXDgcqaijdWZ-en-US">Dynamic Client Registration</a></p></li></ul><p>In addition, the Device Authorization Flow does not allow:</p><ul><li><p><a data-contentfulid="3rAo4RBG7KOC6hpe0WLi1u-en-US">Social Connections</a> using <a data-contentfulid="3R5dpsFZe4Hnk90zDjYIoi-en-US">Auth0 developer keys</a> unless you are using <a data-contentfulid="E0ZVoNC39TumW12W7LanM-en-US">New Universal Login Experience</a></p></li><li><p>Query string parameters to be accessed from a hosted login page or Actions.</p></li></ul><p></p>

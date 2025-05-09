@@ -65,7 +65,7 @@ Remember to synchronize using the Android Studio prompt or run `./gradlew clean 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
 
 ::: note
-We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login.  Whenever possible, Auth0 recommends using <a href="https://auth0.com/docs/applications/enable-android-app-links"> Android App Links</a> with <code> https </code> as a secure way to link directly to content within your app. Custom URL schemes can be subject to <a href="https://datatracker.ietf.org/doc/html/rfc8252#section-8.6">client impersonation attacks</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK readme</a>.
+We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use <a href="https://auth0.com/docs/applications/enable-android-app-links" target="_blank" rel="noreferrer">Android App Links</a>. You can read more about setting this value in the <a href="https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking" target="_blank" rel="noreferrer">Auth0.Android SDK readme</a>.
 :::
 
 To add the manifest placeholders, add the next line:

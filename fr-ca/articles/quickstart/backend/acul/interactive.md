@@ -7,7 +7,7 @@ files:
  - files/auth_config
  - files/index
 github:
-  path: https://github.com/auth0-samples/auth0-react-samples/tree/master/Sample-01
+  path: Sample-01
 locale: fr-CA
 ---
 
@@ -19,12 +19,12 @@ locale: fr-CA
 ## Configure Auth0
 
 
-<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p><h3>Configure Allowed Web Origins</h3><p>An Allowed Web Origin is a URL that you want to be allowed to access to your authentication flow. This must contain the URL of your project. If not properly set, your project will be unable to silently refresh authentication tokens, so your users will be logged out the next time they visit your application or refresh a page.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p>
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p><h3>Configure Allowed Web Origins</h3><p>An Allowed Web Origin is a URL that you want to be allowed to access to your authentication flow. This must contain the URL of your project. If not properly set, your project will be unable to silently refresh authentication tokens, so your users will be logged out the next time they visit your application or refresh a page.</p><p><div class="alert-container" severity="default"><p>Si vous suivez notre exemple de projet, définissez cette URL comme suit : <code>http://localhost:3000</code>.</p></div></p>
 
 ## Configure ACUL for Login ID screen {{{ data-action="code" data-code="settings.json" }}}
 
 
-<p>Use <a href="https://github.com/auth0/auth0-cli">Auth0 CLI</a> to enable ACLU Login ID screen in your tenant. 
+<p>Use <a href="https://github.com/auth0/auth0-cli" target="_blank" rel="noreferrer noopener">Auth0 CLI</a> to enable ACLU Login ID screen in your tenant. 
 
 
 
@@ -55,11 +55,11 @@ npm install
 
 </code></pre>
 
-</p><p><div class="checkpoint">ACUL Login ID screen Step 2 - Checkpoint <div class="checkpoint-default"><ol><li><p>Open your application (default: <a href="http://localhost:3000/">http://localhost:3000</a>)</p></li><li><p>Select the <b>Log In</b> button on the sample app</p></li><li><p>You should be redirected to your Auth0 domain</p></li></ol><p>After selecting <b>Log In</b>, you should see a blank page. </p><p>This is expected! It means Auth0 is trying to load your custom UI assets, which we have not created yet. </p></div>
+</p><p><div class="checkpoint">Étape 2 : Point de contrôle – Écran d’identification de connexion ACUL <div class="checkpoint-default"><ol><li><p>Ouvrez votre application (par défaut : <a href="http://localhost:3000/" target="_blank" rel="noreferrer noopener">http://localhost:3000</a>)</p></li><li><p>Sélectionnez le bouton <b>Log In (Connexion)</b> sur l’exemple d’application</p></li><li><p>Vous devriez être redirigé vers votre domaine Auth0</p></li></ol><p><b>Connectez-vous</b>, vous devriez voir une page blanche.</p><p>C’est normal! Cela signifie qu’Auth0 tente de charger vos ressources d’interface utilisateur personnalisées, que nous n’avons pas encore créées.</p></div>
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If you see the default Auth0 page instead of a blank page:</p><ol><li><p>Check if your custom domain is properly configured.</p></li><li><p>Ensure your application is using the custom domain.</p></li></ol><p></p></div>
+  <div class="checkpoint-failure"><p>Si vous voyez la page Auth0 par défaut au lieu d’une page vierge :</p><ol><li><p>Vérifiez si votre domaine personnalisé est correctement configuré.</p></li><li><p>Assurez-vous que votre application utilise le domaine personnalisé.</p></li></ol><p></p></div>
 
   </div>
 
@@ -76,7 +76,7 @@ npm install
 
 </code></pre>
 
-</p><p>2. Change directory to the <code>auth0-acul-react-boilerplate</code> folder and install the application and the <a href="https://github.com/auth0/universal-login">ACUL JS SDK</a>.</p><p><pre><code class="language-javascript">// open the directory where you git clone the boilerplate
+</p><p>2. Change directory to the <code>auth0-acul-react-boilerplate</code> folder and install the application and the <a href="https://github.com/auth0/universal-login" target="_blank" rel="noreferrer noopener">ACUL JS SDK</a>.</p><p><pre><code class="language-javascript">// open the directory where you git clone the boilerplate
 
 cd auth0-acul-react-boilerplate &amp;&amp; npm i
 
@@ -96,17 +96,17 @@ npm install @auth0/auth0-acul-js
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>The assets are served from localhost during development. </p><p>For production, you&#39;ll need to serve these assets from a CDN or static hosting service.</p></div></p><p><div class="checkpoint">ACUL Login ID screen quickstart step 4 checkpoint <div class="checkpoint-default"><p>After selecting <b>Log In</b>, you are greeted with a <code>“Hello World”</code> page. </p></div>
+</p><p><div class="alert-container" severity="default"><p>The assets are served from localhost during development. </p><p>For production, you&#39;ll need to serve these assets from a CDN or static hosting service.</p></div></p><p><div class="checkpoint">Démarrage rapide – Étape 4 : Point de contrôle – Écran d’identification de connexion ACUL <div class="checkpoint-default"><p>Après avoir sélectionné <b>Log In (Connexion)</b>, vous êtes accueilli par une page <code>« Bonjour tout le monde »</code>.</p></div>
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Make sure to have installed the <a href="https://github.com/auth0/universal-login">ACUL JS SDK</a> after installing the boilerplate application.</p></div>
+  <div class="checkpoint-failure"><p>Assurez-vous d’avoir installé la <a href="https://github.com/auth0/universal-login" target="_blank" rel="noreferrer noopener">trousse SDK ACUL JS</a> après avoir installé l’application standard.</p></div>
 
   </div></p><h3>Build the ACUL Login ID screen </h3><p>Change directory to the <code>auth0-acul-react-boilerplate/src/screens/loginId/ </code>and edit the <code>index.tsx</code> file.</p><p>Rebuild the application with the following command:</p><p><pre><code class="language-powershell">npm run build
 
 </code></pre>
 
-</p><p><div class="checkpoint">ACUL Login ID screen quickstart step 4 rebuild the app checkpoint <div class="checkpoint-default"><p>Select <b>Log In</b>. </p><p>You should now see a customized login page as shown below:</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1RGhZSvF6omC3hH5ewzqQO/6ccb62962617d84cede8795d8ee3979d/Screenshot_2025-02-12_at_14.37.25.png" alt="" /><p></p></div>
+</p><p><div class="checkpoint">Démarrage rapide – Étape 4 : Point de contrôle Recréer l’application – Écran d’identification de connexion ACUL <div class="checkpoint-default"><p>Sélectionnez <b>Log In (Connexion)</b>.</p><p>Vous devriez maintenant voir une page de connexion personnalisée semblable à celle-ci :</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1RGhZSvF6omC3hH5ewzqQO/6ccb62962617d84cede8795d8ee3979d/Screenshot_2025-02-12_at_14.37.25.png" alt="" /><p></p></div>
 
   <div class="checkpoint-success"></div>
 

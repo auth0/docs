@@ -4,7 +4,7 @@ To run the sample follow these steps:
 
 1) Set the **Allowed Callback URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to
 ```text
-http://localhost:3000/auth/callback
+http://localhost:3000/api/auth/callback
 ```
 
 2) Set **Allowed Logout URLs** in the <a href="${manage_url}/#/applications/${account.clientId}/settings" target="_blank" rel="noreferrer">Application Settings</a> to

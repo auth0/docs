@@ -1,41 +1,49 @@
 ---
-name: App.js
-language: javascript
+name: app.json
+language: json
 ---
     
-```javascript
-import {useAuth0, Auth0Provider} from 'react-native-auth0';
-
-const Home = () => {
-  const {authorize, clearSession, user, error, isLoading} = useAuth0();
-
-  const onLogin = async () => {
-    try {
-      await authorize();
-    } catch (e) {
-      console.log(e);
+```json
+{
+  "expo": {
+    "name": "00-Login-Expo",
+    "slug": "00-Login-Expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "${account.namespace}",
+        }
+      ]
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.auth0samples"
+    },
+    "ios": {
+      "bundleIdentifier": "com.auth0samples"
     }
-  };
-
-  const onLogout = async () => {
-    try {
-      await clearSession();
-    } catch (e) {
-      console.log('Log out cancelled');
-    }
-  };
-
-  if (isLoading) {
-    return <View style={styles.container}><Text>Loading</Text></View>;
   }
-
-  const loggedIn = user !== undefined && user !== null;
-
-  return (
-    <View style={styles.container}>
-      {loggedIn && <Text>You are logged in as {user.name}</Text>}
-      {!loggedIn && <Text>You are not logged in</Text>}
-      {error && <Text>{error.message}</Text>}
+}
+```
+r && <Text>{error.message}</Text>}
 
       <Button
         onPress={loggedIn ? onLogout : onLogin}

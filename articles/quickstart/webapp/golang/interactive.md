@@ -14,7 +14,7 @@ files:
  - files/router
  - files/user
 github:
-  path: https://github.com/auth0-samples/auth0-golang-web-app/tree/master/01-Login
+  path: 01-Login
 locale: en-US
 ---
 
@@ -26,12 +26,12 @@ locale: en-US
 ## Configure Auth0
 
 
-<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p>
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/" target="_blank" rel="noreferrer noopener">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/callback</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p>
 
 ## Install dependencies {{{ data-action="code" data-code="go.mod" }}}
 
 
-<p>Create a <code>go.mod</code> file to list all the dependencies in your application.</p><p>To integrate Auth0 in a Go application, add the <code>coreos/go-oidc/v3</code> and <code>x/oauth2</code> packages.</p><p>In addition to the OIDC and OAuth2 packages, add <code>joho/godotenv</code>, <code>gin-gonic/gin</code>, and <code>gin-contrib/sessions</code>.</p><p><div class="alert-container" severity="default"><p>This example uses <code>gin</code> for routing, but you can use whichever router you want.</p></div></p><p>Save the <code>go.mod</code> file with the necessary dependencies and install them using the following command in your terminal:</p><p><code></code><pre><code>go mod download
+<p>Create a <code>go.mod</code> file to list all the dependencies in your application.</p><p>To integrate Auth0 in a Go application, add the <code>coreos/go-oidc/v3</code> and <code>x/oauth2</code> packages.</p><p>In addition to the OIDC and OAuth2 packages, add <code>joho/godotenv</code>, <code>gin-gonic/gin</code>, and <code>gin-contrib/sessions</code>.</p><p><div class="alert-container" severity="default"><p>This example uses <code>gin</code> for routing, but you can use whichever router you want.</p></div></p><p>Save the <code>go.mod</code> file with the necessary dependencies and install them using the following command in your terminal:</p><p><pre><code>go mod download
 
 </code></pre>
 
@@ -45,12 +45,12 @@ locale: en-US
 ## Configure OAuth2 and OpenID Connect packages {{{ data-action="code" data-code="auth.go" }}}
 
 
-<p>Next, configure the OAuth2 and OpenID Connect packages.</p><p>Create a file called <code>auth.go</code> in the <code>platform/authenticator</code> folder. In this package, create a method to configure and return <a href="https://godoc.org/golang.org/x/oauth2">OAuth2</a> and <a href="https://godoc.org/github.com/coreos/go-oidc">OIDC</a> clients, and another one to verify an ID Token.</p>
+<p>Next, configure the OAuth2 and OpenID Connect packages.</p><p>Create a file called <code>auth.go</code> in the <code>platform/authenticator</code> folder. In this package, create a method to configure and return <a href="https://godoc.org/golang.org/x/oauth2" target="_blank" rel="noreferrer noopener">OAuth2</a> and <a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank" rel="noreferrer noopener">OIDC</a> clients, and another one to verify an ID Token.</p>
 
 ## Set up your application routes {{{ data-action="code" data-code="router.go" }}}
 
 
-<p>Create a file called <code>router.go</code> in the <code>platform/router</code> folder. In this package, create a method to configure and return our routes using <a href="https://github.com/gin-gonic/gin">github.com/gin-gonic/gin</a>. You will be passing an instance of <code>Authenticator</code> to the method, for use with the <code>login</code> and <code>callback</code> handlers.</p><p></p>
+<p>Create a file called <code>router.go</code> in the <code>platform/router</code> folder. In this package, create a method to configure and return our routes using <a href="https://github.com/gin-gonic/gin" target="_blank" rel="noreferrer noopener">github.com/gin-gonic/gin</a>. You will be passing an instance of <code>Authenticator</code> to the method, for use with the <code>login</code> and <code>callback</code> handlers.</p><p></p>
 
 ## Add login to your application {{{ data-action="code" data-code="login.go" }}}
 
@@ -70,7 +70,7 @@ locale: en-US
 ## Add logout to your application {{{ data-action="code" data-code="logout.go" }}}
 
 
-<p>To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the <a href="https://auth0.com/docs/logout">logout documentation</a>.</p><p>Create a file called <code>logout.go</code> in the folder <code>web/app/logout</code>, and add the function <code>Handler</code> to redirect the user to Auth0&#39;s logout endpoint.</p><p>The <code>returnTo</code> URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="https://auth0.com/docs/logout/guides/redirect-users-after-logout">Redirect Users After Logout</a>.</p><p>Create a file called <code>user.js</code> in the folder <code>web/static/js</code>, and add the code to remove the cookie from a logged-in user.</p><p></p><p></p>
+<p>To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the <a href="https://auth0.com/docs/logout" target="_blank" >logout documentation</a>.</p><p>Create a file called <code>logout.go</code> in the folder <code>web/app/logout</code>, and add the function <code>Handler</code> to redirect the user to Auth0&#39;s logout endpoint.</p><p>The <code>returnTo</code> URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see <a href="https://auth0.com/docs/logout/guides/redirect-users-after-logout" target="_blank" >Redirect Users After Logout</a>.</p><p>Create a file called <code>user.js</code> in the folder <code>web/static/js</code>, and add the code to remove the cookie from a logged-in user.</p><p></p><p></p>
 
 ## Protect routes {{{ data-action="code" data-code="isAuthenticated.go" }}}
 

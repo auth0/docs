@@ -6,7 +6,7 @@ files:
  - files/index
  - files/router
 github:
-  path: https://github.com/auth0-samples/auth0-php-api-samples/tree/main/app
+  path: app
 locale: en-US
 ---
 
@@ -18,12 +18,12 @@ locale: en-US
 ## Configure Auth0
 
 
-<p>To use Auth0 services, you need to have an application registered in the Auth0 Dashboard. The Auth0 application is where you configure how you want authentication to work for your project.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code uses to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart automatically updates for your application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure an API</h3><p>Similarly, you need to create a new Auth0 API or use an existing API that represents the project you&#39;re integrating from the <a href="https://manage.auth0.com/#/">Dashboard</a>. Choose a unique identifier for the API and make a note of it. You need that identifier to configure your application below.</p>
+<p>To use Auth0 services, you need to have an application registered in the Auth0 Dashboard. The Auth0 application is where you configure how you want authentication to work for your project.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code uses to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart automatically updates for your application in the <a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>, which is where you can manage your applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure an API</h3><p>Similarly, you need to create a new Auth0 API or use an existing API that represents the project you&#39;re integrating from the <a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>. Choose a unique identifier for the API and make a note of it. You need that identifier to configure your application below.</p>
 
 ## Install the Auth0 PHP SDK {{{ data-action="code" data-code="index.php" }}}
 
 
-<p>Auth0 provides a <a href="https://github.com/auth0/auth0-PHP">PHP SDK</a> (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.</p><p>The Auth0 PHP SDK requires <a href="https://www.php-fig.org/psr/psr-17/">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/">PSR-18</a> installed, compatible HTTP libraries for managing network requests. If you don&#39;t have libraries available, you can install reliable choices by running the following commands in your terminal:</p><p><pre><code class="language-powershell">cd &lt;your-project-directory&gt;
+<p>Auth0 provides a <a href="https://github.com/auth0/auth0-PHP" target="_blank" rel="noreferrer noopener">PHP SDK</a> (Auth0-PHP) to simplify the process of implementing Auth0 authentication and authorization in PHP apps.</p><p>The Auth0 PHP SDK requires <a href="https://www.php-fig.org/psr/psr-17/" target="_blank" rel="noreferrer noopener">PSR-17</a> and <a href="https://www.php-fig.org/psr/psr-18/" target="_blank" rel="noreferrer noopener">PSR-18</a> installed, compatible HTTP libraries for managing network requests. If you don&#39;t have libraries available, you can install reliable choices by running the following commands in your terminal:</p><p><pre><code class="language-powershell">cd &lt;your-project-directory&gt;
 
     composer require symfony/http-client nyholm/psr7
 
@@ -37,7 +37,7 @@ locale: en-US
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>Make sure the correct application is selected.</p></li><li><p>Did you save after entering your URLs?</p></li><li><p>Make sure the domain and client ID imported correctly.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>Make sure the correct application is selected.</p></li><li><p>Did you save after entering your URLs?</p></li><li><p>Make sure the domain and client ID imported correctly.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>
 
