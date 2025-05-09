@@ -3,40 +3,38 @@ title: デバイス認可フロー
 description: このチュートリアルでは、デバイス認可フローを使用して、入力に制約のあるデバイスからAPIを呼び出す方法について説明します。
 interactive:  true
 
-github:
-  path: https://auth0.github.io/device-flow-playground/
 locale: ja-JP
 ---
 
 # デバイス認可フロー
 
 
-<p>このチュートリアルでは、<a data-contentfulid="5o0Q0sUAtzV8S0YFfXblat-ja-JP">デバイス認可フロー</a>を使用して、入力に制約のあるデバイスからAPIを呼び出す方法について説明します。 ログインして、アカウント用に構成された例を参考にこのクイックタートに従うことをお勧めします。</p><p>対話型のエクスペリエンスには、<a href="https://auth0.github.io/device-flow-playground/">Device Flow Playground</a>を使用することができます。</p><h2>前提条件</h2><ul><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-ja-JP">ネイティブアプリケーションを登録する</a>。</p></li><li><p><b>OIDC準拠</b>のトグルが有効になっていることを確認する。詳細については、「<a data-contentfulid="5X6PoWErJuO1unXQymQsu3-ja-JP">OIDC準拠の認証</a>」をお読みください。</p></li><li><p>アプリケーションの付与タイプに<b>デバイスコード</b>を追加する。詳細については、「<a data-contentfulid="16N6CjkAtEzcGypwOkPItT-ja-JP">付与タイプを更新する</a>」をお読みください。</p></li><li><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-ja-JP">リフレッシュトークン</a>を有効にしたい場合には、アプリケーションの付与タイプに<b>リフレッシュトークン</b>を追加する。</p></li><li><p>アプリケーションに<a data-contentfulid="1Ye7SV0H0QbFUqZ9SsxJxl-ja-JP">少なくとも1つの接続を構成して有効化</a>する。</p></li><li><p><a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-ja-JP">APIをAuth0に登録する</a>。</p><ul><li><p>リフレッシュトークンを使用している場合には、<b>［Allow Offline Access（オフラインアクセスの許可）］</b>を有効にする。詳細については、「<a data-contentfulid="302dVhVAcFGQAMcUS8ymHS-ja-JP">APIの設定</a>」をお読みください。</p></li></ul></li><li><p><a data-contentfulid="31DLcdiccXFyevXAtvjX5d-ja-JP">デバイスのユーザーコードの設定を構成</a>して、ランダムに生成されたユーザーコードの文字セット、形式、長さを定義する。</p></li></ul><p></p>
+<p>このチュートリアルでは、<a data-contentfulid="5o0Q0sUAtzV8S0YFfXblat-ja-JP">デバイス認可フロー</a>を使用して、入力に制約のあるデバイスからAPIを呼び出す方法について説明します。 ログインして、アカウント用に構成された例を参考にこのクイックタートに従うことをお勧めします。</p><p>対話型のエクスペリエンスには、<a href="https://auth0.github.io/device-flow-playground/" target="_blank" rel="noreferrer noopener">Device Flow Playground</a>を使用することができます。</p><h2>前提条件</h2><ul><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-ja-JP">ネイティブアプリケーションを登録する</a>。</p></li><li><p><b>OIDC準拠</b>のトグルが有効になっていることを確認する。詳細については、「<a data-contentfulid="5X6PoWErJuO1unXQymQsu3-ja-JP">OIDC準拠の認証</a>」をお読みください。</p></li><li><p>アプリケーションの付与タイプに<b>デバイスコード</b>を追加する。詳細については、「<a data-contentfulid="16N6CjkAtEzcGypwOkPItT-ja-JP">付与タイプを更新する</a>」をお読みください。</p></li><li><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-ja-JP">リフレッシュトークン</a>を有効にしたい場合には、アプリケーションの付与タイプに<b>リフレッシュトークン</b>を追加する。</p></li><li><p>アプリケーションに<a data-contentfulid="1Ye7SV0H0QbFUqZ9SsxJxl-ja-JP">少なくとも1つの接続を構成して有効化</a>する。</p></li><li><p><a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-ja-JP">APIをAuth0に登録する</a>。</p><ul><li><p>リフレッシュトークンを使用している場合には、<b>［Allow Offline Access（オフラインアクセスの許可）］</b>を有効にする。詳細については、「<a data-contentfulid="302dVhVAcFGQAMcUS8ymHS-ja-JP">APIの設定</a>」をお読みください。</p></li></ul></li><li><p><a data-contentfulid="31DLcdiccXFyevXAtvjX5d-ja-JP">デバイスのユーザーコードの設定を構成</a>して、ランダムに生成されたユーザーコードの文字セット、形式、長さを定義する。</p></li></ul><p></p>
 
 ## デバイスコードを要求する
 
 
-<p>ユーザーがデバイスアプリケーションを起動して、それを認可したい場合には、アプリケーションがAuth0 Authentication APIからのデバイスコードを要求して、ユーザーのセッションに関連付けなければなりません。</p><p>デバイスコードを取得するには、アプリケーションがAuthentication APIのデバイス認可フローで<a href="/docs/api/authentication#-post-oauth-device-code-">認証エンドポイント</a>を呼び出す必要があります：</p><p><pre style="display: none;"></pre>
+<p>ユーザーがデバイスアプリケーションを起動して、それを認可したい場合には、アプリケーションがAuth0 Authentication APIからのデバイスコードを要求して、ユーザーのセッションに関連付けなければなりません。</p><p>デバイスコードを取得するには、アプリケーションがAuthentication APIのデバイス認可フローで<a href="/docs/api/authentication#-post-oauth-device-code-" target="_self" >認証エンドポイント</a>を呼び出す必要があります：</p><p><pre style="display: none;"></pre>
 
 <div class="code-picker">
 
-  <div class="languages-bar"><ul><li class="active"><a href="#301c9bfdada14241bc86c931f6a0c01a_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#301c9bfdada14241bc86c931f6a0c01a_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
+  <div class="languages-bar"><ul><li class="active"><a href="#3a964580ffbc4acea7857f2a18197a9c_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#3a964580ffbc4acea7857f2a18197a9c_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
 
 
 
   <!-- Tab panes -->
 
-  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="301c9bfdada14241bc86c931f6a0c01a_shell"><pre><code class="language-text no-lines">curl --request post \
+  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="3a964580ffbc4acea7857f2a18197a9c_shell"><pre><code class="language-text no-lines">curl --request post \
 
   --url 'https://${account.namespace}/oauth/device/code' \
 
-  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/device/code&quot;);
+  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/device/code&quot;);
 
 var request = new RestRequest(Method.POST);
 
 request.AddHeader(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
 
-IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_go"><pre><code class="language-go no-lines">package main
+IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_go"><pre><code class="language-go no-lines">package main
 
 
 
@@ -84,11 +82,11 @@ func main() {
 
 
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/device/code&quot;)
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/device/code&quot;)
 
   .header(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;)
 
-  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
+  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
 
 
 
@@ -112,7 +110,7 @@ axios.request(options).then(function (response) {
 
   console.error(error);
 
-});</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
+});</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
 
 
 
@@ -152,7 +150,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 
                                             }];
 
-[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_php"><pre><code class="language-php no-lines">$curl = curl_init();
+[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_php"><pre><code class="language-php no-lines">$curl = curl_init();
 
 
 
@@ -200,7 +198,7 @@ if ($err) {
 
   echo $response;
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_python"><pre><code class="language-python no-lines">import http.client
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_python"><pre><code class="language-python no-lines">import http.client
 
 
 
@@ -222,7 +220,7 @@ data = res.read()
 
 
 
-print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_ruby"><pre><code class="language-ruby no-lines">require 'uri'
+print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_ruby"><pre><code class="language-ruby no-lines">require 'uri'
 
 require 'net/http'
 
@@ -250,7 +248,7 @@ request[&quot;content-type&quot;] = 'application/x-www-form-urlencoded'
 
 response = http.request(request)
 
-puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="301c9bfdada14241bc86c931f6a0c01a_swift"><pre><code class="language-swift no-lines">import Foundation
+puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="3a964580ffbc4acea7857f2a18197a9c_swift"><pre><code class="language-swift no-lines">import Foundation
 
 
 
@@ -327,7 +325,7 @@ dataTask.resume()</code></pre></div></div></div>
 ## トークンエンドポイントをポーリングする
 
 
-<p>ユーザーによるアクティベーションを待っている間、デバイスアプリケーションはAuthentication API <a href="/docs/api/authentication#-post-oauth-token-">POST /oauth/tokenエンドポイント</a>を断続的に呼び出して、応答を適切に処理する必要があります。</p><p><div class="alert-container" severity="default"><p>デバイスアプリケーションが確実にその<code>interval</code>（秒単位）または成功応答の受信で長い方の時間を待機して、ネットワーク遅延の問題を回避するようにします。</p></div></p><p><pre><code>curl --request POST \ 
+<p>ユーザーによるアクティベーションを待っている間、デバイスアプリケーションはAuthentication API <a href="/docs/api/authentication#-post-oauth-token-" target="_self" >POST /oauth/tokenエンドポイント</a>を断続的に呼び出して、応答を適切に処理する必要があります。</p><p><div class="alert-container" severity="default"><p>デバイスアプリケーションが確実にその<code>interval</code>（秒単位）または成功応答の受信で長い方の時間を待機して、ネットワーク遅延の問題を回避するようにします。</p></div></p><p><pre><code>curl --request POST \ 
 
 --url 'https://${account.namespace}/oauth/token' \ 
 
@@ -367,7 +365,7 @@ dataTask.resume()</code></pre></div></div></div>
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="warning"><p>トークンは検証してから保存します。方法については、「<a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-ja-JP"><b>アクセストークンを検証する</b></a>」と「<a data-contentfulid="1O5WNRhzrz1R0n4xFQtM8j-ja-JP"><b>IDトークンを検証する</b></a>」をお読みください。</p></div></p><p><a data-contentfulid="48OqDR4wWZTFo8FZw7tSMj-ja-JP">アクセストークン</a>は、Authentication APIの<a href="/docs/api/authentication#get-user-info">ユーザー情報取得エンドポイント</a>（デバイスアプリケーションが<code>openid</code>スコープを要求した場合）、または<code>audience</code>パラメーターが指定したAPIを呼び出すために使用されます。独自のAPIを呼び出す場合には、デバイスアプリケーションは使用する前に<a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-ja-JP">アクセストークンを検証</a>しなければなりません。</p><p><a data-contentfulid="7eGepxAjz89d1F7i1aP4ch-ja-JP">IDトークン</a>には、<a href="/docs/tokens/id-tokens#id-token-payload">デコードと抽出</a>が必要なユーザー情報が含まれています。デバイスアプリケーションが<code>openid</code>スコープを要求した場合には、Authentication APIは<code>id_token</code>のみを返します。</p><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-ja-JP">リフレッシュトークン</a>は、アクセストークンまたはIDトークンの期限が切れたときに、新しいトークンの取得に使用されます。<code>audience</code>パラメーターが指定するAPIに<b>［Allow Offline Access（オフラインアクセスの許可）］</b>設定が有効化されていて、デバイスアプリケーションが<code>offline_access</code>スコープを要求した場合には、Authentication APIは<code>refresh_token</code>のみを返します。</p>
+</p><p><div class="alert-container" severity="warning"><p>トークンは検証してから保存します。方法については、「<a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-ja-JP"><b>アクセストークンを検証する</b></a>」と「<a data-contentfulid="1O5WNRhzrz1R0n4xFQtM8j-ja-JP"><b>IDトークンを検証する</b></a>」をお読みください。</p></div></p><p><a data-contentfulid="48OqDR4wWZTFo8FZw7tSMj-ja-JP">アクセストークン</a>は、Authentication APIの<a href="/docs/api/authentication#get-user-info" target="_self" >ユーザー情報取得エンドポイント</a>（デバイスアプリケーションが<code>openid</code>スコープを要求した場合）、または<code>audience</code>パラメーターが指定したAPIを呼び出すために使用されます。独自のAPIを呼び出す場合には、デバイスアプリケーションは使用する前に<a data-contentfulid="6DnVGunP9ZOQvZjFZE0EOP-ja-JP">アクセストークンを検証</a>しなければなりません。</p><p><a data-contentfulid="7eGepxAjz89d1F7i1aP4ch-ja-JP">IDトークン</a>には、<a href="/docs/tokens/id-tokens#id-token-payload" target="_self" >デコードと抽出</a>が必要なユーザー情報が含まれています。デバイスアプリケーションが<code>openid</code>スコープを要求した場合には、Authentication APIは<code>id_token</code>のみを返します。</p><p><a data-contentfulid="2qqZWFtyjsJXT1R47diXIM-ja-JP">リフレッシュトークン</a>は、アクセストークンまたはIDトークンの期限が切れたときに、新しいトークンの取得に使用されます。<code>audience</code>パラメーターが指定するAPIに<b>［Allow Offline Access（オフラインアクセスの許可）］</b>設定が有効化されていて、デバイスアプリケーションが<code>offline_access</code>スコープを要求した場合には、Authentication APIは<code>refresh_token</code>のみを返します。</p>
 
 ## APIを呼び出す
 
@@ -387,7 +385,7 @@ dataTask.resume()</code></pre></div></div></div>
 ## リフレッシュトークン
 
 
-<p>ユーザーに新しいアクセストークンを取得するために、デバイスアプリケーションは、<code>refresh_token</code>パラメーターを指定してAuthentication API <a href="/docs/api/authentication#-post-oauth-token-">POST /oauth/tokenエンドポイント</a>を呼び出すことができます。</p><p><pre><code>curl --request POST \
+<p>ユーザーに新しいアクセストークンを取得するために、デバイスアプリケーションは、<code>refresh_token</code>パラメーターを指定してAuthentication API <a href="/docs/api/authentication#-post-oauth-token-" target="_self" >POST /oauth/tokenエンドポイント</a>を呼び出すことができます。</p><p><pre><code>curl --request POST \
 
   --url 'https://${account.namespace}/oauth/token' \
 
@@ -419,7 +417,7 @@ dataTask.resume()</code></pre></div></div></div>
 
 </code></pre>
 
-</p><p>リフレッシュトークンの詳細については、「<a href="https://auth0.com/docs/secure/tokens/refresh-tokens">リフレッシュトークン</a>」をお読みください。</p>
+</p><p>リフレッシュトークンの詳細については、「<a href="https://auth0.com/docs/secure/tokens/refresh-tokens" target="_blank" >リフレッシュトークン</a>」をお読みください。</p>
 
 ## トラブルシューティング
 
@@ -553,9 +551,9 @@ dataTask.resume()</code></pre></div></div></div>
 ## 実装例
 
 
-<p>以下の例を参考に、このフローを実際のアプリケーションに実装する方法を確認してください。</p><ul><li><p><a href="https://auth0.github.io/device-flow-playground/">Device Authorization Playground</a></p></li><li><p><a href="https://github.com/pushpabrol/auth0-device-flow-appletv">AppleTV（Swift）</a>：AppleTVからのデバイス認可フローにAuth0を使用する方法を示す簡素なアプリケーションです。</p></li><li><p><a href="https://gist.github.com/panva/652c61e7d847e0ed99926c324fa91b36">CLI（Node.js）</a>：認可コードフローではなく、デバイス認可フローを使用するCLIの実装例です。大きな違いは、CLIがWebサーバーのホスティングやポートの待ち受けを必要としないことです。</p></li></ul><p></p>
+<p>以下の例を参考に、このフローを実際のアプリケーションに実装する方法を確認してください。</p><ul><li><p><a href="https://auth0.github.io/device-flow-playground/" target="_blank" rel="noreferrer noopener">Device Authorization Playground</a></p></li><li><p><a href="https://github.com/pushpabrol/auth0-device-flow-appletv" target="_blank" rel="noreferrer noopener">AppleTV（Swift）</a>：AppleTVからのデバイス認可フローにAuth0を使用する方法を示す簡素なアプリケーションです。</p></li><li><p><a href="https://gist.github.com/panva/652c61e7d847e0ed99926c324fa91b36" target="_blank" rel="noreferrer noopener">CLI（Node.js）</a>：認可コードフローではなく、デバイス認可フローを使用するCLIの実装例です。大きな違いは、CLIがWebサーバーのホスティングやポートの待ち受けを必要としないことです。</p></li></ul><p></p>
 
 ## 制限事項
 
 
-<p>デバイス認可フローを使用するには、デバイスアプリケーションに以下が必要です。</p><ul><li><p>Server Name Indication（SNI）に対応している</p></li><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-ja-JP">ネイティブアプリケーション</a></p></li><li><p><a href="/docs/secure/application-credentials#application-authentication-methods">認証方法</a>が<b>［None（なし）］</b>に設定されている</p></li><li><p><a href="/docs/dashboard/reference/settings-application#oauth">OIDCに準拠</a></p></li><li><p><a data-contentfulid="4j9m9maYJHkXDgcqaijdWZ-ja-JP">動的クライアント登録（Dynamic Client Registration）</a></p></li></ul><p>また、デバイス認可フローには以下を使用できません：</p><ul><li><p><a data-contentfulid="3R5dpsFZe4Hnk90zDjYIoi-ja-JP">Auth0の開発者キー</a>を使用した<a data-contentfulid="3rAo4RBG7KOC6hpe0WLi1u-ja-JP">ソーシャル接続</a>（<a data-contentfulid="E0ZVoNC39TumW12W7LanM-ja-JP">新しいユニバーサルログインエクスペリエンス</a></p></li><li><p>ホストされたログインページやアクションからクエリ文字列パラメーターへのアクセス</p></li></ul><p></p>
+<p>デバイス認可フローを使用するには、デバイスアプリケーションに以下が必要です。</p><ul><li><p>Server Name Indication（SNI）に対応している</p></li><li><p><a data-contentfulid="TvuCRosEZ2Kpx1WdFwWJt-ja-JP">ネイティブアプリケーション</a></p></li><li><p><a href="/docs/secure/application-credentials#application-authentication-methods" target="_self" >認証方法</a>が<b>［None（なし）］</b>に設定されている</p></li><li><p><a href="/docs/dashboard/reference/settings-application#oauth" target="_self" >OIDCに準拠</a></p></li><li><p><a data-contentfulid="4j9m9maYJHkXDgcqaijdWZ-ja-JP">動的クライアント登録（Dynamic Client Registration）</a></p></li></ul><p>また、デバイス認可フローには以下を使用できません：</p><ul><li><p><a data-contentfulid="3R5dpsFZe4Hnk90zDjYIoi-ja-JP">Auth0の開発者キー</a>を使用した<a data-contentfulid="3rAo4RBG7KOC6hpe0WLi1u-ja-JP">ソーシャル接続</a>（<a data-contentfulid="E0ZVoNC39TumW12W7LanM-ja-JP">新しいユニバーサルログインエクスペリエンス</a></p></li><li><p>ホストされたログインページやアクションからクエリ文字列パラメーターへのアクセス</p></li></ul><p></p>

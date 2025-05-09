@@ -4,8 +4,6 @@ description: このチュートリアルでは、Webアプリに認証と認可�
 interactive:  true
 files:
  - files/auth_openidc
-github:
-  path: https://github.com/zmartzone/mod_auth_openidc/releases
 locale: ja-JP
 ---
 
@@ -17,7 +15,7 @@ locale: ja-JP
 ## mod_auth_openidcモジュールをインストールして有効にする
 
 
-<p>まず、Apacheに<code>mod_auth_openidc</code>モジュールをインストールする必要があります。</p><p><a href="https://github.com/zmartzone/mod_auth_openidc/releases">GitHub</a>からバイナリを取得して、OSにインストールすることができます。OSがバイナリのどれとも互換でない場合には、<a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL">ソースからビルド</a>することができます。</p><p>モジュールをインストールしたら、<code>a2enmod</code>コマンドを実行して、Apacheで有効化します。詳細については、<a href="https://manpages.ubuntu.com/manpages/focal/man8/a2enmod.8.html">Ubuntu Manpageでの2enmod</a>で次を参照してください：</p><p><code>a2enmod auth_openidc</code></p><p><div class="alert-container" severity="default"><p>Windowsについては、<a href="https://github.com/enderandpeter/win-a2enmod#installation">こちらのPowershellスクリプト</a>を使用すると、システム上で<code>a2enmod</code>を動作させることができます。</p></div></p><p></p>
+<p>まず、Apacheに<code>mod_auth_openidc</code>モジュールをインストールする必要があります。</p><p><a href="https://github.com/zmartzone/mod_auth_openidc/releases" target="_blank" rel="noreferrer noopener">GitHub</a>からバイナリを取得して、OSにインストールすることができます。OSがバイナリのどれとも互換でない場合には、<a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL" target="_blank" rel="noreferrer noopener">ソースからビルド</a>することができます。</p><p>モジュールをインストールしたら、<code>a2enmod</code>コマンドを実行して、Apacheで有効化します。詳細については、<a href="https://manpages.ubuntu.com/manpages/focal/man8/a2enmod.8.html" target="_blank" rel="noreferrer noopener">Ubuntu Manpageでの2enmod</a>で次を参照してください：</p><p><code>a2enmod auth_openidc</code></p><p><div class="alert-container" severity="default"><p>Windowsについては、<a href="https://github.com/enderandpeter/win-a2enmod#installation" target="_blank" rel="noreferrer noopener">こちらのPowershellスクリプト</a>を使用すると、システム上で<code>a2enmod</code>を動作させることができます。</p></div></p><p></p>
 
 ## Auth0アカウント情報でモジュールを構成する {{{ data-action="code" data-code="auth_openidc.conf#1:12" }}}
 

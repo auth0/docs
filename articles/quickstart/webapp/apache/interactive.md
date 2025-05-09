@@ -4,8 +4,6 @@ description: This tutorial demonstrates how to configure Apache to add authentic
 interactive:  true
 files:
  - files/auth_openidc
-github:
-  path: https://github.com/zmartzone/mod_auth_openidc/releases
 locale: en-US
 ---
 
@@ -17,7 +15,7 @@ locale: en-US
 ## Install and Enable mod_auth_openidc Module
 
 
-<p>First, install the <code>mod_auth_openidc</code> module for Apache.</p><p>You can get the binaries from <a href="https://github.com/zmartzone/mod_auth_openidc/releases">GitHub</a> and install them for your OS. If your OS isn&#39;t compatible with any of the binaries, you can still <a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL">build it from source</a>.</p><p>Once you&#39;ve installed the module, enable it for Apache with the <code>a2enmod</code> command. To learn more, read <a href="https://manpages.ubuntu.com/manpages/focal/man8/a2enmod.8.html">a2enmod on Ubuntu Manpage</a>:</p><p><code>a2enmod auth_openidc</code></p><p><div class="alert-container" severity="default"><p>For Windows, you can use <a href="https://github.com/enderandpeter/win-a2enmod#installation">this Powershell script</a> to get <code>a2enmod</code> working on your system.</p></div></p><p></p>
+<p>First, install the <code>mod_auth_openidc</code> module for Apache.</p><p>You can get the binaries from <a href="https://github.com/zmartzone/mod_auth_openidc/releases" target="_blank" rel="noreferrer noopener">GitHub</a> and install them for your OS. If your OS isn&#39;t compatible with any of the binaries, you can still <a href="https://github.com/zmartzone/mod_auth_openidc/blob/master/INSTALL" target="_blank" rel="noreferrer noopener">build it from source</a>.</p><p>Once you&#39;ve installed the module, enable it for Apache with the <code>a2enmod</code> command. To learn more, read <a href="https://manpages.ubuntu.com/manpages/focal/man8/a2enmod.8.html" target="_blank" rel="noreferrer noopener">a2enmod on Ubuntu Manpage</a>:</p><p><code>a2enmod auth_openidc</code></p><p><div class="alert-container" severity="default"><p>For Windows, you can use <a href="https://github.com/enderandpeter/win-a2enmod#installation" target="_blank" rel="noreferrer noopener">this Powershell script</a> to get <code>a2enmod</code> working on your system.</p></div></p><p></p>
 
 ## Configure the Module with Your Auth0 Account Information {{{ data-action="code" data-code="auth_openidc.conf#1:12" }}}
 

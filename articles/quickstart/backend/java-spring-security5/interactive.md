@@ -8,19 +8,19 @@ files:
  - files/Message
  - files/APIController
 github:
-  path: https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-MVC
+  path: 01-Authorization-MVC
 locale: en-US
 ---
 
 # Add Authorization to Your Spring Boot Application
 
 
-<p>Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.</p><p>If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.</p><p>Review <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis">our getting started guide</a> to set up your first API through the Auth0 dashboard.</p><p>Each Auth0 API uses the API Identifier, which your application needs to validate the access token.</p><p><div class="alert-container" severity="default"><p><b>New to Auth0?</b> Learn <a href="https://auth0.com/docs/overview">how Auth0 works</a> and read about <a href="https://auth0.com/docs/api-auth">implementing API authentication and authorization</a> using the OAuth 2.0 framework.</p></div></p><p></p>
+<p>Auth0 allows you to quickly add authorization to your application. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot application.</p><p>If you have not created an API in your Auth0 dashboard yet, use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with.</p><p>Review <a href="https://auth0.com/docs/get-started/auth0-overview/set-up-apis" target="_blank" >our getting started guide</a> to set up your first API through the Auth0 dashboard.</p><p>Each Auth0 API uses the API Identifier, which your application needs to validate the access token.</p><p><div class="alert-container" severity="default"><p><b>New to Auth0?</b> Learn <a href="https://auth0.com/docs/overview" target="_blank" >how Auth0 works</a> and read about <a href="https://auth0.com/docs/api-auth" target="_blank" >implementing API authentication and authorization</a> using the OAuth 2.0 framework.</p></div></p><p></p>
 
 ## Define permissions
 
 
-<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and a write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/dashboard/us/dev-1-2s2aq0/apis">APIs</a> section.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p><div class="alert-container" severity="default"><p>This example uses the <code>read:messages</code> scope.</p></div></p>
+<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and a write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/dashboard/us/dev-1-2s2aq0/apis" target="_blank" rel="noreferrer noopener">APIs</a> section.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p><div class="alert-container" severity="default"><p>This example uses the <code>read:messages</code> scope.</p></div></p>
 
 ## Configure the sample project {{{ data-action="code" data-code="application.yml#1:6" }}}
 
@@ -30,7 +30,7 @@ locale: en-US
 ## Install dependencies {{{ data-action="code" data-code="application.yml#1:6" }}}
 
 
-<p>If you are using Gradle, you can add the required dependencies using the <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/">Spring Boot Gradle Plugin</a> and the <a href="https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/">Dependency Management Plugin</a> to resolve dependency versions:</p><p><pre><code>// build.gradle
+<p>If you are using Gradle, you can add the required dependencies using the <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/" target="_blank" rel="noreferrer noopener">Spring Boot Gradle Plugin</a> and the <a href="https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/" target="_blank" rel="noreferrer noopener">Dependency Management Plugin</a> to resolve dependency versions:</p><p><pre><code>// build.gradle
 
 
 
@@ -114,15 +114,32 @@ locale: en-US
 
 ## Create the API controller {{{ data-action="code" data-code="APIController.java" }}}
 
-Create a new class named `APIController` to handle requests to the endpoints. The `APIController` has three routes as defined in the [Protect API Endpoints](/quickstart/backend/java-spring-security5/interactive/#configure-the-resource-server) section. For this example, allow all origins through `@CrossOrigin` annotation. Real applications should configure `CORS` for their use case.
+
+<p>Create a new class named <code>APIController</code> to handle requests to the endpoints. The <code>APIController</code> has three routes as defined in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/interactive#configure-the-resource-server" target="_blank" >Protect API Endpoints</a> section. For this example, allow all origins through <code>@CrossOrigin</code> annotation. Real applications should configure <code>CORS</code> for their use case.</p>
 
 ## Run the application {{{ data-action="code" data-code="APIController.java" }}}
 
 
-<p>To build and run the sample project, execute the <code>bootRun</code> Gradle task.</p><p>Linux or macOS:</p><p><code>./gradlew bootRun</code></p><p>Windows:</p><p><code>gradlew.bat bootRun</code></p><p>If you are configuring your own application using Maven and the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html">Spring Boot Maven Plugin</a>, you can execute the <code>spring-boot:run</code> goal.</p><p>Linux or macOS:</p><p><code>mvn spring-boot:run</code></p><p>Windows:</p><p><code>mvn.cmd spring-boot:run</code></p><p><code></code><div class="checkpoint">Spring Boot API Step 7 Checkpoint <div class="checkpoint-default"><p>The sample application will be available at <code>http://localhost:3010/</code>. Read about how to test and use your API in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/02-using">Using Your API</a> article.</p></div>
+<p>To build and run the sample project, execute the <code>bootRun</code> Gradle task.</p><p>Linux or macOS:</p><p><pre><code class="language-bash">./gradlew bootRun
+
+</code></pre>
+
+</p><p>Windows:</p><p><pre><code class="language-bash">gradlew.bat bootRun
+
+</code></pre>
+
+</p><p>If you are configuring your own application using Maven and the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html" target="_blank" rel="noreferrer noopener">Spring Boot Maven Plugin</a>, you can execute the <code>spring-boot:run</code> goal.</p><p>Linux or macOS:</p><p><pre><code class="language-bash">mvn spring-boot:run
+
+</code></pre>
+
+</p><p>Windows:</p><p><pre><code class="language-bash">mvn.cmd spring-boot:run
+
+</code></pre>
+
+</p><p><code></code><div class="checkpoint">Spring Boot API Step 7 Checkpoint <div class="checkpoint-default"><p>The sample application will be available at <code>http://localhost:3010/</code>. Read about how to test and use your API in the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/02-using" target="_blank" >Using Your API</a> article.</p></div>
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Use the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/03-troubleshooting">Troubleshooting</a> section to check your configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Use the <a href="https://auth0.com/docs/quickstart/backend/java-spring-security5/03-troubleshooting" target="_blank" >Troubleshooting</a> section to check your configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>

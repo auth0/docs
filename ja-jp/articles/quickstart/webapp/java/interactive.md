@@ -10,7 +10,7 @@ files:
  - files/HomeServlet
  - files/LogoutServlet
 github:
-  path: https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login
+  path: 01-Login
 locale: ja-JP
 ---
 
@@ -22,12 +22,12 @@ locale: ja-JP
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/logout</code>に設定してください。</p></div></p>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000/logout</code>に設定してください。</p></div></p>
 
 ## Auth0をアプリケーションに統合する
 
 
-<h3>依存関係をセットアップする</h3><p>Auth0でJavaアプリケーションを統合するには、以下の依存関係を追加します：</p><ul><li><p><b>javax.servlet-api</b></p><p>：Java Servletsの作成を許可するライブラリーです。TomcatやGrettyのようなサーバー依存関係を追加する必要があります。どれを追加するかは自己判断です。詳細はサンプルコードをご覧ください。</p></li><li><p><b>auth0-java-mvc-commons</b>：サーバー側のMVC Webアプリ用にJavaでAuth0の使用を許可する<a href="https://github.com/auth0/auth0-java-mvc-common">Javaライブラリー</a>です。ユーザーを識別する<a href="https://auth0.com/docs/tokens">Auth0トークン</a>を最後に取得する過程で受け取った結果を認証、検証するために呼び出す必要のある認可URLを生成します。</p></li></ul><p>Gradleを使用している場合は、<code>build.gradle</code>に追加します：</p><p><pre><code>// build.gradle
+<h3>依存関係をセットアップする</h3><p>Auth0でJavaアプリケーションを統合するには、以下の依存関係を追加します：</p><ul><li><p><b>javax.servlet-api</b></p><p>：Java Servletsの作成を許可するライブラリーです。TomcatやGrettyのようなサーバー依存関係を追加する必要があります。どれを追加するかは自己判断です。詳細はサンプルコードをご覧ください。</p></li><li><p><b>auth0-java-mvc-commons</b>：サーバー側のMVC Webアプリ用にJavaでAuth0の使用を許可する<a href="https://github.com/auth0/auth0-java-mvc-common" target="_blank" rel="noreferrer noopener">Javaライブラリー</a>です。ユーザーを識別する<a href="https://auth0.com/docs/tokens" target="_blank" >Auth0トークン</a>を最後に取得する過程で受け取った結果を認証、検証するために呼び出す必要のある認可URLを生成します。</p></li></ul><p>Gradleを使用している場合は、<code>build.gradle</code>に追加します：</p><p><pre><code>// build.gradle
 
 
 
@@ -68,7 +68,7 @@ compile 'com.auth0:mvc-auth-commons:1.+'W
 ## Javaアプリケーションを構成する {{{ data-action="code" data-code="web.xml" }}}
 
 
-<p>Javaアプリは、Auth0アカウントに対して認証するために、いくつかの情報を必要とします。サンプルではこの情報をデプロイメント記述子ファイル（<code>src/main/webapp/WEB-INF/web.xml</code>）から読み取っていますが、任意の場所に保存できます。</p><p>この情報は<b>auth0-java-mvc-commons</b>ライブラリーを構成するために使用され、ユーザーがアプリケーションにログインすることを可能にします。ライブラリーや各構成オプションの詳細情報については、<a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md">ライブラリーのドキュメント</a>をご覧ください。</p><h3>入力された属性をチェックする</h3><p>このサンプルを<b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードした場合は、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>属性が自動的に入力されます。特にアカウントに複数のAuth0アプリケーションがある場合は、値が正しいことを確認してください。</p><h3>プロジェクト構造</h3><p><b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードできるサンプルプロジェクトは以下の構造になっています：</p><p><pre><code>- src
+<p>Javaアプリは、Auth0アカウントに対して認証するために、いくつかの情報を必要とします。サンプルではこの情報をデプロイメント記述子ファイル（<code>src/main/webapp/WEB-INF/web.xml</code>）から読み取っていますが、任意の場所に保存できます。</p><p>この情報は<b>auth0-java-mvc-commons</b>ライブラリーを構成するために使用され、ユーザーがアプリケーションにログインすることを可能にします。ライブラリーや各構成オプションの詳細情報については、<a href="https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md" target="_blank" rel="noreferrer noopener">ライブラリーのドキュメント</a>をご覧ください。</p><h3>入力された属性をチェックする</h3><p>このサンプルを<b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードした場合は、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>属性が自動的に入力されます。特にアカウントに複数のAuth0アプリケーションがある場合は、値が正しいことを確認してください。</p><h3>プロジェクト構造</h3><p><b>［Download Sample（サンプルをダウンロード）］</b>ボタンでダウンロードできるサンプルプロジェクトは以下の構造になっています：</p><p><pre><code>- src
 
 -- main
 
@@ -111,7 +111,7 @@ compile 'com.auth0:mvc-auth-commons:1.+'W
 ## AuthenticationControllerを作成する {{{ data-action="code" data-code="AuthenticationControllerProvider.java#5:26" }}}
 
 
-<p>ユーザー認証を可能にするために、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>を使って<code>auth0-java-mvc-commons</code> SDKから提供された<code>AuthenticationController</code>のインスタンスを作成します。サンプルでは、RS256非対称署名アルゴリズムを使って署名したトークンで使用するためのコンポーネントの構成方法が紹介されています。トークンの署名を検証するために使用された公開鍵を取得する<code>JwkProvider</code>が指定されています。その他の構成オプションについての詳細は、<a href="https://github.com/auth0/jwks-rsa-java">jwks-rsa-javaレポジトリ</a>をご覧ください。HS256を使用している場合は、<code>JwkProvider</code>を構成する必要はありません。</p><p><div class="alert-container" severity="default"><p><code>AuthenticationController</code>はコンテキストを一切保存せず、再使用を意図しています。不必要な作成はリソースの追加作成を招き、パフォーマンスに影響が出る可能性があります。</p></div></p>
+<p>ユーザー認証を可能にするために、<code>domain</code>、<code>clientId</code>、<code>clientSecret</code>を使って<code>auth0-java-mvc-commons</code> SDKから提供された<code>AuthenticationController</code>のインスタンスを作成します。サンプルでは、RS256非対称署名アルゴリズムを使って署名したトークンで使用するためのコンポーネントの構成方法が紹介されています。トークンの署名を検証するために使用された公開鍵を取得する<code>JwkProvider</code>が指定されています。その他の構成オプションについての詳細は、<a href="https://github.com/auth0/jwks-rsa-java" target="_blank" rel="noreferrer noopener">jwks-rsa-javaレポジトリ</a>をご覧ください。HS256を使用している場合は、<code>JwkProvider</code>を構成する必要はありません。</p><p><div class="alert-container" severity="default"><p><code>AuthenticationController</code>はコンテキストを一切保存せず、再使用を意図しています。不必要な作成はリソースの追加作成を招き、パフォーマンスに影響が出る可能性があります。</p></div></p>
 
 ## ログインにリダイレクトする {{{ data-action="code" data-code="LoginServlet.java#21:23" }}}
 
@@ -131,9 +131,9 @@ compile 'com.auth0:mvc-auth-commons:1.+'W
 ## ログアウトを処理する {{{ data-action="code" data-code="LogoutServlet.java#13:30" }}}
 
 
-<p>ログアウトを適切に処理するには、セッションを消去し、ユーザーをAuth0からログアウトさせる必要があります。この処理は、サンプルアプリケーションの<code>LogoutServlet</code>で行われます。</p><p>まず、<code>request.getSession().invalidate()</code>を呼び出してセッションを消去します。それから、<code>returnTo</code>クエリパラメーターを含めることを念頭に置きつつ、ログアウトURLを構築します。ユーザーはログアウト後にこのURLにリダイレクトされます。最後にレスポンスをログアウトURLにリダイレクトします。</p>
+<p>ログアウトを適切に処理するには、セッションを消去し、ユーザーをAuth0からログアウトさせる必要があります。この処理は、サンプルアプリケーションの<code>LogoutServlet</code>で行われます。</p><p>まず、<code>request.getSession().invalidate()</code>を呼び出してセッションを消去します。それから、<code>returnTo</code>クエリパラメーターを含めることを念頭に置きつつ、ログアウトURLを構築します。ユーザーはログアウト後にこのURLにリダイレクトされます。最後に応答をログアウトURLにリダイレクトします。</p>
 
 ## サンプルを実行する
 
 
-<p>ターミナルからサンプルを実行するには、ディレクトリをプロジェクトのルートフォルダーに変更して以下のラインを実行します：</p><p><code>./gradlew clean app</code></p><p>数秒後、アプリケーションが<code>http://localhost:3000/</code>でアクセスできるようになります。保護されたリソース（<a href="http://localhost:3000/portal/home">http://localhost:3000/portal/home</a>）にアクセスしてみて、<code>Auth0Filter</code>によるAuth0ログインページへのリダイレクト方法を観察します。ウィジェット が、<a href="https://manage.auth0.com/#/">Dashboard</a>でこのアプリケーションに定義したソーシャル接続とデータベース接続をすべて表示します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/1012d2df62dd58a943f75092452f91d2/Login_Screen_-_Japanese.png" alt="null" /><p>認証成功後、ホームページのコンテンツを見られるようになります。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/FzK3jxfSGoeIDYQamxnJl/6b608e39ff39e044644193cfd2ee0f69/java-step-9-2.png" alt="null" /><p>ホームページ右上の<b>［logout（ログアウト）］</b>ボタン をクリックしてログアウトします。</p>
+<p>ターミナルからサンプルを実行するには、ディレクトリをプロジェクトのルートフォルダーに変更して以下のラインを実行します：</p><p><code>./gradlew clean app</code></p><p>数秒後、アプリケーションが<code>http://localhost:3000/</code>でアクセスできるようになります。保護されたリソース（<a href="http://localhost:3000/portal/home" target="_blank" rel="noreferrer noopener">http://localhost:3000/portal/home</a>）にアクセスしてみて、<code>Auth0Filter</code>によるAuth0ログインページへのリダイレクト方法を観察します。ウィジェット が、<a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>でこのアプリケーションに定義したソーシャル接続とデータベース接続をすべて表示します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/7L6lZ6xCi1L7sJBFZUPb9g/1012d2df62dd58a943f75092452f91d2/Login_Screen_-_Japanese.png" alt="null" /><p>認証成功後、ホームページのコンテンツを見られるようになります。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/FzK3jxfSGoeIDYQamxnJl/6b608e39ff39e044644193cfd2ee0f69/java-step-9-2.png" alt="null" /><p>ホームページ右上の<b>［logout（ログアウト）］</b>ボタン をクリックしてログアウトします。</p>

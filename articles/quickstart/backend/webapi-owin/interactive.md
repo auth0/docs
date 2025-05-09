@@ -8,7 +8,7 @@ files:
  - files/ScopeAuthorizeAttribute
  - files/ApiController
 github:
-  path: https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples/tree/master/Quickstart/Sample
+  path: Quickstart/Sample
 locale: en-US
 ---
 
@@ -20,7 +20,7 @@ locale: en-US
 ## Define permissions
 
 
-<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and a write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/#/apis">APIs</a> section. The following example uses the <code>read:messages</code> scope.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p></p>
+<p>Permissions let you define how resources can be accessed on behalf of the user with a given access token. For example, you might choose to grant read access to the <code>messages</code> resource if users have the manager access level, and a write access to that resource if they have the administrator access level.</p><p>You can define allowed permissions in the <b>Permissions</b> view of the Auth0 Dashboard&#39;s <a href="https://manage.auth0.com/#/apis" target="_blank" rel="noreferrer noopener">APIs</a> section. The following example uses the <code>read:messages</code> scope.</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/e61793a2822d095666002c3f65c71ac2/configure-permissions.png" alt="Auth0 Dashboard> Applications > APIs > [Specific API] > Permissions tab" /><p></p>
 
 ## Install dependencies
 
@@ -39,7 +39,7 @@ locale: en-US
 ## Verify the token signature {{{ data-action="code" data-code="OpenIdConnectSigningKeyResolver.cs" }}}
 
 
-<p>The OWIN JWT middleware does not use Open ID Connect Discovery by default, so you must provide a custom <code>IssuerSigningKeyResolver</code>. </p><p>Create the <code>OpenIdConnectSigningKeyResolver</code> class and ensure to return the correct <code>SecurityKey</code> by implementing <code>GetSigningKey</code>. This class is then used as <code>TokenValidationParameters.IssuerSigningKeyResolver</code> while configuring the middleware in <code>Startup.cs</code>.</p><p><div class="alert-container" severity="default"><p>This custom resolver is deprecated and <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md">no longer available</a>. You must provide this custom resolver yourself.</p></div></p>
+<p>The OWIN JWT middleware does not use Open ID Connect Discovery by default, so you must provide a custom <code>IssuerSigningKeyResolver</code>. </p><p>Create the <code>OpenIdConnectSigningKeyResolver</code> class and ensure to return the correct <code>SecurityKey</code> by implementing <code>GetSigningKey</code>. This class is then used as <code>TokenValidationParameters.IssuerSigningKeyResolver</code> while configuring the middleware in <code>Startup.cs</code>.</p><p><div class="alert-container" severity="default"><p>This custom resolver is deprecated and <a href="https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md" target="_blank" rel="noreferrer noopener">no longer available</a>. You must provide this custom resolver yourself.</p></div></p>
 
 ## Validate scopes {{{ data-action="code" data-code="ScopeAuthorizeAttribute.cs" }}}
 
@@ -53,6 +53,6 @@ locale: en-US
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Ensure your configured the <code>ValidIssuer</code> and <code>ValidAudience</code> values correctly</p></li><li><p>Verify you added the token as the <code>Authorization</code> header</p></li><li><p>Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/">jwt.io</a>.</p></li></ul><p>Still having issues? Check out our <a href="/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Ensure your configured the <code>ValidIssuer</code> and <code>ValidAudience</code> values correctly</p></li><li><p>Verify you added the token as the <code>Authorization</code> header</p></li><li><p>Ensure the token has the correct scopes. Verify with <a href="https://jwt.io/" target="_blank" rel="noreferrer noopener">jwt.io</a>.</p></li></ul><p>Still having issues? Check out our <a href="/docs" target="_self" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>
