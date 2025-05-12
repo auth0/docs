@@ -7,19 +7,19 @@ files:
  - files/apiexample/views
  - files/apiexample/urls
 github:
-  path: https://github.com/auth0-samples/auth0-django-api/tree/master/01-Authorization
+  path: 01-Authorization
 locale: ja-JP
 ---
 
 # Django APIアプリケーションに認可を追加する
 
 
-<p>このガイドは、<a href="https://www.djangoproject.com/">Django</a>を使ってビルドされた新規または既存のPython APIアプリケーションにAuth0を統合する方法を説明します。</p><p>Auth0 DashboardでAPIをまだ作成していない場合は、対話型のセレクターを使ってAuth0 APIを新規作成します。そうでない場合は、統合したいプロジェクトを表す既存のAPIを選択することができます。</p><p>または、Auth0 Dashboardを使って初めてAPIをセットアップする方法を<a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-ja-JP">使用の開始ガイド</a>で確認することもできます。</p><p>Auth0にあるAPIはそれぞれAPI識別子を使って構成され、アプリケーションのコードはAPI識別子をオーディエンスとしてアクセストークンを検証します。</p><p><div class="alert-container" severity="default"><p><b>Auth0を初めてご利用ですか？</b><a data-contentfulid="43RIpZkDhzyy40WfzZvz4y-ja-JP">Auth0の仕組み</a>と、OAuth 2.0フレームワークを用いた<a data-contentfulid="6eZFaxxcNpFYwyEI05AXXA-ja-JP">API認証と認可の実装</a>について説明します。</p></div></p><p></p>
+<p>このガイドは、<a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer noopener">Django</a>を使ってビルドされた新規または既存のPython APIアプリケーションにAuth0を統合する方法を説明します。</p><p>Auth0 DashboardでAPIをまだ作成していない場合は、対話型のセレクターを使ってAuth0 APIを新規作成します。そうでない場合は、統合したいプロジェクトを表す既存のAPIを選択することができます。</p><p>または、Auth0 Dashboardを使って初めてAPIをセットアップする方法を<a data-contentfulid="450QmC9wuUtjlt8UQzRgPd-ja-JP">使用の開始ガイド</a>で確認することもできます。</p><p>Auth0にあるAPIはそれぞれAPI識別子を使って構成され、アプリケーションのコードはAPI識別子をオーディエンスとしてアクセストークンを検証します。</p><p><div class="alert-container" severity="default"><p><b>Auth0を初めてご利用ですか？</b><a data-contentfulid="43RIpZkDhzyy40WfzZvz4y-ja-JP">Auth0の仕組み</a>と、OAuth 2.0フレームワークを用いた<a data-contentfulid="6eZFaxxcNpFYwyEI05AXXA-ja-JP">API認証と認可の実装</a>について説明します。</p></div></p><p></p>
 
 ## アクセス許可を定義する
 
 
-<p>アクセス許可は、ユーザーの代わりに、提供されたアクセストークンを使ってどのようにしてリソースにアクセスできるのかを定義できるようにします。たとえば、ユーザーがマネージャーアクセスレベルを持つ場合には、<code>messages</code>リソースに対して読み取りアクセスを付与し、管理者アクセスレベルを持つ場合には、書き込みアクセスを付与することができます。</p><p>Auth0 Dashboardの<a href="https://manage.auth0.com/#/apis">［API］</a>セクションにある<b>［Permissions（権限）］</b>ビューで使用可能なアクセス許可を定義することができます。以下の例では<code>read:messages</code>スコープを使用します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/acef814282795bef6921535f044f96e9/Quickstarts_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［APIs］>［Specific API（特定のAPI］>［Permissions（権限）］タブ" /><p></p>
+<p>アクセス許可は、ユーザーの代わりに、提供されたアクセストークンを使ってどのようにしてリソースにアクセスできるのかを定義できるようにします。たとえば、ユーザーがマネージャーアクセスレベルを持つ場合には、<code>messages</code>リソースに対して読み取りアクセスを付与し、管理者アクセスレベルを持つ場合には、書き込みアクセスを付与することができます。</p><p>Auth0 Dashboardの<a href="https://manage.auth0.com/#/apis" target="_blank" rel="noreferrer noopener">［API］</a>セクションにある<b>［Permissions（権限）］</b>ビューで使用可能なアクセス許可を定義することができます。以下の例では<code>read:messages</code>スコープを使用します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/acef814282795bef6921535f044f96e9/Quickstarts_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［APIs］>［Specific API（特定のAPI］>［Permissions（権限）］タブ" /><p></p>
 
 ## DjangoにAuth0の使用を構成する
 
@@ -31,7 +31,7 @@ locale: ja-JP
 ## JWTバリデーターを作成する {{{ data-action="code" data-code="apiexample/validator.py" }}}
 
 
-<p><a href="https://github.com/lepture/authlib">Authlib</a>という名前のライブラリーを使用して、<a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html">ResourceProtector</a>を作成します。これは<a href="https://docs.djangoproject.com/en/4.0/topics/http/decorators/">Djangoビューのデコレーター</a>の一種で、該当するバリデーターを使ってリソース（APIビュー）を保護します。</p><p>バリデーターは、リソースに渡すアクセストークンに有効な署名とクレームがあることを確認して検証します。</p><p>AuthLibの<code>JWTBearerTokenValidator</code>バリデーターに多少の変更を加えて、<a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens">アクセストークンの検証</a>要件が満たされるようにします。</p><p><code>Auth0JWTBearerTokenValidator</code>を作成するには、<code>domain</code>と<code>audience</code>（API識別子）に渡すことが必要です。そうすると、トークンの署名を検証するのに必要な公開鍵が取得され、<code>JWTBearerTokenValidator</code>クラスに渡されます。</p><p>そして、クラスの<code>claims_options</code>をオーバーライドし、トークンの<code>expiry</code>、<code>audience</code>、<code>issue</code>クレームが要件を満たして有効であることを確認します。</p><p>インタラクティブパネルからのコードを利用して、<code>apiexample/validator.py</code>ファイルを作成します。</p>
+<p><a href="https://github.com/lepture/authlib" target="_blank" rel="noreferrer noopener">Authlib</a>という名前のライブラリーを使用して、<a href="https://docs.authlib.org/en/latest/flask/1/resource-server.html" target="_blank" rel="noreferrer noopener">ResourceProtector</a>を作成します。これは<a href="https://docs.djangoproject.com/en/4.0/topics/http/decorators/" target="_blank" rel="noreferrer noopener">Djangoビューのデコレーター</a>の一種で、該当するバリデーターを使ってリソース（APIビュー）を保護します。</p><p>バリデーターは、リソースに渡すアクセストークンに有効な署名とクレームがあることを確認して検証します。</p><p>AuthLibの<code>JWTBearerTokenValidator</code>バリデーターに多少の変更を加えて、<a href="https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens" target="_blank" >アクセストークンの検証</a>要件が満たされるようにします。</p><p><code>Auth0JWTBearerTokenValidator</code>を作成するには、<code>domain</code>と<code>audience</code>（API識別子）に渡すことが必要です。そうすると、トークンの署名を検証するのに必要な公開鍵が取得され、<code>JWTBearerTokenValidator</code>クラスに渡されます。</p><p>そして、クラスの<code>claims_options</code>をオーバーライドし、トークンの<code>expiry</code>、<code>audience</code>、<code>issue</code>クレームが要件を満たして有効であることを確認します。</p><p>インタラクティブパネルからのコードを利用して、<code>apiexample/validator.py</code>ファイルを作成します。</p>
 
 ## APIビューを作成する {{{ data-action="code" data-code="apiexample/views.py" }}}
 
@@ -41,27 +41,27 @@ locale: ja-JP
 ## URLマッピングを追加する {{{ data-action="code" data-code="apiexample/urls.py#8:10" }}}
 
 
-<p>前の手順では、<code>views.py</code>ファイルにメソッドを追加しました。次に、Djangoの<a href="https://docs.djangoproject.com/en/4.0/topics/http/urls/">URL dispatcher</a>を使用して、それらのメソッドをURLへマッピングします。URL dispatcherでは、URLパターンをビューにマッピングすることができます。</p><p><code>apiexample/urls.py</code>ファイルにURLパターンを追加します。 </p><h3>APIを呼び出す</h3><p>APIを呼び出すにはアクセストークンが必要です。テスト用のアクセストークンは、<a href="https://manage.auth0.com/#/apis">APIの設定</a>の<b>［Test（テスト）］</b>ビューから取得することができます。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/6jeVBuypOGX5qMRXeJn5ow/dd20eb74e1e9079287762ce33dcf8e2d/Quickstart_Example_App_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［API］>［Specific API（特定のAPI］>［Test（テスト）］タブ" /><p>要求の<code>Authorization</code>ヘッダーにアクセストークンを指定します。</p><p><pre style="display: none;"></pre>
+<p>前の手順では、<code>views.py</code>ファイルにメソッドを追加しました。次に、Djangoの<a href="https://docs.djangoproject.com/en/4.0/topics/http/urls/" target="_blank" rel="noreferrer noopener">URL dispatcher</a>を使用して、それらのメソッドをURLへマッピングします。URL dispatcherでは、URLパターンをビューにマッピングすることができます。</p><p><code>apiexample/urls.py</code>ファイルにURLパターンを追加します。 </p><h3>APIを呼び出す</h3><p>APIを呼び出すにはアクセストークンが必要です。テスト用のアクセストークンは、<a href="https://manage.auth0.com/#/apis" target="_blank" rel="noreferrer noopener">APIの設定</a>の<b>［Test（テスト）］</b>ビューから取得することができます。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/6jeVBuypOGX5qMRXeJn5ow/dd20eb74e1e9079287762ce33dcf8e2d/Quickstart_Example_App_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［API］>［Specific API（特定のAPI］>［Test（テスト）］タブ" /><p>要求の<code>Authorization</code>ヘッダーにアクセストークンを指定します。</p><p><pre style="display: none;"></pre>
 
 <div class="code-picker">
 
-  <div class="languages-bar"><ul><li class="active"><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#3c2ac1dc39bb4ffba57c024d50b9efc0_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
+  <div class="languages-bar"><ul><li class="active"><a href="#2314562995384b3693099e3697060540_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#2314562995384b3693099e3697060540_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#2314562995384b3693099e3697060540_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#2314562995384b3693099e3697060540_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#2314562995384b3693099e3697060540_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#2314562995384b3693099e3697060540_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#2314562995384b3693099e3697060540_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#2314562995384b3693099e3697060540_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#2314562995384b3693099e3697060540_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#2314562995384b3693099e3697060540_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
 
 
 
   <!-- Tab panes -->
 
-  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="3c2ac1dc39bb4ffba57c024d50b9efc0_shell"><pre><code class="language-text no-lines">curl --request get \
+  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="2314562995384b3693099e3697060540_shell"><pre><code class="language-text no-lines">curl --request get \
 
   --url 'http:///${account.namespace}.com/api_path' \
 
-  --header 'authorization: Bearer YOUR_ACCESS_TOKEN_HERE'</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;http:///${account.namespace}.com/api_path&quot;);
+  --header 'authorization: Bearer YOUR_ACCESS_TOKEN_HERE'</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;http:///${account.namespace}.com/api_path&quot;);
 
 var request = new RestRequest(Method.GET);
 
 request.AddHeader(&quot;authorization&quot;, &quot;Bearer YOUR_ACCESS_TOKEN_HERE&quot;);
 
-IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_go"><pre><code class="language-go no-lines">package main
+IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_go"><pre><code class="language-go no-lines">package main
 
 
 
@@ -109,11 +109,11 @@ func main() {
 
 
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.get(&quot;http:///${account.namespace}.com/api_path&quot;)
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.get(&quot;http:///${account.namespace}.com/api_path&quot;)
 
   .header(&quot;authorization&quot;, &quot;Bearer YOUR_ACCESS_TOKEN_HERE&quot;)
 
-  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
+  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
 
 
 
@@ -137,7 +137,7 @@ axios.request(options).then(function (response) {
 
   console.error(error);
 
-});</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
+});</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
 
 
 
@@ -177,7 +177,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 
                                             }];
 
-[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_php"><pre><code class="language-php no-lines">$curl = curl_init();
+[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_php"><pre><code class="language-php no-lines">$curl = curl_init();
 
 
 
@@ -225,7 +225,7 @@ if ($err) {
 
   echo $response;
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_python"><pre><code class="language-python no-lines">import http.client
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_python"><pre><code class="language-python no-lines">import http.client
 
 
 
@@ -247,7 +247,7 @@ data = res.read()
 
 
 
-print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_ruby"><pre><code class="language-ruby no-lines">require 'uri'
+print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_ruby"><pre><code class="language-ruby no-lines">require 'uri'
 
 require 'net/http'
 
@@ -269,7 +269,7 @@ request[&quot;authorization&quot;] = 'Bearer YOUR_ACCESS_TOKEN_HERE'
 
 response = http.request(request)
 
-puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="3c2ac1dc39bb4ffba57c024d50b9efc0_swift"><pre><code class="language-swift no-lines">import Foundation
+puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="2314562995384b3693099e3697060540_swift"><pre><code class="language-swift no-lines">import Foundation
 
 
 

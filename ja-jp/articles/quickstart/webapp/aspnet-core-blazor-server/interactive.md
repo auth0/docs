@@ -8,7 +8,7 @@ files:
  - files/Profile
  - files/Program
 github:
-  path: https://github.com/auth0-samples/auth0-aspnetcore-blazor-server-samples/tree/main/Quickstart/Sample
+  path: Quickstart/Sample
 locale: ja-JP
 ---
 
@@ -20,12 +20,12 @@ locale: ja-JP
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
 ## SDKをインストールして構成する {{{ data-action="code" data-code="Program.cs" }}}
 
 
-<h3>NuGetからインストールする</h3><p>Auth0をBlazor Serverと統合するには、<code>Auth0.AspNetCore.Authentication</code><a href="https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/">NuGetパッケージ</a>をアプリケーションにインストールすることでSDKを使用できます。</p><p></p><h3>ミドルウェアを構成する</h3><p>Blazor Serverアプリケーションで認証を可能にするには、SDKが提供するミドルウェアを使います。<code>Program.cs</code>ファイルに移動して<code>builder.Services.AddAuth0WebAppAuthentication()</code>を呼び出し、SDKのミドルウェアを登録します。</p><p><code>Domain</code>と<code>ClientId</code>は必ず構成してください。SDKがどのAuth0テナントとアプリケーションを使用すべきかを認識するために必要となるフィールドです。</p><p>認証と認可が<code>Program.cs</code>ファイルで有効になったことを確認します。</p>
+<h3>NuGetからインストールする</h3><p>Auth0をBlazor Serverと統合するには、<code>Auth0.AspNetCore.Authentication</code><a href="https://www.nuget.org/packages/Auth0.AspNetCore.Authentication/" target="_blank" rel="noreferrer noopener">NuGetパッケージ</a>をアプリケーションにインストールすることでSDKを使用できます。</p><p></p><h3>ミドルウェアを構成する</h3><p>Blazor Serverアプリケーションで認証を可能にするには、SDKが提供するミドルウェアを使います。<code>Program.cs</code>ファイルに移動して<code>builder.Services.AddAuth0WebAppAuthentication()</code>を呼び出し、SDKのミドルウェアを登録します。</p><p><code>Domain</code>と<code>ClientId</code>は必ず構成してください。SDKがどのAuth0テナントとアプリケーションを使用すべきかを認識するために必要となるフィールドです。</p><p>認証と認可が<code>Program.cs</code>ファイルで有効になったことを確認します。</p>
 
 ## ログイン {{{ data-action="code" data-code="Login.cshtml.cs" }}}
 
@@ -34,7 +34,7 @@ locale: ja-JP
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -45,7 +45,7 @@ locale: ja-JP
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -56,6 +56,6 @@ locale: ja-JP
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here&#39;s a couple things to double check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>

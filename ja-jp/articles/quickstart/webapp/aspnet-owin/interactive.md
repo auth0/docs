@@ -7,7 +7,7 @@ files:
  - files/Startup
  - files/AccountController
 github:
-  path: https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Quickstart/Sample
+  path: Quickstart/Sample
 locale: ja-JP
 ---
 
@@ -19,7 +19,7 @@ locale: ja-JP
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
 ## プロジェクトを構成する {{{ data-action="code" data-code="Web.config" }}}
 
@@ -30,7 +30,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>OWINクッキーミドルウェアとSystem.Webクッキーを同時に構成すると不具合が発生します。この問題の影響を抑えるには、詳細について<a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues">「System.Web cookie integration issues（System.Webクッキーの統合不具合）」ドキュメント</a>でご確認ください。</p></div></p><h3>資格情報を構成する</h3><p>SDKが適切に動作するためには、<code>Web.config</code>で次のプロパティを設定します：</p><ul><li><p><code>auth0:Domain</code>：Auth0テナントのドメインです。Auth0 Dashboardにあるアプリケーションの<b>［Settings（設定）］</b>の［Domain（ドメイン）］フィールドで確認できます。<a href="https://auth0.com/docs/custom-domains">カスタムドメイン</a>を使用している場合は、この値をカスタムドメインの値に設定してください。</p></li><li><p><code>auth0:ClientId</code>：Auth0 Dashboardで作成したAuth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの<b>［Settings（設定）］</b>の［Client ID（クライアントID）］フィールドで確認できます。</p></li></ul><p></p>
+</p><p><div class="alert-container" severity="default"><p>OWINクッキーミドルウェアとSystem.Webクッキーを同時に構成すると不具合が発生します。この問題の影響を抑えるには、詳細について<a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues" target="_blank" rel="noreferrer noopener">「System.Web cookie integration issues（System.Webクッキーの統合不具合）」ドキュメント</a>でご確認ください。</p></div></p><h3>資格情報を構成する</h3><p>SDKが適切に動作するためには、<code>Web.config</code>で次のプロパティを設定します：</p><ul><li><p><code>auth0:Domain</code>：Auth0テナントのドメインです。Auth0 Dashboardにあるアプリケーションの<b>［Settings（設定）］</b>の［Domain（ドメイン）］フィールドで確認できます。<a href="https://auth0.com/docs/custom-domains" target="_blank" >カスタムドメイン</a>を使用している場合は、この値をカスタムドメインの値に設定してください。</p></li><li><p><code>auth0:ClientId</code>：Auth0 Dashboardで作成したAuth0アプリケーションのIDです。Auth0 Dashboardにあるアプリケーションの<b>［Settings（設定）］</b>の［Client ID（クライアントID）］フィールドで確認できます。</p></li></ul><p></p>
 
 ## ミドルウェアを構成する {{{ data-action="code" data-code="Startup.cs#18:74" }}}
 
@@ -44,7 +44,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -55,7 +55,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -66,6 +66,6 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>make sure the domain and client ID are configured correctly</p></li><li><p>Did you set <code>openid profile email</code> as the scope?</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>ドメインとクライアントIDが正しく構成されていることを確認します</p></li><li><p>スコープとして<code>openid profile email</code>を設定しましたか？</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
