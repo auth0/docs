@@ -85,6 +85,25 @@ At runtime, the `applicationId` value will automatically update with your applic
 
 ### Configure iOS
 
+**For react-native 0.77+**
+
+In the file `ios/<YOUR PROJECT>/AppDelegate.swift` add the following:
+
+```swift
+// …
+
+@main
+class AppDelegate: RCTAppDelegate {
+  // …
+
+  override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return RCTLinkingManager.application(app, open: url, options: options)
+  }
+}
+```
+
+**For react-native < 0.77**
+
 In the file `ios/<YOUR PROJECT>/AppDelegate.mm` add the following:
 
 ```objc
