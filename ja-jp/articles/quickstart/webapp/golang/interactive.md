@@ -14,7 +14,7 @@ files:
  - files/router
  - files/user
 github:
-  path: https://github.com/auth0-samples/auth0-golang-web-app/tree/master/01-Login
+  path: 01-Login
 locale: ja-JP
 ---
 
@@ -26,7 +26,7 @@ locale: ja-JP
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
 ## 依存関係をインストールする {{{ data-action="code" data-code="go.mod" }}}
 
@@ -41,12 +41,12 @@ locale: ja-JP
 ## OAuth2パッケージとOpenID Connectパッケージを構成する {{{ data-action="code" data-code="auth.go" }}}
 
 
-<p>次にOAuth2パッケージとOpenID Connectパッケージを構成します。</p><p><code>platform/authenticator</code>フォルダーに<code>auth.go</code>という名前のファイルを作成します。このパッケージ内で、<a href="https://godoc.org/golang.org/x/oauth2">OAuth2</a>クライアントと<a href="https://godoc.org/github.com/coreos/go-oidc">OIDC</a>クライアントを構成してリターンするメソッドを作成し、IDトークンを検証するもう1つのメソッドを作成します。</p>
+<p>次にOAuth2パッケージとOpenID Connectパッケージを構成します。</p><p><code>platform/authenticator</code>フォルダーに<code>auth.go</code>という名前のファイルを作成します。このパッケージ内で、<a href="https://godoc.org/golang.org/x/oauth2" target="_blank" rel="noreferrer noopener">OAuth2</a>クライアントと<a href="https://godoc.org/github.com/coreos/go-oidc" target="_blank" rel="noreferrer noopener">OIDC</a>クライアントを構成してリターンするメソッドを作成し、IDトークンを検証するもう1つのメソッドを作成します。</p>
 
 ## アプリケーションルートをセットアップする {{{ data-action="code" data-code="router.go" }}}
 
 
-<p><code>platform/router</code>フォルダーに<code>router.go</code>という名前のファイルを作成します。このパッケージで、<a href="https://github.com/gin-gonic/gin">github.com/gin-gonic/gin</a>を使ってルートを構成、リターンするメソッドを作成します。<code>login</code>ハンドラーと<code>callback</code>ハンドラーで使用するために、<code>Authenticator</code>のインスタンスをメソッドに渡すことになります。</p><p></p>
+<p><code>platform/router</code>フォルダーに<code>router.go</code>という名前のファイルを作成します。このパッケージで、<a href="https://github.com/gin-gonic/gin" target="_blank" rel="noreferrer noopener">github.com/gin-gonic/gin</a>を使ってルートを構成、リターンするメソッドを作成します。<code>login</code>ハンドラーと<code>callback</code>ハンドラーで使用するために、<code>Authenticator</code>のインスタンスをメソッドに渡すことになります。</p><p></p>
 
 ## アプリケーションにログインを追加する {{{ data-action="code" data-code="login.go" }}}
 
@@ -66,7 +66,7 @@ locale: ja-JP
 ## アプリケーションにログアウトを追加する {{{ data-action="code" data-code="logout.go" }}}
 
 
-<p>ユーザーをログアウトさせるには、セッションのデータを消去し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトします。詳細は<a href="https://auth0.com/docs/logout">ログアウトドキュメント</a>をご覧ください。</p><p><code>web/app/logout</code>フォルダーに<code>logout.go</code>という名前のファイルを作成し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトするために<code>Handler</code>関数を追加します。</p><p><code>returnTo</code> URLは、アプリケーションの設定セクションで［Allowed Logout URLs（許可されているログアウトURL）］のリストに載っていなければなりません。詳細は「<a href="https://auth0.com/docs/logout/guides/redirect-users-after-logout">ログアウト後にユーザーをリダイレクトする</a>」をご覧ください。</p><p><code>web/static/js</code>フォルダーに<code>user.js</code>という名前のファイルを作成し、ログインしたユーザーからクッキーを削除するためのコードを追加します。</p><p></p><p></p>
+<p>ユーザーをログアウトさせるには、セッションのデータを消去し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトします。詳細は<a href="https://auth0.com/docs/logout" target="_blank" >ログアウトドキュメント</a>をご覧ください。</p><p><code>web/app/logout</code>フォルダーに<code>logout.go</code>という名前のファイルを作成し、ユーザーをAuth0ログアウトエンドポイントにリダイレクトするために<code>Handler</code>関数を追加します。</p><p><code>returnTo</code> URLは、アプリケーションの設定セクションで［Allowed Logout URLs（許可されているログアウトURL）］のリストに載っていなければなりません。詳細は「<a href="https://auth0.com/docs/logout/guides/redirect-users-after-logout" target="_blank" >ログアウト後にユーザーをリダイレクトする</a>」をご覧ください。</p><p><code>web/static/js</code>フォルダーに<code>user.js</code>という名前のファイルを作成し、ログインしたユーザーからクッキーを削除するためのコードを追加します。</p><p></p><p></p>
 
 ## ルートを保護する {{{ data-action="code" data-code="isAuthenticated.go" }}}
 

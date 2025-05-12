@@ -7,8 +7,6 @@ files:
  - files/openid_connection_configuration
  - files/openid_connect
  - files/frontend
-github:
-  path: https://github.com/nginxinc/nginx-openid-connect
 locale: ja-JP
 ---
 
@@ -40,7 +38,7 @@ locale: ja-JP
 
 </code></pre>
 
-</p><p>次に、<a href="/docs/api/authentication#auth0-logout">テナントのログアウトURL</a>を<code>openid_connect_configuration.conf</code>ファイルに追加します。</p>
+</p><p>次に、<a href="/docs/api/authentication#auth0-logout" target="_self" >テナントのログアウトURL</a>を<code>openid_connect_configuration.conf</code>ファイルに追加します。</p>
 
 ## トークンとJWKSエンドポイントにAccept-Encodingヘッダーを構成する {{{ data-action="code" data-code="openid_connect.server_conf" }}}
 

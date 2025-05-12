@@ -10,19 +10,19 @@ files:
  - files/exchangeTokens
  - files/performLogin
 github:
-  path: https://github.com/auth0-samples/auth0-android-native-social-sample/tree/master/00-login-facebook
+  path: 00-login-facebook
 locale: ja-JP
 ---
 
 # Android - Facebookログイン
 
 
-<p>このチュートリアルは、ネイティブFacebookログインを使用して、Androidアプリケーションにユーザーログインを追加する方法について説明します。ログインして、アカウント用に構成された例を参考にして、このクリックスタートに従うことをお勧めします。</p><h2>システム要件</h2><ul><li><p>Android Studio 3.6.1</p></li><li><p>Android SDK 25</p></li><li><p>Emulator - Nexus 5X - Android 6.0</p></li></ul><p>このチュートリアルは、<a href="https://developers.facebook.com/docs/">Facebook SDK</a>でログインを実装する方法について説明します。​</p><h2>始める前に</h2><ul><li><p><a href="https://developers.facebook.com/docs/facebook-login/">FacebookログインSDK</a>をインストールして構成します。<a href="https://developers.facebook.com/">https://developers.facebook.com</a>でFacebookアプリの作成プロセスも行います。<b>この手順が終了したら、Facebookログインが統合された状態でモバイルアプリが稼働しているはずです。</b></p></li></ul><p>DashboardでFacebookネイティブサインインを使用するようにAuth0アプリケーションを構成します。「<a href="https://auth0.com/docs/connections/nativesocial/facebook">Facebookログインをネイティブアプリに追加する</a>」を参照してください。<b>この手順が終了したら、アプリケーションはFacebookネイティブログインを実装できるようになります。</b></p><p></p>
+<p>このチュートリアルは、ネイティブFacebookログインを使用して、Androidアプリケーションにユーザーログインを追加する方法について説明します。ログインして、アカウント用に構成された例を参考にして、このクリックスタートに従うことをお勧めします。</p><h2>システム要件</h2><ul><li><p>Android Studio 3.6.1</p></li><li><p>Android SDK 25</p></li><li><p>Emulator - Nexus 5X - Android 6.0</p></li></ul><p>このチュートリアルは、<a href="https://developers.facebook.com/docs/" target="_blank" rel="noreferrer noopener">Facebook SDK</a>でログインを実装する方法について説明します。​</p><h2>始める前に</h2><ul><li><p><a href="https://developers.facebook.com/docs/facebook-login/" target="_blank" rel="noreferrer noopener">FacebookログインSDK</a>をインストールして構成します。<a href="https://developers.facebook.com/" target="_blank" rel="noreferrer noopener">https://developers.facebook.com</a>でFacebookアプリの作成プロセスも行います。<b>この手順が終了したら、Facebookログインが統合された状態でモバイルアプリが稼働しているはずです。</b></p></li></ul><p>DashboardでFacebookネイティブサインインを使用するようにAuth0アプリケーションを構成します。「<a href="https://auth0.com/docs/connections/nativesocial/facebook" target="_blank" >Facebookログインをネイティブアプリに追加する</a>」を参照してください。<b>この手順が終了したら、アプリケーションはFacebookネイティブログインを実装できるようになります。</b></p><p></p>
 
 ## Facebookのアクセス許可を要求する
 
 
-<p>アプリケーションでは既にFacebookでサインインすることができますが、リッチユーザープロファイルを確保するには、Facebookログインボタンがセットアップされたアクセス許可を更新する必要があります。</p><p>要求されたアクセス許可を<code>public_profile</code>と<code>email</code>に設定します。これで、アクセスリクエストがユーザーによって受け入れられたという前提で、ユーザーメールも応答の一部に含まれます。</p><p><code>loginButton.setPermissions(Arrays.asList(&quot;public_profile&quot;, &quot;email&quot;));</code></p>
+<p>アプリケーションでは既にFacebookでサインインすることができますが、リッチユーザープロファイルを確保するには、Facebookログインボタンがセットアップされたアクセス許可を更新する必要があります。</p><p>要求されたアクセス許可を<code>public_profile</code>と<code>email</code>に設定します。これで、アクセス要求がユーザーによって受け入れられたという前提で、ユーザーメールも応答の一部に含まれます。</p><p><code>loginButton.setPermissions(Arrays.asList(&quot;public_profile&quot;, &quot;email&quot;));</code></p>
 
 ## performLoginメソッドを作成する {{{ data-action="code" data-code="performLogin + SimpleCallback" }}}
 
@@ -37,7 +37,7 @@ locale: ja-JP
 ## Facebookを統合する
 
 
-<p>Auth0でFacebookを使ってサインインすると、バックエンドはユーザーが主張する通りの本人であることを確認するために、バックグラウンドで確認作業を実施します。これを実現するには、セッションアクセストークンを提供する必要があります。</p><p>さらに、このFacebookユーザーを表すために、ユーザーをAuth0で作成する必要がある場合、バックエンドでは姓名やメールなどの一部の情報が必要になります。Auth0ユーザープロファイルでは、メールは（提供された場合）未検証としてフラグが付けられます。</p><p>セッションアクセストークンとユーザープロファイルを取得するには、Facebook APIに対してさらに2つのリクエストを行う必要があります。</p>
+<p>Auth0でFacebookを使ってサインインすると、バックエンドはユーザーが主張する通りの本人であることを確認するために、バックグラウンドで確認作業を実施します。これを実現するには、セッションアクセストークンを提供する必要があります。</p><p>さらに、このFacebookユーザーを表すために、ユーザーをAuth0で作成する必要がある場合、バックエンドでは姓名やメールなどの一部の情報が必要になります。Auth0ユーザープロファイルでは、メールは（提供された場合）未検証としてフラグが付けられます。</p><p>セッションアクセストークンとユーザープロファイルを取得するには、Facebook APIに対してさらに2つの要求を行う必要があります。</p>
 
 ## Facebookセッションアクセストークンを取得する {{{ data-action="code" data-code="fetchSessionToken" }}}
 
@@ -52,7 +52,7 @@ locale: ja-JP
 ## Auth0を統合する
 
 
-<p>必要なアーティファクトを取得したら、IDやアクセストークンなどAuth0のユーザー資格情報に交換する準備ができました。しかしまず、その最後の要求を行うためにAuth0 SDKをセットアップする必要があります。</p><h3>アプリケーションキーを取得する</h3><ol><li><p><a href="https://manage.auth0.com/">Auth0 Dashboard</a>の<b>［Applications（アプリケーション）］</b>セクションで、<b>［Sign in with Facebook（Facebookでサインイン）］</b>を有効にした既存のアプリケーションを選択します。この手順で不明な点があれば、この記事の上に記載された要件セクションを確認してください。</p></li><li><p>アプリケーションの設定ページから<b>［Domain（ドメイン）］</b>と<b>［Client ID（クライアントID）］</b>の値をコピーします。これらはSDKで必要です。</p></li><li><p>Androidアプリケーションのstrings.xmlファイルで2つの新しいリソースを作成して保存します。キーの名前は以下で使用するキーと一致しなければなりません。<pre><code>&lt;resources&gt;
+<p>必要なアーティファクトを取得したら、IDやアクセストークンなどAuth0のユーザー資格情報に交換する準備ができました。しかしまず、その最後の要求を行うためにAuth0 SDKをセットアップする必要があります。</p><h3>アプリケーションキーを取得する</h3><ol><li><p><a href="https://manage.auth0.com/" target="_blank" rel="noreferrer noopener">Auth0 Dashboard</a>の<b>［Applications（アプリケーション）］</b>セクションで、<b>［Sign in with Facebook（Facebookでサインイン）］</b>を有効にした既存のアプリケーションを選択します。この手順で不明な点があれば、この記事の上に記載された要件セクションを確認してください。</p></li><li><p>アプリケーションの設定ページから<b>［Domain（ドメイン）］</b>と<b>［Client ID（クライアントID）］</b>の値をコピーします。これらはSDKで必要です。</p></li><li><p>Androidアプリケーションのstrings.xmlファイルで2つの新しいリソースを作成して保存します。キーの名前は以下で使用するキーと一致しなければなりません。<pre><code>&lt;resources&gt;
 
     &lt;string name=&quot;com_auth0_domain&quot;&gt;${account.namespace}&lt;/string&gt;
 
@@ -86,7 +86,7 @@ locale: ja-JP
 
 </code></pre>
 
-</p><p>ただし、Web認証をサポートする予定の場合は、<a href="https://auth0.com/docs/libraries/auth0-android#authentication-via-universal-login">ここ</a>でマニフェストのプレースホルダーを宣言する方法を確認してください。</p>
+</p><p>ただし、Web認証をサポートする予定の場合は、<a href="https://auth0.com/docs/libraries/auth0-android#authentication-via-universal-login" target="_blank" >ここ</a>でマニフェストのプレースホルダーを宣言する方法を確認してください。</p>
 
 ## 受け取ったデータをAuth0トークンに交換する {{{ data-action="code" data-code="exchangeTokens" }}}
 

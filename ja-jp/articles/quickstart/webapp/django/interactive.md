@@ -8,19 +8,19 @@ files:
  - files/webappexample/urls
  - files/webappexample/views
 github:
-  path: https://github.com/auth0-samples/auth0-django-web-app/tree/master/01-Login
+  path: 01-Login
 locale: ja-JP
 ---
 
 # Djangoアプリケーションにログインを追加する
 
 
-<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドでは、Python <a href="https://www.djangoproject.com/">Django</a>アプリケーションに<a href="https://authlib.org/">Authlib</a> SDKを使ってAuth0を統合する方法を説明します。</p><p></p>
+<p>Auth0を使用すると、アプリケーションに手軽に認証を追加して、ユーザープロファイル情報にアクセスすることができます。このガイドでは、Python <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer noopener">Django</a>アプリケーションに<a href="https://authlib.org/" target="_blank" rel="noreferrer noopener">Authlib</a> SDKを使ってAuth0を統合する方法を説明します。</p><p></p>
 
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、開発中のプロジェクトに対してどのように認証が動作して欲しいかを構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/dashboard/us/auth0-dsepaid/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完了済みの構成を見てみたい場合は、サンプルアプリケーションをご覧ください。</p><h3>Callback URLを構成する</h3><p>Callback URLとは、Auth0がユーザーを認証後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはログイン後にアプリケーションに戻りません。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code><code>/callback</code>に設定してください。</p></div></p><h3>ログアウトURLを構成する</h3><p>ログアウトURLとは、Auth0がユーザーをログアウト後にリダイレクトするアプリケーション内URLです。設定されていない場合、ユーザーはアプリケーションからログアウトできず、エラーを受け取ります。</p><p><div class="alert-container" severity="default"><p>サンプルプロジェクトに沿って進めている場合は、<code>http://localhost:3000</code>に設定してください。</p></div></p>
 
 ## 依存関係をインストールする
 
@@ -63,7 +63,7 @@ AUTH0_DOMAIN=${account.namespace}
 ## アプリケーションをセットアップする {{{ data-action="code" data-code="webappexample/views.py#1:18" }}}
 
 
-<p>アプリケーションの作成を始めるには、IDEで<code>webappexample/views.py</code>ファイルを開きます。</p><p>アプリケーションに必要なすべてのライブラリーをインポートします。</p><p>Auth0でアプリケーションの認証を処理するために、Authlibを構成できるようになりました。</p><p>AuthlibのOAuth<code>register()</code>メソッドで使用できる構成オプションの詳細については、<a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in">Authlibのドキュメント</a></p>
+<p>アプリケーションの作成を始めるには、IDEで<code>webappexample/views.py</code>ファイルを開きます。</p><p>アプリケーションに必要なすべてのライブラリーをインポートします。</p><p>Auth0でアプリケーションの認証を処理するために、Authlibを構成できるようになりました。</p><p>AuthlibのOAuth<code>register()</code>メソッドで使用できる構成オプションの詳細については、<a href="https://docs.authlib.org/en/latest/client/frameworks.html#using-oauth-2-0-to-log-in" target="_blank" rel="noreferrer noopener">Authlibのドキュメント</a></p>
 
 ## ルートハンドラーをセットアップする {{{ data-action="code" data-code="webappexample/views.py#20:52" }}}
 
@@ -89,10 +89,10 @@ python3 manage.py runserver 3000
 
 </code></pre>
 
-</p><p>アプリケーションは、<a href="http://localhost:3000">http://localhost:3000</a>でブラウザーから開けるようになっています。</p><p><div class="checkpoint">Django - 手順10 - アプリケーションを実行する - チェックポイント <div class="checkpoint-default"><p><a href="http://localhost:3000/">http://localhost:3000</a>を訪問して、確認します。ログインのためにAuth0へルートするログインボタンがあり、ログイン後アプリケーションに戻るとプロファイル情報を確認できます。</p></div>
+</p><p>アプリケーションは、<a href="http://localhost:3000" target="_blank" rel="noreferrer noopener">http://localhost:3000</a>でブラウザーから開けるようになっています。</p><p><div class="checkpoint">Django - 手順10 - アプリケーションを実行する - チェックポイント <div class="checkpoint-default"><p><a href="http://localhost:3000/" target="_blank" rel="noreferrer noopener">http://localhost:3000</a>を訪問して、確認します。ログインのためにAuth0へルートするログインボタンがあり、ログイン後アプリケーションに戻るとプロファイル情報を確認できます。</p></div>
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If your application did not start successfully:</p><ul><li><p>Verify any errors in the console.</p></li><li><p>Verify the domain and Client ID imported correctly.</p></li><li><p>Verify your tenant configuration.</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>アプリケーションが正常に起動しなかった場合は以下を行います。</p><ul><li><p>コンソールでエラーを確認します。</p></li><li><p>ドメインとクライアントIDが正常にインポートされていることを確認します。</p></li><li><p>テナントの構成を確認します。</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
