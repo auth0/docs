@@ -1,0 +1,32 @@
+title: Native to Web SSO
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/ios.png
+logo: auth0
+alias:
+  - ios
+  - macos
+  - swift
+hybrid: false
+author:
+  name: Nelson Matias
+  email: nelson.matias@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: swift
+show_releases: true
+show_steps: true
+requirements:
+  - iOS 13+ or macOS 11+
+  - Xcode 14.x
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-sample
+  branch: master
