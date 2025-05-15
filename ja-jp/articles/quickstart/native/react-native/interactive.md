@@ -5,19 +5,19 @@ interactive:  true
 files:
  - files/app
 github:
-  path: https://github.com/auth0-samples/auth0-react-native-sample/tree/master/00-Login
+  path: 00-Login
 locale: ja-JP
 ---
 
 # React Nativeアプリケーションにログインを追加する
 
 
-<p>このクイックスタートは、React Nativeフレームワーク用です。ExpoアプリケーションにAuth0を統合するには、「<a href="https://auth0.com/docs/quickstart/native/react-native-expo/interactive">Expoクイックスタート</a>」参照してください。</p><p></p>
+<p>このクイックスタートは、React Nativeフレームワーク用です。ExpoアプリケーションにAuth0を統合するには、「<a href="https://auth0.com/docs/quickstart/native/react-native-expo/interactive" target="_blank" >Expoクイックスタート</a>」参照してください。</p><p></p>
 
 ## Auth0を構成する
 
 
-<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに認証を構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完成した構成を詳しく見るには、Dashboardのサンプルアプリケーションをご覧ください。</p><h3>Callback URLとログアウトURLを構成する</h3><p>Auth0はCallback URLとログアウトURLを呼び出して、ユーザーをアプリケーションにリダイレクトで戻します。Auth0は、ユーザーを認証した後にCallback URLを呼び出し、セッションのクッキーを削除した後にログアウトURLを呼び出します。Callback URLとログアウトURLを設定しないと、ユーザーはアプリにログインやログアウトが行えなくなり、アプリケーションにエラーが発生します。</p><p>アプリのプラットフォームに合わせて、対応するURLを<b>Callback URL</b>と<b>ログアウトURL</b>に追加します。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>を使っている場合は、Auth0テナントのドメインではなく、カスタムドメインの値を使用してください。</p><h4>iOS</h4><p><pre><code>BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
+<p>Auth0のサービスを利用するには、Auth0 Dashboadに設定済みのアプリケーションがある必要があります。Auth0アプリケーションは、プロジェクトに認証を構成する場所です。</p><h3>アプリケーションを構成する</h3><p>対話型のセレクターを使ってAuth0アプリケーションを新規作成するか、統合したいプロジェクトを表す既存のアプリケーションを選択します。Auth0のすべてのアプリケーションには英数字からなる一意のクライアントIDが割り当てられており、アプリケーションのコードがSDKを通じてAuth0 APIを呼び出す際に使用されます。</p><p>このクイックスタートを使って構成されたすべての設定は、<a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>のアプリケーションを自動更新します。今後、アプリケーションの管理もDashboardで行えます。</p><p>完成した構成を詳しく見るには、Dashboardのサンプルアプリケーションをご覧ください。</p><h3>Callback URLとログアウトURLを構成する</h3><p>Auth0はCallback URLとログアウトURLを呼び出して、ユーザーをアプリケーションにリダイレクトで戻します。Auth0は、ユーザーを認証した後にCallback URLを呼び出し、セッションのクッキーを削除した後にログアウトURLを呼び出します。Callback URLとログアウトURLを設定しないと、ユーザーはアプリにログインやログアウトが行えなくなり、アプリケーションにエラーが発生します。</p><p>アプリのプラットフォームに合わせて、対応するURLを<b>Callback URL</b>と<b>ログアウトURL</b>に追加します。<a data-contentfulid="UYjAbgxX33g81azZ6VHWc-ja-JP">カスタムドメイン</a>を使っている場合は、Auth0テナントのドメインではなく、カスタムドメインの値を使用してください。</p><h4>iOS</h4><p><pre><code>BUNDLE_IDENTIFIER.auth0://${account.namespace}/ios/BUNDLE_IDENTIFIER/callback
 
 </code></pre>
 
@@ -30,11 +30,11 @@ locale: ja-JP
 ## 依存関係をインストールする
 
 
-<p>このセクションでは、React Native Auth0モジュールをインストールします。</p><p><div class="alert-container" severity="default"><p>React Nativeの追加情報については<a href="https://facebook.github.io/react-native/">公式ドキュメント</a>をご覧ください。</p></div></p><h3>Yarn</h3><p><pre><code>yarn add react-native-auth0
+<p>このセクションでは、React Native Auth0モジュールをインストールします。</p><p><div class="alert-container" severity="default"><p>React Nativeの追加情報については<a href="https://facebook.github.io/react-native/" target="_blank" rel="noreferrer noopener">公式ドキュメント</a>をご覧ください。</p></div></p><h3>Yarn</h3><p><pre><code>yarn add react-native-auth0
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>Yarnの詳細については、<a href="https://yarnpkg.com/en/docs">公式ドキュメント</a>をご覧ください。</p></div></p><h3>npm</h3><p><pre><code>npm install react-native-auth0 --save
+</p><p><div class="alert-container" severity="default"><p>Yarnの詳細については、<a href="https://yarnpkg.com/en/docs" target="_blank" rel="noreferrer noopener">公式ドキュメント</a>をご覧ください。</p></div></p><h3>npm</h3><p><pre><code>npm install react-native-auth0 --save
 
 </code></pre>
 
@@ -85,7 +85,7 @@ pod install
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>このファイルは、<a href="https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension">古いアーキテクチャ</a>を使ったアプリケーションの<code>ios/&lt;YOUR PROJECT&gt;/AppDelegate.m</code>になります。</p></div></p><p>次に、アプリのバンドルIDを使ってURLSchemeを追加します。</p><p><code>ios</code>フォルダーで<code>Info.plist</code>を開き、<code>CFBundleIdentifier</code>の値を見つけます。</p><p><pre><code class="language-xml">&lt;key&gt;CFBundleIdentifier&lt;/key&gt;
+</p><p><div class="alert-container" severity="default"><p>このファイルは、<a href="https://reactnative.dev/docs/next/new-architecture-app-intro#ios---use-objective-c-mm-extension" target="_blank" rel="noreferrer noopener">古いアーキテクチャ</a>を使ったアプリケーションの<code>ios/&lt;YOUR PROJECT&gt;/AppDelegate.m</code>になります。</p></div></p><p>次に、アプリのバンドルIDを使ってURLSchemeを追加します。</p><p><code>ios</code>フォルダーで<code>Info.plist</code>を開き、<code>CFBundleIdentifier</code>の値を見つけます。</p><p><pre><code class="language-xml">&lt;key&gt;CFBundleIdentifier&lt;/key&gt;
 
 &lt;string&gt;$(PRODUCT_BUNDLE_IDENTIFIER)&lt;/string&gt;
 
@@ -119,7 +119,7 @@ pod install
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>アプリケーションがReact Native CLIで生成された場合、<code>$(PRODUCT_BUNDLE_IDENTIFIER)</code>のデフォルト値は<code>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</code>と動的に一致します。サンプルアプリの場合、この値は<code>com.auth0samples</code>と一致します。</p></div></p><p>この値は、この後の手順で、Callback URLを定義するために使用します。以下の手順で、XCodeを用いて変更できます：</p><ul><li><p>アプリのルートからターミナルで<code>ios/&lt;YOUR PROJECT&gt;.xcodeproj</code>ファイルを開くか、<code>xed ios</code>を実行する。</p></li><li><p>プロジェクトまたは希望ターゲットの［Build Settings（ビルド設定）］タブを開いて「Bundle Identifier」を含むセクションを見つける。</p></li><li><p>「Bundle Identifier」値を希望のアプリケーションのバンドルID名と置き換える。</p></li></ul><p>詳細情報は<a href="https://facebook.github.io/react-native/docs/linking">React Nativeドキュメント</a>をご覧ください。</p>
+</p><p><div class="alert-container" severity="default"><p>アプリケーションがReact Native CLIで生成された場合、<code>$(PRODUCT_BUNDLE_IDENTIFIER)</code>のデフォルト値は<code>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</code>と動的に一致します。サンプルアプリの場合、この値は<code>com.auth0samples</code>と一致します。</p></div></p><p>この値は、この後の手順で、Callback URLを定義するために使用します。以下の手順で、XCodeを用いて変更できます：</p><ul><li><p>アプリのルートからターミナルで<code>ios/&lt;YOUR PROJECT&gt;.xcodeproj</code>ファイルを開くか、<code>xed ios</code>を実行する。</p></li><li><p>プロジェクトまたは希望ターゲットの［Build Settings（ビルド設定）］タブを開いて「Bundle Identifier」を含むセクションを見つける。</p></li><li><p>「Bundle Identifier」値を希望のアプリケーションのバンドルID名と置き換える。</p></li></ul><p>詳細情報は<a href="https://facebook.github.io/react-native/docs/linking" target="_blank" rel="noreferrer noopener">React Nativeドキュメント</a>をご覧ください。</p>
 
 ## Auth0Providerコンポーネントを構成する {{{ data-action="code" data-code="app.js#46:48" }}}
 
@@ -132,9 +132,7 @@ pod install
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>
-
-If your application did not launch successfully:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>ensure your domain and client ID values are correct</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>アプリケーションが正常に起動しなかった場合は以下を行います。</p><ul><li><p>正しいアプリケーションが選択されていることを確認します</p></li><li><p>URLを入力した後で保存しましたか？</p></li><li><p>ドメインとクライアントIDの値が正しいことを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -145,7 +143,7 @@ If your application did not launch successfully:</p><ul><li><p>make sure the cor
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If your application did not launch successfully:</p><ul><li><p>Ensure you set the Allowed Callback URLs are correct</p></li><li><p>Verify you saved your changes after entering your URLs</p></li><li><p>Make sure the domain and client ID values are imported correctly</p></li><li><p>If using Android, ensure you set up the manifest placeholders correctly, otherwise the redirect back to your app may not work</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>アプリケーションが正常に起動しなかった場合は以下を行います。</p><ul><li><p>設定した［Allowed Callback URLs（許可されているCallback URL）］が正しいことを確認します</p></li><li><p>URLを入力した後で保存したことを確認します</p></li><li><p>ドメインとクライアントIDの値が正常にインポートされていることを確認します</p></li><li><p>Androidを使用している場合は、アプリに正しくリダイレクトで戻されるように、マニフェストのプレースホルダーが正しくセットアップされていることを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 
@@ -156,7 +154,7 @@ If your application did not launch successfully:</p><ul><li><p>make sure the cor
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>If your application did not log out successfully:</p><ul><li><p>Ensure the Allowed Logout URLs are set properly</p></li><li><p>Verify you saved your changes after entering your URLs</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>アプリケーションが正常にログアウトしなかった場合は以下を行います。</p><ul><li><p>［Allowed Logout URLs（許可されているログアウトURL）］が正しく設定されていることを確認します</p></li><li><p>URLを入力した後で保存したことを確認します</p></li></ul><p>まだお困りですか？当社提供の<a href="https://auth0.com/docs" target="_blank" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
 

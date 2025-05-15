@@ -7,8 +7,6 @@ files:
  - files/openid_connection_configuration
  - files/openid_connect
  - files/frontend
-github:
-  path: https://github.com/nginxinc/nginx-openid-connect
 locale: en-US
 ---
 
@@ -42,7 +40,7 @@ locale: en-US
 
 </code></pre>
 
-</p><p>Next, add your <a href="/docs/api/authentication#auth0-logout">tenant’s logout URL</a> to your <code>openid_connect_configuration.conf</code> file.</p>
+</p><p>Next, add your <a href="/docs/api/authentication#auth0-logout" target="_self" >tenant’s logout URL</a> to your <code>openid_connect_configuration.conf</code> file.</p>
 
 ## Configure Accept-Encoding header for token and JWKS endpoints {{{ data-action="code" data-code="openid_connect.server_conf" }}}
 

@@ -7,7 +7,7 @@ files:
  - files/Startup
  - files/AccountController
 github:
-  path: https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Quickstart/Sample
+  path: Quickstart/Sample
 locale: en-US
 ---
 
@@ -19,7 +19,7 @@ locale: en-US
 ## Configure Auth0
 
 
-<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p>
+<p>To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.</p><h3>Configure an application</h3><p>Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.</p><p>Any settings you configure using this quickstart will automatically update for your Application in the <a href="https://manage.auth0.com/#/" target="_blank" rel="noreferrer noopener">Dashboard</a>, which is where you can manage your Applications in the future.</p><p>If you would rather explore a complete configuration, you can view a sample application instead.</p><h3>Configure Callback URLs</h3><p>A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000/callback</code>.</p></div></p><h3>Configure Logout URLs</h3><p>A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.</p><p><div class="alert-container" severity="default"><p>If you are following along with our sample project, set this to <code>http://localhost:3000</code>.</p></div></p>
 
 ## Configure the project {{{ data-action="code" data-code="Web.config" }}}
 
@@ -30,7 +30,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>Issues occur when configuring the OWIN cookie middleware and System.Web cookies at the same time. To learn more, read <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues">System.Web cookie integration issues doc</a> to mitigate these problems.</p></div></p><h3>Configure the credentials</h3><p>For the SDK to function properly, set the following properties in <code>Web.config</code>:</p><ul><li><p><code>auth0:Domain</code>: The domain of your Auth0 tenant. You can find this in the Auth0 Dashboard under your application&#39;s <b>Settings </b>in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains">custom domain</a>, set this to the value of your custom domain instead.</p></li><li><p><code>auth0:ClientId</code>: The ID of the Auth0 application you created in Auth0 Dashboard. You can find this in the Auth0 Dashboard under your application&#39;s <b>Settings </b>in the Client ID field.</p></li></ul><p></p>
+</p><p><div class="alert-container" severity="default"><p>Issues occur when configuring the OWIN cookie middleware and System.Web cookies at the same time. To learn more, read <a href="https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues" target="_blank" rel="noreferrer noopener">System.Web cookie integration issues doc</a> to mitigate these problems.</p></div></p><h3>Configure the credentials</h3><p>For the SDK to function properly, set the following properties in <code>Web.config</code>:</p><ul><li><p><code>auth0:Domain</code>: The domain of your Auth0 tenant. You can find this in the Auth0 Dashboard under your application&#39;s <b>Settings </b>in the Domain field. If you are using a <a href="https://auth0.com/docs/custom-domains" target="_blank" >custom domain</a>, set this to the value of your custom domain instead.</p></li><li><p><code>auth0:ClientId</code>: The ID of the Auth0 application you created in Auth0 Dashboard. You can find this in the Auth0 Dashboard under your application&#39;s <b>Settings </b>in the Client ID field.</p></li></ul><p></p>
 
 ## Configure the middleware {{{ data-action="code" data-code="Startup.cs#18:74" }}}
 
@@ -44,7 +44,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>
 
@@ -55,7 +55,7 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple of things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>did you save after entering your URLs?</p></li><li><p>make sure the domain and client ID are configured correctly</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>
 
@@ -66,6 +66,6 @@ Install-Package Microsoft.Owin.Security.Cookies
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>make sure the domain and client ID are configured correctly</p></li><li><p>Did you set <code>openid profile email</code> as the scope?</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a> to get more help.</p></div>
+  <div class="checkpoint-failure"><p>Sorry about that. Here are a couple things to double-check:</p><ul><li><p>make sure the correct application is selected</p></li><li><p>make sure the domain and client ID are configured correctly</p></li><li><p>Did you set <code>openid profile email</code> as the scope?</p></li></ul><p>Still having issues? Check out our <a href="https://auth0.com/docs" target="_blank" >documentation</a> or visit our <a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">community page</a> to get more help.</p></div>
 
   </div></p>

@@ -5,7 +5,7 @@ interactive:  true
 files:
  - files/MainPage.xaml
 github:
-  path: https://github.com/auth0-samples/auth0-uwp-oidc-samples/tree/master/Quickstart/00-Starter-Seed
+  path: Quickstart/00-Starter-Seed
 locale: en-US
 ---
 

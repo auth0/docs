@@ -9,7 +9,7 @@ files:
  - files/HasScopeRequirement
  - files/ApiController
 github:
-  path: https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Quickstart/01-Authorization
+  path: Quickstart/01-Authorization
 locale: ja-JP
 ---
 
@@ -21,7 +21,7 @@ locale: ja-JP
 ## アクセス許可を定義する
 
 
-<p>アクセス許可は、ユーザーの代わりに、提供されたアクセストークンを使ってどのようにしてリソースにアクセスできるのかを定義できるようにします。たとえば、ユーザーがマネージャーアクセスレベルを持つ場合には、<code>messages</code>リソースに対して読み取りアクセスを付与し、管理者アクセスレベルを持つ場合には、書き込みアクセスを付与することができます。</p><p>Auth0 Dashboardの<a href="https://manage.auth0.com/#/apis">［API］</a>セクションにある<b>［Permissions（権限）］</b>ビューで使用可能なアクセス許可を定義することができます。以下の例では<code>read:messages</code>スコープを使用します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/acef814282795bef6921535f044f96e9/Quickstarts_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［APIs］>［Specific API（特定のAPI］>［Permissions（権限）］タブ" /><p></p>
+<p>アクセス許可は、ユーザーの代わりに、提供されたアクセストークンを使ってどのようにしてリソースにアクセスできるのかを定義できるようにします。たとえば、ユーザーがマネージャーアクセスレベルを持つ場合には、<code>messages</code>リソースに対して読み取りアクセスを付与し、管理者アクセスレベルを持つ場合には、書き込みアクセスを付与することができます。</p><p>Auth0 Dashboardの<a href="https://manage.auth0.com/#/apis" target="_blank" rel="noreferrer noopener">［API］</a>セクションにある<b>［Permissions（権限）］</b>ビューで使用可能なアクセス許可を定義することができます。以下の例では<code>read:messages</code>スコープを使用します。</p><img src="//images.ctfassets.net/cdy7uua7fh8z/1s3Yp5zqJiKiSWqbPSezNO/acef814282795bef6921535f044f96e9/Quickstarts_API.png" alt="［Auth0 Dashboard］>［Applications（アプリケーション）］>［APIs］>［Specific API（特定のAPI］>［Permissions（権限）］タブ" /><p></p>
 
 ## 依存関係をインストールする
 
@@ -40,37 +40,37 @@ locale: ja-JP
 ## スコープを検証する {{{ data-action="code" data-code="HasScopeHandler.cs" }}}
 
 
-<p>アクセストークンに正しいスコープが含まれていることを確認するには、ASP.NET Coreの<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies">ポリシーベースの認可</a>を使用します。</p><ol><li><p><code>HasScopeRequirement</code>という名前の新しい認可要求を作成します。これは、Auth0テナント発行の<code>scope</code>クレームが存在するかを確認し、存在する場合には、要求されたスコープがそのクレームに含まれているかを確認します。</p></li><li><p><code>Program.cs</code>ファイルにある<code>var builder = WebApplication.CreateBuilder(args);</code>メソッドの下に、<code>app.AddAuthorization</code>メソッドへの呼び出しを追加します。</p></li><li><p>スコープのポリシーを追加するには、各スコープに<code>AddPolicy</code>を呼び出します。</p></li><li><p><code>HasScopeHandler</code>クラスのシングルトンを登録します。</p></li></ol><p></p>
+<p>アクセストークンに正しいスコープが含まれていることを確認するには、ASP.NET Coreの<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies" target="_blank" rel="noreferrer noopener">ポリシーベースの認可</a>を使用します。</p><ol><li><p><code>HasScopeRequirement</code>という名前の新しい認可要求を作成します。これは、Auth0テナント発行の<code>scope</code>クレームが存在するかを確認し、存在する場合には、要求されたスコープがそのクレームに含まれているかを確認します。</p></li><li><p><code>Program.cs</code>ファイルにある<code>var builder = WebApplication.CreateBuilder(args);</code>メソッドの下に、<code>app.AddAuthorization</code>メソッドへの呼び出しを追加します。</p></li><li><p>スコープのポリシーを追加するには、各スコープに<code>AddPolicy</code>を呼び出します。</p></li><li><p><code>HasScopeHandler</code>クラスのシングルトンを登録します。</p></li></ol><p></p>
 
 ## APIエンドポイントを保護する {{{ data-action="code" data-code="ApiController.cs" }}}
 
 
-<p>JWTミドルウェアは、ASP.NET Coreの標準の<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/">認証</a>および<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/">認可</a>メカニズムと統合します。</p><p>エンドポイントのセキュリティを保護するには、<code>[Authorize]</code>属性をコントローラーのアクション（すべてのアクションのセキュリティを保護するには、コントローラー）に追加します。</p><p>特定のスコープが必要なエンドポイントのセキュリティを保護するには、正しいスコープが<code>access_token</code>に存在することを確認します。そのためには、<code>Authorize</code>属性を<code>Scoped</code>アクションに追加し、<code>read:messages</code>を<code>policy</code>パラメーターとして渡します。</p>
+<p>JWTミドルウェアは、ASP.NET Coreの標準の<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/" target="_blank" rel="noreferrer noopener">認証</a>および<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/" target="_blank" rel="noreferrer noopener">認可</a>メカニズムと統合します。</p><p>エンドポイントのセキュリティを保護するには、<code>[Authorize]</code>属性をコントローラーのアクション（すべてのアクションのセキュリティを保護するには、コントローラー）に追加します。</p><p>特定のスコープが必要なエンドポイントのセキュリティを保護するには、正しいスコープが<code>access_token</code>に存在することを確認します。そのためには、<code>Authorize</code>属性を<code>Scoped</code>アクションに追加し、<code>read:messages</code>を<code>policy</code>パラメーターとして渡します。</p>
 
 ## APIを呼び出す
 
 
-<p>APIの呼び出し方は、開発しているアプリケーションの種類と使用しているフレームワークに依存します。詳細については、該当するアプリケーションのクイックスタートをお読みください。</p><ul><li><p><a href="/quickstart/spa">シングルページアプリケーション</a></p></li><li><p><a href="/quickstart/native">モバイル / ネイティブアプリケーション</a></p></li></ul><h3>アクセストークン取得する</h3><p>開発しているアプリケーションの種類や使用しているフレームワークが何であったとしても、APIを呼び出すにはアクセストークンが必要です。</p><p>シングルページアプリケーション（SPA）またはネイティブアプリケーションからAPIを呼び出すと、認可フローの完了後にアクセストークンを受け取ります。</p><p>コマンドラインツールや他のサービスなど、ユーザーが資格情報を入力しないものからAPIを呼び出す際には、<a href="https://auth0.com/docs/api/authentication#client-credentials">OAuthクライアントの資格情報フロー</a>を使用します。そのためには、<a href="https://manage.auth0.com/#/applications">マシンツーマシンアプリケーション</a>を登録し、要求内で以下の値を渡します。</p><ul><li><p><b>クライアントID</b>を<code>client_id</code>パラメーターとして渡す。</p></li><li><p><b>クライアントシークレット</b>を<code>client_secret</code>パラメーターとして渡す。</p></li><li><p><b>API 識別子</b>（このクイックスタートで以前にミドルウェアの構成に使用したのと同じ値）を<code>audience</code>パラメーターとして渡す。</p></li></ul><p><div class="alert-container" severity="default"><p>マシンツーマシンアプリケーションにクライアントIDとクライアントシークレットを取得する詳細については、<a data-contentfulid="7wT5jc2JhV8eABLmTN4Dhe">アプリケーションの設定</a>をお読みください。</p></div></p><p><b>要求例</b></p><p><pre style="display: none;"></pre>
+<p>APIの呼び出し方は、開発しているアプリケーションの種類と使用しているフレームワークに依存します。詳細については、該当するアプリケーションのクイックスタートをお読みください。</p><ul><li><p><a href="/quickstart/spa" target="_self" >シングルページアプリケーション</a></p></li><li><p><a href="/quickstart/native" target="_self" >モバイル / ネイティブアプリケーション</a></p></li></ul><h3>アクセストークン取得する</h3><p>開発しているアプリケーションの種類や使用しているフレームワークが何であったとしても、APIを呼び出すにはアクセストークンが必要です。</p><p>シングルページアプリケーション（SPA）またはネイティブアプリケーションからAPIを呼び出すと、認可フローの完了後にアクセストークンを受け取ります。</p><p>コマンドラインツールや他のサービスなど、ユーザーが資格情報を入力しないものからAPIを呼び出す際には、<a href="https://auth0.com/docs/api/authentication#client-credentials" target="_blank" >OAuthクライアントの資格情報フロー</a>を使用します。そのためには、<a href="https://manage.auth0.com/#/applications" target="_blank" rel="noreferrer noopener">マシンツーマシンアプリケーション</a>を登録し、要求内で以下の値を渡します。</p><ul><li><p><b>クライアントID</b>を<code>client_id</code>パラメーターとして渡す。</p></li><li><p><b>クライアントシークレット</b>を<code>client_secret</code>パラメーターとして渡す。</p></li><li><p><b>API 識別子</b>（このクイックスタートで以前にミドルウェアの構成に使用したのと同じ値）を<code>audience</code>パラメーターとして渡す。</p></li></ul><p><div class="alert-container" severity="default"><p>マシンツーマシンアプリケーションにクライアントIDとクライアントシークレットを取得する詳細については、<a data-contentfulid="7wT5jc2JhV8eABLmTN4Dhe-en-US">アプリケーションの設定</a>をお読みください。</p></div></p><p><b>要求例</b></p><p><pre style="display: none;"></pre>
 
 <div class="code-picker">
 
-  <div class="languages-bar"><ul><li class="active"><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#f1e4d6c64307489faf2d2dac1ba45ffb_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
+  <div class="languages-bar"><ul><li class="active"><a href="#617f050c40eb47dfaac814fe96cdb5e3_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#617f050c40eb47dfaac814fe96cdb5e3_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
 
 
 
   <!-- Tab panes -->
 
-  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="f1e4d6c64307489faf2d2dac1ba45ffb_shell"><pre><code class="language-text no-lines">curl --request post \
+  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="617f050c40eb47dfaac814fe96cdb5e3_shell"><pre><code class="language-text no-lines">curl --request post \
 
   --url 'https://${account.namespace}/oauth/token' \
 
-  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/token&quot;);
+  --header 'content-type: application/x-www-form-urlencoded'</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;https://${account.namespace}/oauth/token&quot;);
 
 var request = new RestRequest(Method.POST);
 
 request.AddHeader(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
 
-IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_go"><pre><code class="language-go no-lines">package main
+IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_go"><pre><code class="language-go no-lines">package main
 
 
 
@@ -118,11 +118,11 @@ func main() {
 
 
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/token&quot;)
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.post(&quot;https://${account.namespace}/oauth/token&quot;)
 
   .header(&quot;content-type&quot;, &quot;application/x-www-form-urlencoded&quot;)
 
-  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
+  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
 
 
 
@@ -146,7 +146,7 @@ axios.request(options).then(function (response) {
 
   console.error(error);
 
-});</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
+});</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
 
 
 
@@ -186,7 +186,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 
                                             }];
 
-[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_php"><pre><code class="language-php no-lines">$curl = curl_init();
+[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_php"><pre><code class="language-php no-lines">$curl = curl_init();
 
 
 
@@ -234,7 +234,7 @@ if ($err) {
 
   echo $response;
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_python"><pre><code class="language-python no-lines">import http.client
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_python"><pre><code class="language-python no-lines">import http.client
 
 
 
@@ -256,7 +256,7 @@ data = res.read()
 
 
 
-print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_ruby"><pre><code class="language-ruby no-lines">require 'uri'
+print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_ruby"><pre><code class="language-ruby no-lines">require 'uri'
 
 require 'net/http'
 
@@ -284,7 +284,7 @@ request[&quot;content-type&quot;] = 'application/x-www-form-urlencoded'
 
 response = http.request(request)
 
-puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="f1e4d6c64307489faf2d2dac1ba45ffb_swift"><pre><code class="language-swift no-lines">import Foundation
+puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="617f050c40eb47dfaac814fe96cdb5e3_swift"><pre><code class="language-swift no-lines">import Foundation
 
 
 
@@ -332,23 +332,23 @@ dataTask.resume()</code></pre></div></div></div>
 
 <div class="code-picker">
 
-  <div class="languages-bar"><ul><li class="active"><a href="#297ec1e06006442cba69997b1bf43221_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#297ec1e06006442cba69997b1bf43221_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#297ec1e06006442cba69997b1bf43221_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
+  <div class="languages-bar"><ul><li class="active"><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_shell" role="tab" data-toggle="tab">cURL</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_csharp" role="tab" data-toggle="tab">C#</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_go" role="tab" data-toggle="tab">Go</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_java" role="tab" data-toggle="tab">Java</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_node" role="tab" data-toggle="tab">Node.JS</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_objc" role="tab" data-toggle="tab">Obj-C</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="more-dots">...</a><ul class="dropdown-menu"><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_php" role="tab" data-toggle="tab">PHP</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_python" role="tab" data-toggle="tab">Python</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_ruby" role="tab" data-toggle="tab">Ruby</a></li><li class=""><a href="#9837a73a97064ccd9b9e5ad8cfca8baf_swift" role="tab" data-toggle="tab">Swift</a></li></ul></li></ul></div>
 
 
 
   <!-- Tab panes -->
 
-  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="297ec1e06006442cba69997b1bf43221_shell"><pre><code class="language-text no-lines">curl --request get \
+  <div class="tab-content"><div role="tabpanel" class="tab-pane active" id="9837a73a97064ccd9b9e5ad8cfca8baf_shell"><pre><code class="language-text no-lines">curl --request get \
 
   --url http://localhost:3010/api/private \
 
-  --header 'authorization: Bearer YOUR_ACCESS_TOKEN'</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;http://localhost:3010/api/private&quot;);
+  --header 'authorization: Bearer YOUR_ACCESS_TOKEN'</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_csharp"><pre><code class="language-csharp no-lines">var client = new RestClient(&quot;http://localhost:3010/api/private&quot;);
 
 var request = new RestRequest(Method.GET);
 
 request.AddHeader(&quot;authorization&quot;, &quot;Bearer YOUR_ACCESS_TOKEN&quot;);
 
-IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_go"><pre><code class="language-go no-lines">package main
+IRestResponse response = client.Execute(request);</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_go"><pre><code class="language-go no-lines">package main
 
 
 
@@ -396,11 +396,11 @@ func main() {
 
 
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.get(&quot;http://localhost:3010/api/private&quot;)
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_java"><pre><code class="language-java no-lines">HttpResponse&lt;String&gt; response = Unirest.get(&quot;http://localhost:3010/api/private&quot;)
 
   .header(&quot;authorization&quot;, &quot;Bearer YOUR_ACCESS_TOKEN&quot;)
 
-  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
+  .asString();</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_node"><pre><code class="language-javascript no-lines">var axios = require(&quot;axios&quot;).default;
 
 
 
@@ -424,7 +424,7 @@ axios.request(options).then(function (response) {
 
   console.error(error);
 
-});</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
+});</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_objc"><pre><code class="language-objective-c no-lines">#import &lt;Foundation/Foundation.h&gt;
 
 
 
@@ -464,7 +464,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 
                                             }];
 
-[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_php"><pre><code class="language-php no-lines">$curl = curl_init();
+[dataTask resume];</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_php"><pre><code class="language-php no-lines">$curl = curl_init();
 
 
 
@@ -514,7 +514,7 @@ if ($err) {
 
   echo $response;
 
-}</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_python"><pre><code class="language-python no-lines">import http.client
+}</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_python"><pre><code class="language-python no-lines">import http.client
 
 
 
@@ -536,7 +536,7 @@ data = res.read()
 
 
 
-print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_ruby"><pre><code class="language-ruby no-lines">require 'uri'
+print(data.decode(&quot;utf-8&quot;))</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_ruby"><pre><code class="language-ruby no-lines">require 'uri'
 
 require 'net/http'
 
@@ -558,7 +558,7 @@ request[&quot;authorization&quot;] = 'Bearer YOUR_ACCESS_TOKEN'
 
 response = http.request(request)
 
-puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="297ec1e06006442cba69997b1bf43221_swift"><pre><code class="language-swift no-lines">import Foundation
+puts response.read_body</code></pre></div><div role="tabpanel" class="tab-pane " id="9837a73a97064ccd9b9e5ad8cfca8baf_swift"><pre><code class="language-swift no-lines">import Foundation
 
 
 
@@ -606,6 +606,6 @@ dataTask.resume()</code></pre></div></div></div>
 
   <div class="checkpoint-success"></div>
 
-  <div class="checkpoint-failure"><p>Sorry about that. Here are a few things to double check:</p><ul><li><p>make sure <code>ValidIssuer</code> and <code>ValidAudience</code> are configured correctly</p></li><li><p>make sure the token is added as the <code>Authorization</code> header</p></li><li><p>check that the token has the correct scopes (you can use <a href="https://jwt.io/">jwt.io</a> to verify)</p></li></ul><p>Still having issues? To get more help, check out our <a href="/docs">documentation</a> or visit our <a href="https://community.auth0.com/">community page</a>.</p></div>
+  <div class="checkpoint-failure"><p>すみません。いくつかの点をもう一度確認してください。</p><ul><li><p><code>ValidIssuer</code>と<code>ValidAudience</code>が正しく構成されていることを確認します</p></li><li><p>トークンを<code>Authorization</code>ヘッダーに含めて追加したことを確認します</p></li><li><p>トークンに正しいスコープがあることを確認します（確認には<a href="https://jwt.io/" target="_blank" rel="noreferrer noopener">jwt.io</a>を使用できます）</p></li></ul><p>まだお困りですか？当社提供の<a href="/docs" target="_self" >ドキュメント</a>または<a href="https://community.auth0.com/" target="_blank" rel="noreferrer noopener">コミュニティページ</a>で詳しい情報を確認してください。</p></div>
 
   </div></p>
