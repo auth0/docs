@@ -86,14 +86,14 @@ At runtime, the `applicationId` value will automatically update with your applic
 ### Configure iOS
 #### AppDelegate Setup (Choose Based on Architecture)
 
-If You're Using (Swift - `ios/<YOUR PROJECT>/AppDelegat.swift`) add the following in `AppDelegate` class:
+If you're using (Swift - `ios/<YOUR PROJECT>/AppDelegat.swift`) add the following in `AppDelegate` class:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   return RCTLinkingManager.application(app, open: url, options: options)
 }
 ```
-If You're Using (Objective-C++ - `ios/<YOUR PROJECT>/AppDelegate.mm`) add the following:
+If you're using (Objective-C++ - `ios/<YOUR PROJECT>/AppDelegate.mm`) add the following:
 
 ```objc
 #import <React/RCTLinkingManager.h>
