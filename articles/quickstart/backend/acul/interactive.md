@@ -14,8 +14,6 @@ locale: en-US
 # Build a Login ID screen using ACUL
 
 
-<p>`</p>
-
 ## Configure Auth0
 
 
