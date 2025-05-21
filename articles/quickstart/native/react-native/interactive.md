@@ -69,7 +69,11 @@ pod install
 
 </code></pre>
 
-</p><p><div class="alert-container" severity="default"><p>At runtime, the <code>applicationId</code> value will automatically update with your application&#39;s package name or ID (e.g. <code>com.example.app</code>). You can change this value from the <code>build.gradle</code> file. You can also check it at the top of your <code>AndroidManifest.xml</code> file.</p></div></p><h3>Configure iOS</h3><p>In the file <code>ios/&lt;YOUR PROJECT&gt;/AppDelegate.mm</code>, add the following:</p><p><pre><code>#import &lt;React/RCTLinkingManager.h&gt;
+</p><p><div class="alert-container" severity="default"><p>At runtime, the <code>applicationId</code> value will automatically update with your application&#39;s package name or ID (e.g. <code>com.example.app</code>). You can change this value from the <code>build.gradle</code> file. You can also check it at the top of your <code>AndroidManifest.xml</code> file.</p></div></p>
+<h3>Configure iOS</h3><h4>AppDelegate Setup (Choose Based on Architecture)</h4><p>If you're using (Swift - <code>ios/&lt;YOUR PROJECT&gt;/AppDelegat.swift</code>) add the following in `AppDelegate` class:</p><p><pre><code>func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -&gt Bool {
+  return RCTLinkingManager.application(app, open: url, options: options)
+}</code></pre></p>
+<p>If you're using (Objective-C++ - <code>ios/&lt;YOUR PROJECT&gt;/AppDelegate.mm</code>) add the following:</p><p><pre><code>#import &lt;React/RCTLinkingManager.h&gt;
 
 
 
