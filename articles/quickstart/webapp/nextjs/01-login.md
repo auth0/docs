@@ -212,13 +212,23 @@ The `user` property contains sensitive information and artifacts related to the 
 The profile information is available through the `user` property exposed by the `getSession` function. Take this <a href="https://nextjs.org/docs/getting-started/react-essentials#server-components" target="_blank" rel="noreferrer">Server Component</a> as an example of how to use it:
 
 ```jsx
+// Implementation for App Router
 import { auth0 } from "@/lib/auth0";
 
 export default async function ProfileServer() {
   const { user } = await auth0.getSession(); 
   return ( user && ( <div> <img src={user.picture} alt={user.name}/> <h2>{user.name}</h2> <p>{user.email}</p> </div> )  ); 
 }
+```
 
+```jsx
+// Implementation for Pages Router
+import { auth0 } from "@/lib/auth0";
+
+export default async function ProfileServer(req) {
+  const { user } = await auth0.getSession(req); // As you can see here, `getSession` required to receive the `req` object as parameter, only in Pages Router
+  return ( user && ( <div> <img src={user.picture} alt={user.name}/> <h2>{user.name}</h2> <p>{user.email}</p> </div> )  ); 
+}
 ```
 
 :::panel Checkpoint
