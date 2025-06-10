@@ -52,6 +52,10 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded. |
 
+::: warning
+You should only include a `client_secret` parameter if working with a confidential client. To learn more on Confidential and Public applications, see [Confidental and Public Applications](https://auth0.com/docs/get-started/applications/confidential-and-public-applications).
+:::
+
 ### Refresh Token Response
 
 If all goes well, you'll receive an `HTTP 200` response with a payload containing a new `access_token`, `id_token` (optionally), token lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`:
