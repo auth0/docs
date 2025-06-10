@@ -50,6 +50,10 @@ If an un-migrated user confirms a password change, their user profile will be cr
 You may see unexpected behavior if you return differing user profiles in the `login` and `get_user` scripts.
 :::
 
+:::
+If you are migrating users from your legacy db into Auth0's database, if the password policy isn't consistent from one to the other, users won't be able to log in. For example, if you have users in the legacy database using leaked passwords and you have leaked password protection enabled, users who are trying to sign in with leaked passwords with not be able to sign in. They will have to reset their password to match the new password policy.
+:::
+
 ## Verify the migration
 
 After you've enabled migration, you can verify the users that have migrated by doing one or both of the following tasks:
