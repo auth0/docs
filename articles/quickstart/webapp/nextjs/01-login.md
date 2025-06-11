@@ -30,7 +30,7 @@ The SDK exposes methods and variables that help you integrate Auth0 with your Ne
 
 ### Configure the SDK
 
-In the root directory of your project, create the file `.env.local` with the following <a href="https://nextjs.org/docs/basic-features/environment-variables" target="_blank" rel="noreferrer">environment variables</a>:
+In the root directory of your project, create the file `.env.local` with the following <a href="https://nextjs.org/docs/app/guides/environment-variables" target="_blank" rel="noreferrer">environment variables</a>:
 
 ```sh
 AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
@@ -38,7 +38,7 @@ APP_BASE_URL='http://localhost:3000'
 AUTH0_DOMAIN='https://${account.namespace}'
 AUTH0_CLIENT_ID='${account.clientId}'
 AUTH0_CLIENT_SECRET='${account.clientSecret}'
-'If your application is API authorized add the variables AUTH0_AUDIENCE and AUTH0_SCOPE'
+# 'If your application is API authorized add the variables AUTH0_AUDIENCE and AUTH0_SCOPE'
 AUTH0_AUDIENCE='your_auth_api_identifier'
 AUTH0_SCOPE='openid profile email read:shows' 
 ```
@@ -178,6 +178,7 @@ The profile information is available through the `user` property exposed by the 
 
 ```jsx
 'use client';
+import { useUser } from "@auth0/nextjs-auth0"
 
 export default function Profile() {
   const { user, isLoading } = useUser();
