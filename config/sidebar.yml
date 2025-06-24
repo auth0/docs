@@ -1492,6 +1492,10 @@ apis:
     url: /api/management/v2/
     forceFullReload: true
     external: true
+  - title: myAccountApiExplorer
+    url: /api/myaccount
+    forceFullReload: true
+    external: true
 libraries:
   - title: Overview
     url: /libraries
