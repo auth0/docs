@@ -45,15 +45,15 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-csharp/universal-login.png)
 
-This will load the Auth0 login page into a web view. You can learn how to customize the login page in <a href="/universal-login#simple-customization" target="_blank" rel="noreferrer">this document</a>.
+This loads the Auth0 login page into a web view. You can learn how to customize the login page at <a href="/universal-login#simple-customization" target="_blank" rel="noreferrer">this document</a>.
 
 ## Handle Authentication Tokens
 
-The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
+The returned login result indicates whether authentication was successful, and if so contains the tokens and claims of the user.
 
 ### Authentication Error
 
-You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
+You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` contains more information regarding the error which occurred.
 
 ```csharp
 if (loginResult.IsError)
@@ -64,7 +64,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result contains the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 if (!loginResult.IsError)
@@ -76,7 +76,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.
+On successful login, the login result contains the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.
 
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 
@@ -89,7 +89,7 @@ if (!loginResult.IsError)
 ```
 
 ::: note
-The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+The exact claims returned depends on the scopes that were requested. For more information see @scopes.
 :::
 
 You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
