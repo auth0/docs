@@ -4,23 +4,28 @@
 ##
 ## ------------------------------------------------------------
 
-- id: "articles"
-  title: "Articles"
-  url: "/articles"
-  folder: ""
+- id: 'articles'
+  title: 'Articles'
+  url: '/articles'
+  folder: ''
   default: true
 
-- id: "quickstarts"
-  title: "Quickstarts"
-  url: "/quickstarts"
-  folder: "quickstart"
+- id: 'quickstarts'
+  title: 'Quickstarts'
+  url: '/quickstarts'
+  folder: 'quickstart'
 
-- id: "apis"
-  title: "Auth0 APIs"
-  url: "/api"
-  folder: "api"
+- id: 'apis'
+  title: 'Auth0 APIs'
+  url: '/api'
+  folder: 'api'
 
-- id: "libraries"
-  title: "SDKs"
-  url: "/libraries"
-  folder: "libraries"
+- id: 'libraries'
+  title: 'SDKs'
+  url: '/libraries'
+  folder: 'libraries'
+
+- id: 'events'
+  title: 'Events Catelog'
+  url: '/events'
+  folder: ''
