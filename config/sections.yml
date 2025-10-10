@@ -26,6 +26,6 @@
   folder: 'libraries'
 
 - id: 'events'
-  title: 'Events Catelog'
-  url: '/events'
+  title: 'Events Catalog'
+  url: '/events/'
   folder: ''
