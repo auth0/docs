@@ -163,6 +163,12 @@ def login(request):
     )
 ```
 
+Note that without an `audience`, you will receive an opaque access token. Obtain an [API identifier](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens) and pass that here as the audience claim to obtain a well-formed access token.
+```
+        request, request.build_absolute_uri(reverse("callback"), audience='YOUR API IDENTIFIER')
+```
+
+
 ### Finalizing authentication with `/callback`
 After your users finish logging in with Auth0, they'll be returned to your application at the `/callback` route. This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 
