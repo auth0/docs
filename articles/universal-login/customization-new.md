@@ -29,6 +29,10 @@ You can also configure the favicon URL and a custom font URL using [the Branding
 
 You can further the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). Learn more in the [Page Template documentation](/universal-login/page-templates).
 
+## CSS Customization
+
+You cannot customize the CSS of the New Universal Login Experience prompts without risk of them breaking unexpectedly when Auth0 updates the prompts. However, a feature currently in beta ([CSS Customization](/universal-login/css-customization)) will allow you to alter certain properties safely.
+
 ## Combining New Universal Login and Classic Universal Login
 
 Given the Classic Universal Login experience is still more flexible than the New Universal Login experience, you could want to combine pages from both flows. 

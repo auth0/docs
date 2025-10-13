@@ -89,7 +89,7 @@ The available variables are:
 
 ## CSS Customization
 
-Given you can edit the HTML for the Universal Login page, you could also override the CSS classes that are used in the Universal Login widgets. **This is not supported yet**. 
+Given you can edit the HTML for the Universal Login page, you could also override the CSS classes that are used in the Universal Login widgets. This feature is in beta right now. You can read more about it on the [CSS Customization page](/universal-login/css-customization). 
 
 If you override the CSS for our built-in classes, your login page **will break** whenever we change the CSS used in the page. However, certain level of CSS customization will be supported in the future.
 
