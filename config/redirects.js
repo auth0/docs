@@ -4206,6 +4206,10 @@ const redirects = [
     to: '/deploy-monitor/pre-deployment-checks/pre-launch-tips',
   },
   {
+    from: '/deploy/deploy-options',
+    to: '/deploy'
+  },
+  {
     from: [
       '/extensions/using-provided-extensions',
       '/topics/extensibility',
