@@ -24,12 +24,12 @@ useCase: quickstart
  Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
 ```python
-cryptography~=2.8
-django~=2.2.7
-djangorestframework~=3.10.31
+cryptography~=2.9.2
+django~=4.1
+djangorestframework~=3.13.1
 django-cors-headers~=3.1.1
-drf-jwt~=1.13.3
-pyjwt~=1.7.1
+drf-jwt~=1.13.4
+pyjwt~=2.4
 requests~=2.22.0
 ```
 
@@ -172,6 +172,7 @@ from functools import wraps
 import jwt
 
 from django.http import JsonResponse
+from .utils import jwt_decode_token
 
 def get_token_auth_header(request):
     """Obtains the Access Token from the Authorization Header
@@ -191,7 +192,7 @@ def requires_scope(required_scope):
         @wraps(f)
         def decorated(*args, **kwargs):
             token = get_token_auth_header(args[0])
-            decoded = jwt.decode(token, verify=False)
+            decoded = jwt_decode_token(token, verify=False)
             if decoded.get("scope"):
                 token_scopes = decoded["scope"].split()
                 for token_scope in token_scopes:
