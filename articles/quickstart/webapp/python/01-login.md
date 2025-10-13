@@ -183,9 +183,9 @@ if __name__ == "__main__":
 
 ## Add templates
 
-Now we just need to create the simple template files used in the routes about (during `render_template()` calls).
+Now we just need to create the simple template file used in the routes mentioned above (during `render_template()` calls).
 
-Create a new sub-directory in your project folder named `templates`, and create two files within: `dashboard.html` and `home.html`. You can paste the content from the two fields below into those files, respectfully:
+Create a new sub-directory in your project folder named `templates`, and create a file within it called `home.html`. You can paste the content from the field below into that file:
 
 ```html
 # 📁 templates/home.html -----
