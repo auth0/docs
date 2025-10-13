@@ -158,7 +158,7 @@ and visit http://localhost:3000 in your browser.
 
 ## Add Logout to Your Application
 
-Now that you can log in to your Next.js application, you need <a href="https://auth0.com/docs/logout/log-users-out-of-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Add a link that points to the `/auth/logout` API route. To learn more, read <a href="https://auth0.com/docs/authenticate/login/logout/log-users-out-of-auth0" target="_blank" rel="noreferrer">Log Users out of Auth0 with OIDC Endpoint</a>.
+Now that you can log in to your Next.js application, you need <a href="https://auth0.com/docs/logout/log-users-out-of-auth0" target="_blank" rel="noreferrer">a way to log out</a>. Add a link that points to the `/auth/logout` API route and make sure to add your full baseURL (`http://localhost:3000`) to the "Allowed Logout URLs" in your Auth0 Application Settings. To learn more, read <a href="https://auth0.com/docs/authenticate/login/logout/log-users-out-of-auth0" target="_blank" rel="noreferrer">Log Users out of Auth0 with OIDC Endpoint</a>.
 
 ```html
 <a href="/auth/logout">Logout</a>
