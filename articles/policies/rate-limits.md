@@ -24,13 +24,13 @@ Using the Management API for free and trial tenants is restricted to **2 request
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
-See the rate limits for [Management API Endpoints](/policies/rate-limits-mgmt-api) and [Authentication API Endpoints](/policies/rate-limits-auth-api) for complete details on each endpoint limitation. 
+See the rate limits for [Management API Endpoints](/articles/policies/rate-limits-mgmt-api.md) and [Authentication API Endpoints](/articles/policies/rate-limits-auth-api.md) for complete details on each endpoint limitation. 
 
 ### Review HTTP response headers
 
 Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, you can review the HTTP response headers returned from rate limited endpoints.
 
-API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP response headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
+API requests to selected [Authentication](/articles/api/authentication) or [Management API](/articles/api/management/v2) endpoints will return HTTP response headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
 * **X-RateLimit-Limit**: The maximum number of requests available in the current time frame.
 * **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
