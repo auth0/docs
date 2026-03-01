@@ -13,11 +13,11 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<!-- markdownlint-disable MD002 MD041 -->
+<-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../_includes/_getting_started', { library: 'Xamarin') %>
+<= include('../_includes/_getting_started', { library: 'Xamarin') %>
 
-<%= include('../../../_includes/_callback_url') %>
+<= include('../../../_includes/_callback_url') %>
 
 Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an ID Token, Access Token, and Refresh Token.
 
@@ -41,7 +41,7 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
 Ensure that the Callback URL is in lowercase.
 
-<%= include('../../../_includes/_logout_url') %>
+<= include('../../../_includes/_logout_url') %>
 
 ::: note
 If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to add to the Allowed Logout URLs field is the same as the callback URL.
