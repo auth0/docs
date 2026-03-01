@@ -1,74 +1,59 @@
 ---
-description: Overview of OIDC Connect scopes
+title: OpenID Connect Scopes
+description: Understand scopes and claims used with the OpenID Connect (OIDC) protocol.
 topics:
   - scopes
+  - permissions
 contentType:
-  - how-to
+  - concept
 useCase:
   - development
+  - add-login
 ---
 # OpenID Connect Scopes
 
-OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the ID Token and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
+:::note 
+This document discusses <dfn data-key="scope">scopes</dfn> included within the <dfn data-key="openid">OpenID Connect (OIDC) authentication protocol</dfn>. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
+:::
 
-The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the application to use the OIDC protocol to verify the identity of the user.
+<dfn data-key="openid">OpenID Connect (OIDC)</dfn> <dfn data-key="scope">scopes</dfn> are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
-In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
+For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using a username and password. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 
-* [Standard](#standard-claims) (which means that they meet OIDC specification)
-* [Custom](/scopes/current/custom-claims)
+1. A user clicks **Login** within your app.
+2. Your app redirects the user to the Auth0 Authorization Server (**/authorize** endpoint), including the following scopes: 
+* `openid` (required; to indicate that the application intends to use OIDC to verify the user's identity)
+* `profile` (so you can personalize the email with the user's name)
+* `email` (so you know where to send the welcome email)
+3. Your Auth0 Authorization Server redirects the user to the login prompt.
+4. The user authenticates and sees a consent page listing the scopes Auth0 will give to your app, which include access to their profile information and email address.
+5. The user accepts and authorizes your app to have this level of access to their information stored by Auth0.
+6. Your app now has access to the user's profile information and email address.
 
 ## Standard claims
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the application with user details such as email, name and picture.
+Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. These claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
-The basic claim returned for the `openid` scope is the `sub` claim, which uniquely identifies the user (`iss`, `aud`, `exp`, `iat` and `at_hash` claims will also be present in the ID Token). Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:
-
-- `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
-- `email`: will request the `email` and `email_verified` claims.
-
-## Example: ask for standard claims
-
-In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
-
-To initiate the authentication flow, send the user to the authorization URL and request an ID Token:
-
-```text
-https://${account.namespace}/authorize?
-  scope=openid%20profile%20email&
-  response_type=id_token&
-  client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
-  state=YOUR_OPAQUE_VALUE
-```
-
-::: note
-For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+::: note 
+You can also create [custom claims](/tokens/concepts/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
 :::
 
-Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).
+The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
-After Auth0 has redirected back to the app, you can extract the ID Token from the hash fragment of the URL.
+Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). For a full list of Scopes, see [OIDC specification: Requesting Claims Using Scope Values](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 
-When decoded, the ID Token contains the following claims:
 
-```json
-{
-  "name": "John Doe",
-  "nickname": "john.doe",
-  "picture": "https://myawesomeavatar.com/avatar.png",
-  "updated_at": "2017-03-30T15:13:40.474Z",
-  "email": "john.doe@test.com",
-  "email_verified": false,
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|USER-ID",
-  "aud": "${account.clientId}",
-  "exp": 1490922820,
-  "iat": 1490886820,
-  "nonce": "crypto-value",
-  "at_hash": "IoS3ZGppJKUn3Bta_LgE2A"
-}
-```
+| Scope     | Claims          |
+|-----------|-----------------|
+| `openid`  | (required) Returns the `sub` claim, which uniquely identifies the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. For more information about the ID Token claims, see [ID Tokens](/tokens/concepts/id-tokens#id-token-payload). |
+| `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
+| `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
-Your app now can retrieve these values and use them to personalize the UI.
+For an example showing how to request standard claims for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
+
+## Keep reading
+
+- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [Scopes](/scopes)
+- [Custom Claims](/tokens/concepts/jwt-claims#custom-claims)
+- [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

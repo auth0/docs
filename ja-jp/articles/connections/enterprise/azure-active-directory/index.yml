@@ -1,0 +1,8 @@
+versioning:
+  baseUrl: connections/enterprise/azure-active-directory
+  current: v2
+  versions:
+    - v1
+    - v2
+  defaultArticles:
+    v2: index

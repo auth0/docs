@@ -11,7 +11,6 @@ useCase:
   - appliance
 applianceId: appliance64
 ---
-
 # PSaaS Appliance Deployment Project
 
 PSaaS Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an PSaaS Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription.
@@ -56,4 +55,4 @@ The following sections describe what happens during each step of the PSaaS Appli
 
 ## What's next?
 
-Once the PSaaS Appliance is deployed, an Auth0 Customer Success Manager will work with you to complete the rest of the [Sprint onboarding program](https://auth0.com/docs/onboarding/sprint) - the end result being a joint success plan to drive value throughout the subscription lifecycle.
+Once the PSaaS Appliance is deployed, an Auth0 Technical Account Manager will work with you to build a joint success plan to drive value throughout the subscription lifecycle.

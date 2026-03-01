@@ -1,11 +1,13 @@
 ---
 addon: Salesforce
+title: Salesforce Add-on
 alias:
   - salesforce
 url: addons/salesforce  
 thirdParty: true
+public: false
 image: /media/addons/salesforce.svg
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce services.
+description: Learn how to use Auth0 to authenticate and authorize your Salesforce services.
 topics:
   - salesforce
   - addons
@@ -13,9 +15,11 @@ useCase: integrate-third-party-apps
 contentType: how-to
 ---
 
-# Salesforce Addon
+# Salesforce Add-on
 
-Auth0 supports both the __production__ connection to Salesforce and the __Sandbox__, the only difference being the endpoints hosted by Salesforce: `https://login.salesforce.com` and `https://test.salesforce.com` respectively.
+<%= include('../_includes/_uses-delegation') %>
+
+Auth0 supports both the __production__ connection to Salesforce and the __Sandbox__, the only difference being the endpoints hosted by Salesforce: `https://login.salesforce.com` and `https://test.salesforce.com`, respectively.
 
 The integration also supports getting tokens for __Salesforce Community Sites__. For this to work, you need to pass two additional parameters:
 

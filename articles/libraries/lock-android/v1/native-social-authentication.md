@@ -1,6 +1,7 @@
 ---
 title: Lock Android v1 Native Social Authentication
 description: How to implement native social authentication with Lock Android
+public: false
 topics:
   - libraries
   - lock

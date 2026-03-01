@@ -1,4 +1,7 @@
 title: ASP.NET Web API (OWIN)
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: dotnet
 alias:
   - owin
 languages:
@@ -6,7 +9,10 @@ languages:
 thirdParty: false
 framework:
   - OWIN
-image: /media/platforms/asp.png
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
@@ -15,13 +21,14 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+hidden_articles:
+  - interactive
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnet-owin-webapi-samples
 requirements:
   - Microsoft Visual Studio 2015 Update 3
-  - Auth0.OpenIdConnectSigningKeyResolver NuGet Package v2.0.0
   - System.IdentityModel.Tokens.Jwt NuGet Package v5.2.2
   - Microsoft.Owin.Security.Jwt NuGet Package V4.0.0
 next_steps:
@@ -33,9 +40,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

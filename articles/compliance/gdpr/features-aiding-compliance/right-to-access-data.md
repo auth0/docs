@@ -14,7 +14,7 @@ As per articles 15, 16, 17, and 19 of GDPR, users have the right to get a copy o
 
 With Auth0, you can access, edit, and delete user information:
 - manually, using the [Dashboard](${manage_url}/#/users), or
-- programatically, using the [Management API](/api/management/v2)
+- programmatically, using the [Management API](/api/management/v2)
 
 <%= include('./_legal-warning.md') %>
 
@@ -39,9 +39,9 @@ You can also retrieve, edit, and delete user information using our API.
 
 First, pick an endpoint that matches your needs:
 
-- [Retrieve a user using the ID as search criteria](/users/search/best-practices#users-by-id)
-- [Retrieve a user using the Email as search criteria](/users/search/best-practices#users-by-email)
-- [Export all users to a file using a long running job](/users/search/best-practices#user-export)
+- [Retrieve a user using the ID as search criteria](/best-practices/search-best-practices#users-by-id)
+- [Retrieve a user using the Email as search criteria](/best-practices/search-best-practices#users-by-email)
+- [Export all users to a file using a long running job](/best-practices/search-best-practices#user-export)
 - [Update a user](/api/management/v2#!/Users/patch_users_by_id). Note that not all fields are editable (see the next paragraph: [Editable data](#editable-data)). Keep in mind that:
   - The properties of the new object will replace the old ones. The **user_metadata** and **app_metadata** fields are an exception to this rule. These properties are merged instead of being replaced, though the merge happens only on the first level.
   - If you are updating **email_verified**, **phone_verified**, **username**, or **password**, you must set the **connection** parameter.
@@ -54,7 +54,7 @@ In order to call any of the API's endpoints, you will need an valid Access Token
 Each endpoint at the [Management API explorer](/api/management/v2) has a section **Scopes** that lists the scope(s) that the Access Token must contain in order to access it. For example, the [Delete user endpoint](/api/management/v2#!/Users/delete_users_by_id) requires the `delete:users` scope.
 :::
 
-To learn more about these tokens and how you can generate one, see [How to Get an Access Token for the Management API](/api/management/v2/tokens).
+To learn more about these tokens and how you can generate one, see [Access Tokens for the Management API](/api/management/v2/tokens).
 
 Once you know which endpoint you want to access, and you have a valid Access Token, you are ready to send your request.
 
@@ -75,7 +75,7 @@ The following user information can be updated using the API:
 - username	
 
 ::: note
-For a list of all the user attributes, refer to the [Structure of the User Profile](/user-profile/user-profile-structure).
+For a list of all the user attributes, refer to the [Structure of the User Profile](/users/references/user-profile-structure).
 :::
 
 The following user information are **not** editable:
@@ -89,7 +89,7 @@ The following user information are **not** editable:
 
 You can search for users using the following:
 
-- All the [normalized user profile fields](/user-profile/normalized/auth0)
+- All the [normalized user profile fields](/users/normalized/auth0/normalized-user-profile-schema)
 - The profile information under the **user_metadata** object:
   - name
   - nickname

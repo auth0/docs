@@ -12,7 +12,7 @@ useCase:
 ---
 # Lock API Reference
 
-Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
+<dfn data-key="lock">Lock</dfn> has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-) method section!
 
 - [new Auth0Lock](#auth0lock) - Instantiating Lock
 - [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user
@@ -37,26 +37,42 @@ Initializes a new instance of `Auth0Lock` configured with your application's `cl
 **Example:**
 
 ```js
-var clientId = '${account.clientId}';
-var domain = '${account.namespace}';
-// Instantiate Lock - without custom options
-var lock = new Auth0Lock(clientId, domain);
+var Auth = (function() {
 
-// Listen for the authenticated event and get profile
-lock.on("authenticated", function(authResult) {
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
+  var privateStore = {};
 
-    // Save token and profile locally
-    localStorage.setItem("accessToken", authResult.accessToken);
-    localStorage.setItem("profile", JSON.stringify(profile));
+  function Auth() {
+    // Instantiate Lock - without custom options
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+  }
 
-    // Update DOM
-  });
-});
+  Auth.prototype.getProfile = function() {
+    return privateStore.profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event and get profile
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        //save Access Token only if necessary
+        privateStore.accessToken = accessToken;
+        privateStore.profile = profile;
+
+        // Update DOM
+      });
+    });
+  };
+  return Auth;
+}());
 ```
 
 ## getUserInfo()
@@ -65,7 +81,7 @@ lock.on("authenticated", function(authResult) {
 getUserInfo(accessToken, callback)
 ```
 
-Once the user has logged in and you are in possesion of a token, you can use that token to obtain the user's profile with `getUserInfo`. This method replaces the deprecated `getProfile()`.
+Once the user has logged in and you are in possession of a token, you can use that token to obtain the user's profile with `getUserInfo`. This method replaces the deprecated `getProfile()`.
 
 - **accessToken {String}**: User token.
 - **callback {Function}**: Will be invoked after the user profile been retrieved.
@@ -203,31 +219,55 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `signin submit`: emitted when the user clicks on the submit button of the "Login" screen. (Only in Version >`10.18`)
 - `signup submit`: emitted when the user clicks on the submit button of the "Sign Up" screen. (Only in Version >`10.18`)
 - `federated login`: emitted when the user clicks on a social connection button. Has the connection name and the strategy as arguments. (Only in Version >`10.18`)
+- `socialOrPhoneNumber ready`: emitted when the Passwordless screen with Social + Phone Number is shown
+- `socialOrPhoneNumber submit`: emitted when the Passwordless screen with Social + Phone Number is submitted
+- `socialOrEmail ready`: emitted when the Passwordless screen with Social + Email is shown
+- `socialOrEmail submit`: emitted when the Passwordless screen with Social + Email is submitted
+- `vcode ready`: emitted when the Passwordless screen with the one-time-password is shown
+- `vcode submit`: emitted when the Passwordless screen with the one-time-password is submitted
 
 The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `accessToken`, `idToken`, `state`, `refreshToken` and `idTokenPayload`.
 
 An example use of the `authenticated` event:
 
 ```js
-// Listen for authenticated event; pass the result to a function as authResult
-lock.on("authenticated", function(authResult) {
-  // Call getUserInfo using the token from authResult
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
-    // Store the token from authResult for later use
-    localStorage.setItem('accessToken', authResult.accessToken);
-    // Display user information
-    show_profile_info(profile);
-  });
-});
+var Auth = (function() {
+
+  var privateStore = {};
+
+  function Auth() {
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+  }
+
+  Auth.prototype.getProfile = function() {
+    return privateStore.profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+        
+        privateStore.profile = profile;
+      
+      });
+    });
+  };
+  return Auth;
+}());
 ```
 
 ## resumeAuth()
 
-If you set the [auth.autoParseHash](/libraries/lock/v11/configuration#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
+This method can only be used when you set the [auth.autoParseHash](/libraries/lock/v11/configuration#autoparsehash-boolean-) option to `false`. You'll need to call `resumeAuth` to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
 
 - **hash** {String}: The hash fragment received from the redirect.
 - **callback** {Function}: Will be invoked after the parse is done. Has an error (if any) as the first argument and the authentication result as the second one. If there is no hash available, both arguments will be `null`.
@@ -237,6 +277,7 @@ lock.resumeAuth(hash, function(error, authResult) {
   if (error) {
     alert("Could not parse hash");
   }
+  //This is just an example; you should not log Access Tokens in production.
   console.log(authResult.accessToken);
 });
 ```

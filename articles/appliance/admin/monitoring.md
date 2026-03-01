@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance8
+sitemap: false
 ---
 
 # PSaaS Appliance Administration: Monitoring

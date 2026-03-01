@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
 topics:
@@ -12,6 +11,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+<!-- markdownlint-disable MD002 MD041-->
+
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.
 
 This document will help you troubleshoot your JWT middleware configuration.
@@ -21,7 +22,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 There are 5 criteria for validating a JWT token. 
 
 1. **Is the token formed properly?**
-Check if the structure of the token matches the structure of a JSON Web Token. Read more about the [JSON Web Token structure](/jwt#what-is-the-json-web-token-structure-).
+Check if the structure of the token matches the structure of a JSON Web Token. Read more about the <a href="/jwt#what-is-the-json-web-token-structure-" target="_blank" rel="noreferrer">JSON Web Token structure</a>.
 
 2. **Has the token been tampered with?** 
 The last part of a JWT is the signature. The signature is used to verify that the token was signed by the sender and not altered in any way.
@@ -41,12 +42,12 @@ Check if the `aud` claim of the JWT matches with what your application expects.
 
 ## Inspect a Token
 
-You can inspect a JWT with the [JWT.io](https://jwt.io/) website. Use the debugger on the website to check if your JWT is well formed. You can also inspect values of the various claims.
+You can inspect a JWT with the <a href="https://jwt.io/" target="_blank" rel="noreferrer">JWT.io</a> website. Use the debugger on the website to check if your JWT is well formed. You can also inspect values of the various claims.
 
 The screenshot below shows the following information:
 * The token is signed with the RS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://rs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://rs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
@@ -65,8 +66,8 @@ If your token is signed with the HS256 algorithm, the debugger view is different
 
 The screenshot below shows the following information:
 * The token is signed with the HS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://hs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://hs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
@@ -87,7 +88,7 @@ app.UseJwtBearerAuthentication(options);
 
 ## Debug Configuration Issues Using Log Files 
 
-To debug potential configuration issues, inspect the log files for your application. For more information, refer to the [Logging in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging) document.
+To debug potential configuration issues, inspect the log files for your application. For more information, refer to the <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging" target="_blank" rel="noreferrer">Logging in ASP.NET Core</a> document.
 
 In this example, we run the application from the command line and inspect the console log output.
 
@@ -107,9 +108,9 @@ Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authori
 
 To resolve this issue, make sure you are passing the JWT as the Bearer token in the `Authorization` header of the HTTP request.
 
-## 2. Did you configure the JWT middleware for the correct signing algorithm?
+### 2. Did you configure the JWT middleware for the correct signing algorithm?
 
-Make sure that the signing algorithm you used to sign your token matches the signing algorithm configured in your middleware. 
+Make sure that the <a href="/tokens/concepts/signing-algorithms" target="_blank" rel="noreferrer">signing algorithm</a> you used to sign your token matches the signing algorithm configured in your middleware. 
 
 The following screenshots show two messages:
 * A warning message: "Authorization failed..." 
@@ -139,7 +140,7 @@ Bearer was not authenticated. Failure message: IDX10501: Signature validation fa
 
 To resolve this issue, make sure that the algorithm for the JWT matches with the configuration of your middleware. 
 
-## 3. Has your token expired?
+### 3. Has your token expired?
 
 Each JSON Web Token is valid until the time defined in the `exp` claim runs out. If you send an expired token, the token will be rejected:
 
@@ -154,10 +155,10 @@ IDX10223: Lifetime validation failed. The token is expired
 To resolve this issue, check if the token you are sending has not expired.
 
 ::: note
-The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the date/time for the value, visit [EpochConverter](http://www.epochconverter.com/).
+The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the date/time for the value, visit <a href="http://www.epochconverter.com/" target="_blank" rel="noreferrer">EpochConverter</a>.
 :::
 
-## 4. Did you configure the correct Issuer?
+### 4. Did you configure the correct issuer?
 
 The Issuer specified in your token must match exactly with your JWT middleware configuration. 
 
@@ -183,7 +184,7 @@ For RS256 tokens, the JWT middleware downloads the OIDC discovery document from 
 If you are using RS256 tokens, the system checks their signature before it checks the Issuer.
 :::
 
-## 5. Does the audience match your JWT middleware configuration?
+### 5. Does the audience match your JWT middleware configuration?
 
 Check if the audience specified in your token matches your JWT middleware configuration.
 

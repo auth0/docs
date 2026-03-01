@@ -1,70 +1,31 @@
 ---
-url: /identityproviders
-description: Auth0 is an identity hub that supports the many authentication providers listed here.
+section: articles
+classes: topic-page
+title: Connections
+description: Describes the various sources of users supported by Auth0, including identity providers, databases, and passwordless authentication methods.
 topics:
   - connections
 contentType: 
     - index
-    - reference
 useCase:
   - customize-connections
   - add-idp
 ---
+# Connections
 
-# Identity Providers Supported by Auth0
+A connection is the relationship between Auth0 and a source of users, which may include external Identity Providers (such as Google or LinkedIn), databases, or passwordless authentication methods. Auth0 sits between your application and its sources of users, which adds a level of abstraction, so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
 
-An Identity Provider is a server that can provide identity information to other servers. For example, Google is an Identity Provider. If you log in to a site using your Google account, then a Google server will send your identity information to that site.
+By default, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. You can disable synchronization to allow for updating profile attributes from your application.
 
-Auth0 is an identity hub that supports many Identity Providers using various protocols (like [OpenID Connect](/protocols/oidc), [SAML](/protocols/saml), [WS-Federation](/protocols/ws-fed), and more).
+You can configure any number of connections for your applications. 
 
-Auth0 sits between your app and the Identity Provider that authenticates your users. This adds a level of abstraction so your app is isolated from any changes to and idiosyncrasies of each provider's implementation.
-
-The relationship between Auth0 and any of these authentication providers is referred to as a **connection**. Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
-
-## Social
-
-Auth0 supports the following social providers out of the box. You can also use any [OAuth2 Authorization Server](/connections/social/oauth2).
-
-<% var socialConnections = cache.find('articles/connections/social', {sort: 'index'}); %>
-<%= include('./_connections', { connections: socialConnections }) %>
-
-## Enterprise
-
-<% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
-<%= include('./_connections', { connections: enterpriseConnections }) %>
-
-## Legal Identities
-
-Through our partner, Criipto, we offer a growing range of government and bank identities tied to legal persons. 
-
-<% var criiptoConnections = cache.find('articles/connections/criipto', {sort: 'index'}); %>
-<%= include('./_connections', { connections: criiptoConnections }) %>
-
-If the one you need isn't found here, we suggest getting in touch with [Criipto](https://criipto.com).
-
-## Database and Custom Connections
-
-If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store or in your own database.
-
-You can create any number of custom fields and store this information as part of the `user_metadata`. You can easily import users from a legacy user store, enable or disable sign ups, configure your password policy, or enable Multi-factor Authentication.
-
-For more details, refer to the [Database Connections](/connections/database) documentation.
-
-## Passwordless
-
-Full documentation on Passwordless authentication can be found at the links below:
-
-<ul>
-<li><a href="/connections/passwordless">Passwordless Authentication Overview</a></li>
-<% cache.find('articles/connections/passwordless', {sort: 'connection'}).forEach(article => { %>
-  <% if (article.connection) { %>
-    <li>
-      <% if (article.public === false) { %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- article.url %>"><%- article.connection %></a>
-      <% } %>
-    </li>
-  <% } %>
-<% }); %>
-</ul>
+| Read... | To learn... |
+|---------|-------------|
+| [Social Identity Providers](/connections/identity-providers-social) | About the external social Identity Providers supported by Auth0. |
+| [Enterprise Identity Providers](/connections/identity-providers-enterprise) | About the external enterprise Identity Providers supported by Auth0. |
+| [Legal Identity Providers](/connections/identity-providers-legal) | About the external legal Identity Providers supported by Auth0. |
+| [Database Connections](/connections/database) | How to create your own user store, which allows you to authenticate users with an email address or username and a password. The credentials can be stored securely in either the Auth0 user store or your own database. |
+| [Passwordless Connections](/connections/passwordless) | How to allow users to log in without needing to remember a password. Users enter their mobile phone number or email address, and receive a one-time code or link, which they can use to log in. |
+| [View Connections](/dashboard/guides/connections/view-connections) | How to view the configure connections for your application using the Auth0 Dashboard. |
+| [Disable Connection Sync](/dashboard/guides/connections/configure-connection-sync) | How to disable the synchronization between user profile data and the connection source, which allows you to update profile attributes from your application instead. |
+| [Pass Parameters to Identity Providers](/connections/pass-parameters-to-idps) | How to pass provider-specific parameters to an Identity Provider during authentication. |

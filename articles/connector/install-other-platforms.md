@@ -89,5 +89,5 @@ For most platforms, you will need to run the required commands with root privile
 7. Run `node admin/server.js` to access the admin UI -- the admin UI will be running and available on `http://localhost:8357`.
 
 ::: note
-If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://YOUR_TENANT.auth0.com/testall` with a browser other than Internet Explorer.
+If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy).
 :::

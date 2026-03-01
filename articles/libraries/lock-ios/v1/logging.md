@@ -2,6 +2,7 @@
 section: libraries
 title: Logging
 description: Learn how to debug Lock by enabling logging.
+public: false
 topics:
   - libraries
   - lock
@@ -17,7 +18,7 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-__Lock__ logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
+<dfn data-key="lock">Lock</dfn> logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
 
 
 ::: note

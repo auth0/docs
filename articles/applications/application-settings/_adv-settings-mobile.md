@@ -1,5 +1,5 @@
 <!-- markdownlint-disable -->
-#### Mobile Settings
+#### Device Settings
 
 If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
 

@@ -21,7 +21,7 @@ It consists of several sections which you can navigate using the sidebar menu on
 
 ## Configure your implementation
 
-The matrix that follows offers a brief overview of the different dashboard screens and what you can do on each.
+The following table contains a brief overview of the different dashboard pages and what you can do on each.
 
 <table class="table">
     <thead>
@@ -37,7 +37,7 @@ The matrix that follows offers a brief overview of the different dashboard scree
         </tr>
         <tr>
             <th><i class="icon icon-budicon-375"></i>&nbsp;Applications</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "clients"}) %></td>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "applications"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-546"></i>&nbsp;APIs</th>
@@ -52,8 +52,12 @@ The matrix that follows offers a brief overview of the different dashboard scree
             <td colspan="3"><%= include('./_list-processes', {"screen": "connections"}) %></td>
         </tr>
         <tr>
-            <th><i class="icon icon-budicon-292"></i>&nbsp;Users</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "users"}) %></td>
+            <th><i class="icon icon-budicon-725"></i>&nbsp;Universal Login</th>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "universal-login"}) %></td>
+        </tr>
+        <tr>
+            <th><i class="icon icon-budicon-292"></i>&nbsp;Users & Roles</th>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "users-roles"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-173"></i>&nbsp;Rules</th>
@@ -66,10 +70,6 @@ The matrix that follows offers a brief overview of the different dashboard scree
         <tr>
             <th><i class="icon icon-budicon-243"></i>&nbsp;Multi-factor Auth</th>
             <td colspan="3"><%= include('./_list-processes', {"screen": "mfa"}) %></td>
-        </tr>
-        <tr>
-            <th><i class="icon icon-budicon-725"></i>&nbsp;Hosted Pages</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "hlp"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-778"></i>&nbsp;Emails</th>
@@ -98,10 +98,10 @@ The matrix that follows offers a brief overview of the different dashboard scree
 
 On the top right you can see your tenant's name and icon, and a little arrow. This arrow displays a drop-down menu that you can use to configure different aspects of your account:
 
+- **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/reference/settings-tenant).
+- **Invite an admin**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
+- **Create tenant**: Use this to [create a new tenant](/getting-started/create-tenant).
 - **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create an application for `tenant-A`, you will not see it listed for `tenant-B`. If you have more than one tenant, you will find this switching option handy. 
-- **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/dashboard-tenant-settings).
-- **Invite users to this tenant**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
-- **Create tenant**: Use this to [create a new tenant](/getting-started/the-basics#account-and-tenants).
 - **View profile**: Use this to view information about your [account profile](${manage_url}/#/profile).
-- **Subscription overview**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
-- **Log out**: Log out from your account.
+- **Account usage**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
+- **Logout**: Log out from your account.

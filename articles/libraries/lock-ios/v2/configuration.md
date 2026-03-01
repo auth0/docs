@@ -49,7 +49,7 @@ Allows Lock to be dismissed by the user. By default this is `false`.
 
 ### scope
 
-Scope used for authentication. By default is `openid`. It will return not only the **Access Token**, but also an **ID Token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
+<dfn data-key="scope">Scope</dfn> used for authentication. By default is `openid`. It will return not only the <dfn data-key="access-token">**Access Token**</dfn>, but also an **ID Token** which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
 
 ```swift
 .withOptions {
@@ -59,7 +59,7 @@ Scope used for authentication. By default is `openid`. It will return not only t
 
 #### Refresh Tokens
 
-Specifying the `offline_access` scope in your Lock options will allow a [Refresh Token](/tokens/refresh-token) to be returned along with the access\_token and the id\_token. Refresh Tokens can be saved and used to acquire a new Access Token when the old one expires. For more information about using Refresh Tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement Refresh Tokens, or at the [Swift QuickStart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of Refresh Tokens.
+Specifying the `offline_access` scope in your Lock options will allow a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn> to be returned along with the access\_token and the id\_token. Refresh Tokens can be saved and used to acquire a new Access Token when the old one expires. For more information about using Refresh Tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement Refresh Tokens, or at the [Swift Quickstart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of Refresh Tokens.
 
 ### termsOfService
 
@@ -72,7 +72,49 @@ By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and
 }
 ```
 
-## Database Options
+### Show Terms of Service
+
+Database connections display the Terms of Service dialog. Default is `true`. Note that the Terms of Service will always be shown if the `mustAcceptTerms` flag is enabled.
+
+```swift
+.withOptions {
+    $0.showTerms = true
+}
+```
+
+### Require users to accept the Terms of Service
+
+Database connection require explicit acceptance of the Terms of Service.
+
+```swift
+.withOptions {
+    $0.mustAcceptTerms = true
+}
+```
+
+## Web Authentication Options
+
+### leeway
+
+Clock skew used for ID token validation. It expands the time window in which the ID token will still be considered valid, to account for the difference between server time and client time. By default is **60000 milliseconds** (60 seconds).
+
+```swift
+.withOptions {
+  $0.leeway = 30000 // 30 seconds
+}
+```
+
+### maxAge
+
+Allowable elapsed time (in milliseconds) since the user last authenticated. Used for ID token validation. If set, the ID token will contain an `auth_time` claim with the authentication timestamp. Defaults to `nil`.
+
+```swift
+.withOptions {
+  $0.maxAge = 86400000 // 1 day
+}
+```
+
+## Database options
 
 ### allow
 
@@ -90,7 +132,7 @@ The first screen to present to the user. The default is `.Login`, other options 
 
 ```swift
 .withOptions {
-  $0.initialScreen = .Login
+  $0.initialScreen = .login
 }
 ```
 
@@ -106,7 +148,7 @@ Specify the type of identifier the login will require.  The default is either: `
 
 #### Custom Signup Fields
 
-When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata). Note that you must specify the icon to use with your custom text field.
+When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in [Metadata](/users/concepts/overview-user-metadata). Note that you must specify the icon to use with your custom text field.
 
 ```swift
 .withOptions {

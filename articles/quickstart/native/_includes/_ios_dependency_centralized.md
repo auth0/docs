@@ -1,30 +1,49 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Install Dependencies
+
+### Cocoapods
+
+If you are using <a href="https://cocoapods.org" target="_blank" rel="noreferrer">Cocoapods</a>, add this line to your `Podfile`:
+
+```ruby
+pod 'Auth0', '~> 1.0'
+```
+
+Then run `pod install`.
+
+::: note
+For more information on Cocoapods, check <a href="https://guides.cocoapods.org/using/getting-started.html" target="_blank" rel="noreferrer">their official documentation</a>.
+:::
 
 ### Carthage
 
-If you are using Carthage, add the following to your `Cartfile`:
+If you are using <a href="https://github.com/Carthage/Carthage" target="_blank" rel="noreferrer">Carthage</a>, add the following line to your `Cartfile`:
 
 ```ruby
 github "auth0/Auth0.swift" ~> 1.0
 ```
 
-Then, run `carthage bootstrap`.
+Then run `carthage bootstrap`.
 
 ::: note
-For more information on how to use Carthage, read [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+For more information about Carthage usage, check <a href="https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos" target="_blank" rel="noreferrer">their official documentation</a>.
 :::
 
-### Cocoapods
+### SPM
 
-If you are using [Cocoapods](https://cocoapods.org/), add the following to your `Podfile`:
+If you are using the Swift Package Manager, open the following menu item in Xcode:
 
-```ruby
-use_frameworks!
-pod 'Auth0', '~> 1.0'
+**File > Add Packages...**
+
+In the **Search or Enter Package URL** search box enter this url: 
+
+```text
+https://github.com/auth0/Auth0.swift.git
 ```
 
-Then, run `pod install`.
+Then select the dependency rule and press **Add Package**.
 
 ::: note
-For more information on how to use Cocoapods, read the [Cocoapods documentation](http://guides.cocoapods.org/using/getting-started.html).
+For further reference on SPM, check <a href="https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app" target="_blank" rel="noreferrer">its official documentation</a>.
 :::

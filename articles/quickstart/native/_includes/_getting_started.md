@@ -1,5 +1,5 @@
 ::: note
-**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Native Applications](/architecture-scenarios/application/mobile-api) and which [protocol](/api-auth/grant/authorization-code-pkce) it uses.
+**New to Auth?** Learn <a href="/overview" target="_blank" rel="noreferrer">How Auth0 works</a>, how it <a href="/architecture-scenarios/application/mobile-api" target="_blank" rel="noreferrer">integrates with Native Applications</a> and which <a href="/api-auth/grant/authorization-code-pkce" target="_blank" rel="noreferrer">protocol</a> it uses.
 :::
 
 <%= include('../../../_includes/_new_app') %>

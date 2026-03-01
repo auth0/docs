@@ -6,7 +6,7 @@ topics:
   - oauth2
   - authentication
   - server-side-apps
-contentType: 
+contentType:
     - concept
     - how-to
 useCase:
@@ -32,7 +32,7 @@ The Authorization Code flow is initiated by redirecting the user in the web brow
 
 After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an ID Token by making a request to the `/oauth/token` endpoint.
 
-The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
+The ID Token is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
 ![](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
 
@@ -60,7 +60,7 @@ This URL must be part of your application, as your application will need to retr
 
 ## Call the Authorization URL
 
-The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
+The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session](/sessions) is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
 
 This endpoint supports the following query string parameters:
 
@@ -77,7 +77,7 @@ This endpoint supports the following query string parameters:
   Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Application inside the [Auth0 Dashboard](${manage_url}).
 :::
 
-## Exhange the `access_code` for an ID Token
+## Exchange the `access_code` for an ID Token
 
 After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, such as
 
@@ -92,11 +92,32 @@ You application will need to handle the request to this callback URL, extract th
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -111,7 +132,7 @@ The response from `/oauth/token` contains an `access_token`, `id_token` and `tok
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/tokens/concepts/jwts) contains more information about the structure of a JWT.
 
 You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 

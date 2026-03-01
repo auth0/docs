@@ -1,25 +1,29 @@
 ---
-description: Learn how to handle errors when using your database as an identity provider.
+description: Describes how to handle errors and troubleshoot when using your database as an identity provider.
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - troubleshooting
+contentType: reference
 useCase:
     - customize-connections
+    - troubleshooting
 ---
-# Custom Database Error Handling and Troubleshooting
+# Troubleshoot Custom Databases
 
-In this article, we will show you how you can return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
+You can use return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
 
 ## Types of errors
 
 There are three different errors you can return from a database connection:
 
-| Error | Description |
-| - | - |
-| `new WrongUsernameOrPasswordError(<email or user_id>, <message>)` | an error that occurs when you know who the user is and want to keep track of a wrong password being used |
-| `new ValidationError(<error code>, <message>)` | a generic error with an error code |
-| `new Error(<message>)` | a simple error (no error code included) |
+| Error | Login Script | Description |
+| - | - | - |
+| `new WrongUsernameOrPasswordError(<email or user_id>, <message>)` | Login | Occurs when the user's credentials are invalid |
+| `new ValidationError(<user_exists>, <message>)` | Create | Occurs when a user already exists in your database |
+| `callback(<null>,<false>)` | Change Password | Occurs when the user's password was not updated|
+| `callback(<null>)` | Get User | Occurs when the user is not found|
+| `new Error(<message>)` | All Login Scripts | Occurs when something went wrong while trying to reach the database |
 
 ## Return errors
 
@@ -37,16 +41,11 @@ callback(new ValidationError('email-too-long', 'Email is too long.'));
 
 ### Returning errors when using Lock
 
-If you use [Lock](/libraries/lock), you can [customize the error messages](libraries/lock/customizing-error-messages) that will be displayed by adding them to the dictionary.
+If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error messages](libraries/lock/customizing-error-messages) that will be displayed by adding them to the dictionary.
 
 ## Troubleshooting Errors
 
-Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
+Test the script using the **TRY** button. 
 
-![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
+If you do not get the expected result or you receive an error, install the [Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) and use `console.log()` statements in your script and try the connection again. The output of `console.log()` will print to the Real-time Webtask Logs window.
 
-If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
-
-::: note
-The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) can be used to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
-:::

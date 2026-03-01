@@ -14,6 +14,8 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Java Servlet', callback: 'http://localhost:3000/callback' }) %>
 
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000/login' }) %>
+
 <%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>

@@ -22,7 +22,7 @@ you may avoid the integration trouble.
 
 Below is an outline of the steps to get ready to accept Norwegian BankID logins, but you may also view [a short screen cast](https://criipto.com/easyid/auth0/2016/12/07/easyid-and-auth0/) at Criipto's website.
 
-::: panel Process to use NOrwegian BankID in Production
+::: panel Process to use Norwegian BankID in Production
 While the technical integration complexity is simple, to use Norwegian BankID in production you will have to go through a formal process to
 register and obtain the necessary certificate to identify yourself to your users.
 More on this process can be found once you sign into the Criipto Verify service, and with the help of Criipto.
@@ -71,7 +71,7 @@ Click the check mark in the green area at the bottom to allow Criipto Verify to 
 
 ## 5. Verify the connections
 
-Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
+Go to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
 
 ::: note
 One connection has been created for each kind of authentication supported by Norwegian BankID: Browser based and mobile. The mobile method requires a special SIM card issued by a Norwegian provider.

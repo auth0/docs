@@ -1,7 +1,9 @@
 title: Apache
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/apache.jpg
+logo: apache
 author:
   community: true
-image: /media/platforms/apache.jpg
 topics:
   - quickstart
 snippets:
@@ -12,5 +14,7 @@ seo_alias: apache
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 contentType: tutorial
 useCase: quickstart

@@ -1,6 +1,6 @@
 ---
 title: Change or Upgrade Your Auth0 Subscription
-decription: How to upgrade or change your Auth0 subscription.
+description: How to upgrade or change your Auth0 subscription.
 topics:
     - support
     - subscriptions
@@ -32,7 +32,7 @@ You can use the [Management Dashboard](${manage_url}) to upgrade your subscripti
 * The Developer plan to the Developer Pro plan.
 
 ::: note
-If you would like to upgrade to an Enterprise plan, please contact [Auth0 Sales](https://auth0.com/?contact=true).
+If you would like to upgrade to an Enterprise plan, please [contact Auth0 Sales](https://auth0.com/get-started?place=documentation%20post&type=link&text=contact%20auth0%20sales).
 :::
 
 On the **Subscription** tab, scroll down to the panels describing the plan options available to you.
@@ -45,7 +45,7 @@ To select a new plan, click **Checkout** in the associated box to upgrade. If yo
 
 Click **Subscribe Now** to confirm your information and activate your new subscription.
 
-## Downgrade a paid subscription to a free subscription
+## Downgrade to a free subscription
 
 On the **Subscription** tab, scroll down to the box associated with the **Free** plan and click **Checkout**.
 

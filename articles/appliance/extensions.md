@@ -10,6 +10,7 @@ contentType:
     - how-to
 useCase: appliance
 applianceId: appliance58
+sitemap: false
 ---
 
 # PSaaS Appliance: Extensions
@@ -18,17 +19,17 @@ While using [Extensions](/extensions) in the PSaaS Appliance is very similar to 
 
 You may receive updates to Extensions at any time without prior notice.
 
+## Set up and enable Webtasks
+
+You must set up and enable Webtasks before you can use Extensions.
+
+To [set up and enable your Webtasks](/appliance/infrastructure/extensions#requirements-for-enabling-webtasks), go to the [Webtasks page under Tenant Settings](${manage_url}/#/tenant/webtasks) in the Management Dashboard.
+
 ## Configure Extensions
 
-Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
+When you activate a Webtask in the PSaaS Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
 
 `webtask.<auth0applianceurl>`
-
-::: note
-To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
-
-See [Enable Webtasks, Web Extensions, and User Search](/appliance/infrastructure/extensions) for additional information.
-:::
 
 In order for you to configure Extensions, you will need to add this URL to the **Allowed Origins (CORS)** section under the [Auth0 Dashboard's Application Settings page](${manage_url}/#/applications).
 

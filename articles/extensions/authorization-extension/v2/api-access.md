@@ -11,7 +11,11 @@ useCase: extensibility-extensions
 ---
 # Authorization Extension: API Access
 
-Once configured and set up, your extension should contain users, as well as groups, roles, and permissions. You can automate provisioning and query the authorization context of your users in real-time if you enable API access to your extension.
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
+
+Once configured and set up, your extension should contain users, as well as groups, <dfn data-key="role">roles</dfn>, and permissions. You can automate provisioning and query the authorization context of your users in real-time if you enable API access to your extension.
 
 ## Enable API Access
 
@@ -55,13 +59,13 @@ If you make any changes to the scopes, click **Update** to save.
 
 ### Get the Access Token
 
-To access the API, you'll need to [ask for and obtain the appropriate token](https://auth0.com/docs/api-auth/tutorials/client-credentials#ask-for-a-token).
+To access the API, you'll need to [ask for and obtain the appropriate token](/flows/guides/client-credentials/call-api-client-credentials#request-token).
 
 ### Call the API
 
 You can call the API via:
 
-* An HTTML request
+* An HTML request
 * A cURL command
 
 You can also find detailed information about the endpoints, as well as samples on how to call each endpoint using the three methods above, in the [Authorization Extension API Explorer](/api/authorization-extension).

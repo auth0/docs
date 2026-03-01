@@ -1,6 +1,6 @@
 ### Default values
 
-Lock 11 will default the [scope](/scopes) parameter to `'openid profile email'`. This is to make the **Last time you logged in with** window work correctly.
+Lock 11 will default the <dfn data-key="scope">scope</dfn> parameter to `'openid profile email'`. This is to make the **Last time you logged in with** window work correctly.
 
 If you are running your website from `http://localhost` or `http://127.0.0.1` and you do not specify the `openid profile email` scope when initializing Lock, you may get the following error in the browser console:
 

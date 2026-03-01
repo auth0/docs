@@ -1,4 +1,6 @@
 ```
+# mods-available/auth_openidc.conf
+
 OIDCProviderMetadataURL https://${account.namespace}/.well-known/openid-configuration
 OIDCClientID ${account.clientId}
 OIDCClientSecret 'YOUR_CLIENT_SECRET'

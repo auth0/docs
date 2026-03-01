@@ -1,0 +1,24 @@
+<% var terminated = false; %>
+<div class="connections-container">
+<% var i=0; _.forEach(connections, function(article) { %>
+  <% if (article.connection) { %>
+    <% if (article.public !== false) { %>
+    <a class="connection connection-public" href="<%- article.url %>">
+    <% } else { %>
+    <div class="connection">
+    <% } %>
+      <div class="connection-content">
+        <div class="connection-image-wrap">
+          <img class="img-responsive" src="<%- article.image %>" />
+        </div>
+        <h3 class="connection-title"><%- article.connection %></h3>
+      </div>
+    <% if (article.public !== false) { %>
+    </a>
+    <% } else { %>
+    </div>
+    <% } %>
+  <% } %>
+<% }); %>
+</div>
+<% connections = []; %>

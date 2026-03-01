@@ -1,34 +1,34 @@
 title: Android
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/android.png
+logo: android
 alias:
   - Android
 language:
-  - Java
-  - C
+  - Kotlin
 hybrid: false
 author:
   name: Luciano Balmaceda
   email: luciano.balmaceda@auth0.com
   community: false
-image: /media/platforms/android.png
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+show_releases: true
 snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
   use: native-platforms/android/use
 seo_alias: android
 default_article: 00-login
+hidden_articles:
+  - interactive
 articles:
   - 00-login
-  - 03-session-handling
-  - 04-user-profile
-  - 05-linking-accounts
-  - 06-calling-apis
-  - 07-authorization
+  - 01-user-metadata
 next_steps:
-  - path: 07-authorization
+  - path: 00-login
     list:
     - text: Configure other identity providers
       icon: 345
@@ -36,9 +36,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"
@@ -46,7 +46,12 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-android-sample
+  branch: master
+sdk:
+  name: Auth0.Android
+  url: https://github.com/auth0/Auth0.Android
+  logo: android
 requirements:
-  - Android Studio 2.3
-  - Android SDK 25
-  - Emulator - Nexus 5X - Android 6.0
+  - Android Studio 4.1.0
+  - Android SDK 30
+  - Emulator - Android 11.0

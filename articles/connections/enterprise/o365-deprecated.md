@@ -2,6 +2,7 @@
 title: Connect your app to Microsoft Office 365 (Deprecated)
 connection: Office 365 (Deprecated)
 image: /media/connections/office-365.png
+public: false
 alias:
   - office365
 seo_alias: o365-deprecated
@@ -25,8 +26,8 @@ See [here](/office365-deprecated) for more details.
 
 To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
 
-## 1. Log into the Seller Dashboard
-Log into the [Seller Dashboard](https://sellerdashboard.microsoft.com), then select **client ids**.
+## 1. Log in to the Seller Dashboard
+Log in to the [Seller Dashboard](https://sellerdashboard.microsoft.com), then select **client ids**.
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-1.png)
 
@@ -52,8 +53,6 @@ This is your only opportunity in Office 365 to copy the `ClientSecret`, it is no
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-4.png)
 
-In your Auth0 dashboard, select **Connections > Enterprise**, then select **Office 365**.
-
-Copy the `ClientId` and `ClientSecret` from the Seller Dashboard into your Office 365 connection settings on this page.
+Navigate to [Auth0 Dashboard > Marketplace](${manage_url}/#/marketplace/office-365-sso), then select **SSO Integrations**, and locate **Office 365**, then[Configure the Office 365 connection](/integrations/sso/office-365).
 
 <%= include('../_quickstart-links.md') %>

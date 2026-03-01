@@ -2,6 +2,7 @@
 section: libraries
 title: Lock Objective-C API
 description: Description of the Lock Objective-C API
+public: false
 topics:
   - libraries
   - lock
@@ -212,7 +213,7 @@ controller.loginAfterSignup = NO;
 @property (assign, nonatomic) A0AuthParameters *authenticationParameters;
 ```
 
-List of optional parameters that will be used for every authentication request with Auth0 API. By default it only has  'openid' and 'offline_access' scope values. For more information check out our [Wiki](/libraries/lock-ios/sending-authentication-parameters)
+List of optional parameters that will be used for every authentication request with Auth0 API. By default it only has  'openid' and 'offline_access' <dfn data-key="scope">scope</dfn> values. For more information check out our [Wiki](/libraries/lock-ios/sending-authentication-parameters)
 
 ```objc
 controller.authenticationParameters.scopes = @[A0ScopeOfflineAccess, A0ScopeProfile];

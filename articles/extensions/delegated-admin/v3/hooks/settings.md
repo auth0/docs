@@ -13,7 +13,7 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Settings Query Hook
 
-The **Settings Query** allows you to customize the look and feel of the Delegated Admin extension.
+The **Settings Query Hook** allows you to customize the look and feel of the Delegated Admin extension.
 
 ## The Hook Contract
 
@@ -38,7 +38,9 @@ function(ctx, callback) {
       menuName: ctx.request.user.name
     },
     // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
-    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css',
+    // This option allows you to restrict creating new users
+    canCreateUser: (department === 'IT')
   });
 }
 ```
@@ -57,6 +59,7 @@ function(ctx, callback) {
 - **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
 - **errorTranslator**: A function that translates error messages based on localization. Example: `(function (error, languageDictionary) { return languageDictionary.customErrors[error] || error; }).toString()`
+- **canCreateUser**: A boolean flag. If set to `false`, removes `Create User` button and forbids creating new users, `true` by default. 
 
 ## Custom Fields
 
@@ -64,7 +67,10 @@ Beginning with version 3.0 of the Delegated Admin Extension, you can define cust
 
 You may also customize existing fields defined by Auth0, such as email, username, name, and connection.
 
-To utilize custom fields, you must add your list of **userFields** to the Settings Query Hook.
+To utilize custom fields, you must:
+
+- Add your list of **userFields** to the Settings Query Hook
+- Implement a [Write Hook](/extensions/delegated-admin/v3/hooks/write). Custom Fields require the use of the [Write Hook](/extensions/delegated-admin/v3/hooks/write) to properly update `user_metadata` and `app_metadata`. You must [update the user object passed to the callback function](/extensions/delegated-admin/v3/hooks/write#sample-usage) with the `user_metadata` and `app_metadata` from the context (`ctx` object) provided to the hook.
 
 Sample schema for **userFields**:
 
@@ -135,7 +141,7 @@ userFields: [
     - **edit.validateFunction**: stringified function for validation. Note that this validation function will run on both the server- and client-side. Example: `(function validate(value, values, context, languageDictionary) { if (value...) return 'something went wrong'; return false; }).toString()`
 - **create**: false || object => This describes whether the field shows up on the create dialog.
     - Default: if `false` will not show up on the create page
-    - **create.display**: This will override the default display value
+    - **create.placeholder**: Provide placeholder text to show when input is empty.
     - **create.required**: set to true to fail if it does not have a value.  Default is false.
     - **create.type** **required**: text || select || password
     - **create.component**: InputText || Input Combo || InputMultiCombo || InputSelectCombo

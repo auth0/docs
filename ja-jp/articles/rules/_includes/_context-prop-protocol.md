@@ -1,0 +1,13 @@
+The authentication protocol. Possible values:
+- `oidc-basic-profile`: most used, web based login
+- `oidc-implicit-profile`: used on mobile devices and single-page apps
+- `oauth2-device-code`: transaction using the [Device Authorization Flow](/flows/concepts/device-auth)
+- `oauth2-resource-owner`: user/password login typically used on database connections
+- `oauth2-resource-owner-jwt-bearer`: login using a bearer JWT signed with user's private key
+- `oauth2-password`: login using the password exchange
+- `oauth2-refresh-token`: refreshing a token using the <dfn data-key="refresh-token">Refresh Token</dfn> exchange
+- `samlp`: <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol used on SaaS apps
+- `wsfed`: WS-Federation used on Microsoft products like Office365
+- `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365
+- `delegation`: when calling the [Delegation endpoint](/api/authentication#delegation)
+- `redirect-callback`: when a redirect rule is resumed

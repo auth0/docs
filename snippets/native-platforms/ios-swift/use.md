@@ -5,8 +5,8 @@ Auth0
     .webAuth()
     .scope("openid profile")
     .audience("https://${account.namespace}/userinfo")
-    .start {
-        switch $0 {
+    .start { result in
+        switch result {
         case .failure(let error):
             // Handle the error
             print("Error: \(error)")

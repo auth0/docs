@@ -3,6 +3,7 @@ section: libraries
 toc: true
 title: Lock for Android v1
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
+public: false
 mobileimg: media/articles/libraries/lock-android.png
 topics:
   - libraries

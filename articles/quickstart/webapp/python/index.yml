@@ -1,5 +1,11 @@
 title: Python
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/python.png
+logo: python
+author:
+  name: Evan Sims
+  email: evan.sims@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
@@ -12,30 +18,33 @@ seo_alias: python
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-python-web-app
   branch: master
+sdk:
+  name: auth0-python
+  url: https://github.com/auth0/auth0-python
+  logo: python
 requirements:
-  - Python 2.7, 3.0 and up
-  - Flask 0.10.1 and up
-  - Python-dotenv 0.6.5 and up
-  - Requests 2.3.0 and up
-  - Flask-oauthlib 0.9.4 and up
-  - Six 1.10.0 and up
+  - Python 3
+  - Authlib 1.0
+  - Flask 2.0
 next_steps:
   - path: 01-login
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

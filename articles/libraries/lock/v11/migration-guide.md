@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating to Lock v11
 description: How to migrate to Lock v11
+public: false
 topics:
   - libraries
   - lock
@@ -16,7 +17,7 @@ useCase:
 ---
 # Migrating to Lock v11
 
-[Lock v11](/libraries/lock) operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
+<dfn data-key="lock">[Lock v11](/libraries/lock)</dfn> operates with enhanced security and removes dependencies that have been deprecated as per Auth0's roadmap. In some cases, these security enhancements may impact application behavior when upgrading from an earlier version of Lock. 
 
 ## Should I migrate to v11?
 
@@ -28,7 +29,7 @@ The documents below describe all the changes that you should be aware of when mi
 
 * [Migrating from the lock-passwordless widget](/libraries/lock/v11/migration-lock-passwordless)
 * [Migrating from Lock v10](/libraries/lock/v11/migration-v10-v11)
-    * [Recommendations for migrating from Lock v10 when SSO is required](/guides/login/migration-sso)
+* [Recommendations for migrating from Lock v10 when Single Sign-on (SSO) is required](/guides/login/migration-sso)
 * [Migrating from Lock v10 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v10)
 * [Migrating from Lock v10 in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
 * [Migrating from Lock v10 in React Applications](/libraries/lock/v11/migration-react)
@@ -62,6 +63,6 @@ You have already migrated to Lock 11 but you still see this error in your logs:
 Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
 ```
 
-These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in.
+These deprecation notices most likely originate from a user visiting the <dfn data-key="universal-login">Universal Login</dfn> [page](/universal-login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in.
 
-Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.
+See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for more information on deprecation-related errors.

@@ -1,0 +1,3 @@
+::: warning
+Embedded login for web uses Cross Origin Authentication. In some browsers [this can be unreliable](/cross-origin-authentication#limitations) if you do not set up a [Custom Domain](/custom-domains) **and host your app on the same domain**. Using Custom Domains with Auth0 is a paid feature. If you cannot use Custom Domains, consider [migrating to Universal Login](/guides/login/migration-embedded-universal).
+:::

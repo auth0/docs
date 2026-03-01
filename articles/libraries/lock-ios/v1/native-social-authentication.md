@@ -2,6 +2,7 @@
 section: libraries
 title: Native Social Authentication
 description: How to enable native login for some the supported social social connections.
+public: false
 topics:
   - libraries
   - lock
@@ -43,7 +44,7 @@ Before following these steps, please check our [documentation](/libraries/lock-i
 
 ### Facebook
 
-Lock uses Facebook iOS SDK to obtain user's Access Token so you'll need to configure it using your Facebook App info:
+Lock uses Facebook iOS SDK to obtain user's <dfn data-key="access-token">Access Token</dfn> so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 * _FacebookAppID_: `YOUR_FACEBOOK_APP_ID`
@@ -83,7 +84,7 @@ We need your twitter app's key & secret in order to sign the reverse auth reques
 
 Google authentication uses [Google Sign-In](https://developers.google.com/identity/sign-in/ios/) iOS library, so you'll need to register your iOS application in [Google Developer Console](https://console.developers.google.com/project) and get your clientId.
 
-We recommend follwing [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
+We recommend following [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
 
 Then add that file to your application's target and the last step is to register two custom URL for your application.
 

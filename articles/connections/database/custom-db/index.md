@@ -1,52 +1,41 @@
 ---
-title: Authenticate Users Using Your Database
-image: /media/connections/mysql.svg
-seo_alias: mysql
-description: Learn how to authenticate users using your database as an identity provider.
-toc: true
+title: Custom Database Connections
+description: Learn about authenticating users using your database as an identity provider.
+classes: topic-page
 topics:
     - connections
     - custom-database
-contentType: tutorial
+    - scripts
+contentType: 
+    - concept
+    - index
 useCase:
     - customize-connections
 ---
-# Authenticate Users Using Your Database
+<!-- markdownlint-disable MD041 MD002 -->
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Custom Database Connections</h1>
+  <p>
+  Use a custom database connection when you want to provide Auth0 with access to your own independent (legacy) identity data store primarily for authenticaton (filling the role of an identity provider) and for migrating user data to Auth0's data store. 
+  </p>
+</div>
 
-If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users.
+Auth0 [Extensibility](/topics/extensibility) allows you to add custom logic to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: [Rules](/rules), [Hooks](/hooks), and [scripts](/connections/database/custom-db/templates) for both custom database connections and custom database migration. Each is implemented using [Node.js](https://nodejs.org/en/) running on the Auth0 platform in an Auth0 tenant. 
 
-In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
+Auth0 extensibility executes at different points in the IdAM pipeline: 
 
-* [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
-* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Auth0 Normalized User Profile](/user-profile/normalized) for details on Auth0's user profile schema and the expected fields.
-* Provide database action scripts to configure the database for use as an identity provider.
+* **Rules** run when artifacts for user authenticity are generated (i.e., an ID Token in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>), an Access Token in OAuth 2.0, or an assertion in <dfn data-key="security-assertion-markup-language">Security Assertion Markup Language (SAML)</dfn>. 
+* **Hooks** provide additional extensibility for when there is an exchange of non-user related artifacts, and for when user identities are created. See [pre-user registration](/hooks/extensibility-points/pre-user-registration) and [post-user registration](/hooks/extensibility-points/post-user-registration) Hooks for details. 
+* **Custom database action scripts** can be used to integrate with an existing user identity store, or can be used where [automatic user migration](/users/concepts/overview-user-migration#automatic-migrations) from an legacy identity store is required. 
 
-## Before you begin
+Whatever the use case, Auth0 extensibility allows you to tailor IdAM operations to your exact requirements. However, if not used in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, Auth0 provides [best practice guidance](/best-practices/custom-db-connections) to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0.    
 
-Here are some things to know before you begin the process of setting up your database for use as an identity provider.
+<%= include('./_includes/_panel-feature-availability') %>
 
-* You'll write your [database action scripts](/connections/database/custom-db/templates) in JavaScript. The scripts run in a [Webtask](https://webtask.io/) environment that supports JavaScript and [select Node.js libraries](https://auth0-extensions.github.io/canirequire/).
-
-* Auth0 provides [custom script templates](/connections/database/custom-db/templates) for most of the commonly-used databases, including:
-
-  * ASP.NET Membership Provider
-  * MongoDB
-  * MySQL
-  * Oracle
-  * PostgreSQL
-  * SQLServer
-  * Windows Azure SQL Database
-  * Web services accessed via Basic Auth
-
-  Essentially, you can connect to any kind of database or web service with a properly-configured custom script.
-
-* [Update Users Using Your Database](/user-profile/customdb) has information on updating user profile fields.
-
-### Keep reading
-
-::: next-steps
-* [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection)
-* [Write custom database action scripts](/connections/database/custom-db/templates)
-* [Update users using your database](/user-profile/customdb)
-* [Handle errors and troubleshoot your custom DB scripts](/connections/database/custom-db/error-handling)
-:::
+<%= include('../../../_includes/_topic-links', { links: [
+  'connections/database/custom-db/overview-custom-db-connections',
+  'connections/database/custom-db/create-db-connection',
+  'connections/database/custom-db/templates',
+  'connections/database/custom-db/error-handling'
+] }) %>

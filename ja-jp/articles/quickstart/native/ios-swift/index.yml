@@ -1,0 +1,38 @@
+title: iOS / macOS
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/ios.png
+logo: apple
+alias:
+  - ios
+  - macos
+  - swift
+language:
+  - Swift
+hybrid: false
+author:
+  name: Rita Zerrizuela
+  email: rita.zerrizuela@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: swift
+show_releases: true
+show_steps: true
+requirements:
+  - iOS 13+ or macOS 11+
+  - Xcode 14.x
+default_article: 01-login
+articles:
+  - 01-login
+hidden_articles:
+  - interactive
+sdk:
+  name: Auth0.swift
+  url: https://github.com/auth0/Auth0.swift
+  logo: apple
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-sample
+  branch: master

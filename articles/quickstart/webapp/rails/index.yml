@@ -1,5 +1,11 @@
 title: Ruby On Rails
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/rails.png
+logo: rails
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 topics:
   - quickstart
   - ruby
@@ -7,30 +13,31 @@ topics:
   - ruby on rails
 contentType: tutorial
 useCase: quickstart
-snippets:
-  dependencies: server-platforms/rails/dependencies
-  setup: server-platforms/rails/setup
-  use: server-platforms/rails/use
 alias:
   - ruby-rails
   - sinatra
   - omniauth
 seo_alias: rails
 default_article: 01-login
+hidden_articles:
+  - interactive
 articles:
   - 01-login
-  - 02-session-handling
-  - 03-user-profile
+  - 02-troubleshooting
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-rubyonrails-sample
   branch: master
+  path: sample
+sdk:
+  name: omniauth-auth0
+  url: https://github.com/auth0/omniauth-auth0
+  logo: rails
 requirements:
-  - Ruby 2.3.1+
-  - Rails 5.0.0+ or Rails 4.2.0+
+  - Ruby 2.5.0+ | Rails 6.0+ or Rails 5.0+ or Rails 4.2+
 next_steps:
-  - path: 03-user-profile
+  - path: 01-login
     list:
     - text: Configure other identity providers
       icon: 345
@@ -38,9 +45,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

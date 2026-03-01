@@ -1,6 +1,6 @@
 ## Create the API
 
-Your resource server (API) needs to be configured to verify the Access Token and any claims contained within it. When you create a resource server in your Auth0 dashboard, it utilizes the RS256 signature method by default, meaning that Access Tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key. You can read more about the [JSON Web Key Set (JWKS)](/jwks) standard and also view the [public key](https://${account.namespace}/.well-known/jwks.json) for your Auth0 account (https://${account.namespace}/.well-known/jwks.json).
+Your resource server (API) needs to be configured to verify the Access Token and any claims contained within it. When you create a resource server in your Auth0 dashboard, it utilizes the RS256 signature method by default, meaning that Access Tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key. You can read more about the [JSON Web Key Set (JWKS)](/tokens/concepts/jwks) standard and also view the [public key(s)](https://${account.namespace}/.well-known/jwks.json) for your Auth0 account (https://${account.namespace}/.well-known/jwks.json). You can also learn how to [manage your signing keys](/tokens/guides/manage-signing-keys).
 
 You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. The following example will demonstrate how to create a resource server API with Node. You can find more information about resource server implementations in the [Access Token documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
 
@@ -21,7 +21,7 @@ const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 
 const authenticate = jwt({
-  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
+  // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,

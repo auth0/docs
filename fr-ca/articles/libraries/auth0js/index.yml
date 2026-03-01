@@ -1,0 +1,7 @@
+versioning:
+  baseUrl: libraries/auth0js
+  current: v9
+  versions:
+    - v9
+  defaultArticles:
+    v9: index

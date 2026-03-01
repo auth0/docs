@@ -2,6 +2,7 @@
 section: libraries
 title: Using Lock with Swift
 description: How to use Swift with Lock iOS.
+public: false
 topics:
   - libraries
   - lock
@@ -18,7 +19,7 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-**Lock** was written in Objective-C but it can be used from a pure Swift project or a Hybrid project (Swift & Objective-C).
+<dfn data-key="lock">**Lock**</dfn> was written in Objective-C but it can be used from a pure Swift project or a Hybrid project (Swift & Objective-C).
 
 ## Create Objective-C Bridging Header
 In order to use **Lock** classes in any Swift file, you need to add a Objective-C Bridging Header to your project. The easiest way is to create a dummy Objective-C file in your Swift project (or Swift file in a Objective-C project), this will make Xcode prompt to create the bridging header, just press _"YES"_. After that you can delete the dummy file from your project and open the bridging header file which is called `<YouAppName>-Bridging-Header.h`.

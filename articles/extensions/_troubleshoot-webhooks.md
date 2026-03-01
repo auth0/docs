@@ -6,7 +6,7 @@ However, there are certainly alternatives to the inefficient process we detailed
 
 1. Check the [Logs](/logs) section of the [Dashboard](${manage_url}/#/logs) for helpful messages.
 
-1. Analyze the requests your webhook is making using a tool like [Hookbin](https://hookbin.com/) or [Mockbin](http://mockbin.org/).
+1. Analyze the requests your webhook is making using a tool like [Mockbin](http://mockbin.org/), [Beeceptor](https://beeceptor.com/), or (self-hosted) [RequestBin](https://github.com/Runscope/requestbin).
 
 1. Mock requests using cURL or [Postman](https://www.getpostman.com/)
 

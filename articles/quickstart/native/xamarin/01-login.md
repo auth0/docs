@@ -13,6 +13,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+<!-- markdownlint-disable MD002 MD041 -->
+
 <%= include('../_includes/_getting_started', { library: 'Xamarin') %>
 
 <%= include('../../../_includes/_callback_url') %>
@@ -38,6 +40,12 @@ Since callback URLs can be manipulated, you will need to add your application's 
   where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier for your application, such as `com.mycompany.myapplication`.
 
 Ensure that the Callback URL is in lowercase.
+
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to add to the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 ## Install Dependencies
 
@@ -138,7 +146,9 @@ public class AppDelegate : UIApplicationDelegate
 
 With the above code in place, a user can log in to your application using Auth0.
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-ios.png" alt="Lock UI"></div>
+<div class="phone-mockup">
+    <img src="/media/articles/native-platforms/android/login-android.png" alt="Universal Login" />
+</div>
 
 ## Accessing the User's Information
 
@@ -149,10 +159,6 @@ The returned login result will indicate whether authentication was successful an
 You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
 
 ```csharp
-// For Android
-var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
-
-// For iOS
 var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
@@ -166,7 +172,7 @@ if (loginResult.IsError)
 On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
-var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
 {
@@ -177,7 +183,7 @@ if (!loginResult.IsError)
 
 ### Obtaining the User Information
 
-On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
+On successful login, the login result will contain the user information in the `User` property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx" target="_blank" rel="noreferrer">ClaimsPrincipal</a>.
 
 To obtain information about the user, you can query the claims. You can, for example, obtain the user's name and email address from the `name` and `email` claims:
 
@@ -190,7 +196,7 @@ if (!loginResult.IsError)
 ```
 
 ::: note
-The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Application documentation.
+The exact claims returned will depend on the scopes that were requested. For more information see the <a href="https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html" target="_blank" rel="noreferrer">Using Scopes</a> in the Auth0 OIDC Application documentation.
 :::
 
 You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
@@ -203,4 +209,12 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+BrowserResultType browserResult = await client.LogoutAsync();
 ```

@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating to Auth0.js v9
 description: How to migrate to Auth0.js v9
+public: false
 toc: true
 topics:
   - libraries
@@ -26,7 +27,7 @@ Everyone should migrate to v9. All previous versions are deprecated, and the dep
 The documents below describe all the changes that you should be aware of when migrating from different versions of Auth0.js to v9. Make sure you go through the relevant guide(s) before upgrading.
 
 * [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
-    * [Recommendations for migrating from Auth0.js v8 when SSO is required](/guides/login/migration-sso)
+    * [Recommendations for migrating from Auth0.js v8 when Single Sign-on (SSO) is required](/guides/login/migration-sso)
 * [Migrating from Auth0.js v7](/libraries/auth0js/v9/migration-v7-v9)
 * [Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
 * [Migrating from Auth0.js v8 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v8)
@@ -49,6 +50,6 @@ You have already migrated to Auth0.js 9 but you still see this error in your log
 Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application.
 ```
 
-These deprecation notices most likely originate from a user visiting the [Universal Login page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in. 
+These deprecation notices most likely originate from a user visiting the <dfn data-key="universal-login">Universal Login</dfn> [page](/universal-login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in. 
 
-Check out the [Deprecation Error Reference](/errors/deprecation-errors) for more information on deprecation related errors.
+See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for more information on deprecation-related errors.

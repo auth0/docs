@@ -1,0 +1,12 @@
+---
+title: Android guide to i18n
+description: Links to the Android guide on how to localize resource files.
+topics:
+    - i18n
+    - android
+contentType: how-to
+useCase: localize
+---
+# Android guide to i18n
+
+Follow the official [Android documentation](http://developer.android.com/guide/topics/resources/localization.html) on how to localize. It will cover setting up locale resources in an Android development environment. The Auth0 key value pairs that can be localized are found [here](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/res/values/strings.xml).

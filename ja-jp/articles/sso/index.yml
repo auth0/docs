@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: sso
+  current: current
+  versions:
+    - legacy
+    - current
+  defaultArticles:
+    legacy: index
+    current: index

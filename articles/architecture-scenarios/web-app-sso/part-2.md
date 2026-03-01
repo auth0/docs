@@ -13,7 +13,7 @@ useCase:
   - secure-an-api
   - build-an-app
 ---
-# SSO for Regular Web Apps: Auth0 Configuration
+# Single Sign-On for Regular Web Apps: Auth0 Configuration
 
 In this section we will review all the configurations we need to apply using the [Auth0 Dashboard](${manage_url}).
 
@@ -51,7 +51,7 @@ The other available views are:
 
 ### Configure Callback URLs
 
-The __Allowed Callback URLs__ field contains the URL(s) where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect to complete the authentication process. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains, for example `*.google.com`. Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
+The __Allowed Callback URLs__ field contains the URL(s) where Auth0 will redirect to after the user has authenticated in order for the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> to complete the authentication process. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains, for example `*.google.com`. Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 
 The Callback URL for our sample project is `http://localhost:5000/signin-auth0`. Go ahead and set this value to the __Allowed Callback URLs__ field if you plan on using our sample, otherwise add the URL you chose to deploy your application to.
 
@@ -64,9 +64,9 @@ ExampleCo needs to configure two connections: one Active Directory connection fo
 ::: panel Supported identity providers
 Auth0 supports a vast variety of protocols and identity providers:
 - Social: Allow your users to log in using Google, Facebook, LinkedIn, Github, and many more.
-- Enterprise: Allow your users to log in using Active Directory, ADFS, LDAP, SAML-P, and many more.
+- Enterprise: Allow your users to log in using Active Directory, ADFS, LDAP, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, and many more.
 - Database connections: Create your own user store by configuring a new database connection, and authenticate your users using email/username and password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
-- Passwordless authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or e-mail.
+- <dfn data-key="passwordless">Passwordless</dfn> authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or email.
 :::
 
 ### Create a database connection
@@ -85,10 +85,10 @@ For more information on database connections refer to [Database Identity Provide
 
 ### Create an Active Directory / LDAP Connection
 
-Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation select the [Connections > Enterprise](${manage_url}/#/connections/enterprise)).
+Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation, select [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 
 There you need to create the AD / LDAP connection and install the AD Connector. You can find details in these documents:
-- [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory)
+- [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory-ldap)
 - [How to install the Active Directory/LDAP Connector](/connector)
 
 ::: note

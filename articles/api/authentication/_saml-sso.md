@@ -1,6 +1,6 @@
 # SAML
 
-The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information refer to: [SAML](/protocols/saml).
+The <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol is used mostly for third-party SaaS applications, like Salesforce and Box. Auth0 supports Service Provider (SP) and Identity Provider (IDP) initiated Sign On. To learn more, see [SAML](/protocols/saml).
 
 ## Accept Request
 
@@ -25,30 +25,28 @@ include('../../_includes/_http-method', {
   "link": "#accept-request"
 }) %>
 
-Use this endpoint to accept a SAML request to initiate a login.
+Use this endpoint to accept a <dfn data-key="security-assertion-markup-language">SAML</dfn> request to initiate a login.
 
-Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
+Optionally, you can include a `connection` parameter to log in with a specific provider. If no connection is specified, the [Auth0 Login Page](/authenticate/login/auth0-universal-login) will be shown.
+
+Optionally, SP-initiated login requests can include an `organization` parameter to authenticate users in the context of an organization. To learn more, see [Organizations](/organizations).
 
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `connection`     | The connection to use. |
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
+| `client_id` <br/><span class="label label-danger">Required</span> | Client ID of your application. |
+| `connection`     | Connection to use during login. |
+| `organization`   | Organization ID, if authenticating in the context of an organization. |
 
 
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
-- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's `callback_URL`.
+- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match one of the application's <dfn data-key="callback">`callback_URLs`</dfn>.
 
-### More Information
+### Learn More
 - [SAML](/protocols/saml)
 
 ## Get Metadata
@@ -71,7 +69,7 @@ include('../../_includes/_http-method', {
   "link": "#get-metadata"
 }) %>
 
-This endpoint returns the SAML 2.0 metadata.
+This endpoint returns the <dfn data-key="security-assertion-markup-language">SAML</dfn> 2.0 metadata.
 
 ### Request Parameters
 
@@ -80,16 +78,11 @@ This endpoint returns the SAML 2.0 metadata.
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
-
-
-### More Information
+### Learn More
 - [SAML](/protocols/saml)
 
 
-## IdP-Initiated SSO Flow
+## IdP-Initiated Single Sign-On (SSO) Flow
 
 ```http
 POST https://${account.namespace}/login/callback?connection=CONNECTION
@@ -113,7 +106,7 @@ include('../../_includes/_http-method', {
   "link": "#idp-initiated-sso-flow"
 }) %>
 
-This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
+This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider. The connection corresponding to the identity provider is specified in the query string. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 
 
 ### Request Parameters
@@ -123,17 +116,5 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your application. |
 | `SAMLResponse` <br/><span class="label label-danger">Required</span> | An IdP-Initiated Sign On SAML Response. |
 
-
-### Test with Authentication API Debugger
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
-
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *Other Flows* tab, click **SAML**.
-
-
-### More Information
+### Learn More
 - [SAML](/protocols/saml)

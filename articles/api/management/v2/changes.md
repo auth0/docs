@@ -16,7 +16,6 @@ This document describes the major differences between Auth0's Management API v1 
 ## tl;dr
 
 * v2 uses JWTs instead of opaque tokens.
-* v2 allows you to send an ID Token to perform operations on the user to which the ID Token refers.
 * v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
 * Fewer endpoints on existing features make development easier.
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
@@ -30,15 +29,14 @@ This document describes the major differences between Auth0's Management API v1 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
 | [GET /api/users](/api/v1#!#get--api-users) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) |
-| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | Implemented using Elastic Search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | See the [get_users](/api/v2#!/Users/get_users) documentation. |
 | [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None. | [GET /api/v2/users/{id}](/api/v2#!/Users/get_users_by_id) also accepts `v2\_id` |
-| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available. | TBD. |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available. | TBD. |
-| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:'auth0'` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available. | Not available. |
+| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions and criteria may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. **For enterprise connections**, only supports searching users that have previously logged in; **external user search is no longer supported.** |
+| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:auth0` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. Only supports searching users that have previously logged in; **external user search is no longer supported.** |
+| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Removed. | Removed. |
 | [POST /api/users](/api/v1#!#post--api-users) | None. | [POST /api/v2/users](/api/v2#!/Users/post_users) |
-| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available. | TBD. |
 | [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None. | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
 | [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None. | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
 | [POST /api/users/{user\_id}/publickey](/api/v1#!#post--api-users--user_id--publickey) | Keys are created per device, not per user. | [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials) |
@@ -60,7 +58,7 @@ This document describes the major differences between Auth0's Management API v1 
 | ----------- | ------ | ----------- |
 | [GET /api/clients](/api/v1#!#get--api-clients) | None. | [GET /api/v2/clients](/api/v2#!/Clients/get_clients) |
 | [POST /api/clients](/api/v1#!#post--api-clients) | None. | [POST /api/v2/clients](/api/v2#!/Clients/post_clients) |
-| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Not available. | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
+| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Removed. | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
 | [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None. | [PATCH /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
 | [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/Clients/delete_clients_by_id) |
 
@@ -69,15 +67,15 @@ This document describes the major differences between Auth0's Management API v1 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
 | [GET /api/connections](/api/v1#!#get--api-connections) | None. | [GET /api/v2/connections](/api/v2#!/Connections/get_connections) |
-| [GET /api/connections/{connection-name}](/api/v1#!#get--api-connections--connection-name-) | Changed `connection-name` to `id`. | [GET /api/connections/{id}](/api/v2#!/Connections/get_connections_by_id) |
+| [GET /api/connections/{connection-name}](/api/v1#!#get--api-connections--connection-name-) |  Use `id` instead of `connection-name`. | [GET /api/connections/{id}](/api/v2#!/Connections/get_connections_by_id) |
 | [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property. | [POST /api/v2/connections](/api/v2#!/Connections/post_connections) |
-| [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Not available. Changed `connection-name` to `id`. | [PATCH /api/v2/connections/{id}](/api/v2#!/Connections/patch_connections_by_id) |
-| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id`. | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
-| [GET /api/connections/{connection}/users](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
+| [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Removed; use `id` instead of `connection-name`. | [PATCH /api/v2/connections/{id}](/api/v2#!/Connections/patch_connections_by_id) |
+| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Use `id` instead of `connection-name`. | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
+| [GET /api/connections/{connection}/users](/api/v1) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) (see note) |
+| [GET /api/connections/{connection}/socket](/api/v1) | None. | [GET /api/v2/connections/{id}/status](/api/v2#!/Connections/get_status) |
 
 ::: note
-For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
+For Private Cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
 :::
 
 ### Rules endpoints
@@ -86,20 +84,35 @@ For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (searc
 | ----------- | ------ | ----------- |
 | [GET /api/rules](/api/v1#!#get--api-rules-) | None. | [GET /api/v2/rules](/api/v2#!/Rules/get_rules) |
 | [POST /api/rules](/api/v1#!#post--api-rules) | None. | [POST /api/v2/rules](/api/v2#!/Rules/post_rules-) |
-| [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
-| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
+| [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Removed; use `id` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
+| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Use `id` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
+| [GET /api/rules-configs](/api/v1) | None. | [GET /api/v2/rules-configs](/api/v2#!/Rules_Configs/get_rules_configs) |
+| [POST /api/rules-configs](/api/v1) | Removed; perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
 
 ### Logs endpoints
 
-Logs endpoints have not been implemented in Management API v2. Logs must first be indexed in Elastic Search.
+Logs endpoints in Management API v2 are described at [Search Log Events](https://auth0.com/docs/api/management/v2#!/Logs/get_logs)
+
+| v1 Endpoint | Change | v2 Endpoint |
+| ----------- | ------ | ----------- |
+| [GET /logs](/api/v1#logs) | Syntax Changes, described at [Breaking Changes](https://auth0.com/docs/logs/query-syntax#search-engine-v3-breaking-changes) | [GET /api/v2/logs](/api/v2#!/Logs/get_logs) |
+| [GET /logs/{id}](/api/v1#logs) | None. | [GET /api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id) |
+
+### Email Templates endpoints
+
+| v1 Endpoint | Change | v2 Endpoint |
+| ----------- | ------ | ----------- |
+| [GET /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [GET	/api/v2/email-templates/{templateName}](/api/v2#!/Email_Templates/get_email_templates_by_templateName) |
+| [POST /api/emails](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [POST	/api/v2/email-templates](https://auth0.com/docs/api/management/v2#!/Email_Templates/post_email_templates) |
+| [PUT /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [PUT	/api/v2/email-templates/{templateName}](https://auth0.com/docs/api/management/v2#!/Email_Templates/put_email_templates_by_templateName) |
 
 ## Authentication mechanism
 
-Auth0's API v1 requires sending an Access Token obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
+Auth0's API v1 requires sending an <dfn data-key="access-token">Access Token</dfn> obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
-Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
+Auth0's API v2 requires sending an Access Token with specific <dfn data-key="scope">scope(s)</dfn>. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
-To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
+To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/Users/patch_users_by_id) action is available, but not other properties.
 
 There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
 
@@ -115,7 +128,7 @@ So, for example, if the Access Token contains the scope `update:current_user_met
 
 ## User metadata
 
-In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional information about a user which is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
+In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional user information that is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
 
 ```javascript
 {
@@ -125,7 +138,7 @@ In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id-
 }
 ```
 
-when working with rules or retrieving the user from the API you would get:
+when working with rules or retrieving the user from the API, you would get:
 
 ```javascript
 console.log(user.email); // "jane.doe@gmail.com"
@@ -204,7 +217,7 @@ In Management API v1, different endpoints are used to update the various user pr
 * [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
 * [`PUT /api/users/{user_id}/password`](/api/v1#!#put--api-users--user_id--password)
 
-In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/users/patch_users_by_id) which allows you to modify these (and other) user properties.
+In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/Users/patch_users_by_id) which allows you to modify these (and other) user properties.
 
 ### All endpoints require ids
 

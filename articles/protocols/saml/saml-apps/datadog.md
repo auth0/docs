@@ -29,6 +29,6 @@ useCase:
 }
 ```
 
-The **Callback URL** is `https://app.datadoghq.com/account/saml/assertion`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://app.datadoghq.com/account/saml/assertion`.
 
 Notice that Datadog has an option to automatically provision new users. Check [Datadog docs](http://docs.datadoghq.com/guides/saml/) for more details.

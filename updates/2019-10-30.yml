@@ -1,0 +1,10 @@
+changed:
+  -
+    title: "Custom password hash"
+    tags:
+      - custom
+      - password
+      - hash
+      - password_hash
+    description: |
+      Updated documentation to reflect that users can now upload users with a broader set of hashed passwords.

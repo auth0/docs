@@ -1,14 +1,22 @@
-title: ASP.NET Core Web API v2.0
+title: ASP.NET Core Web API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: dotnet-platform
 alias:
   - asp.net core webapi
   - aspnet core webapi
-  - asp.net core webapi 2.0
+  - asp.net core webapi 6.0
+  - asp.net core webapi 7.0
+  - asp.net core webapi 8.0
 language:
   - C#
 framework:
   - ASP.NET Core
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 thirdParty: false
-image: /media/platforms/asp.png
 topics:
   - quickstart
 contentType: tutorial
@@ -19,16 +27,17 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+hidden_articles:
+  - interactive
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnetcore-webapi-samples
   branch: master
 requirements:
-  - .NET Core SDK 2.1.300
-  - .NET Core 2.1.0
-  - ASP.NET Core 2.1.0
-  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
+  - .NET 6.0
+  - .NET 7.0
+  - .NET 8.0
 next_steps:
   - path: 01-authorization
     list:
@@ -38,9 +47,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

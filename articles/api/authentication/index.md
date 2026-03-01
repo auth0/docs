@@ -55,10 +55,34 @@ contentType:
   <%= include('./api-authz/_authz-client') %>
 </div>
 <div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_get-token') %>
+  <%= include('./api-authz/_auth-code-flow') %>
 </div>
 <div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_revoke-refersh-token') %>
+  <%= include('./api-authz/_auth-code-pkce') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_highly-regulated') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_client-credential') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_implicit') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_resource-owner.md') %>>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_device-code') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_refresh-token') %>
+</div>
+<div class="api-section" data-section="api-authz">
+<%= include('./api-authz/_revoke-refresh-token') %>
+</div>
+<div class="api-section" data-section="api-authz">
+<%= include('./api-authz/_token-exchange-native-social') %>
 </div>
 
 <span data-section-label="legacy">Legacy</span>
@@ -92,8 +116,13 @@ contentType:
  <%= include('./errors/_oauth-access_token') %>
 </div>
 <div class="api-section" data-section="errors">
- <%= include('./errors/_oauth-ro') %>
+<%= include('./errors/_oauth-ro') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-start') %>
 </div>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_passwordless-verify') %>
+</div>
+
+<script type="text/javascript" src="https://my.hellobar.com/0a0898d29aca1681ebd408f7a9ba5c3c16a44862.js"></script>

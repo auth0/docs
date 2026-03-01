@@ -1,4 +1,5 @@
 # Signup
+<!-- markdownlint-disable MD001 MD012 MD012 -->
 
 ```http
 POST https://${account.namespace}/dbconnections/signup
@@ -8,6 +9,12 @@ Content-Type: application/json
   "email": "EMAIL",
   "password": "PASSWORD",
   "connection": "CONNECTION",
+  "username": "johndoe",
+  "given_name": "John",
+  "family_name": "Doe",
+  "name": "John Doe",
+  "nickname": "johnny",
+  "picture": "http://example.org/jdoe.png"
   "user_metadata": { plan: 'silver', team_id: 'a111' }
 }
 ```
@@ -16,7 +23,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
+  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "username": "johndoe", "given_name": "John", "family_name": "Doe", "name": "John Doe", "nickname": "johnny", "picture": "http://example.org/jdoe.png", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
 ```
 
 ```javascript
@@ -33,6 +40,12 @@ curl --request POST \
     connection: 'CONNECTION', 
     email: 'EMAIL', 
     password: 'PASSWORD',
+    username: "johndoe",
+    given_name: "John",
+    family_name: "Doe",
+    name: "John Doe",
+    nickname: "johnny",
+    picture: "http://example.org/jdoe.png",
     user_metadata: { plan: 'silver', team_id: 'a111' }
   }, function (err) { 
     if (err) return alert('Something went wrong: ' + err.message); 
@@ -48,7 +61,12 @@ curl --request POST \
   "_id": "58457fe6b27...",
   "email_verified": false,
   "email": "test.account@signup.com",
-  "user_metadata":{"plan":"silver","team_id":"a111"}
+  "username": "johndoe",
+  "given_name": "John",
+  "family_name": "Doe",
+  "name": "John Doe",
+  "nickname": "johnny",
+  "picture": "http://example.org/jdoe.png"
 }
 ```
 
@@ -59,7 +77,7 @@ curl --request POST \
   "link": "#signup"
 }) %>
 
-Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
+Given a user's credentials and a `connection`, this endpoint creates a new user.
 
 This endpoint only works for database connections. 
 
@@ -68,24 +86,26 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `client_id` | The `client_id` of your client. |
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
-| `user_metadata` | The [user metadata](/metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
+| `username` | The user's username. Only valid if the connection requires a username. |
+| `given_name` | The user's given name(s). |
+| `family_name` | The user's family name(s). |
+| `name` | The user's full name. |
+| `nickname` | The user's nickname. |
+| `picture` | A URI pointing to the user's picture. |
+| `user_metadata` | The [user metadata](/users/concepts/overview-user-metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
 
 
 ### Remarks
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
-### More Information
+### Learn More
 
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)
 - [Adding Username for Database Connections](/connections/database/require-username)
-- [User Metadata](/metadata)
+- [Metadata Overview](/users/concepts/overview-user-metadata)

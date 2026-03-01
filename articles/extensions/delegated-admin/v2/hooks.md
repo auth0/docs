@@ -9,7 +9,7 @@ topics:
 
 # Delegated Administration: Hooks
 
-If you are a user with the `Delegated Admin - Administrator` role in your User Profile, log in to the Delegated Administration Dashboard, and click on your name in the top right corner, you'll see a  *Configure* option. On the Configuration page, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension.
+If you are a user with the `Delegated Admin - Administrator` <dfn data-key="role">role</dfn> in your User Profile, log in to the Delegated Administration Dashboard, and click on your name in the top right corner, you'll see a  *Configure* option. On the Configuration page, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension.
 
 ![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
 

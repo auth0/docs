@@ -1,0 +1,49 @@
+title: MAUI
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/xamarin.png
+logo: dotnet-platform
+author:
+  name: Frederik Prijck
+  email: frederik.prijck@okta.com
+  community: false
+language:
+  - C#
+framework:
+  - maui
+hybrid: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: maui
+default_article: 01-login
+hidden_articles:
+  - interactive
+articles:
+  - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-maui-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: dotnet
+requirements:
+  - Visual Studio 2022+ or Visual Studio for Mac
+  - .NET6+
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

@@ -12,13 +12,9 @@ useCase:
 
 # Generic OAuth 1.0 and 2.0 Examples
 
-::: note
-  The recommended method for creating custom Social Connections is to use Auth0's <a href="/extensions/custom-social-extensions">Custom Social Connections Extension</a>. The information in this article should be used for reference purposes only. 
-:::
+Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
 
-Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
-
-This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` scope.
+This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` <dfn data-key="scope">scope</dfn>.
 
 ## DigitalOcean
 
@@ -108,7 +104,7 @@ This document covers examples of OAuth 1.0/2.0 Connections that you can create b
 Generate an RSA keypair with the following command (or any equivalent method):
 
 ```bash
-$ openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
+openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
 ```
 
 ### Step 2: Create a JIRA Application Link
@@ -156,7 +152,7 @@ node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("a
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"name\": \"jira\", \"strategy\": \"oauth1\", \"options\": { \"consumerKey\", \"CONSUMER_KEY\", \"consumerSecret\": \"CONSUMER_SECRET\", \"requestTokenURL\": \"JIRA_URL/plugins/servlet/oauth/request-token\", \"accessTokenURL\": \"JIRA_URL/plugins/servlet/oauth/access-token\", \"userAuthorizationURL\": \"JIRA_URL/plugins/servlet/oauth/authorize\", \"signatureMethod\": \"RSA-SHA1\", \"scripts\": { \"fetchUserProfile\": \"function(token, tokenSecret, ctx, cb) {\n  // Based on passport-atlassian-oauth\n  // https://github.com/tjsail33/passport-atlassian-oauth/blob/a2e444b0c3969dfd7caf4524ce4a4c379656ba2e/lib/passport-atlassian-oauth/strategy.js\n  var jiraUrl = 'JIRA_URL';\n  var OAuth = new require('oauth').OAuth;\n  var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, '1.0', null, 'RSA-SHA1');\n  function oauthRequest(url, cb) {\n    return oauth._performSecureRequest(token, tokenSecret, 'GET', url, null, '', 'application/json', cb);\n  }\n  oauthRequest(jiraUrl + '/rest/auth/1/session', function(err, body, res) {\n    if (err) return cb(err);\n    if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n    var json;\n    try {\n      json = JSON.parse(body);\n    } catch(ex) {\n      return cb(new Error('Invalid JSON returned from JIRA', ex));\n    }\n    var profileUrl = jiraUrl + '/rest/api/2/user?expand=groups&username=' + encodeURIComponent(json.name);\n    oauthRequest(profileUrl, function(err, body, res) {\n      if (err) return cb(err);\n      if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n      try {\n        json = JSON.parse(body);\n      } catch(ex) {\n        return cb(new Error('Invalid JSON returned from JIRA', ex));\n      }\n      // Auth0-specific mappings, customize as n:qeeded\n      // https:///user-profile/normalized\n      return cb(null, {\n        user_id: json.name,\n        username: json.name,\n        email: json.emailAddress,\n        name: json.displayName,\n        groups: json.groups,\n        picture: json.avatarUrls['48x48'],\n        active: json.active,\n        self: json.self,\n        timezone: json.timeZone,\n        locale: json.locale\n      });\n    });\n  });\n}\n"
+		"text": "{ \"name\": \"jira\", \"strategy\": \"oauth1\", \"options\": { \"consumerKey\", \"CONSUMER_KEY\", \"consumerSecret\": \"CONSUMER_SECRET\", \"requestTokenURL\": \"JIRA_URL/plugins/servlet/oauth/request-token\", \"accessTokenURL\": \"JIRA_URL/plugins/servlet/oauth/access-token\", \"userAuthorizationURL\": \"JIRA_URL/plugins/servlet/oauth/authorize\", \"signatureMethod\": \"RSA-SHA1\", \"scripts\": { \"fetchUserProfile\": \"function(token, tokenSecret, ctx, cb) {\n  // Based on passport-atlassian-oauth\n  // https://github.com/tjsail33/passport-atlassian-oauth/blob/a2e444b0c3969dfd7caf4524ce4a4c379656ba2e/lib/passport-atlassian-oauth/strategy.js\n  var jiraUrl = 'JIRA_URL';\n  var OAuth = new require('oauth').OAuth;\n  var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, '1.0', null, 'RSA-SHA1');\n  function oauthRequest(url, cb) {\n    return oauth._performSecureRequest(token, tokenSecret, 'GET', url, null, '', 'application/json', cb);\n  }\n  oauthRequest(jiraUrl + '/rest/auth/1/session', function(err, body, res) {\n    if (err) return cb(err);\n    if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n    var json;\n    try {\n      json = JSON.parse(body);\n    } catch(ex) {\n      return cb(new Error('Invalid JSON returned from JIRA', ex));\n    }\n    var profileUrl = jiraUrl + '/rest/api/2/user?expand=groups&username=' + encodeURIComponent(json.name);\n    oauthRequest(profileUrl, function(err, body, res) {\n      if (err) return cb(err);\n      if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n      try {\n        json = JSON.parse(body);\n      } catch(ex) {\n        return cb(new Error('Invalid JSON returned from JIRA', ex));\n      }\n      // Auth0-specific mappings, customize as n:qeeded\n      // https:///users/normalized\n      return cb(null, {\n        user_id: json.name,\n        username: json.name,\n        email: json.emailAddress,\n        name: json.displayName,\n        groups: json.groups,\n        picture: json.avatarUrls['48x48'],\n        active: json.active,\n        self: json.self,\n        timezone: json.timeZone,\n        locale: json.locale\n      });\n    });\n  });\n}\n"
 	},
 	"headersSize": -1,
 	"bodySize": -1,

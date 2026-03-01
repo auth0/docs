@@ -7,4 +7,4 @@ added:
       - p&p
       - pkce
     description: |
-      A new doc was added for the [Mobile+API architecture scenario](https://auth0.com/docs/architecture-scenarios/application/mobile-api). The scenario features a mobile app (with an accompanying Android sample) which uses an API (sample in Node.js). The application uses OpenID Connect and the [OAuth 2.0 Authorization Code Grant with PKCE](https://auth0.com/docs/api-auth/grant/authorization-code-pkce) to authorize users with Auth0.
+      A new doc was added for the [Mobile+API architecture scenario](/architecture-scenarios/application/mobile-api). The scenario features a mobile app (with an accompanying Android sample) which uses an API (sample in Node.js). The application uses OpenID Connect and the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) to authorize users with Auth0.

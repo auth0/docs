@@ -7,6 +7,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance35
+sitemap: false
 ---
 # PSaaS Appliance Deployment Architecture
 

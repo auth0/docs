@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance31
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->

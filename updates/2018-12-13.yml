@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated tutorial on using Resource Owner Password from Server side"
+    tags:
+      - api-auth
+      - brute-force-protection
+      - whitelist
+    description: Updated [tutorial](https://auth0.com/docs/api-auth/tutorials/using-resource-owner-password-from-server-side#sending-the-end-user-ip-from-your-server) to describe how both the IP address passed as part of the `auth0-forwarded-for` header, and the IP address of the request itself, will be matched against the configured whitelist for brute-force protection wnen sending the end-user IP from your server.

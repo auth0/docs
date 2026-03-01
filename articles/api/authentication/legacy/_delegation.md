@@ -1,5 +1,3 @@
-<!-- markdownlint-disable -->
-
 # Delegation
 
 ```http
@@ -35,7 +33,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. See the [migration notice](/migrations#api-authorization-with-third-party-vendor-apis) for more information.
+By default, this feature is disabled for tenants without an add-on in use as of 8 June 2017. Legacy tenants who currently use an add-on that requires delegation may continue to use this feature. If delegation functionality is changed or removed from service at some point, customers who currently use it will be notified beforehand and given ample time to migrate.
 :::
 
 A delegation token can be obtained and used when an application needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
@@ -49,24 +47,9 @@ Given an existing token, this endpoint will generate a new token signed with the
 | `client_id` <br/><span class="label label-danger">Required</span> | Τhe `client_id` of your app |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
 | `id_token` or `refresh_token` <br/><span class="label label-danger">Required</span> | The existing token of the user. |
-| `target `        | The target `client_id` |
-| `scope `         | Use `openid` or `openid profile email` |
+| `target`        | The target `client_id` |
+| <dfn data-key="scope">`scope`</dfn>         | Use `openid` or `openid profile email` |
 | `api_type`       | The API to be called. |
-
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
-
-### Test with Authentication API Debugger
-
-<%= include('../../../_includes/_test-this-endpoint') %>
-
-1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
-
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
-
-1. At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
-
 
 ### Remarks
 
@@ -84,8 +67,7 @@ Given an existing token, this endpoint will generate a new token signed with the
   - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
-### More Information
+### Learn More
 
 - [Delegation Tokens](/tokens/delegation)
-
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)

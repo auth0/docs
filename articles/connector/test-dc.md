@@ -90,11 +90,11 @@ You can run your VM on any cloud platform, but this guide will walk through how 
 
 ## Install and Configure the AD/LDAP Connector
 
-1. Using the [Auth0 Management Dashboard](${manage_url}), create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory).
+1. Using the [Auth0 Management Dashboard](${manage_url}), create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory-ldap).
     ::: note
     Be sure to copy the **Ticket URL** that is generated at the end of those instructions.
     :::
-1. On the VM, [disable **Internet Explorer Enhanced Security Configuration**](http://blog.blksthl.com/2012/11/28/how-to-disable-ie-enhanced-security-in-windows-server-2012/).
+1. On the VM, disable **Internet Explorer Enhanced Security Configuration**.
 1. Open **Internet Explorer** with the **Ticket URL** you saved in step 1.
 1. Follow the instructions in the browser to download, install, and configure the **Connector**. When you are prompted for the LDAP service account, use the admin account you created for the VM:
     * Username: `mycompany\ad-admin`

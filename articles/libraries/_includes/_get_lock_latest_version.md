@@ -1,6 +1,6 @@
 ### Update Lock
 
-Update the Lock library using npm or yarn.
+Update the <dfn data-key="lock">Lock</dfn> library using npm or yarn.
 
 ```bash
 # installation with npm

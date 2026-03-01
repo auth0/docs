@@ -1,12 +1,14 @@
 title: Java
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/java.png
+logo: java
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
 author:
-  name: Luciano Balmaceda
-  email: luciano.balmaceda@auth0.com
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
   community: false
 alias:
   - java
@@ -19,6 +21,12 @@ github:
   org: auth0-samples
   repo: auth0-servlet-sample
   branch: master
+hidden_articles:
+  - "interactive"
+sdk:
+  name: auth0-java-mvc-common
+  url: https://github.com/auth0/auth0-java-mvc-common
+  logo: java
 requirements:
   - Java 8
   - Gradle 3.3 and up
@@ -31,9 +39,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

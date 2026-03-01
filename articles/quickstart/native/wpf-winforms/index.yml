@@ -1,6 +1,11 @@
 title: WPF / Winforms
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: dotnet-platform
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 hybrid: false
 language:
   - Javascript
@@ -8,7 +13,6 @@ language:
 framework:
   - WPF
   - WinForms
-image: /media/platforms/asp.png
 topics:
   - quickstart
 contentType: tutorial
@@ -26,13 +30,20 @@ seo_alias: wpf-winforms
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - "interactive"
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-WinFormsWPF-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: windows
 requirements:
-  - Microsoft Visual Studio 2017
-  - .NET Framework 4.5.2
+  - Microsoft Visual Studio 2022
+  - .NET Framework 4.6.2
+  - .NET 6
 next_steps:
   - path: 01-login
     list:
@@ -42,9 +53,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

@@ -18,7 +18,7 @@ You can create up to 10 sets of metadata.
 
 Set the OAuth-related settings on this tab:
 
-* By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
+* By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed Apps/APIs**.
 
 * Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens.
 

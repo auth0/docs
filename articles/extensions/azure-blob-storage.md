@@ -33,6 +33,8 @@ At this point you should set the following configuration variables:
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ## Retrieve the required information from Azure Portal
 
 We need the following information: Account Name, Account Key, and Container Name. Let's see how we can retrieve these values from Azure Portal.
@@ -43,7 +45,9 @@ Log into your Azure account and click on __Storage accounts__ on the left-hand s
 
 The __Account Name__ is the name of your storage account, the one we created is named `azureauth0logs`.
 
-This value should be set as __Storage_Account_Name__.
+This value should be set as __Storage_Account_Name__. 
+
+The value **Kind** should be set as **Storage**.
 
 ![Azure Storage Account Name](/media/articles/extensions/azure/storage-accnt-name.png)
 
@@ -61,8 +65,7 @@ Click on the __Access keys__ tab. Here you can find the value for __Storage_Acco
 
 Now that you have retrieved all three values head back to the [Auth0 dashboard](${manage_url}) and set them at the corresponding fields. You 're done!
 
-
-## Use Your Installed Extension
+## Use installed Extension
 
 To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the __Installed Extensions__ link, and select the __Auth0 Logs to Azure Blob Storage__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
 

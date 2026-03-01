@@ -1,41 +1,52 @@
 ---
-order: 05
-title: Business to Business Identity Scenarios
-image: /media/articles/architecture-scenarios/b2b.png
-extract: In this scenario you usually have a larger SAAS application, like Zendesk for example, where their customers are typically other companies which are registered as tenants.
-description: Explains the architecture scenario of B2B with large SAAS application.
-beta: true
+url: /architecture-scenarios/b2b
+classes: topic-page
+title: Business to Business Identity and Access Management
+description: Explains the architecture scenario B2B IAM with a SAAS application.
 topics:
     - b2b
-    - architecture
-    - lockjs
-    - active-directory
-contentType: concept
+    - b2biam
+    - SDLC
+contentType: index
 useCase:
-  - invoke-api
-  - secure-an-api
-  - build-an-app
+  - implementation
 ---
+<!-- markdownlint-disable MD041 MD002 -->
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Business to Business Identity and Access Management</h1>
+  <p>
+  This guidance is relevant to <b>all</b> project stakeholders. We recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. We provide a Project Planning Guide in PDF format, details about how to get started with each phase of the implementation process, and checklists to help you manage the tasks in each phase.
+  </p>
+</div>
 
-# Business to Business Identity Scenarios
+<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
 
-::: note
-This architecture scenario is under construction and will be updated soon.
-:::
+## Project Planning Guide
 
-![](/media/articles/architecture-scenarios/b2b.png)
+<%= include('./_includes/_planning.md', { platform: 'b2b' }) %>
 
-In this scenario you usually have a larger SAAS application, like Zendesk for example, where their customers are typically other companies which are registered as tenants. Each of these companies (also referred to as tenants) will have their own set of users who can access the information of that tenant on the SAAS application.
+## Multiple Organization Architecture (Multitenancy)
 
-When a tenant is smaller, these users can be stored and authenticated with a Database connection (username/password). Some of the tenants may also be large enterprise companies who wants federate their enterprise directory so they can manage their own users and the users can log in with their existing enterprise credentials.
+<%= include('./_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
-## Read More
+## Get started
 
-The following is a list of articles on this website which will help you to implement this scenario:
+<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
 
-* [Lock](https://auth0.com/lock)
-* [Protocols supported by Auth0](/protocols)
-* [Using Auth0 in SaaS, multi-tenant Apps](/saas-apps)
-* [Identity Providers supported by Auth0](/identityproviders)
-* [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
-* [Social Login](https://auth0.com/learn/social-login/)
+<%= include('../_includes/_topic-links', { links: [
+  'architecture-scenarios/implementation/b2b/b2b-architecture',
+  'architecture-scenarios/implementation/b2b/b2b-provisioning',
+  'architecture-scenarios/implementation/b2b/b2b-authentication',
+  'architecture-scenarios/implementation/b2b/b2b-branding',
+  'architecture-scenarios/implementation/b2b/b2b-deployment',
+  'architecture-scenarios/implementation/b2b/b2b-qa',
+  'architecture-scenarios/implementation/b2b/b2b-profile-mgmt',
+  'architecture-scenarios/implementation/b2b/b2b-authorization',
+  'architecture-scenarios/implementation/b2b/b2b-logout',
+  'architecture-scenarios/implementation/b2b/b2b-operations'
+] }) %>
+
+## Implementation planning checklists
+
+<%= include('./_includes/_implementation-checklists.md') %>

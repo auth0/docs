@@ -1,0 +1,34 @@
+name: Integration Tests
+on:
+  pull_request:
+    branches: master
+
+concurrency: 
+  group: pr-integration-tests-${{ github.event.pull_request.id }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Trigger Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@6c999acf206f5561e19f46301bb310e9e70d8815 # v7.0.7 on 2025-03-20
+      - name: Wait for Tests Results
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: ${{ secrets.NOTIFY_ORG }}
+          repo: ${{ secrets.NOTIFY_REPO }}
+          github_token: ${{ secrets.NOTIFY_PAT_TOKEN }}
+          workflow_file_name: integration-tests.yml
+          ref: master
+          wait_interval: 90
+          client_payload: '{ "docsBranch": "${{ steps.branch-name.outputs.current_branch }}", "pullRequest": "${{ github.event.pull_request.number }}", "postStatus": "true" }'
+          propagate_failure: true
+          trigger_workflow: true
+          wait_workflow: true

@@ -15,7 +15,7 @@ useCase:
 ---
 # Logging in Lock for iOS v2
 
-Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings.
+<dfn data-key="lock">Lock</dfn> provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings.
 
 ## logLevel
 

@@ -1,0 +1,21 @@
+name: Push Notify
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhook Notify
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.NOTIFY_PAT_TOKEN }}
+          script: |
+              await github.rest.repos.createDispatchEvent({
+                owner: '${{ secrets.NOTIFY_ORG }}',
+                repo: '${{ secrets.NOTIFY_REPO }}',
+                event_type: 'docs_repo_webhook'
+              })

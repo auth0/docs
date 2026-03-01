@@ -9,6 +9,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance61
+sitemap: false
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 

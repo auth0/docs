@@ -5,4 +5,4 @@ added:
       - user-profile
       - picture
     description: |
-      A [new doc](https://auth0.com/docs/user-profile/user-picture) was added that explains more about the user picture field and how to use the user_metadata to change it.
+      A [new doc](/users/guides/change-user-pictures) was added that explains more about the user picture field and how to use the user_metadata to change it.

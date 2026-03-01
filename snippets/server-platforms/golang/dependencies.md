@@ -1,5 +1,6 @@
 ```bash
-go get github.com/gorilla/mux
-go get github.com/gorilla/sessions
-go get golang.org/x/oauth2
+go get github.com/coreos/go-oidc \
+  github.com/gorilla/mux \
+  github.com/gorilla/sessions \
+  golang.org/x/oauth2
 ```

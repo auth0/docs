@@ -119,7 +119,7 @@ Open the app's `AndroidManifest.xml` and add the `LoginActivity`:
 
                 <data
                     android:host="@string/auth0_domain"
-                    android:pathPrefix="/android/com.auth0.samples/callback"
+                    android:pathPrefix="/android/com.auth0.androidsample/callback"
                     android:scheme="demo" />
             </intent-filter>
 </activity>
@@ -164,7 +164,7 @@ The `LoginActivity` will handle user authorization and be the initial screen use
 - __scheme__: `demo`
 - __audience__: `https://api.exampleco.com/timesheets` (the Node.JS API)
 - __response_type__: `code`
-- __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a Refresh Token.
+- __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a <dfn data-key="refresh-token">Refresh Token</dfn>.
 
 ```java
 private void login() {

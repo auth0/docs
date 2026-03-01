@@ -134,7 +134,7 @@ export class AuthService {
 
 The service includes several methods for handling authentication.
 
-- __login__: calls `authorize` from auth0.js which initiates [Universal Login](/hosted-pages/login)
+- __login__: calls `authorize` from auth0.js which initiates [Universal Login](/universal-login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - __setSession__: sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - __logout__: removes the user's tokens from browser storage
@@ -142,7 +142,7 @@ The service includes several methods for handling authentication.
 
 ### Process the Authentication Result
 
-When a user authenticates via Universal Login and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsibile for processing the hash.
+When a user authenticates via Universal Login and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsible for processing the hash.
 
 Call `handleAuthentication` in your app's root component so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 
@@ -275,7 +275,7 @@ During the authorization process we already stored the actual scopes which a use
 
 If the `scope` returned in `authResult` is issued is empty, it means the user was granted all the scopes that were requested, and we can therefore use the requested scopes to determine the scopes granted to the user.
 
-Here is the code we wroter earlier for the `setSession` function that does that check:
+Here is the code we wrote earlier for the `setSession` function that does that check:
 
 ```js
 private setSession(authResult): void {
@@ -310,7 +310,7 @@ export class AuthService {
 }
 ```
 
-You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to deteremine whether that link should be displayed or not.
+You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to determine whether that link should be displayed or not.
 
 ```html
 <nav class="navbar navbar-default">
@@ -509,3 +509,5 @@ public unscheduleRenewal() {
 ```
 
 Finally you need to initiate the schedule renewal. This can be done by calling `scheduleRenewal` inside your `AppComponent` which will happen when the page is loaded. This will occur after every authentication flow, either when the user explicitly logs in, or when the silent authentication happens.
+
+<%= include('../../_includes/_refresh_token_rotation_recommended.md') %>

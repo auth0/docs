@@ -1,5 +1,7 @@
 title: Laravel API
-thirdParty: false
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/php.png
+logo: laravel
 alias:
   - laravel
 languages:
@@ -7,44 +9,28 @@ languages:
 framework:
   - Laravel
 author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
+  name: Evan Sims
+  email: evan.sims@auth0.com
   community: false
-image: /media/platforms/php.png
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-snippets:
-  dependencies: server-apis/php-laravel/dependencies
-  setup: server-apis/php-laravel/setup
-  use: server-apis/php-laravel/use
-  request: server-apis/php-laravel/request
 articles:
   - 01-authorization
-  - 02-using
-  - 03-troubleshooting
-show_steps: true
+hidden_articles:
+  - interactive
+default_article: 01-authorization
+seo_alias: laravel
 github:
   org: auth0-samples
-  repo: auth0-laravel-api-samples
+  repo: laravel
+  branch: 7.x
+sdk:
+  name: laravel-auth0
+  url: https://github.com/auth0/laravel-auth0
+  logo: laravel
 requirements:
-  - Composer 1.5 
-  - PHP 7.0
-  - Laravel 5.5
-  - laravel-auth0 5.0.2
-next_steps:
-  - path: 01-authorization
-    list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+  - Laravel 9 / 10
+  - PHP 8.0+
+  - Composer

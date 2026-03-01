@@ -1,0 +1,7 @@
+versioning:
+  baseUrl: libraries/lock
+  current: v11
+  versions:
+    - v11
+  defaultArticles:
+    v11: index

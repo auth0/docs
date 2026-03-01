@@ -1,9 +1,15 @@
 title: Go
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/golang.png
+logo: golang
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+author:
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
+  community: false
 snippets:
   dependencies: server-platforms/golang/dependencies
   setup: server-platforms/golang/setup
@@ -12,13 +18,15 @@ seo_alias: golang
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-golang-web-app
   branch: master
 requirements:
-	- Go 1.5.3 and up
+  - Go 1.21+
 next_steps:
   - path: 01-login
     list:
@@ -28,9 +36,9 @@ next_steps:
     - text: Enable multifactor authentication
       icon: 345
       href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
+    - text: Learn about attack protection
       icon: 345
-      href: "/anomaly-detection"
+      href: "/attack-protection"
     - text: Learn about rules
       icon: 345
       href: "/rules"

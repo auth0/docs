@@ -1,45 +1,53 @@
 title: PHP API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/php.png
+logo: php
+seo_alias: php
 alias:
   - php
 languages:
   - PHP
 author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
+  name: Evan Sims
+  email: evan.sims@auth0.com
   community: false
 thirdParty: false
-image: /media/platforms/php.png
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
 snippets:
-  dependencies: server-apis/php/dependencies
-  setup: server-apis/php/setup
-  use: server-apis/php/use
+  install: server-platforms/php/install
+default_article: 01-authorization
 articles:
   - 01-authorization
-  - 02-using
-  - 03-troubleshooting
+hidden_articles:
+  - 'interactive'
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-php-api-samples
+  branch: main
+sdk:
+  name: Auth0-PHP
+  url: https://github.com/auth0/auth0-php
+  logo: php
 requirements:
-  - PHP v5
-  - Composer 1.0
+  - PHP 7.4+ (8.0 recommended)
+  - Auth0-PHP 8.0
+  - Composer
 next_steps:
   - path: 01-authorization
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

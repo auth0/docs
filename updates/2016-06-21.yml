@@ -6,7 +6,7 @@ changed:
       - impersonation
       - openid
     description: |
-      Added note at [User Profile](/user-profile) document on how to get a JWT when impersonating a user, using the [impersonation endpoint](/api/authentication#!#post--users--user_id--impersonate). 
+      Added note at [User Profile](users/concepts/overview-user-profile) document on how to get a JWT when impersonating a user, using the [impersonation endpoint](/api/authentication#!#post--users--user_id--impersonate). 
   -
     title: "Updated Java URL"
     tags:

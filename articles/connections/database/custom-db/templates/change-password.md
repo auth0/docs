@@ -1,28 +1,45 @@
 ---
-description: Custom DB script templates for changing a user's password
+description: Custom database action script templates for changing a user's password.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Change Password
+# Change Password Script Templates
 
-Auth0 provides the following custom database change password script templates that you can use when implementing password changing functionality for your users.
+The **Change Password** script implements the function executed to change the password associated with the user identity in the your legacy identity store. We recommend naming this function `changePassword`. The script is only used in a legacy authentication scenario. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+This script executes whenever a user tries to change their password; the user will receive the password reset email, which includes the link they need to follow to change their password. This script is **optional** however, a call to `changePassword` is typically preceded by a call to `getUser`, so if you implement the change password script you will also need to implement the [get user script](/connections/database/custom-db/templates/get-user).
 
-## Notes
+::: panel Best practice
+While it’s not mandatory to implement the `changePassword` function, it is a recommended best practice. The `changePassword` function is required to for the password reset workflow recommended for [great customer experience](https://auth0.com/learn/password-reset/). 
+:::
 
-When working on your password change script, keep in mind that:
+The script is executed whenever [password reset](/universal-login/password-reset) workflow is performed and also during password change workflow via the Auth0 Dashboard or the Auth0 Management API. 
 
-* This script will be executed whenever the user wishes to change his password; the user will receive the password reset email, which include the link they need to follow to change their password
-* The parameters **email** and **newPassword** are used to confirm the new password
-* The change password script is **optional**
+The `changePassword` function implemented in the **Change Password** script should be defined as follows:
 
-## Sample Scripts
+```js
+function changePassword(email, newPassword, callback) {
+  // TODO: implement your script
+  return callback(null, result);
+}
+```
+
+| **Parameter** | **Description** |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `password` | The new password credential for the user. The password credential for the user is passed to the script in plain text so care must be taken regarding its use. |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
+
+<%= include('../_includes/_bp-error-object') %>
+
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
@@ -32,7 +49,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/change-password#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](/connections/database/custom-db/templates/change-password#mongodb)
 * [MySQL](/connections/database/custom-db/templates/change-password#mysql)
-* [Oracle](/connections/database/custom-db/templates/change-password#oracle)
 * [PostgreSQL](/connections/database/custom-db/templates/change-password#postgresql)
 * [SQL Server](/connections/database/custom-db/templates/change-password#sql-server)
 * [Windows Azure SQL Database](/connections/database/custom-db/templates/change-password#windows-azure-sql-database)
@@ -42,7 +58,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 ### JavaScript
 
 ```
-function changePassword (email, newPassword, callback) {
+function changePassword(email, newPassword, callback) {
   // This script should change the password stored for the current user in your
   // database. It is executed when the user clicks on the confirmation link
   // after a reset password request.
@@ -60,13 +76,13 @@ function changePassword (email, newPassword, callback) {
   //     callback(new Error("my error message"));
   //
   // If an error is returned, it will be passed to the query string of the page
-  // where the user is being redirected to after clicking the confirmation link.
+  // to which the user is being redirected after clicking the confirmation link.
   // For example, returning `callback(new Error("error"))` and redirecting to
   // https://example.com would redirect to the following URL:
   //     https://example.com?email=alice%40example.com&message=error&success=false
 
-  var msg = "Please implement the Change Password script for this database " +
-       "connection at https://manage.auth0.com/#/connections/database";
+  const msg = 'Please implement the Change Password script for this database ' +
+    'connection at https://manage.auth0.com/#/connections/database';
   return callback(new Error(msg));
 }
 ```
@@ -75,13 +91,19 @@ function changePassword (email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'the username',
     password:  'the password',
     server:    'the server',
     options: {
       database:  'the db name',
-      // encrypt: true for Windows Azure enable this
+      // encrypt: true   for Windows Azure enable this
     }
   });
 
@@ -134,16 +156,16 @@ function changePassword(email, newPassword, callback) {
       'SET Password=@NewPassword, PasswordSalt=@NewSalt, LastPasswordChangedDate=GETDATE() '+
       'WHERE Email=@Email';
 
-    var updateMembershipQuery = new sqlserver.Request(updateMembership, function (membershipErr, membershipCount) {
+    var updateMembershipQuery = new Request(updateMembership, function (membershipErr, membershipCount) {
       if (membershipErr) {
         return callback(membershipErr);
       }
       callback(null, membershipCount > 0);
     });
 
-    updateMembershipQuery.addParameter('NewPassword', sqlserver.Types.VarChar, hashedPassword);
-    updateMembershipQuery.addParameter('NewSalt',     sqlserver.Types.VarChar, salt.toString('base64'));
-    updateMembershipQuery.addParameter('Email',       sqlserver.Types.VarChar, email);
+    updateMembershipQuery.addParameter('NewPassword', TYPES.VarChar, hashedPassword);
+    updateMembershipQuery.addParameter('NewSalt',     TYPES.VarChar, salt.toString('base64'));
+    updateMembershipQuery.addParameter('Email',       TYPES.VarChar, email);
 
     connection.execSql(updateMembershipQuery);
   }
@@ -154,7 +176,13 @@ function changePassword(email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'the username',
     password:  'the password',
     server:    'the server',
@@ -167,7 +195,7 @@ function changePassword(email, newPassword, callback) {
   /**
    * hashPassword
    *
-   * This function hashes a password using HMAC SHA256 algorythm.
+   * This function hashes a password using HMAC SHA256 algorithm.
    *
    * @password    {[string]}    password to be hased
    * @salt        {[string]}    salt to be used in the hashing process
@@ -218,7 +246,7 @@ function changePassword(email, newPassword, callback) {
       'ON UserProfile.UserId = webpages_Membership.UserId ' +
       'WHERE UserName = @Email';
 
-    var findUserIdFromEmailQuery = new sqlserver.Request(findUserIdFromEmail, function (err, rowCount, rows) {
+    var findUserIdFromEmailQuery = new Request(findUserIdFromEmail, function (err, rowCount, rows) {
       if (err) {
         return callback(err);
       }
@@ -234,7 +262,7 @@ function changePassword(email, newPassword, callback) {
 
     });
 
-    findUserIdFromEmailQuery.addParameter('Email', sqlserver.Types.VarChar, email);
+    findUserIdFromEmailQuery.addParameter('Email', TYPES.VarChar, email);
 
     connection.execSql(findUserIdFromEmailQuery);
   }
@@ -256,7 +284,7 @@ function changePassword(email, newPassword, callback) {
         'SET Password=@NewPassword, PasswordChangedDate=GETDATE() '+
         'WHERE UserId=@UserId';
 
-      var updateMembershipQuery = new sqlserver.Request(updateMembership, function (err, rowCount) {
+      var updateMembershipQuery = new Request(updateMembership, function (err, rowCount) {
         if (err) {
           return callback(err);
         }
@@ -273,8 +301,8 @@ function changePassword(email, newPassword, callback) {
           return callback(err);
         }
 
-        updateMembershipQuery.addParameter('NewPassword',   sqlserver.Types.VarChar, hashedPassword);
-        updateMembershipQuery.addParameter('UserId',        sqlserver.Types.VarChar, userId);
+        updateMembershipQuery.addParameter('NewPassword',   TYPES.VarChar, hashedPassword);
+        updateMembershipQuery.addParameter('UserId',        TYPES.VarChar, userId);
 
         connection.execSql(updateMembershipQuery);
       });
@@ -287,18 +315,27 @@ function changePassword(email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
-    var users = db.collection('users');
+  const bcrypt = require('bcrypt');
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
+
+  client.connect(function (err) {
+    if (err) return callback(err);
+
+    const db = client.db('db-name');
+    const users = db.collection('users');
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) {
-        callback(err);
-      } else {
-        users.update({ email: email }, { $set: { password: hash } }, function (err, count) {
-          if (err) return callback(err);
-          callback(null, count > 0);
-        });
+        client.close();
+        return callback(err);
       }
+
+      users.update({ email: email }, { $set: { password: hash } }, function (err, count) {
+        client.close();
+        if (err) return callback(err);
+        callback(null, count > 0);
+      });
     });
   });
 }
@@ -306,75 +343,30 @@ function changePassword(email, newPassword, callback) {
 
 ### MySQL
 
-```sql
-function changePassword (email, newPassword, callback) {
-  var connection = mysql({
-    host     : 'localhost',
-    user     : 'me',
-    password : 'secret',
-    database : 'mydb'
+```
+function changePassword(email, newPassword, callback) {
+  const mysql = require('mysql');
+  const bcrypt = require('bcrypt');
+
+  const connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
   });
 
   connection.connect();
 
-  var query = "UPDATE users SET password = ? WHERE email = ? ";
+  const query = 'UPDATE users SET password = ? WHERE email = ?';
 
-  bcrypt.hash(newPassword, 10, function (err, hash) {
-    if (err) {
-      callback(err);
-    } else {
-      connection.query(query, hash, email, function (err, results) {
-        if (err) return callback(err);
-        callback(null, results.affectedRows > 0);
-      });
-    }
-  });
-}
-```
+  bcrypt.hash(newPassword, 10, function(err, hash) {
+    if (err) return callback(err);
 
-### Oracle
-
-```sql
-function changePassword(email, newPassword, callback) {
-
-  var oracledb = require('oracledb');
-  oracledb.outFormat = oracledb.OBJECT;
-
-  oracledb.getConnection({
-      user: configuration.dbUser,
-      password: configuration.dbUserPassword,
-      connectString: "CONNECTION_STRING" // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
-    },
-    function(err, connection) {
-      if (err) {
-        return callback(new Error(err));
-      }
-      bcrypt.hash(newPassword, 10, function(err, hash) {
-        if (err) { return callback(err); }
-        connection.execute(
-          "update users set PASSWORD = :hash " +
-          "where EMAIL = :email", [hash, email], { autoCommit: true },
-          function(err, result) {
-            if (err) {
-              doRelease(connection);
-              return callback(new Error(err));
-            }
-            doRelease(connection);
-            callback(null, result.rowsAffected > 0);
-          });
-      });
-
-      // Note: connections should always be released when not needed
-      function doRelease(connection) {
-        connection.close(
-          function(err) {
-            if (err) {
-              console.error(err.message);
-            }
-          });
-      }
+    connection.query(query, [ hash, email ], function(err, results) {
+      if (err) return callback(err);
+      callback(null, results.length > 0);
     });
-
+  });
 }
 ```
 
@@ -385,29 +377,23 @@ function changePassword (email, newPassword, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
-  var conString = "postgres://user:pass@localhost/mydb";
-  postgres(conString, function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
+  const bcrypt = require('bcrypt');
+  const postgres = require('pg');
+
+  const conString = 'postgres://user:pass@localhost/mydb';
+  postgres.connect(conString, function (err, client, done) {
+    if (err) return callback(err);
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) return callback(err);
-      client.query('UPDATE users SET password = $1 WHERE email = $2', [hash, email], function (err, result) {
+
+      const query = 'UPDATE users SET password = $1 WHERE email = $2';
+      client.query(query, [hash, email], function (err, result) {
         // NOTE: always call `done()` here to close
         // the connection to the database
         done();
 
-        if (err) {
-          return callback(err);
-        }
-
-        if (result.rowCount === 0) {
-          return callback();
-        }
-
-        callback(null, result.rowCount > 0);
+        return callback(err, result && result.rowCount > 0);
       });
     });
   });
@@ -419,9 +405,15 @@ function changePassword (email, newPassword, callback) {
 ```
 function changePassword (email, newPassword, callback) {
   //this example uses the "tedious" library
-  //more info here: http://pekim.github.io/tedious/index.html
+  //more info here: http://tediousjs.github.io/tedious/
+  const bcrypt = require('bcrypt');
+  const sqlserver = require('tedious@1.11.0');
 
-  var connection = sqlserver.connect({
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -430,7 +422,7 @@ function changePassword (email, newPassword, callback) {
     }
   });
 
-  var query = "UPDATE dbo.Users SET Password = @NewPassword WHERE Email = @Email";
+  const query = 'UPDATE dbo.Users SET Password = @NewPassword WHERE Email = @Email';
 
   connection.on('debug', function(text) {
     console.log(text);
@@ -443,19 +435,17 @@ function changePassword (email, newPassword, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new sqlserver.Request(query, function (err, rows) {
+    const request = new Request(query, function (err, rows) {
       if (err) return callback(err);
-      console.log('rows: ' + rows);
       callback(null, rows > 0);
     });
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) return callback(err);
-      request.addParameter('NewPassword', sqlserver.Types.VarChar, hash);
-      request.addParameter('Email', sqlserver.Types.VarChar, email);
+      request.addParameter('NewPassword', TYPES.VarChar, hash);
+      request.addParameter('Email', TYPES.VarChar, email);
       connection.execSql(request);
     });
-
   });
 }
 ```
@@ -470,6 +460,7 @@ function changePassword (email, newPassword, callback) {
   var Connection = require('tedious@1.11.0').Connection;
   var Request = require('tedious@1.11.0').Request;
   var TYPES = require('tedious@1.11.0').TYPES;
+  var bcrypt = require('bcrypt');
 
   var connection = new Connection({
     userName:  'your-user@your-server-id.database.windows.net',
@@ -518,6 +509,8 @@ function changePassword (email, newPassword, callback) {
 ```
 function changePassword (email, newPassword, callback) {
 
+  var request = require('request');
+
   request.put({
     url:  'https://myserviceurl.com/users',
     json: { email: email, password: newPassword }
@@ -532,3 +525,12 @@ function changePassword (email, newPassword, callback) {
 
 }
 ```
+
+## Keep reading
+
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

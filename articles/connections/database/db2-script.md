@@ -17,6 +17,7 @@ If you are integrating Auth0 with [IBM DB2](https://www.ibm.com/analytics/us/en/
 ```js
 function login (email, password, callback) {
   var ibmdb = require("ibm_db");
+  var bcrypt = require('bcrypt');
 
   var credentials = "";
   credentials += "DRIVER={DB2};";

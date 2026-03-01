@@ -17,11 +17,11 @@ When Auth0 features are deprecated, there may be errors or notices in the tenant
 
 ## How to search logs for deprecation warnings
 
-There are two different ways to search for warning messages showing usage of deprecated features: The Dashboard or the Management API. Note that in either case, the [log retention period](/logs#how-long-is-log-file-data-available-) is governed by the subscription level of your account.
+There are two different ways to search for warning messages showing usage of deprecated features: The Dashboard or the Management API. Note that in either case, the [log retention period](/logs/references/log-data-retention) is governed by the subscription level of your account.
 
 ### Search logs via the Dashboard
 
-If your application uses a deprecated feature, a Deprecation Notice message will show up in the Logs section of the [Dashboard](/${manage_url}).
+If your application uses a deprecated feature, a Deprecation Notice message will show up in the Logs section of the [Dashboard](${manage_url}/#/).
 
 ::: note
 In order to not overwhelm the logs with repetitive messages, deprecation notes will only be shown once per hour (the first time it occurs within that hour) rather than for each authentication transaction involving the deprecated feature.
@@ -74,10 +74,10 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 
 | Cause | Resolution |
 | --- | --- |
-| You are using a legacy version of embedded Lock or Auth0.js SDK. | [Migrate away from the deprecated library versions](/migrations/guides/legacy-lock-api-deprecation) as soon as possible. |
+| You are using a legacy version of embedded Lock or Auth0.js SDK. | Migrate away from the deprecated library versions as soon as possible. |
 | Calling the /usernamepassword/login endpoint directly. | Use the Lock or Auth0.js libraries instead. |
 | Automatic monitoring tools making requests to login page | If you have an automatic monitoring tool making requests to the login page, the tool will likely not preserve state correctly and will cause the Legacy Lock API error to occur in your logs. Use of the tool should either be discontinued, or accounted for when considering causes of the log notices. |
-| Coding errors in a customized [Universal Login Page](/hosted-pages/login) | Make sure the `state` and `_csrf` fields are passed to Lock or Auth0.js in your customized login page. They are by default included in the `config.internalOptions` object, but if this is removed during customization, the error occurs. |
+| Coding errors in a customized [Universal Login Page](/universal-login) | Make sure the `state` and `_csrf` fields are passed to Lock or Auth0.js in your customized login page. They are by default included in the `config.internalOptions` object, but if this is removed during customization, the error occurs. |
 
 ### ssodata
 

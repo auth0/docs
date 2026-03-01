@@ -12,7 +12,7 @@ useCase:
 
 The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) allows an application to request an Access Token using its __Client Id__ and __Client Secret__. It is used for non interactive applications (a CLI, a daemon, or a Service running on your backend) where the token is issued to the application itself, instead of an end user.
 
-In order to be able to perform the Client Credentials Grant, the Application needs to have the [Client Credentials grant type](/applications/application-grant-types) enabled. Machine to Machine Applications and Regular Web Applications have it enabled by default. 
+In order to be able to perform the Client Credentials Grant, the Application needs to have the [Client Credentials grant type](/applications/concepts/application-grant-types) enabled. Machine to Machine Applications and Regular Web Applications have it enabled by default. 
 
 ## Client Credentials Grant Flow
 
@@ -37,7 +37,6 @@ For details on how to implement this using Auth0, refer to [Execute a Client Cre
 ::: next-steps
 - [How to implement a Client Credentials flow](/api-auth/tutorials/client-credentials)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 - [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- [Tokens used by Auth0](/tokens)
 :::

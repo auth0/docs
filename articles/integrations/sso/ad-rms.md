@@ -1,6 +1,6 @@
 ---
-title: Active Directory RMS Single Sign On Integration
-description: How to set up a Single Sign On (SSO) integration with Active Directory RMS and Auth0.
+title: Active Directory RMS Single Sign-On Integration
+description: Learn how to set up a Single Sign-on (SSO) integration with Active Directory RMS and Auth0.
 toc: true
 public: true
 topics:
@@ -11,8 +11,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Active Directory RMS",
-  img: "ad-rms"
-}) %>
+<%= include('../../../snippets/sso-integrations/ad-rms/0') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/1') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/2') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/3') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/4') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/5') %> 
+<%= include('../../../snippets/sso-integrations/ad-rms/6') %>
+<%= include('../../../snippets/sso-integrations/ad-rms/7') %>
