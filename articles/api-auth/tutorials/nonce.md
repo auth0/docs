@@ -74,6 +74,6 @@ var jwt = '...'; // validated and decoded ID Token body
 if (jwt.nonce === window.localStorage.getItem('nonce')) {
     // Nonce is OK
 } else {
-    // Nonce is not OK! Token replay attack might be underway
+    
 }
 ```
