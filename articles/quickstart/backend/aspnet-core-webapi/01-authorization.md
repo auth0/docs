@@ -8,7 +8,7 @@ topics:
     - aspnetcore
     - web-api
 github:
-    path: Quickstart/01-Authorization
+    path: Quickstart/001-Authorization
 contentType: tutorial
 useCase: quickstart
 ---
