@@ -9,7 +9,7 @@ jobs:
       image: returntocorp/semgrep
     if: (github.actor != 'dependabot[bot]' && github.actor != 'snyk-bot')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
       - run: semgrep ci
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}

@@ -14,8 +14,8 @@ jobs:
         id: date
         run: echo "current_date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8 # v2.5.2
         with:
           node-version: '14.17'
           cache: 'yarn'
@@ -23,7 +23,7 @@ jobs:
       - run: yarn run clean-redirects
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@01f7dd1d28f5131231ba3ede0f1c8cb413584a1d # v3.9.2
         with:
           commit-message: Redirects config cleanup ${{ env.current_date }}
           committer: GitHub <noreply@github.com>
